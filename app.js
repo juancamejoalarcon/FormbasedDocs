@@ -24,7 +24,7 @@ app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(require('method-override')());
-app.use(express.static(__dirname + '/public/formbaseddocs'));
+app.use(express.static(__dirname + '/public'));
 
 app.use(session({
   secret: 'secret',
