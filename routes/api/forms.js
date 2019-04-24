@@ -292,7 +292,6 @@ router.post('/:form/comments/:comment/like', auth.required, function(req, res, n
 
     return user.likeComment(commentId).then(function(){
       return req.comment.updateLikesCount().then(function(comment){
-        // console.log('Comentario', user);
         return res.json({comment: comment.toJSONForLike(user)});
       });
     });

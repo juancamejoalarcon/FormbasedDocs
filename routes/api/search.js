@@ -57,8 +57,6 @@ router.get('/', auth.optional, function(req, res, next) {
   } else {
     this.orderBy = {createdAt: 'desc'};
   }
-  console.log('AQUII');
-  console.log(query);
 
 
   Promise.all([
