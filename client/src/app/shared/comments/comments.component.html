@@ -1,0 +1,22 @@
+<div style="width: 100%;">
+    <div class="comments__new-comment" *appShowAuthed="true">
+        <textarea cols="70" rows="5" #commentTextArea></textarea>
+        <input type="submit" value="Comment" (click)="addComment(commentTextArea.value)" [disabled]="isSubmitting">
+    </div>
+    <div class="comments__new-comment" *appShowAuthed="false">
+        <textarea cols="70" rows="5" disabled style="background-color:#ECF9F8;"></textarea>
+        <input type="submit" value="Comment" (click)="redirectToLogin()">
+    </div>
+    <div class="comments__orderby-comments">
+        <div class="comments__orderby-comments__container">
+            <label for="orderby">Order by: </label>
+            <select id="orderby" autofocus="true" (change)="setOrder($event.target.value)">
+                <option value="Date">Date</option>
+                <option value="Likes">Likes</option>
+            </select>
+        </div>
+    </div>
+    <app-comment 
+                *ngFor="let comment of comments" [comment]="comment"
+                [slug]="form.slug" (deleteComment)="onDeleteComment(comment)"></app-comment>
+</div>

@@ -1,0 +1,74 @@
+<div #delete>
+    <div class="field-area-radio-input radio form-check-inline radio-create-form" [ngClass]="{'radio-fill-form': isNewUser() || isEditUser() }">
+
+        <input type="radio" [id]="randomId" name="{{randomName}}" value="{{radio}}" *ngIf="isNewAuthor()">
+        <label for="{{ randomId }}" *ngIf="isNewAuthor()"></label>
+
+        <input type="radio" [id]="randomId" name="{{randomName}}" [attr.data-contentToExport]="field['value']" checked value="{{field['radio']}}" *ngIf="isEditAuthor()">
+        <label for="{{ randomId }}" *ngIf="isEditAuthor()"></label>
+
+        <input class="{{field.referenceNumber}}" type="radio" id="{{ randomId }}" name="{{randomName}}" value="{{field['radio']}}"
+        [attr.data-contentToExport]="field['value']" *ngIf="isNewUser()">
+        <label for="{{ randomId }}" *ngIf="isNewUser()"></label>
+
+        <input class="{{field.referenceNumber}}" type="radio" [id]="randomId" name="{{randomName}}" value="{{field.value}}" 
+        [attr.data-contentToExport]="field['data-contentToExport']" [checked]="field.checked === true" *ngIf="isEditUser()">
+        <label for="{{ randomId }}" *ngIf="isEditUser()"></label>
+
+
+        <input [(ngModel)]="radio" type="text" class="d-block" name="{{randomName}}" *ngIf="isNewAuthor()">
+        <label class="d-none label-fill-form" *ngIf="isNewAuthor()">
+            {{radio}}
+        </label>
+        <input [(ngModel)]="field.radio" type="text" class="d-block"  name="{{randomName}}" *ngIf="isEditAuthor()">
+        <label class="d-none label-fill-form" *ngIf="isEditAuthor()">{{field.radio}}</label>
+        <label class="d-block label-fill-form" *ngIf="isNewUser() || isEditUser()">{{field.radio}}</label>
+
+        
+        <div class="modal-button d-block modal-button-radio" (click)="toggleModal()" *ngIf="isNewAuthor() || isEditAuthor()">
+            <span class="icon icon-multiple-modal"></span>
+        </div>
+        <div class="remove-radio d-block" (click)="deleteElementDiv()" *ngIf="isEditAuthor()">
+            <span class="icon icon-times-solid"></span>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" #modal>
+        <div class="modal-content">
+            <div class="modal-top modal-top-input-text">
+                <h5>Este texto se sustituirá por el identificador</h5>
+            </div>
+            <div class="modal-middle">
+                <textarea class="{{randomName}}" cols="30" rows="10" *ngIf="isNewAuthor()"></textarea>
+                <textarea class="{{randomName}}" cols="30" rows="10"
+                            value="{{field.value}}" *ngIf="isEditAuthor()"></textarea>
+            </div>
+            <div class="modal-bottom">
+                <button class="button" (click)="toggleModal()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-conditional" id="{{randomNumberForModal}}" #modalConditional>
+        <div class="modal-conditional-content">
+            <div class="modal-conditional-top">
+                <h3>Opción</h3>
+                <div class="preview-conditional">
+                    <span class="preview-conditional-button">Preview</span>
+                    <label class="switch">
+                        <input type="checkbox" (change)="modalContent.preview()">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-conditional-middle">
+              <app-modal-content class="form-creator" [idOfRadioParent]="randomId" *ngIf="isNewAuthor()" #modalContent></app-modal-content>
+              <app-modal-content class="form-creator" [idOfRadioParent]="randomId" [field]="field" [state]="state" *ngIf="isEditAuthor()" #modalContent></app-modal-content>
+            </div>
+            <div class="modal-conditional-bottom">
+                <button class="button" (click)="toggleModal(); modalContent.generateText();">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

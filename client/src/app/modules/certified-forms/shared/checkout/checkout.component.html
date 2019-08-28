@@ -1,0 +1,60 @@
+<div class="checkout-panel">
+    <div class="checkout-panel__body">    
+        <div class="checkout-panel__body__progress-bar">
+            <div class="checkout-panel__body__progress-bar__step checkout-panel__body__progress-bar__step__active"></div>
+            <div class="checkout-panel__body__progress-bar__step"></div>
+            <div class="checkout-panel__body__progress-bar__step"></div>
+            <div class="checkout-panel__body__progress-bar__step"></div>
+        </div>
+        
+        <div class="checkout-panel__body__invoice" *ngIf="this.steps[this.currentStep].type === 'cart'">
+            <div class="checkout-panel__body__invoice__container">
+                <div class="checkout-panel__body__invoice__document">
+                    <img src="/assets/images/checkout-document.png" alt="checkout-image">
+                </div>
+
+                <div class="checkout-panel__body__invoice__text">
+                    <h2 class="checkout-panel__body__invoice__text__title">Contrato de alquiler de vivienda</h2>
+                    <div class="checkout-panel__body__invoice__text__description">
+                        <ul>
+                            <li>Descarga inmediata en formatos Word y PDF</li>
+                            <li>3.060 personas ya han comprado este documento</li>
+                        </ul>
+                    </div>
+                    <div class="checkout-panel__body__invoice__text__total">
+                        <span class="checkout-panel__body__invoice__text__total__right">Total:</span>
+                        <span class="checkout-panel__body__invoice__text__total__left">19.90 eur</span>
+                    </div>
+                    <div class="checkout-panel__body__invoice__text__more-info">
+                        <img src="/assets/images/ssl-secure-en.png" alt="secure payment">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="checkout-panel__body__email" *ngIf="this.steps[this.currentStep].type === 'login'">
+            <div class="checkout-panel__body__email__container">
+                <h1 class="checkout-panel__body__email__container__title">Dirección de correo para recibir el documento</h1>
+                <label for="email"></label>
+                <input type="email" name="email" id="name" placeholder="E-MAIL">
+                <label class="checkout-panel__body__email__container__message">
+                    ¿Tienes cuenta? <a href="">Logeate</a>
+                </label>
+                <div class="checkout-panel__body__email__container__conditions">
+                    <label for="conditions">
+                        <input type="checkbox" class="filled-in" name="conditions" id="conditions" value="Remember me" />
+                        <span>Acepto las condiciones generales de venta (leer las CGV)</span>
+                    </label>
+                </div>
+                <input type="submit" value="Hacer pedido">
+            </div>
+        </div>
+    </div>         
+    <div class="checkout-panel__footer">
+        <button class="btn back-btn" (click)="moveStep('previous')" 
+        [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'cart' ? 0 : 1 }"
+        [disabled]="this.steps[this.currentStep].type === 'cart'">Back</button>
+        <button class="btn next-btn" (click)="moveStep('next')"
+        [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'finish' ? 0 : 1 }"
+        [disabled]="this.steps[this.currentStep].type === 'finish'">Next Step</button>
+    </div>
+</div>

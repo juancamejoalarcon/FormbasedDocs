@@ -1,0 +1,104 @@
+<div class="profile">
+    <div class="profile__container">
+        <div class="profile__image">
+            <img src="{{
+                user.image === null ? 'assets/images/avatar.jpeg' : user.image
+            }}" alt="avatar">
+        </div>
+        <div class="profile__info">
+            <span class="profile__info__name">{{ user.username }}</span>
+            <span class="profile__info__description" *ngIf="user.description">
+                {{ user.description}}
+            </span>
+            <span class="description" *ngIf="!user.description">
+                User has not added any description yet.
+            </span>
+            <span class="profile__info__contact" *ngIf="user.contactInformation">
+                {{ user.contactInformation }}
+            </span>
+            <span class="profile__info__company-name" *ngIf="user.companyName">
+                {{ user.companyName }}
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="search__container">
+    <div class="search__button">
+        <input type="text" (keyup.enter)="search(input.value)" #input>
+    </div>
+    <div class="search__orderby">
+        <div class="search__orderby__container">
+            <label for="orderby">Order by: </label>
+            <select id="orderby" autofocus="true" (change)="setOrder($event.target.value)">
+                <option value="Date">Date</option>
+                <option value="Like">Likes</option>
+            </select>
+        </div>
+    </div>
+    <div class="search__results">
+        <div class="search__results__container">
+
+            <div class="search__results__result" *ngFor="let form of results">
+                <div class="search__results__result__document" [routerLink]="['/fill-form', form.slug]">
+                    <div class="search__results__result__document__container">
+                        <div class="search__results__result__document__container__date">
+                            <span>{{form.updatedAt | date: 'dd/MM/yyyy'}}</span>
+                        </div>
+                        <div class="search__results__result__document__container__title">
+                            <span>{{ form.title }}</span>
+                        </div>
+                        <div class="search__results__result__document__container__description">
+                            <span>{{ form.description.substring(0, 136) }}</span>
+                        </div>
+                        <div class="search__results__result__document__container__likes-views">
+                            <div class="search__results__result__document__container__likes-views__likes">
+                                <span class="icon icon-like-button"></span>
+                                <span>{{ form.likesCount }}</span>
+                            </div>
+                            <div class="search__results__result__document__container__likes-views__views">
+                                <span class="icon icon-eye-solid"></span>
+                                <span>{{ form.viewsCount }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="search__results__result__more-info">
+                    <div class="search__results__result__more-info__author">
+                        <img src="{{
+                            form.author.image === null ? 'assets/images/avatar.jpeg' : form.author.image
+                        }}" alt="avatar">
+                        <span [routerLink]="['/profile', form.author.username]">{{ form.author.username }}</span>
+                    </div>
+                    <div class="search__results__result__more-info__tags">
+                        <span>tag, tag, tag, tag, tag, tag, tag, tag, 
+                            tag, tag, tag, tag, tag, tag, tag, tag</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+    
+    <!--Div is shown when there no author forms-->
+    <!-- <div [hidden]="loading || results.length">No Forms are here... yet.</div> -->
+    
+    <div class="loader" [style.display]="loadingQuery ? 'flex' : 'none'">
+        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        width="80px" height="80px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+        <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+        <animateTransform attributeType="xml"
+            attributeName="transform"
+            type="rotate"
+            from="0 25 25"
+            to="360 25 25"
+            dur="0.6s"
+            repeatCount="indefinite"/>
+        </path>
+        </svg>
+    </div>
+    
+    <div class="noMoreForms" *ngIf="noMoreForms === true">
+        <h2>- No more forms to load -</h2>
+    </div>

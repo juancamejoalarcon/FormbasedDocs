@@ -1,0 +1,57 @@
+
+<div class="form-creator-container" #formBasedDocDiv>
+  <div class="fields-area fields-area-conditional">
+    <div class="fields-container fields-container-conditional" #formAreaDiv [id]="'modalFormAreaDiv' + idOfRadioParent" (keyup)="generateText()" (click)="generateText()">
+      <div *ngIf="state === 'editAuthor'">
+        <div *ngFor="let field of fields">
+            <app-input-text *ngIf="field['type'] == 'iText'" [state]="state" [field]="field"></app-input-text>
+            <!-- <app-input-date *ngIf="field['type'] == 'iDate'" [state]="state" [field]="field"></app-input-date> -->
+            <app-input-radio-a *ngIf="field['type'] == 'iRadioA'" [state]="state" [field]="field"></app-input-radio-a>
+            <app-input-radio-b *ngIf="field['type'] == 'iRadioB'" [state]="state" [field]="field"></app-input-radio-b>
+            <app-input-radio-c *ngIf="field['type'] == 'iRadioC'" [state]="state" [field]="field"></app-input-radio-c>
+        </div>
+      </div>
+    </div>
+
+    <div class="add-question-button add-question-button d-block">
+        <div class="tooltip" (click)="toogleQuestionMenu($event)">
+            <span class="icon icon-plus-solid" id="add-question-button2"></span>
+            <span class="add-question-menu" #addQuestionMenuDiv>
+              <span class="icon icon-times-solid close-question-menu {{randomId}}"></span>
+              <div class="group">
+                <span>Text</span>
+                <div class="buttons-group">
+                  <button (click)="injectComponent(inputs[0])">Text</button>
+                </div>
+              </div>
+              <div class="group">
+                <span>Radio</span>
+                <div class="buttons-group">
+                  <button (click)="injectComponent(inputs[1])">Radio a</button>
+                  <button (click)="injectComponent(inputs[2])">Radio b</button>
+                  <button (click)="injectComponent(inputs[3])">Radio c</button>
+                </div>
+              </div>
+              <div class="group">
+                <span>Others</span>
+                <div class="buttons-group">
+                  <button>Date</button>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-area text-area-conditional">
+        <!-- Create the editor container -->
+        <div class="editor-container-conditional d-block" #editorContainer>
+            <quill-editor (onContentChanged)="contentToExport.text = $event.html"
+                          [ngModel]="contentToExport.text" [ngModelOptions]="{standalone: true}" 
+                        [customOptions]="customOptions" [modules]="quillModules"
+                          #quill></quill-editor>
+        </div>
+        <div class="d-none textToGeneratePreview" #textPreviewDiv>{{textPreview}}</div>
+      </div>
+    </div>
+

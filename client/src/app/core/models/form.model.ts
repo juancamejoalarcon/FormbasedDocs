@@ -1,0 +1,27 @@
+import { Profile } from './profile.model';
+
+export class Form {
+  slug: string;
+  originalSlug: string;
+  title: string = '';
+  description: string = '';
+  text: string = '';
+  fields: Array<Object> = [];
+  tags: Array<string> = [];
+  createdAt: string;
+  updatedAt: string;
+  liked: boolean;
+  likesCount: number;
+  viewsCount: number;
+  author: Profile;
+  filledBy: Profile;
+  comments: Array<Object> = [];
+  enabled: boolean;
+  public: boolean;
+  commentsEnabled: boolean;
+  type: string;
+  ofPayment: boolean;
+  indications: string;
+  currentStep: number;
+  documentType: string;
+}

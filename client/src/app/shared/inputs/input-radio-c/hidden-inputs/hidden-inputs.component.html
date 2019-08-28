@@ -1,0 +1,166 @@
+<div class="smooth-intro" [id]="'inputsHidden' + randomId" >
+    <div class="d-none smooth-intro" #divForMutationObserver (click)="generateRadioValue()" (keyup)="generateRadioValue()">
+        <div *ngFor="let field of contentToExport['fields']">
+
+            <!-- Texto -->
+            <div class="field field-fill-form" [ngClass]="{'field-input-hidden': isALoop()}" *ngIf="field.type ===  'iText'">
+                <div class="field-content field-content-fill-form">
+                    <div class="field-area">
+
+                        <div class="field-area-top field-area-top-fill-form d-flex"
+                            (click)="toggleModal(field.question, field.indications)"
+                            *ngIf="field.indications !== '' && field.indications !== undefined">
+                            <div class="indication">
+                                <span class="icon icon-info-circle-solid"></span>
+                            </div>
+                        </div>
+                        <div class="field-area-middle">
+                            <span class="question">{{field.question}}</span>
+                            <input class="inputsOfHiddenDiv" id="{{field.type + field.referenceNumber}}" 
+                                    value="{{field.value}}" type="text" placeholder="Question">
+
+                        </div>
+
+                        <div class="field-area-bottom d-flex" *ngIf="field.mandatory">
+                            <span class="mandatory">
+                                Obligatorio *
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Radio A -->
+            <div class="field field-fill-form" [ngClass]="{'field-input-hidden': isALoop()}" *ngIf="field.type ===  'iRadioA'">
+                <div class="field-content field-content-fill-form">
+                    <div class="field-area">
+
+                        <div class="field-area-top field-area-top-fill-form d-flex"
+                            (click)="toggleModal(field.question, field.indications)"
+                            *ngIf="field.indications !== '' && field.indications !== undefined">
+                            <div class="indication">
+                                <span class="icon icon-info-circle-solid"></span>
+                            </div>
+                        </div>
+
+                        <div class="field-area-middle">
+                            <span class="question">{{field.question}}</span>
+                            <div class="inputsOfHiddenDiv" id="{{field.type + field.referenceNumber}}">
+                                <div class="field-area-radio-input radio-conditional radio-fill-form type-radio-b" *ngFor="let radio of field.radios">
+                                    <label>
+                                        <!-- Revisar el id y el label for el id puede dar error -->
+                                        <input class="{{field.referenceNumber}}" type="radio" id="{{ field.referenceNumber }}" 
+                                        name="{{field['referenceNumber']}}" value="{{radio}}" [checked]="radio === field['checkedValue']">
+                                        <span class="check"></span>
+                                    </label>
+    
+                                    <label class="label-fill-form">
+                                        {{radio}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-area-bottom d-flex" *ngIf="field.mandatory">
+                            <span class="mandatory">
+                                Obligatorio *
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Radio B -->
+            <div class="field field-fill-form" [ngClass]="{'field-input-hidden': isALoop()}" *ngIf="field.type ===  'iRadioB'">
+                <div class="field-content field-content-fill-form">
+                    <div class="field-area">
+                        <div class="field-area-top field-area-top-fill-form d-flex"
+                            (click)="toggleModal(field.question, field.indications)"
+                            *ngIf="field.indications !== '' && field.indications !== undefined">
+                            <div class="indication">
+                                <span class="icon icon-info-circle-solid"></span>
+                            </div>
+                        </div>
+                        <div class="field-area-middle">
+                            <span class="question">{{field.question}}</span>
+                            <div class="inputsOfHiddenDiv" id="{{field.type + field.referenceNumber}}">
+                                <div class="field-area-radio-input radio-conditional radio-fill-form type-radio-b" *ngFor="let radio of field.radios">
+                                    <label>
+                                        <!-- Revisar el id y el label for el id puede dar error -->
+                                        <input class="{{field.referenceNumber}}" type="radio" id="{{ field.referenceNumber }}" name="{{radio['referenceNumber']}}"
+                                        checked value="{{radio['value']}}" [checked]="radio['value'] === field['checkedValue']">
+                                        <span class="check"></span>
+                                    </label>
+        
+                                    <label class="label-fill-form">
+                                        {{radio['radio']}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-area-bottom d-flex" *ngIf="field.mandatory">
+                            <span class="mandatory">
+                                Obligatorio *
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>                 
+            <!-- Radio C -->
+            <div class="field field-fill-form" [ngClass]="{'field-input-hidden': isALoop()}" *ngIf="field.type ===  'iRadioC'" #radios>
+                <div class="field-content field-content-fill-form">
+                    <div class="field-area">
+                        <div class="field-area-top field-area-top-fill-form d-flex"
+                            (click)="toggleModal(field.question, field.indications)"
+                            *ngIf="field.indications !== '' && field.indications !== undefined">
+                            <div class="indication">
+                                <span class="icon icon-info-circle-solid"></span>
+                            </div>
+                        </div>
+                        <div class="field-area-middle">
+                            <span class="question">{{field.question}}</span>
+                            <div class="field-area-radio-input radio-conditional radio-fill-form type-radio-b" *ngFor="let radio of field.radios">
+                                <label>
+                                    <!-- Revisar el id y el label for el id puede dar error -->
+                                    <input class="radiosOfInputHidden inputsOfHiddenDiv" type="radio" [id]="'loopRadio' + radio['randomId']" 
+                                    name="{{radio['referenceNumber']}}" 
+                                    [attr.data-contentToExport]="radio['value']" (click)="showHiddenInput()" [checked]="radio['checkedValue']">
+                                    <span class="check"></span>
+                                </label>
+
+                                <label class="label-fill-form">
+                                    {{radio['radio']}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="field-area-bottom d-flex" *ngIf="field.mandatory">
+                            <span class="mandatory">
+                                Obligatorio *
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <span *ngFor="let radio of field.radios">
+                    <app-hidden-inputs [isInsideALoop]="true" [state]="state" [optionalValues]="radio['randomId']" [hidden]=false></app-hidden-inputs>
+                </span>
+            </div>  
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" #modal>
+    <div class="modal-content">
+        <div class="modal-top modal-top-input-text">
+            <h5>Indicaciones para pregunta</h5>
+            <span>{{currentQuestion}}</span>
+        </div>
+        <div class="modal-middle modal-middle-input-text">
+            <p [ngClass]="{'d-none': isNewAuthor() || isEditAuthor() }">{{currentIndications}}</p>
+        </div>
+        <div class="modal-bottom modal-bottom-input-text">
+            <button class="button" (click)="toggleModal(currentQuestion, currentIndications)"
+            [ngClass]="{'d-none': isNewAuthor() || isEditAuthor() }">Entendido</button>
+        </div>
+    </div>
+</div>
+    

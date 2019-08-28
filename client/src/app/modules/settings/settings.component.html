@@ -1,0 +1,75 @@
+<section id="settings">
+    <div class="settings-container">
+        
+        <app-list-errors [errors]="errors"></app-list-errors>
+        
+        <form [formGroup]="settingsForm" class="form settings-form" (ngSubmit)="submitForm()">
+            
+            <fieldset [disabled]="isSubmitting">
+                
+                <fieldset class="img-settings-container">
+                    <img src="{{user.image}}" alt="avatar">
+                    <input type="file" (change)="onFileChange($event)" />
+                </fieldset>
+                
+                <fieldset class="form-group-settings">
+                    <label for="name"></label>
+                    <input type="text" name="name" id="name" 
+                        placeholder="Username" formControlName="username">
+                </fieldset>
+                
+                <fieldset class="form-group-settings">
+                    <label for="email"></label>
+                    <input type="email" name="email" id="email" 
+                    placeholder="Email" formControlName="email">
+                </fieldset>
+                
+                <fieldset class="form-group-settings">
+                    <label for="description"></label>
+                    <textarea cols="70" rows="5" id="description" 
+                    placeholder="Description" formControlName="description"></textarea>
+                </fieldset>
+                
+                <fieldset class="form-group-settings">
+                    <label for="contact"></label>
+                    <input type="text" name="contact" id="contact" 
+                    placeholder="Contact information" formControlName="contactInformation">
+                </fieldset>
+                
+                <div class="submit-area">
+                    <input type="submit" value="Update">
+                </div>
+            </fieldset>
+      </form>
+
+      <div class="settings-bottom-area">
+          <button (click)="toggleModal()">Cambiar contraseña</button>
+          <button (click)="logout()">Cerrar sesión</button>
+      </div>
+
+
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" #modal>
+    <div class="modal-content">
+        <div class="modal-top modal-top-change-pass">
+            <h5>Cambiar contraseña</h5>
+        </div>
+        <div class="modal-middle modal-middle-change-pass">
+            <input type="password" placeholder="Contraseña actual" #oldPass>
+            <input type="password" placeholder="Contraseña nueva" #newPass>
+        </div>
+        <div class="modal-bottom">
+            <button class="button" 
+                (click)="changePassword(this.oldPass.value, newPass.value)"
+                >Guardar</button>
+
+            <button class="button cancel" 
+                (click)="toggleModal()"
+                >Cancelar</button>
+
+        </div>
+    </div>
+</div>

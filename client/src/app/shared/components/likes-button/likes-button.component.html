@@ -1,0 +1,13 @@
+<div class="sub-menu__likes-views__likes" *appShowAuthed="false">
+    <span class="icon icon-thumbs-up"></span>
+    <span>&emsp; {{ form.likesCount }}</span>
+</div>
+<div class="sub-menu__likes-views__likes" *appShowAuthed="true">
+    <span class="icon icon-thumbs-up like-form-button" (click)="disLikeForm()" *ngIf="form.liked"></span>
+    <span class="icon icon-thumbs-up-regular like-form-button" (click)="likeForm()" *ngIf="!form.liked"></span>
+    <span>&emsp; {{ form.likesCount }}</span>
+</div>
+<div class="sub-menu__likes-views__views">
+    <span class="icon icon-eye-solid"></span>
+    <span> &emsp; {{ form.viewsCount }}</span>
+</div>

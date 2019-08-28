@@ -1,0 +1,27 @@
+<div class="comments__comment__top">
+    <div class="comments__comment__top__author">
+        <img src="assets/images/avatar.jpg" alt="avatar">
+        <h4>{{comment.author.username}}</h4>
+    </div>
+    <span class="comments__comment__top__date">{{comment.updatedAt | date: 'dd/MM/yyyy'}}</span>
+</div>
+<div class="comments__comment__middle" [ngClass]="{'comment-d-none': isEditing}">
+    <p #commentBodyLong>
+        {{ comment.body }}
+    </p>
+    <p #commentBodyShort>
+        {{ comment.body.substring(0, maxLenght) }}
+    </p>
+    <span *ngIf="showMore === false && comment.body.length > maxLenght" (click)="commentBody(true)">Leer más</span>
+    <span *ngIf="showMore === true" (click)="commentBody(false)">Leer menos</span>
+</div>
+<div class="comments__comment__middle comment-middle-edit" [ngClass]="{'comment-d-none': !isEditing}" *ngIf="canModify">
+    <textarea cols="50" rows="5" [value]="comment.body" #editTextArea></textarea>
+    <input type="submit" value="Update" (click)="updateComment(editTextArea.value)">
+    <br>
+    <button class="button" (click)="isEditing = false">Cancel</button>
+</div>
+<div class="comment-bottom comment-bottom-edit" [ngClass]="{'comment-d-none': isEditing}" *ngIf="canModify">
+    <button class="comments__comment__bottom__button edit" (click)="isEditing = true">Editar</button>
+    <button class="comments__comment__bottom__button edit" (click)="deleteClicked()">Eliminar</button>
+</div>

@@ -1,0 +1,26 @@
+<div class="sub-menu" #subMenu>
+    <div class="sub-menu__container sub-menu__container--fill-form">
+        <div class="sub-menu__left-button sub-menu__left-button--fill-form">
+            <button class="button-filled button-filled--sub-menu-fill-form icon icon-save-solid"
+            (click)="saveForm()" [hidden]="!this.currentStep"></button>
+        </div>
+        <ul class="sub-menu__nav sub-menu__nav--fill-form" (click)="topMenuNav($event)">
+            <li class="sub-menu__nav__button sub-menu__nav__button--current" data-toogle="form-creator">
+                Form
+            </li>
+            <li class="sub-menu__nav__button" data-toogle="comments">
+                Comments
+            </li>
+        </ul>
+        <app-likes-button class="sub-menu__likes-views" [form]="originalForm"></app-likes-button>
+    </div>
+</div>
+<div class="form-creator" id="form-creator">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="comments" id="comments">
+    <!-- Si el orginalForm no está cargado no se inicia aún -->
+    <app-comments [form]="originalForm" class="comments"
+    *ngIf="originalForm.title !== ''"></app-comments>
+</div>
