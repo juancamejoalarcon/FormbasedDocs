@@ -30,6 +30,7 @@ export class FillFormComponent implements OnInit, AfterViewInit {
 
   documentType = 'office';
   currentStep = 0;
+  public progresBarPercentage = '0%';
 
 
   constructor(
@@ -56,6 +57,8 @@ export class FillFormComponent implements OnInit, AfterViewInit {
         } else {
           this.updatingForm = true;
         }
+        this.updateProgressBarPercentage();
+        console.log(this.form);
       }
     );
     this.formsService.get(this.form.originalSlug).subscribe(
@@ -75,27 +78,27 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   }
 
   generateText() {
-  //   this.formBasedDocDiv.nativeElement.innerHTML = '';
-  //   this.generatedText = this.form.text;
+    this.formBasedDocDiv.nativeElement.innerHTML = '';
+    this.generatedText = this.form.text;
   //   // Save user form settings
-  //   const newFieldsToSave = [];
+    const newFieldsToSave = [];
 
-  //   for (const field of this.fields) {
+    for (const field of this.fields) {
   //     // TEXT
-  //     if (field['type'] === 'iText') {
-  //       const id = '#' + field['referenceNumber'];
-  //       const regexp = new RegExp(field['referenceNumber'], 'g');
-  //       const focused = this.formAreaDiv.nativeElement.querySelector(id) === document.activeElement;
-  //       let valueToInsert: any;
-  //       if (focused) {
-  //         valueToInsert = '<mark id="focused">' + this.formAreaDiv.nativeElement.querySelector(id).value + '</mark>';
-  //       } else {
-  //        valueToInsert = '<mark>' + this.formAreaDiv.nativeElement.querySelector(id).value + '</mark>';
-  //       }
-  //       this.generatedText = this.generatedText.replace(regexp, valueToInsert);
-  //       // Save user form settings
-  //       field['value'] = this.formAreaDiv.nativeElement.querySelector(id).value;
-  //     }
+      if (field['type'] === 'iText') {
+        const id = '#' + field['referenceNumber'];
+        const regexp = new RegExp(field['referenceNumber'], 'g');
+        const focused = this.formAreaDiv.nativeElement.querySelector(id) === document.activeElement;
+        let valueToInsert: any;
+        if (focused) {
+          valueToInsert = '<mark id="focused">' + this.formAreaDiv.nativeElement.querySelector(id).value + '</mark>';
+        } else {
+         valueToInsert = '<mark>' + this.formAreaDiv.nativeElement.querySelector(id).value + '</mark>';
+        }
+        this.generatedText = this.generatedText.replace(regexp, valueToInsert);
+        // Save user form settings
+        field['value'] = this.formAreaDiv.nativeElement.querySelector(id).value;
+      }
   //     // DATE
   //     // if (field['type'] === 'iDate') {
   //     //   const id = '#' + field['referenceNumber'];
@@ -170,58 +173,58 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   //         }
   //       }
   //     }
-  //     // Save user form settings
-  //     newFieldsToSave.push(field);
-  //   }
-  //   // Save user form settings
-  //   this.form.fields = newFieldsToSave;
-  //   this.formBasedDocDiv.nativeElement.insertAdjacentHTML('beforeend', this.generatedText);
-  //   const focusedElement = document.getElementById('focused');
-  //   if (focusedElement) {
-  //     focusedElement.scrollIntoView({ behavior: 'smooth' });
-  //   }
+      // Save user form settings
+      newFieldsToSave.push(field);
+    }
+    // Save user form settings
+    this.form.fields = newFieldsToSave;
+    this.formBasedDocDiv.nativeElement.insertAdjacentHTML('beforeend', this.generatedText);
+    const focusedElement = document.getElementById('focused');
+    if (focusedElement) {
+      focusedElement.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
-  // submitForm() {
-  //   // Saves author Form
-  //   this.generateText();
-  //   this.isSubmitting = true;
-  //   this.form.type = 'Filled';
-  //   // post the changes
-  //   this.formsService
-  //   .save(this.form)
-  //   .subscribe(
-  //     form => {
-  //       this.toastr.success('Has been created', form.title, {
-  //         positionClass: 'toast-bottom-right',
-  //         progressBar: true,
-  //         progressAnimation: 'decreasing'
-  //       });
-  //       this.router.navigateByUrl('/fill-form/edit/' + form.slug);
-  //       },
+  submitForm() {
+    // Saves author Form
+    this.generateText();
+    this.isSubmitting = true;
+    this.form.type = 'Filled';
+    // post the changes
+    this.formsService
+    .save(this.form)
+    .subscribe(
+      form => {
+        this.toastr.success('Has been created', form.title, {
+          positionClass: 'toast-bottom-right',
+          progressBar: true,
+          progressAnimation: 'decreasing'
+        });
+        this.router.navigateByUrl('/fill-form/edit/' + form.slug);
+        },
 
-  //     err => {
-  //       this.errors = err;
-  //       this.isSubmitting = false;
-  //     }
-  //   );
-  // }
+      err => {
+        this.errors = err;
+        this.isSubmitting = false;
+      }
+    );
+  }
 
-  // deleteForm() {
-  //   this.isDeleting = true;
+  deleteForm() {
+    this.isDeleting = true;
 
-  //   this.formsService.destroy(this.form.slug)
-  //     .subscribe(
-  //       success => {
-  //         this.toastr.success('Has been deleted', this.form.title, {
-  //           positionClass: 'toast-bottom-right',
-  //           progressBar: true,
-  //           progressAnimation: 'decreasing'
-  //         });
-  //         this.router.navigateByUrl('/');
-  //       }
-  //     );
-  // }
+    this.formsService.destroy(this.form.slug)
+      .subscribe(
+        success => {
+          this.toastr.success('Has been deleted', this.form.title, {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+          this.router.navigateByUrl('/');
+        }
+      );
+  }
 
   // // UTILITY
   setDivHeight() {
@@ -251,12 +254,17 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   setCurrentStep(stepNum: number) {
     this.currentStep = stepNum;
     this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
-      if (this.currentStep === index) {
-        // step.style.display = 'block';
+      if (this.currentStep === index + 1) {
+        step.style.display = 'block';
       } else {
-        // step.style.display = 'none';
+        step.style.display = 'none';
       }
     });
+    this.updateProgressBarPercentage();
+  }
+
+  updateProgressBarPercentage() {
+    this.progresBarPercentage = Math.round(((this.currentStep / this.form.fields.length) * 100)) + '%';
   }
 
 }

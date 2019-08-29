@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as FormBasedDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
-
+// import '../../../assets/js/wodotexteditor/localfileeditor.js';
 
 @Injectable()
 export class OdfEditorService {
@@ -27,9 +27,9 @@ export class OdfEditorService {
         this.documentBodyClone = documentBodyClone;
         // I replace the body of the document because, if not, after the first replacement it will not
         // be able to find the word again
-        document.getElementsByTagName('office:body')[0]
+        document.getElementsByTagName('office:text')[0]
             .parentElement
-            .replaceChild(this.documentBodyClone.cloneNode(true), document.getElementsByTagName('office:body')[0]);
+            .replaceChild(this.documentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]);
 
 
         // Find all the DOM elements where the word is located
@@ -38,7 +38,7 @@ export class OdfEditorService {
                 this.valuesToChange = [];
                 this.findword(
                     this.documentBodyClone.getElementsByTagName('*'),
-                    document.getElementsByTagName('office:body')[0].getElementsByTagName('*'),
+                    document.getElementsByTagName('office:text')[0].getElementsByTagName('*'),
                     step.wordToReplace
                 );
                 this.valuesToChange.forEach((valueToChange: any) => {
@@ -56,13 +56,13 @@ export class OdfEditorService {
                     }
                     valueToChange.element.parentElement.innerHTML = innerHTMLreplaced;
                 });
-                this.documentBodyClone = document.getElementsByTagName('office:body')[0].cloneNode(true);
+                this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
 
             } else if (step.type === 'inputRadioC') {
                 this.valuesToChange = [];
                 this.findword(
                     this.documentBodyClone.getElementsByTagName('*'),
-                    document.getElementsByTagName('office:body')[0].getElementsByTagName('*'),
+                    document.getElementsByTagName('office:text')[0].getElementsByTagName('*'),
                     step.wordToReplace
                 );
                 step.options.forEach((option: any) => {
@@ -78,12 +78,12 @@ export class OdfEditorService {
                         });
                     }
                 });
-                this.documentBodyClone = document.getElementsByTagName('office:body')[0].cloneNode(true);
+                this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
             } else if (step.type === 'inputRange') {
                 this.valuesToChange = [];
                 this.findword(
                     this.documentBodyClone.getElementsByTagName('*'),
-                    document.getElementsByTagName('office:body')[0].getElementsByTagName('*'),
+                    document.getElementsByTagName('office:text')[0].getElementsByTagName('*'),
                     step.id
                 );
                 const subSteps = [];
@@ -93,7 +93,7 @@ export class OdfEditorService {
                     index++;
                 }
                 this.rangeReplacement(step.value, this.valuesToChange, subSteps);
-                this.documentBodyClone = document.getElementsByTagName('office:body')[0].cloneNode(true);
+                this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
 
             }
         });
@@ -119,7 +119,7 @@ export class OdfEditorService {
         let element: any;
         findword(
             documentBodyClone.getElementsByTagName('*'),
-            document.getElementsByTagName('office:body')[0].getElementsByTagName('*'),
+            document.getElementsByTagName('office:text')[0].getElementsByTagName('*'),
             word
         );
         console.log(element.parentElement.getBoundingClientRect());
@@ -133,7 +133,7 @@ export class OdfEditorService {
         //imgLabel.style.top = "0px";
         imgLabel.style.color = "Black";
         imgLabel.style.position = "absolute";
-        document.getElementsByTagName('office:body')[0].appendChild(imgLabel);
+        document.getElementsByTagName('office:text')[0].appendChild(imgLabel);
         // This functions traverses the DOM looking for the element that contains the word
         // in two objects, the clone original one and in the one we are going to replace the word
         function findword(cloneOfElements: any, elements: any, wordToReplace: any) {
@@ -256,7 +256,7 @@ export class OdfEditorService {
             //     valueToChange.element.parentElement.innerHTML = innerHTMLreplaced;
             // });
             // // console.log(this.valuesToChange);
-            // this.documentBodyClone = document.getElementsByTagName('office:body')[0].cloneNode(true);
+            // this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
         });
     }
 

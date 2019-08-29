@@ -225,8 +225,15 @@ function closeDocument() {
     Wodo.getEditor().closeDocument(()=>{});
 }
 
-module.exports = {
-    createEditor: createEditor,
-    documentToFitScreen: documentToFitScreen,
-    closeDocument: closeDocument
+
+// module.exports = {
+//     createEditor: createEditor,
+//     documentToFitScreen: documentToFitScreen,
+//     closeDocument: closeDocument
+// };
+
+export { 
+    createEditor,
+    documentToFitScreen,
+    closeDocument
 };

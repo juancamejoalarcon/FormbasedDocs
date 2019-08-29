@@ -61,6 +61,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   // Nuevo
   documentType = 'office';
   currentStep = 0;
+  documentBodyClone: any;
 
   constructor(
     private componentInjectorService: ComponentInjectorService,
@@ -496,6 +497,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   setDocumentPlayground() {
     if (this.documentType === 'office') {
       this.odfEditorService.createEditor('createForm');
+      this.odfEditorConfig();
     } else if (this.documentType === 'plain') {
       this.quillConfig();
       this.documentType = 'plain-text';
@@ -566,6 +568,18 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
         step.style.display = 'none';
       }
     });
+  }
+
+  odfEditorConfig() {
+    setTimeout(() => {
+      //  this.odfEditorService.resizeDocumentContainer();
+        console.dir(document.getElementsByTagName('office:text')[0]);
+       this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+    }, 4000);
+    window.addEventListener('resize', () => {
+      this.commonsService.resizeEditor();
+    });
+    this.commonsService.resizeEditor();
   }
 
 }

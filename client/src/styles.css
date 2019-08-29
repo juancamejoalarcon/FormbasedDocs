@@ -997,6 +997,10 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 2rem;
 }
 
+.color-black {
+  color: black !important;
+}
+
 .nav__container {
   display: -ms-grid;
   display: grid;
