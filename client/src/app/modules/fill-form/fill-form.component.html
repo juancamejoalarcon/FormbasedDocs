@@ -102,11 +102,11 @@
         <app-likes-button class="sub-menu__likes-views" [form]="originalForm"></app-likes-button>
     </div>
 </div>
-<div class="form-creator" id="form-creator">
+<div class="form-creator" id="form-creator" #formCreatorDiv>
     <div class="form-creator__container">
         <div class="form-creator__fields-area" id="fields-area">
 
-            <div class="form-creator__fields-area__container">
+            <div class="form-creator__fields-area__container" #formAreaDiv (keyup)="generateText()" (click)="generateText()">
                 <div class="form-creator__fields-area__top">
                     <!-- START (Step 0) -->
                     <div class="form-creator__fields-area__top__container" *ngIf="this.currentStep === 0">
@@ -115,16 +115,19 @@
                                 <div class="form-creator__fields-area__top__author-date__author__image-container">
                                     <img src="/assets/images/avatar.jpg" alt="avatar">
                                 </div>
-                                <span>Juan Camejo Alarcón</span>
+                                <span [routerLink]="['/profile', form.author.username]">
+                                    {{form.author.username}}
+                                </span>
                             </span>
                             <span class="form-creator__fields-area__top__author-date__date">
                                 <span>Last updated:</span>
-                                20 abril 2019
+                                {{originalForm.updatedAt | date: 'dd/MM/yyyy'}}
                             </span>
                         </div>
                         <div class="form-creator__fields-area__top__before-start-button">
-                            <div class="form-creator__fields-area__top__before-start-button__information-modal-icon trigger">
-                                <span class="icon icon-info-solid"></span>
+                            <div class="form-creator__fields-area__top__before-start-button__information-modal-icon trigger"
+                            *ngIf="form.indications !== '' && form.indications !== undefined">
+                                <span class="icon icon-info-solid" (click)="toogleModal(modal)"></span>
                             </div>
                         </div>
                     </div>
@@ -140,19 +143,27 @@
 
                     <!-- Input radio -->
                 <div class="form-creator__fields-area__middle">
-                    <div class="form-creator__fields-area__middle__container">
+                    <div class="form-creator__fields-area__middle__container" *ngIf="this.currentStep === 0">
                         <div class="form-creator__fields-area__middle__initial-screen">
                             <h2 class="form-creator__fields-area__middle__initial-screen__form-title">
-                                Contrato de alquiler
+                                {{form.title}}
                             </h2>
                             <span class="form-creator__fields-area__middle__initial-screen__description">
-                                Tras el proceso de oferta y búsqueda de vivienda, una vez que hemos llegado a un acuerdo entre propietario e inquilino, 
-                                ya sea de forma privada o a través de un programa público de alquiler, se procede a la firma del contrato. 
-                                Este contrato será el vínculo entre el arrendador y el arrendatario.
+                                {{form.description}}
                             </span>
-                            <button class="button-filled button-filled--start-form" (click)="setCurrentStep(currentStep + 1)">
+                            <button class="button-filled button-filled--start-form" (click)="toogleModal(modal)">
                                 Rellenar formulario
                             </button>
+                        </div>
+                    </div>
+
+                    <div class="form-creator__fields-area__middle__container" [ngStyle]="'display': this.currentStep !== 0 ? 'none' : 'block'">
+                        <div *ngFor="let field of fields">
+                            <app-input-text *ngIf="field['type'] == 'iText'" [state]="state" [field]="field"></app-input-text>
+
+                            <!-- <app-input-radio-a *ngIf="field['type'] == 'iRadioA'" [state]="state" [field]="field"></app-input-radio-a>
+                            <app-input-radio-b *ngIf="field['type'] == 'iRadioB'" [state]="state" [field]="field"></app-input-radio-b>
+                            <app-input-radio-c *ngIf="field['type'] == 'iRadioC'" [state]="state" [field]="field"></app-input-radio-c> -->
                         </div>
                     </div>
                 </div>
@@ -202,5 +213,12 @@
     <div class="comments">
         <app-comments class="comments__container" [form]="originalForm"
         *ngIf="originalForm.title !== ''"></app-comments>
+    </div>
+</div>
+
+<div class="modal" #modal>
+    <div class="modal__content modal__content--payment">
+        <p>{{form.indications}}</p>
+        <button (click)="toogleModal(modal); setCurrentStep(currentStep + 1);">entendido</button>
     </div>
 </div>

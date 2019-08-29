@@ -74,7 +74,7 @@ export class FillFormComponent implements OnInit, AfterViewInit {
     // }
   }
 
-  // generateText() {
+  generateText() {
   //   this.formBasedDocDiv.nativeElement.innerHTML = '';
   //   this.generatedText = this.form.text;
   //   // Save user form settings
@@ -180,7 +180,7 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   //   if (focusedElement) {
   //     focusedElement.scrollIntoView({ behavior: 'smooth' });
   //   }
-  // }
+  }
 
   // submitForm() {
   //   // Saves author Form
@@ -233,9 +233,9 @@ export class FillFormComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // toggleModal() {
-  //   this.modal.nativeElement.classList.toggle('show-modal');
-  // }
+  toogleModal(modal: ElementRef) {
+    this.commonsService.toggleModal(modal, false);
+  }
 
   // enableFullScreen(id: string) {
   //   const el = document.getElementById(id);
