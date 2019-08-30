@@ -278,26 +278,31 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
         index++;
       }
 
-      if (this.commonsService.isObjectEmpty(valuesToInsert)) {
-        this.textPreview = this.quillText;
-      } else {
-        this.textPreview = this.commonsService.replaceIdsWithValues(valuesToInsert, this.quillText);
-      }
-
-      while (this.textPreviewDiv.nativeElement.firstChild) {
-        this.textPreviewDiv.nativeElement.removeChild(this.textPreviewDiv.nativeElement.firstChild);
-      }
-
-      this.textPreviewDiv.nativeElement.insertAdjacentHTML('beforeend', this.textPreview);
-      const focusedElement = document.getElementById('focused');
-      if (focusedElement) {
-        focusedElement.scrollIntoView({ behavior: 'smooth' });
-      }
-      if (e.target) {
-        if (e.target.classList.contains('icon-trash-alt-regular')) {
-          this.setCurrentStep(this.currentStep - 1);
+      if (this.documentType === 'plain-text') {
+        if (this.commonsService.isObjectEmpty(valuesToInsert)) {
+          this.textPreview = this.quillText;
+        } else {
+          this.textPreview = this.commonsService.replaceIdsWithValues(valuesToInsert, this.quillText);
         }
+  
+        while (this.textPreviewDiv.nativeElement.firstChild) {
+          this.textPreviewDiv.nativeElement.removeChild(this.textPreviewDiv.nativeElement.firstChild);
+        }
+  
+        this.textPreviewDiv.nativeElement.insertAdjacentHTML('beforeend', this.textPreview);
+        const focusedElement = document.getElementById('focused');
+        if (focusedElement) {
+          focusedElement.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (e.target) {
+          if (e.target.classList.contains('icon-trash-alt-regular')) {
+            this.setCurrentStep(this.currentStep - 1);
+          }
+        }
+      } else {
+
       }
+
     }
 
   addTag() {
