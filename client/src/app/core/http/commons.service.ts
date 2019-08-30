@@ -29,6 +29,27 @@ export class CommonsService {
         }
     }
 
+    toggleLightbox(lightBox: any, closeWhenClickedOuside = true) {
+        if (!lightBox.classList.contains('show-lightbox')) {
+            lightBox.classList.toggle('show-lightbox');
+            window.addEventListener('click', modalEventListener);
+        } else {
+            lightBox.classList.toggle('show-lightbox');
+            // Instead of remove I add another one, workarround
+            // that adds another event that will be deleted as well
+            window.addEventListener('click', modalEventListener);
+        }
+
+        function modalEventListener() {
+            if (closeWhenClickedOuside) {
+                if (event.target === lightBox) {
+                    lightBox.classList.toggle('show-lightbox');
+                    window.removeEventListener('click', modalEventListener);
+                }
+            }
+        }
+    }
+
     subMenuNav(e: any, subMenuElement: any) {
         e.preventDefault();
         if (e.target.nodeName === 'LI') {

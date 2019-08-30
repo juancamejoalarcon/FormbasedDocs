@@ -28,6 +28,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   @ViewChild('linkInformationButton') linkInformationButton: ElementRef;
   @ViewChild('title') title: ElementRef;
   @ViewChild('description') description: ElementRef;
+  @ViewChild('lightBox') lightBox: ElementRef;
 
   // Nuevo
   @ViewChild('modalChooseDocument') modalChooseDocument: ElementRef;
@@ -147,6 +148,14 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   preview() {
     this.commonsService.replaceClassDnone(this.formBasedDocDiv);
     // this.commonsService.replaceOtherClasses(this.formBasedDocDiv);
+    if (this.documentType === 'office') {
+      const elementsThatCannotBeHide = ['dijit_form_Button_1', 'dijit_form_HorizontalSlider_0'];
+      for (const element of document.querySelector('#webodfeditor-toolbar1').children as any) {
+        if (!elementsThatCannotBeHide.includes(element.getAttribute('widgetid'))) {
+          element.style.display = 'none';
+        }
+      }
+    }
   }
 
   generateText(e: any = {}) {
@@ -585,6 +594,10 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       this.commonsService.resizeEditor();
     });
     this.commonsService.resizeEditor();
+  }
+
+  toggleLightbox(lightBox: ElementRef) {
+    this.commonsService.toggleLightbox(lightBox, false);
   }
 
 }
