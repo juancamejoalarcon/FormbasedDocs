@@ -24,7 +24,7 @@
 
 /*global document, window, runtime, FileReader, alert, Uint8Array, Blob, saveAs, Wodo*/
 
-function createEditor(formType) {
+function createEditor(formType, idOfContainer) {
     "use strict";
 
     var editor = null,
@@ -213,7 +213,7 @@ function createEditor(formType) {
         }
     }
 
-    Wodo.createTextEditor('editorContainer', editorOptions, onEditorCreated);
+    Wodo.createTextEditor(idOfContainer, editorOptions, onEditorCreated);
 
 }
 

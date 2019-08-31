@@ -152,9 +152,10 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       const elementsThatCannotBeHide = ['dijit_form_Button_1', 'dijit_form_HorizontalSlider_0'];
       for (const element of document.querySelector('#webodfeditor-toolbar1').children as any) {
         if (!elementsThatCannotBeHide.includes(element.getAttribute('widgetid'))) {
-          element.style.display = 'none';
+          element.classList.toggle('d-none-widget');
         }
       }
+      this.odfEditorService.resizeDocumentContainer();
     }
   }
 
@@ -516,8 +517,6 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       this.quillConfig();
       this.documentType = 'plain-text';
     }
-    // this.commonsService.resizeEditor();
-    // window.addEventListener('resize', this.commonsService.resizeEditor);
   }
 
   topMenuNav(e: any) {
@@ -587,8 +586,9 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   odfEditorConfig() {
     setTimeout(() => {
       //  this.odfEditorService.resizeDocumentContainer();
-        console.dir(document.getElementsByTagName('office:text')[0]);
        this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+       this.odfEditorService.resizeDocumentContainer();
+       window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
     }, 4000);
     window.addEventListener('resize', () => {
       this.commonsService.resizeEditor();

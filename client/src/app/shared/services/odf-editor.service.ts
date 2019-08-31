@@ -10,8 +10,8 @@ export class OdfEditorService {
 
     constructor () {}
 
-    createEditor(formType: string) {
-        FormBasedDocsApi.createEditor(formType);
+    createEditor(formType: string, idOfContainer: string = 'editorContainer') {
+        FormBasedDocsApi.createEditor(formType, idOfContainer);
     }
 
     resizeDocumentContainer() {
