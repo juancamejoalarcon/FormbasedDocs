@@ -38,8 +38,13 @@ export class OdfEditorService {
             const cursorNode = document.getElementsByTagName('office:text')[0].getElementsByTagName('cursor')[0];
             cursorNode.parentNode.childNodes.forEach((element, index) => {
                 if (element['tagName'] === 'cursor') {
-                    cursorNode.parentNode.childNodes[index + 1].textContent =
-                    event['dataTransfer'].getData('text') + cursorNode.parentNode.childNodes[index + 1].textContent;
+                    if (cursorNode.parentNode.childNodes[index + 1] !== undefined) {
+                        cursorNode.parentNode.childNodes[index + 1].textContent = 
+                        event['dataTransfer'].getData('text') + cursorNode.parentNode.childNodes[index + 1].textContent;
+                    } else {
+                        const textContent = document.createTextNode(event['dataTransfer'].getData('text'));
+                        cursorNode.parentNode.insertBefore(textContent, cursorNode);
+                    }
                 }
             });
         });
