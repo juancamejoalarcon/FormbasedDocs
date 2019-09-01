@@ -221,6 +221,10 @@ function documentToFitScreen() {
     Wodo.getEditor().setDocumentToFitScreen();
 }
 
+function setCursorPositionForDragAndDrop(event) {
+    Wodo.getEditor().setCursorPositionForDragAndDrop(event);
+}
+
 function closeDocument() {
     Wodo.getEditor().closeDocument(()=>{});
 }
@@ -235,5 +239,6 @@ function closeDocument() {
 export { 
     createEditor,
     documentToFitScreen,
+    setCursorPositionForDragAndDrop,
     closeDocument
 };

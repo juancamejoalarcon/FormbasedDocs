@@ -186,4 +186,8 @@ export class CommonsService {
         });
     }
 
+    toggleSpinner() {
+        document.getElementById('spinner').classList.toggle('show-spinner');
+    }
+
 }

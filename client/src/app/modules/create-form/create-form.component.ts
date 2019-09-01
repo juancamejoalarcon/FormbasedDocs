@@ -510,6 +510,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   }
 
   setDocumentPlayground() {
+
     if (this.documentType === 'office') {
       this.odfEditorService.createEditor('createForm');
       this.odfEditorConfig();
@@ -584,11 +585,14 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   }
 
   odfEditorConfig() {
+    this.commonsService.toggleSpinner();
     setTimeout(() => {
       //  this.odfEditorService.resizeDocumentContainer();
        this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
        this.odfEditorService.resizeDocumentContainer();
        window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
+       this.odfEditorService.setDragAndDropForSetUp();
+       this.commonsService.toggleSpinner();
     }, 4000);
     window.addEventListener('resize', () => {
       this.commonsService.resizeEditor();

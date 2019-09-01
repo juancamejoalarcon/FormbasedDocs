@@ -22,6 +22,29 @@ export class OdfEditorService {
         FormBasedDocsApi.closeDocument();
     }
 
+    setCursorPositionForDragAndDrop(e: any) {
+        FormBasedDocsApi.setCursorPositionForDragAndDrop(e);
+    }
+
+    setDragAndDropForSetUp() {
+        // Dragover
+        document.getElementsByTagName('office:text')[0].addEventListener('dragover', (event) => {
+            event.preventDefault();
+            this.setCursorPositionForDragAndDrop(event);
+        });
+        // Drop
+        document.getElementsByTagName('office:text')[0].addEventListener('drop', (event) => {
+            this.setCursorPositionForDragAndDrop(event);
+            const cursorNode = document.getElementsByTagName('office:text')[0].getElementsByTagName('cursor')[0];
+            cursorNode.parentNode.childNodes.forEach((element, index) => {
+                if (element['tagName'] === 'cursor') {
+                    cursorNode.parentNode.childNodes[index + 1].textContent =
+                    event['dataTransfer'].getData('text') + cursorNode.parentNode.childNodes[index + 1].textContent;
+                }
+            });
+        });
+    }
+
     replaceWord(steps: any, documentBodyClone: any) {
 
         this.documentBodyClone = documentBodyClone;
