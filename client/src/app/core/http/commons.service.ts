@@ -99,7 +99,8 @@ export class CommonsService {
         const elementsWithReplacement = [
             ['d-block', 'd-none'],
             ['d-flex', 'd-none-flex'],
-            ['d-grid-100', 'd-none-grid']
+            ['d-grid-100', 'd-none-grid'],
+            ['d-inline', 'd-none-inline'],
         ];
         elementsWithReplacement.forEach((element) => {
             this.replaceClassInAllElements(domElement, element[0], element[1]);

@@ -159,14 +159,16 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
       this.odfEditorService.resizeDocumentContainer();
     }
-    if (this.isInPreviewMode) {
-      // document.getElementsByTagName('office:text')[0]
-      // .parentElement
-      // .replaceChild(this.documentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]);
-    } else {
-      this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-    }
-    this.isInPreviewMode = !this.isInPreviewMode;
+    
+    this.documentBodyClone = document.getElementById('webodfeditor-canvas2').getElementsByTagName('office:text')[0];
+    document.getElementById('webodfeditor-canvas2').getElementsByTagName('office:text')[0]
+    .parentElement
+    .replaceChild(
+      this.documentBodyClone.cloneNode(true),
+      document.getElementById('webodfeditor-canvas2').getElementsByTagName('office:text')[0]);
+
+    document.getElementById('webodfeditor-canvas1').classList.toggle('visually-hidden');
+    document.getElementById('webodfeditor-canvas2').classList.toggle('visually-hidden');
   }
 
   generateText(e: any = {}) {
@@ -609,6 +611,8 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
        window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
        this.odfEditorService.setDragAndDropForSetUp();
        this.commonsService.toggleSpinner();
+       this.createNodeForPreview();
+       // create node for preview
     }, 4000);
     window.addEventListener('resize', () => {
       this.commonsService.resizeEditor();
@@ -618,6 +622,16 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
 
   toggleLightbox(lightBox: ElementRef) {
     this.commonsService.toggleLightbox(lightBox, false);
+  }
+
+  createNodeForPreview() {
+    const canvasContainer = document.getElementById('webodfeditor-canvas1');
+    const cloneNode = canvasContainer.cloneNode(true);
+    cloneNode['id'] = 'webodfeditor-canvas2';
+    cloneNode['classList'].add('visually-hidden');
+    // canvasContainer.classList.add('d-inline');
+    canvasContainer.parentNode.insertBefore(cloneNode, canvasContainer.nextSibling);
+    console.dir(cloneNode);
   }
 
 }

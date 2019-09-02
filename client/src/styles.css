@@ -980,6 +980,14 @@ h1, h2, h3, h4, h5, h6 {
   display: block !important;
 }
 
+.d-inline {
+  display: inline-block !important;
+}
+
+.d-none-inline {
+  display: none !important;
+}
+
 .d-flex {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -1007,6 +1015,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .show-spinner {
   display: block !important;
+}
+
+.dragging {
+  border-radius: 25px;
+  background-color: transparent;
 }
 
 .nav__container {
