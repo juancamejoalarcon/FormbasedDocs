@@ -162,7 +162,7 @@ export class CommonsService {
         };
     }
 
-    replaceIdsWithValues(valuesToInsert: any, text) {
+    replaceIdsWithValues(valuesToInsert: any, text: any) {
         // This function adds the highlight when the users types in.
         Object.keys(valuesToInsert).forEach(function(key) {
             if (key.includes('focused')) {

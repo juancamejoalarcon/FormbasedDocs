@@ -63,6 +63,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   documentType = 'office';
   currentStep = 0;
   documentBodyClone: any;
+  isInPreviewMode = false;
 
   constructor(
     private componentInjectorService: ComponentInjectorService,
@@ -155,8 +156,11 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
           element.classList.toggle('d-none-widget');
         }
       }
+      document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
       this.odfEditorService.resizeDocumentContainer();
     }
+    this.isInPreviewMode = !this.isInPreviewMode;
+    this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
   }
 
   generateText(e: any = {}) {
@@ -310,7 +314,11 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
           }
         }
       } else {
-
+        if (this.isInPreviewMode) {
+          if (!this.commonsService.isObjectEmpty(valuesToInsert)) {
+            this.odfEditorService.replaceWordForCreateForm(valuesToInsert, this.documentBodyClone);
+          }
+        }
       }
 
     }
