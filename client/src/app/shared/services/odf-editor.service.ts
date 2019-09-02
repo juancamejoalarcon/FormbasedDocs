@@ -50,20 +50,6 @@ export class OdfEditorService {
         });
     }
 
-    replaceWordForCreateForm(valuesToInsert: any, documentBodyClone: any) {
-
-        this.documentBodyClone = documentBodyClone;
-        // I replace the body of the document because, if not, after the first replacement it will not
-        // be able to find the word again
-        // document.getElementsByTagName('office:text')[0]
-        //     .parentElement
-        //     .replaceChild(this.documentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]);
-
-        for (let value of valuesToInsert) {
-            console.log(value);
-        }
-    }
-
     replaceWord(steps: any, documentBodyClone: any) {
 
         this.documentBodyClone = documentBodyClone;
@@ -73,10 +59,9 @@ export class OdfEditorService {
             .parentElement
             .replaceChild(this.documentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]);
 
-
         // Find all the DOM elements where the word is located
         steps.forEach((step: any) => {
-            if (step.type === 'inputText' || step.type === 'inputDate') {
+            if (step.type === 'inputText' || step.type === 'inputDate' || step.type === 'iText') {
                 this.valuesToChange = [];
                 this.findword(
                     this.documentBodyClone.getElementsByTagName('*'),

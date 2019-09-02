@@ -159,8 +159,14 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
       this.odfEditorService.resizeDocumentContainer();
     }
+    if (this.isInPreviewMode) {
+      // document.getElementsByTagName('office:text')[0]
+      // .parentElement
+      // .replaceChild(this.documentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]);
+    } else {
+      this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+    }
     this.isInPreviewMode = !this.isInPreviewMode;
-    this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
   }
 
   generateText(e: any = {}) {
@@ -189,6 +195,8 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
             indicationsType: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter)
                                                             .getAttribute('data-indicationsType'),
             mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked,
+            wordToReplace: idWithOutFilter,
+            replacement: injectedComponent.value,
             index: index
           };
           this.form.fields.push(newField);
@@ -316,7 +324,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       } else {
         if (this.isInPreviewMode) {
           if (!this.commonsService.isObjectEmpty(valuesToInsert)) {
-            this.odfEditorService.replaceWordForCreateForm(valuesToInsert, this.documentBodyClone);
+            this.odfEditorService.replaceWord(this.form.fields, this.documentBodyClone);
           }
         }
       }
