@@ -174,13 +174,15 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       } else {
         console.log('Enter preview mode');
         this.odfEditorService.saveForPreview();
+        this.odfEditorService.resizeDocumentContainer();
         this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
         this.isInPreviewMode = true;
       }
+    } else {
+      this.generateText();
     }
     document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
     // this.odfEditorService.resizeDocumentContainer();
-    this.generateText();
 
   }
 

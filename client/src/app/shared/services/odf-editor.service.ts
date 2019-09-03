@@ -30,6 +30,10 @@ export class OdfEditorService {
         FormBasedDocsApi.saveForPreview();
     }
 
+    removeCursor() {
+        FormBasedDocsApi.removeCursor();
+    }
+
     loadPreview() {
         FormBasedDocsApi.loadPreview();
     }

@@ -252,6 +252,10 @@ function loadPreview() {
     Wodo.getEditor().openDocumentFromUrl(window.DOCUMENTOPREVIEWURL, startEditing);
 }
 
+function removeCursor() {
+    Wodo.getEditor().removeCursor();
+}
+
 function startEditing() {
 
 }
@@ -262,5 +266,6 @@ export {
     setCursorPositionForDragAndDrop,
     closeDocument,
     saveForPreview,
+    removeCursor,
     loadPreview
 };
