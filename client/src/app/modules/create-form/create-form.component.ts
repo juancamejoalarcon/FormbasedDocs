@@ -156,19 +156,30 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
           element.classList.toggle('d-none-widget');
         }
       }
-      document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
-      this.odfEditorService.resizeDocumentContainer();
-    }
-    
-    this.documentBodyClone = document.getElementById('webodfeditor-canvas2').getElementsByTagName('office:text')[0];
-    document.getElementById('webodfeditor-canvas2').getElementsByTagName('office:text')[0]
-    .parentElement
-    .replaceChild(
-      this.documentBodyClone.cloneNode(true),
-      document.getElementById('webodfeditor-canvas2').getElementsByTagName('office:text')[0]);
 
-    document.getElementById('webodfeditor-canvas1').classList.toggle('visually-hidden');
-    document.getElementById('webodfeditor-canvas2').classList.toggle('visually-hidden');
+      if (this.isInPreviewMode) {
+        console.log('Exit preview mode');
+        this.odfEditorService.closeEditor();
+        this.odfEditorService.loadPreview();
+        this.commonsService.toggleSpinner();
+        setTimeout(() => {
+          //  this.odfEditorService.resizeDocumentContainer();
+          this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+          this.odfEditorService.resizeDocumentContainer();
+          window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
+          this.odfEditorService.setDragAndDropForSetUp();
+          this.commonsService.toggleSpinner();
+          // create node for preview
+        }, 2000);
+      } else {
+        console.log('Enter preview mode');
+        this.odfEditorService.saveForPreview();
+        this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+      }
+    }
+    document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
+    // this.odfEditorService.resizeDocumentContainer();
+    this.isInPreviewMode = !this.isInPreviewMode;
   }
 
   generateText(e: any = {}) {
@@ -611,7 +622,6 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
        window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
        this.odfEditorService.setDragAndDropForSetUp();
        this.commonsService.toggleSpinner();
-       this.createNodeForPreview();
        // create node for preview
     }, 4000);
     window.addEventListener('resize', () => {
@@ -622,16 +632,6 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
 
   toggleLightbox(lightBox: ElementRef) {
     this.commonsService.toggleLightbox(lightBox, false);
-  }
-
-  createNodeForPreview() {
-    const canvasContainer = document.getElementById('webodfeditor-canvas1');
-    const cloneNode = canvasContainer.cloneNode(true);
-    cloneNode['id'] = 'webodfeditor-canvas2';
-    cloneNode['classList'].add('visually-hidden');
-    // canvasContainer.classList.add('d-inline');
-    canvasContainer.parentNode.insertBefore(cloneNode, canvasContainer.nextSibling);
-    console.dir(cloneNode);
   }
 
 }

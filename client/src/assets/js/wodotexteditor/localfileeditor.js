@@ -230,15 +230,37 @@ function closeDocument() {
 }
 
 
-// module.exports = {
-//     createEditor: createEditor,
-//     documentToFitScreen: documentToFitScreen,
-//     closeDocument: closeDocument
-// };
+function saveForPreview() {
+    function saveByteArrayLocally(err, data) {
+        if (err) {
+            alert(err);
+            return;
+        }
+        // TODO: odfcontainer should have a property mimetype
+        var mimetype = "application/vnd.oasis.opendocument.text",
+            // filename = loadedFilename || "doc.odt",
+            blob = new Blob([data.buffer], {type: mimetype});
+            window.DOCUMENTOPREVIEWURL = URL.createObjectURL(blob);;
+        // TODO: hm, saveAs could fail or be cancelled
+        // Wodo.getEditor().setDocumentModified(false);
+    }
+
+    Wodo.getEditor().getDocumentAsByteArray(saveByteArrayLocally);
+}
+
+function loadPreview() {
+    Wodo.getEditor().openDocumentFromUrl(window.DOCUMENTOPREVIEWURL, startEditing);
+}
+
+function startEditing() {
+
+}
 
 export { 
     createEditor,
     documentToFitScreen,
     setCursorPositionForDragAndDrop,
-    closeDocument
+    closeDocument,
+    saveForPreview,
+    loadPreview
 };

@@ -26,6 +26,14 @@ export class OdfEditorService {
         FormBasedDocsApi.setCursorPositionForDragAndDrop(e);
     }
 
+    saveForPreview() {
+        FormBasedDocsApi.saveForPreview();
+    }
+
+    loadPreview() {
+        FormBasedDocsApi.loadPreview();
+    }
+
     setDragAndDropForSetUp() {
         // Dragover
         document.getElementsByTagName('office:text')[0].addEventListener('dragover', (event) => {
