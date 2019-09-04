@@ -64,6 +64,8 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   currentStep = 0;
   documentBodyClone: any;
   isInPreviewMode = false;
+  reader = new FileReader();
+  base64data: any;
 
   constructor(
     private componentInjectorService: ComponentInjectorService,
@@ -120,19 +122,9 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   }
 
   ngAfterViewInit() {
-    // this.enableSortablejs();
-    if (!this.updatingForm) {
-      // this.toogleModal(this.modalChooseDocument.nativeElement);
-    } else {
-      // this.setCurrentStep(this.form.currentStep);
-    }
   }
 
   ngAfterViewChecked() {
-    // if (!this.updatingForm) {
-    // } else {
-    //   this.setCurrentStep(this.form.currentStep);
-    // }
   }
 
   ngOnDestroy() {
@@ -148,7 +140,6 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
 
   preview() {
     this.commonsService.replaceClassDnone(this.formBasedDocDiv);
-    // this.commonsService.replaceOtherClasses(this.formBasedDocDiv);
     if (this.documentType === 'office') {
       const elementsThatCannotBeHide = ['dijit_form_Button_1', 'dijit_form_HorizontalSlider_0'];
       for (const element of document.querySelector('#webodfeditor-toolbar1').children as any) {
@@ -158,12 +149,10 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       }
 
       if (this.isInPreviewMode) {
-        console.log('Exit preview mode');
         this.odfEditorService.closeEditor();
         this.odfEditorService.loadPreview();
         this.commonsService.toggleSpinner();
         setTimeout(() => {
-          //  this.odfEditorService.resizeDocumentContainer();
           this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
           this.odfEditorService.resizeDocumentContainer();
           window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
@@ -172,18 +161,17 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
           this.isInPreviewMode = false;
         }, 2000);
       } else {
-        console.log('Enter preview mode');
         this.odfEditorService.saveForPreview();
-        this.odfEditorService.resizeDocumentContainer();
         this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
         this.isInPreviewMode = true;
-        this.odfEditorService.refreshCanvasContainer();
+        this.odfEditorService.resizeDocumentContainer();
       }
+      document.getElementById('webodfeditor-canvascontainer1').style.top =
+        document.getElementsByClassName('webodfeditor-toolbarcontainer')[0].clientHeight + 'px';
     } else {
       this.generateText();
     }
     document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
-    // this.odfEditorService.resizeDocumentContainer();
 
   }
 
@@ -368,6 +356,14 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
     (<any>Object).assign(this.form, values);
   }
 
+  waitForElement(someVariable: any) {
+    if (typeof someVariable !== "undefined") {
+        //variable exists, do what you want
+    } else {
+        setTimeout(this.waitForElement.apply(someVariable), 250);
+    }
+  }
+
   submitForm() {
     if (this.validate()) {
       // Checks if user has introduced any input, if not user cannot submit unless user is updating the form
@@ -375,46 +371,63 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
         // saves author Form
         this.generateText();
         // saves the generated text
-        this.form.text = this.quillText;
-        this.isSubmitting = true;
-        // saves current step
-        this.form.currentStep = this.currentStep;
-        console.log(this.form.currentStep);
-
-        // update the model
-        this.updateAuthorForm(this.formGroup.value);
-        console.log(this.form);
-
-
-        this.formService
-        .save(this.form)
-        .subscribe(
-          form => {
-            if (!this.updatingForm) {
-              this.toastr.success('Has been created', form.title, {
-                positionClass: 'toast-bottom-right',
-                progressBar: true,
-                progressAnimation: 'decreasing'
-              });
-              this.router.navigateByUrl('/create-form/edit/' + form.slug);
-            } else {
-              this.toastr.success('Has been updated', form.title, {
-                positionClass: 'toast-bottom-right',
-                progressBar: true,
-                progressAnimation: 'decreasing'
-              });
-            }
-            this.isSubmitting = false;
-          },
-          err => {
-            this.errors = err;
-            this.isSubmitting = false;
-          }
-        );
+        if (this.documentType === 'office') {
+          this.odfEditorService.saveForPreview();
+          this.reader.readAsDataURL(window['ODTDOCUMENT']);
+          this.reader.onloadend = () => {
+              this.form.text = this.reader.result as string;
+              this.secondPartOfSubmitForm();
+          };
+        } else {
+          this.form.text = this.quillText;
+          this.secondPartOfSubmitForm();
+        }
       } else {
         alert('Form is empty');
       }
     }
+  }
+
+  secondPartOfSubmitForm() {
+    this.isSubmitting = true;
+    // saves current step
+    this.form.currentStep = this.currentStep;
+
+    // update the model
+    this.updateAuthorForm(this.formGroup.value);
+    console.log(this.form);
+
+
+    this.formService
+    .save(this.form)
+    .subscribe(
+      form => {
+        if (!this.updatingForm) {
+          this.toastr.success('Has been created', form.title, {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+          this.router.navigateByUrl('/create-form/edit/' + form.slug);
+        } else {
+          this.toastr.success('Has been updated', form.title, {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+        }
+        this.isSubmitting = false;
+      },
+      err => {
+        // this.errors = err;
+        this.toastr.error(err.errors.message, 'Something went wrong', {
+          positionClass: 'toast-bottom-right',
+          progressBar: true,
+          progressAnimation: 'decreasing'
+        });
+        this.isSubmitting = false;
+      }
+    );
   }
 
   validate() {
@@ -546,7 +559,12 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
   setDocumentPlayground() {
 
     if (this.documentType === 'office') {
-      this.odfEditorService.createEditor('createForm');
+      if (!this.updatingForm) {
+        this.odfEditorService.createEditor('createForm');
+      } else {
+        this.odfEditorService.createEditorFromURI('createForm', 'editorContainer', this.form.text);
+        // createEditorFromURI
+      }
       this.odfEditorConfig();
     } else if (this.documentType === 'plain') {
       this.quillConfig();

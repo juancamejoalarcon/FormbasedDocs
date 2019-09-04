@@ -240,7 +240,8 @@ function saveForPreview() {
         var mimetype = "application/vnd.oasis.opendocument.text",
             // filename = loadedFilename || "doc.odt",
             blob = new Blob([data.buffer], {type: mimetype});
-            window.DOCUMENTOPREVIEWURL = URL.createObjectURL(blob);;
+            window.DOCUMENTOPREVIEWURL = URL.createObjectURL(blob);
+            window.ODTDOCUMENT = blob;
         // TODO: hm, saveAs could fail or be cancelled
         // Wodo.getEditor().setDocumentModified(false);
     }
