@@ -678,6 +678,11 @@ window.Wodo = window.Wodo || (function () {
             editorSession.removeCursor();
         }
 
+        // FORMBASEDDOCS API
+        this.getEditorSession = function() {
+            return editorSession;
+        }
+
         /**
          * Registers a callback which should be called if the given event happens.
          * @name TextEditor#addEventListener

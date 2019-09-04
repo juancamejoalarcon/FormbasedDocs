@@ -177,6 +177,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
         this.odfEditorService.resizeDocumentContainer();
         this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
         this.isInPreviewMode = true;
+        this.odfEditorService.refreshCanvasContainer();
       }
     } else {
       this.generateText();

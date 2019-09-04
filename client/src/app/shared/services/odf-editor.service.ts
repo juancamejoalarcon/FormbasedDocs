@@ -38,6 +38,12 @@ export class OdfEditorService {
         FormBasedDocsApi.loadPreview();
     }
 
+    refreshCanvasContainer() {
+        FormBasedDocsApi.getEditorSession().getOdfCanvas().refreshCSS();
+        FormBasedDocsApi.getEditorSession().getOdfCanvas().refreshSize();
+        console.log(FormBasedDocsApi.getEditorSession());
+    }
+
     setDragAndDropForSetUp() {
         // Dragover
         document.getElementsByTagName('office:text')[0].addEventListener('dragover', (event) => {

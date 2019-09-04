@@ -260,6 +260,10 @@ function startEditing() {
 
 }
 
+function getEditorSession() {
+    return Wodo.getEditor().getEditorSession();
+}
+
 export { 
     createEditor,
     documentToFitScreen,
@@ -267,5 +271,6 @@ export {
     closeDocument,
     saveForPreview,
     removeCursor,
+    getEditorSession,
     loadPreview
 };
