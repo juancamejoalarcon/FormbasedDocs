@@ -457,6 +457,9 @@ window.Wodo = window.Wodo || (function () {
             });
             session.enqueue([op]);
             if (editorOptions.formType !== 'fillForm') {
+                this.destroy(function(){});
+                isInitalized = false;
+                pendingInstanceCreationCalls = [];
                 session.close(function (err) {
                     if (err) {
                         callback(err);

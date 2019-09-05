@@ -16,7 +16,7 @@ import * as screenfull from 'screenfull';
   selector: 'app-create-form',
   templateUrl: './create-form.component.html'
 })
-export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
+export class CreateFormComponent implements OnInit, OnDestroy {
 
   @ViewChild('quill') quill: any;
   @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
@@ -119,12 +119,6 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       }
     );
     // this.quillConfig();
-  }
-
-  ngAfterViewInit() {
-  }
-
-  ngAfterViewChecked() {
   }
 
   ngOnDestroy() {
@@ -337,161 +331,6 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
 
     }
 
-  addTag() {
-    // retrieve tag control
-    const tag = this.tags.value;
-    // only add tag if it does not exist yet
-    if (this.form.tags.indexOf(tag) < 0) {
-      this.form.tags.push(tag);
-    }
-    // clear the input
-    this.tags.reset('');
-  }
-
-  removeTag(tagName: string) {
-    this.form.tags = this.form.tags.filter((tag) => tag !== tagName);
-  }
-
-  updateAuthorForm(values: Object) {
-    (<any>Object).assign(this.form, values);
-  }
-
-  waitForElement(someVariable: any) {
-    if (typeof someVariable !== "undefined") {
-        //variable exists, do what you want
-    } else {
-        setTimeout(this.waitForElement.apply(someVariable), 250);
-    }
-  }
-
-  submitForm() {
-    if (this.validate()) {
-      // Checks if user has introduced any input, if not user cannot submit unless user is updating the form
-      if (this.injectedComponents || this.updatingForm) {
-        // saves author Form
-        this.generateText();
-        // saves the generated text
-        if (this.documentType === 'office') {
-          this.odfEditorService.saveForPreview();
-          this.reader.readAsDataURL(window['ODTDOCUMENT']);
-          this.reader.onloadend = () => {
-              this.form.text = this.reader.result as string;
-              this.secondPartOfSubmitForm();
-          };
-        } else {
-          this.form.text = this.quillText;
-          this.secondPartOfSubmitForm();
-        }
-      } else {
-        alert('Form is empty');
-      }
-    }
-  }
-
-  secondPartOfSubmitForm() {
-    this.isSubmitting = true;
-    // saves current step
-    this.form.currentStep = this.currentStep;
-
-    // update the model
-    this.updateAuthorForm(this.formGroup.value);
-    console.log(this.form);
-
-
-    this.formService
-    .save(this.form)
-    .subscribe(
-      form => {
-        if (!this.updatingForm) {
-          this.toastr.success('Has been created', form.title, {
-            positionClass: 'toast-bottom-right',
-            progressBar: true,
-            progressAnimation: 'decreasing'
-          });
-          this.router.navigateByUrl('/create-form/edit/' + form.slug);
-        } else {
-          this.toastr.success('Has been updated', form.title, {
-            positionClass: 'toast-bottom-right',
-            progressBar: true,
-            progressAnimation: 'decreasing'
-          });
-        }
-        this.isSubmitting = false;
-      },
-      err => {
-        // this.errors = err;
-        this.toastr.error(err.errors.message, 'Something went wrong', {
-          positionClass: 'toast-bottom-right',
-          progressBar: true,
-          progressAnimation: 'decreasing'
-        });
-        this.isSubmitting = false;
-      }
-    );
-  }
-
-  validate() {
-    if (this.form.fields.length === 0) {
-      this.linkFormButton.nativeElement.click();
-      this.toastr.error('There are no fields in the form', 'Form empty', {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-      return false;
-    }
-    if (this.formGroup.controls.title.invalid) {
-      this.isFormValid = false;
-      this.title.nativeElement.classList.add('input-error');
-      this.linkInformationButton.nativeElement.click();
-      this.toastr.error('Title is not valid', 'Form empty', {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-      return false;
-    } else {
-      this.title.nativeElement.classList.remove('input-error');
-    }
-    if (this.formGroup.controls.description.invalid) {
-      this.isFormValid = false;
-      this.description.nativeElement.classList.add('input-error');
-      this.linkInformationButton.nativeElement.click();
-      this.toastr.error('Description is not valid', 'Form empty', {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-      return false;
-    } else {
-      this.description.nativeElement.classList.remove('input-error');
-    }
-    return true;
-  }
-
-  validateDescription(e: any) {
-    if (e.target.value.length > 400) {
-      e.target.value = e.target.value.substring(0, 400);
-    }
-  }
-
-  deleteForm() {
-    if (confirm('Are you sure you want to delete?')) {
-      this.isDeleting = true;
-      this.formService.destroy(this.form.slug)
-        .subscribe(
-          success => {
-            this.toastr.success('Has been deleted', this.form.title, {
-              positionClass: 'toast-bottom-right',
-              progressBar: true,
-              progressAnimation: 'decreasing'
-            });
-            this.router.navigateByUrl('/');
-          }
-        );
-    }
-  }
-
 
   setDivHeight() {
     if (window.innerWidth > 885) {
@@ -507,43 +346,6 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
       }
     }
   }
-
-
-  // toogleQuestionMenu(e: any) {
-
-  //   // Relocate menu
-  //   const navHeight = (document.querySelector('#form-creator') as HTMLElement).offsetTop;
-  //   const questionNavHeight = this.addQuestionMenuDiv.nativeElement.offsetTop;
-  //   if (questionNavHeight < navHeight) {
-  //     this.addQuestionMenuDiv.nativeElement.style.transform = `translateY(${navHeight}px)`;
-  //   } else {
-  //     this.addQuestionMenuDiv.nativeElement.style.transform = `translateY(0px)`;
-  //   }
-
-  //   if (this.addQuestionMenuDiv.nativeElement.style.display === 'block') {
-  //     if (e.target.classList.contains('close-question-menu') || e.target.tagName === 'BUTTON') {
-  //       this.addQuestionMenuDiv.nativeElement.style.display = 'none';
-  //       this.addQuestionMenuDiv.nativeElement.classList.remove('smooth-intro');
-  //     }
-  //   } else {
-  //     this.addQuestionMenuDiv.nativeElement.style.display = 'block';
-  //     this.addQuestionMenuDiv.nativeElement.classList.add('smooth-intro');
-  //   }
-  // }
-
-  // enableSortablejs() {
-  //   const content: HTMLElement = document.querySelector('#formAreaDiv') as HTMLElement;
-  //   const sortable = Sortable.create(content, {
-  //     handle: '.dragAndDropBotton',
-  //     scrollSensitivity: 200,
-  //     scroll: true,
-  //     ghostClass: 'ghost',
-  //     animation: 300,
-  //     fallbackTolerance: 40,
-  //     dragClass: 'sortable-drag'
-  //   });
-
-  // }
 
   // NUEVO
 
@@ -569,6 +371,22 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
     } else if (this.documentType === 'plain') {
       this.quillConfig();
       this.documentType = 'plain-text';
+    }
+  }
+
+  toastMessage(type: string, message1: string, message2: string) {
+    if (type === 'error') {
+      this.toastr.error(message1, message2, {
+        positionClass: 'toast-bottom-right',
+        progressBar: true,
+        progressAnimation: 'decreasing'
+      });
+    } else if (type === 'success') {
+      this.toastr.success(message1, message2, {
+        positionClass: 'toast-bottom-right',
+        progressBar: true,
+        progressAnimation: 'decreasing'
+      });
     }
   }
 
@@ -620,8 +438,8 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
 
       this.quill.nativeElement.querySelector('.ql-toolbar').appendChild(span);
       this.quill.nativeElement.querySelector('.ql-container').style.height = this.updatingForm ? '94%' : '98%';
-      this.setDivHeight();
-      window.addEventListener('resize', this.setDivHeight);
+      this.commonsService.resizeEditor();
+      window.addEventListener('resize', this.commonsService.resizeEditor);
     }, 0);
   }
 
@@ -655,6 +473,122 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy, Af
 
   toggleLightbox(lightBox: ElementRef) {
     this.commonsService.toggleLightbox(lightBox, false);
+  }
+
+  addTag() {
+    // retrieve tag control
+    const tag = this.tags.value;
+    // only add tag if it does not exist yet
+    if (this.form.tags.indexOf(tag) < 0) {
+      this.form.tags.push(tag);
+    }
+    // clear the input
+    this.tags.reset('');
+  }
+
+  removeTag(tagName: string) {
+    this.form.tags = this.form.tags.filter((tag) => tag !== tagName);
+  }
+
+  submitForm() {
+    if (this.validate()) {
+      // Checks if user has introduced any input, if not user cannot submit unless user is updating the form
+      if (this.injectedComponents || this.updatingForm) {
+        // saves author Form
+        this.generateText();
+        // saves the generated text
+        if (this.documentType === 'office') {
+          this.odfEditorService.saveForPreview();
+          this.reader.readAsDataURL(window['ODTDOCUMENT']);
+          this.reader.onloadend = () => {
+              this.form.text = this.reader.result as string;
+              this.saveForm();
+          };
+        } else {
+          this.form.text = this.quillText;
+          this.saveForm();
+        }
+      } else {
+        alert('Form is empty');
+      }
+    }
+  }
+
+  saveForm() {
+    this.isSubmitting = true;
+    // saves current step
+    this.form.currentStep = this.currentStep;
+    // update the model
+    this.updateAuthorForm(this.formGroup.value);
+    console.log(this.form);
+
+    this.formService
+    .save(this.form)
+    .subscribe(
+      form => {
+        if (!this.updatingForm) {
+          this.toastMessage('success', 'Has been created', form.title);
+          this.router.navigateByUrl('/create-form/edit/' + form.slug);
+        } else {
+          this.toastMessage('success', 'Has been updated', form.title);
+        }
+        this.isSubmitting = false;
+      },
+      err => {
+        this.toastMessage('error', err.errors.message, 'Something went wrong');
+        this.isSubmitting = false;
+      }
+    );
+  }
+
+  updateAuthorForm(values: Object) {
+    (<any>Object).assign(this.form, values);
+  }
+
+  deleteForm() {
+    if (confirm('Are you sure you want to delete?')) {
+      this.isDeleting = true;
+      this.formService.destroy(this.form.slug)
+        .subscribe(
+          success => {
+            this.toastMessage('success', 'Has been deleted', this.form.title);
+            this.router.navigateByUrl('/');
+          }
+        );
+    }
+  }
+
+  validate() {
+    if (this.form.fields.length === 0) {
+      this.linkFormButton.nativeElement.click();
+      this.toastMessage('error', 'There are no fields in the form', 'Form empty');
+      return false;
+    }
+    if (this.formGroup.controls.title.invalid) {
+      this.isFormValid = false;
+      this.title.nativeElement.classList.add('input-error');
+      this.linkInformationButton.nativeElement.click();
+      this.toastMessage('error', 'Title is not valid', 'Form empty');
+      return false;
+    } else {
+      this.title.nativeElement.classList.remove('input-error');
+    }
+    if (this.formGroup.controls.description.invalid) {
+      this.isFormValid = false;
+      this.description.nativeElement.classList.add('input-error');
+      this.linkInformationButton.nativeElement.click();
+      this.toastMessage('error', 'Description is not valid', 'Form empty');
+      return false;
+    } else {
+      this.description.nativeElement.classList.remove('input-error');
+    }
+    return true;
+  }
+
+  validateDescription(e: any) {
+    if (e.target.value.length > 400) {
+      e.target.value = e.target.value.substring(0, 400);
+    }
   }
 
 }

@@ -1,56 +1,18 @@
-<div id="sub-menu">
-    <div class="sub-menu-container sub-menu-container-myforms">
-        <ul class="sub-menu-nav" (click)="topMenuNav($event)">
-            <li class="current"><a href="created" class="sub-menu-button">Created</a></li>
-            <li ><a href="filled" class="sub-menu-button">Filled</a></li>
+<div class="sub-menu" #subMenu>
+    <div class="sub-menu__container">
+        <ul class="sub-menu__nav sub-menu__nav--my-forms" (click)="topMenuNav($event)">
+            <li class="sub-menu__nav__button sub-menu__nav__button--my-forms sub-menu__nav__button--current" data-toogle="created-forms">
+                Created
+            </li>
+            <li class="sub-menu__nav__button sub-menu__nav__button--my-forms" data-toogle="filled-forms">
+                Filled
+            </li>
         </ul>
     </div>
 </div>
-<div class="container">
+<!-- <div class="container">
     <div id="created" class="content">
-        <table>
-            <thead>
-                <tr>
-                    <th>Formulario</th>
-                    <th>Status</th>
-                    <th>Visibilidad</th>
-                    <th>Comentarios</th>
-                    <th>Likes</th>
-                    <th>Visualizaciones</th>
-                    <th>Actualizado</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let form of results">
-                    <td data-column="Formulario">
-                        <a [routerLink]="['/create-form/edit', form.slug]">{{ form.title }}</a>
-                    </td>
-                    <td data-column="Status">
-                        <div class="form-group">
-                            <input type="checkbox" name="status" id="status" value="enabled"
-                            [checked]="form.enabled" (change)="updateForm($event, form)">
-                            <label for="status">&emsp;Activo</label>
-                        </div>
-                    </td>
-                    <td data-column="Visibilidad">
-                        <div class="form-group">
-                            <input type="checkbox" name="visibility" id="visibility" value="public"
-                            [checked]="form.public" (change)="updateForm($event, form)">
-                            <label for="visibility">&emsp;Público</label>
-                        </div>       
-                    </td>
-                    <td data-column="Comentarios">
-                        <div class="form-group">
-                            <input type="checkbox" name="comentarios" id="comentarios" value="commentsEnabled"
-                            [checked]="form.commentsEnabled" (change)="updateForm($event, form)">
-                            <label for="comentarios">&emsp;Comentarios</label>
-                        </div>  
-                    </td>
-                    <td data-column="Likes">{{ form.likesCount }}</td>
-                    <td data-column="Visualizaciones">{{ form.viewsCount }}</td>
-                    <td data-column="Actualizado">{{form.updatedAt | date: 'dd/MM/yyyy'}}</td>
-                    <td data-column="Eliminar" (click)="deleteForm(form)"><span class="icon icon-trash-alt-regular delete"></span></td>
+
                 </tr>
             </tbody>
         </table>
@@ -104,4 +66,98 @@
             <h2>- No more forms to load -</h2>
         </div>
     </div>
+</div> -->
+<div id="created-forms">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Formulario</th>
+                <th>Status</th>
+                <th>Visibilidad</th>
+                <th>Comentarios</th>
+                <th>Likes</th>
+                <th>Visualizaciones</th>
+                <th>Actualizado</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let form of results">
+                <td data-column="Formulario">
+                    <a  class="form-link" [routerLink]="['/create-form/edit', form.slug]">{{ form.title }}</a>
+                </td>
+                <td data-column="Status">
+                    <label class="select-my-forms" for="{{ form.slug + 'status' }}">
+                        <input type="checkbox" class="filled-in" name="{{ form.slug + 'status' }}" id="{{ form.slug + 'status' }}" value="status" 
+                            [checked]="form.enabled" (change)="updateForm($event, form)" />
+                        <span>Activo</span>
+                    </label>
+                </td>
+                <td data-column="Visibilidad">
+                    <label class="select-my-forms" for="{{ form.slug + 'visible' }}">
+                        <input type="checkbox" class="filled-in" name="{{ form.slug + 'visible' }}" id="{{ form.slug + 'visible' }}" value="public" 
+                        [checked]="form.public" (change)="updateForm($event, form)"/>
+                        <span>Público</span>
+                    </label>   
+                </td>
+                <td data-column="Comentarios">
+                    <label class="select-my-forms" for="{{ form.slug + 'commnents' }}">
+                        <input type="checkbox" class="filled-in" name="{{ form.slug + 'commnents' }}" id="{{ form.slug + 'comments' }}" value="commentsEnabled" 
+                        [checked]="form.commentsEnabled" (change)="updateForm($event, form)"/>
+                        <span>Comentarios</span>
+                    </label> 
+                </td>
+
+                <td data-column="Likes">{{ form.likesCount }}</td>
+                <td data-column="Visualizaciones">{{ form.viewsCount }}</td>
+                <td data-column="Actualizado">{{form.updatedAt | date: 'dd/MM/yyyy'}}</td>
+                <td data-column="Eliminar" (click)="deleteForm(form)"><span class="icon icon-trash-alt-regular delete"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <app-loading-spinner></app-loading-spinner>
 </div>
+<div id="filled-forms" style="display: none">
+    <table class="table table--filled-forms">
+        <thead>
+            <tr>
+                <th>Formulario</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-column="Formulario">
+                    <a href="#prueba" class="form-link">Contrato de arrendamiento vacacional</a>
+                </td>
+                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
+            </tr>
+            <tr>
+                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
+                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
+            </tr>
+            <tr>
+                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
+                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
+            </tr>
+            <tr>
+                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
+                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
+            </tr>
+            <tr>
+                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
+                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
+            </tr>
+            <tr>
+                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
+                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
+            </tr>
+            <tr>
+                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
+                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+

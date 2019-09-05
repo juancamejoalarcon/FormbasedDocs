@@ -980,14 +980,6 @@ h1, h2, h3, h4, h5, h6 {
   display: block !important;
 }
 
-.d-inline {
-  display: inline-block !important;
-}
-
-.d-none-inline {
-  display: none !important;
-}
-
 .d-flex {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -5267,6 +5259,7 @@ input[type=checkbox] {
   background-color: #EDFAF9;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  overflow-y: scroll;
 }
 
 @media only screen and (max-width: 785px) {

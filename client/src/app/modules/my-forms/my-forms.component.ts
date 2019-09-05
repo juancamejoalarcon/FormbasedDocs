@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { User, UserService, FormListConfig, Form, FormService, SearchService, } from '../../core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { User, UserService, FormListConfig, Form, FormService, SearchService, CommonsService } from '../../core';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MyFormsComponent implements OnInit {
 
+  @ViewChild('subMenu') subMenu: ElementRef;
   public listConfig: FormListConfig = new FormListConfig();
   public loadingQuery = false;
   public results: Array<any> = [];
@@ -29,7 +30,8 @@ export class MyFormsComponent implements OnInit {
     private userService: UserService,
     private searchService: SearchService,
     private formService: FormService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private commonsService: CommonsService
   ) { }
 
   ngOnInit() {
@@ -203,33 +205,7 @@ export class MyFormsComponent implements OnInit {
 
   // UTILITY
   topMenuNav(e: any) {
-    e.preventDefault();
-    const menuLinks: NodeListOf<HTMLElement> = document.querySelectorAll('.sub-menu-button') as NodeListOf<HTMLElement>;
-    const contentSection: HTMLElement = document.querySelector('.container') as HTMLElement;
-    const contentDivs: NodeListOf<HTMLElement> = document.querySelectorAll('.content') as NodeListOf<HTMLElement>;
-    if (e.target.tagName === 'A') {
-      if (!e.target.classList.contains('current')) {
-            // Remove class current from menu buttons
-            menuLinks.forEach((button) => {
-                button.parentElement.classList.remove('current');
-            });
-            e.target.parentElement.classList.add('current');
-            const target = e.target.getAttribute('href');
-            contentSection.classList.add('animation-outro');
-            contentSection.classList.remove('animation-intro');
-            setTimeout(function() {
-                contentDivs.forEach((div) => {
-                    if (div.id === target) {
-                        div.style.display = 'block';
-                    } else {
-                        div.style.display = 'none';
-                    }
-                });
-                contentSection.classList.add('animation-intro');
-                contentSection.classList.remove('animation-outro');
-            }, 400);
-        }
-    }
+    this.commonsService.subMenuNav(e, this.subMenu.nativeElement);
   }
 
 }
