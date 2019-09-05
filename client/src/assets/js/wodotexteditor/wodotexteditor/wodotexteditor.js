@@ -457,6 +457,49 @@ window.Wodo = window.Wodo || (function () {
             });
             session.enqueue([op]);
             if (editorOptions.formType !== 'fillForm') {
+                // this.destroy(function(){});
+                // isInitalized = false;
+                // pendingInstanceCreationCalls = [];
+                session.close(function (err) {
+                    if (err) {
+                        callback(err);
+                    } else {
+                        editorSession.sessionController.getMetadataController().unsubscribe(gui.MetadataController.signalMetadataChanged, relayMetadataSignal);
+                        editorSession.destroy(function (err) {
+                            if (err) {
+                                callback(err);
+                            } else {
+                                editorSession = undefined;
+                                session.destroy(function (err) {
+                                    if (err) {
+                                        callback(err);
+                                    } else {
+                                        session = undefined;
+                                        callback();
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            } else {
+                this.destroy(function(){});
+                isInitalized = false;
+                pendingInstanceCreationCalls = [];
+            }
+        };
+
+        this.closeAndDestroyEditor = function (callback) {
+            runtime.assert(session, "session should exist here.");
+
+            endEditing();
+
+            var op = new ops.OpRemoveMember();
+            op.init({
+                memberid: memberId
+            });
+            session.enqueue([op]);
+            if (editorOptions.formType !== 'fillForm') {
                 this.destroy(function(){});
                 isInitalized = false;
                 pendingInstanceCreationCalls = [];

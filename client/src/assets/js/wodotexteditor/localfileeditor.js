@@ -229,6 +229,10 @@ function closeDocument() {
     Wodo.getEditor().closeDocument(()=>{});
 }
 
+function closeAndDestroyEditor() {
+    Wodo.getEditor().closeAndDestroyEditor(()=>{});
+}
+
 
 function saveForPreview() {
     function saveByteArrayLocally(err, data) {
@@ -273,5 +277,6 @@ export {
     saveForPreview,
     removeCursor,
     getEditorSession,
+    closeAndDestroyEditor,
     loadPreview
 };

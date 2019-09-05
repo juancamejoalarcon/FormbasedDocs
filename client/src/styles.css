@@ -2285,7 +2285,7 @@ input:focus + .slider {
 
 .info-lightbox {
   position: fixed;
-  z-index: 2;
+  z-index: 15;
   padding-top: 100px;
   left: 0;
   top: 0;
@@ -5259,7 +5259,6 @@ input[type=checkbox] {
   background-color: #EDFAF9;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  overflow-y: scroll;
 }
 
 @media only screen and (max-width: 785px) {

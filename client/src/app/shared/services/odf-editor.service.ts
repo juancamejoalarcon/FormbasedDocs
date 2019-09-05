@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as FormBasedDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
-// import '../../../assets/js/wodotexteditor/localfileeditor.js';
+import { CommonsService } from '../../core';
 
 @Injectable()
 export class OdfEditorService {
@@ -8,7 +8,9 @@ export class OdfEditorService {
     public valuesToChange: Array<any>;
     public documentBodyClone: any;
 
-    constructor () {}
+    constructor (
+        private commonsService: CommonsService
+    ) {}
 
     createEditor(formType: string, idOfContainer: string = 'editorContainer') {
         FormBasedDocsApi.createEditor(formType, idOfContainer);
@@ -48,6 +50,10 @@ export class OdfEditorService {
 
     closeEditor() {
         FormBasedDocsApi.closeDocument();
+    }
+
+    closeAndDestroyEditor() {
+        FormBasedDocsApi.closeAndDestroyEditor();
     }
 
     setCursorPositionForDragAndDrop(e: any) {
@@ -91,6 +97,16 @@ export class OdfEditorService {
                     }
                 }
             });
+            this.commonsService.toggleSpinner();
+            setTimeout(() => {
+                this.saveForPreview();
+                this.closeEditor();
+                this.loadPreview();
+            }, 1000);
+            setTimeout(() => {
+                this.setDragAndDropForSetUp();
+                this.commonsService.toggleSpinner();
+            }, 2000);
         });
     }
 

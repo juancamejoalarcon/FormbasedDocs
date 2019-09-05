@@ -123,7 +123,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.documentType === 'office') {
-      this.odfEditorService.closeEditor();
+      this.odfEditorService.closeAndDestroyEditor();
     }
   }
 
@@ -141,24 +141,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           element.classList.toggle('d-none-widget');
         }
       }
-
       if (this.isInPreviewMode) {
-        this.odfEditorService.closeEditor();
-        this.odfEditorService.loadPreview();
-        this.commonsService.toggleSpinner();
-        setTimeout(() => {
-          this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-          this.odfEditorService.resizeDocumentContainer();
-          window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
-          this.odfEditorService.setDragAndDropForSetUp();
-          this.commonsService.toggleSpinner();
-          this.isInPreviewMode = false;
-        }, 2000);
+        this.setEditorForPreviewMode();
       } else {
-        this.odfEditorService.saveForPreview();
-        this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-        this.isInPreviewMode = true;
-        this.odfEditorService.resizeDocumentContainer();
+        this.unsetEditorForPreviewMode();
       }
       document.getElementById('webodfeditor-canvascontainer1').style.top =
         document.getElementsByClassName('webodfeditor-toolbarcontainer')[0].clientHeight + 'px';
@@ -166,7 +152,27 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.generateText();
     }
     document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
+  }
 
+  setEditorForPreviewMode() {
+    this.odfEditorService.closeEditor();
+    this.odfEditorService.loadPreview();
+    this.commonsService.toggleSpinner();
+    setTimeout(() => {
+      this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+      this.odfEditorService.resizeDocumentContainer();
+      window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
+      this.odfEditorService.setDragAndDropForSetUp();
+      this.commonsService.toggleSpinner();
+      this.isInPreviewMode = false;
+    }, 2000);
+  }
+
+  unsetEditorForPreviewMode() {
+    this.odfEditorService.saveForPreview();
+    this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+    this.isInPreviewMode = true;
+    this.odfEditorService.resizeDocumentContainer();
   }
 
   generateText(e: any = {}) {
