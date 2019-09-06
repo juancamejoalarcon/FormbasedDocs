@@ -100,13 +100,16 @@ export class OdfEditorService {
             this.commonsService.toggleSpinner();
             setTimeout(() => {
                 this.saveForPreview();
+            }, 200);
+            setTimeout(() => {
+                this.saveForPreview();
                 this.closeEditor();
                 this.loadPreview();
-            }, 1000);
+            }, 800);
             setTimeout(() => {
                 this.setDragAndDropForSetUp();
                 this.commonsService.toggleSpinner();
-            }, 2000);
+            }, 1200);
         });
     }
 

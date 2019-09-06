@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } fr
 import { ActivatedRoute, Router } from '@angular/router';
 import { Form, FormService, UserService, CommonsService, ComponentInjectorService } from '../../core';
 import { ToastrService } from 'ngx-toastr';
+import { OdfEditorService } from '../../shared';
 import * as screenfull from 'screenfull';
 
 @Component({
@@ -39,7 +40,8 @@ export class FillFormComponent implements OnInit, AfterViewInit {
     private commonsService: CommonsService,
     private route: ActivatedRoute,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private odfEditorService: OdfEditorService
   ) { }
 
   ngOnInit() {
@@ -67,9 +69,16 @@ export class FillFormComponent implements OnInit, AfterViewInit {
       } );
   }
 
+  ngOnDestroy() {
+    if (this.documentType === 'office') {
+      this.odfEditorService.closeAndDestroyEditor();
+    }
+  }
+
   ngAfterViewInit() {
     this.setDivHeight();
     window.addEventListener('resize', this.setDivHeight);
+    this.setEditorConfig();
     //     // Force click so it can update the value
     // setTimeout( () => { this.formAreaDiv.nativeElement.click(); }, 10);
     // if (this.form.indications !== '' && this.state === 'newUser') {
@@ -246,6 +255,18 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   //     screenfull.request(el);
   //   }
   // }
+
+  setEditorConfig() {
+    this.commonsService.toggleSpinner();
+    if (this.documentType === 'office') {
+      this.odfEditorService.createEditorFromURI('fillForm', 'editorContainer', this.form.text);
+      setTimeout(() => {
+        this.odfEditorService.resizeDocumentContainer();
+        window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
+        this.commonsService.toggleSpinner();
+      }, 4000);
+    }
+  }
 
   topMenuNav(e: any) {
     this.commonsService.subMenuNav(e, this.subMenu.nativeElement);
