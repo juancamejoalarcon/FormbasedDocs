@@ -412,7 +412,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
         ['blockquote', 'code-block'],
 
-        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
         [{ 'list': 'ordered'}, { 'list': 'bullet' }],
         [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
         [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
@@ -424,6 +423,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         { 'background': [] }],          // dropdown with defaults from theme
         [{ 'font': ['', 'roboto', 'times-new-roman', 'arial', 'lato', 'montserrat'] }],
         [{ 'align': [] }],
+        ['link', 'image'],
 
         ['clean']
       ]
