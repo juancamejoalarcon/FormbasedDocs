@@ -128,18 +128,13 @@ export class InputTextComponent implements OnInit, AfterViewInit {
 
   toogleModal(modal: ElementRef) {
     this.commonsService.toggleModal(modal, false);
+    console.log(this.indications);
   }
 
   showIndication() {
-    if (this.indicationsType === 'outsideText') {
-      while (this.indicationsDiv.nativeElement.firstChild) {
-        this.indicationsDiv.nativeElement.removeChild(this.indicationsDiv.nativeElement.firstChild);
-      }
-      this.indicationsDiv.nativeElement.insertAdjacentHTML('beforeend', this.indications);
+
       this.commonsService.toggleModal(this.modalIndication.nativeElement);
-    } else {
-      console.log(this.indicationsType);
-    }
+
   }
 
   deleteDiv() {

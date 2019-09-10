@@ -147,11 +147,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         this.unsetEditorForPreviewMode();
       }
       document.getElementById('webodfeditor-canvascontainer1').style.top =
-        document.getElementsByClassName('webodfeditor-toolbarcontainer')[0].clientHeight + 'px';
+      document.getElementsByClassName('webodfeditor-toolbarcontainer')[0].clientHeight + 'px';
+      document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
     } else {
       this.generateText();
     }
-    document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
   }
 
   setEditorForPreviewMode() {

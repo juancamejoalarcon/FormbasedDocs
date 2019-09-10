@@ -15,15 +15,20 @@
         <div class="editor-container-modal-new-question" style="height: 75%;" #tab1>
             <!-- Create the editor container -->
             <quill-editor (onContentChanged)="quillText = $event.html; sendIndications.emit($event.html)" 
-                [ngModel]="quillText" [ngModelOptions]="{standalone: true}" 
-                [customOptions]="customOptions" [modules]="quillModules"
+                [ngModel]="quillText" [modules]="{
+                    toolbar: [
+                    ['bold', 'italic', 'underline', 'strike'], 
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'size': ['small', false, 'large', 'huge'] }],
+                    [{ 'direction': 'rtl' }],
+                    ['link']]}"
                 #quill>
             </quill-editor>
             
         </div>
         
         <div style="display:none; height: 85%;" #tab2>
-            <textarea name="" id="" rows="10" placeholder="Indicacion for this field..."></textarea>
+            <textarea name="" id="" rows="10" placeholder="Indicacion for this field..." #normalText (keyup)="sendIndications.emit(normalText.value)"></textarea>
         </div>
     </div>
     <input class="{{indicationsIdentifier}}" type="text" [value]="indications" [attr.data-indicationsType]="indicationsType" hidden>         

@@ -10,38 +10,6 @@
         </ul>
     </div>
 </div>
-<!-- <div class="container">
-    <div id="created" class="content">
-        </div>
-    </div>
-    <div id="filled" class="content">
-        <table>
-            <thead>
-                <tr>
-                    <th>Formulario</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let form of resultsFilled">
-                    <td data-column="Formulario">
-                        <a [routerLink]="['/fill-form/edit', form.slug]">
-                            {{form.title}}
-                        </a>
-                    </td>
-                    <td data-column="Eliminar" (click)="deleteFilled(form)"><span class="icon icon-trash-alt-regular delete"></span></td>
-                </tr>
-            </tbody>
-        </table>
-        <span class="load-more-my-forms" *ngIf="noMoreFormsFilled === false">
-            <button class="load-more-button" (click)="moreFormsFilled()">Cargar más</button>
-        </span>
-
-        <div class="noMoreForms" *ngIf="noMoreFormsFilled === true">
-            <h2>- No more forms to load -</h2>
-        </div>
-    </div>
-</div> -->
 <div id="created-forms">
     <table class="table">
         <thead>

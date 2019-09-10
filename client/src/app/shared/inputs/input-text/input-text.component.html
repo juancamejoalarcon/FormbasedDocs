@@ -150,7 +150,7 @@
             <h2 *ngIf="isNewUser()">{{field.question}}</h2>
         </div>
         <div class="modal__content__modal-middle modal__content__modal-middle--question-indication">
-            <div class="modal__content__modal-middle__container" #indicationsDiv>
+            <div class="modal__content__modal-middle__container" [innerHTML]="this.indications">
             </div>
         </div>
         <div class="new-modal-content__footer new-modal-content__footer--indicactions">
