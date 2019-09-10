@@ -79,14 +79,11 @@ export class CommonsService {
             document.getElementById('fields-area').style.height = '100%';
             document.getElementById('text-area').style.height = '100%';
             // document.getElementsByClassName('sub-menu')[0]
-            (document.querySelector('#information') as HTMLElement).style.height =  window.innerHeight - document.getElementById('information').offsetTop + 'px';
-
         } else {
             const newHeight = window.innerHeight - document.getElementById('form-creator').offsetTop + 'px';
             document.getElementById('form-creator').style.height = '100%';
             document.getElementById('fields-area').style.height = newHeight;
             document.getElementById('text-area').style.height = window.innerHeight + 'px';
-            (document.querySelector('#information') as HTMLElement).style.height = newHeight;
         }
     }
 

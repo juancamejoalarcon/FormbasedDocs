@@ -348,7 +348,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
         (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
         (document.querySelector('#editor-container') as HTMLElement).style.height = newHeightForEditor;
-        (document.querySelector('#information') as HTMLElement).style.height = newHeight;
       }
     }
   }

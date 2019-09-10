@@ -12,31 +12,6 @@
 </div>
 <!-- <div class="container">
     <div id="created" class="content">
-
-                </tr>
-            </tbody>
-        </table>
-        <span class="load-more-my-forms" *ngIf="noMoreForms === false">
-            <button class="load-more-button" (click)="moreForms()">Cargar más</button>
-        </span>
-
-        <div class="noMoreForms" *ngIf="noMoreForms === true">
-            <h2>- No more forms to load -</h2>
-        </div>
-
-        <div class="loader" [style.display]="loadingQuery ? 'flex' : 'none'">
-            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="80px" height="80px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-            <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
-                <animateTransform attributeType="xml"
-                attributeName="transform"
-                type="rotate"
-                from="0 25 25"
-                to="360 25 25"
-                dur="0.6s"
-                repeatCount="indefinite"/>
-                </path>
-            </svg>
         </div>
     </div>
     <div id="filled" class="content">
@@ -115,7 +90,13 @@
             </tr>
         </tbody>
     </table>
-    <app-loading-spinner></app-loading-spinner>
+    <app-loading-spinner class="loader" [style.display]="loadingQuery ? 'flex' : 'none'"></app-loading-spinner>
+    <span class="load-more-my-forms w-100 d-flex-and-center" *ngIf="noMoreForms === false">
+        <button class="button-filled" (click)="moreForms()">Cargar más</button>
+    </span>
+    <div class="noMoreForms" *ngIf="noMoreForms === true">
+        <h2>- No more forms to load -</h2>
+    </div>
 </div>
 <div id="filled-forms" style="display: none">
     <table class="table table--filled-forms">
@@ -126,38 +107,23 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let form of resultsFilled">
                 <td data-column="Formulario">
-                    <a href="#prueba" class="form-link">Contrato de arrendamiento vacacional</a>
+                    <a class="form-link" [routerLink]="['/fill-form/edit', form.slug]">
+                        {{form.title}}
+                    </a>
                 </td>
-                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
+                <td data-column="Eliminar" (click)="deleteFilled(form)"><span class="icon icon-trash-alt-regular delete"></span></td>
             </tr>
-            <tr>
-                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
-                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
-            </tr>
-            <tr>
-                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
-                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
-            </tr>
-            <tr>
-                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
-                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
-            </tr>
-            <tr>
-                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
-                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
-            </tr>
-            <tr>
-                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
-                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
-            </tr>
-            <tr>
-                <td data-column="Formulario">Contrato de arrendamiento vacacional</td>
-                <td data-column="Eliminar"><span class="icon icon-trash-alt-regular delete"></span></td>
-            </tr>
-
         </tbody>
     </table>
+    <app-loading-spinner class="loader" [style.display]="loadingQuery ? 'flex' : 'none'"></app-loading-spinner>
+
+    <div class="noMoreForms" *ngIf="noMoreFormsFilled === true">
+        <h2>- No more forms to load -</h2>
+    </div>
+    <span class="load-more-my-forms w-100 d-flex-and-center" *ngIf="noMoreFormsFilled === false">
+        <button class="button-filled" (click)="moreFormsFilled()">Cargar más</button>
+    </span>
 </div>
 

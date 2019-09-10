@@ -201,15 +201,15 @@
                 </div>
             </div>
         </div>
-        <div class="form-creator__text-area form-creator__text-area--quill-text"
-        [ngClass]="{'form-creator__text-area--quill-text': this.documentType === 'plain'}" id="text-area">
+        <div class="form-creator__text-area" id="text-area"
+        [ngClass]="{'form-creator__text-area--quill-text': this.form.documentType === 'plain'}">
             <!-- Create the editor container -->
             <div class="form-creator__text-area__quill-text-result"  id="editor" #formBasedDocDiv
             *ngIf="this.form.documentType === 'plain'">
                 {{generatedText}}
             </div>
             <!-- Office document -->
-            <div id="wodoformbaseddocs" style="width:100%; height:100%; margin:0px; padding:0px" *ngIf="this.documentType === 'office'">
+            <div id="wodoformbaseddocs" style="width:100%; height:100%; margin:0px; padding:0px" *ngIf="this.form.documentType === 'office'">
                 <div id="editorContainer" style="width:100%; height:100%; margin:0px; padding:0px">
                 </div>
             </div>
@@ -224,8 +224,16 @@
 </div>
 
 <div class="modal" #modal>
-    <div class="modal__content modal__content--payment">
-        <p>{{form.indications}}</p>
-        <button (click)="toogleModal(modal); setCurrentStep(currentStep + 1);">entendido</button>
+    <div class="modal__content modal__content--privacy">
+        <div class="modal__content__top modal__content__top--privacy">
+            <h2>Indicaciones antes de comenzar el formulario</h2>
+        </div>
+        <div class="modal__content__modal-middle modal__content__modal-middle--privacy" id="modal-middle-privacy">
+            <div class="modal__content__modal-middle__container" [innerHTML]="form.indications">
+            </div>
+        </div>
+        <div class="modal__content__modal-bottom modal__content__modal-bottom--privacy">
+            <button class="button-filled" id="modal-button" (click)="toogleModal(modal); setCurrentStep(currentStep + 1);">Rellenar</button>
+        </div>
     </div>
 </div>

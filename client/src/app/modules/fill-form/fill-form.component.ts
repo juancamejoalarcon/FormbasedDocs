@@ -60,6 +60,9 @@ export class FillFormComponent implements OnInit, AfterViewInit {
           this.updatingForm = true;
         }
         this.updateProgressBarPercentage();
+        this.setEditorConfig();
+        this.setDivHeight();
+        window.addEventListener('resize', this.setDivHeight);
         console.log(this.form);
       }
     );
@@ -70,15 +73,14 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   }
 
   ngOnDestroy() {
-    if (this.documentType === 'office') {
+    if (this.form.documentType === 'office') {
       this.odfEditorService.closeAndDestroyEditor();
     }
   }
 
   ngAfterViewInit() {
-    this.setDivHeight();
-    window.addEventListener('resize', this.setDivHeight);
-    this.setEditorConfig();
+    // this.setDivHeight();
+    // window.addEventListener('resize', this.setDivHeight);
     //     // Force click so it can update the value
     // setTimeout( () => { this.formAreaDiv.nativeElement.click(); }, 10);
     // if (this.form.indications !== '' && this.state === 'newUser') {
@@ -258,13 +260,15 @@ export class FillFormComponent implements OnInit, AfterViewInit {
 
   setEditorConfig() {
     this.commonsService.toggleSpinner();
-    if (this.documentType === 'office') {
+    if (this.form.documentType === 'office') {
       this.odfEditorService.createEditorFromURI('fillForm', 'editorContainer', this.form.text);
       setTimeout(() => {
         this.odfEditorService.resizeDocumentContainer();
         window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
         this.commonsService.toggleSpinner();
       }, 4000);
+    } else {
+      this.commonsService.toggleSpinner();
     }
   }
 

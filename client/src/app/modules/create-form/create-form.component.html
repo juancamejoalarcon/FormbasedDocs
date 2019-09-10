@@ -273,7 +273,10 @@
             <!-- <textarea formControlName="indications" name="indications" id="description" cols="30" rows="10" placeholder="indications"></textarea> -->
             <div class="information__section-left__indications">
                 <!-- Create the editor container -->
-                <quill-editor placeholder="Indicaciones antes de rellenar el formulario" [modules]="{
+                <quill-editor placeholder="Indicaciones antes de rellenar el formulario" 
+                (onContentChanged)="this.form.indications = $event.html"
+                formControlName="indications"
+                [modules]="{
                     toolbar: [
                     ['bold', 'italic', 'underline', 'strike'], 
                     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
