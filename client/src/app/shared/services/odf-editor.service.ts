@@ -72,7 +72,7 @@ export class OdfEditorService {
         FormBasedDocsApi.loadPreview();
     }
 
-    refreshCanvasContainer() {
+    getEditorSession() {
         return FormBasedDocsApi.getEditorSession();
     }
 

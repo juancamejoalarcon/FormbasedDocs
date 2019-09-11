@@ -315,6 +315,10 @@ define("webodf/editor/EditorSession", [
             return selectionController;
         }
 
+        this.getCaret = function () {
+            return caretManager.getCaret(localMemberId);
+        }
+
         this.setCursorPositionForDragAndDrop = function (event) {
             var selection = mutableSelection(window.getSelection()),
             isCollapsed = window.getSelection().isCollapsed,
