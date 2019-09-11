@@ -89,8 +89,14 @@ export class OdfEditorService {
             cursorNode.parentNode.childNodes.forEach((element, index) => {
                 if (element['tagName'] === 'cursor') {
                     if (cursorNode.parentNode.childNodes[index + 1] !== undefined) {
-                        cursorNode.parentNode.childNodes[index + 1].textContent = 
-                        event['dataTransfer'].getData('text') + cursorNode.parentNode.childNodes[index + 1].textContent;
+                        // Si es un espacio usamos un div anterior, porque no lo detecta
+                        if (cursorNode.parentNode.childNodes[index + 1]['tagName'] == 'text:s') {
+                            const textContent = document.createTextNode(event['dataTransfer'].getData('text'));
+                            cursorNode.parentNode.insertBefore(textContent, cursorNode.nextSibling);
+                        } else {
+                            cursorNode.parentNode.childNodes[index + 1].textContent = 
+                            event['dataTransfer'].getData('text') + cursorNode.parentNode.childNodes[index + 1].textContent;
+                        }
                     } else {
                         const textContent = document.createTextNode(event['dataTransfer'].getData('text'));
                         cursorNode.parentNode.insertBefore(textContent, cursorNode);

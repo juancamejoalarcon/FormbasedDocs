@@ -89,7 +89,7 @@ export class InputTextComponent implements OnInit, AfterViewInit {
 
   showChangeIdInputField() {
     if (this.draggableText.nativeElement.style.display === 'none') {
-      this.draggableText.nativeElement.style.display = 'block';
+      this.draggableText.nativeElement.style.display = 'inline';
       this.changeIdInput.nativeElement.style.display = 'none';
       if (this.changeIdInput.nativeElement.value === 'i') {
         this.getRandomId();
@@ -97,7 +97,7 @@ export class InputTextComponent implements OnInit, AfterViewInit {
       }
     } else {
       this.draggableText.nativeElement.style.display = 'none';
-      this.changeIdInput.nativeElement.style.display = 'block';
+      this.changeIdInput.nativeElement.style.display = 'inline';
       this.changeIdInput.nativeElement.focus();
     }
   }
