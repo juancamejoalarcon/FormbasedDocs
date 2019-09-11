@@ -175,6 +175,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.odfEditorService.resizeDocumentContainer();
     // Hide Caret
     this.odfEditorService.getEditorSession().getCaret().hide();
+    window['documentBodyCloneGlobal'] = this.documentBodyClone;
   }
 
   generateText(e: any = {}) {

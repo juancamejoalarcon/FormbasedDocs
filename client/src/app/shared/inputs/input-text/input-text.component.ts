@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { CommonsService } from '../../../core';
 import { InputCommonsService } from '../shared';
+import { OdfEditorService } from '../../services';
 
 @Component({
   selector: 'app-input-text',
@@ -32,7 +33,8 @@ export class InputTextComponent implements OnInit, AfterViewInit {
 
   constructor(
     private commonsService: CommonsService,
-    private inputCommonsService: InputCommonsService) { }
+    private inputCommonsService: InputCommonsService,
+    private odfEditorService: OdfEditorService) { }
 
   ngOnInit() {
     if ( this.isNewUser() || this.isEditUser() ) {
@@ -128,13 +130,14 @@ export class InputTextComponent implements OnInit, AfterViewInit {
 
   toogleModal(modal: ElementRef) {
     this.commonsService.toggleModal(modal, false);
-    console.log(this.indications);
   }
 
   showIndication() {
-
+    if (this.indicationsType === 'outsideText') {
       this.commonsService.toggleModal(this.modalIndication.nativeElement);
-
+    } else {
+      this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
+    }
   }
 
   deleteDiv() {

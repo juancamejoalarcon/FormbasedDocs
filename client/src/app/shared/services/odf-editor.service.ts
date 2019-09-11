@@ -247,6 +247,59 @@ export class OdfEditorService {
         }
     }
 
+    showIndicationInsideText(wordToReplace: string, indications: string) {
+        let element: any;
+        findword(
+            window['documentBodyCloneGlobal'].getElementsByTagName('*'),
+            document.getElementsByTagName('office:text')[0].getElementsByTagName('*'),
+            wordToReplace
+        );
+
+        function findword(cloneOfElements: any, elements: any, wordToReplace: any) {
+            for (let i = 0; i < cloneOfElements.length; i++) {
+                if (cloneOfElements[i].childNodes.length === 0) {
+                    if (cloneOfElements[i].textContent.includes(wordToReplace)) {
+                        element = elements[i].parentElement;
+                    }
+                } else {
+                    if (elements[i] !== undefined) {
+                        findword(cloneOfElements[i].childNodes, elements[i].childNodes, wordToReplace);
+                    }
+                }
+            }
+        }
+        var para = document.createElement("div");
+        para.innerHTML = `<div class="indicator-content">
+                            <button id="close-indication">&#10006;</button>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </span>
+                        </div>`;
+
+        console.dir(element.getBoundingClientRect());
+
+                    
+        para.style.top = element.getBoundingClientRect().top;
+        para.style.left = element.getBoundingClientRect().left;
+        para.classList.add('indicator');
+        para.classList.add('smooth-intro');
+        element.appendChild(para);
+        getPosition(element);
+        element.querySelector('#close-indication').addEventListener('click', () => {
+            para.parentNode.removeChild(para);
+        });
+
+        function getPosition(el) {
+
+        const scrollResult =  el.parentElement.getBoundingClientRect().top - 
+            document.getElementsByClassName('sub-menu')[0].clientHeight -
+            document.getElementsByTagName("office:text")[0].getBoundingClientRect().top - 
+            document.getElementsByTagName("nav")[0].clientHeight;
+        
+            document.getElementById('webodfeditor-canvascontainer1').scrollTop = scrollResult;
+        }
+    }
+
+
     // This functions traverses the DOM looking for the element that contains the word
     // in two objects, the clone original one and in the one we are going to replace the word
     findword(cloneOfElements: any, elements: any, wordToReplace: any) {
