@@ -335,6 +335,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           if (!this.commonsService.isObjectEmpty(valuesToInsert)) {
             this.odfEditorService.replaceWord(this.form.fields, this.documentBodyClone);
           }
+          window['documentBodyCloneGlobal'] = this.documentBodyClone;
         }
       }
 

@@ -248,6 +248,8 @@ export class OdfEditorService {
     }
 
     showIndicationInsideText(wordToReplace: string, indications: string) {
+        console.log(wordToReplace);
+        console.log(window['documentBodyCloneGlobal']);
         let element: any;
         findword(
             window['documentBodyCloneGlobal'].getElementsByTagName('*'),
@@ -255,11 +257,36 @@ export class OdfEditorService {
             wordToReplace
         );
 
+        const para = document.createElement("div");
+        para.innerHTML = `<div class="indicator-content">
+                            <button id="close-indication">&#10006;</button>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </span>
+                        </div>`;
+
+        console.log(element.getBoundingClientRect());
+
+                    
+        para.style.top = element.getBoundingClientRect().top;
+        para.style.left = element.getBoundingClientRect().left;
+        para.classList.add('indicator');
+        para.classList.add('smooth-intro');
+        // element.appendChild(para);
+        document.body.appendChild(para);
+        // getPosition(element);
+        // element.querySelector('#close-indication').addEventListener('click', () => {
+        //     para.parentNode.removeChild(para);
+        // });
+
         function findword(cloneOfElements: any, elements: any, wordToReplace: any) {
             for (let i = 0; i < cloneOfElements.length; i++) {
                 if (cloneOfElements[i].childNodes.length === 0) {
                     if (cloneOfElements[i].textContent.includes(wordToReplace)) {
-                        element = elements[i].parentElement;
+                        if (elements[i].parentElement.tagName === 'text:span') {
+                            element = elements[i].parentElement.parentElement;
+                        } else {
+                            element = elements[i].parentElement;
+                        }
                     }
                 } else {
                     if (elements[i] !== undefined) {
@@ -268,35 +295,16 @@ export class OdfEditorService {
                 }
             }
         }
-        var para = document.createElement("div");
-        para.innerHTML = `<div class="indicator-content">
-                            <button id="close-indication">&#10006;</button>
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </span>
-                        </div>`;
 
-        console.dir(element.getBoundingClientRect());
+        // function getPosition(el: any) {
 
-                    
-        para.style.top = element.getBoundingClientRect().top;
-        para.style.left = element.getBoundingClientRect().left;
-        para.classList.add('indicator');
-        para.classList.add('smooth-intro');
-        element.appendChild(para);
-        getPosition(element);
-        element.querySelector('#close-indication').addEventListener('click', () => {
-            para.parentNode.removeChild(para);
-        });
-
-        function getPosition(el) {
-
-        const scrollResult =  el.parentElement.getBoundingClientRect().top - 
-            document.getElementsByClassName('sub-menu')[0].clientHeight -
-            document.getElementsByTagName("office:text")[0].getBoundingClientRect().top - 
-            document.getElementsByTagName("nav")[0].clientHeight;
+        // const scrollResult =  el.parentElement.getBoundingClientRect().top - 
+        //     document.getElementsByClassName('sub-menu')[0].clientHeight -
+        //     document.getElementsByTagName("office:text")[0].getBoundingClientRect().top - 
+        //     document.getElementsByTagName("nav")[0].clientHeight;
         
-            document.getElementById('webodfeditor-canvascontainer1').scrollTop = scrollResult;
-        }
+        //     document.getElementById('webodfeditor-canvascontainer1').scrollTop = scrollResult;
+        // }
     }
 
 
