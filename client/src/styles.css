@@ -2254,11 +2254,10 @@ input:focus + .slider {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  pointer-events: auto;
-  -webkit-user-select: text;
+  /* -webkit-user-select: text;
      -moz-user-select: text;
       -ms-user-select: text;
-          user-select: text;
+          user-select: text; */
 }
 
 .indicator-content span {
@@ -2267,6 +2266,7 @@ input:focus + .slider {
 }
 
 .indicator-content button {
+  pointer-events: visiblePainted;
   background: none;
   border: none;
   color: #fff;

@@ -175,170 +175,172 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.odfEditorService.resizeDocumentContainer();
     // Hide Caret
     this.odfEditorService.getEditorSession().getCaret().hide();
+    this.odfEditorService.getEditorSession().getCaret().setColor('#FFFFFF');
     window['documentBodyCloneGlobal'] = this.documentBodyClone;
   }
 
   generateText(e: any = {}) {
-    this.injectedComponents = this.formAreaDiv.nativeElement.querySelectorAll('.inputCollection');
-    const valuesToInsert: any = {};
+    if (this.preventGenerateText(e)) {
+      this.injectedComponents = this.formAreaDiv.nativeElement.querySelectorAll('.inputCollection');
+      const valuesToInsert: any = {};
 
-    // Clean the authorForm.fields so when updating it doesn't duplicate inputs to save
-    this.form.fields = [];
-    let index = 0;
-    for (const injectedComponent of this.injectedComponents) {
-      if (this.commonsService.checkIfParentElementIdContainsString(injectedComponent, 'formAreaDiv', 9)) {
-        // TEXT
-        if (injectedComponent.id.includes('iText')) {
-          const idWithOutFilter = injectedComponent.id.replace('iText', '');
-          if (injectedComponent === document.activeElement) {
-            valuesToInsert['focused' + idWithOutFilter] = [injectedComponent.value];
+      // Clean the authorForm.fields so when updating it doesn't duplicate inputs to save
+      this.form.fields = [];
+      let index = 0;
+      for (const injectedComponent of this.injectedComponents) {
+        if (this.commonsService.checkIfParentElementIdContainsString(injectedComponent, 'formAreaDiv', 9)) {
+          // TEXT
+          if (injectedComponent.id.includes('iText')) {
+            const idWithOutFilter = injectedComponent.id.replace('iText', '');
+            if (injectedComponent === document.activeElement) {
+              valuesToInsert['focused' + idWithOutFilter] = [injectedComponent.value];
+            } else {
+              valuesToInsert[idWithOutFilter] = [injectedComponent.value];
+            }
+            // Save
+            const newField: any = {
+              type: 'iText',
+              referenceNumber: idWithOutFilter,
+              question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
+              indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
+              indicationsType: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter)
+                                                              .getAttribute('data-indicationsType'),
+              mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked,
+              wordToReplace: idWithOutFilter,
+              replacement: injectedComponent.value,
+              index: index
+            };
+            this.form.fields.push(newField);
+          }
+          // RADIO-A
+          if (injectedComponent.id.includes('iRadioA') === true) {
+            const idWithOutFilter = injectedComponent.id.replace('iRadioA', '');
+            // const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
+            // const radios = this.formAreaDiv.nativeElement.querySelector('#' + injectedComponent.id).querySelectorAll(name);
+
+            // for (let i = 0, length = radios.length; i < length; i++) {
+            //   if (radios[i].checked) {
+            //     if (radios[i] === document.activeElement) {
+            //       valuesToInsert['focused' + idWithOutFilter] = [radios[i].value];
+            //     } else {
+            //       valuesToInsert[idWithOutFilter] = [radios[i].value];
+            //     }
+            //     // only one radio can be logically checked
+            //     break;
+            //   }
+            // }
+            // Save
+            const newField: any = {
+              type: 'iRadioA',
+              referenceNumber: idWithOutFilter,
+              // radios: Array.prototype.slice.call(radios).map((radio: any) => radio.value),
+              question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
+              // indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
+              mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked,
+              index: index
+            };
+            this.form.fields.push(newField);
+          }
+    //       // RADIO-B
+    //       if (injectedComponent.id.includes('iRadioB') === true) {
+    //         const idWithOutFilter = injectedComponent.id.replace('iRadioB', '');
+    //         const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
+    //         const radios = this.formAreaDiv.nativeElement.querySelector('#' + injectedComponent.id).querySelectorAll(name);
+
+    //         for (let i = 0, length = radios.length; i < length; i++) {
+    //           if (radios[i].checked) {
+    //             if (radios[i] === document.activeElement) {
+    //               valuesToInsert['focused' + idWithOutFilter] = [radios[i].parentNode.parentNode.querySelector('.name' + idWithOutFilter).value];
+    //             } else {
+    //               valuesToInsert[idWithOutFilter] = [radios[i].parentNode.parentNode.querySelector('.name' + idWithOutFilter).value];
+    //             }
+    //             // only one radio can be logically checked
+    //             break;
+    //           }
+    //         }
+    //         // Save form settings
+    //         const newField: any = {
+    //           type: 'iRadioB',
+    //           referenceNumber: idWithOutFilter,
+    //           radios: Array.prototype.slice.call(radios).map((rad: any) => {
+    //               const radio = {
+    //                 radio: rad.value,
+    //                 value: rad.parentNode.parentNode.querySelector('.name' + idWithOutFilter).value,
+    //                 referenceNumber: idWithOutFilter,
+    //               };
+    //               return radio;
+    //             }),
+    //           question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
+    //           indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
+    //           mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked
+    //         };
+    //         this.form.fields.push(newField);
+    //       }
+    //       // RADIO-C
+    //       if (injectedComponent.id.includes('iRadioC') === true) {
+    //         const idWithOutFilter = injectedComponent.id.replace('iRadioC', '');
+    //         const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
+    //         const radios = this.formAreaDiv.nativeElement.querySelectorAll(name);
+
+    //         for (let i = 0, length = radios.length; i < length; i++) {
+    //           if (radios[i].checked) {
+    //               valuesToInsert[idWithOutFilter] = [radios[i].getAttribute('data-texto')];
+    //             // only one radio can be logically checked
+    //             break;
+    //           }
+    //         }
+    //         // Save form settings
+    //         const newField: any = {
+    //           type: 'iRadioC',
+    //           referenceNumber: idWithOutFilter,
+    //           radios: Array.prototype.slice.call(radios).map((rad: any) => {
+    //             const radio = {
+    //               radio: rad.value,
+    //               value: rad.getAttribute('data-contentToExport'),
+    //               referenceNumber: idWithOutFilter,
+    //               randomId: rad.id
+    //             };
+    //             return radio;
+    //           }),
+    //           question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
+    //           indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
+    //           mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked
+    //         };
+    //         this.form.fields.push(newField);
+          }
+          index++;
+        }
+
+        if (this.documentType === 'plain-text') {
+          if (this.commonsService.isObjectEmpty(valuesToInsert)) {
+            this.textPreview = this.quillText;
           } else {
-            valuesToInsert[idWithOutFilter] = [injectedComponent.value];
+            this.textPreview = this.commonsService.replaceIdsWithValues(valuesToInsert, this.quillText);
           }
-          // Save
-          const newField: any = {
-            type: 'iText',
-            referenceNumber: idWithOutFilter,
-            question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-            indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
-            indicationsType: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter)
-                                                            .getAttribute('data-indicationsType'),
-            mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked,
-            wordToReplace: idWithOutFilter,
-            replacement: injectedComponent.value,
-            index: index
-          };
-          this.form.fields.push(newField);
-        }
-        // RADIO-A
-        if (injectedComponent.id.includes('iRadioA') === true) {
-          const idWithOutFilter = injectedComponent.id.replace('iRadioA', '');
-          // const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
-          // const radios = this.formAreaDiv.nativeElement.querySelector('#' + injectedComponent.id).querySelectorAll(name);
-
-          // for (let i = 0, length = radios.length; i < length; i++) {
-          //   if (radios[i].checked) {
-          //     if (radios[i] === document.activeElement) {
-          //       valuesToInsert['focused' + idWithOutFilter] = [radios[i].value];
-          //     } else {
-          //       valuesToInsert[idWithOutFilter] = [radios[i].value];
-          //     }
-          //     // only one radio can be logically checked
-          //     break;
-          //   }
-          // }
-          // Save
-          const newField: any = {
-            type: 'iRadioA',
-            referenceNumber: idWithOutFilter,
-            // radios: Array.prototype.slice.call(radios).map((radio: any) => radio.value),
-            question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-            // indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
-            mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked,
-            index: index
-          };
-          this.form.fields.push(newField);
-        }
-  //       // RADIO-B
-  //       if (injectedComponent.id.includes('iRadioB') === true) {
-  //         const idWithOutFilter = injectedComponent.id.replace('iRadioB', '');
-  //         const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
-  //         const radios = this.formAreaDiv.nativeElement.querySelector('#' + injectedComponent.id).querySelectorAll(name);
-
-  //         for (let i = 0, length = radios.length; i < length; i++) {
-  //           if (radios[i].checked) {
-  //             if (radios[i] === document.activeElement) {
-  //               valuesToInsert['focused' + idWithOutFilter] = [radios[i].parentNode.parentNode.querySelector('.name' + idWithOutFilter).value];
-  //             } else {
-  //               valuesToInsert[idWithOutFilter] = [radios[i].parentNode.parentNode.querySelector('.name' + idWithOutFilter).value];
-  //             }
-  //             // only one radio can be logically checked
-  //             break;
-  //           }
-  //         }
-  //         // Save form settings
-  //         const newField: any = {
-  //           type: 'iRadioB',
-  //           referenceNumber: idWithOutFilter,
-  //           radios: Array.prototype.slice.call(radios).map((rad: any) => {
-  //               const radio = {
-  //                 radio: rad.value,
-  //                 value: rad.parentNode.parentNode.querySelector('.name' + idWithOutFilter).value,
-  //                 referenceNumber: idWithOutFilter,
-  //               };
-  //               return radio;
-  //             }),
-  //           question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-  //           indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
-  //           mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked
-  //         };
-  //         this.form.fields.push(newField);
-  //       }
-  //       // RADIO-C
-  //       if (injectedComponent.id.includes('iRadioC') === true) {
-  //         const idWithOutFilter = injectedComponent.id.replace('iRadioC', '');
-  //         const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
-  //         const radios = this.formAreaDiv.nativeElement.querySelectorAll(name);
-
-  //         for (let i = 0, length = radios.length; i < length; i++) {
-  //           if (radios[i].checked) {
-  //               valuesToInsert[idWithOutFilter] = [radios[i].getAttribute('data-texto')];
-  //             // only one radio can be logically checked
-  //             break;
-  //           }
-  //         }
-  //         // Save form settings
-  //         const newField: any = {
-  //           type: 'iRadioC',
-  //           referenceNumber: idWithOutFilter,
-  //           radios: Array.prototype.slice.call(radios).map((rad: any) => {
-  //             const radio = {
-  //               radio: rad.value,
-  //               value: rad.getAttribute('data-contentToExport'),
-  //               referenceNumber: idWithOutFilter,
-  //               randomId: rad.id
-  //             };
-  //             return radio;
-  //           }),
-  //           question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-  //           indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
-  //           mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked
-  //         };
-  //         this.form.fields.push(newField);
-        }
-        index++;
-      }
-
-      if (this.documentType === 'plain-text') {
-        if (this.commonsService.isObjectEmpty(valuesToInsert)) {
-          this.textPreview = this.quillText;
+    
+          while (this.textPreviewDiv.nativeElement.firstChild) {
+            this.textPreviewDiv.nativeElement.removeChild(this.textPreviewDiv.nativeElement.firstChild);
+          }
+    
+          this.textPreviewDiv.nativeElement.insertAdjacentHTML('beforeend', this.textPreview);
+          const focusedElement = document.getElementById('focused');
+          if (focusedElement) {
+            focusedElement.scrollIntoView({ behavior: 'smooth' });
+          }
+          if (e.target) {
+            if (e.target.classList.contains('icon-trash-alt-regular')) {
+              this.setCurrentStep(this.currentStep - 1);
+            }
+          }
         } else {
-          this.textPreview = this.commonsService.replaceIdsWithValues(valuesToInsert, this.quillText);
-        }
-  
-        while (this.textPreviewDiv.nativeElement.firstChild) {
-          this.textPreviewDiv.nativeElement.removeChild(this.textPreviewDiv.nativeElement.firstChild);
-        }
-  
-        this.textPreviewDiv.nativeElement.insertAdjacentHTML('beforeend', this.textPreview);
-        const focusedElement = document.getElementById('focused');
-        if (focusedElement) {
-          focusedElement.scrollIntoView({ behavior: 'smooth' });
-        }
-        if (e.target) {
-          if (e.target.classList.contains('icon-trash-alt-regular')) {
-            this.setCurrentStep(this.currentStep - 1);
+          if (this.isInPreviewMode) {
+            if (!this.commonsService.isObjectEmpty(valuesToInsert)) {
+              this.odfEditorService.replaceWord(this.form.fields, this.documentBodyClone);
+            }
+            window['documentBodyCloneGlobal'] = this.documentBodyClone;
           }
-        }
-      } else {
-        if (this.isInPreviewMode) {
-          if (!this.commonsService.isObjectEmpty(valuesToInsert)) {
-            this.odfEditorService.replaceWord(this.form.fields, this.documentBodyClone);
-          }
-          window['documentBodyCloneGlobal'] = this.documentBodyClone;
         }
       }
-
     }
 
 
@@ -354,6 +356,15 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         (document.querySelector('#editor-container') as HTMLElement).style.height = newHeightForEditor;
       }
     }
+  }
+
+  preventGenerateText(e: any) {
+    if (e.target.classList.contains('icon-info-circle-solid')) {
+      return false;
+    } else if (e.target.classList.contains('indication')) {
+      return false;
+    }
+    return true;
   }
 
   // NUEVO

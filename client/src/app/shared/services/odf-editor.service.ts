@@ -122,6 +122,7 @@ export class OdfEditorService {
     replaceWord(steps: any, documentBodyClone: any) {
 
         this.documentBodyClone = documentBodyClone;
+        window['documentBodyCloneGlobal'] = documentBodyClone;
         // I replace the body of the document because, if not, after the first replacement it will not
         // be able to find the word again
         document.getElementsByTagName('office:text')[0]
@@ -248,8 +249,6 @@ export class OdfEditorService {
     }
 
     showIndicationInsideText(wordToReplace: string, indications: string) {
-        console.log(wordToReplace);
-        console.log(window['documentBodyCloneGlobal']);
         let element: any;
         findword(
             window['documentBodyCloneGlobal'].getElementsByTagName('*'),
@@ -257,31 +256,33 @@ export class OdfEditorService {
             wordToReplace
         );
 
-        const para = document.createElement("div");
-        para.innerHTML = `<div class="indicator-content">
+        const para = document.createElement('div');
+        para.innerHTML = `<div class="indicator-content not-selectable">
                             <button id="close-indication">&#10006;</button>
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            <span class="not-selectable" style="margin:auto;">${indications}
                             </span>
                         </div>`;
 
-        console.log(element.getBoundingClientRect());
-
-                    
         para.style.top = element.getBoundingClientRect().top;
         para.style.left = element.getBoundingClientRect().left;
         para.classList.add('indicator');
         para.classList.add('smooth-intro');
-        // element.appendChild(para);
-        document.body.appendChild(para);
-        // getPosition(element);
-        // element.querySelector('#close-indication').addEventListener('click', () => {
-        //     para.parentNode.removeChild(para);
-        // });
+        para.classList.add('not-selectable');
+        element.appendChild(para);
+        element.querySelector('#close-indication').addEventListener('click', (e: Event) => {
+            e.preventDefault();
+            e.stopPropagation();
+            para.parentNode.removeChild(para);
+        });
 
-        function findword(cloneOfElements: any, elements: any, wordToReplace: any) {
+        function removeIndication() {
+            para.parentNode.removeChild(para);
+        }
+
+        function findword(cloneOfElements: any, elements: any, wordToReplace2: any) {
             for (let i = 0; i < cloneOfElements.length; i++) {
                 if (cloneOfElements[i].childNodes.length === 0) {
-                    if (cloneOfElements[i].textContent.includes(wordToReplace)) {
+                    if (cloneOfElements[i].textContent.includes(wordToReplace2)) {
                         if (elements[i].parentElement.tagName === 'text:span') {
                             element = elements[i].parentElement.parentElement;
                         } else {
@@ -290,7 +291,7 @@ export class OdfEditorService {
                     }
                 } else {
                     if (elements[i] !== undefined) {
-                        findword(cloneOfElements[i].childNodes, elements[i].childNodes, wordToReplace);
+                        findword(cloneOfElements[i].childNodes, elements[i].childNodes, wordToReplace2);
                     }
                 }
             }
