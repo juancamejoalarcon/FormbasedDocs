@@ -274,6 +274,9 @@ export class OdfEditorService {
             e.stopPropagation();
             para.parentNode.removeChild(para);
         });
+        document.querySelector('#fields-area').addEventListener('click', () => {
+            console.log('eliminar');
+        })
 
         function removeIndication() {
             para.parentNode.removeChild(para);
