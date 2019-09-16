@@ -359,10 +359,12 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   preventGenerateText(e: any) {
-    if (e.target.classList.contains('icon-info-circle-solid')) {
-      return false;
-    } else if (e.target.classList.contains('indication')) {
-      return false;
+    if (!this.commonsService.isObjectEmpty(e)) {
+      if (e.target.classList.contains('icon-info-circle-solid')) {
+        return false;
+      } else if (e.target.classList.contains('indication')) {
+        return false;
+      }
     }
     return true;
   }
@@ -472,6 +474,20 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         step.style.display = 'none';
       }
     });
+  }
+
+  nextStepAfterValidate() {
+    if (this.form.fields[this.currentStep]['mandatory'] && this.isInPreviewMode) {
+      if (this.form.fields[this.currentStep]['iText']) {
+        if (this.form.fields[this.currentStep]['replacement'] === '') {
+          this.toastMessage('error', 'Validation error', 'This field is mandatory');
+        } else {
+          this.setCurrentStep(this.currentStep + 1);
+        }
+      }
+    } else {
+      this.setCurrentStep(this.currentStep + 1);
+    }
   }
 
   odfEditorConfig() {

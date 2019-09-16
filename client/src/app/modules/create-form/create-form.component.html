@@ -231,7 +231,7 @@
                             [ngClass]="{'current-page': currentStep === field.index }" (click)="setCurrentStep(field.index)">{{field.index + 1}}</li>
                         </ul>
                         <span class="pagination__right-icon icon icon-chevron-right-solid" 
-                            *ngIf="this.form.fields.length >= 2 && currentStep !== this.form.fields.length - 1" (click)="setCurrentStep(currentStep + 1)"></span>
+                            *ngIf="this.form.fields.length >= 2 && currentStep !== this.form.fields.length - 1" (click)="nextStepAndValidate()"></span>
                     </div>
                 </div>
             </div>

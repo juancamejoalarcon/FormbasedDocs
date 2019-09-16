@@ -259,7 +259,7 @@ export class OdfEditorService {
         const para = document.createElement('div');
         para.innerHTML = `<div class="indicator-content not-selectable">
                             <button id="close-indication">&#10006;</button>
-                            <span class="not-selectable" style="margin:auto;">${indications}
+                            <span class="not-selectable" style="margin:auto; width:100%">${indications}
                             </span>
                         </div>`;
 
@@ -269,17 +269,20 @@ export class OdfEditorService {
         para.classList.add('smooth-intro');
         para.classList.add('not-selectable');
         element.appendChild(para);
-        element.querySelector('#close-indication').addEventListener('click', (e: Event) => {
-            e.preventDefault();
-            e.stopPropagation();
-            para.parentNode.removeChild(para);
-        });
-        document.querySelector('#fields-area').addEventListener('click', () => {
-            console.log('eliminar');
-        })
+        window.addEventListener('click', removeIndication);
 
-        function removeIndication() {
-            para.parentNode.removeChild(para);
+        function removeIndication(e: any) {
+            if (e.target.classList.contains('icon-info-circle-solid')
+            || e.target.classList.contains('indication')) {
+                if (document.querySelectorAll('.indicator').length >= 2) {
+                    para.parentNode.removeChild(para);
+                    window.removeEventListener('click', removeIndication);
+                }
+                console.log(document.querySelectorAll('.indicator').length);
+            } else {
+                para.parentNode.removeChild(para);
+                window.removeEventListener('click', removeIndication);
+            }
         }
 
         function findword(cloneOfElements: any, elements: any, wordToReplace2: any) {
@@ -288,6 +291,7 @@ export class OdfEditorService {
                     if (cloneOfElements[i].textContent.includes(wordToReplace2)) {
                         if (elements[i].parentElement.tagName === 'text:span') {
                             element = elements[i].parentElement.parentElement;
+
                         } else {
                             element = elements[i].parentElement;
                         }
