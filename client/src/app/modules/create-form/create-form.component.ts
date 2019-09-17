@@ -151,7 +151,9 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
     } else {
       this.generateText();
+      this.isInPreviewMode = !this.isInPreviewMode;
     }
+
   }
 
   setEditorForPreviewMode() {
@@ -329,7 +331,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           }
           if (e.target) {
             if (e.target.classList.contains('icon-trash-alt-regular')) {
-              this.setCurrentStep(this.currentStep - 1);
+              if (this.currentStep !== 0) {
+                this.setCurrentStep(this.currentStep - 1);
+              } else {
+                this.setCurrentStep(this.currentStep);
+              }
             }
           }
         } else {
@@ -341,6 +347,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           }
         }
       }
+      console.log(this.currentStep);
     }
 
 
@@ -478,7 +485,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   nextStepAfterValidate() {
     if (this.form.fields[this.currentStep]['mandatory'] && this.isInPreviewMode) {
-      if (this.form.fields[this.currentStep]['iText']) {
+      if (this.form.fields[this.currentStep]['type'] === 'iText') {
         if (this.form.fields[this.currentStep]['replacement'] === '') {
           this.toastMessage('error', 'Validation error', 'This field is mandatory');
         } else {

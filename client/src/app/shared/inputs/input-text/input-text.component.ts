@@ -133,7 +133,6 @@ export class InputTextComponent implements OnInit, AfterViewInit {
   }
 
   showIndication(e: any) {
-    console.log(e);
     e.preventDefault();
     if (this.indicationsType === 'outsideText') {
       this.commonsService.toggleModal(this.modalIndication.nativeElement);
