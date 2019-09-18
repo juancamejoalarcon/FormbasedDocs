@@ -50,6 +50,72 @@ export class CommonsService {
         }
     }
 
+    showIndicationsInsideTextPlainText(wordToReplace: string, indications: string) {
+        const aTags = document.querySelector('#editor-preview').getElementsByTagName('*');
+        let element: any;
+        let scrollTop: number;
+        for (let i = 0; i < aTags.length; i++) {
+            if (aTags[i].getAttribute('data-identifier') === wordToReplace) {
+                element = aTags[i];
+                scrollTop = document.querySelector('#editor-preview').scrollTop;
+                element.scrollIntoView({ behavior: 'smooth' });
+                break;
+            }
+        }
+
+        let scrollTimeout: any;
+        const scrollListenner = function () {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                displayIndicator();
+                document.querySelector('#editor-preview').removeEventListener('scroll', scrollListenner);
+            }, 100);
+        }.bind(this);
+
+        document.querySelector('#editor-preview').addEventListener('scroll', scrollListenner);
+        // If it is not scrolling
+        setTimeout(() => {
+            if (scrollTop === document.querySelector('#editor-preview').scrollTop) {
+                displayIndicator();
+                document.querySelector('#editor-preview').removeEventListener('scroll', scrollListenner);
+            }
+        }, 100);
+
+
+        function displayIndicator() {
+            const para = document.createElement('div');
+            para.innerHTML = `<div class="indicator-content" style="margin:auto;width:95%">
+                                <button id="close-indication">&#10006;</button>
+                                <span style="width: 100%;">${indications}
+                                </span>
+                            </div>`;
+    
+            para.style.top = (
+                (element.getBoundingClientRect().top)
+                + (window.innerHeight / 100 * 4)) + 'px';
+            para.style.left = document.querySelector('#editor-preview').getBoundingClientRect().left + 'px';
+            para.style.width = document.querySelector('#editor-preview').clientWidth + 'px';
+            para.classList.add('indicator');
+            para.style.position = 'absolute';
+            para.classList.add('smooth-intro');
+            element.appendChild(para);
+            window.addEventListener('click', removeIndication);
+    
+            function removeIndication(e: any) {
+                if (e.target.classList.contains('icon-info-circle-solid')
+                || e.target.classList.contains('indication')) {
+                    if (document.querySelectorAll('.indicator').length >= 2) {
+                        para.parentNode.removeChild(para);
+                        window.removeEventListener('click', removeIndication);
+                    }
+                } else {
+                    para.parentNode.removeChild(para);
+                    window.removeEventListener('click', removeIndication);
+                }
+            }
+        }
+    }
+
     subMenuNav(e: any, subMenuElement: any) {
         e.preventDefault();
         if (e.target.nodeName === 'LI') {
@@ -176,10 +242,9 @@ export class CommonsService {
                         Object.getOwnPropertyDescriptor(valuesToInsert, key));
                     delete valuesToInsert[key];
                 }
-                valuesToInsert[newKey][0] = '<mark id="focused">' + valuesToInsert[newKey][0] + '</mark>';
+                valuesToInsert[newKey][0] = `<mark id="focused" data-identifier="${newKey}">` + valuesToInsert[newKey][0] + '</mark>';
             } else {
-
-                valuesToInsert[key][0] = '<mark>' + valuesToInsert[key][0] + '</mark>';
+                valuesToInsert[key][0] = `<mark data-identifier="${key}">` + valuesToInsert[key][0] + '</mark>';
             }
         });
 

@@ -118,7 +118,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         }
       }
     );
-    // this.quillConfig();
   }
 
   ngOnDestroy() {
@@ -150,6 +149,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       document.getElementsByClassName('webodfeditor-toolbarcontainer')[0].clientHeight + 'px';
       document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
     } else {
+      window['documentBodyCloneGlobal'] = document.querySelector('#editor-preview').cloneNode(true);
       this.generateText();
       this.isInPreviewMode = !this.isInPreviewMode;
     }
@@ -210,6 +210,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
               mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked,
               wordToReplace: idWithOutFilter,
               replacement: injectedComponent.value,
+              isFocused: injectedComponent === document.activeElement,
               index: index
             };
             this.form.fields.push(newField);
@@ -347,7 +348,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           }
         }
       }
-      console.log(this.currentStep);
     }
 
 
@@ -400,6 +400,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     } else if (this.documentType === 'plain') {
       this.quillConfig();
       this.documentType = 'plain-text';
+      this.commonsService.toggleSpinner();
     }
   }
 
@@ -466,10 +467,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       span.appendChild(button);
 
       this.quill.nativeElement.querySelector('.ql-toolbar').appendChild(span);
-      this.quill.nativeElement.querySelector('.ql-container').style.height = this.updatingForm ? '94%' : '98%';
+      this.quill.nativeElement.querySelector('.ql-container').style.height = this.updatingForm ? '94%' : '94%';
       this.commonsService.resizeEditor();
       window.addEventListener('resize', this.commonsService.resizeEditor);
-    }, 0);
+      this.commonsService.toggleSpinner();
+    }, 100);
   }
 
   setCurrentStep(stepNum: number) {

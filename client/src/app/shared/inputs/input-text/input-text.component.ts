@@ -137,8 +137,17 @@ export class InputTextComponent implements OnInit, AfterViewInit {
     if (this.indicationsType === 'outsideText') {
       this.commonsService.toggleModal(this.modalIndication.nativeElement);
     } else {
-      this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
+      if (this.isPlainText()) {
+        this.commonsService.showIndicationsInsideTextPlainText(this.referenceNumber, this.indications);
+      } else {
+        this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
+      }
     }
+  }
+
+  // REFACTOR: ugly function to check if it is an odf
+  isPlainText() {
+    return document.getElementById('wodoformbaseddocs') === null;
   }
 
   deleteDiv() {

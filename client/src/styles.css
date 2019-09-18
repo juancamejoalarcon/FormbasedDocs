@@ -2254,10 +2254,6 @@ input:focus + .slider {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  /* -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text; */
 }
 
 .indicator-content span {
@@ -2266,11 +2262,11 @@ input:focus + .slider {
 }
 
 .indicator-content button {
-  pointer-events: visiblePainted;
   background: none;
   border: none;
   color: #fff;
   padding: 0.3rem;
+  pointer-events: visiblePainted;
 }
 
 .indicator-content button:hover {
@@ -5265,6 +5261,7 @@ input[type=checkbox] {
 .form-creator__text-area--quill-text {
   padding: 1rem;
   background-color: #ddd;
+  overflow-y: scroll;
 }
 
 .form-creator__text-area__quill-text-result {
@@ -5273,6 +5270,7 @@ input[type=checkbox] {
   height: 100%;
   -webkit-box-shadow: 0px 0px 30px #aaa;
           box-shadow: 0px 0px 30px #aaa;
+  overflow-y: scroll;
 }
 
 .form-creator__text-area__field {
