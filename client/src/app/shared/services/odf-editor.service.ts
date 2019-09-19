@@ -144,11 +144,11 @@ export class OdfEditorService {
                     let innerHTMLreplaced: any;
                     if (step.isFocused) {
                         innerHTMLreplaced = innerHTML.replace(regexp,
-                            `<span class="highlight focused">${step.replacement}</span>`
+                            `<span class="highlight focused" data-identifier="${step.wordToReplace}">${step.replacement}</span>`
                             );
                     } else {
                         innerHTMLreplaced = innerHTML.replace(regexp,
-                            `<span class="highlight">${step.replacement}</span>`
+                            `<span class="highlight" data-identifier="${step.wordToReplace}">${step.replacement}</span>`
                             );
                     }
                     valueToChange.element.parentElement.innerHTML = innerHTMLreplaced;
@@ -195,14 +195,19 @@ export class OdfEditorService {
             }
         });
 
-        this.scrollToElementWithClassFocus();
+        this.scrollToElementWithClassFocus('focused');
 
     }
 
-    scrollToElementWithClassFocus() {
-        if (document.getElementsByClassName('focused').length) {
-            document.getElementsByClassName('focused')[0].parentElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-            
+    scrollToElementWithClassFocus(className: any, offset = 0) {
+        if (document.getElementsByClassName(className).length) {
+            document.getElementsByClassName(className)[0]
+            .parentElement
+            .scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        
+            setTimeout(() => {
+                document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, offset);
+                }, 500);
             // Adjust scroll so it scrolls in div
             // document.getElementById('webodfeditor-canvascontainer1').scrollTo(0,
             //     ((document.getElementsByClassName('focused')[0].parentElement.parentElement.getBoundingClientRect().top +
@@ -221,7 +226,6 @@ export class OdfEditorService {
             document.getElementsByTagName('office:text')[0].getElementsByTagName('*'),
             word
         );
-        console.log(element.parentElement.getBoundingClientRect());
         // change <p> to <label>
         let imgLabel: any;
         imgLabel = document.createElement("label");
@@ -272,6 +276,7 @@ export class OdfEditorService {
         para.classList.add('not-selectable');
         element.appendChild(para);
         window.addEventListener('click', removeIndication);
+        this.scrollToElementWithClassFocus('indicator', para.offsetHeight);
 
         function removeIndication(e: any) {
             if (e.target.classList.contains('icon-info-circle-solid')
@@ -280,7 +285,6 @@ export class OdfEditorService {
                     para.parentNode.removeChild(para);
                     window.removeEventListener('click', removeIndication);
                 }
-                console.log(document.querySelectorAll('.indicator').length);
             } else {
                 para.parentNode.removeChild(para);
                 window.removeEventListener('click', removeIndication);
@@ -288,19 +292,28 @@ export class OdfEditorService {
         }
 
         function findword(cloneOfElements: any, elements: any, wordToReplace2: any) {
-            for (let i = 0; i < cloneOfElements.length; i++) {
-                if (cloneOfElements[i].childNodes.length === 0) {
-                    if (cloneOfElements[i].textContent.includes(wordToReplace2)) {
-                        if (elements[i].parentElement.tagName === 'text:span') {
-                            element = elements[i].parentElement.parentElement;
-
-                        } else {
-                            element = elements[i].parentElement;
-                        }
+            const dataIdentifier = document.querySelectorAll(`[data-identifier]`);
+            if (dataIdentifier) {
+                dataIdentifier.forEach( (e: any) => {
+                    if (e.getAttribute('data-identifier') === wordToReplace2) {
+                        element = e;
                     }
-                } else {
-                    if (elements[i] !== undefined) {
-                        findword(cloneOfElements[i].childNodes, elements[i].childNodes, wordToReplace2);
+                });
+            } else {
+                for (let i = 0; i < cloneOfElements.length; i++) {
+                    if (cloneOfElements[i].childNodes.length === 0) {
+                        if (cloneOfElements[i].textContent.includes(wordToReplace2)) {
+                                if (elements[i].parentElement.tagName === 'text:span') {
+                                    element = elements[i].parentElement.parentElement;
+        
+                                } else {
+                                    element = elements[i].parentElement;
+                                }
+                        }
+                    } else {
+                        if (elements[i] !== undefined) {
+                            findword(cloneOfElements[i].childNodes, elements[i].childNodes, wordToReplace2);
+                        }
                     }
                 }
             }
