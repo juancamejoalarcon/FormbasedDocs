@@ -543,12 +543,16 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         this.generateText();
         // saves the generated text
         if (this.documentType === 'office') {
-          this.odfEditorService.saveForPreview();
-          this.reader.readAsDataURL(window['ODTDOCUMENT']);
-          this.reader.onloadend = () => {
-              this.form.text = this.reader.result as string;
-              this.saveForm();
-          };
+          if (this.isInPreviewMode) {
+            this.toastMessage('error', 'Exit preview mode', 'Preview Mode On');
+          } else {
+            this.odfEditorService.saveForPreview();
+            this.reader.readAsDataURL(window['ODTDOCUMENT']);
+            this.reader.onloadend = () => {
+                this.form.text = this.reader.result as string;
+                this.saveForm();
+            };
+          }
         } else {
           this.form.text = this.quillText;
           this.saveForm();

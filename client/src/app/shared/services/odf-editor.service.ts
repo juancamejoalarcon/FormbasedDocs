@@ -201,11 +201,8 @@ export class OdfEditorService {
 
     scrollToElementWithClassFocus() {
         if (document.getElementsByClassName('focused').length) {
-            document.getElementsByClassName('focused')[0].parentElement.scrollIntoView({ behavior: 'smooth' });
-
-            setTimeout(() => { 
-                this.getEditorSession().getOdfCanvas().refreshSize();
-            }, 500);
+            document.getElementsByClassName('focused')[0].parentElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            
             // Adjust scroll so it scrolls in div
             // document.getElementById('webodfeditor-canvascontainer1').scrollTo(0,
             //     ((document.getElementsByClassName('focused')[0].parentElement.parentElement.getBoundingClientRect().top +
