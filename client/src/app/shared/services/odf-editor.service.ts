@@ -131,7 +131,8 @@ export class OdfEditorService {
 
         // Find all the DOM elements where the word is located
         steps.forEach((step: any) => {
-            if (step.type === 'inputText' || step.type === 'inputDate' || step.type === 'iText') {
+            console.log(step);
+            if (step.type === 'inputText' || step.type === 'inputDate' || step.type === 'iText' || step.type === 'iRadioA') {
                 this.valuesToChange = [];
                 this.findword(
                     this.documentBodyClone.getElementsByTagName('*'),

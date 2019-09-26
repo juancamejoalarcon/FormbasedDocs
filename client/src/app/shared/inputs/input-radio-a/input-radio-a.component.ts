@@ -6,6 +6,8 @@ import {
   ViewChild,
   ElementRef } from '@angular/core';
 import { CommonsService, ComponentInjectorService} from '../../../core';
+import { InputCommonsService } from '../shared';
+import { OdfEditorService } from '../../services';
 
 
 
@@ -27,9 +29,11 @@ export class InputRadioAComponent implements OnInit, AfterViewInit {
   @ViewChild('rightMenuButton') rightMenuButton: ElementRef;
   @ViewChild('showModalButton') showModalButton: ElementRef;
   @ViewChild('modal') modal: ElementRef;
+  @ViewChild('modalIndication') modalIndication: ElementRef;
 
   public mandatory: boolean;
   public indications: string;
+  public indicationsType = 'outsideText';
   public randomId: string;
   public referenceNumber: any;
   public questionIdentifier: string;
@@ -40,7 +44,9 @@ export class InputRadioAComponent implements OnInit, AfterViewInit {
 
   constructor(
       private commonsService: CommonsService,
-      private componentInjectorService: ComponentInjectorService
+      private componentInjectorService: ComponentInjectorService,
+      private inputCommonsService: InputCommonsService,
+      private odfEditorService: OdfEditorService
   ) { }
 
   ngOnInit() {
@@ -52,7 +58,7 @@ export class InputRadioAComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // this.enableDrag();
+    this.enableDrag();
   }
 
   getRandomId() {
@@ -119,34 +125,49 @@ export class InputRadioAComponent implements OnInit, AfterViewInit {
   }
 
   showRightMenu() {
-    // if ( this.rightMenu.nativeElement.style.display !== 'block') {
-    //   this.rightMenu.nativeElement.style.display = 'block';
-    //   this.rightMenu.nativeElement.classList.add('smooth-intro');
-    //   this.functionReference = this.hideMenuRight.bind(this);
-    //   setTimeout( () => {
-    //     window.addEventListener('click', this.functionReference);
-    //   }, 200);
-    // }
+    if ( this.rightMenu.nativeElement.style.display !== 'block') {
+      this.rightMenu.nativeElement.style.display = 'block';
+      this.rightMenu.nativeElement.classList.add('smooth-intro');
+      this.functionReference = this.hideMenuRight.bind(this);
+      setTimeout( () => {
+        window.addEventListener('click', this.functionReference);
+      }, 200);
+    }
   }
 
   hideMenuRight(e: any) {
-    // if (this.rightMenu.nativeElement.contains(event.target)) {
-    //   if (event.target === this.showModalButton.nativeElement) {
-    //     this.rightMenu.nativeElement.style.display = 'none';
-    //     window.removeEventListener('click', this.functionReference);
-    //     this.toggleModal(false);
-    //   }
-    // } else {
-    //   this.rightMenu.nativeElement.style.display = 'none';
-    //   window.removeEventListener('click', this.functionReference);
-    // }
+    if (this.rightMenu.nativeElement.contains(event.target)) {
+      if (event.target === this.showModalButton.nativeElement) {
+        this.rightMenu.nativeElement.style.display = 'none';
+        window.removeEventListener('click', this.functionReference);
+        // this.toggleModal(false);
+      }
+    } else {
+      this.rightMenu.nativeElement.style.display = 'none';
+      window.removeEventListener('click', this.functionReference);
+    }
   }
 
-  toggleModal(eraseIndications: boolean) {
-    this.modal.nativeElement.classList.toggle('show-modal');
-    if (eraseIndications) {
-      this.indications = '';
+  toogleModal(modal: ElementRef) {
+    this.commonsService.toggleModal(modal, false);
+  }
+
+  showIndication(e: any) {
+    e.preventDefault();
+    if (this.indicationsType === 'outsideText') {
+      this.commonsService.toggleModal(this.modalIndication.nativeElement);
+    } else {
+      if (this.isPlainText()) {
+        this.commonsService.showIndicationsInsideTextPlainText(this.referenceNumber, this.indications);
+      } else {
+        this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
+      }
     }
+  }
+
+  // REFACTOR: ugly function to check if it is an odf
+  isPlainText() {
+    return document.getElementById('wodoformbaseddocs') === null;
   }
 
   addNewRadio() {
