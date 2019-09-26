@@ -55,6 +55,7 @@ export class InputRadioAComponent implements OnInit, AfterViewInit {
     } else {
       this.getRandomId();
     }
+    console.log(this.field);
   }
 
   ngAfterViewInit() {

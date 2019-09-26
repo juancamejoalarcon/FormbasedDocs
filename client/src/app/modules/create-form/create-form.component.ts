@@ -244,9 +244,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
               wordToReplace: idWithOutFilter,
               replacement: replacement,
               isFocused: isFocused,
-              // radios: Array.prototype.slice.call(radios).map((radio: any) => radio.value),
+              radios: Array.prototype.slice.call(radios).map((radio: any) => radio.value),
               question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-              // indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
+              indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
+              indicationsType: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter)
+                                                              .getAttribute('data-indicationsType'),
               mandatory: false, /* disable for radio button */
               index: index
             };
