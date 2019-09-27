@@ -30,14 +30,14 @@
             <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form d-none-flex"
                 *ngIf="isEditAuthor()">
                 <div class="indication" *ngIf="field.indications !== '' && field.indications !== undefined">
-                    <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
+                    <span class="icon icon-info-circle-solid trigger" (click)="showIndication($event)"></span>
                 </div>
             </div>
 
             <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form"
                 *ngIf="isNewUser() || isEditUser()">
                 <div class="indication" *ngIf="field.indications !== '' && field.indications !== undefined">
-                    <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
+                    <span class="icon icon-info-circle-solid trigger" (click)="showIndication($event)"></span>
                 </div>
             </div>
             <!---------------->

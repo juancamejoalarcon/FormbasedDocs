@@ -55,7 +55,8 @@ export class InputRadioAComponent implements OnInit, AfterViewInit {
     } else {
       this.getRandomId();
     }
-    console.log(this.field);
+    this.indicationsType = this.isNewAuthor() ? 'outsideText' : this.field.indicationsType;
+    this.indications = this.isNewAuthor() ? '' : this.field.indications;
   }
 
   ngAfterViewInit() {
