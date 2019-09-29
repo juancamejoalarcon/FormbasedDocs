@@ -42,6 +42,8 @@ export class InputTextComponent implements OnInit, AfterViewInit {
     } else {
       this.getRandomId();
     }
+    this.indicationsType = this.isNewAuthor() ? 'outsideText' : this.field.indicationsType;
+    this.indications = this.isNewAuthor() ? '' : this.field.indications;
   }
 
   ngAfterViewInit() {

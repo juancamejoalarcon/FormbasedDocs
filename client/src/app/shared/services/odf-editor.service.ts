@@ -293,7 +293,7 @@ export class OdfEditorService {
 
         function findword(cloneOfElements: any, elements: any, wordToReplace2: any) {
             const dataIdentifier = document.querySelectorAll(`[data-identifier]`);
-            if (dataIdentifier) {
+            if (dataIdentifier.length) {
                 dataIdentifier.forEach( (e: any) => {
                     if (e.getAttribute('data-identifier') === wordToReplace2) {
                         element = e;
