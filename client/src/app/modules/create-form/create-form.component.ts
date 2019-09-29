@@ -218,28 +218,38 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           // RADIO-A
           if (injectedComponent.id.includes('iRadioA') === true) {
             const idWithOutFilter = injectedComponent.id.replace('iRadioA', '');
-            // const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
-            // const radios = this.formAreaDiv.nativeElement.querySelector('#' + injectedComponent.id).querySelectorAll(name);
+            const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
+            const radios = this.formAreaDiv.nativeElement.querySelector('#' + injectedComponent.id).querySelectorAll(name);
+            let replacement: any;
+            let isFocused: boolean;
 
-            // for (let i = 0, length = radios.length; i < length; i++) {
-            //   if (radios[i].checked) {
-            //     if (radios[i] === document.activeElement) {
-            //       valuesToInsert['focused' + idWithOutFilter] = [radios[i].value];
-            //     } else {
-            //       valuesToInsert[idWithOutFilter] = [radios[i].value];
-            //     }
-            //     // only one radio can be logically checked
-            //     break;
-            //   }
-            // }
+            for (let i = 0, length = radios.length; i < length; i++) {
+              if (radios[i].checked) {
+                if (radios[i] === document.activeElement) {
+                  valuesToInsert['focused' + idWithOutFilter] = [radios[i].value];
+                  isFocused = true;
+                } else {
+                  valuesToInsert[idWithOutFilter] = [radios[i].value];
+                  isFocused = false;
+                }
+                replacement = [radios[i].value];
+                // only one radio can be logically checked
+                break;
+              }
+            }
             // Save
             const newField: any = {
               type: 'iRadioA',
               referenceNumber: idWithOutFilter,
-              // radios: Array.prototype.slice.call(radios).map((radio: any) => radio.value),
+              wordToReplace: idWithOutFilter,
+              replacement: replacement,
+              isFocused: isFocused,
+              radios: Array.prototype.slice.call(radios).map((radio: any) => radio.value),
               question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-              // indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
-              mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked,
+              indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
+              indicationsType: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter)
+                                                              .getAttribute('data-indicationsType'),
+              mandatory: false, /* disable for radio button */
               index: index
             };
             this.form.fields.push(newField);

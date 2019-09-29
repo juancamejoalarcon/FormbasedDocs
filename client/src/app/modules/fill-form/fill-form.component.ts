@@ -63,7 +63,6 @@ export class FillFormComponent implements OnInit, AfterViewInit {
         this.setEditorConfig();
         this.setDivHeight();
         window.addEventListener('resize', this.setDivHeight);
-        console.log(this.form);
       }
     );
     this.formsService.get(this.form.originalSlug).subscribe(
@@ -120,26 +119,26 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   //     //   field['value'] = this.formAreaDiv.nativeElement.querySelector(id).value;
   //     // }
   //     // RADIO A
-  //     if (field['type'] === 'iRadioA') {
-  //       const radios = this.formAreaDiv.nativeElement.querySelectorAll('.' + field.referenceNumber);
-  //       // We check the radio button selected and save the value in a variable
-  //       for (let i = 0, length = radios.length; i < length; i++) {
-  //         if (radios[i].checked) {
-  //           const regexp = new RegExp(field['referenceNumber'], 'g');
-  //           const focused = radios[i] === document.activeElement;
-  //           let valueToInsert: any;
-  //           if (focused) {
-  //             valueToInsert = '<mark id="focused">' + [radios[i].value] + '</mark>';
-  //           } else {
-  //            valueToInsert = '<mark>' + [radios[i].value] + '</mark>';
-  //           }
-  //           this.generatedText = this.generatedText.replace(regexp, valueToInsert);
-  //           field['value'] = radios[i].value;
-  //           // only one radio can be logically checked, don't check the rest
-  //           break;
-  //         }
-  //       }
-  //     }
+      if (field['type'] === 'iRadioA') {
+        const radios = this.formAreaDiv.nativeElement.querySelectorAll('.' + field.referenceNumber);
+        // We check the radio button selected and save the value in a variable
+        for (let i = 0, length = radios.length; i < length; i++) {
+          if (radios[i].checked) {
+            const regexp = new RegExp(field['referenceNumber'], 'g');
+            const focused = radios[i] === document.activeElement;
+            let valueToInsert: any;
+            if (focused) {
+              valueToInsert = '<mark id="focused">' + [radios[i].value] + '</mark>';
+            } else {
+             valueToInsert = '<mark>' + [radios[i].value] + '</mark>';
+            }
+            this.generatedText = this.generatedText.replace(regexp, valueToInsert);
+            field['value'] = radios[i].value;
+            // only one radio can be logically checked, don't check the rest
+            break;
+          }
+        }
+      }
   //     // RADIO B
   //     if (field['type'] === 'iRadioB') {
   //       const radios = this.formAreaDiv.nativeElement.querySelectorAll('.' + field.referenceNumber);

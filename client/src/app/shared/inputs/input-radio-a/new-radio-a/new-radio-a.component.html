@@ -44,9 +44,10 @@
     <p *ngIf="isEditAuthor()">
         <label>
             <input class="with-gap" type="radio" id="{{ randomId }}" name="{{randomName}}" checked value="{{valueRadio}}" />
-            <span class="d-block"></span>
-
-            <span class="d-none" *ngIf="isEditAuthor()">{{valueRadio}}</span>
+            <span>
+                <div class="d-block"></div>
+                <div class="d-none" *ngIf="isEditAuthor()">{{valueRadio}}</div>
+            </span>
         </label>
     </p>
     <p *ngIf="isNewUser()">
