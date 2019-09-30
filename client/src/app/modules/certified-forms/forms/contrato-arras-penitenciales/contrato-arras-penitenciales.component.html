@@ -1,0 +1,292 @@
+<div class="form-creator__container">
+  <div class="form-creator__fields-area" id="fields-area">
+
+      <div class="form-creator__fields-area__container">
+          <div class="form-creator__fields-area__top">
+              <!-- START (Step 0) -->
+              <div class="form-creator__fields-area__top__container" *ngIf="this.steps[this.currentStep].type === 'start'">
+                  <div class="form-creator__fields-area__top__author-date">
+                      <span class="form-creator__fields-area__top__author-date__author">
+                          <div class="form-creator__fields-area__top__author-date__author__image-container">
+                              <img src="/assets/images/avatar.jpg" alt="avatar">
+                          </div>
+                          <span>Juan Camejo Alarcón</span>
+                      </span>
+                      <span class="form-creator__fields-area__top__author-date__date">
+                          <span>Last updated:</span>
+                          20 abril 2019
+                      </span>
+                  </div>
+                  <div class="form-creator__fields-area__top__before-start-button">
+                      <div class="form-creator__fields-area__top__before-start-button__information-modal-icon trigger">
+                          <span class="icon icon-info-solid" (click)="toogleModal(modal)"></span>
+                      </div>
+                  </div>
+              </div>
+              <!-- END OF START (Step 0) -->
+              <!-- PROGRESSBAR -->
+              <div class="progress-container" *ngIf="this.steps[this.currentStep].type !== 'start'">
+                  <div class="progress progress-large">
+                      <span [style.width]="progresBarPercentage">{{progresBarPercentage}}</span>
+                  </div>
+              </div>
+              <!-- END OF PROGRESSBAR -->
+          </div>
+
+          <div class="form-creator__fields-area__middle">
+              <!-- START -->
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'start'">
+                  <div class="form-creator__fields-area__middle__initial-screen">
+                      <h2 class="form-creator__fields-area__middle__initial-screen__form-title">
+                          {{this.steps[this.currentStep].title}}
+                      </h2>
+                      <span class="form-creator__fields-area__middle__initial-screen__description">
+                          {{this.steps[this.currentStep].description}}
+                      </span>
+                      <button class="button-filled button-filled--start-form" (click)="toogleModal(modal)">
+                          Rellenar formulario
+                      </button>
+                  </div>
+              </div>
+               <!-- END OF START -->
+               <!-- INPUT TEXT -->
+               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'inputText'">
+                  <div class="form-creator__fields-area__field">
+                      <div class="form-creator__fields-area__field__container">
+                          <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
+                              <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
+                                  <div class="indication">
+                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                  </div>
+                              </div>
+                              <div class="form-creator__fields-area__field__middle">
+                                  <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
+                                  <input type="text" #input (keyup)="updateWordToReplace(input.value)" [value]="this.steps[this.currentStep].replacement">
+                              </div>
+                              <div class="form-creator__fields-area__field__bottom" *ngIf="this.steps[this.currentStep].mandatory">
+                                  <span class="form-creator__fields-area__field__bottom__mandatory-label">
+                                      Obligatorio *
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+               <!-- END OF INPUT TEXT -->
+               <!-- INPUT DATE -->
+               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'inputDate'">
+                  <div class="form-creator__fields-area__field">
+                      <div class="form-creator__fields-area__field__container">
+                          <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
+                              <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
+                                  <div class="indication">
+                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndicationModal('iLugar')"></span>
+                                  </div>
+                              </div>
+                              <div class="form-creator__fields-area__field__middle">
+                                  <div class="form-creator__fields-area__field__middle__date-container">
+                                      <span class="form-creator__fields-area__field__middle__question">¿ Cuándo se firma el contrato ?</span>
+                                      <input type="date" #input (change)="updateWordToReplace(input.value)" [value]="this.steps[this.currentStep].replacement">
+                                  </div>
+                              </div>
+                              <div class="form-creator__fields-area__field__bottom" *ngIf="this.steps[this.currentStep].mandatory">
+                                  <span class="form-creator__fields-area__field__bottom__mandatory-label">
+                                      Obligatorio *
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- END OF INPUT DATE -->
+              <!-- INPUT RANGE -->
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'inputRange'">
+                  <div class="form-creator__fields-area__field">
+                      <div class="form-creator__fields-area__field__container">
+                          <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
+                              <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
+                                  <div class="indication">
+                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                  </div>
+                              </div>
+                              <div class="form-creator__fields-area__field__middle">
+                                  <span class="form-creator__fields-area__field__middle__question">
+                                      Número de personas que firman el contrato en 
+                                      tanto que arrendadores (propietario):
+                                  </span>
+                                  <input type="range" min="1" max="4" #input (change)="onRangeSelected(input.value)">
+                                  <span>{{input.value}}</span>
+                              </div>
+                              <div class="form-creator__fields-area__field__bottom">
+                                  <span class="form-creator__fields-area__field__bottom__mandatory-label">
+                                      Obligatorio *
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- END OF INPUT RANGE -->
+              <!-- INPUT RADIO C -->
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'inputRadioC'">
+                  <div class="form-creator__fields-area__field">
+                      <div class="form-creator__fields-area__field__container">
+                          <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
+                              <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
+                                  <div class="indication">
+                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                  </div>
+                              </div>
+                              <div class="form-creator__fields-area__field__middle">
+                                  <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
+                                  <div class="form-creator__fields-area__field__middle__radio-input--fill-form radio">
+                                      <p *ngFor="let option of this.steps[this.currentStep].options">
+                                          <label>
+                                              <input class="with-gap" name="group1" type="radio" 
+                                                  value="Valor de la pregunta numero 1" [checked]="option.checked"
+                                                  (change)="onInputRadioCselected(option.optionId)" />
+                                              <span>{{option.label}}</span>
+                                          </label>
+                                      </p>
+                                  </div>
+                              </div>
+                              <div class="form-creator__fields-area__field__bottom">
+                                  <span class="form-creator__fields-area__field__bottom__mandatory-label">
+                                      Obligatorio *
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- END OF INPUT RADIO C -->
+              <!-- END -->
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'end'">
+                  <div class="form-creator__fields-area__field">
+                      <div class="form-creator__fields-area__field__container">
+                          <div class="form-creator__fields-area__end-step">
+                              <div class="form-creator__fields-area__end-step__container">
+                                  <span class=" form-creator__fields-area__end-step__check icon icon-check-circle-solid"></span>
+                                  <h1>Finalizado</h1>
+                                  <button class="button-filled button-filled--start-form trigger" (click)="toogleModal(modalEnd)">
+                                      Descargar
+                                  </button>
+                                  <div class="form-creator__fields-area__end-step__icons">
+                                      <span class="icon icon-file-word-solid trigger"></span>
+                                      <span class="icon icon-file-pdf-solid"></span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- END OF END -->
+          </div>
+           <!-- START -->
+          <div class="form-creator__fields-area__bottom form-creator__fields-area__bottom--initial-screen" *ngIf="this.steps[this.currentStep].type === 'start'">
+              <div class="form-creator__fields-area__bottom__step">
+                  <span class="icon icon-file-regular"></span>
+                  <span class="form-creator__fields-area__bottom__step__number">1.</span>
+                  <span class="form-creator__fields-area__bottom__step__description">Elige un documento</span>
+              </div>
+              <div class="form-creator__fields-area__bottom__step">
+                  <span class="icon icon-list-alt-regular"></span>
+                  <span class="form-creator__fields-area__bottom__step__number">2.</span>
+                  <span class="form-creator__fields-area__bottom__step__description">Rellena el formulario</span>
+              </div>
+              <div class="form-creator__fields-area__bottom__step">
+                  <span class="icon icon-print-solid"></span>
+                  <span class="form-creator__fields-area__bottom__step__number">3.</span>
+                  <span class="form-creator__fields-area__bottom__step__description">Guárdalo e imprímelo</span>
+              </div>
+          </div>
+          <!-- END OF START -->
+          <div class="form-creator__fields-area__bottom" *ngIf="this.steps[this.currentStep].type !== 'start'">
+              <div class="form-creator__fields-area__bottom__container">
+                  <div class="form-creator__fields-area__bottom__arrow-button" (click)="moveStep('previous')">
+                      <span class="icon icon-chevron-left-solid"></span>
+                      <span class="form-creator__fields-area__bottom__arrow-button__label">Anterior</span>
+                  </div>
+                  <div class="form-creator__fields-area__bottom__arrow-button" (click)="moveStep('next')" 
+                      *ngIf="this.steps[this.currentStep].type !== 'end'">
+                      <span class="form-creator__fields-area__bottom__arrow-button__label">Siguiente</span>
+                      <span class="icon icon-chevron-right-solid"></span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="form-creator__text-area" id="text-area">
+  <div id="wodoformbaseddocs" style="width:100%; height:100%; margin:0px; padding:0px">
+      <div id="editorContainer" style="width:100%; height:100%; margin:0px; padding:0px">
+      </div>
+  </div>
+  </div>
+</div>
+
+<!--------------------->
+<!-- LISTS OF MODALS -->
+<!--------------------->
+
+<!-- START MODAL -->
+<div class="modal" #modal>
+  <div class="modal__content modal__content--privacy">
+      <div class="modal__content__top modal__content__top--privacy">
+          <h2>Indicaciones antes de comenzar el formulario</h2>
+      </div>
+      <div class="modal__content__modal-middle modal__content__modal-middle--privacy" id="modal-middle-privacy">
+          <div class="modal__content__modal-middle__container">
+              <p>
+                  El contrato de alquiler es el documento que regula la cesión y el uso de inmueble 
+                  y los derechos y obligaciones de arrendador (el propietario) y arrendatario (inquilino). 
+                  Para que tenga validez, debe realizarse siguiendo las pautas del nuevo decreto de medidas 
+                  urgentes en materia de alquiler, en vigor desde el 6 de marzo de 2019, que introduce algunos 
+                  cambios en la Ley de Arrendamientos Urbanos (LAU).
+              </p>
+              <h3>Duración de un contrato de alquiler</h3>
+              <p>
+                  Lo más habitual es firmar contrato por un año, renovable hasta cinco. 
+                  Incluso si se han pactado periodos más cortos, el inquilino tiene derecho a prorrogarlo hasta 5 años. 
+                  Además, si el arrendador es una persona jurídica (una empresa o entidad), se amplía a 7 años. 
+                  Esta es una de las principales del nuevo decreto, ya que hasta su entrada en vigor la renovación quedaba limitada a 3 años.
+              </p>
+              <h3>Prórroga tácita</h3>
+              <p>
+                  Además de la duración inicial del contrato, 
+                  exista la posibilidad de una prórroga tácita: si al final de los 5 o 7 años 
+                  previstos ninguna de las partes comunica que quiere extinguir el contrato, 
+                  este se amplía de nuevo de manera anual hasta tres años más. 
+                  El plazo para comunicar la extinción del contrato antes de que se active 
+                  la prórroga tácita es de cuatro meses para el propietario y de dos meses para el inquilino.
+              </p>
+              <h3>Garantía ante la venta de la vivienda</h3>
+              <p>En caso de venta de la vivienda, se garantiza el derecho del inquilino a permanecer en ella durante el periodo del su contrato (cinco o siete años). Es otro de los cambios destacados, ya que hasta ahora la venta del inmueble a una tercera persona podía conllevar que se exigiera extinguir el contrato.</p>
+              <h3>Irregularidades en la duración de un contrato de alquiler</h3>
+              <p>Algunos arrendadores proponen realizar un contrato de once meses para hacerlo pasar por un alquiler temporal y evitarse así la obligación de extensión del plazo. La OCU destaca que si la vivienda se está usando como vivienda habitual, aunque el contrato diga otra cosa, aplica la LAU y se puede prorrogar.</p>
+              <h3>Extinción del contrato de alquiler</h3>
+              <p>Existe la posibilidad de que el arrendador pueda recuperar el piso después del primer año si demuestra necesidad de la vivienda para él mismo o para algún familiar directo (en primer grado de consanguinidad). Esta excepción se había usado a menudo como excusa para terminar contratos antes de ahora, pero ahora solo será válida si se ha incluido ese supuesto de manera expresa en el contrato inicial.</p>
+              <p>Por lo que respecta al inquilino, la normativa vigente reconoce su derecho a desistir del contrato después de los seis primeros meses. La extinción del contrato antes de la fecha prevista debe comunicarse al menos con dos meses de antelación.</p>
+              <h3>Un mes de fianza y dos de depósito</h3>
+              <p>Con el nuevo decreto se prevé, para los alquileres de vivienda, la entrega de un mes de fianza y un máximo de dos mensualidades más como garantía adicional. Este depósito, según la OCU, es recomendable como garantía del pago de la renta, los gastos asociados y de la conservación de la vivienda en buen estado.</p>
+              <h3>Actualización del precio del alquiler según el IPC</h3>
+              <p>La actualización anual de la renta es uno de los puntos clave de todo contrato de alquiler. Existe libertad para que las partes fijen la manera de actualizar el alquiler, pero el incremento nunca podrá ser superior a la subida marcada por el IPC. Si no se ha especificado nada en el contrato a este respecto, no se podrá actualizar la renta durante la vigencia del mismo.</p>
+              <h3>Un inventario detallado</h3>
+              <p>La fianza se devuelve una vez se comprueba que no quedan deudas pendientes y el buen estado del inmueble, pero a menudo es fuente de problemas. Algunos inquilinos optan por no pagar el último mes de renta a cuenta de la fianza, a pesar de que es una práctica ilegal. En otros casos los arrendadores se encuentran con desperfectos que superan el importe de la fianza. Para evitar problemas, es aconsejable incluir junto al contrato un inventario detallado de la vivienda, incluso con fotos. A la devolución de las llaves debe revisarse la vivienda por ambas partes y firmar un documento que señale los desperfectos causados, si los hay.</p>
+              <h3>Quién se hace cargo de los gastos</h3>
+              <p>La LAU contempla un reparto de los gastos entre las partes, pero la OCU recomienda precisarlo en el contrato con el máximo detalle. En principio, el arrendador paga impuestos como el IBI, la comunidad de propietarios y los gastos de conservación de la vivienda y sus instalaciones. El inquilino se hace cargo de los suministros y de las pequeñas reparaciones derivadas del uso ordinario de la vivienda. En aquellas ciudades donde hay tasa de basuras, debe pactarse a quién corresponde, y lo habitual es que se haga cargo el inquilino.</p>
+              <p>Los gastos de gestión inmobiliaria (si los hay) y de formalización del contrato irán a cuenta del propietario si se trata de una persona jurídica. En el caso de ser una persona física, la comisión de la agencia generalmente la abona quien haya contratado sus servicios.</p>
+              <h3>Cláusulas abusivas</h3>
+              <p>Aunque las partes pueden pactar cláusulas específicas, estas no pueden eliminar los derechos obligatorios recogidos por la normativa vigente. Por ejemplo, no se puede impedir la prórroga hasta los cinco años ni exigir un pago por desestimiento superior al que contempla la ley.</p>
+          </div>
+      </div>
+      <div class="modal__content__modal-bottom modal__content__modal-bottom--privacy">
+          <button class="button-filled" id="modal-button" (click)="toogleModal(modal);moveStep('next');">Rellenar</button>
+      </div>
+  </div>
+</div>
+
+<div class="modal" #modalEnd>
+  <div class="modal__content modal__content--payment">
+      <app-checkout style="height: 100%"></app-checkout>
+  </div>
+</div>

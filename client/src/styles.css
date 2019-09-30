@@ -2675,8 +2675,8 @@ input[type=checkbox] {
 }
 
 .modal__content__modal-middle--privacy {
-  overflow: scroll;
-  height: 75%;
+  overflow-y: scroll;
+  height: 100%;
   padding: 2rem;
   font-weight: lighter;
   text-align: justify;
@@ -2747,7 +2747,6 @@ input[type=checkbox] {
 }
 
 .modal__content__modal-middle__container {
-  overflow-y: scroll;
   height: 100%;
 }
 
@@ -2821,7 +2820,7 @@ input[type=checkbox] {
 }
 
 .modal__content__modal-bottom--privacy {
-  margin-top: 1vh;
+  margin-top: 2vh;
   margin-bottom: 2vh;
 }
 

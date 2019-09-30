@@ -4,21 +4,26 @@ import { SharedModule } from '../../shared';
 
 import { CertifiedFormsRoutingModule } from './certified-forms-routing.module';
 import { CertifiedFormsComponent } from './certified-forms.component';
-import { PactoDeSociosComponent } from './forms/pacto-de-socios/pacto-de-socios.component';
+import {
+  PactoDeSociosComponent,
+  ContratoArrasPenitencialesComponent,
+  StepModelService } from './forms';
 import { CheckoutComponent, SharedService } from './shared';
 
 @NgModule({
   declarations: [
     CertifiedFormsComponent,
     PactoDeSociosComponent,
-    CheckoutComponent],
+    CheckoutComponent,
+    ContratoArrasPenitencialesComponent],
   imports: [
     CommonModule,
     SharedModule,
     CertifiedFormsRoutingModule
   ],
   providers: [
-    SharedService
+    SharedService,
+    StepModelService
   ]
 })
 export class CertifiedFormsModule { }

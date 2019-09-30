@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PactoDeSociosComponent } from './forms';
+import {
+  PactoDeSociosComponent,
+  ContratoArrasPenitencialesComponent } from './forms';
 import { CertifiedFormsComponent } from './certified-forms.component';
 
 const routes: Routes = [
@@ -11,6 +13,10 @@ const routes: Routes = [
       {
         path: 'pacto-de-socios',
         component: PactoDeSociosComponent,
+      },
+      {
+        path: 'contrato-arras-penitenciales',
+        component: ContratoArrasPenitencialesComponent
       }
     ]
   }
