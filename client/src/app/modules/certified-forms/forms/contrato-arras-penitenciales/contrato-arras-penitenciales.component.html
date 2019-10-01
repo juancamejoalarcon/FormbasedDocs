@@ -50,7 +50,7 @@
               </div>
                <!-- END OF START -->
                <!-- INPUT TEXT -->
-               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'inputText'">
+               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iText'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -61,7 +61,7 @@
                               </div>
                               <div class="form-creator__fields-area__field__middle">
                                   <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
-                                  <input type="text" #input (keyup)="updateWordToReplace(input.value)" [value]="this.steps[this.currentStep].replacement">
+                                  <input type="text" #input (keyup)="this.stepModelService.input(input.value, 'iText', 'localidad')">
                               </div>
                               <div class="form-creator__fields-area__field__bottom" *ngIf="this.steps[this.currentStep].mandatory">
                                   <span class="form-creator__fields-area__field__bottom__mandatory-label">
