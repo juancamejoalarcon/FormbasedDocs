@@ -26,19 +26,26 @@ export class StepModelService {
       if (step.identifier === identifier) {
         step.value = value;
         // 2. Clean possible previously added steps, so we don't repeat them
-        console.log(this.steps[index + 1].identifier);
-        console.log(step.identifier);
         while (this.steps[index + 1] && this.steps[index + 1].identifier.includes(step.identifier)) {
           this.steps.splice((index + 1), 1);
         }
         // 3. Loop through the texts that will be inserted
-        step.content.forEach((content) => {
+        step.content.forEach((content, contentIndex) => {
+          content.modifiedTexts = [];
           // 4. Add steps
           for (let i = 0; i < value; i++) {
+            let modifiedText = content.text;
             content.subSteps.forEach((subStep, subStepIndex) => {
-              this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
+              // 5. Modify subSteps identifiers and text with index of value loop iteration
+              const newIndentifier = subStep.identifier + i.toString() + subStepIndex.toString();
+              modifiedText = modifiedText.replace(subStep.identifier, newIndentifier);
+              const copySubStep = Object.assign({}, subStep)
+              copySubStep.identifier = newIndentifier;
+              this.steps.splice(((index + 1) + (subStepIndex) + (i * content.subSteps.length)), 0, copySubStep);
+              console.log(index, subStepIndex, i * content.subSteps.length);
             });
-          }
+            content.modifiedTexts.push(modifiedText);
+          };
           // 5. Insert text in the office document
         });
       }

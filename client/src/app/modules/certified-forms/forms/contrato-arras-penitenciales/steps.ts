@@ -22,12 +22,18 @@ export const steps = [
       identifier: 'iParteVendedora',
       content: [
         {
-          identifier: 'iParteVendedoraOptionBorrar1',
-          text: 'Esto es una vaina de prueba marico iParteVendedoraOptionBorrar1Prueba',
+          identifier: 'iParteVendedora-option1',
+          text: 'Esto es una vaina de prueba marico iParteVendedora-option1-comer, --- iParteVendedora-option1-fregar',
+          modifiedTexts: [],
           subSteps: [
             {
               type: 'iText',
-              identifier: 'iParteVendedoraOptionBorrar1Prueba',
+              identifier: 'iParteVendedora-option1-comer',
+              replacement: '',
+            },
+            {
+              type: 'iText',
+              identifier: 'iParteVendedora-option1-fregar',
               replacement: '',
             }
           ]
