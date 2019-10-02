@@ -18,6 +18,7 @@ export class StepModelService {
         step.replacement = replacement;
       }
     });
+    console.log(this.steps);
   }
 
   buildForEach(value: string, identifier: string) {
@@ -35,15 +36,28 @@ export class StepModelService {
           // 4. Add steps
           for (let i = 0; i < parseInt(value); i++) {
             let modifiedText = content.text;
-            content.subSteps.forEach((subStep, subStepIndex) => {
+            content.subSteps.forEach((subStep: any, subStepIndex: any) => {
               // 5. Modify subSteps identifiers and text with index of value loop iteration
               const newIndentifier = subStep.identifier + i.toString() + subStepIndex.toString();
               modifiedText = modifiedText.replace(subStep.identifier, newIndentifier);
-              const copySubStep = Object.assign({}, subStep)
+              const copySubStep = Object.assign({}, subStep);
               copySubStep.identifier = newIndentifier;
+              console.log(copySubStep);
+
+              // Plus: If inside we have another radio C we need to modify all the identifiers
+              // so we dont risk same identifier in another loop
+              if (copySubStep.type === 'iRadioC') {
+                copySubStep.radios.forEach((radio: any) => {
+                  radio.subSteps.forEach((radioSubstep: any) => {
+                    radioSubstep.identifier = radioSubstep.identifier + 'prueba';
+                    console.log(radioSubstep.identifier);
+                  });
+                });
+              }
+
               this.steps.splice(
-                ((index + 1) + 
-                (subStepIndex) + 
+                ((index + 1) +
+                (subStepIndex) +
                 (i * content.subSteps.length) +
                 ((parseInt(value) * contentIndex) *  content.subSteps.length)
                 ), 0, copySubStep);
@@ -78,6 +92,7 @@ export class StepModelService {
         });
       }
     });
+    console.log(this.steps);
   }
 
   getStepsModel() {
