@@ -54,6 +54,7 @@ export const steps = [
                     replacement: '',
                   },
                   {
+                    // tslint:disable-next-line:max-line-length
                     question: 'Tipo de documento de identificación personal para identificar a la parte vendedora (propietario) nº1 del inmueble:',
                     wordToReplace: 'iDcoumentoFisica',
                     identifier: 'iDcoumentoFisica',
@@ -84,6 +85,7 @@ export const steps = [
                   checked: false,
                   subSteps: [
                     {
+                      // tslint:disable-next-line:max-line-length
                       question: 'Nombre completo de la persona que firma o firmará el contrato en nombre de la parte vendedora (propietario) nº1 (ya que ésta es una persona jurídica):',
                       wordToReplace: 'iNombreJuridica',
                       identifier: 'iNombreJuridica',
@@ -91,6 +93,7 @@ export const steps = [
                       replacement: '',
                     },
                     {
+                      // tslint:disable-next-line:max-line-length
                       question: 'Tipo de documento de identificación personal para identificar a la persona que firma el contrato en nombre de la parte vendedora (propietario) nº1:',
                       wordToReplace: 'iDcoumentoJuridica',
                       identifier: 'iDcoumentoJuridica',

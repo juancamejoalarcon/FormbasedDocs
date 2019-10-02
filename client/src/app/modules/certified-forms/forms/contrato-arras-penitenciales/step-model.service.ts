@@ -42,16 +42,21 @@ export class StepModelService {
               modifiedText = modifiedText.replace(subStep.identifier, newIndentifier);
               const copySubStep = Object.assign({}, subStep);
               copySubStep.identifier = newIndentifier;
-              console.log(copySubStep);
 
               // Plus: If inside we have another radio C we need to modify all the identifiers
               // so we dont risk same identifier in another loop
               if (copySubStep.type === 'iRadioC') {
                 copySubStep.radios.forEach((radio: any) => {
+                  // Is not a deep copy so if we change this will modify the original object
+                  radio = Object.assign({}, radio);
                   radio.subSteps.forEach((radioSubstep: any) => {
-                    radioSubstep.identifier = radioSubstep.identifier + 'prueba';
-                    console.log(radioSubstep.identifier);
+                    // Is not a deep copy so if we change this will modify the original object
+                    radioSubstep = Object.assign({}, radioSubstep);
+                    // replace text
+                    radio.value = radio.value.replace(radioSubstep.identifier, newIndentifier + radioSubstep.identifier);
+                    radioSubstep.identifier = newIndentifier + radioSubstep.identifier;
                   });
+                  console.log(radio);
                 });
               }
 
