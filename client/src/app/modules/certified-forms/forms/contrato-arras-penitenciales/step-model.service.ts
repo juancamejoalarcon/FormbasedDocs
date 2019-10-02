@@ -20,7 +20,7 @@ export class StepModelService {
     });
   }
 
-  buildForEach(value: number, identifier: string) {
+  buildForEach(value: string, identifier: string) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.identifier === identifier) {
@@ -33,7 +33,7 @@ export class StepModelService {
         step.content.forEach((content, contentIndex) => {
           content.modifiedTexts = [];
           // 4. Add steps
-          for (let i = 0; i < value; i++) {
+          for (let i = 0; i < parseInt(value); i++) {
             let modifiedText = content.text;
             content.subSteps.forEach((subStep, subStepIndex) => {
               // 5. Modify subSteps identifiers and text with index of value loop iteration
@@ -41,8 +41,12 @@ export class StepModelService {
               modifiedText = modifiedText.replace(subStep.identifier, newIndentifier);
               const copySubStep = Object.assign({}, subStep)
               copySubStep.identifier = newIndentifier;
-              this.steps.splice(((index + 1) + (subStepIndex) + (i * content.subSteps.length)), 0, copySubStep);
-              console.log(index, subStepIndex, i * content.subSteps.length);
+              this.steps.splice(
+                ((index + 1) + 
+                (subStepIndex) + 
+                (i * content.subSteps.length) +
+                ((parseInt(value) * contentIndex) *  content.subSteps.length)
+                ), 0, copySubStep);
             });
             content.modifiedTexts.push(modifiedText);
           };

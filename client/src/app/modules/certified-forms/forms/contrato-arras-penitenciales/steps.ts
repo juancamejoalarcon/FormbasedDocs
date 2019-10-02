@@ -37,18 +37,41 @@ export const steps = [
               replacement: '',
             }
           ]
+        },
+        {
+          identifier: 'iParteVendedora-option2',
+          text: 'Otra cosa que no tiene nada que ver iParteVendedora-option2-blabla, --- iParteVendedora-option2-blibli',
+          modifiedTexts: [],
+          subSteps: [
+            {
+              type: 'iText',
+              identifier: 'iParteVendedora-option2-blabla',
+              replacement: '',
+            },
+            {
+              type: 'iText',
+              identifier: 'iParteVendedora-option2-blibli',
+              replacement: '',
+            }
+          ]
+        },
+        {
+          identifier: 'iParteVendedora-option3',
+          text: 'Otra cosa que no tiene nada que ver iParteVendedora-option3-ultimo1, --- iParteVendedora-option3-ultimo2',
+          modifiedTexts: [],
+          subSteps: [
+            {
+              type: 'iText',
+              identifier: 'iParteVendedora-option3-ultimo1',
+              replacement: '',
+            },
+            {
+              type: 'iText',
+              identifier: 'iParteVendedora-option3-ultimo2',
+              replacement: '',
+            }
+          ]
         }
-        // {
-        //   identifier: 'iForEachOptionBorrar2',
-        //   text: 'Pendejo iForEachOptionBorrar2Prueba',
-        //   subSteps: [
-        //     {
-        //       type: 'iText',
-        //       identifier: 'iForEachOptionBorrar2Prueba',
-        //       replacement: '',
-        //     }
-        //   ]
-        // }
       ]
     },
     {
