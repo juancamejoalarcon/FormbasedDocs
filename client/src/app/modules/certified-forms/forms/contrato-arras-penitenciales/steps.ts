@@ -160,147 +160,109 @@ export const steps = [
               ],
             },
           ]
-        },
-        // {
-        //   identifier: 'iParteVendedora-2',
-        //   text: 'Otra cosa que no tiene nada que ver iParteVendedora-option2-blabla, --- iParteVendedora-option2-blibli',
-        //   modifiedTexts: [],
-        //   subSteps: [
-        //     {
-        //       type: 'iText',
-        //       identifier: 'iParteVendedora-option2-blabla',
-        //       replacement: '',
-        //     },
-        //     {
-        //       type: 'iText',
-        //       identifier: 'iParteVendedora-option2-blibli',
-        //       replacement: '',
-        //     }
-        //   ]
-        // },
-        // {
-        //   identifier: 'iParteVendedora-option3',
-        //   text: 'Otra cosa que no tiene nada que ver iParteVendedora-option3-ultimo1, --- iParteVendedora-option3-ultimo2',
-        //   modifiedTexts: [],
-        //   subSteps: [
-        //     {
-        //       type: 'iText',
-        //       identifier: 'iParteVendedora-option3-ultimo1',
-        //       replacement: '',
-        //     },
-        //     {
-        //       type: 'iText',
-        //       identifier: 'iParteVendedora-option3-ultimo2',
-        //       replacement: '',
-        //     }
-        //   ]
-        // }
+        }
+        // {}
       ]
     },
     {
-      question: '¿La casa incluye alguna de estas partes accesorias?',
-      wordToReplace: 'iParteAccesoria',
-      identifier: 'iParteAccesoria',
-      type: 'iCheckbox',
-      replacement: 'Como parte anexa o accesoria a la misma, también incluye: iGaraje',
-      checkboxes: [
+      type: 'iRadioC',
+      question: 'El inmueble que se venderá es una finca edificada (vivienda, local de negocio, etc.)',
+      identifier: 'iFincaEdificada',
+      wordToReplace: 'iFincaEdificada',
+      indications: '',
+      replacement: '',
+      radios: [
         {
-          label: 'Marque esta casilla cuando el inmueble que se venderá tiene garaje:',
-          value: '- Garaje: iGarajeDescripcion',
-          identifier: 'iGaraje',
-          subSteps: [
+          label: 'Sí',
+          radioId: 'opA',
+          identifier: 'opA',
+          value: 'iNombreFisica con iDcoumentoFisica iDcoumentoNumeroFisica, y con domicilio en: iDomicilioFisica.',
+          valuesForExtraTexts: [
             {
-              question: 'Descripción del garaje',
-              wordToReplace: 'iGarajeDescripcion',
-              identifier: 'iGarajeDescripcion',
-              type: 'iText',
-              replacement: '',
-            },
-          ]
+              identifierOfExtraText: 'iParteVendedora-1-persona-extra1',
+              value: 'iNombreFisica, quien comparece en su propio nombre y derecho, como PARTE VENDEDORA.',
+            }
+          ],
+          checked: false,
+          subSteps: [
+          {
+            question: 'Nombre completo de la parte vendedora (propietario) nº1 del inmueble:',
+            wordToReplace: 'iNombreFisica',
+            identifier: 'iNombreFisica',
+            type: 'iText',
+            replacement: '',
+          }
+        ]
         },
         {
-          label: 'Marque esta casilla cuando el inmueble que se venderá tiene un trastero (p. ej: en el último piso del edificio, etc):',
-          value: '- Trastero: iTrasteroDescripcion',
-          identifier: 'iTrastero',
+          label: 'No',
+          value: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
+          valuesForExtraTexts: [
+            {
+              identifierOfExtraText: 'iParteVendedora-1-persona-extra1',
+              // tslint:disable-next-line:max-line-length
+              value: 'iNombreJuridica, quien comparece en nombre y representación de iDenominacion con NIF iNIF, y con domicilio en iDomicilioJuridica, y ello en virtud de Escritura pública y/o autorización pertinente, donde se recoge y motiva su facultad de intervención, como PARTE VENDEDORA.',
+            }
+          ],
+          radioId: 'OpB',
+          identifier: 'OpB',
+          checked: false,
           subSteps: [
             {
-              question: 'Descripción del transtero',
-              wordToReplace: 'iTrasteroDescripcion',
-              identifier: 'iTrasteroDescripcion',
+              // tslint:disable-next-line:max-line-length
+              question: 'Nombre completo de la persona que firma o firmará el contrato en nombre de la parte vendedora (propietario) nº1 (ya que ésta es una persona jurídica):',
+              wordToReplace: 'iNombreJuridica',
+              identifier: 'iNombreJuridica',
               type: 'iText',
               replacement: '',
-            },
+            }
           ]
-        }
+        },
       ],
-      rules: [
-        {
-          condition: 'noneIsChecked',
-          rulename: 'replace',
-          replacement: 'En adelante, se denominará conjuntamente, a la finca y sus accesarios, la Finca. La superficie y composición de la Finca, así como demás características...'
-        }
-      ]
     },
     // {
-    //   question: 'Cuestión condicional',
-    //   wordToReplace: 'iPrueba',
-    //   identifier: 'iPrueba',
-    //   type: 'iRadioC',
-    //   replacement: '',
-    //   radios: [
-    //   {
-    //     label: 'Opción a: Persona física',
-    //     radioId: 'iPruebaOptionA',
-    //     value: `- iNombre, persona física, mayor de edad, de estado civil iEstado`,
-    //     checked: false,
-    //     subSteps: [
+    //   question: '¿La casa incluye alguna de estas partes accesorias?',
+    //   wordToReplace: 'iParteAccesoria',
+    //   identifier: 'iParteAccesoria',
+    //   type: 'iCheckbox',
+    //   replacement: 'Como parte anexa o accesoria a la misma, también incluye: iGaraje',
+    //   checkboxes: [
     //     {
-    //       question: '¿Nombre de la persona?',
-    //       wordToReplace: 'iNombre',
-    //       identifier: 'iPruebaOptionAiNombre',
-    //       type: 'inputText',
-    //       replacement: '',
-    //       isFocused: false,
-    //       mandatory: true
+    //       label: 'Marque esta casilla cuando el inmueble que se venderá tiene garaje:',
+    //       value: '- Garaje: iGarajeDescripcion',
+    //       identifier: 'iGaraje',
+    //       subSteps: [
+    //         {
+    //           question: 'Descripción del garaje',
+    //           wordToReplace: 'iGarajeDescripcion',
+    //           identifier: 'iGarajeDescripcion',
+    //           type: 'iText',
+    //           replacement: '',
+    //         },
+    //       ]
     //     },
     //     {
-    //       question: '¿Estado Civil?',
-    //       wordToReplace: 'iEstado',
-    //       identifier: 'iPruebaOptionAiEstado',
-    //       type: 'inputText',
-    //       replacement: '',
-    //       isFocused: false,
-    //       mandatory: true
-    //     },
+    //       label: 'Marque esta casilla cuando el inmueble que se venderá tiene un trastero (p. ej: en el último piso del edificio, etc):',
+    //       value: '- Trastero: iTrasteroDescripcion',
+    //       identifier: 'iTrastero',
+    //       subSteps: [
+    //         {
+    //           question: 'Descripción del transtero',
+    //           wordToReplace: 'iTrasteroDescripcion',
+    //           identifier: 'iTrasteroDescripcion',
+    //           type: 'iText',
+    //           replacement: '',
+    //         },
+    //       ]
+    //     }
+    //   ],
+    //   rules: [
+    //     {
+    //       condition: 'noneIsChecked',
+    //       rulename: 'replace',
+    //       replacement: 'En adelante, se denominará conjuntamente, a la finca y sus accesarios, la Finca. La superficie y composición de la Finca, así como demás características...'
+    //     }
     //   ]
-    //   },
-    //   {
-    //     label: 'Opción b: Persona jurídica',
-    //     value: `- iNombre, persona jurídica, con domicilio en iEstado`,
-    //     radioId: 'iPruebaOptionB',
-    //     checked: false,
-    //     subSteps: [
-    //       {
-    //         question: '¿Nombre de la empresa?',
-    //         wordToReplace: 'iNombre',
-    //         identifier: 'iPruebaOptionBiNombre',
-    //         type: 'inputText',
-    //         replacement: '',
-    //         isFocused: false,
-    //         mandatory: true
-    //       },
-    //       {
-    //         question: '¿Domicilio fiscal de la empresa?',
-    //         wordToReplace: 'iEstado',
-    //         identifier: 'iPruebaOptionBiEstado',
-    //         type: 'inputText',
-    //         replacement: '',
-    //         isFocused: false,
-    //         mandatory: true
-    //       },
-    //     ]
-    //   },
-    // ],
     // },
     {
         type: 'end',
