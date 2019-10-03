@@ -97,6 +97,18 @@ export class StepModelService {
     console.log(this.steps);
   }
 
+  onInputCheckboxSelected(checkboxIdentifier: any, identifier) {
+    // 1. Find the step
+    this.steps.forEach((step, index) => {
+      if (step.identifier === identifier) {
+          // 2. Find checkbox selected
+          step.checkboxes.forEach((checkbox: any) => {
+            console.log(checkbox);
+          });
+      }
+    });
+  }
+
   getStepsModel() {
     return this.steps;
   }

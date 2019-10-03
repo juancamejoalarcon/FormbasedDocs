@@ -2386,7 +2386,7 @@ input:focus + .slider {
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
 }
 
-input[type=text], input[type=number], input[type=password], input[type=email], input[type=date] {
+input[type=text], input[type=password], input[type=email], input[type=date] {
   margin: 0rem 0rem 0rem 0rem;
   border: none;
   padding: 0.5rem 0.25rem 0.5rem 0.25rem;
@@ -2399,31 +2399,31 @@ input[type=text], input[type=number], input[type=password], input[type=email], i
   color: #556270;
 }
 
-input[type=text]::-webkit-input-placeholder, input[type=number]::-webkit-input-placeholder, input[type=password]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder, input[type=date]::-webkit-input-placeholder {
+input[type=text]::-webkit-input-placeholder, input[type=password]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder, input[type=date]::-webkit-input-placeholder {
   -webkit-transition: 100ms linear;
   transition: 100ms linear;
   color: #4ECDC4;
 }
 
-input[type=text]:-ms-input-placeholder, input[type=number]:-ms-input-placeholder, input[type=password]:-ms-input-placeholder, input[type=email]:-ms-input-placeholder, input[type=date]:-ms-input-placeholder {
+input[type=text]:-ms-input-placeholder, input[type=password]:-ms-input-placeholder, input[type=email]:-ms-input-placeholder, input[type=date]:-ms-input-placeholder {
   -webkit-transition: 100ms linear;
   transition: 100ms linear;
   color: #4ECDC4;
 }
 
-input[type=text]::-ms-input-placeholder, input[type=number]::-ms-input-placeholder, input[type=password]::-ms-input-placeholder, input[type=email]::-ms-input-placeholder, input[type=date]::-ms-input-placeholder {
+input[type=text]::-ms-input-placeholder, input[type=password]::-ms-input-placeholder, input[type=email]::-ms-input-placeholder, input[type=date]::-ms-input-placeholder {
   -webkit-transition: 100ms linear;
   transition: 100ms linear;
   color: #4ECDC4;
 }
 
-input[type=text]::placeholder, input[type=number]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder, input[type=date]::placeholder {
+input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder, input[type=date]::placeholder {
   -webkit-transition: 100ms linear;
   transition: 100ms linear;
   color: #4ECDC4;
 }
 
-input[type=text]:focus, input[type=number]:focus, input[type=password]:focus, input[type=email]:focus, input[type=date]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=date]:focus {
   border-bottom: 3px solid #4ECDC4;
   -webkit-transition: 200ms linear;
   transition: 200ms linear;
@@ -5082,6 +5082,22 @@ input[type=checkbox] {
   padding-top: 0.5rem;
 }
 
+.form-creator__fields-area__field__middle__checkbox-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 0.5rem;
+}
+
+.form-creator__fields-area__field__middle__checkbox-input label {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
 .form-creator__fields-area__field__middle__add-another-radio-button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5260,7 +5276,6 @@ input[type=checkbox] {
 .form-creator__text-area--quill-text {
   padding: 1rem;
   background-color: #ddd;
-  overflow-y: scroll;
 }
 
 .form-creator__text-area__quill-text-result {
@@ -5269,7 +5284,6 @@ input[type=checkbox] {
   height: 100%;
   -webkit-box-shadow: 0px 0px 30px #aaa;
           box-shadow: 0px 0px 30px #aaa;
-  overflow-y: scroll;
 }
 
 .form-creator__text-area__field {

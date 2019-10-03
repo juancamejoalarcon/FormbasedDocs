@@ -159,11 +159,45 @@ export const steps = [
     {
       question: '¿La casa incluye alguna de estas partes accesorias?',
       wordToReplace: 'iParteAccesoria',
-      identifier: 'iCheckbox',
+      identifier: 'iParteAccesoria',
       type: 'iCheckbox',
-      replacement: '',
+      replacement: 'Como parte anexa o accesoria a la misma, también incluye: iGaraje',
       checkboxes: [
-        
+        {
+          label: 'Garaje',
+          value: '- Garaje: iGarajeDescripcion',
+          identifier: 'iGaraje',
+          subSteps: [
+            {
+              question: 'Descripción del garaje',
+              wordToReplace: 'iGarajeDescripcion',
+              identifier: 'iGarajeDescripcion',
+              type: 'iText',
+              replacement: '',
+            },
+          ]
+        },
+        {
+          label: 'Trastero',
+          value: '- Trastero: iTrasteroDescripcion',
+          identifier: 'iTrastero',
+          subSteps: [
+            {
+              question: 'Descripción del transtero',
+              wordToReplace: 'iTrasteroDescripcion',
+              identifier: 'iTrasteroDescripcion',
+              type: 'iText',
+              replacement: '',
+            },
+          ]
+        }
+      ],
+      rules: [
+        {
+          condition: 'noneIsChecked',
+          rulename: 'replace',
+          replacement: 'En adelante, se denominará conjuntamente, a la finca y sus accesarios, la Finca. La superficie y composición de la Finca, así como demás características...'
+        }
       ]
     },
     // {
