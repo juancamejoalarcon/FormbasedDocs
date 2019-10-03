@@ -29,7 +29,13 @@ export const steps = [
         {
           identifier: 'iParteVendedora-1',
           text: 'iParteVendedora-1-persona',
+          extraTexts: [
+            {
+              identifier: 'iParteVendedora-1-persona-extra1'
+            }
+          ],
           modifiedTexts: [],
+          modifiedExtraTexts: [],
           subSteps: [
             {
               type: 'iRadioC',
@@ -44,6 +50,12 @@ export const steps = [
                   radioId: 'persona-fisica',
                   identifier: 'persona-fisica',
                   value: 'iNombreFisica con iDcoumentoFisica iDcoumentoNumeroFisica, y con domicilio en: iDomicilioFisica.',
+                  valuesForExtraTexts: [
+                    {
+                      identifierOfExtraText: 'iParteVendedora-1-persona-extra1',
+                      value: 'iNombreFisica, quien comparece en su propio nombre y derecho, como PARTE VENDEDORA.',
+                    }
+                  ],
                   checked: false,
                   subSteps: [
                   {
@@ -80,6 +92,13 @@ export const steps = [
                 {
                   label: 'Persona jurídica',
                   value: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
+                  valuesForExtraTexts: [
+                    {
+                      identifierOfExtraText: 'iParteVendedora-1-persona-extra1',
+                      // tslint:disable-next-line:max-line-length
+                      value: 'iNombreJuridica, quien comparece en nombre y representación de iDenominacion con NIF iNIF, y con domicilio en iDomicilioJuridica, y ello en virtud de Escritura pública y/o autorización pertinente, donde se recoge y motiva su facultad de intervención, como PARTE VENDEDORA.',
+                    }
+                  ],
                   radioId: 'persona-juridica',
                   identifier: 'persona-juridica',
                   checked: false,
@@ -101,16 +120,38 @@ export const steps = [
                       replacement: '',
                     },
                     {
-                      question: 'Cargo o puesto que ostenta la persona que representa con su firma en el contrato a la parte vendedora nº1',
+                      // tslint:disable-next-line:max-line-length
+                      question: 'Número del documento personal de identificación de la persona que representa con su firma a la parte vendedora (propietario) nº1 del inmueble:',
                       wordToReplace: 'iDcoumentoNumeroJuridica',
                       identifier: 'iDcoumentoNumeroJuridica',
                       type: 'iText',
                       replacement: '',
                     },
                     {
-                      question: 'Dirección completa de la parte vendedora (propietario) nº1 del inmueble: ',
+                      question: 'Cargo o puesto que ostenta la persona que representa con su firma en el contrato a la parte vendedora nº1',
                       wordToReplace: 'iCargo',
                       identifier: 'iCargo',
+                      type: 'iText',
+                      replacement: '',
+                    },
+                    {
+                      question: 'Denominación o razón social de la parte vendedora (propietario) nº1 del inmueble:',
+                      wordToReplace: 'iDenominacion',
+                      identifier: 'iDenominacion',
+                      type: 'iText',
+                      replacement: '',
+                    },
+                    {
+                      question: 'Número del NIF identificador (antiguo CIF) de la parte vendedora (propietario) nº1 del inmueble:',
+                      wordToReplace: 'iNIF',
+                      identifier: 'iNIF',
+                      type: 'iText',
+                      replacement: '',
+                    },
+                    {
+                      question: 'Domicilio social o dirección de la parte vendedora (propietario) nº1 del inmueble:',
+                      wordToReplace: 'iDomicilioJuridica',
+                      identifier: 'iDomicilioJuridica',
                       type: 'iText',
                       replacement: '',
                     }
@@ -164,7 +205,7 @@ export const steps = [
       replacement: 'Como parte anexa o accesoria a la misma, también incluye: iGaraje',
       checkboxes: [
         {
-          label: 'Garaje',
+          label: 'Marque esta casilla cuando el inmueble que se venderá tiene garaje:',
           value: '- Garaje: iGarajeDescripcion',
           identifier: 'iGaraje',
           subSteps: [
@@ -178,7 +219,7 @@ export const steps = [
           ]
         },
         {
-          label: 'Trastero',
+          label: 'Marque esta casilla cuando el inmueble que se venderá tiene un trastero (p. ej: en el último piso del edificio, etc):',
           value: '- Trastero: iTrasteroDescripcion',
           identifier: 'iTrastero',
           subSteps: [

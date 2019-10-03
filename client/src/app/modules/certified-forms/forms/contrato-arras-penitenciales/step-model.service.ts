@@ -33,13 +33,20 @@ export class StepModelService {
         // 3. Loop through the texts that will be inserted
         step.content.forEach((content, contentIndex) => {
           content.modifiedTexts = [];
+          content.modifiedExtraTexts = [];
           // 4. Add steps
           for (let i = 0; i < parseInt(value); i++) {
             let modifiedText = content.text;
+            const modifiedExtraTexts = [];
             content.subSteps.forEach((subStep: any, subStepIndex: any) => {
               // 5. Modify subSteps identifiers and text with index of value loop iteration
               const newIndentifier = subStep.identifier + i.toString() + subStepIndex.toString();
               modifiedText = modifiedText.replace(subStep.identifier, newIndentifier);
+              content.extraTexts.forEach((extraText: any) => {
+                modifiedExtraTexts.push({
+                  identifier: extraText.identifier + i.toString() + subStepIndex.toString()
+                });
+              });
               // Deep copy
               const copySubStep = JSON.parse(JSON.stringify(subStep));
               copySubStep.identifier = newIndentifier;
@@ -51,9 +58,13 @@ export class StepModelService {
                   radio.subSteps.forEach((radioSubstep: any) => {
                     // replace text
                     radio.value = radio.value.replace(radioSubstep.identifier, newIndentifier + radioSubstep.identifier);
+                    radio.valuesForExtraTexts.forEach((valueForExtraStep: any, valueForExtraStepIndex: number) => {
+                      valueForExtraStep.value = valueForExtraStep.value
+                      .replace(radioSubstep.identifier, newIndentifier + radioSubstep.identifier);
+                      valueForExtraStep.identifierOfExtraText = modifiedExtraTexts[valueForExtraStepIndex].identifier;
+                    });
                     radioSubstep.identifier = newIndentifier + radioSubstep.identifier;
                   });
-                  console.log(radio);
                 });
               }
 
@@ -65,7 +76,8 @@ export class StepModelService {
                 ), 0, copySubStep);
             });
             content.modifiedTexts.push(modifiedText);
-          };
+            content.modifiedExtraTexts.push(modifiedExtraTexts);
+          }
           // 5. Insert text in the office document
         });
       }
@@ -97,15 +109,13 @@ export class StepModelService {
     console.log(this.steps);
   }
 
-  onInputCheckboxSelected(checkboxIdentifier: any, identifier, value: any) {
+  onInputCheckboxSelected(checkboxIdentifier: any, identifier, checked: any) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.identifier === identifier) {
           // 2. Find checkbox selected
           step.checkboxes.forEach((checkbox: any) => {
             if (checkbox.identifier === checkboxIdentifier) {
-              console.log(checkbox);
-              console.log(value);
             }
           });
       }

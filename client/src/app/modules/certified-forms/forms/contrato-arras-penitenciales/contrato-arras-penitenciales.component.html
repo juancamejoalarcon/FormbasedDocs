@@ -110,7 +110,7 @@
                               <div class="form-creator__fields-area__field__middle">
                                   <div class="form-creator__fields-area__field__middle__date-container">
                                       <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
-                                      <input type="date" #input (change)="this.stepModelService.input(input.value, 'iDate', this.steps[this.currentStep].identifier)" [value]="this.steps[this.currentStep].replacement">
+                                      <input type="date" #input (change)="this.stepModelService.input(input.checked, 'iDate', this.steps[this.currentStep].identifier)" [value]="this.steps[this.currentStep].replacement">
                                   </div>
                               </div>
                               <div class="form-creator__fields-area__field__bottom" *ngIf="this.steps[this.currentStep].mandatory">
