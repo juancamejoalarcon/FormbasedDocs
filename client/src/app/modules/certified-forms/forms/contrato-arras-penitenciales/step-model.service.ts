@@ -40,18 +40,15 @@ export class StepModelService {
               // 5. Modify subSteps identifiers and text with index of value loop iteration
               const newIndentifier = subStep.identifier + i.toString() + subStepIndex.toString();
               modifiedText = modifiedText.replace(subStep.identifier, newIndentifier);
-              const copySubStep = Object.assign({}, subStep);
+              // Deep copy
+              const copySubStep = JSON.parse(JSON.stringify(subStep));
               copySubStep.identifier = newIndentifier;
 
               // Plus: If inside we have another radio C we need to modify all the identifiers
               // so we dont risk same identifier in another loop
               if (copySubStep.type === 'iRadioC') {
                 copySubStep.radios.forEach((radio: any) => {
-                  // Is not a deep copy so if we change this will modify the original object
-                  radio = Object.assign({}, radio);
                   radio.subSteps.forEach((radioSubstep: any) => {
-                    // Is not a deep copy so if we change this will modify the original object
-                    radioSubstep = Object.assign({}, radioSubstep);
                     // replace text
                     radio.value = radio.value.replace(radioSubstep.identifier, newIndentifier + radioSubstep.identifier);
                     radioSubstep.identifier = newIndentifier + radioSubstep.identifier;

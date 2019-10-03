@@ -184,6 +184,35 @@
                   </div>
               </div>
               <!-- END OF INPUT RADIO C -->
+              <!-- INPUT CHECKBOX -->
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iCheckbox'">
+                  <div class="form-creator__fields-area__field">
+                      <div class="form-creator__fields-area__field__container">
+                          <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
+                              <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
+                                  <div class="indication">
+                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                  </div>
+                              </div>
+                              <div class="form-creator__fields-area__field__middle">
+                                  <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
+                                  <div class="form-creator__fields-area__field__middle__checkbox-input">
+                                    <label *ngFor="let checkbox of this.steps[this.currentStep].checkboxes">
+                                        <input type="checkbox" class="filled-in" name="op1" value="op1" [checked]="checkbox.checked" />
+                                        <span>{{checkbox.label}}.</span>
+                                    </label>
+                                  </div>
+                              </div>
+                              <div class="form-creator__fields-area__field__bottom">
+                                  <span class="form-creator__fields-area__field__bottom__mandatory-label">
+                                      Obligatorio *
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- END OF INPUT RADIO C -->
               <!-- END -->
               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'end'">
                   <div class="form-creator__fields-area__field">

@@ -156,6 +156,16 @@ export const steps = [
         // }
       ]
     },
+    {
+      question: '¿La casa incluye alguna de estas partes accesorias?',
+      wordToReplace: 'iParteAccesoria',
+      identifier: 'iCheckbox',
+      type: 'iCheckbox',
+      replacement: '',
+      checkboxes: [
+        
+      ]
+    },
     // {
     //   question: 'Cuestión condicional',
     //   wordToReplace: 'iPrueba',
