@@ -93,13 +93,18 @@ export class StepModelService {
         step.radios.forEach((radio) => {
           if (radio.radioId === radioSelectedId) {
             // 3. Clean possible previously added steps, so we don't repeat them
-            while (this.steps[index + 1] && this.steps[index + 1].identifier.includes(step.identifier)) {
+            while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
               this.steps.splice((index + 1), 1);
             }
             // 2. Add steps
+            let replacement = radio.replacementOriginal;
             radio.subSteps.forEach((subStep, subStepIndex) => {
+                // Make step unique modifying identifier
+              subStep.wordToReplace = step.identifier + subStep.identifier;
+              replacement = replacement.replace(subStep.identifier, subStep.wordToReplace);
               this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
             });
+            radio.replacement = replacement;
             radio.checked = true;
           } else {
             radio.checked = false;
@@ -122,7 +127,7 @@ export class StepModelService {
             replacement = replacement.replace(checkbox.identifier, checkbox.wordToReplace);
             if (checkbox.identifier === checkboxIdentifier) {
               // 3. Clean possible previously added steps, so we don't repeat them
-              let lengthOfRestOfArray = this.steps.length - index;
+              const lengthOfRestOfArray = this.steps.length - index;
               for (let i = 0; i < lengthOfRestOfArray; i++) {
                 if (this.steps[(index + 1) + i] && this.steps[(index + 1) + i].identifier.includes(checkbox.identifier)) {
                   this.steps.splice((index + 1 + i), 1);
@@ -130,9 +135,13 @@ export class StepModelService {
               }
               // 2. Add steps
               if (checked) {
+                let replacementSubstep = checkbox.replacementOriginal;
                 checkbox.subSteps.forEach((subStep, subStepIndex) => {
+                  subStep.wordToReplace = step.identifier + subStep.identifier;
+                  replacementSubstep = replacementSubstep.replace(subStep.identifier, subStep.wordToReplace);
                   this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
                 });
+                checkbox.replacement = replacementSubstep;
               }
               checkbox.checked = checked;
             }
@@ -144,9 +153,11 @@ export class StepModelService {
             if (rule.condition === 'noneIsChecked') {
               let isAnyCheck = false;
               step.checkboxes.forEach((checkbox: any) => {
-                if (checkbox.checked) { isAnyCheck = true; };
+                if (checkbox.checked) { isAnyCheck = true; }
               });
-              console.log(isAnyCheck);
+              if (!isAnyCheck) {
+                step.replacement = rule.replacement;
+              }
             }
           });
         }
