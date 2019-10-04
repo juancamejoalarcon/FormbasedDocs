@@ -100,6 +100,7 @@ export class StepModelService {
             radio.subSteps.forEach((subStep, subStepIndex) => {
               this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
             });
+            radio.checked = true;
           } else {
             radio.checked = false;
           }
@@ -113,13 +114,45 @@ export class StepModelService {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.identifier === identifier) {
+        let replacement = step.replacementOriginal;
           // 2. Find checkbox selected
           step.checkboxes.forEach((checkbox: any) => {
+            // Make step unique modifying identifier
+            checkbox.wordToReplace = step.identifier + checkbox.identifier;
+            replacement = replacement.replace(checkbox.identifier, checkbox.wordToReplace);
             if (checkbox.identifier === checkboxIdentifier) {
+              // 3. Clean possible previously added steps, so we don't repeat them
+              let lengthOfRestOfArray = this.steps.length - index;
+              for (let i = 0; i < lengthOfRestOfArray; i++) {
+                if (this.steps[(index + 1) + i] && this.steps[(index + 1) + i].identifier.includes(checkbox.identifier)) {
+                  this.steps.splice((index + 1 + i), 1);
+                }
+              }
+              // 2. Add steps
+              if (checked) {
+                checkbox.subSteps.forEach((subStep, subStepIndex) => {
+                  this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
+                });
+              }
+              checkbox.checked = checked;
             }
           });
+        step.replacement = replacement;
+        // Aplly rules
+        if (step.rules.length) {
+          step.rules.forEach((rule: any) => {
+            if (rule.condition === 'noneIsChecked') {
+              let isAnyCheck = false;
+              step.checkboxes.forEach((checkbox: any) => {
+                if (checkbox.checked) { isAnyCheck = true; };
+              });
+              console.log(isAnyCheck);
+            }
+          });
+        }
       }
     });
+    console.log(this.steps);
   }
 
   getStepsModel() {

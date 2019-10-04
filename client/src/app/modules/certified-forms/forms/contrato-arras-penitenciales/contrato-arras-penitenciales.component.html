@@ -199,7 +199,7 @@
                                   <div class="form-creator__fields-area__field__middle__checkbox-input">
                                     <label *ngFor="let checkbox of this.steps[this.currentStep].checkboxes">
                                         <input type="checkbox" class="filled-in" #input
-                                        (change)="this.stepModelService.onInputCheckboxSelected(checkbox.identifier, this.steps[this.currentStep].identifier, input.value)"
+                                        (change)="this.stepModelService.onInputCheckboxSelected(checkbox.identifier, this.steps[this.currentStep].identifier, input.checked)"
                                         [checked]="checkbox.checked"  />
                                         <span>{{checkbox.label}}.</span>
                                     </label>
