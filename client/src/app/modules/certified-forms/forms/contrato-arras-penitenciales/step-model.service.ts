@@ -27,58 +27,62 @@ export class StepModelService {
       if (step.identifier === identifier) {
         step.value = value;
         // 2. Clean possible previously added steps, so we don't repeat them
-        while (this.steps[index + 1] && this.steps[index + 1].identifier.includes(step.identifier)) {
+        while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
           this.steps.splice((index + 1), 1);
         }
         // 3. Loop through the texts that will be inserted
         step.content.forEach((content, contentIndex) => {
-          content.modifiedTexts = [];
-          content.modifiedExtraTexts = [];
+          content.modifiedReplacements = [];
+          content.modifiedExtraReplacements = [];
           // 4. Add steps
+          // tslint:disable-next-line:radix
           for (let i = 0; i < parseInt(value); i++) {
-            let modifiedText = content.text;
-            const modifiedExtraTexts = [];
+            let modifiedReplacement = content.replacementOriginal;
+            const modifiedExtraReplacements = [];
             content.subSteps.forEach((subStep: any, subStepIndex: any) => {
               // 5. Modify subSteps identifiers and text with index of value loop iteration
-              const newIndentifier = subStep.identifier + i.toString() + subStepIndex.toString();
-              modifiedText = modifiedText.replace(subStep.identifier, newIndentifier);
-              content.extraTexts.forEach((extraText: any) => {
-                modifiedExtraTexts.push({
-                  identifier: extraText.identifier + i.toString() + subStepIndex.toString()
+              const newIndentifier = step.identifier + subStep.identifier + i.toString() + subStepIndex.toString();
+              modifiedReplacement = modifiedReplacement.replace(subStep.identifier, newIndentifier);
+              content.extraReplacements.forEach((extraReplacement: any) => {
+                modifiedExtraReplacements.push({
+                  identifier: extraReplacement.identifier + i.toString() + subStepIndex.toString()
                 });
               });
               // Deep copy
               const copySubStep = JSON.parse(JSON.stringify(subStep));
               copySubStep.identifier = newIndentifier;
-
-              // Plus: If inside we have another radio C we need to modify all the identifiers
-              // so we dont risk same identifier in another loop
-              if (copySubStep.type === 'iRadioC') {
-                copySubStep.radios.forEach((radio: any) => {
-                  radio.subSteps.forEach((radioSubstep: any) => {
-                    // replace text
-                    radio.value = radio.value.replace(radioSubstep.identifier, newIndentifier + radioSubstep.identifier);
-                    radio.valuesForExtraTexts.forEach((valueForExtraStep: any, valueForExtraStepIndex: number) => {
-                      valueForExtraStep.value = valueForExtraStep.value
-                      .replace(radioSubstep.identifier, newIndentifier + radioSubstep.identifier);
-                      valueForExtraStep.identifierOfExtraText = modifiedExtraTexts[valueForExtraStepIndex].identifier;
-                    });
-                    radioSubstep.identifier = newIndentifier + radioSubstep.identifier;
-                  });
-                });
-              }
+              copySubStep.wordToReplace = newIndentifier;
 
               this.steps.splice(
                 ((index + 1) +
                 (subStepIndex) +
                 (i * content.subSteps.length) +
+                // tslint:disable-next-line:radix
                 ((parseInt(value) * contentIndex) *  content.subSteps.length)
                 ), 0, copySubStep);
             });
-            content.modifiedTexts.push(modifiedText);
-            content.modifiedExtraTexts.push(modifiedExtraTexts);
+            content.modifiedReplacements.push(modifiedReplacement);
+            content.modifiedExtraReplacements.push(modifiedExtraReplacements);
           }
           // 5. Insert text in the office document
+        });
+      }
+    });
+    console.log(this.steps);
+  }
+
+  onInputRadioBSelected(radioSelectedId: any, identifier: string) {
+    // 1. Find the step
+    this.steps.forEach((step, index) => {
+      if (step.identifier === identifier) {
+        // 2. Find radio selected
+        step.radios.forEach((radio) => {
+          if (radio.radioId === radioSelectedId) {
+            step.replacement = radio.replacementOriginal;
+            radio.checked = true;
+          } else {
+            radio.checked = false;
+          }
         });
       }
     });
@@ -98,10 +102,19 @@ export class StepModelService {
             }
             // 2. Add steps
             let replacement = radio.replacementOriginal;
+            radio.extraReplacements.forEach((extraReplacement) => { extraReplacement.replacement = extraReplacement.replacementOriginal; });
             radio.subSteps.forEach((subStep, subStepIndex) => {
                 // Make step unique modifying identifier
               subStep.wordToReplace = step.identifier + subStep.identifier;
               replacement = replacement.replace(subStep.identifier, subStep.wordToReplace);
+              radio.extraReplacements.forEach( (extraReplacement) => {
+                extraReplacement.replacement = extraReplacement.replacement.replace(subStep.identifier, subStep.wordToReplace);
+              });
+              // reset checkboxes if any
+              if (subStep.type === 'iCheckbox') {
+                subStep.checkboxes.forEach((checkbox) => { checkbox.checked = false; });
+              }
+
               this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
             });
             radio.replacement = replacement;
@@ -123,13 +136,13 @@ export class StepModelService {
           // 2. Find checkbox selected
           step.checkboxes.forEach((checkbox: any) => {
             // Make step unique modifying identifier
-            checkbox.wordToReplace = step.identifier + checkbox.identifier;
+            checkbox.wordToReplace = step.wordToReplace + checkbox.identifier;
             replacement = replacement.replace(checkbox.identifier, checkbox.wordToReplace);
             if (checkbox.identifier === checkboxIdentifier) {
               // 3. Clean possible previously added steps, so we don't repeat them
               const lengthOfRestOfArray = this.steps.length - index;
               for (let i = 0; i < lengthOfRestOfArray; i++) {
-                if (this.steps[(index + 1) + i] && this.steps[(index + 1) + i].identifier.includes(checkbox.identifier)) {
+                if (this.steps[(index + 1) + i] && this.steps[(index + 1) + i].wordToReplace.includes(checkbox.identifier)) {
                   this.steps.splice((index + 1 + i), 1);
                 }
               }
@@ -137,7 +150,7 @@ export class StepModelService {
               if (checked) {
                 let replacementSubstep = checkbox.replacementOriginal;
                 checkbox.subSteps.forEach((subStep, subStepIndex) => {
-                  subStep.wordToReplace = step.identifier + subStep.identifier;
+                  subStep.wordToReplace = checkbox.wordToReplace + subStep.identifier;
                   replacementSubstep = replacementSubstep.replace(subStep.identifier, subStep.wordToReplace);
                   this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
                 });
