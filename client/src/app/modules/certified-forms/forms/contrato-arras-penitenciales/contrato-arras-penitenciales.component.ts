@@ -10,6 +10,7 @@ import {
   Form
 } from '../../../../core';
 import { StepModelService } from './step-model.service';
+import { DocumentCreatorService } from './document-creator.service';
 import { SharedService } from '../../shared';
 import * as stepsImport from './steps';
 
@@ -29,12 +30,14 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   constructor(
     private stepModelService: StepModelService,
     private commonsService: CommonsService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private documentCreatorService: DocumentCreatorService
   ) { }
 
   ngOnInit() {
     this.stepModelService.init(this.steps);
     this.sharedService.setForm(this.form);
+    this.documentCreatorService.init();
   }
 
   ngAfterViewInit() {

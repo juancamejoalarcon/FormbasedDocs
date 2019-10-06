@@ -7,7 +7,8 @@ import { CertifiedFormsComponent } from './certified-forms.component';
 import {
   PactoDeSociosComponent,
   ContratoArrasPenitencialesComponent,
-  StepModelService } from './forms';
+  StepModelService,
+  DocumentCreatorService } from './forms';
 import { CheckoutComponent, SharedService } from './shared';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CheckoutComponent, SharedService } from './shared';
   ],
   providers: [
     SharedService,
-    StepModelService
+    StepModelService,
+    DocumentCreatorService
   ]
 })
 export class CertifiedFormsModule { }
