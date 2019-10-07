@@ -5,20 +5,22 @@ export const steps = [
       description: `El contrato de alquiler es el documento que regula la cesión y el uso de
       inmueble y los derechos y obligaciones de arrendador (el propietario) y arrendatario (inquilino).`
     },
-    // {
-    //   type: 'iText',
-    //   identifier: 'iLocalidad',
-    //   replacement: '',
-    //   question: 'Lugar en el que se firma este contrato:',
-    //   indications: 'Indique el lugar en el que se firma este contrato.',
-    // },
-    // {
-    //   type: 'iDate',
-    //   identifier: 'iFecha',
-    //   replacement: '',
-    //   question: 'Fecha en la que se firma este contrato:',
-    //   indications: 'Con la ayuda del calendario, indique la fecha en la que se firma este contrato.',
-    // },
+    {
+      type: 'iText',
+      identifier: 'iLocalidad',
+      wordToReplace: 'iLocalidad',
+      replacement: '',
+      question: 'Lugar en el que se firma este contrato:',
+      indications: 'Indique el lugar en el que se firma este contrato.',
+    },
+    {
+      type: 'iDate',
+      identifier: 'iFecha',
+      wordToReplace: 'iFecha',
+      replacement: '',
+      question: 'Fecha en la que se firma este contrato:',
+      indications: 'Con la ayuda del calendario, indique la fecha en la que se firma este contrato.',
+    },
     // {
     //   type: 'iForEach',
     //   value: 1,
@@ -62,7 +64,7 @@ export const steps = [
     //                   replacement: ''
     //                 }
     //               ],
-    //               checked: false,
+    //               checked: true,
     //               subSteps: [
     //               {
     //                 question: 'Nombre completo de la parte vendedora (propietario) nº1 del inmueble:',
@@ -330,6 +332,7 @@ export const steps = [
     // {
     //   type: 'iText',
     //   identifier: 'iFincaDescripcion',
+    //   wordToReplace: 'iFincaDescripcion',
     //   replacement: '',
     //   question: 'Descripción detallada del inmueble objeto de compraventa:',
     //   indications: 'Indique el lugar en el que se firma este contrato.',
@@ -337,6 +340,7 @@ export const steps = [
     // {
     //   type: 'iText',
     //   identifier: 'iFincaDireccion',
+    //   wordToReplace: 'iFincaDireccion',
     //   replacement: '',
     //   question: 'Dirección completa del inmueble que se va a vender:',
     //   indications: 'Indique el lugar en el que se firma este contrato.',
@@ -344,6 +348,7 @@ export const steps = [
     // {
     //   type: 'iText',
     //   identifier: 'iFincaMetrosCuadrados',
+    //   wordToReplace: 'iFincaMetrosCuadrados',
     //   replacement: '',
     //   question: 'Número de metros cuadrados que dispone el inmueble:',
     //   indications: 'Indique el lugar en el que se firma este contrato.',
@@ -542,47 +547,47 @@ export const steps = [
     //     },
     //   ],
     // },
-    {
-      type: 'iRadioC',
-      question: 'Ocupación del inmueble (p. ej. hay inquilinos):',
-      identifier: 'iOcupacionInmueble',
-      wordToReplace: 'iOcupacionInmueble',
-      indications: 'Marque la opción Persona ...',
-      replacement: '',
-      radios: [
-        {
-          label: 'Existen ocupantes',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Asimismo, en cuanto a la situación arrendaticia, la Finca se encuentra ocupada por: iDescriptionOfOcupantes',
-          replacement: '',
-          radioId: 'iOcupacionInmueble-opA',
-          identifier: 'iOcupacionInmueble-opA',
-          extraReplacements: [],
-          checked: false,
-          subSteps: [
-            {
-              type: 'iText',
-              identifier: 'iDescriptionOfOcupantes',
-              wordToReplace: 'iDescriptionOfOcupantes',
-              replacement: '',
-              question: 'Describa el tipo de ocupantes que se encuentran en el inmueble: ',
-              indications: 'Indique el lugar en el que se firma este contrato.',
-            },
-          ]
-        },
-        {
-          label: 'Libre de ocupantes',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Asimismo, en cuanto a la situación arrendaticia, la Finca se encuentra libre de arrendatarios, ocupantes y/o precaristas.',
-          replacement: '',
-          radioId: 'iOcupacionInmueble-opB',
-          identifier: 'iOcupacionInmueble-opB',
-          extraReplacements: [],
-          checked: false,
-          subSteps: []
-        },
-      ],
-    },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'Ocupación del inmueble (p. ej. hay inquilinos):',
+    //   identifier: 'iOcupacionInmueble',
+    //   wordToReplace: 'iOcupacionInmueble',
+    //   indications: 'Marque la opción Persona ...',
+    //   replacement: '',
+    //   radios: [
+    //     {
+    //       label: 'Existen ocupantes',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Asimismo, en cuanto a la situación arrendaticia, la Finca se encuentra ocupada por: iDescriptionOfOcupantes',
+    //       replacement: '',
+    //       radioId: 'iOcupacionInmueble-opA',
+    //       identifier: 'iOcupacionInmueble-opA',
+    //       extraReplacements: [],
+    //       checked: false,
+    //       subSteps: [
+    //         {
+    //           type: 'iText',
+    //           identifier: 'iDescriptionOfOcupantes',
+    //           wordToReplace: 'iDescriptionOfOcupantes',
+    //           replacement: '',
+    //           question: 'Describa el tipo de ocupantes que se encuentran en el inmueble: ',
+    //           indications: 'Indique el lugar en el que se firma este contrato.',
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'Libre de ocupantes',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Asimismo, en cuanto a la situación arrendaticia, la Finca se encuentra libre de arrendatarios, ocupantes y/o precaristas.',
+    //       replacement: '',
+    //       radioId: 'iOcupacionInmueble-opB',
+    //       identifier: 'iOcupacionInmueble-opB',
+    //       extraReplacements: [],
+    //       checked: false,
+    //       subSteps: []
+    //     },
+    //   ],
+    // },
     {
         type: 'end',
         identifier: 'end',

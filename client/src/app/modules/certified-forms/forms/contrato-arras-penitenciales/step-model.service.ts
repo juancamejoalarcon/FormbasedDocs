@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { DocumentCreatorService } from './document-creator.service';
 
 @Injectable()
 export class StepModelService {
 
   public steps: Array<any>;
 
-  constructor() { }
+  constructor(
+    private documentCreatorService: DocumentCreatorService
+  ) { }
 
   init(steps: Array<Object>) {
     this.steps = steps;
@@ -18,7 +21,7 @@ export class StepModelService {
         step.replacement = replacement;
       }
     });
-    console.log(this.steps);
+    this.documentCreatorService.buildDocument(this.steps);
   }
 
   buildForEach(value: string, identifier: string) {
@@ -68,7 +71,7 @@ export class StepModelService {
         });
       }
     });
-    console.log(this.steps);
+    this.documentCreatorService.buildDocument(this.steps);
   }
 
   onInputRadioBSelected(radioSelectedId: any, identifier: string) {
@@ -86,7 +89,7 @@ export class StepModelService {
         });
       }
     });
-    console.log(this.steps);
+    this.documentCreatorService.buildDocument(this.steps);
   }
 
   onInputRadioCSelected(radioSelectedId: any, identifier: string) {
@@ -125,7 +128,7 @@ export class StepModelService {
         });
       }
     });
-    console.log(this.steps);
+    this.documentCreatorService.buildDocument(this.steps);
   }
 
   onInputCheckboxSelected(checkboxIdentifier: any, identifier, checked: any) {
@@ -176,7 +179,7 @@ export class StepModelService {
         }
       }
     });
-    console.log(this.steps);
+    this.documentCreatorService.buildDocument(this.steps);
   }
 
   getStepsModel() {
