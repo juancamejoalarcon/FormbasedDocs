@@ -48,17 +48,27 @@ export class DocumentCreatorService {
 
   buildDocument(steps: any) {
     this.currentDocumentBodyClone = this.originalDocumentBodyClone.cloneNode(true);
+    // 1.- Change doc structure
     this.structuralChanges(steps);
-    this.replacements(steps);
+    // 2.- Change values
+    // this.replacements(steps);
   }
-
+  /************************/
+  /* CHANGE DOC STRUCTURE */
+  /************************/
   structuralChanges(steps: any) {
     steps.forEach((step: any) => {
       if (step.type === 'iRadioC') {
-        // console.log(step);
+        this.buildForRadioC(step);
       }
     });
   }
+
+  buildForRadioC(step:any) {
+    console.log(step);
+  }
+  /*END OF CHANGE DOC STRUCTURE*/
+  
 
   replacements(steps: any) {
     steps.forEach((step: any) => {
