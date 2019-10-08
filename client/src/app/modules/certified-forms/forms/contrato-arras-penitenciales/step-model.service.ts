@@ -173,6 +173,9 @@ export class StepModelService {
               });
               if (!isAnyCheck) {
                 step.replacement = rule.replacement;
+                rule.isFulfilled = true;
+              } else {
+                rule.isFulfilled = false;
               }
             }
           });
