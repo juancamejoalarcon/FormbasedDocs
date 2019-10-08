@@ -21,7 +21,7 @@ export class DocumentCreatorService {
         window.addEventListener('resize', this.resizeDocumentContainer);
         this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
         this.commonsService.toggleSpinner();
-      }, 4000);
+      }, 5000);
   }
 
   createEditorFromURI(formType: string, idOfContainer: string = 'editorContainer', dataURI: string) {
@@ -60,14 +60,36 @@ export class DocumentCreatorService {
     steps.forEach((step: any) => {
       if (step.type === 'iRadioC') {
         this.buildForRadioC(step);
+      } else if (step.type === 'iCheckbox') {
+        this.buildForCheckbox(step);
       }
     });
+    document.getElementsByTagName('office:text')[0].parentElement.replaceChild(
+      this.currentDocumentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]
+    );
   }
 
   buildForRadioC(step:any) {
+    const elementContainingWord = this.findword(step.wordToReplace);
+    let replacement: string;
+    step.radios.forEach((radio) =>{
+      if (radio.checked) {
+        replacement = radio.replacement;
+      }
+    });
+    // Case where we have just one paragraph with the wordToReplace
+    if (elementContainingWord.children.length === 1) {
+      elementContainingWord.firstChild.innerHTML = replacement;
+      // console.dir(elementContainingWord);
+    }
+  }
+
+  buildForCheckbox(step: any) {
     console.log(step);
   }
+  /*****************************/
   /*END OF CHANGE DOC STRUCTURE*/
+  /*****************************/
   
 
   replacements(steps: any) {
