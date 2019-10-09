@@ -80,9 +80,8 @@ export class DocumentCreatorService {
       const elementContainingWord = this.findword(content.wordToReplace);
       if (elementContainingWord.textContent === content.wordToReplace) {
         content.modifiedReplacements.reverse().forEach((modifiedReplacement: any, index: number) => {
-          if (index) {
-            console.log('pasa');
-            console.log(modifiedReplacement);
+
+          if (index != content.modifiedReplacements.length - 1) {
             const elementContainingWordClone = elementContainingWord.cloneNode(true);
             elementContainingWord.parentNode.insertBefore(elementContainingWordClone, elementContainingWord.nextSibling);
             
@@ -93,8 +92,12 @@ export class DocumentCreatorService {
             const regexp = new RegExp(step.wordToReplace, 'g');
             exactElementContainingWord.innerHTML = exactElementContainingWord.innerHTML.replace(regexp, modifiedReplacement);
           } else {
-            console.log('no pasa');
-            console.log(modifiedReplacement);
+            let exactElementContainingWord = elementContainingWord;
+            while (exactElementContainingWord.firstElementChild) {
+              exactElementContainingWord = exactElementContainingWord.firstElementChild
+            }
+            const regexp = new RegExp(step.wordToReplace, 'g');
+            exactElementContainingWord.innerHTML = exactElementContainingWord.innerHTML.replace(regexp, modifiedReplacement);
           }
         });
 
