@@ -78,18 +78,38 @@ export class DocumentCreatorService {
   buildForEach(step: any) {
     step.content.forEach((content: any) => {
       const elementContainingWord = this.findword(content.wordToReplace);
-      console.dir(elementContainingWord);
       if (elementContainingWord.textContent === content.wordToReplace) {
         content.modifiedReplacements.reverse().forEach((modifiedReplacement: any, index: number) => {
+          if (index) {
+            console.log('pasa');
+            console.log(modifiedReplacement);
             const elementContainingWordClone = elementContainingWord.cloneNode(true);
-            const regexp = new RegExp(step.wordToReplace, 'g');
-            elementContainingWordClone.innerHTML = elementContainingWordClone.innerHTML.replace(regexp, modifiedReplacement);
             elementContainingWord.parentNode.insertBefore(elementContainingWordClone, elementContainingWord.nextSibling);
-          // console.log(modifiedReplacement);
+            
+            let exactElementContainingWord = elementContainingWordClone;
+            while (exactElementContainingWord.firstElementChild) {
+              exactElementContainingWord = exactElementContainingWord.firstElementChild
+            }
+            const regexp = new RegExp(step.wordToReplace, 'g');
+            exactElementContainingWord.innerHTML = exactElementContainingWord.innerHTML.replace(regexp, modifiedReplacement);
+          } else {
+            console.log('no pasa');
+            console.log(modifiedReplacement);
+          }
         });
+
+        // We do the first one after the loop is finished
+        let exactElementContainingWord = elementContainingWord;
+        while (exactElementContainingWord.firstElementChild) {
+          exactElementContainingWord = exactElementContainingWord.firstElementChild
+        }
+        const regexp = new RegExp(step.wordToReplace, 'g');
+        exactElementContainingWord.innerHTML = exactElementContainingWord.innerHTML.replace(regexp, content.modifiedReplacements[0]);
       }
+
     });
   }
+  
   buildForRadioC(step: any) {
     const elementContainingWord = this.findword(step.wordToReplace);
     let replacement: string;

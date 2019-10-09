@@ -66,6 +66,7 @@ export class StepModelService {
             });
             content.modifiedReplacements.push(modifiedReplacement);
             content.modifiedExtraReplacements.push(modifiedExtraReplacements);
+            console.log(modifiedReplacement);
           }
           // 5. Insert text in the office document
         });
