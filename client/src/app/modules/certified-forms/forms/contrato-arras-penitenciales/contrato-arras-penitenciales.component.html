@@ -85,7 +85,7 @@
                               </div>
                               <div class="form-creator__fields-area__field__middle">
                                   <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
-                                  <input type="number" #input (change)="this.stepModelService.buildForEach(input.value, this.steps[this.currentStep].identifier)" [value]="this.steps[this.currentStep].value">
+                                  <input type="number" #input (change)="this.stepModelService.buildForEach(input.value, this.steps[this.currentStep].wordToReplace)" [value]="this.steps[this.currentStep].value">
                               </div>
                               <div class="form-creator__fields-area__field__bottom" *ngIf="this.steps[this.currentStep].mandatory">
                                   <span class="form-creator__fields-area__field__bottom__mandatory-label">
@@ -110,7 +110,7 @@
                               <div class="form-creator__fields-area__field__middle">
                                   <div class="form-creator__fields-area__field__middle__date-container">
                                       <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
-                                      <input type="date" #input (change)="this.stepModelService.input(input.checked, 'iDate', this.steps[this.currentStep].identifier)" [value]="this.steps[this.currentStep].replacement">
+                                      <input type="date" #input (change)="this.stepModelService.input(input.checked, 'iDate', this.steps[this.currentStep].wordToReplace)" [value]="this.steps[this.currentStep].replacement">
                                   </div>
                               </div>
                               <div class="form-creator__fields-area__field__bottom" *ngIf="this.steps[this.currentStep].mandatory">
@@ -168,7 +168,7 @@
                                           <label>
                                               <input class="with-gap" name="group1" type="radio" 
                                                   value="Valor de la pregunta numero 1" [checked]="radio.checked"
-                                                  (change)="this.stepModelService.onInputRadioBSelected(radio.radioId, this.steps[this.currentStep].identifier)" />
+                                                  (change)="this.stepModelService.onInputRadioBSelected(radio.radioId, this.steps[this.currentStep].wordToReplace)" />
                                               <span>{{radio.label}}</span>
                                           </label>
                                       </p>
@@ -201,7 +201,7 @@
                                           <label>
                                               <input class="with-gap" name="group1" type="radio" 
                                                   value="Valor de la pregunta numero 1" [checked]="radio.checked"
-                                                  (change)="this.stepModelService.onInputRadioCSelected(radio.radioId, this.steps[this.currentStep].identifier)" />
+                                                  (change)="this.stepModelService.onInputRadioCSelected(radio.radioId, this.steps[this.currentStep].wordToReplace)" />
                                               <span>{{radio.label}}</span>
                                           </label>
                                       </p>
@@ -232,7 +232,7 @@
                                   <div class="form-creator__fields-area__field__middle__checkbox-input">
                                     <label *ngFor="let checkbox of this.steps[this.currentStep].checkboxes">
                                         <input type="checkbox" class="filled-in" #input
-                                        (change)="this.stepModelService.onInputCheckboxSelected(checkbox.identifier, this.steps[this.currentStep].identifier, input.checked)"
+                                        (change)="this.stepModelService.onInputCheckboxSelected(checkbox.identifier, this.steps[this.currentStep].wordToReplace, input.checked)"
                                         [checked]="checkbox.checked"  />
                                         <span>{{checkbox.label}}.</span>
                                     </label>

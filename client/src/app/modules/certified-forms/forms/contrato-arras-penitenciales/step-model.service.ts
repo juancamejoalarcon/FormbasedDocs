@@ -24,10 +24,10 @@ export class StepModelService {
     this.documentCreatorService.buildDocument(this.steps);
   }
 
-  buildForEach(value: string, identifier: string) {
+  buildForEach(value: string, wordToReplace: string) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
-      if (step.identifier === identifier) {
+      if (step.wordToReplace === wordToReplace) {
         step.value = value;
         // 2. Clean possible previously added steps, so we don't repeat them
         while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
@@ -74,10 +74,10 @@ export class StepModelService {
     this.documentCreatorService.buildDocument(this.steps);
   }
 
-  onInputRadioBSelected(radioSelectedId: any, identifier: string) {
+  onInputRadioBSelected(radioSelectedId: any, wordToReplace: string) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
-      if (step.identifier === identifier) {
+      if (step.wordToReplace === wordToReplace) {
         // 2. Find radio selected
         step.radios.forEach((radio) => {
           if (radio.radioId === radioSelectedId) {
@@ -92,10 +92,10 @@ export class StepModelService {
     this.documentCreatorService.buildDocument(this.steps);
   }
 
-  onInputRadioCSelected(radioSelectedId: any, identifier: string) {
+  onInputRadioCSelected(radioSelectedId: any, wordToReplace: string) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
-      if (step.identifier === identifier) {
+      if (step.identifier === wordToReplace) {
         // 2. Find radio selected
         step.radios.forEach((radio) => {
           if (radio.radioId === radioSelectedId) {
@@ -131,10 +131,10 @@ export class StepModelService {
     this.documentCreatorService.buildDocument(this.steps);
   }
 
-  onInputCheckboxSelected(checkboxIdentifier: any, identifier, checked: any) {
+  onInputCheckboxSelected(checkboxIdentifier: any, wordToReplace: any, checked: any) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
-      if (step.identifier === identifier) {
+      if (step.wordToReplace === wordToReplace) {
         let replacement = step.replacementOriginal;
           // 2. Find checkbox selected
           step.checkboxes.forEach((checkbox: any) => {
