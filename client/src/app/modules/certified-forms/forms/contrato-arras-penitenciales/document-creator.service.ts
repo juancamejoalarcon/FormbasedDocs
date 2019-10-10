@@ -47,7 +47,6 @@ export class DocumentCreatorService {
   }
 
   buildDocument(steps: any) {
-    console.log(steps);
     this.currentDocumentBodyClone = this.originalDocumentBodyClone.cloneNode(true);
     // 1.- Change doc structure
     this.structuralChanges(steps);
@@ -153,29 +152,27 @@ export class DocumentCreatorService {
 
   replacements(steps: any) {
     steps.forEach((step: any) => {
-      if (step.type === 'iText') {
+      if (step.type === 'iText' || step.type === 'iDate') {
         let elementContainingWord = this.findword(step.wordToReplace);
         const regexp = new RegExp(step.wordToReplace, 'g');
-        const newValue = `<span class="highlight ${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`;
-        while (elementContainingWord.firstElementChild) {
-          elementContainingWord = elementContainingWord.firstElementChild;
+        if (elementContainingWord.innerHTML !== step.wordToReplace) {
+          // Find the innermost element containing the word
+          elementContainingWord = this.findExactContainingElement(step.wordToReplace, elementContainingWord);
         }
-        elementContainingWord.innerHTML = elementContainingWord.innerHTML.replace(regexp, newValue);
-      //   const regexp = new RegExp(step.wordToReplace, 'g');
-      //   if (elementContainingWord) {
-      //     elementContainingWord.innerHTML =
-      //     elementContainingWord.innerHTML
-      //     .replace(
-      //     regexp,
-      //     `<span class="highlight ${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
-      //   }
+        if (elementContainingWord) {
+          elementContainingWord.innerHTML =
+          elementContainingWord.innerHTML
+          .replace(
+          regexp,
+          `<span class="highlight ${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
+        }
       }
     });
   }
 
-  findword(wordToReplace: string) {
+  findword(wordToReplace: string, bodyClone: any = this.currentDocumentBodyClone) {
     // USE ARRAY FOR ALL VALUES
-    const children = this.currentDocumentBodyClone.childNodes;
+    const children = bodyClone.childNodes;
     for (let i = 0; i < children.length; i++) {
       if (!this.elementIsExcluded(children[i])) {
         if (children[i].innerHTML.includes(wordToReplace)) {
@@ -183,6 +180,18 @@ export class DocumentCreatorService {
         }
       }
     }
+  }
+
+  findExactContainingElement(wordToReplace: string, bodyClone: any) {
+  let element: any = bodyClone;
+    while (element.childNodes && element.childNodes.length > 1 && element.innerHTML.includes(wordToReplace)) {
+      element.childNodes.forEach(((el: any) => {
+        if (el.innerHTML.includes(wordToReplace)) {
+          element = el;
+        }
+      }));
+    }
+    return element;
   }
 
   elementIsExcluded(element: any) {
