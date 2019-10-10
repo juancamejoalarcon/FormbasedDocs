@@ -14,10 +14,10 @@ export class StepModelService {
     this.steps = steps;
   }
 
-  input(replacement: string, inputType: string, identifier: string) {
+  input(replacement: string, inputType: string, wordToReplace: string) {
     // 1. Find the step
     this.steps.forEach((step) => {
-      if (step.identifier === identifier) {
+      if (step.wordToReplace === wordToReplace) {
         step.replacement = replacement;
       }
     });

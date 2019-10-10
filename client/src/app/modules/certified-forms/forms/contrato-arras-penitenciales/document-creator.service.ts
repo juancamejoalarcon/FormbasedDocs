@@ -47,7 +47,7 @@ export class DocumentCreatorService {
   }
 
   buildDocument(steps: any) {
-    // console.log(steps);
+    console.log(steps);
     this.currentDocumentBodyClone = this.originalDocumentBodyClone.cloneNode(true);
     // 1.- Change doc structure
     this.structuralChanges(steps);
@@ -68,7 +68,6 @@ export class DocumentCreatorService {
       } else if (step.type === 'iCheckbox') {
         // this.buildForCheckbox(step);
       } else if (step.type === 'iForEach') {
-        console.log('pasa');
         this.buildForEach(step);
       }
     });
@@ -155,15 +154,21 @@ export class DocumentCreatorService {
   replacements(steps: any) {
     steps.forEach((step: any) => {
       if (step.type === 'iText') {
-        const elementContainingWord = this.findword(step.wordToReplace);
+        let elementContainingWord = this.findword(step.wordToReplace);
         const regexp = new RegExp(step.wordToReplace, 'g');
-        if (elementContainingWord) {
-          elementContainingWord.innerHTML =
-          elementContainingWord.innerHTML
-          .replace(
-          regexp,
-          `<span class="highlight ${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
+        const newValue = `<span class="highlight ${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`;
+        while (elementContainingWord.firstElementChild) {
+          elementContainingWord = elementContainingWord.firstElementChild;
         }
+        elementContainingWord.innerHTML = elementContainingWord.innerHTML.replace(regexp, newValue);
+      //   const regexp = new RegExp(step.wordToReplace, 'g');
+      //   if (elementContainingWord) {
+      //     elementContainingWord.innerHTML =
+      //     elementContainingWord.innerHTML
+      //     .replace(
+      //     regexp,
+      //     `<span class="highlight ${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
+      //   }
       }
     });
   }
