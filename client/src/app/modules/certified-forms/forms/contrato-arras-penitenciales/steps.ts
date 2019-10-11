@@ -5,22 +5,22 @@ export const steps = [
       description: `El contrato de alquiler es el documento que regula la cesión y el uso de
       inmueble y los derechos y obligaciones de arrendador (el propietario) y arrendatario (inquilino).`
     },
-    // {
-    //   type: 'iText',
-    //   identifier: 'iLocalidad',
-    //   wordToReplace: 'iLocalidad',
-    //   replacement: '',
-    //   question: 'Lugar en el que se firma este contrato:',
-    //   indications: 'Indique el lugar en el que se firma este contrato.',
-    // },
-    // {
-    //   type: 'iDate',
-    //   identifier: 'iFecha',
-    //   wordToReplace: 'iFecha',
-    //   replacement: '',
-    //   question: 'Fecha en la que se firma este contrato:',
-    //   indications: 'Con la ayuda del calendario, indique la fecha en la que se firma este contrato.',
-    // },
+    {
+      type: 'iText',
+      identifier: 'iLocalidad',
+      wordToReplace: 'iLocalidad',
+      replacement: '',
+      question: 'Lugar en el que se firma este contrato:',
+      indications: 'Indique el lugar en el que se firma este contrato.',
+    },
+    {
+      type: 'iDate',
+      identifier: 'iFecha',
+      wordToReplace: 'iFecha',
+      replacement: '',
+      question: 'Fecha en la que se firma este contrato:',
+      indications: 'Con la ayuda del calendario, indique la fecha en la que se firma este contrato.',
+    },
     {
       type: 'iForEach',
       value: 1,
@@ -123,22 +123,22 @@ export const steps = [
                       type: 'iText',
                       replacement: '',
                     },
-                    // {
-                    //   // tslint:disable-next-line:max-line-length
-                    //   question: 'Tipo de documento de identificación personal para identificar a la persona que firma el contrato en nombre de la parte vendedora (propietario) nº1:',
-                    //   wordToReplace: 'iDcoumentoJuridica',
-                    //   identifier: 'iDcoumentoJuridica',
-                    //   type: 'iText',
-                    //   replacement: '',
-                    // },
-                    // {
-                    //   // tslint:disable-next-line:max-line-length
-                    //   question: 'Número del documento personal de identificación de la persona que representa con su firma a la parte vendedora (propietario) nº1 del inmueble:',
-                    //   wordToReplace: 'iDcoumentoNumeroJuridica',
-                    //   identifier: 'iDcoumentoNumeroJuridica',
-                    //   type: 'iText',
-                    //   replacement: '',
-                    // },
+                    {
+                      // tslint:disable-next-line:max-line-length
+                      question: 'Tipo de documento de identificación personal para identificar a la persona que firma el contrato en nombre de la parte vendedora (propietario) nº1:',
+                      wordToReplace: 'iDcoumentoJuridica',
+                      identifier: 'iDcoumentoJuridica',
+                      type: 'iText',
+                      replacement: '',
+                    },
+                    {
+                      // tslint:disable-next-line:max-line-length
+                      question: 'Número del documento personal de identificación de la persona que representa con su firma a la parte vendedora (propietario) nº1 del inmueble:',
+                      wordToReplace: 'iDcoumentoNumeroJuridica',
+                      identifier: 'iDcoumentoNumeroJuridica',
+                      type: 'iText',
+                      replacement: '',
+                    },
                     // {
                     //   question: 'Cargo o puesto que ostenta la persona que representa con su firma en el contrato a la parte vendedora nº1',
                     //   wordToReplace: 'iCargo',

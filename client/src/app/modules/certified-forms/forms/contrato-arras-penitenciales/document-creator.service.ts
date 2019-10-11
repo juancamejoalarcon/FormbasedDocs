@@ -158,7 +158,6 @@ export class DocumentCreatorService {
         if (elementContainingWord.innerHTML !== step.wordToReplace) {
           // Find the innermost element containing the word
           elementContainingWord = this.findExactContainingElement(step.wordToReplace, elementContainingWord);
-          console.log(elementContainingWord);
         }
         if (elementContainingWord) {
           elementContainingWord.innerHTML =
