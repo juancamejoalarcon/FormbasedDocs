@@ -158,6 +158,7 @@ export class DocumentCreatorService {
         if (elementContainingWord.innerHTML !== step.wordToReplace) {
           // Find the innermost element containing the word
           elementContainingWord = this.findExactContainingElement(step.wordToReplace, elementContainingWord);
+          console.log(elementContainingWord);
         }
         if (elementContainingWord) {
           elementContainingWord.innerHTML =
@@ -184,12 +185,21 @@ export class DocumentCreatorService {
 
   findExactContainingElement(wordToReplace: string, bodyClone: any) {
   let element: any = bodyClone;
-    while (element.childNodes && element.childNodes.length > 1 && element.innerHTML.includes(wordToReplace)) {
+    while (element.childNodes && element.childNodes.length > 0 && element.innerHTML.includes(wordToReplace)) {
       element.childNodes.forEach(((el: any) => {
-        if (el.innerHTML.includes(wordToReplace)) {
-          element = el;
+        if (el.nodeName !== '#text') {
+          if (el.innerHTML.includes(wordToReplace)) {
+            element = el;
+          }
+        } else {
+          if (el.textContent.includes(wordToReplace)) {
+            element = el;
+          }
         }
       }));
+    }
+    if (element.nodeName === '#text') {
+      element = element.parentNode;
     }
     return element;
   }

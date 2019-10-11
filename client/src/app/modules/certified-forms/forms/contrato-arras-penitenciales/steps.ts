@@ -123,50 +123,50 @@ export const steps = [
                       type: 'iText',
                       replacement: '',
                     },
-                    {
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Tipo de documento de identificación personal para identificar a la persona que firma el contrato en nombre de la parte vendedora (propietario) nº1:',
-                      wordToReplace: 'iDcoumentoJuridica',
-                      identifier: 'iDcoumentoJuridica',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Número del documento personal de identificación de la persona que representa con su firma a la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iDcoumentoNumeroJuridica',
-                      identifier: 'iDcoumentoNumeroJuridica',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      question: 'Cargo o puesto que ostenta la persona que representa con su firma en el contrato a la parte vendedora nº1',
-                      wordToReplace: 'iCargo',
-                      identifier: 'iCargo',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      question: 'Denominación o razón social de la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iDenominacion',
-                      identifier: 'iDenominacion',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      question: 'Número del NIF identificador (antiguo CIF) de la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iNIF',
-                      identifier: 'iNIF',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      question: 'Domicilio social o dirección de la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iDomicilioJuridica',
-                      identifier: 'iDomicilioJuridica',
-                      type: 'iText',
-                      replacement: '',
-                    }
+                    // {
+                    //   // tslint:disable-next-line:max-line-length
+                    //   question: 'Tipo de documento de identificación personal para identificar a la persona que firma el contrato en nombre de la parte vendedora (propietario) nº1:',
+                    //   wordToReplace: 'iDcoumentoJuridica',
+                    //   identifier: 'iDcoumentoJuridica',
+                    //   type: 'iText',
+                    //   replacement: '',
+                    // },
+                    // {
+                    //   // tslint:disable-next-line:max-line-length
+                    //   question: 'Número del documento personal de identificación de la persona que representa con su firma a la parte vendedora (propietario) nº1 del inmueble:',
+                    //   wordToReplace: 'iDcoumentoNumeroJuridica',
+                    //   identifier: 'iDcoumentoNumeroJuridica',
+                    //   type: 'iText',
+                    //   replacement: '',
+                    // },
+                    // {
+                    //   question: 'Cargo o puesto que ostenta la persona que representa con su firma en el contrato a la parte vendedora nº1',
+                    //   wordToReplace: 'iCargo',
+                    //   identifier: 'iCargo',
+                    //   type: 'iText',
+                    //   replacement: '',
+                    // },
+                    // {
+                    //   question: 'Denominación o razón social de la parte vendedora (propietario) nº1 del inmueble:',
+                    //   wordToReplace: 'iDenominacion',
+                    //   identifier: 'iDenominacion',
+                    //   type: 'iText',
+                    //   replacement: '',
+                    // },
+                    // {
+                    //   question: 'Número del NIF identificador (antiguo CIF) de la parte vendedora (propietario) nº1 del inmueble:',
+                    //   wordToReplace: 'iNIF',
+                    //   identifier: 'iNIF',
+                    //   type: 'iText',
+                    //   replacement: '',
+                    // },
+                    // {
+                    //   question: 'Domicilio social o dirección de la parte vendedora (propietario) nº1 del inmueble:',
+                    //   wordToReplace: 'iDomicilioJuridica',
+                    //   identifier: 'iDomicilioJuridica',
+                    //   type: 'iText',
+                    //   replacement: '',
+                    // }
                   ]
                 },
               ],
