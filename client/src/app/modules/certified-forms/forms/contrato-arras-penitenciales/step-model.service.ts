@@ -37,18 +37,20 @@ export class StepModelService {
         step.content.forEach((content, contentIndex) => {
           content.modifiedReplacements = [];
           content.modifiedExtraReplacements = [];
+          const modifiedExtraReplacements = [];
+          content.extraReplacements.forEach(() => {modifiedExtraReplacements.push([])});
           // 4. Add steps
           // tslint:disable-next-line:radix
           for (let i = 0; i < parseInt(value); i++) {
             let modifiedReplacement = content.replacementOriginal;
-            const modifiedExtraReplacements = [];
             content.subSteps.forEach((subStep: any, subStepIndex: any) => {
               // 5. Modify subSteps identifiers and text with index of value loop iteration
               const newIndentifier = step.identifier + subStep.identifier + i.toString() + subStepIndex.toString();
               modifiedReplacement = modifiedReplacement.replace(subStep.identifier, newIndentifier);
-              content.extraReplacements.forEach((extraReplacement: any) => {
-                modifiedExtraReplacements.push({
-                  identifier: extraReplacement.identifier + i.toString() + subStepIndex.toString()
+              content.extraReplacements.forEach((extraReplacement: any, indexOfExtraReplace: number) => {
+                modifiedExtraReplacements[indexOfExtraReplace].push({
+                  wordToReplace: extraReplacement.identifier + i.toString() + subStepIndex.toString(),
+                  identifier: extraReplacement.identifier
                 });
               });
               // Deep copy
@@ -65,8 +67,8 @@ export class StepModelService {
                 ), 0, copySubStep);
             });
             content.modifiedReplacements.push(modifiedReplacement);
-            content.modifiedExtraReplacements.push(modifiedExtraReplacements);
           }
+          content.modifiedExtraReplacements.push(modifiedExtraReplacements);
           // 5. Insert text in the office document
         });
       }
