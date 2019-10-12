@@ -37,7 +37,8 @@ export const steps = [
           extraReplacements: [
             {
               identifier: 'iParteVendedora-extraA',
-              replacementOriginal: 'iPersona-extra-1',
+              wordToReplace: 'iParteVendedora-extraA',
+              replacementOriginal: 'iPersona-extraA',
               replacement: '',
             }
           ],
@@ -51,6 +52,13 @@ export const steps = [
               wordToReplace: 'iPersona',
               indications: 'Marque la opción Persona ...',
               replacement: '',
+              extraReplacements: [
+                {
+                  identifier: 'iPersona-extraA',
+                  wordToReplace: 'iPersona-extraA',
+                  insideId: 'opA'
+                }
+              ],
               radios: [
                 {
                   label: 'Persona física',
@@ -60,7 +68,7 @@ export const steps = [
                   replacement: 'iNombreFisica con iDcoumentoFisica iDcoumentoNumeroFisica, y con domicilio en: iDomicilioFisica.',
                   extraReplacements: [
                     {
-                      identifier: 'iPersona-extra-1',
+                      insideId: 'opA',
                       replacementOriginal: 'iNombreFisica, quien comparece en su propio nombre y derecho, como PARTE VENDEDORA.',
                       replacement: ''
                     }
@@ -105,7 +113,7 @@ export const steps = [
                   replacement: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
                   extraReplacements: [
                     {
-                      identifier: 'iPersona-extra-1',
+                      insideId: 'opA',
                       // tslint:disable-next-line:max-line-length
                       replacementOriginal: 'iNombreJuridica, quien comparece en nombre y representación de iDenominacion con NIF iNIF, y con domicilio en iDomicilioJuridica, y ello en virtud de Escritura pública y/o autorización pertinente, donde se recoge y motiva su facultad de intervención, como PARTE VENDEDORA.',
                       replacement: ''

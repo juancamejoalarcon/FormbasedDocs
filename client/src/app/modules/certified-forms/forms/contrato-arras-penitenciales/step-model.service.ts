@@ -38,20 +38,33 @@ export class StepModelService {
           content.modifiedReplacements = [];
           content.modifiedExtraReplacements = [];
           const modifiedExtraReplacements = [];
-          content.extraReplacements.forEach(() => {modifiedExtraReplacements.push([])});
+          content.extraReplacements.forEach(() => {modifiedExtraReplacements.push([]); } );
           // 4. Add steps
           // tslint:disable-next-line:radix
           for (let i = 0; i < parseInt(value); i++) {
             let modifiedReplacement = content.replacementOriginal;
+            content.extraReplacements.forEach((extraReplacement: any, indexOfExtraReplace: number) => {
+              modifiedExtraReplacements[indexOfExtraReplace].push({
+                identifier: extraReplacement.identifier,
+                replacement: extraReplacement.replacementOriginal
+              });
+            });
             content.subSteps.forEach((subStep: any, subStepIndex: any) => {
               // 5. Modify subSteps identifiers and text with index of value loop iteration
               const newIndentifier = step.identifier + subStep.identifier + i.toString() + subStepIndex.toString();
               modifiedReplacement = modifiedReplacement.replace(subStep.identifier, newIndentifier);
               content.extraReplacements.forEach((extraReplacement: any, indexOfExtraReplace: number) => {
-                modifiedExtraReplacements[indexOfExtraReplace].push({
-                  wordToReplace: extraReplacement.identifier + i.toString() + subStepIndex.toString(),
-                  identifier: extraReplacement.identifier
-                });
+                const subStepExtraReplacement = subStep.extraReplacements[indexOfExtraReplace];
+                const modifiedExtraReplacement = modifiedExtraReplacements[indexOfExtraReplace][i];
+                modifiedExtraReplacement.wordToReplace = extraReplacement.identifier + i.toString() + subStepIndex.toString();
+                const newIndentifier2 = step.identifier + subStepExtraReplacement.identifier + i.toString() + subStepIndex.toString();
+                modifiedExtraReplacement.replacement =
+                modifiedExtraReplacement.replacement.replace(subStepExtraReplacement.identifier, newIndentifier2);
+                subStepExtraReplacement.wordToReplace = newIndentifier2;
+                // modifiedExtraReplacements[indexOfExtraReplace].push({
+                //   wordToReplace: step.identifier + extraReplacement.identifier + i.toString() + subStepIndex.toString(),
+                //   identifier: extraReplacement.identifier
+                // });
               });
               // Deep copy
               const copySubStep = JSON.parse(JSON.stringify(subStep));
@@ -113,6 +126,7 @@ export class StepModelService {
               subStep.wordToReplace = step.identifier + subStep.identifier;
               replacement = replacement.replace(subStep.identifier, subStep.wordToReplace);
               radio.extraReplacements.forEach( (extraReplacement) => {
+                console.log(extraReplacement);
                 extraReplacement.replacement = extraReplacement.replacement.replace(subStep.identifier, subStep.wordToReplace);
               });
               // reset checkboxes if any

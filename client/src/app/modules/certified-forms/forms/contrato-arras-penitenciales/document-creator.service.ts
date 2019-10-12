@@ -51,7 +51,7 @@ export class DocumentCreatorService {
     // 1.- Change doc structure
     this.structuralChanges(steps);
     // 2.- Change values
-    this.replacements(steps);
+    // this.replacements(steps);
 
     document.getElementsByTagName('office:text')[0].parentElement.replaceChild(
       this.currentDocumentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]
@@ -61,6 +61,7 @@ export class DocumentCreatorService {
   /* CHANGE DOC STRUCTURE */
   /************************/
   structuralChanges(steps: any) {
+    // console.log(steps);
     steps.forEach((step: any) => {
       if (step.type === 'iRadioC') {
         this.buildForRadioC(step);
@@ -73,7 +74,6 @@ export class DocumentCreatorService {
   }
 
   buildForEach(step: any) {
-    console.log(step);
     step.content.forEach((content: any) => {
       // Find paragrah
       const elementContainingWord = this.findword(content.wordToReplace);
@@ -103,20 +103,24 @@ export class DocumentCreatorService {
         const newarray2 = content.modifiedExtraReplacements.slice().reverse();
         newarray2.forEach((modifiedExtraReplacement: any, index: number) => {
           modifiedExtraReplacement.forEach((modifiedExtraReplacementArray: any) => {
-            modifiedExtraReplacementArray.forEach(((modifiedReplacement: any)=> {
-              const elementContainingWord = this.findword(modifiedReplacement.identifier);
-              let exactElementContainingWord: any;
-              const regexp = new RegExp(step.wordToReplace, 'g');
-              console.log(elementContainingWord);
-            }));
-          })
-          // if (index !== content.modifiedReplacements.length - 1) {
-          //   const elementContainingWordClone = elementContainingWord.cloneNode(true);
-          //   elementContainingWord.parentNode.insertBefore(elementContainingWordClone, elementContainingWord.nextSibling);
-          //   exactElementContainingWord = elementContainingWordClone;
-          // } else {
-          //   exactElementContainingWord = elementContainingWord;
-          // }
+            const elementContainingWord2 = this.findword(modifiedExtraReplacementArray[0].identifier);
+            const newarray3 = modifiedExtraReplacementArray.slice().reverse();
+            newarray3.forEach(((modifiedReplacement: any, indexNewArray3: number) => {
+                let exactElementContainingWord2: any;
+                const regexp = new RegExp(modifiedReplacement.identifier, 'g');
+
+                if (indexNewArray3 !== modifiedExtraReplacementArray.length - 1) {
+                  const elementContainingWordClone = elementContainingWord2.cloneNode(true);
+                  elementContainingWord2.parentNode.insertBefore(elementContainingWordClone, elementContainingWord2.nextSibling);
+                  exactElementContainingWord2 = this.findExactContainingElement(modifiedReplacement.identifier, elementContainingWordClone);
+                } else {
+                  exactElementContainingWord2 = this.findExactContainingElement(modifiedReplacement.identifier, elementContainingWord2);
+                }
+                exactElementContainingWord2.innerHTML = exactElementContainingWord2.innerHTML
+                .replace(regexp, modifiedReplacement.replacement);
+              }));
+
+          });
         });
       }
     });
@@ -129,9 +133,23 @@ export class DocumentCreatorService {
     step.radios.forEach((radio) => {
       if (radio.checked) {
         replacement = radio.replacement;
+        step.extraReplacements.forEach((extraReplacement: any, index: any) => {
+          const regexp2 = new RegExp(extraReplacement.wordToReplace, 'g');
+          const elementContainingReplacementWord = this.findword(extraReplacement.wordToReplace);
+          const exactElementContainingReplacementWord =
+          this.findExactContainingElement(extraReplacement.wordToReplace, elementContainingReplacementWord);
+          let replacement2: any;
+          radio.extraReplacements.forEach((radioExtraReplacement: any) => {
+            if (radioExtraReplacement.insideId === extraReplacement.insideId) {
+              // console.log(radioExtraReplacement);
+              replacement2 = radioExtraReplacement.replacement;
+            }
+          });
+          exactElementContainingReplacementWord.innerHTML = exactElementContainingReplacementWord.innerHTML
+          .replace(regexp2, replacement2);
+        });
       }
     });
-
     // // Case where we have just one paragraph with the wordToReplace
     // if (elementContainingWord.children.length === 1) {
     //   elementContainingWord.firstChild.innerHTML = replacement;
