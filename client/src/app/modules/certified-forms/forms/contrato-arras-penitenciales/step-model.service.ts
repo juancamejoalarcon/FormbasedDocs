@@ -126,7 +126,6 @@ export class StepModelService {
               subStep.wordToReplace = step.identifier + subStep.identifier;
               replacement = replacement.replace(subStep.identifier, subStep.wordToReplace);
               radio.extraReplacements.forEach( (extraReplacement) => {
-                console.log(extraReplacement);
                 extraReplacement.replacement = extraReplacement.replacement.replace(subStep.identifier, subStep.wordToReplace);
               });
               // reset checkboxes if any

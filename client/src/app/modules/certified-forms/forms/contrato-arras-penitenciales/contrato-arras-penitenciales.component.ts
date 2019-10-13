@@ -45,6 +45,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   }
 
   ngOnDestroy() {
+    this.documentCreatorService.destroy();
   }
 
   toogleModal(modal: ElementRef) {

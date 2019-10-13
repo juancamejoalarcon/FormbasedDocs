@@ -5,6 +5,7 @@ const Comment = mongoose.model('Comment');
 const User = mongoose.model('User');
 const auth = require('../auth');
 const url = require('url');
+const certifiedForms = require('../../certified-forms').certifiedForms;
 
 // Preload form objects on routes with ':form'
 router.param('form', function(req, res, next, slug) {
@@ -185,8 +186,19 @@ router.delete('/:form/like', auth.required, function(req, res, next) {
     });
   }).catch(next);
 });
+/********************/
+/** CERTIFIED FORMS**/
+/********************/
+router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
+  let certifiedForm;
+  certifiedForms.forEach((form) => {
+    if (form.id === req.params.type) {
+      certifiedForm = form;
+    }
+  });
+  return res.json({certifiedForm: certifiedForm});
+});
 
-//// CERTIFIED FORMS ////
 router.post('/certified-forms/fill', auth.required, function(req, res, next) {
   User.findById(req.payload.id).then(function(user){
     if (!user) { return res.sendStatus(401); }
