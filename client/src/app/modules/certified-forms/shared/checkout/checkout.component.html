@@ -1,4 +1,4 @@
-<div class="checkout-panel">
+<!-- <div class="checkout-panel">
     <div class="checkout-panel__body">    
         <div class="checkout-panel__body__progress-bar">
             <div class="checkout-panel__body__progress-bar__step checkout-panel__body__progress-bar__step__active"></div>
@@ -57,4 +57,109 @@
         [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'finish' ? 0 : 1 }"
         [disabled]="this.steps[this.currentStep].type === 'finish'">Next Step</button>
     </div>
+</div> -->
+<div class="modal__content__top modal__content__top--privacy">
+    <div class="checkout-panel__body__progress-bar">
+        <div class="checkout-panel__body__progress-bar__step checkout-panel__body__progress-bar__step__active"></div>
+        <div class="checkout-panel__body__progress-bar__step" [ngClass]="{'checkout-panel__body__progress-bar__step__active': this.steps[this.currentStep].stepNum > 0}"></div>
+        <div class="checkout-panel__body__progress-bar__step" [ngClass]="{'checkout-panel__body__progress-bar__step__active': this.steps[this.currentStep].stepNum > 1}"></div>
+        <div class="checkout-panel__body__progress-bar__step"></div>
+    </div>
+</div>
+<div class="modal__content__modal-middle modal__content__modal-middle--privacy" id="modal-middle-privacy" style="border-bottom: none">
+    <div class="modal__content__modal-middle__container">
+        <div class="checkout-panel__body__invoice" *ngIf="this.steps[this.currentStep].type === 'cart'">
+            <div class="checkout-panel__body__invoice__container">
+                <div class="checkout-panel__body__invoice__document">
+                    <img src="/assets/images/checkout-document.png" alt="checkout-image">
+                </div>
+                <div class="checkout-panel__body__invoice__text">
+                    <h2 class="checkout-panel__body__invoice__text__title">{{form.title}}</h2>
+                    <div class="checkout-panel__body__invoice__text__description">
+                        <ul>
+                            <li>Descarga inmediata en formatos Word y PDF</li>
+                            <li>3.060 personas ya han comprado este documento</li>
+                        </ul>
+                    </div>
+                    <div class="checkout-panel__body__invoice__text__total">
+                        <span class="checkout-panel__body__invoice__text__total__right">Total:</span>
+                        <span class="checkout-panel__body__invoice__text__total__left">19.90 eur</span>
+                    </div>
+                    <div class="checkout-panel__body__invoice__text__more-info">
+                        <img src="/assets/images/ssl-secure-en.png" alt="secure payment">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="checkout-panel__body__email" *ngIf="this.steps[this.currentStep].type === 'login'">
+            <div class="checkout-panel__body__email__container">
+                <h1 class="checkout-panel__body__email__container__title">Dirección de correo para recibir el documento</h1>
+                <label for="email"></label>
+                <input type="email" name="email" id="name" placeholder="E-MAIL" [value]="email">
+                <label class="checkout-panel__body__email__container__message" *appShowAuthed="false">
+                    ¿Tienes cuenta? <a href="javascript:void(0)" (click)="goToAuth();">Logeate</a>
+                </label>
+                <br *appShowAuthed="true">
+                <div class="checkout-panel__body__email__container__conditions">
+                    <label for="conditions">
+                        <input type="checkbox" class="filled-in" name="conditions" id="conditions" value="Remember me" />
+                        <span>Acepto las condiciones generales de venta (leer las CGV)</span>
+                    </label>
+                </div>
+                <!-- <input type="submit" value="Hacer pedido"> -->
+            </div>
+        </div>
+        <div class="payment-container" *ngIf="this.steps[this.currentStep].type === 'payment'">
+            <div class="checkout-panel__body__payment-method">
+                <label for="card" class="checkout-panel__body__payment-method__method card">
+                    <div class="checkout-panel__body__payment-method__method__card-logos">
+                        <img src="https://designmodo.com/demo/checkout-panel/img/visa_logo.png"/>
+                        <img src="https://designmodo.com/demo/checkout-panel/img/mastercard_logo.png"/>
+                    </div>
+                    <div class="checkout-panel__body__payment-method__method__radio-input">
+                        <input id="card" type="radio" name="payment">
+                        Pay AU$20.99 with credit card
+                    </div>
+                </label>
+                
+                <label for="paypal" class="checkout-panel__body__payment-method__method paypal">
+                    <img src="https://designmodo.com/demo/checkout-panel/img/paypal_logo.png"/>
+                    <div class="checkout-panel__body__payment-method__method__radio-input">
+                        <input id="paypal" type="radio" name="payment">
+                        Pay AU$20.99 with PayPal
+                    </div>
+                </label>
+            </div>
+            <div class="checkout-panel__body__input-fields">
+                <div class="checkout-panel__body__input-fields__column-1">
+                    <label for="cardholder">Name</label>
+                    <input type="text" id="cardholder" />
+                    <div class="checkout-panel__body__input-fields__small-inputs">
+                        <div>
+                            <label for="date">Valid date</label>
+                            <input type="text" id="date"/>
+                        </div>
+                        <div>
+                            <label for="verification">CVV / CVC *</label>
+                            <input type="password" id="verification"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout-panel__body__input-fields__column-2">
+                    <label for="cardnumber">Card Number</label>
+                    <input type="password" id="cardnumber"/>
+                    <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal__content__modal-bottom modal__content__modal-bottom--privacy checkout-panel__footer">
+    <button class="btn back-btn" (click)="moveStep('previous')" 
+    [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'cart' ? 0 : 1 }"
+    [disabled]="this.steps[this.currentStep].type === 'cart'">Back</button>
+    
+    <button class="btn next-btn" (click)="moveStep('next')"
+    [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'finish' ? 0 : 1 }"
+    [disabled]="this.steps[this.currentStep].type === 'finish'">Next Step</button>
 </div>

@@ -7,6 +7,7 @@ import {
   ElementRef } from '@angular/core';
 import {
   CommonsService,
+  FormService,
   Form
 } from '../../../../core';
 import { StepModelService } from './step-model.service';
@@ -31,13 +32,19 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     private stepModelService: StepModelService,
     private commonsService: CommonsService,
     private sharedService: SharedService,
-    private documentCreatorService: DocumentCreatorService
+    private documentCreatorService: DocumentCreatorService,
+    private formsService: FormService,
   ) { }
 
   ngOnInit() {
     this.stepModelService.init(this.steps);
     this.sharedService.setForm(this.form);
-    this.documentCreatorService.init();
+    this.formsService.getCertifiedForm('contrato-arras-penitenciales').subscribe(
+      certifiedForm => {
+        this.form.title = certifiedForm.title;
+        this.sharedService.setForm(this.form);
+        this.documentCreatorService.init(certifiedForm.uri);
+      } );
   }
 
   ngAfterViewInit() {

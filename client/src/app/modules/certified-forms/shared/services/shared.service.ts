@@ -17,6 +17,10 @@ export class SharedService {
     this.currentFormSubject.next(Object.assign({}, form));
   }
 
+  getCurrentForm() {
+    return this.currentFormSubject.value;
+  }
+
   // setFormDirty() {
   //   this.isFormDirtySubject.next(true);
   // }

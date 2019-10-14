@@ -24,4 +24,5 @@ export class Form {
   indications: string;
   currentStep: number;
   documentType: string;
+  uri: string;
 }
