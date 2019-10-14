@@ -66,10 +66,19 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
       this.currentStep -= 1;
     }
     this.updateProgressBarPercentage();
+
+    if (this.steps[this.currentStep].type === 'end') {
+      this.prepareForCheckout();
+    }
   }
 
   updateProgressBarPercentage() {
     this.progresBarPercentage = Math.round(((this.currentStep / this.steps.length) * 100)) + '%';
+  }
+
+  prepareForCheckout() {
+    this.form.fields = this.steps;
+    this.sharedService.setForm(this.form);
   }
 
 }

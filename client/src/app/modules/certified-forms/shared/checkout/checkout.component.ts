@@ -38,7 +38,6 @@ export class CheckoutComponent implements OnInit {
   ngOnInit() {
     if (this.userService.getCurrentUser().email) {
       this.email = this.userService.getCurrentUser().email;
-      console.log(this.email);
     } else {
       this.email = '';
     }
@@ -53,6 +52,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   goToAuth() {
+    console.log(this.form);
     window.sessionStorage[this.form.title] = JSON.stringify(this.form);
     this.router.navigate(['/auth/login'], {
       queryParams: {
