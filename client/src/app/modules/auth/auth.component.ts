@@ -54,7 +54,6 @@ export class AuthComponent implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       if (!this.commonsService.isObjectEmpty(params)) {
-        console.log(params);
         this.queryParams = params;
       }
     });

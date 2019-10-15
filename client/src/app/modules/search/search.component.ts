@@ -78,7 +78,6 @@ export class SearchComponent implements OnInit {
         this.noMoreForms = true;
       }
        this.loadingQuery = false;
-       console.log(this.results);
    });
   }
 

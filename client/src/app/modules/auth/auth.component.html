@@ -1,6 +1,10 @@
-<div class="sign-in-search-button">
-    <a [routerLink]="['/search']">
+<div class="sign-in-search-button sign-in-search-button--return" >
+    <a [routerLink]="['/search']" *ngIf="!this.queryParams['formPath']">
         <span class="icon icon-search"></span>
+    </a>
+    <a [routerLink]="[('/certified-forms/'+ this.queryParams['formPath'])]" *ngIf="this.queryParams['formPath']">
+        <span class="icon icon-arrow-left-solid "></span>
+        <span>Return to form</span>
     </a>
 </div>
 <div class="sign-in">

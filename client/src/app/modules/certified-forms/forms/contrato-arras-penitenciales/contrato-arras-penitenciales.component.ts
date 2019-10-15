@@ -37,14 +37,19 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   ) { }
 
   ngOnInit() {
-    this.stepModelService.init(this.steps);
-    this.sharedService.setForm(this.form);
-    this.formsService.getCertifiedForm('contrato-arras-penitenciales').subscribe(
-      certifiedForm => {
-        this.form.title = certifiedForm.title;
-        this.sharedService.setForm(this.form);
-        this.documentCreatorService.init(certifiedForm.uri);
-      } );
+    if (window.sessionStorage['Contrato de Arras Penitenciales']) {
+      this.form = JSON.parse(window.sessionStorage['Contrato de Arras Penitenciales']);
+      this.setInitiaState();
+    } else {
+      this.formsService.getCertifiedForm('contrato-arras-penitenciales').subscribe(
+        certifiedForm => {
+          this.form.fields = this.steps;
+          this.form.title = certifiedForm.title;
+          this.form.uri = certifiedForm.uri;
+          this.setInitiaState();
+        } );
+    }
+
   }
 
   ngAfterViewInit() {
@@ -53,6 +58,12 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
 
   ngOnDestroy() {
     this.documentCreatorService.destroy();
+  }
+
+  setInitiaState() {
+    this.stepModelService.init(this.form.fields);
+    this.documentCreatorService.init(this.form.uri);
+    this.sharedService.setForm(this.form);
   }
 
   toogleModal(modal: ElementRef) {
