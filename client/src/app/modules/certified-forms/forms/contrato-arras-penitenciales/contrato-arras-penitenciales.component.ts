@@ -72,9 +72,13 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
 
   moveStep(type: string) {
     if (type === 'next') {
+      this.steps[this.currentStep].isCurrentStep = false;
       this.currentStep += 1;
+      this.steps[this.currentStep].isCurrentStep = true;
     } else if (type === 'previous') {
+      this.steps[this.currentStep].isCurrentStep = false;
       this.currentStep -= 1;
+      this.steps[this.currentStep].isCurrentStep = true;
     }
     this.updateProgressBarPercentage();
 
