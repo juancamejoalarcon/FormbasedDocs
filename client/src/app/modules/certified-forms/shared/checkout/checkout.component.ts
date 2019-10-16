@@ -41,6 +41,9 @@ export class CheckoutComponent implements OnInit {
     } else {
       this.email = '';
     }
+    if (this.form.fields[this.form.fields.length - 1]) {
+      this.currentStep = this.form.fields[this.form.fields.length - 1]['checkoutProcess'].phase;
+    }
   }
 
   moveStep(type: string) {
@@ -49,12 +52,10 @@ export class CheckoutComponent implements OnInit {
     } else if (type === 'previous') {
       this.currentStep -= 1;
     }
-
-    // if (this.steps[this.currentStep])
+    this.form.fields[this.form.fields.length - 1]['checkoutProcess'].phase = this.currentStep;
   }
 
   goToAuth() {
-    console.log(this.form);
     window.sessionStorage[this.form.title] = JSON.stringify(this.form);
     this.router.navigate(['/auth/login'], {
       queryParams: {

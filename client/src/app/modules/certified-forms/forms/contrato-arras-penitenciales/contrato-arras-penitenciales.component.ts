@@ -68,9 +68,11 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
       if (step.isCurrentStep) {
         this.currentStep = index;
         this.updateProgressBarPercentage();
+        if (this.steps[this.currentStep].type === 'end' && this.steps[this.currentStep].checkoutProcess.isInited) {
+          this.toogleModal(this.modalEnd.nativeElement);
+        }
       }
-      console.log(step);
-    })
+    });
   }
 
   toogleModal(modal: ElementRef) {
@@ -101,6 +103,10 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   prepareForCheckout() {
     this.form.fields = this.steps;
     this.sharedService.setForm(this.form);
+  }
+
+  startCheckout() {
+    this.steps[this.currentStep].checkoutProcess.isInited = true;
   }
 
 }

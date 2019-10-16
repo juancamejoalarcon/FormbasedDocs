@@ -3,6 +3,7 @@ var router = require('express').Router();
 router.use('/user', require('./users'));
 router.use('/form', require('./forms'));
 router.use('/search', require('./search'));
+router.use('/pay', require('./pay'));
 router.use('/profile', require('./profiles'));
 
 router.use(function(err, req, res, next){
