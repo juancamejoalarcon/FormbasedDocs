@@ -623,6 +623,10 @@ export const steps = [
         wordToReplace: 'end',
         title: 'Contrato de alquiler',
         description: `El contrato de alquiler es el documento que regula la cesión y el uso de
-        inmueble y los derechos y obligaciones de arrendador (el propietario) y arrendatario (inquilino).`
+        inmueble y los derechos y obligaciones de arrendador (el propietario) y arrendatario (inquilino).`,
+        checkoutProcess: [
+          false,
+          ''
+        ]
     }
 ];

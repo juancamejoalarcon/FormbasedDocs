@@ -64,6 +64,13 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     this.stepModelService.init(this.form.fields);
     this.documentCreatorService.init(this.form.uri);
     this.sharedService.setForm(this.form);
+    this.form.fields.forEach((step: any, index) => {
+      if (step.isCurrentStep) {
+        this.currentStep = index;
+        this.updateProgressBarPercentage();
+      }
+      console.log(step);
+    })
   }
 
   toogleModal(modal: ElementRef) {

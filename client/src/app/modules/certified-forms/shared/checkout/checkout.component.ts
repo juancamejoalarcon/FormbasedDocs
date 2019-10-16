@@ -49,6 +49,8 @@ export class CheckoutComponent implements OnInit {
     } else if (type === 'previous') {
       this.currentStep -= 1;
     }
+
+    // if (this.steps[this.currentStep])
   }
 
   goToAuth() {
