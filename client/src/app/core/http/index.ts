@@ -1,5 +1,6 @@
 export * from './api.service';
 export * from './auth-guard.service';
+export * from './checkout.service';
 export * from './comments.service';
 export * from './form.service';
 export * from './jwt.service';

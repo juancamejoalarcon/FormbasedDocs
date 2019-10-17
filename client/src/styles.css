@@ -1005,6 +1005,10 @@ h1, h2, h3, h4, h5, h6 {
   color: black !important;
 }
 
+.secondaryC-background-color {
+  background-color: #C7F464 !important;
+}
+
 .show-spinner {
   display: block !important;
 }
@@ -6583,25 +6587,15 @@ input[type=checkbox] {
   left: 1rem;
 }
 
-.sign-in-search-button a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #4ECDC4;
-}
-
-.sign-in-search-button a:hover {
-  color: #556270;
-}
-
 .sign-in-search-button .icon {
+  color: #4ECDC4;
   -webkit-transition: all ease .5s;
   transition: all ease .5s;
   font-size: 1.6rem;
 }
 
-.sign-in-search-button span {
-  padding-left: 1rem;
+.sign-in-search-button .icon:hover {
+  color: #556270;
 }
 
 .sign-in {
@@ -6810,3 +6804,11 @@ input[type=checkbox] {
   height: 100%;
 }
 /*# sourceMappingURL=main.css.map */
+
+.name-custom-input{width: 100%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0px;
+  outline: 0;color:rgba(0, 0, 0, 0.57)}
+.name-custom-input:focus{border-bottom: 2px solid $blue;}
+.custom-name{height:76px;}

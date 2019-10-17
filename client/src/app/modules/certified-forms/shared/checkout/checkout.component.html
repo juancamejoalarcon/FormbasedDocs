@@ -110,7 +110,7 @@
             </div>
         </div>
         <div class="payment-container" *ngIf="this.steps[this.currentStep].type === 'payment'">
-            <div class="checkout-panel__body__payment-method">
+            <div class="checkout-panel__body__payment-method" *ngIf="this.loadingPayment === false">
                 <label for="card" class="checkout-panel__body__payment-method__method card">
                     <div class="checkout-panel__body__payment-method__method__card-logos">
                         <img src="https://designmodo.com/demo/checkout-panel/img/visa_logo.png"/>
@@ -130,27 +130,27 @@
                     </div>
                 </label>
             </div>
-            <div class="checkout-panel__body__input-fields">
+            <form class="checkout-panel__body__input-fields" *ngIf="this.loadingPayment === false">
                 <div class="checkout-panel__body__input-fields__column-1">
-                    <label for="cardholder">Name</label>
-                    <input type="text" id="cardholder" />
+                    <label class="hosted-field--label" for="cardholder-name" name="cardholderName">Name</label>
+                    <input type="text" id="cardholder" placeholder="e.g. JOHN DOE" class="name-custom-input" [(ngModel)]="cardholdersName" name="cardholderName"/>
                     <div class="checkout-panel__body__input-fields__small-inputs">
                         <div>
                             <label for="date">Valid date</label>
-                            <input type="text" id="date"/>
+                            <input type="text" id="expiration-date"/>
                         </div>
                         <div>
                             <label for="verification">CVV / CVC *</label>
-                            <input type="password" id="verification"/>
+                            <input type="password" id="cvv" />
                         </div>
                     </div>
                 </div>
                 <div class="checkout-panel__body__input-fields__column-2">
                     <label for="cardnumber">Card Number</label>
-                    <input type="password" id="cardnumber"/>
+                    <input type="password" id="card-number"/>
                     <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -161,5 +161,12 @@
     
     <button class="btn next-btn" (click)="moveStep('next')"
     [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'finish' ? 0 : 1 }"
-    [disabled]="this.steps[this.currentStep].type === 'finish'">Next Step</button>
+    [disabled]="this.steps[this.currentStep].type === 'finish'"
+    *ngIf="this.steps[this.currentStep].type !== 'payment'"
+    >Next Step</button>
+
+    <button class="btn next-btn secondaryC-background-color" (click)="onSubmit()"
+    *ngIf="this.steps[this.currentStep].type === 'payment'">
+        <strong>PAGAR</strong>
+    </button>
 </div>

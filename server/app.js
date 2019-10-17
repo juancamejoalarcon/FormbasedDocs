@@ -50,10 +50,10 @@ if (isLocal) {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);
   // Braintree
-  process.env.BT_ENVIRONMENT='Sandbox'
-  process.env.BT_MERCHANT_ID='your braintree merchant id'
-  process.env.BT_PUBLIC_KEY='your braintree public key'
-  process.env.BT_PRIVATE_KEY='your braintree private key'
+  process.env.BT_ENVIRONMENT='Sandbox';
+  process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
+  process.env.BT_PUBLIC_KEY='2qhjt9fhxdw7m6z2';
+  process.env.BT_PRIVATE_KEY='045c02af0a5753f7093137cb502054af';
 }
 
 require('./models/User');

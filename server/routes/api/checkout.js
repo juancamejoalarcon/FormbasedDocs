@@ -48,7 +48,7 @@ function createResultObject(transaction) {
 router.get('/new', function(req, res) {
     let clientToken;
     gateway.clientToken.generate({}, function (err, response) {
-        clientToken = {clientToken: response.clientToken, messages: req.flash('error')};
+        clientToken = {clientToken: response.clientToken};
         return res.json(clientToken);
     });
 });
@@ -81,8 +81,7 @@ router.post('/', function(req, res) {
         return res.json({resultTransactionId: result.transaction.id});
       } else {
         transactionErrors = result.errors.deepErrors();
-        req.flash('error', {msg: formatErrors(transactionErrors)});
-        res.redirect('checkouts/new');
+        return res.json({errors: transactionErrors});
       }
     });
 });
