@@ -78,7 +78,7 @@ router.post('/', function(req, res) {
       }
     }, function (err, result) {
       if (result.success || result.transaction) {
-        res.redirect('checkouts/' + result.transaction.id);
+        return res.json({resultTransactionId: result.transaction.id});
       } else {
         transactionErrors = result.errors.deepErrors();
         req.flash('error', {msg: formatErrors(transactionErrors)});
