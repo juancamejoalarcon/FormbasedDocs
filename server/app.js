@@ -49,6 +49,11 @@ if (isDevelopment) {
 if (isLocal) {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);
+  // Braintree
+  process.env.BT_ENVIRONMENT='Sandbox'
+  process.env.BT_MERCHANT_ID='your braintree merchant id'
+  process.env.BT_PUBLIC_KEY='your braintree public key'
+  process.env.BT_PRIVATE_KEY='your braintree private key'
 }
 
 require('./models/User');
