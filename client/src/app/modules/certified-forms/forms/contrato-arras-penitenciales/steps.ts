@@ -12,7 +12,12 @@ export const steps = [
       wordToReplace: 'iLocalidad',
       replacement: '',
       question: 'Lugar en el que se firma este contrato:',
-      indications: 'Indique el lugar en el que se firma este contrato.',
+      indications: {
+        areIndications: true,
+        indicationsType: 'insideText',
+        value: 'Indique el lugar en el que se firma este contrato.'
+      },
+      mandatory: true
     },
     // {
     //   type: 'iDate',

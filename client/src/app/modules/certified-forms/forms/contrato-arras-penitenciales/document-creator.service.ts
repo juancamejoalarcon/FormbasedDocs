@@ -59,6 +59,55 @@ export class DocumentCreatorService {
       this.currentDocumentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]
     );
   }
+
+  scrollToElementWithClass(className: any, offset = 0) {
+    const element = document.querySelector('.' + className);
+    if (element) {
+      element.parentElement
+      .scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      setTimeout(() => {
+        document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, offset);
+      }, 500);
+    }
+  }
+  /************************/
+  /* INDICATIONS */
+  /************************/
+  /*****************************/
+  showIndicationInsideText(wordToReplace: string, indications: string) {
+    const elementContainingWord = document.querySelector(`[data-identifier=${wordToReplace}]`);
+    const para = document.createElement('div');
+    para.innerHTML = `<div class="indicator-content not-selectable">
+                        <button id="close-indication">&#10006;</button>
+                        <span class="not-selectable" style="margin:auto; width:100%">${indications}
+                        </span>
+                    </div>`;
+    para.style.top = elementContainingWord.getBoundingClientRect().top.toString();
+    para.style.left = elementContainingWord.getBoundingClientRect().left.toString();
+    para.classList.add('indicator');
+    para.classList.add('smooth-intro');
+    para.classList.add('not-selectable');
+    elementContainingWord.appendChild(para);
+
+    const removeIndication = (e: any) => {
+      if (e.target.classList.contains('icon-info-circle-solid')
+      || e.target.classList.contains('indication')) {
+          if (document.querySelectorAll('.indicator').length >= 2) {
+              para.parentNode.removeChild(para);
+              window.removeEventListener('click', removeIndication);
+          }
+      } else {
+          para.parentNode.removeChild(para);
+          window.removeEventListener('click', removeIndication);
+      }
+    }
+
+    window.addEventListener('click', removeIndication);
+    this.scrollToElementWithClass('indicator');
+  }
+  /*END OF INDICATIONS**********/
+  /*****************************/
+
   /************************/
   /* CHANGE DOC STRUCTURE */
   /************************/
