@@ -58,6 +58,8 @@ export class DocumentCreatorService {
     document.getElementsByTagName('office:text')[0].parentElement.replaceChild(
       this.currentDocumentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]
     );
+
+    this.scrollToElementWithClass('focused');
   }
 
   scrollToElementWithClass(className: any, offset = 0) {
@@ -278,7 +280,6 @@ export class DocumentCreatorService {
         });
       }
     });
-    this.scrollToElementWithClass('focused');
   }
 
   findword(wordToReplace: string, bodyClone: any = this.currentDocumentBodyClone) {
