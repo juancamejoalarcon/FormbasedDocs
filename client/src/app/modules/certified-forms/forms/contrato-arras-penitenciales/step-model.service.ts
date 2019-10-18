@@ -19,6 +19,9 @@ export class StepModelService {
     this.steps.forEach((step) => {
       if (step.wordToReplace === wordToReplace) {
         step.replacement = replacement;
+        step.isFocused = true;
+      } else {
+        step.isFocused = false;
       }
     });
     this.documentCreatorService.buildDocument(this.steps);

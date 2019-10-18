@@ -64,10 +64,10 @@ export class DocumentCreatorService {
     const element = document.querySelector('.' + className);
     if (element) {
       element.parentElement
-      .scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-      setTimeout(() => {
-        document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, offset);
-      }, 500);
+      .scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+      // setTimeout(() => {
+      //   document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, offset);
+      // }, 500);
     }
   }
   /************************/
@@ -103,7 +103,7 @@ export class DocumentCreatorService {
     }
 
     window.addEventListener('click', removeIndication);
-    this.scrollToElementWithClass('indicator');
+    this.scrollToElementWithClass('indicator', para.offsetHeight);
   }
   /*END OF INDICATIONS**********/
   /*****************************/
@@ -252,7 +252,7 @@ export class DocumentCreatorService {
           }
           if (element) {
             element.innerHTML = element.innerHTML.replace(regexp,
-            `<span class="highlight ${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
+            `<span class="${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
           }
         });
       } else if (step.type === 'iRadioB') {
@@ -278,6 +278,7 @@ export class DocumentCreatorService {
         });
       }
     });
+    this.scrollToElementWithClass('focused');
   }
 
   findword(wordToReplace: string, bodyClone: any = this.currentDocumentBodyClone) {
