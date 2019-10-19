@@ -165,10 +165,13 @@ export class CheckoutComponent implements OnInit {
           // Override styles for the hosted fields
           input: {
             'font-size': '16px',
+            'padding': '0.5rem 0.25rem 0.5rem',
+            'font-family': 'Lato',
             color: 'rgba(46, 46, 46, 0.8)'
           },
           '::placeholder': {
             'transition': 'transition: 100ms linear',
+            'font-family': 'Lato',
             color: '#4ECDC4'
           },
         },

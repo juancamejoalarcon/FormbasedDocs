@@ -1032,13 +1032,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hosted-fields {
-  height: 40px;
+  height: 50px;
   border: 1px solid #e1e1e1;
   border-radius: 4px;
   color: rgba(46, 46, 46, 0.8);
   font-size: 16px;
   padding-right: 40px;
   padding-left: 16px;
+  font-family: "Lato", sans-serif;
+  font-weight: lighter;
 }
 
 .nav__container {
@@ -2764,6 +2766,13 @@ input[type=checkbox] {
   height: 100%;
 }
 
+.modal__content__modal-middle__container--checkout {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .modal__content__modal-middle__button-panel__container {
   padding: 1rem;
 }
@@ -4256,25 +4265,21 @@ input[type=checkbox] {
   color: #556270;
 }
 
-.checkout-panel__body .payment-container {
-  max-width: 900px;
-  margin: auto;
-}
-
 .checkout-panel__body__payment-method {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 60px;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  margin-bottom: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .checkout-panel__body__payment-method__method {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 0.5rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -4299,9 +4304,9 @@ input[type=checkbox] {
   display: -ms-flexbox;
   display: flex;
   width: 150px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -4323,20 +4328,37 @@ input[type=checkbox] {
 
 .checkout-panel__body__payment-method img {
   width: auto;
+  padding: 0.2rem;
 }
 
 .checkout-panel__body__input-fields {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-bottom: 2rem;
+}
+
+@media only screen and (max-width: 985px) {
+  .checkout-panel__body__input-fields {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .checkout-panel__body__input-fields div[class*='column'] {
   width: 382px;
+  margin: 0.5rem;
+}
+
+@media only screen and (max-width: 985px) {
+  .checkout-panel__body__input-fields div[class*='column'] {
+    width: 100%;
+  }
 }
 
 .checkout-panel__body__input-fields label {
@@ -4352,6 +4374,12 @@ input[type=checkbox] {
   margin-top: 50px;
   opacity: .5;
   color: #2e2e2e;
+}
+
+@media only screen and (max-width: 985px) {
+  .checkout-panel__body__input-fields .info {
+    display: none;
+  }
 }
 
 .checkout-panel__body__input-fields input[type='text'],
@@ -4383,8 +4411,22 @@ input[type=checkbox] {
           justify-content: space-between;
 }
 
+@media only screen and (max-width: 985px) {
+  .checkout-panel__body__input-fields__small-inputs {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
 .checkout-panel__body__input-fields__small-inputs div {
   width: 182px;
+}
+
+@media only screen and (max-width: 985px) {
+  .checkout-panel__body__input-fields__small-inputs div {
+    padding-right: 0.5rem;
+  }
 }
 
 .checkout-panel__body__invoice {
@@ -4737,6 +4779,21 @@ input[type=checkbox] {
 
 .checkout-panel__footer .warning {
   border-color: #1abc9c;
+}
+
+.payment-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .form-creator__container {
