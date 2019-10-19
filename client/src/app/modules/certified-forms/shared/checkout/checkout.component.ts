@@ -171,6 +171,7 @@ export class CheckoutComponent implements OnInit {
           },
           '::placeholder': {
             'transition': 'transition: 100ms linear',
+            'font-weight': 'lighter',
             'font-family': 'Lato',
             color: '#4ECDC4'
           },
