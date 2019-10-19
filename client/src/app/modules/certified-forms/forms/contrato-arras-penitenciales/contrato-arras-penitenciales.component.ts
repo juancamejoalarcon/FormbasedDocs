@@ -42,6 +42,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   ngOnInit() {
     if (window.sessionStorage['Contrato de Arras Penitenciales']) {
       this.form = JSON.parse(window.sessionStorage['Contrato de Arras Penitenciales']);
+      this.steps = this.form.fields;
       this.setInitiaState();
     } else {
       this.formsService.getCertifiedForm('contrato-arras-penitenciales').subscribe(
@@ -49,6 +50,8 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
           this.form.fields = this.steps;
           this.form.title = certifiedForm.title;
           this.form.uri = certifiedForm.uri;
+          this.form.id = 'contrato-arras-penitenciales';
+          this.form.image = certifiedForm.image;
           this.setInitiaState();
         } );
     }
@@ -83,17 +86,16 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   }
 
   moveStep(type: string) {
-    const step = this.steps[this.currentStep];
     if (type === 'next') {
-      if (this.validateBeforeNextStep(step)) {
-        step.isCurrentStep = false;
+      if (this.validateBeforeNextStep(this.steps[this.currentStep])) {
+        this.steps[this.currentStep].isCurrentStep = false;
+        this.steps[this.currentStep + 1].isCurrentStep = true;
         this.currentStep += 1;
-        step.isCurrentStep = true;
       }
     } else if (type === 'previous') {
-      step.isCurrentStep = false;
+      this.steps[this.currentStep].isCurrentStep = false;
+      this.steps[this.currentStep - 1].isCurrentStep = true;
       this.currentStep -= 1;
-      step.isCurrentStep = true;
     }
     this.updateProgressBarPercentage();
 

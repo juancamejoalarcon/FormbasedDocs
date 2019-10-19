@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { UserService, CheckoutService, Form, CommonsService } from '../../../../core';
 import { Router } from '@angular/router';
 import * as braintree from 'braintree-web';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout',
@@ -10,12 +11,15 @@ import * as braintree from 'braintree-web';
 export class CheckoutComponent implements OnInit {
 
   @Input() form: Form;
+  @ViewChild('emailInput') emailInput: ElementRef;
+  @ViewChild('conditions') conditions: ElementRef;
   public currentStep = 0;
   public email: string;
   public loadingPayment = true;
   public clientToken: string;
   public hostedFieldsInstance: braintree.HostedFields;
   public cardholdersName: string;
+  public conditionsChecked: any;
   public steps = [
     {
       type: 'cart',
@@ -39,15 +43,20 @@ export class CheckoutComponent implements OnInit {
     private userService: UserService,
     private checkoutService: CheckoutService,
     private commonsService: CommonsService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
-    if (this.userService.getCurrentUser().email) {
-      this.email = this.userService.getCurrentUser().email;
-    } else {
-      this.email = '';
-    }
+    this.userService.isAuthenticated.subscribe(
+      (isAuthenticated) => {
+        if (isAuthenticated) {
+          this.email = this.userService.getCurrentUser().email;
+        } else {
+          this.email = '';
+        }
+      }
+    );
     if (this.form.fields[this.form.fields.length - 1]) {
       this.currentStep = this.form.fields[this.form.fields.length - 1]['checkoutProcess'].phase;
     }
@@ -55,22 +64,38 @@ export class CheckoutComponent implements OnInit {
 
   moveStep(type: string) {
     if (type === 'next') {
-      this.currentStep += 1;
+      if(this.validateBeforeNextStep()) {
+        this.currentStep += 1;
+      }
     } else if (type === 'previous') {
       this.currentStep -= 1;
     }
     this.form.fields[this.form.fields.length - 1]['checkoutProcess'].phase = this.currentStep;
-    if (this.steps[this.currentStep].type === 'payment') {
-      this.commonsService.toggleSpinner();
-      this.checkoutService.getToken().subscribe((token: string) => {
-        this.loadingPayment = false;
-        this.clientToken = token;
-        this.createBraintreeUI(token);
-        this.commonsService.toggleSpinner();
-      });
-    } else {
-      this.loadingPayment = true;
+    this.paymentProcess();
+  }
+
+  validateBeforeNextStep() {
+    const step = this.steps[this.currentStep];
+    if (step.type === 'login') {
+      if (this.email === '') {
+        this.emailInput.nativeElement.style.borderBottom = '3px solid red';
+        this.toastr.error('Email cannot be empty', 'Email is empty', {
+          positionClass: 'toast-bottom-right',
+          progressBar: true,
+          progressAnimation: 'decreasing'
+        });
+        return false;
+      }
+      if (!this.conditions.nativeElement.checked) {
+        this.toastr.error('You must accept buying conditions', 'Accept', {
+          positionClass: 'toast-bottom-right',
+          progressBar: true,
+          progressAnimation: 'decreasing'
+        });
+        return false;
+      }
     }
+    return true;
   }
 
   goToAuth() {
@@ -86,14 +111,47 @@ export class CheckoutComponent implements OnInit {
     this.tokenizeUserDetails();
   }
 
+  paymentProcess() {
+    if (this.steps[this.currentStep].type === 'payment') {
+      this.commonsService.toggleSpinner();
+      this.checkoutService.getToken().subscribe((token: string) => {
+        this.loadingPayment = false;
+        this.clientToken = token;
+        this.createBraintreeUI(token);
+        this.commonsService.toggleSpinner();
+      });
+    } else {
+      this.loadingPayment = true;
+    }
+  }
+
   tokenizeUserDetails() {
-    console.log(this.cardholdersName);
     this.hostedFieldsInstance.tokenize({cardholderName: this.cardholdersName}).then((payload) => {
-      console.log(payload);
       // submit payload.nonce to the server from here
+      this.checkoutService.pay(payload.nonce, this.form.id).subscribe(
+        data => {
+          if (data.resultTransactionId) {
+            this.toastr.success('Payment completed', 'Payment success', {
+              positionClass: 'toast-bottom-right',
+              progressBar: true,
+              progressAnimation: 'decreasing'
+            });
+          } else {
+            this.toastr.error('An error has occured', 'Payment error', {
+              positionClass: 'toast-bottom-right',
+              progressBar: true,
+              progressAnimation: 'decreasing'
+            });
+          }
+          console.log(data);
+      });
+
     }).catch((error) => {
-      console.log(error);
-      // perform custom validation here or log errors
+      this.toastr.error('An error has occured please try again', 'Payment error', {
+        positionClass: 'toast-bottom-right',
+        progressBar: true,
+        progressAnimation: 'decreasing'
+      });
     });
   }
 
@@ -105,6 +163,14 @@ export class CheckoutComponent implements OnInit {
         client: clientInstance,
         styles: {
           // Override styles for the hosted fields
+          input: {
+            'font-size': '16px',
+            color: 'rgba(46, 46, 46, 0.8)'
+          },
+          '::placeholder': {
+            'transition': 'transition: 100ms linear',
+            color: '#4ECDC4'
+          },
         },
 
         // The hosted fields that we will be using
@@ -127,45 +193,12 @@ export class CheckoutComponent implements OnInit {
       }).then((hostedFieldsInstance) => {
 
         this.hostedFieldsInstance = hostedFieldsInstance;
-
-        console.log(hostedFieldsInstance.on);
-        hostedFieldsInstance.on('focus', (event) => {
-          const field = event.fields[event.emittedBy];
-          const label = this.findLabel(field);
-          label.classList.remove('filled'); // added and removed css classes
-          // can add custom code for custom validations here
-        });
-
-        hostedFieldsInstance.on('blur', (event) => {
-          const field = event.fields[event.emittedBy];
-          const label = this.findLabel(field); // fetched label to apply custom validations
-          // can add custom code for custom validations here
-        });
-
-        hostedFieldsInstance.on('empty', (event) => {
-          console.log('llega3');
-          const field = event.fields[event.emittedBy];
-          // can add custom code for custom validations here
-        });
-
-        hostedFieldsInstance.on('validityChange', (event) => {
-          console.log('llega4');
-          const field = event.fields[event.emittedBy];
-          const label = this.findLabel(field);
-          if (field.isPotentiallyValid) { // applying custom css and validations
-            label.classList.remove('invalid');
-          } else {
-            label.classList.add('invalid');
-          }
-          // can add custom code for custom validations here
+        const fields = hostedFieldsInstance.getState().fields;
+        const isValid = Object.keys(fields).every(function (field) {
+          return fields[field].isValid;
         });
       });
     });
   }
-
-    // Fetches the label element for the corresponding field
-    findLabel(field: braintree.HostedFieldsHostedFieldsFieldData) {
-      return document.querySelector('.hosted-field--label[for="' + field.container.id + '"]');
-    }
 
 }

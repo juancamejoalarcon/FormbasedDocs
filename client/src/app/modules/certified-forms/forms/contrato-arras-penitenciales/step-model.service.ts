@@ -25,6 +25,7 @@ export class StepModelService {
       }
     });
     this.documentCreatorService.buildDocument(this.steps);
+    console.log(this.steps);
   }
 
   buildForEach(value: string, wordToReplace: string) {

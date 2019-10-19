@@ -16,4 +16,15 @@ export class CheckoutService {
       .pipe(map((data: any) => data.clientToken));
   }
 
+  pay(nonce: string, formType: string): Observable<any> {
+    return this.apiService
+    .post(
+      `/checkout`,
+      {
+        'payment_method_nonce': nonce,
+        'formType': formType
+      }
+    ).pipe(map(data => data));
+  }
+
 }

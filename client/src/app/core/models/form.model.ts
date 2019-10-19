@@ -5,6 +5,7 @@ export class Form {
   originalSlug: string;
   title: string = '';
   description: string = '';
+  id: string = '';
   text: string = '';
   fields: Array<Object> = [];
   tags: Array<string> = [];
@@ -25,4 +26,5 @@ export class Form {
   currentStep: number;
   documentType: string;
   uri: string;
+  image: string;
 }

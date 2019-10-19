@@ -40,8 +40,8 @@ const routes: Routes = [
     loadChildren: './modules/profile/profile.module#ProfileModule',
   },
   {
-    path: 'guide',
-    loadChildren: './modules/guide/guide.module#GuideModule',
+    path: 'static-pages',
+    loadChildren: './modules/static-pages/static-pages.module#StaticPagesModule',
   }
 ];
 

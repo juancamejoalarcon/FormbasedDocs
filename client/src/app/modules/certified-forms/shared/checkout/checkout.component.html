@@ -71,7 +71,7 @@
         <div class="checkout-panel__body__invoice" *ngIf="this.steps[this.currentStep].type === 'cart'">
             <div class="checkout-panel__body__invoice__container">
                 <div class="checkout-panel__body__invoice__document">
-                    <img src="/assets/images/checkout-document.png" alt="checkout-image">
+                    <img src="{{form.image}}" alt="checkout-image">
                 </div>
                 <div class="checkout-panel__body__invoice__text">
                     <h2 class="checkout-panel__body__invoice__text__title">{{form.title}}</h2>
@@ -86,7 +86,12 @@
                         <span class="checkout-panel__body__invoice__text__total__left">19.90 eur</span>
                     </div>
                     <div class="checkout-panel__body__invoice__text__more-info">
-                        <img src="/assets/images/ssl-secure-en.png" alt="secure payment">
+                        <span>
+                            <img src="/assets/images/ssl-secure-en.png" alt="secure payment">
+                        </span>
+                        <span>
+                            <img src="https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png"/>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -95,15 +100,17 @@
             <div class="checkout-panel__body__email__container">
                 <h1 class="checkout-panel__body__email__container__title">Dirección de correo para recibir el documento</h1>
                 <label for="email"></label>
-                <input type="email" name="email" id="name" placeholder="E-MAIL" [value]="email">
+                <input type="email" name="email" id="name" placeholder="E-MAIL" [(ngModel)]="email" #emailInput>
                 <label class="checkout-panel__body__email__container__message" *appShowAuthed="false">
                     ¿Tienes cuenta? <a href="javascript:void(0)" (click)="goToAuth();">Logeate</a>
                 </label>
                 <br *appShowAuthed="true">
-                <div class="checkout-panel__body__email__container__conditions">
+                <div class="checkout-panel__body__email__container__message">
                     <label for="conditions">
-                        <input type="checkbox" class="filled-in" name="conditions" id="conditions" value="Remember me" />
-                        <span>Acepto las condiciones generales de venta (leer las CGV)</span>
+                        <input type="checkbox" class="filled-in" name="conditions" id="conditions" [(ngModel)]="conditionsChecked" #conditions/>
+                        <span>Acepto las condiciones generales de venta 
+                            <a class="trigger" routerLink="/static-pages/cgv" target="_blank">(leer las CGV)</a>
+                        </span>
                     </label>
                 </div>
                 <!-- <input type="submit" value="Hacer pedido"> -->
@@ -136,18 +143,20 @@
                     <input type="text" id="cardholder" placeholder="e.g. JOHN DOE" class="name-custom-input" [(ngModel)]="cardholdersName" name="cardholderName"/>
                     <div class="checkout-panel__body__input-fields__small-inputs">
                         <div>
-                            <label for="date">Valid date</label>
-                            <input type="text" id="expiration-date"/>
+                            <label for="expiration-date">Valid date</label>
+                            <!-- <input type="text" id="expiration-date" name="expiration-date"/> -->
+                            <div class="hosted-fields"  id="expiration-date"></div>
                         </div>
                         <div>
-                            <label for="verification">CVV / CVC *</label>
-                            <input type="password" id="cvv" />
+                            <label for="cvv">CVV / CVC *</label>
+                            <div class="hosted-fields" id="cvv" name="cvv"></div>
                         </div>
                     </div>
                 </div>
                 <div class="checkout-panel__body__input-fields__column-2">
                     <label for="cardnumber">Card Number</label>
-                    <input type="password" id="card-number"/>
+                    <!-- <input type="password" id="card-number" name="cardnumber"/> -->
+                    <div class="hosted-fields" id="card-number"></div>
                     <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
                 </div>
             </form>

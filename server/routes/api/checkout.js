@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const braintree = require('braintree');
 const gateway = require('../../helpers/gateway');
+const certifiedForms = require('../../certified-forms').certifiedForms;
 
 const TRANSACTION_SUCCESS_STATUSES = [
     braintree.Transaction.Status.Authorizing,
@@ -67,9 +68,14 @@ router.get('/:id', function(req, res) {
 
 router.post('/', function(req, res) {
     let transactionErrors;
-    const amount = req.body.amount; // In production you should not take amounts directly from clients
+    let amount; // In production you should not take amounts directly from clients
     const nonce = req.body.payment_method_nonce;
-  
+    const formType = req.body.formType;
+    certifiedForms.forEach((form) => {
+      if (form.id === formType) {
+        amount = form.amount;
+      }
+    });
     gateway.transaction.sale({
       amount: amount,
       paymentMethodNonce: nonce,
