@@ -5,6 +5,7 @@ import {
   AfterViewInit,
   ViewChild,
   ElementRef } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import {
   CommonsService,
   FormService,
@@ -23,6 +24,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
 
   @ViewChild('modal') modal: ElementRef;
   @ViewChild('modalEnd') modalEnd: ElementRef;
+  @ViewChild('input') input: ElementRef;
   public form: Form = new Form();
   public currentStep = 0;
   public progresBarPercentage = '0%';
@@ -34,6 +36,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     private sharedService: SharedService,
     private documentCreatorService: DocumentCreatorService,
     private formsService: FormService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -80,14 +83,17 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   }
 
   moveStep(type: string) {
+    const step = this.steps[this.currentStep];
     if (type === 'next') {
-      this.steps[this.currentStep].isCurrentStep = false;
-      this.currentStep += 1;
-      this.steps[this.currentStep].isCurrentStep = true;
+      if (this.validateBeforeNextStep(step)) {
+        step.isCurrentStep = false;
+        this.currentStep += 1;
+        step.isCurrentStep = true;
+      }
     } else if (type === 'previous') {
-      this.steps[this.currentStep].isCurrentStep = false;
+      step.isCurrentStep = false;
       this.currentStep -= 1;
-      this.steps[this.currentStep].isCurrentStep = true;
+      step.isCurrentStep = true;
     }
     this.updateProgressBarPercentage();
 
@@ -96,8 +102,30 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     }
   }
 
+  validateBeforeNextStep(step: any) {
+    if (step.mandatory) {
+      if (step.replacement === '') {
+        this.toastr.error('Form cannot be empty', 'Empty field', {
+          positionClass: 'toast-bottom-right',
+          progressBar: true,
+          progressAnimation: 'decreasing'
+        });
+        this.input.nativeElement.style.borderBottom = '3px solid red';
+        return false;
+      }
+    }
+    return true;
+  }
+
   updateProgressBarPercentage() {
     this.progresBarPercentage = Math.round(((this.currentStep / this.steps.length) * 100)) + '%';
+  }
+
+  showIndication() {
+    const step = this.steps[this.currentStep];
+    if (step.indications.areIndications) {
+      this.documentCreatorService.showIndicationInsideText(step.wordToReplace, step.indications.value);
+    }
   }
 
   prepareForCheckout() {

@@ -12,16 +12,27 @@ export const steps = [
       wordToReplace: 'iLocalidad',
       replacement: '',
       question: 'Lugar en el que se firma este contrato:',
-      indications: 'Indique el lugar en el que se firma este contrato.',
+      indications: {
+        areIndications: true,
+        indicationsType: 'insideText',
+        value: 'Indique el lugar en el que se firma este contrato.'
+      },
+      mandatory: true,
+      isFocused: false
     },
-    // {
-    //   type: 'iDate',
-    //   identifier: 'iFecha',
-    //   wordToReplace: 'iFecha',
-    //   replacement: '',
-    //   question: 'Fecha en la que se firma este contrato:',
-    //   indications: 'Con la ayuda del calendario, indique la fecha en la que se firma este contrato.',
-    // },
+    {
+      type: 'iDate',
+      identifier: 'iFecha',
+      wordToReplace: 'iFecha',
+      replacement: '',
+      question: 'Fecha en la que se firma este contrato:',
+      indications: {
+        areIndications: true,
+        indicationsType: 'insideText',
+        value: 'Con la ayuda del calendario, indique la fecha en la que se firma este contrato.',
+      },
+      isFocused: false
+    },
     // {
     //   type: 'iForEach',
     //   value: 1,
@@ -515,16 +526,26 @@ export const steps = [
     //   wordToReplace: 'iReferenciaCatastral',
     //   replacement: '',
     //   question: 'Introduzca la Referencia Catastral del inmueble:',
-    //   indications: 'Indique el lugar en el que se firma este contrato.',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     value: 'Indique el lugar en el que se firma este contrato.',
+    //   },
+    //   isFocused: false
     // },
-    // {
-    //   type: 'iText',
-    //   identifier: 'iRegistroPropiedad',
-    //   wordToReplace: 'iRegistroPropiedad',
-    //   replacement: '',
-    //   question: 'Registro de la propiedad en el que está inscrito el inmueble',
-    //   indications: 'Indique el lugar en el que se firma este contrato.',
-    // },
+    {
+      type: 'iText',
+      identifier: 'iRegistroPropiedad',
+      wordToReplace: 'iRegistroPropiedad',
+      replacement: '',
+      question: 'Registro de la propiedad en el que está inscrito el inmueble',
+      indications: {
+        areIndications: true,
+        indicationsType: 'insideText',
+        value: 'Indique el lugar en el que se firma este contrato.',
+      },
+      isFocused: false
+    },
     // {
     //   type: 'iText',
     //   identifier: 'iDatosRegistrales',
