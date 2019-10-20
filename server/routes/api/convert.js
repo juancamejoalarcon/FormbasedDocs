@@ -65,19 +65,8 @@ router.post('/toWord', function(req, res) {
             return res.json({
                 word: 'data:application/msword;base64,'+ data.toString('base64')
             });
-            return res.json({});
         });
     });
-
-    // const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to doc --outdir ./tmp/words /Users/Juan/Downloads/cosa.odt';
-    // exec(cmd, function (err, stdout, stderr) {
-    //     if (err) {
-    //         console.log('exec error: ', err);
-    //         return;
-    //     }
-    //     return res.json({});
-    // });
-
 });
 
 
