@@ -126,17 +126,21 @@ export class CheckoutComponent implements OnInit {
   }
 
   tokenizeUserDetails() {
+    this.commonsService.toggleSpinner();
     this.hostedFieldsInstance.tokenize({cardholderName: this.cardholdersName}).then((payload) => {
       // submit payload.nonce to the server from here
       this.checkoutService.pay(payload.nonce, this.form.id).subscribe(
         data => {
           if (data.resultTransactionId) {
+            this.commonsService.toggleSpinner();
+            this.moveStep('next');
             this.toastr.success('Payment completed', 'Payment success', {
               positionClass: 'toast-bottom-right',
               progressBar: true,
               progressAnimation: 'decreasing'
             });
           } else {
+            this.commonsService.toggleSpinner();
             this.toastr.error('An error has occured', 'Payment error', {
               positionClass: 'toast-bottom-right',
               progressBar: true,
@@ -167,11 +171,12 @@ export class CheckoutComponent implements OnInit {
             'font-size': '16px',
             'padding': '0.5rem 0.25rem 0.5rem',
             'font-family': 'Lato',
+            'font-weight': '300',
             color: 'rgba(46, 46, 46, 0.8)'
           },
           '::placeholder': {
             'transition': 'transition: 100ms linear',
-            'font-weight': 'lighter',
+            'font-weight': '300',
             'font-family': 'Lato',
             color: '#4ECDC4'
           },

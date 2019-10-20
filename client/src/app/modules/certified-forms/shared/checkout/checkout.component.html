@@ -63,7 +63,7 @@
         <div class="checkout-panel__body__progress-bar__step checkout-panel__body__progress-bar__step__active"></div>
         <div class="checkout-panel__body__progress-bar__step" [ngClass]="{'checkout-panel__body__progress-bar__step__active': this.steps[this.currentStep].stepNum > 0}"></div>
         <div class="checkout-panel__body__progress-bar__step" [ngClass]="{'checkout-panel__body__progress-bar__step__active': this.steps[this.currentStep].stepNum > 1}"></div>
-        <div class="checkout-panel__body__progress-bar__step"></div>
+        <div class="checkout-panel__body__progress-bar__step" [ngClass]="{'checkout-panel__body__progress-bar__step__active': this.steps[this.currentStep].stepNum > 2}"></div>
     </div>
 </div>
 <div class="modal__content__modal-middle modal__content__modal-middle--privacy" id="modal-middle-privacy" style="border-bottom: none">
@@ -162,6 +162,9 @@
                     <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
                 </div>
             </form>
+        </div>
+        <div class="checkout-panel__body__invoice" *ngIf="this.steps[this.currentStep].type === 'finish'">
+            <p>FINAL</p>
         </div>
     </div>
 </div>
