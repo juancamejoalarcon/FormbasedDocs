@@ -5,6 +5,7 @@ router.use('/form', require('./forms'));
 router.use('/search', require('./search'));
 router.use('/checkout', require('./checkout'));
 router.use('/profile', require('./profiles'));
+router.use('/convert', require('./convert'));
 
 router.use(function(err, req, res, next){
   if(err.name === 'ValidationError'){
