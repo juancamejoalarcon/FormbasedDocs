@@ -34,170 +34,170 @@ export const steps = [
       mandatory: true,
       isFocused: false
     },
-    {
-      type: 'iForEach',
-      value: 1,
-      replacement: '',
-      identifier: 'iParteVendedora',
-      wordToReplace: 'iParteVendedora',
-      question: 'Número de personas que son propietarias (y que venden) el inmueble:',
-      content: [
-        {
-          identifier: 'iParteVendedora',
-          wordToReplace: 'iParteVendedora',
-          replacementOriginal: 'iPersona',
-          replacement: '',
-          extraReplacements: [
-            {
-              identifier: 'iParteVendedora-extraA',
-              wordToReplace: 'iParteVendedora-extraA',
-              replacementOriginal: 'iPersona-extraA',
-              replacement: '',
-            }
-          ],
-          modifiedReplacements: [],
-          modifiedExtraReplacements: [],
-          subSteps: [
-            {
-              type: 'iRadioC',
-              question: 'La parte vendedora (propietario) nºX del inmueble es una:',
-              identifier: 'iPersona',
-              wordToReplace: 'iPersona',
-              indications: 'Marque la opción Persona ...',
-              defaultRadioId: 'persona-fisica',
-              replacement: '',
-              extraReplacements: [
-                {
-                  identifier: 'iPersona-extraA',
-                  wordToReplace: 'iPersona-extraA',
-                  insideId: 'opA'
-                }
-              ],
-              radios: [
-                {
-                  label: 'Persona física',
-                  radioId: 'persona-fisica',
-                  identifier: 'persona-fisica',
-                  replacementOriginal: 'iNombreFisica con iDcoumentoFisica iDcoumentoNumeroFisica, y con domicilio en: iDomicilioFisica.',
-                  replacement: 'iNombreFisica con iDcoumentoFisica iDcoumentoNumeroFisica, y con domicilio en: iDomicilioFisica.',
-                  extraReplacements: [
-                    {
-                      insideId: 'opA',
-                      replacementOriginal: 'iNombreFisica, quien comparece en su propio nombre y derecho, como PARTE VENDEDORA.',
-                      replacement: ''
-                    }
-                  ],
-                  checked: true,
-                  subSteps: [
-                  {
-                    question: 'Nombre completo de la parte vendedora (propietario) nº1 del inmueble:',
-                    wordToReplace: 'iNombreFisica',
-                    identifier: 'iNombreFisica',
-                    type: 'iText',
-                    replacement: '',
-                  },
-                  {
-                    // tslint:disable-next-line:max-line-length
-                    question: 'Tipo de documento de identificación personal para identificar a la parte vendedora (propietario) nº1 del inmueble:',
-                    wordToReplace: 'iDcoumentoFisica',
-                    identifier: 'iDcoumentoFisica',
-                    type: 'iText',
-                    replacement: '',
-                  },
-                  {
-                    question: 'Número del documento personal de identificación de la parte vendedora (propietario) nº1 del inmueble:',
-                    wordToReplace: 'iDcoumentoNumeroFisica',
-                    identifier: 'iDcoumentoNumeroFisica',
-                    type: 'iText',
-                    replacement: '',
-                  },
-                  {
-                    question: 'Dirección completa de la parte vendedora (propietario) nº1 del inmueble: ',
-                    wordToReplace: 'iDomicilioFisica',
-                    identifier: 'iDomicilioFisica',
-                    type: 'iText',
-                    replacement: '',
-                  }
-                ]
-                },
-                {
-                  label: 'Persona jurídica',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
-                  replacement: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
-                  extraReplacements: [
-                    {
-                      insideId: 'opA',
-                      // tslint:disable-next-line:max-line-length
-                      replacementOriginal: 'iNombreJuridica, quien comparece en nombre y representación de iDenominacion con NIF iNIF, y con domicilio en iDomicilioJuridica, y ello en virtud de Escritura pública y/o autorización pertinente, donde se recoge y motiva su facultad de intervención, como PARTE VENDEDORA.',
-                      replacement: ''
-                    }
-                  ],
-                  radioId: 'persona-juridica',
-                  identifier: 'persona-juridica',
-                  checked: false,
-                  subSteps: [
-                    {
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Nombre completo de la persona que firma o firmará el contrato en nombre de la parte vendedora (propietario) nº1 (ya que ésta es una persona jurídica):',
-                      wordToReplace: 'iNombreJuridica',
-                      identifier: 'iNombreJuridica',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Tipo de documento de identificación personal para identificar a la persona que firma el contrato en nombre de la parte vendedora (propietario) nº1:',
-                      wordToReplace: 'iDcoumentoJuridica',
-                      identifier: 'iDcoumentoJuridica',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Número del documento personal de identificación de la persona que representa con su firma a la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iDcoumentoNumeroJuridica',
-                      identifier: 'iDcoumentoNumeroJuridica',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      question: 'Cargo o puesto que ostenta la persona que representa con su firma en el contrato a la parte vendedora nº1',
-                      wordToReplace: 'iCargo',
-                      identifier: 'iCargo',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      question: 'Denominación o razón social de la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iDenominacion',
-                      identifier: 'iDenominacion',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      question: 'Número del NIF identificador (antiguo CIF) de la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iNIF',
-                      identifier: 'iNIF',
-                      type: 'iText',
-                      replacement: '',
-                    },
-                    {
-                      question: 'Domicilio social o dirección de la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iDomicilioJuridica',
-                      identifier: 'iDomicilioJuridica',
-                      type: 'iText',
-                      replacement: '',
-                    }
-                  ]
-                },
-              ],
-            },
-          ]
-        }
-        // {}
-      ]
-    },
+    // {
+    //   type: 'iForEach',
+    //   value: 1,
+    //   replacement: '',
+    //   identifier: 'iParteVendedora',
+    //   wordToReplace: 'iParteVendedora',
+    //   question: 'Número de personas que son propietarias (y que venden) el inmueble:',
+    //   content: [
+    //     {
+    //       identifier: 'iParteVendedora',
+    //       wordToReplace: 'iParteVendedora',
+    //       replacementOriginal: 'iPersona',
+    //       replacement: '',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iParteVendedora-extraA',
+    //           wordToReplace: 'iParteVendedora-extraA',
+    //           replacementOriginal: 'iPersona-extraA',
+    //           replacement: '',
+    //         }
+    //       ],
+    //       modifiedReplacements: [],
+    //       modifiedExtraReplacements: [],
+    //       subSteps: [
+    //         {
+    //           type: 'iRadioC',
+    //           question: 'La parte vendedora (propietario) nºX del inmueble es una:',
+    //           identifier: 'iPersona',
+    //           wordToReplace: 'iPersona',
+    //           indications: 'Marque la opción Persona ...',
+    //           defaultRadioId: 'persona-fisica',
+    //           replacement: '',
+    //           extraReplacements: [
+    //             {
+    //               identifier: 'iPersona-extraA',
+    //               wordToReplace: 'iPersona-extraA',
+    //               insideId: 'opA'
+    //             }
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'Persona física',
+    //               radioId: 'persona-fisica',
+    //               identifier: 'persona-fisica',
+    //               replacementOriginal: 'iNombreFisica con iDcoumentoFisica iDcoumentoNumeroFisica, y con domicilio en: iDomicilioFisica.',
+    //               replacement: 'iNombreFisica con iDcoumentoFisica iDcoumentoNumeroFisica, y con domicilio en: iDomicilioFisica.',
+    //               extraReplacements: [
+    //                 {
+    //                   insideId: 'opA',
+    //                   replacementOriginal: 'iNombreFisica, quien comparece en su propio nombre y derecho, como PARTE VENDEDORA.',
+    //                   replacement: ''
+    //                 }
+    //               ],
+    //               checked: true,
+    //               subSteps: [
+    //               {
+    //                 question: 'Nombre completo de la parte vendedora (propietario) nº1 del inmueble:',
+    //                 wordToReplace: 'iNombreFisica',
+    //                 identifier: 'iNombreFisica',
+    //                 type: 'iText',
+    //                 replacement: '',
+    //               },
+    //               {
+    //                 // tslint:disable-next-line:max-line-length
+    //                 question: 'Tipo de documento de identificación personal para identificar a la parte vendedora (propietario) nº1 del inmueble:',
+    //                 wordToReplace: 'iDcoumentoFisica',
+    //                 identifier: 'iDcoumentoFisica',
+    //                 type: 'iText',
+    //                 replacement: '',
+    //               },
+    //               {
+    //                 question: 'Número del documento personal de identificación de la parte vendedora (propietario) nº1 del inmueble:',
+    //                 wordToReplace: 'iDcoumentoNumeroFisica',
+    //                 identifier: 'iDcoumentoNumeroFisica',
+    //                 type: 'iText',
+    //                 replacement: '',
+    //               },
+    //               {
+    //                 question: 'Dirección completa de la parte vendedora (propietario) nº1 del inmueble: ',
+    //                 wordToReplace: 'iDomicilioFisica',
+    //                 identifier: 'iDomicilioFisica',
+    //                 type: 'iText',
+    //                 replacement: '',
+    //               }
+    //             ]
+    //             },
+    //             {
+    //               label: 'Persona jurídica',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
+    //               replacement: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
+    //               extraReplacements: [
+    //                 {
+    //                   insideId: 'opA',
+    //                   // tslint:disable-next-line:max-line-length
+    //                   replacementOriginal: 'iNombreJuridica, quien comparece en nombre y representación de iDenominacion con NIF iNIF, y con domicilio en iDomicilioJuridica, y ello en virtud de Escritura pública y/o autorización pertinente, donde se recoge y motiva su facultad de intervención, como PARTE VENDEDORA.',
+    //                   replacement: ''
+    //                 }
+    //               ],
+    //               radioId: 'persona-juridica',
+    //               identifier: 'persona-juridica',
+    //               checked: false,
+    //               subSteps: [
+    //                 {
+    //                   // tslint:disable-next-line:max-line-length
+    //                   question: 'Nombre completo de la persona que firma o firmará el contrato en nombre de la parte vendedora (propietario) nº1 (ya que ésta es una persona jurídica):',
+    //                   wordToReplace: 'iNombreJuridica',
+    //                   identifier: 'iNombreJuridica',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                 },
+    //                 {
+    //                   // tslint:disable-next-line:max-line-length
+    //                   question: 'Tipo de documento de identificación personal para identificar a la persona que firma el contrato en nombre de la parte vendedora (propietario) nº1:',
+    //                   wordToReplace: 'iDcoumentoJuridica',
+    //                   identifier: 'iDcoumentoJuridica',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                 },
+    //                 {
+    //                   // tslint:disable-next-line:max-line-length
+    //                   question: 'Número del documento personal de identificación de la persona que representa con su firma a la parte vendedora (propietario) nº1 del inmueble:',
+    //                   wordToReplace: 'iDcoumentoNumeroJuridica',
+    //                   identifier: 'iDcoumentoNumeroJuridica',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                 },
+    //                 {
+    //                   question: 'Cargo o puesto que ostenta la persona que representa con su firma en el contrato a la parte vendedora nº1',
+    //                   wordToReplace: 'iCargo',
+    //                   identifier: 'iCargo',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                 },
+    //                 {
+    //                   question: 'Denominación o razón social de la parte vendedora (propietario) nº1 del inmueble:',
+    //                   wordToReplace: 'iDenominacion',
+    //                   identifier: 'iDenominacion',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                 },
+    //                 {
+    //                   question: 'Número del NIF identificador (antiguo CIF) de la parte vendedora (propietario) nº1 del inmueble:',
+    //                   wordToReplace: 'iNIF',
+    //                   identifier: 'iNIF',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                 },
+    //                 {
+    //                   question: 'Domicilio social o dirección de la parte vendedora (propietario) nº1 del inmueble:',
+    //                   wordToReplace: 'iDomicilioJuridica',
+    //                   identifier: 'iDomicilioJuridica',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                 }
+    //               ]
+    //             },
+    //           ],
+    //         },
+    //       ]
+    //     }
+    //     // {}
+    //   ]
+    // },
     // {
     //   type: 'iForEach',
     //   value: 1,

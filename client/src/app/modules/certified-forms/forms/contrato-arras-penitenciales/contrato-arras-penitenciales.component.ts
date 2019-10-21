@@ -145,4 +145,11 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     this.steps[this.currentStep].checkoutProcess.isInited = true;
   }
 
+  onFormPaid(e: any) {
+    console.log('FORM PAID');
+    console.log(e);
+    this.documentCreatorService.destroy();
+    this.documentCreatorService.createEditorFromURI('fillForm', 'editorContainer', e.uri);
+  }
+
 }

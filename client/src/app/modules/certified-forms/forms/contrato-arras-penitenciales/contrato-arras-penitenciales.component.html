@@ -374,5 +374,5 @@
 </div>
 
 <div class="modal" #modalEnd>
-    <app-checkout class="modal__content modal__content--privacy" [form]="form"></app-checkout>
+    <app-checkout class="modal__content modal__content--privacy" [form]="form" (formPaid)="onFormPaid($event)"></app-checkout>
 </div>

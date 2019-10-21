@@ -193,7 +193,29 @@ router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
   let certifiedForm;
   certifiedForms.forEach((form) => {
     if (form.id === req.params.type) {
-      certifiedForm = form;
+      certifiedForm = {
+        id: form.id,
+        title: form.title,
+        amount: form.amount,
+        image: form.image,
+        uri: form.uri
+      };
+    }
+  });
+  return res.json({certifiedForm: certifiedForm});
+});
+
+router.get('/paid-certified-forms/:type', auth.optional, function(req, res, next) {
+  let certifiedForm;
+  certifiedForms.forEach((form) => {
+    if (form.id === req.params.type) {
+      certifiedForm = {
+        id: form.id,
+        title: form.title,
+        amount: form.amount,
+        image: form.image,
+        uri: form.paidUri
+      };
     }
   });
   return res.json({certifiedForm: certifiedForm});

@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { UserService, CheckoutService, Form, CommonsService } from '../../../../core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { UserService, CheckoutService, Form, CommonsService, FormService } from '../../../../core';
 import { Router } from '@angular/router';
 import * as braintree from 'braintree-web';
 import { ToastrService } from 'ngx-toastr';
@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CheckoutComponent implements OnInit {
 
   @Input() form: Form;
+  @Output() formPaid: EventEmitter<any> = new EventEmitter();
   @ViewChild('emailInput') emailInput: ElementRef;
   @ViewChild('conditions') conditions: ElementRef;
   public currentStep = 0;
@@ -42,6 +43,7 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private userService: UserService,
     private checkoutService: CheckoutService,
+    private formService: FormService,
     private commonsService: CommonsService,
     private router: Router,
     private toastr: ToastrService
@@ -134,6 +136,7 @@ export class CheckoutComponent implements OnInit {
           if (data.resultTransactionId) {
             this.commonsService.toggleSpinner();
             this.moveStep('next');
+            this.onPaymentCompleted();
             this.toastr.success('Payment completed', 'Payment success', {
               positionClass: 'toast-bottom-right',
               progressBar: true,
@@ -141,16 +144,12 @@ export class CheckoutComponent implements OnInit {
             });
           } else {
             this.commonsService.toggleSpinner();
-            this.toastr.error('An error has occured', 'Payment error', {
-              positionClass: 'toast-bottom-right',
-              progressBar: true,
-              progressAnimation: 'decreasing'
-            });
           }
           console.log(data);
       });
 
     }).catch((error) => {
+      this.commonsService.toggleSpinner();
       this.toastr.error('An error has occured please try again', 'Payment error', {
         positionClass: 'toast-bottom-right',
         progressBar: true,
@@ -208,6 +207,14 @@ export class CheckoutComponent implements OnInit {
         });
       });
     });
+  }
+
+  onPaymentCompleted() {
+    console.log('PAYMENT COMPLETED');
+    this.formService.getPaidCertifiedForm('contrato-arras-penitenciales').subscribe(
+      certifiedForm => {
+        this.formPaid.emit(certifiedForm);
+      } );
   }
 
 }

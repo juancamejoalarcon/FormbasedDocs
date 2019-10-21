@@ -38,6 +38,11 @@ export class FormService {
       .pipe(map(data => data.certifiedForm));
   }
 
+  getPaidCertifiedForm(slug: string): Observable<Form> {
+    return this.apiService.get('/form/paid-certified-forms/' + slug)
+      .pipe(map(data => data.certifiedForm));
+  }
+
   getWithView(slug: string): Observable<Form> {
     const params: HttpParams = new HttpParams().set('view', 'true');
     return this.apiService.get('/form/' + slug, params)
