@@ -68,7 +68,6 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
 
   setInitiaState() {
     this.stepModelService.init(this.form.fields);
-    this.documentCreatorService.init(this.form.uri);
     this.sharedService.setForm(this.form);
     this.form.fields.forEach((step: any, index) => {
       if (step.isCurrentStep) {
@@ -77,6 +76,12 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
         if (this.steps[this.currentStep].type === 'end' && this.steps[this.currentStep].checkoutProcess.isInited) {
           this.toogleModal(this.modalEnd.nativeElement);
         }
+      }
+    });
+    this.documentCreatorService.init(this.form.uri).then( data => {
+      this.stepModelService.buildDocument();
+      if (!window.sessionStorage['Contrato de Arras Penitenciales']) {
+        this.stepModelService.setInitialState();
       }
     });
   }
@@ -106,6 +111,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
 
   validateBeforeNextStep(step: any) {
     if (step.mandatory) {
+      console.log(step.replacement);
       if (step.replacement === '') {
         this.toastr.error('Form cannot be empty', 'Empty field', {
           positionClass: 'toast-bottom-right',

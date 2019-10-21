@@ -14,7 +14,34 @@ export class StepModelService {
     this.steps = steps;
   }
 
-  input(replacement: string, inputType: string, wordToReplace: string) {
+  setInitialState() {
+    this.steps.forEach((step) => {
+      switch (step.type) {
+        case 'iText':
+            this.input(step.replacement, step.type, step.wordToReplace, false);
+          break;
+        case 'iDate':
+            this.input(step.replacement, step.type, step.wordToReplace, false);
+          break;
+        case 'iForEach':
+            this.buildForEach(step.value, step.wordToReplace, false);
+          break;
+        case 'iRadioC':
+            this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false)
+          break;
+      
+        default:
+          break;
+      }
+    });
+    this.buildDocument();
+  }
+
+  buildDocument() {
+    this.documentCreatorService.buildDocument(this.steps);
+  }
+
+  input(replacement: string, inputType: string, wordToReplace: string, buildDocumentAfter: boolean = true) {
     // 1. Find the step
     this.steps.forEach((step) => {
       if (step.wordToReplace === wordToReplace) {
@@ -24,11 +51,12 @@ export class StepModelService {
         step.isFocused = false;
       }
     });
-    this.documentCreatorService.buildDocument(this.steps);
-    console.log(this.steps);
+    if (buildDocumentAfter) {
+      this.buildDocument();
+    }
   }
 
-  buildForEach(value: string, wordToReplace: string) {
+  buildForEach(value: string, wordToReplace: string, buildDocumentAfter: boolean = true) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.wordToReplace === wordToReplace) {
@@ -90,10 +118,12 @@ export class StepModelService {
         });
       }
     });
-    this.documentCreatorService.buildDocument(this.steps);
+    if (buildDocumentAfter) {
+      this.buildDocument();
+    }
   }
 
-  onInputRadioBSelected(radioSelectedId: any, wordToReplace: string) {
+  onInputRadioBSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.wordToReplace === wordToReplace) {
@@ -108,10 +138,12 @@ export class StepModelService {
         });
       }
     });
-    this.documentCreatorService.buildDocument(this.steps);
+    if (buildDocumentAfter) {
+      this.buildDocument();
+    }
   }
 
-  onInputRadioCSelected(radioSelectedId: any, wordToReplace: string) {
+  onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.identifier === wordToReplace) {
@@ -147,10 +179,12 @@ export class StepModelService {
         });
       }
     });
-    this.documentCreatorService.buildDocument(this.steps);
+    if (buildDocumentAfter) {
+      this.buildDocument();
+    }
   }
 
-  onInputCheckboxSelected(checkboxIdentifier: any, wordToReplace: any, checked: any) {
+  onInputCheckboxSelected(checkboxIdentifier: any, wordToReplace: any, checked: any, buildDocumentAfter: boolean = true) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.wordToReplace === wordToReplace) {
@@ -201,7 +235,9 @@ export class StepModelService {
         }
       }
     });
-    this.documentCreatorService.buildDocument(this.steps);
+    if (buildDocumentAfter) {
+      this.buildDocument();
+    }
   }
 
   getStepsModel() {

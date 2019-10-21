@@ -15,7 +15,10 @@
     <div class="lawyer-forms__container">
         <div class="lawyer-forms__header">
             <div class="lawyer-forms__top-right-link">
-                <a routerLink="/create-form">
+                <a routerLink="/create-form" *appShowAuthed="true">
+                    Create my own form
+                </a>
+                <a routerLink="/auth/login" *appShowAuthed="false">
                     Create my own form
                 </a>
                 <span class="icon icon-link-solid"></span>

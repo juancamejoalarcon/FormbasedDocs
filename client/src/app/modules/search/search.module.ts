@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared';
 
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchComponent } from './search.component';
@@ -8,7 +9,8 @@ import { SearchComponent } from './search.component';
   declarations: [SearchComponent],
   imports: [
     CommonModule,
-    SearchRoutingModule
+    SearchRoutingModule,
+    SharedModule
   ]
 })
 export class SearchModule { }

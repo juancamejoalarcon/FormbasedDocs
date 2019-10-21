@@ -14,12 +14,15 @@ export class DocumentCreatorService {
   init(uri: any) {
     this.commonsService.toggleSpinner();
     this.createEditorFromURI('fillForm', 'editorContainer', uri);
-      setTimeout(() => {
-        this.resizeDocumentContainer();
-        window.addEventListener('resize', this.resizeDocumentContainer);
-        this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-        this.commonsService.toggleSpinner();
-      }, 5000);
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.resizeDocumentContainer();
+          window.addEventListener('resize', this.resizeDocumentContainer);
+          this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+          this.commonsService.toggleSpinner();
+          resolve("Document ready");
+        }, 5000);
+      })
   }
 
   destroy() {
