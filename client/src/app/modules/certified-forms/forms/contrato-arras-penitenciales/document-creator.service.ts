@@ -6,6 +6,7 @@ export class DocumentCreatorService {
 
   public originalDocumentBodyClone: any;
   public currentDocumentBodyClone: any;
+  public resizeEvent: any;
 
   constructor(
     private commonsService: CommonsService,
@@ -15,18 +16,23 @@ export class DocumentCreatorService {
     this.commonsService.toggleSpinner();
     this.createEditorFromURI('fillForm', 'editorContainer', uri);
       return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.resizeDocumentContainer();
-          window.addEventListener('resize', this.resizeDocumentContainer);
-          this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-          this.commonsService.toggleSpinner();
-          resolve("Document ready");
-        }, 5000);
+        const checkIfEditorCreated = setInterval( () => {
+          if (document.getElementsByTagName('office:text').length) {
+            this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+            this.resizeEvent = this.resizeDocumentContainer();
+            window.addEventListener('resize', this.resizeEvent);
+            this.commonsService.toggleSpinner();
+            clearInterval(checkIfEditorCreated);
+            resolve("Document ready");
+            console.log('Document is ready');
+          }
+       }, 300);
       })
   }
 
   destroy() {
     FormBasedDocsApi.closeAndDestroyEditor();
+    window.removeEventListener('resize', this.resizeEvent);
   }
 
   createEditorFromURI(formType: string, idOfContainer: string = 'editorContainer', dataURI: string) {

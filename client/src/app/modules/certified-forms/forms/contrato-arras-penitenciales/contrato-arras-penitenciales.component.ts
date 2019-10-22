@@ -111,7 +111,6 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
 
   validateBeforeNextStep(step: any) {
     if (step.mandatory) {
-      console.log(step.replacement);
       if (step.replacement === '') {
         this.toastr.error('Form cannot be empty', 'Empty field', {
           positionClass: 'toast-bottom-right',
@@ -126,7 +125,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   }
 
   updateProgressBarPercentage() {
-    this.progresBarPercentage = Math.round(((this.currentStep / this.steps.length) * 100)) + '%';
+    this.progresBarPercentage = Math.round(((this.currentStep / (this.steps.length - 1)) * 100)) + '%';
   }
 
   showIndication() {
