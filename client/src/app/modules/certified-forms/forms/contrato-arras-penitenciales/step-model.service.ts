@@ -27,7 +27,7 @@ export class StepModelService {
             this.buildForEach(step.value, step.wordToReplace, false);
           break;
         case 'iRadioC':
-            this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false)
+            this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
           break;
       
         default:
@@ -57,6 +57,7 @@ export class StepModelService {
   }
 
   buildForEach(value: string, wordToReplace: string, buildDocumentAfter: boolean = true) {
+    const refreshRadioCSteps = [];
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.wordToReplace === wordToReplace) {
@@ -110,6 +111,12 @@ export class StepModelService {
                 // tslint:disable-next-line:radix
                 ((parseInt(value) * contentIndex) *  content.subSteps.length)
                 ), 0, copySubStep);
+
+                // refresh radioC inside forEach
+                if (copySubStep.type === 'iRadioC') {
+                  refreshRadioCSteps.push(copySubStep);
+                }
+
             });
             content.modifiedReplacements.push(modifiedReplacement);
           }
@@ -119,6 +126,9 @@ export class StepModelService {
       }
     });
     if (buildDocumentAfter) {
+      refreshRadioCSteps.forEach((step) => {
+        this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
+      })
       this.buildDocument();
     }
   }
