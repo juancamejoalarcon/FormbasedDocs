@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Form, FormService, CommonsService, ComponentInjectorService } from '../../core';
+import { Form, FormService, CommonsService, ComponentInjectorService, StepModelService } from '../../core';
 import { InputTextComponent,
   InputRadioAComponent,
   InputRadioBComponent,
@@ -77,7 +77,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     private router: Router,
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private odfEditorService: OdfEditorService
+    private odfEditorService: OdfEditorService,
+    private stepModelService: StepModelService
   ) {
     // use the FormBuilder to create a form group
     this.formGroup = this.fb.group({
@@ -116,6 +117,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           this.updatingForm = false;
           this.toogleModal(this.modalChooseDocument.nativeElement);
         }
+        this.setInitialState();
       }
     );
   }
@@ -125,6 +127,20 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.odfEditorService.closeAndDestroyEditor();
     }
   }
+
+  setInitialState() {
+    this.stepModelService.init(this.form.fields);
+  }
+  /***************/
+  /***NEW FORM****/
+  /***************/
+  setDocument() {
+    console.log(this.documentType);
+  }
+
+  /********************/
+  /****END NEW FORM****/
+  /********************/
 
   injectComponent(component: Object) {
     this.componentInjectorService.appendComponentToBody('Component', component, 'formAreaDiv', 'formAreaDiv', 'divWhereIsDeleteButton', {});
@@ -150,7 +166,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
     } else {
       window['documentBodyCloneGlobal'] = document.querySelector('#editor-preview').cloneNode(true);
-      this.generateText();
       this.isInPreviewMode = !this.isInPreviewMode;
     }
 
@@ -180,186 +195,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.odfEditorService.getEditorSession().getCaret().setColor('#FFFFFF');
     window['documentBodyCloneGlobal'] = this.documentBodyClone;
   }
-
-  generateText(e: any = {}) {
-    if (this.preventGenerateText(e)) {
-      this.injectedComponents = this.formAreaDiv.nativeElement.querySelectorAll('.inputCollection');
-      const valuesToInsert: any = {};
-
-      // Clean the authorForm.fields so when updating it doesn't duplicate inputs to save
-      this.form.fields = [];
-      let index = 0;
-      for (const injectedComponent of this.injectedComponents) {
-        if (this.commonsService.checkIfParentElementIdContainsString(injectedComponent, 'formAreaDiv', 9)) {
-          // TEXT
-          if (injectedComponent.id.includes('iText')) {
-            const idWithOutFilter = injectedComponent.id.replace('iText', '');
-            if (injectedComponent === document.activeElement) {
-              valuesToInsert['focused' + idWithOutFilter] = [injectedComponent.value];
-            } else {
-              valuesToInsert[idWithOutFilter] = [injectedComponent.value];
-            }
-            // Save
-            const newField: any = {
-              type: 'iText',
-              referenceNumber: idWithOutFilter,
-              question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-              indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
-              indicationsType: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter)
-                                                              .getAttribute('data-indicationsType'),
-              mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked,
-              wordToReplace: idWithOutFilter,
-              replacement: injectedComponent.value,
-              isFocused: injectedComponent === document.activeElement,
-              index: index
-            };
-            this.form.fields.push(newField);
-          }
-          // RADIO-A
-          if (injectedComponent.id.includes('iRadioA') === true) {
-            const idWithOutFilter = injectedComponent.id.replace('iRadioA', '');
-            const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
-            const radios = this.formAreaDiv.nativeElement.querySelector('#' + injectedComponent.id).querySelectorAll(name);
-            let replacement: any;
-            let isFocused: boolean;
-
-            for (let i = 0, length = radios.length; i < length; i++) {
-              if (radios[i].checked) {
-                if (radios[i] === document.activeElement) {
-                  valuesToInsert['focused' + idWithOutFilter] = [radios[i].value];
-                  isFocused = true;
-                } else {
-                  valuesToInsert[idWithOutFilter] = [radios[i].value];
-                  isFocused = false;
-                }
-                replacement = [radios[i].value];
-                // only one radio can be logically checked
-                break;
-              }
-            }
-            // Save
-            const newField: any = {
-              type: 'iRadioA',
-              referenceNumber: idWithOutFilter,
-              wordToReplace: idWithOutFilter,
-              replacement: replacement,
-              isFocused: isFocused,
-              radios: Array.prototype.slice.call(radios).map((radio: any) => radio.value),
-              question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-              indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
-              indicationsType: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter)
-                                                              .getAttribute('data-indicationsType'),
-              mandatory: false, /* disable for radio button */
-              index: index
-            };
-            this.form.fields.push(newField);
-          }
-    //       // RADIO-B
-    //       if (injectedComponent.id.includes('iRadioB') === true) {
-    //         const idWithOutFilter = injectedComponent.id.replace('iRadioB', '');
-    //         const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
-    //         const radios = this.formAreaDiv.nativeElement.querySelector('#' + injectedComponent.id).querySelectorAll(name);
-
-    //         for (let i = 0, length = radios.length; i < length; i++) {
-    //           if (radios[i].checked) {
-    //             if (radios[i] === document.activeElement) {
-    //               valuesToInsert['focused' + idWithOutFilter] = [radios[i].parentNode.parentNode.querySelector('.name' + idWithOutFilter).value];
-    //             } else {
-    //               valuesToInsert[idWithOutFilter] = [radios[i].parentNode.parentNode.querySelector('.name' + idWithOutFilter).value];
-    //             }
-    //             // only one radio can be logically checked
-    //             break;
-    //           }
-    //         }
-    //         // Save form settings
-    //         const newField: any = {
-    //           type: 'iRadioB',
-    //           referenceNumber: idWithOutFilter,
-    //           radios: Array.prototype.slice.call(radios).map((rad: any) => {
-    //               const radio = {
-    //                 radio: rad.value,
-    //                 value: rad.parentNode.parentNode.querySelector('.name' + idWithOutFilter).value,
-    //                 referenceNumber: idWithOutFilter,
-    //               };
-    //               return radio;
-    //             }),
-    //           question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-    //           indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
-    //           mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked
-    //         };
-    //         this.form.fields.push(newField);
-    //       }
-    //       // RADIO-C
-    //       if (injectedComponent.id.includes('iRadioC') === true) {
-    //         const idWithOutFilter = injectedComponent.id.replace('iRadioC', '');
-    //         const name = 'input[name="' + ('name' + idWithOutFilter) + '"]';
-    //         const radios = this.formAreaDiv.nativeElement.querySelectorAll(name);
-
-    //         for (let i = 0, length = radios.length; i < length; i++) {
-    //           if (radios[i].checked) {
-    //               valuesToInsert[idWithOutFilter] = [radios[i].getAttribute('data-texto')];
-    //             // only one radio can be logically checked
-    //             break;
-    //           }
-    //         }
-    //         // Save form settings
-    //         const newField: any = {
-    //           type: 'iRadioC',
-    //           referenceNumber: idWithOutFilter,
-    //           radios: Array.prototype.slice.call(radios).map((rad: any) => {
-    //             const radio = {
-    //               radio: rad.value,
-    //               value: rad.getAttribute('data-contentToExport'),
-    //               referenceNumber: idWithOutFilter,
-    //               randomId: rad.id
-    //             };
-    //             return radio;
-    //           }),
-    //           question: this.formAreaDiv.nativeElement.querySelector('.question' + idWithOutFilter).value,
-    //           indications: this.formAreaDiv.nativeElement.querySelector('.indications' + idWithOutFilter).value,
-    //           mandatory: this.formAreaDiv.nativeElement.querySelector('.mandatory' + idWithOutFilter).checked
-    //         };
-    //         this.form.fields.push(newField);
-          }
-          index++;
-        }
-
-        if (this.documentType === 'plain-text') {
-          if (this.commonsService.isObjectEmpty(valuesToInsert)) {
-            this.textPreview = this.quillText;
-          } else {
-            this.textPreview = this.commonsService.replaceIdsWithValues(valuesToInsert, this.quillText);
-          }
-    
-          while (this.textPreviewDiv.nativeElement.firstChild) {
-            this.textPreviewDiv.nativeElement.removeChild(this.textPreviewDiv.nativeElement.firstChild);
-          }
-    
-          this.textPreviewDiv.nativeElement.insertAdjacentHTML('beforeend', this.textPreview);
-          const focusedElement = document.getElementById('focused');
-          if (focusedElement) {
-            focusedElement.scrollIntoView({ behavior: 'smooth' });
-          }
-          if (e.target) {
-            if (e.target.classList.contains('icon-trash-alt-regular')) {
-              if (this.currentStep !== 0) {
-                this.setCurrentStep(this.currentStep - 1);
-              } else {
-                this.setCurrentStep(this.currentStep);
-              }
-            }
-          }
-        } else {
-          if (this.isInPreviewMode) {
-            if (!this.commonsService.isObjectEmpty(valuesToInsert)) {
-              this.odfEditorService.replaceWord(this.form.fields, this.documentBodyClone);
-            }
-            window['documentBodyCloneGlobal'] = this.documentBodyClone;
-          }
-        }
-      }
-    }
-
 
   setDivHeight() {
     if (window.innerWidth > 885) {
@@ -485,14 +320,14 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   setCurrentStep(stepNum: number) {
-    this.currentStep = stepNum;
-    this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
-      if (this.currentStep === index) {
-        step.style.display = 'block';
-      } else {
-        step.style.display = 'none';
-      }
-    });
+    // this.currentStep = stepNum;
+    // this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
+    //   if (this.currentStep === index) {
+    //     step.style.display = 'block';
+    //   } else {
+    //     step.style.display = 'none';
+    //   }
+    // });
   }
 
   nextStepAfterValidate() {
@@ -550,7 +385,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       // Checks if user has introduced any input, if not user cannot submit unless user is updating the form
       if (this.injectedComponents || this.updatingForm) {
         // saves author Form
-        this.generateText();
+        
         // saves the generated text
         if (this.documentType === 'office') {
           if (this.isInPreviewMode) {

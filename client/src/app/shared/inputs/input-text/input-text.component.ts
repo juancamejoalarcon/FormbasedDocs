@@ -1,7 +1,9 @@
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { CommonsService } from '../../../core';
+import { CommonsService, StepModelService } from '../../../core';
 import { InputCommonsService } from '../shared';
 import { OdfEditorService } from '../../services';
+/*new form*/
+import { iTextStep } from './input-text.interface';
 
 @Component({
   selector: 'app-input-text',
@@ -19,54 +21,59 @@ export class InputTextComponent implements OnInit, AfterViewInit {
   @ViewChild('showModalButton') showModalButton: ElementRef;
   @ViewChild('modal') modal: ElementRef;
   @ViewChild('modalIndication') modalIndication: ElementRef;
-  @ViewChild('indicationsDiv') indicationsDiv: ElementRef;
 
   public mandatory: boolean;
   public indications: string;
   public indicationsType = 'outsideText';
   public randomId: string;
   public referenceNumber: any;
-  public questionIdentifier: string;
-  public indicationsIdentifier: string;
-  public mandatoryIdentifier: string;
   public functionReference: any;
+  public step: iTextStep;
 
   constructor(
     private commonsService: CommonsService,
     private inputCommonsService: InputCommonsService,
-    private odfEditorService: OdfEditorService) { }
+    private odfEditorService: OdfEditorService,
+    private stepModelService: StepModelService
+    ) { }
 
   ngOnInit() {
-    if ( this.isNewUser() || this.isEditUser() ) {
-      this.randomId = this.field['referenceNumber'];
-    } else {
-      this.getRandomId();
-    }
-    this.indicationsType = this.isNewAuthor() ? 'outsideText' : this.field.indicationsType;
-    this.indications = this.isNewAuthor() ? '' : this.field.indications;
-    console.log(this.field);
-    console.log(this.indications);
+    this.createStep();
+    this.getRandomId();
   }
 
   ngAfterViewInit() {
     this.enableDrag();
   }
 
+  /**NEW FORM**/
+  createStep() {
+    this.step = {
+      type: 'iText',
+      identifier: '',
+      wordToReplace: '',
+      replacement: '',
+      question: '',
+      indications: {
+        areIndications: true,
+        indicationsType: 'insideText',
+        value: 'Indique el lugar en el que se firma este contrato.'
+      },
+      mandatory: true,
+      isFocused: false
+    };
+    this.stepModelService.addNewStep(this.step);
+  }
+
+  onQuestionChanged(value: string) {
+    this.step.question = value;
+  }
+
   getRandomId() {
-    if (this.isEditAuthor()) {
-      this.referenceNumber = this.field['referenceNumber'];
-      this.randomId = this.field['id'];
-      this.questionIdentifier = 'question' + this.field['referenceNumber'];
-      this.indicationsIdentifier = 'indications' + this.field['referenceNumber'];
-      this.mandatoryIdentifier = 'mandatory' + this.field['referenceNumber'];
-    } else {
-      // I add a character so that when we query the id without the inputTex it works
-      this.referenceNumber = 'i' + Math.random().toString(36).substring(7);
-      this.randomId = 'iText' + this.referenceNumber;
-      this.questionIdentifier = 'question' + this.referenceNumber;
-      this.indicationsIdentifier = 'indications' + this.referenceNumber;
-      this.mandatoryIdentifier = 'mandatory' + this.referenceNumber;
-    }
+    // I add a character so that when we query the id without the inputTex it works
+    this.referenceNumber = 'i' + Math.random().toString(36).substring(7);
+    this.step.identifier = 'iText' + this.referenceNumber;
+    this.step.wordToReplace = 'iText' + this.referenceNumber;
   }
 
   changeId(e: any) {
@@ -80,17 +87,14 @@ export class InputTextComponent implements OnInit, AfterViewInit {
       this.changeIdInput.nativeElement.value = newValue;
     }
     this.referenceNumber = newValue;
-    this.randomId = 'iText' + this.referenceNumber;
-    this.questionIdentifier = 'question' + this.referenceNumber;
-    this.indicationsIdentifier = 'indications' + this.referenceNumber;
-    this.mandatoryIdentifier = 'mandatory' + this.referenceNumber;
+    this.step.identifier = 'iText' + this.referenceNumber;
+    this.step.wordToReplace = 'iText' + this.referenceNumber;
     this.enableDrag();
   }
+  /************/
 
   enableDrag() {
-    if (this.isEditAuthor() || this.isNewAuthor()) {
-      this.commonsService.enableDrag(this.draggableText.nativeElement, this.referenceNumber);
-    }
+    this.commonsService.enableDrag(this.draggableText.nativeElement, this.referenceNumber);
   }
 
   showChangeIdInputField() {
@@ -137,29 +141,19 @@ export class InputTextComponent implements OnInit, AfterViewInit {
   }
 
   showIndication(e: any) {
-    e.preventDefault();
-    if (this.indicationsType === 'outsideText') {
-      this.commonsService.toggleModal(this.modalIndication.nativeElement);
-    } else {
-      if (this.isPlainText()) {
-        this.commonsService.showIndicationsInsideTextPlainText(this.referenceNumber, this.indications);
-      } else {
-        this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
-      }
-    }
-  }
-
-  // REFACTOR: ugly function to check if it is an odf
-  isPlainText() {
-    return document.getElementById('wodoformbaseddocs') === null;
+    // e.preventDefault();
+    // if (this.indicationsType === 'outsideText') {
+    //   this.commonsService.toggleModal(this.modalIndication.nativeElement);
+    // } else {
+    //   if (this.isPlainText()) {
+    //     this.commonsService.showIndicationsInsideTextPlainText(this.referenceNumber, this.indications);
+    //   } else {
+    //     this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
+    //   }
+    // }
   }
 
   deleteDiv() {
     this.delete.nativeElement.remove();
   }
-
-  isNewAuthor () { return this.state === undefined; }
-  isNewUser () { return this.state === 'newUser'; }
-  isEditAuthor () { return this.state === 'editAuthor'; }
-  isEditUser () { return this.state === 'editUser'; }
 }

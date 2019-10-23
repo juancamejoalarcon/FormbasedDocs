@@ -1,11 +1,7 @@
-<div class="form-creator__fields-area__field" #delete>
+<!-- <div class="form-creator__fields-area__field" #delete>
     <div class="form-creator__fields-area__field__container">
         <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
-            <!--------->
-            <!-- TOP -->
-            <!--------->
 
-            <!-- Create form state -->
             <div class="form-creator__fields-area__field__top d-flex" *ngIf="isEditAuthor() || isNewAuthor()">
                 <div class="form-creator__fields-area__field__top__identifier">
                     <span class="form-creator__fields-area__field__top__identifier__label">
@@ -19,7 +15,7 @@
                 </div>
             </div>
 
-            <!-- Fill form state -->
+
             <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form d-none-flex"
                 *ngIf="isNewAuthor()">
                 <div class="indication" *ngIf="indications !== '' && indications !== undefined">
@@ -40,23 +36,17 @@
                     <span class="icon icon-info-circle-solid trigger" (click)="showIndication($event)"></span>
                 </div>
             </div>
-            <!---------------->
-            <!-- END OF TOP -->
-            <!---------------->
 
-            <!------------>
-            <!-- MIDDLE -->
-            <!------------>
             <div class="form-creator__fields-area__field__middle">
 
-                <!-- Create form state -->
+
                 <input type="text" placeholder="Question" *ngIf="isNewAuthor()" id="question"
                 class="{{questionIdentifier}} d-block" placeholder="Question" [(ngModel)]="question">
 
                 <input type="text" placeholder="Question" *ngIf="isEditAuthor()" id="question"
                 class="{{questionIdentifier}} d-block" placeholder="Question" [(ngModel)]="field.question">
 
-                <!-- Fill form state -->
+
                 <span class="form-creator__fields-area__field__middle__question d-none" 
                 *ngIf="isNewAuthor()">{{question}}</span>
                 <span class="form-creator__fields-area__field__middle__question d-none" 
@@ -74,22 +64,16 @@
 
 
             </div>
-            <!------------------->
-            <!-- END OF MIDDLE -->
-            <!------------------->
+
             
-            <!------------>
-            <!-- BOTTOM -->
-            <!------------>
+
             <div class="form-creator__fields-area__field__bottom">
-                <!-- DELETE BUTTON -->
                 <div class="form-creator__fields-area__field__bottom__trash divWhereIsDeleteButton">
                     <div class="remove-button d-block smooth-intro" *ngIf="isEditAuthor()" (click)="deleteDiv()">
                         <span class="icon icon-trash-alt-regular"></span>
                     </div>
                 </div>
-                <!-- MANDATORY -->
-                <!-- Create form state -->
+
                 <div class="form-creator__fields-area__field__bottom__mandatory d-flex" *ngIf="isNewAuthor() || isEditAuthor()">
                     <span class="form-creator__fields-area__field__bottom__mandatory__switch-label">Obligatorio</span>
                     <label class="switch">
@@ -98,7 +82,7 @@
                         <span class="slider slider--round"></span>
                     </label>
                 </div>
-                <!-- Fill form state -->
+
                 <span class="form-creator__fields-area__field__bottom__mandatory-label d-none-flex" *ngIf="isNewAuthor() && mandatory">
                     Obligatorio *
                 </span>
@@ -120,9 +104,7 @@
                 </div>
 
             </div>
-            <!------------------->
-            <!-- END OF BOTTOM -->
-            <!------------------->
+
         </div>
     </div>
 </div>
@@ -140,7 +122,6 @@
     </div>
 </div>
 
-<!-- Input radio b modal -->
 <div class="modal" #modalIndication>
     <div class="modal__content modal__content--question-indication">
         <div class="modal__content__top modal__content__top--privacy">
@@ -155,6 +136,35 @@
         </div>
         <div class="new-modal-content__footer new-modal-content__footer--indicactions">
             <button class="btn next-btn" (click)="toogleModal(modalIndication);">Entendido</button>
+        </div>
+    </div>
+</div> -->
+<!-- CREATE FORM -->
+<div class="form-creator__fields-area__field" #delete>
+    <div class="form-creator__fields-area__field__container">
+        <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
+            <div class="form-creator__fields-area__field__top d-flex" >
+                <div class="form-creator__fields-area__field__top__identifier">
+                    <span class="form-creator__fields-area__field__top__identifier__label">
+                        Id:
+                    </span>
+                    <span class="form-creator__fields-area__field__top__identifier__id">
+                        <span (dblclick)="showChangeIdInputField()" #draggableText>{{referenceNumber}}</span>
+                        <input (blur)="showChangeIdInputField()" (keyup.enter)="changeIdInput.blur()" 
+                        (keyup)="changeId($event)" type="text" value="{{referenceNumber}}" #changeIdInput style="display: none">
+                    </span>
+                </div>
+            </div>
+            <div class="form-creator__fields-area__field__middle">
+                <input type="text" placeholder="Question" id="question" placeholder="Question" (keyup)="onQuestionChanged(questionValue.value)" [(ngModel)]="question" #questionValue>
+            </div>
+            <div class="form-creator__fields-area__field__bottom">
+                <div class="form-creator__fields-area__field__bottom__trash divWhereIsDeleteButton">
+                    <div class="remove-button d-block smooth-intro" (click)="deleteDiv()">
+                        <span class="icon icon-trash-alt-regular"></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

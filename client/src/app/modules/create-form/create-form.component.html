@@ -1,168 +1,3 @@
-<!-- <div class="sub-menu" id="sub-menu">
-    <div class="sub-menu__container">
-        <div class="sub-menu__left-button">
-            <button routerLink="/guide" class="button-filled button-filled--sub-menu">Guide</button>
-        </div>
-        <ul class="sub-menu__nav sub-menu__nav--form" (click)="topMenuNav($event)">
-            <li class="sub-menu__nav__button sub-menu__nav__button--current"><a href="form-creator" class="sub-menu-button" #linkFormButton>Form</a></li>
-            <li class="sub-menu__nav__button"><a href="information" class="sub-menu-button" #linkInformationButton>Information</a></li>
-            <li class="sub-menu__nav__button" *ngIf="state === 'editAuthor'"><a href="comments" class="sub-menu-button">Comments</a></li>
-        </ul>
-        <div class="sub-menu__right-button">
-            <span class="sub-menu__right-button__label">Preview</span>
-            <label class="switch">
-                <input type="checkbox" (change)="preview(); generateText();">
-                <span class="slider slider--round"></span>
-            </label>
-        </div>
-    </div>
-</div> -->
-
-<!-- <div class="container" #formBasedDocDiv>
-    <!--<div class="form-creator content" id="form-creator" #formCreatorDiv>
-        <div class="form-creator-container">
-            <div class="fields-area">
-                    <div class="fields-container" #formAreaDiv id="formAreaDiv" (keyup)="generateText()" (click)="generateText()">
-                        <div *ngIf="state === 'editAuthor'">
-                            <div *ngFor="let field of fields">
-                                <app-input-text *ngIf="field['type'] == 'iText'" [state]="state" [field]="field"></app-input-text>
-
-                                <app-input-radio-a *ngIf="field['type'] == 'iRadioA'" [state]="state" [field]="field"></app-input-radio-a>
-                                <app-input-radio-b *ngIf="field['type'] == 'iRadioB'" [state]="state" [field]="field"></app-input-radio-b>
-                                <app-input-radio-c *ngIf="field['type'] == 'iRadioC'" [state]="state" [field]="field"></app-input-radio-c>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add-question-button d-block">
-                        <div class="tooltip" (click)="toogleQuestionMenu($event)">
-                            <span class="icon icon-plus-solid" id="add-question-button"></span>
-                            <span class="add-question-menu" #addQuestionMenuDiv>
-                                <span class="icon icon-times-solid close-question-menu"></span>
-                                <div class="group">
-                                    <span>Text</span>
-                                    <div class="buttons-group">
-                                        <button (click)="injectComponent(inputs[0])">Text</button>
-                                    </div>
-                                </div>
-                                <div class="group">
-                                    <span>Radio</span>
-                                    <div class="buttons-group">
-                                        <button (click)="injectComponent(inputs[1])">Radio a</button>
-                                        <button (click)="injectComponent(inputs[2])">Radio b</button>
-                                        <button (click)="injectComponent(inputs[3])">Radio c</button>
-                                    </div>
-                                </div>
-                                <div class="group">
-                                    <span>Others</span>
-                                    <div class="buttons-group">
-                                        <button>Date</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            <div class="text-area">
-                <div id="expand-editor-button" class="d-flex">
-                    <span class="icon icon-expand-solid" (click)="enableFullScreen('editor-container')"></span>
-                    <button class="save-button-editor" [disabled]="isSubmitting" (click)="submitForm()">
-                        <span class="icon icon-save-regular"></span>
-                    </button>
-                    <button class="button-delete-editor" *ngIf="updatingForm"
-                    [ngClass]="{disabled: isDeleting}" (click)="deleteForm()">
-                        <span class="icon icon-trash-alt-regular"></span>
-                    </button>
-                </div>
-                <div id="expand-editor-button" class="d-none-flex" (click)="enableFullScreen('editor-preview')">
-                    <span class="icon icon-expand-solid"></span>
-                </div>
-
-                <div id="editor-container" class="d-block">
-                    <quill-editor id="editor" (onContentChanged)="quillText = $event.html" 
-                                [ngModel]="quillText" [ngModelOptions]="{standalone: true}" 
-                                [customOptions]="customOptions" [modules]="quillModules"
-                                 #quill></quill-editor>
-                </div>
-                <div class="d-none ql-editor textToGeneratePreview" id="editor-preview" #textPreviewDiv>{{textPreview}}</div>
-            </div>
-        </div>
-    </div>
-    <div id="information" class="content">
-        <app-list-errors class="information-error" [errors]="errors"></app-list-errors>
-        <form [formGroup]="formGroup" class="information">
-            <div class="information-container">
-                <div class="section-left">
-                    <input formControlName="title" type="text" placeholder="Título" #title>
-                    <textarea formControlName="description" name="description" id="description" cols="30" rows="6" placeholder="description" #description (keyup)=validateDescription($event)></textarea>
-                    <textarea formControlName="indications" name="indications" id="indications" cols="30" rows="10" placeholder="indications"></textarea>
-                </div>
-                <div class="section-right">
-                    <div class="information-tags">
-                        <input type="text" placeholder="tags"
-                                [formControl]="tags" (keyup.enter)="addTag()" >
-                        <div class="tags-container">
-                            <span class="tag" *ngFor="let tag of form.tags">
-                                <span class="tag-container">
-                                    {{ tag }} <span class="icon icon-times-solid" (click)="removeTag(tag)"></span>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="information-buttons">
-                        <div class="information-switch-button">
-                            <label class="switch">
-                                <input type="checkbox" checked formControlName="public">
-                                <span class="slider round"></span>
-                            </label>
-                            <span class="information-switch-button-label">
-                                Formulario público
-                            </span>
-                        </div>
-                        <div class="information-switch-button">
-                            <label class="switch">
-                                <input type="checkbox" checked formControlName="commentsEnabled">
-                                <span class="slider round"></span>
-                            </label>
-                            <span class="information-switch-button-label">
-                                Comentarios activos
-                            </span>
-                        </div>
-                        <div class="information-switch-button">
-                            <label class="switch">
-                                <input type="checkbox" checked formControlName="enabled">
-                                <span class="slider round"></span>
-                            </label>
-                            <span class="information-switch-button-label">
-                                Formulario activo
-                            </span>
-                        </div>
-                    </div>
-                    <div class="information-notifications">
-                        <span class="information-notifications-title">Activar notificaciones</span>
-                        <div class="information-notifications-checkboxes">
-                            <div class="form-group">
-                                <input type="checkbox" name="notifications" id="notifications" value="Notifications" checked>
-                                <label for="notifications">&emsp;Comentarios</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <div class="save-form-button">
-            <button class="save-button" [disabled]="isSubmitting" (click)="submitForm()">
-                <span class="icon icon-save-regular"></span>
-            </button>
-            <button class="save-button button-delete" *ngIf="updatingForm"
-            [ngClass]="{disabled: isDeleting}" (click)="deleteForm()">
-                <span class="icon icon-trash-alt-regular"></span>
-            </button>
-        </div>
-    </div>
-    <div id="comments" class="content" *ngIf="state === 'editAuthor'">
-        <app-comments [form]="form" class="comments"></app-comments>
-    </div>
-</div> -->
 <div class="sub-menu">
     <div class="sub-menu__container" #subMenu>
         <div class="sub-menu__left-button">
@@ -209,7 +44,7 @@
                 </div>
 
                 <div class="form-creator__fields-area__middle">
-                    <div class="form-creator__fields-area__middle__container" id="formAreaDiv" #formAreaDiv (keyup)="generateText($event)" (click)="generateText($event)">
+                    <div class="form-creator__fields-area__middle__container" id="formAreaDiv" #formAreaDiv>
                         <div *ngIf="state === 'editAuthor'">
                             <div *ngFor="let field of fields">
                                 <app-input-text *ngIf="field['type'] == 'iText'" [state]="state" [field]="field"></app-input-text>
@@ -358,7 +193,7 @@
                                 <span class="icon icon-info-circle-solid"></span>
                             </div> -->
                             <div class="checkout-panel__body__document-type-selection__button-area__doc-button"
-                            (click)="setDocumentType('office')" (dblclick)="toogleModal(modalChooseDocument); setDocumentPlayground();"
+                            (click)="setDocumentType('office')" (dblclick)="toogleModal(modalChooseDocument); setDocument();"
                             [ngClass]="{'checkout-panel__body__document-type-selection__button-area__doc-button--active': this.documentType === 'office'}">
                                 <span>Office doc</span>
                             </div>
@@ -378,7 +213,7 @@
 
             </div>         
             <div class="checkout-panel__footer checkout-panel__footer--one-button">
-                <button class="btn next-btn" (click)="toogleModal(modalChooseDocument); setDocumentPlayground();">Listo</button>
+                <button class="btn next-btn" (click)="toogleModal(modalChooseDocument); setDocument();">Listo</button>
             </div>
         </div>
     </div>
@@ -397,7 +232,7 @@
                                 <sup class="icon icon-info-circle-solid" (click)="toggleLightbox(lightBox)"></sup>
                             </span>
                             <button class="button-filled button-filled--add-new-question"
-                            (click)="injectComponent(inputs[0]); toogleModal(addQuestionMenuModal, true); generateText($event); setCurrentStep(this.form.fields.length - 1);" >
+                            (click)="injectComponent(inputs[0]); toogleModal(addQuestionMenuModal, true); setCurrentStep(this.form.fields.length - 1);" >
                                 Add
                                 <span class="icon icon-plus-solid"></span>
                             </button>
@@ -408,7 +243,7 @@
                                 <sup class="icon icon-info-circle-solid" onclick="toggleLightbox()"></sup>
                             </span>
                             <button class="button-filled button-filled--add-new-question"
-                            (click)="injectComponent(inputs[1]); toogleModal(addQuestionMenuModal, true); generateText($event); setCurrentStep(this.form.fields.length - 1);">
+                            (click)="injectComponent(inputs[1]); toogleModal(addQuestionMenuModal, true); setCurrentStep(this.form.fields.length - 1);">
                                 Add
                                 <span class="icon icon-plus-solid"></span>
                             </button>
