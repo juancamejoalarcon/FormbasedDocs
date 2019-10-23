@@ -59,6 +59,7 @@ if (isLocal) {
 require('./models/User');
 require('./models/Form');
 require('./models/Comment');
+require('./models/Transaction');
 require('./config/passport');
 
 app.use(require('./routes'));

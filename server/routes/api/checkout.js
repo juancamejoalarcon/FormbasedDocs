@@ -1,6 +1,10 @@
 const router = require('express').Router();
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
+const Transaction = mongoose.model('Transaction');
 const braintree = require('braintree');
 const gateway = require('../../helpers/gateway');
+const auth = require('../auth');
 const certifiedForms = require('../../certified-forms').certifiedForms;
 
 const TRANSACTION_SUCCESS_STATUSES = [
@@ -66,7 +70,7 @@ router.get('/:id', function(req, res) {
     });
 });
 
-router.post('/', function(req, res) {
+router.post('/', auth.optional, function(req, res, next) {
     let transactionErrors;
     let amount; // In production you should not take amounts directly from clients
     const nonce = req.body.payment_method_nonce;
@@ -76,6 +80,8 @@ router.post('/', function(req, res) {
         amount = form.amount;
       }
     });
+
+
     gateway.transaction.sale({
       amount: amount,
       paymentMethodNonce: nonce,
@@ -84,6 +90,17 @@ router.post('/', function(req, res) {
       }
     }, function (err, result) {
       if (result.success || result.transaction) {
+        if (req.payload) {
+          User.findById(req.payload.id).then(function(user){
+            if (!user) { return res.sendStatus(401); }
+            const transaction = new Transaction();
+            transaction.user = user;
+            // transaction.
+            // return transaction.save().then(function(){
+            //   return res.json({transaction: transaction.toJSONFor(user)});
+            // });
+          }).catch(next);
+        }
         return res.json({resultTransactionId: result.transaction.id});
       } else {
         transactionErrors = result.errors.deepErrors();
