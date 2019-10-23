@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Form, FormService, CommonsService, ComponentInjectorService, StepModelService } from '../../core';
+import { Form, FormService, CommonsService, ComponentInjectorService, StepModelService, StateService } from '../../core';
 import { InputTextComponent,
   InputRadioAComponent,
   InputRadioBComponent,
@@ -78,7 +78,9 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private toastr: ToastrService,
     private odfEditorService: OdfEditorService,
-    private stepModelService: StepModelService
+    private stepModelService: StepModelService,
+    private stateService: StateService,
+
   ) {
     // use the FormBuilder to create a form group
     this.formGroup = this.fb.group({
@@ -148,27 +150,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   preview() {
-    this.commonsService.replaceClassDnone(this.formBasedDocDiv);
-    if (this.documentType === 'office') {
-      const elementsThatCannotBeHide = ['dijit_form_Button_1', 'dijit_form_HorizontalSlider_0'];
-      for (const element of document.querySelector('#webodfeditor-toolbar1').children as any) {
-        if (!elementsThatCannotBeHide.includes(element.getAttribute('widgetid'))) {
-          element.classList.toggle('d-none-widget');
-        }
-      }
-      if (this.isInPreviewMode) {
-        this.setEditorForPreviewMode();
-      } else {
-        this.unsetEditorForPreviewMode();
-      }
-      document.getElementById('webodfeditor-canvascontainer1').style.top =
-      document.getElementsByClassName('webodfeditor-toolbarcontainer')[0].clientHeight + 'px';
-      document.getElementById('webodfeditor-canvas1').classList.toggle('not-selectable');
-    } else {
-      window['documentBodyCloneGlobal'] = document.querySelector('#editor-preview').cloneNode(true);
-      this.isInPreviewMode = !this.isInPreviewMode;
-    }
-
+    this.stateService.setState('COSA');
   }
 
   setEditorForPreviewMode() {

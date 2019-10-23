@@ -19,7 +19,8 @@ import {
   ComponentInjectorService
 } from './http';
 import {
-  StepModelService
+  StepModelService,
+  StateService
 } from './singleton';
 
 @NgModule({
@@ -41,7 +42,8 @@ import {
     UserService,
     CommonsService,
     ComponentInjectorService,
-    StepModelService
+    StepModelService,
+    StateService
   ],
   declarations: []
 })

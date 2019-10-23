@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { CommonsService, StepModelService } from '../../../core';
+import { CommonsService, StepModelService, StateService } from '../../../core';
 import { InputCommonsService } from '../shared';
 import { OdfEditorService } from '../../services';
 /*new form*/
@@ -34,12 +34,17 @@ export class InputTextComponent implements OnInit, AfterViewInit {
     private commonsService: CommonsService,
     private inputCommonsService: InputCommonsService,
     private odfEditorService: OdfEditorService,
-    private stepModelService: StepModelService
+    private stepModelService: StepModelService,
+    private stateService: StateService
     ) { }
 
   ngOnInit() {
     this.createStep();
     this.getRandomId();
+    this.stateService.stateSubscribe().subscribe( (state: string) => {
+      console.log('CAMBIO');
+      console.log(state);
+    })
   }
 
   ngAfterViewInit() {
