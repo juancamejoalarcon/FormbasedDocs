@@ -17,7 +17,7 @@ TransactionSchema.methods.toJSON = function(user){
         formType: this.formType,
         email: this.email,
         transactionId: this.transactionId,
-        user: this.user.toProfileJSONFor(user)
+        user: this.user ? this.user.toProfileJSONFor(user) : undefined
     };
 };
 

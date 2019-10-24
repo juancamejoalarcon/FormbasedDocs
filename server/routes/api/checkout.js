@@ -4,8 +4,9 @@ const User = mongoose.model('User');
 const Transaction = mongoose.model('Transaction');
 const braintree = require('braintree');
 const gateway = require('../../helpers/gateway');
+const emailSender = require('../../helpers/mail');
 const auth = require('../auth');
-const certifiedForms = require('../../certified-forms').certifiedForms;
+const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
 
 const TRANSACTION_SUCCESS_STATUSES = [
     braintree.Transaction.Status.Authorizing,
@@ -73,6 +74,8 @@ router.get('/:id', function(req, res) {
 router.post('/', auth.optional, function(req, res, next) {
     let transactionErrors;
     let amount; // In production you should not take amounts directly from clients
+    const steps = req.body.steps;
+    const email = req.body.email;
     const nonce = req.body.payment_method_nonce;
     const formType = req.body.formType;
     certifiedForms.forEach((form) => {
@@ -94,14 +97,35 @@ router.post('/', auth.optional, function(req, res, next) {
           User.findById(req.payload.id).then(function(user){
             if (!user) { return res.sendStatus(401); }
             const transaction = new Transaction();
+            transaction.steps = steps;
             transaction.user = user;
-            // transaction.
-            // return transaction.save().then(function(){
-            //   return res.json({transaction: transaction.toJSONFor(user)});
-            // });
+            transaction.email = email;
+            transaction.transactionId = result.transaction.id;
+            transaction.formType = formType;
+            // Send email
+            emailSender.checkoutConfirm(email, result.transaction.id, formType);
+            return transaction.save().then(function(){
+              return res.json(
+                {
+                  transaction: transaction.toJSON(user)
+                }
+              )});
           }).catch(next);
+        } else {
+          const transaction = new Transaction();
+          transaction.steps = steps;
+          transaction.email = email;
+          transaction.transactionId = result.transaction.id;
+          transaction.formType = formType;
+          // Send email
+          emailSender.checkoutConfirm(email, result.transaction.id, formType);
+          return transaction.save().then(function(){
+            return res.json(
+              {
+                transaction: transaction.toJSON()
+              }
+          )});
         }
-        return res.json({resultTransactionId: result.transaction.id});
       } else {
         transactionErrors = result.errors.deepErrors();
         return res.json({errors: transactionErrors});

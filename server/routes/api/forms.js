@@ -5,7 +5,7 @@ const Comment = mongoose.model('Comment');
 const User = mongoose.model('User');
 const auth = require('../auth');
 const url = require('url');
-const certifiedForms = require('../../certified-forms').certifiedForms;
+const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
 
 // Preload form objects on routes with ':form'
 router.param('form', function(req, res, next, slug) {
