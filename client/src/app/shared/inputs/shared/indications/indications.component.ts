@@ -9,13 +9,10 @@ export class IndicationsComponent implements OnInit {
   @ViewChild('indicationsDiv') indicationsDiv: ElementRef;
   @ViewChild('tab1') tab1: ElementRef;
   @ViewChild('tab2') tab2: ElementRef;
+  @ViewChild('normalText') normalText: ElementRef;
 
-  @Input() indications: string;
-  @Input() indicationsType: string;
-  @Input() indicationsIdentifier: string;
-
-  @Output() sendIndications = new EventEmitter<string>();
-  @Output() sendIndicationsType = new EventEmitter<string>();
+  @Input() indications: any;
+  @Output() sendIndications = new EventEmitter<any>();
   @Output() closeModal: EventEmitter<any> = new EventEmitter();
 
   public quillText = '';
@@ -66,6 +63,26 @@ export class IndicationsComponent implements OnInit {
     });
     tab.style.display = 'block';
     button.classList.toggle('new-modal-content__header__tabs__tab--active');
+  }
+
+  changeIndicationsType(type: string) {
+    this.indications.indicationsType = type;
+    if (type === 'outsideText') {
+      this.changeIndicationsValue(this.quillText);
+    } else {
+      this.changeIndicationsValue(this.normalText.nativeElement.value);
+    }
+  }
+
+  changeIndicationsValue(value: string) {
+    if (value !== '') {
+      this.indications.value = value;
+      this.indications.areIndications = true;
+      this.sendIndications.emit(this.indications);
+    } else {
+      this.indications.areIndications = false;
+      this.sendIndications.emit(this.indications);
+    }
   }
 
 }

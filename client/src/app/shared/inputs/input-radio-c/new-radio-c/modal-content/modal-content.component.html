@@ -4,7 +4,7 @@
     <div class="fields-container fields-container-conditional" #formAreaDiv [id]="'modalFormAreaDiv' + idOfRadioParent" (keyup)="generateText()" (click)="generateText()">
       <div *ngIf="state === 'editAuthor'">
         <div *ngFor="let field of fields">
-            <app-input-text *ngIf="field['type'] == 'iText'" [state]="state" [field]="field"></app-input-text>
+            <app-input-text *ngIf="field['type'] == 'iText'" [field]="field"></app-input-text>
             <!-- <app-input-date *ngIf="field['type'] == 'iDate'" [state]="state" [field]="field"></app-input-date> -->
             <app-input-radio-a *ngIf="field['type'] == 'iRadioA'" [state]="state" [field]="field"></app-input-radio-a>
             <app-input-radio-b *ngIf="field['type'] == 'iRadioB'" [state]="state" [field]="field"></app-input-radio-b>

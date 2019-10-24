@@ -1,7 +1,5 @@
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { CommonsService, StepModelService, StateService } from '../../../core';
-import { InputCommonsService } from '../shared';
-import { OdfEditorService } from '../../services';
 /*new form*/
 import { iTextStep } from './input-text.interface';
 
@@ -11,7 +9,6 @@ import { iTextStep } from './input-text.interface';
 })
 export class InputTextComponent implements OnInit, AfterViewInit {
 
-  @Input() state: string;
   @Input() field: any;
   @ViewChild('delete') delete: ElementRef;
   @ViewChild('draggableText') draggableText: ElementRef;
@@ -21,30 +18,37 @@ export class InputTextComponent implements OnInit, AfterViewInit {
   @ViewChild('showModalButton') showModalButton: ElementRef;
   @ViewChild('modal') modal: ElementRef;
   @ViewChild('modalIndication') modalIndication: ElementRef;
+  @ViewChild('divWhereIsDeleteButton') divWhereIsDeleteButton: ElementRef;
 
+  public state: string;
+  public isNewForm: boolean;
   public mandatory: boolean;
-  public indications: string;
-  public indicationsType = 'outsideText';
   public randomId: string;
   public referenceNumber: any;
   public functionReference: any;
   public step: iTextStep;
+  public indications = {};
 
   constructor(
     private commonsService: CommonsService,
-    private inputCommonsService: InputCommonsService,
-    private odfEditorService: OdfEditorService,
     private stepModelService: StepModelService,
     private stateService: StateService
     ) { }
 
   ngOnInit() {
-    this.createStep();
-    this.getRandomId();
+    this.isNewForm = true;
+    if (this.isNewForm) {
+      this.createStep();
+      this.getRandomId();
+    }
     this.stateService.stateSubscribe().subscribe( (state: string) => {
-      console.log('CAMBIO');
-      console.log(state);
-    })
+      this.state = state;
+      if (this.state === 'create-form') {
+        this.divWhereIsDeleteButton.nativeElement.hidden = false;
+      } else {
+        this.divWhereIsDeleteButton.nativeElement.hidden = true;
+      }
+    });
   }
 
   ngAfterViewInit() {
@@ -60,13 +64,14 @@ export class InputTextComponent implements OnInit, AfterViewInit {
       replacement: '',
       question: '',
       indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Indique el lugar en el que se firma este contrato.'
+        areIndications: false,
+        indicationsType: 'outsideText',
+        value: ''
       },
       mandatory: true,
       isFocused: false
     };
+    this.indications = this.step.indications;
     this.stepModelService.addNewStep(this.step);
   }
 
@@ -156,6 +161,14 @@ export class InputTextComponent implements OnInit, AfterViewInit {
     //     this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
     //   }
     // }
+  }
+
+  onIndicationsChanged(indications: any) {
+    this.step.indications = indications;
+  }
+
+  input(replacement: string) {
+    this.step.replacement = replacement;
   }
 
   deleteDiv() {

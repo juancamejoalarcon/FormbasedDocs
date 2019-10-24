@@ -158,7 +158,7 @@
                     </div>
                     <div class="form-creator__fields-area__middle__container" [ngStyle]="{'display': this.currentStep !== 0 ? 'block' : 'none'}">
                         <div *ngFor="let field of fields" >
-                            <app-input-text *ngIf="field['type'] == 'iText'" [state]="state" [field]="field"></app-input-text>
+                            <app-input-text *ngIf="field['type'] == 'iText'" [field]="field"></app-input-text>
                             <app-input-radio-a *ngIf="field['type'] == 'iRadioA'" [state]="state" [field]="field"></app-input-radio-a>
                             <!-- <app-input-radio-b *ngIf="field['type'] == 'iRadioB'" [state]="state" [field]="field"></app-input-radio-b>
                             <app-input-radio-c *ngIf="field['type'] == 'iRadioC'" [state]="state" [field]="field"></app-input-radio-c> -->

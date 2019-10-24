@@ -2,11 +2,11 @@
     <div class="new-modal-content__header">
         <div class="new-modal-content__header__tabs">
             <button class="new-modal-content__header__tabs__tab new-modal-content__header__tabs__tab--active" 
-            (click)="openTab(tab1, this.button1); sendIndicationsType.emit('outsideText');" #button1>
+            (click)="openTab(tab1, this.button1); changeIndicationsType('outsideText');" #button1>
                 Outside text
             </button>
             <button class="new-modal-content__header__tabs__tab" 
-            (click)="openTab(tab2, this.button2); sendIndicationsType.emit('insideText');" #button2>
+            (click)="openTab(tab2, this.button2); changeIndicationsType('insideText');" #button2>
                 Inside text
             </button>
         </div>
@@ -14,7 +14,7 @@
     <div class="new-modal-content__body">    
         <div class="editor-container-modal-new-question" style="height: 75%;" #tab1>
             <!-- Create the editor container -->
-            <quill-editor (onContentChanged)="quillText = $event.html; sendIndications.emit($event.html)" 
+            <quill-editor (onContentChanged)="quillText = $event.html; changeIndicationsValue($event.html)" 
                 [ngModel]="quillText" [modules]="{
                     toolbar: [
                     ['bold', 'italic', 'underline', 'strike'], 
@@ -28,10 +28,10 @@
         </div>
         
         <div style="display:none; height: 85%;" #tab2>
-            <textarea name="" id="" rows="10" placeholder="Indicacion for this field..." #normalText (keyup)="sendIndications.emit(normalText.value)"></textarea>
+            <textarea name="" id="" rows="10" placeholder="Indicacion for this field..." #normalText (keyup)="changeIndicationsValue(normalText.value)"></textarea>
         </div>
     </div>
-    <input class="{{indicationsIdentifier}}" type="text" [value]="indications" [attr.data-indicationsType]="indicationsType" hidden>         
+    <input type="text" [value]="this.indications.value" hidden>         
     <div class="new-modal-content__footer new-modal-content__footer--indicactions">
         <button class="btn next-btn" (click)="closeModal.emit();">Hecho</button>
         <button class="btn next-btn next-btn--delete" (click)="sendIndications.emit(''); closeModal.emit();">Eliminar</button>

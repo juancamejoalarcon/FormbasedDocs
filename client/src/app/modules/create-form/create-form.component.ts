@@ -132,12 +132,21 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   setInitialState() {
     this.stepModelService.init(this.form.fields);
+    this.stateService.setState('create-form');
   }
   /***************/
   /***NEW FORM****/
   /***************/
   setDocument() {
     console.log(this.documentType);
+  }
+
+  preview(checked: boolean) {
+    if (checked) {
+      this.stateService.setState('fill-form');
+    } else {
+      this.stateService.setState('create-form');
+    }
   }
 
   /********************/
@@ -147,10 +156,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   injectComponent(component: Object) {
     this.componentInjectorService.appendComponentToBody('Component', component, 'formAreaDiv', 'formAreaDiv', 'divWhereIsDeleteButton', {});
     this.injectedComponents = this.formAreaDiv.nativeElement.querySelectorAll('.inputCollection');
-  }
-
-  preview() {
-    this.stateService.setState('COSA');
   }
 
   setEditorForPreviewMode() {
