@@ -64,7 +64,7 @@ function createEditor(formType, idOfContainer) {
         if (window.DOCUMENTOURL) {
             docUrl = window.DOCUMENTOURL;
         } else {
-            docUrl = "assets/js/wodotexteditor/welcome.odt";
+            docUrl = "assets/js/wodotexteditor/default.odt";
         }
         return docUrl || null;
     }

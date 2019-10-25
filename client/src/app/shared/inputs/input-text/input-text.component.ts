@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { CommonsService, StepModelService, StateService } from '../../../core';
 /*new form*/
 import { iTextStep } from './input-text.interface';
@@ -7,7 +7,7 @@ import { iTextStep } from './input-text.interface';
   selector: 'app-input-text',
   templateUrl: './input-text.component.html'
 })
-export class InputTextComponent implements OnInit, AfterViewInit {
+export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() field: any;
   @ViewChild('delete') delete: ElementRef;
@@ -53,6 +53,12 @@ export class InputTextComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.enableDrag();
+  }
+
+  ngOnDestroy() {
+    let steps = this.stepModelService.getStepsModel();
+    steps = steps.filter(step => step != this.step);
+    this.stepModelService.init(steps);
   }
 
   /**NEW FORM**/

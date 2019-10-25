@@ -1,7 +1,15 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Form, FormService, CommonsService, ComponentInjectorService, StepModelService, StateService } from '../../core';
+import {
+  Form,
+  FormService,
+  CommonsService,
+  ComponentInjectorService,
+  StepModelService,
+  StateService,
+  OdfCreatorService
+} from '../../core';
 import { InputTextComponent,
   InputRadioAComponent,
   InputRadioBComponent,
@@ -66,6 +74,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   isInPreviewMode = false;
   reader = new FileReader();
   base64data: any;
+  documentService: any;
 
   constructor(
     private componentInjectorService: ComponentInjectorService,
@@ -80,6 +89,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     private odfEditorService: OdfEditorService,
     private stepModelService: StepModelService,
     private stateService: StateService,
+    private odfCreatorService: OdfCreatorService
 
   ) {
     // use the FormBuilder to create a form group
@@ -130,23 +140,30 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     }
   }
 
-  setInitialState() {
-    this.stepModelService.init(this.form.fields);
-    this.stateService.setState('create-form');
-  }
   /***************/
   /***NEW FORM****/
   /***************/
-  setDocument() {
-    console.log(this.documentType);
-  }
-
   preview(checked: boolean) {
     if (checked) {
       this.stateService.setState('fill-form');
     } else {
       this.stateService.setState('create-form');
     }
+  }
+
+  setInitialState() {
+    this.stepModelService.init(this.form.fields);
+    this.stateService.setState('create-form');
+  }
+
+  setDocument(documentType: string) {
+    this.documentType = documentType;
+    if (documentType === 'office') {
+      this.documentService = this.odfCreatorService as OdfCreatorService;
+    } else {
+      
+    }
+    this.documentService.init('create-form');
   }
 
   /********************/

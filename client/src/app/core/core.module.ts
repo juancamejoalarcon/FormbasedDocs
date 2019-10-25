@@ -20,7 +20,8 @@ import {
 } from './http';
 import {
   StepModelService,
-  StateService
+  StateService,
+  OdfCreatorService
 } from './singleton';
 
 @NgModule({
@@ -43,7 +44,8 @@ import {
     CommonsService,
     ComponentInjectorService,
     StepModelService,
-    StateService
+    StateService,
+    OdfCreatorService
   ],
   declarations: []
 })
