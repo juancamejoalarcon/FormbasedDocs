@@ -159,11 +159,29 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   setDocument(documentType: string) {
     this.documentType = documentType;
     if (documentType === 'office') {
-      this.documentService = this.odfCreatorService as OdfCreatorService;
+      this.setDivHeight();
+      window.addEventListener('resize', this.setDivHeight);
+      this.documentService = this.odfCreatorService;
     } else {
       
     }
-    this.documentService.init('create-form');
+    this.documentService.init('create-form', '', 'editorContainer').then( data => {
+      this.documentService.setDragAndDropForSetUp();
+    });
+  }
+
+  setDivHeight() {
+    if (window.innerWidth > 885) {
+      if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
+        const newHeight = window.innerHeight - (document.querySelector('#form-creator') as HTMLElement).offsetTop + 'px';
+        const toolBarOffsetTop = (document.querySelector('.ql-toolbar') as HTMLElement).offsetTop;
+        const toolBarOffsetHeight = (document.querySelector('.ql-toolbar') as HTMLElement).offsetHeight;
+        const newHeightForEditor = window.innerHeight - (toolBarOffsetTop + toolBarOffsetHeight) + 'px';
+
+        (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
+        // (document.querySelector('#editor-container') as HTMLElement).style.height = newHeightForEditor;
+      }
+    }
   }
 
   /********************/
@@ -198,31 +216,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.odfEditorService.getEditorSession().getCaret().hide();
     this.odfEditorService.getEditorSession().getCaret().setColor('#FFFFFF');
     window['documentBodyCloneGlobal'] = this.documentBodyClone;
-  }
-
-  setDivHeight() {
-    if (window.innerWidth > 885) {
-      if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
-        const newHeight = window.innerHeight - (document.querySelector('#form-creator') as HTMLElement).offsetTop + 'px';
-        const toolBarOffsetTop = (document.querySelector('.ql-toolbar') as HTMLElement).offsetTop;
-        const toolBarOffsetHeight = (document.querySelector('.ql-toolbar') as HTMLElement).offsetHeight;
-        const newHeightForEditor = window.innerHeight - (toolBarOffsetTop + toolBarOffsetHeight) + 'px';
-
-        (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
-        (document.querySelector('#editor-container') as HTMLElement).style.height = newHeightForEditor;
-      }
-    }
-  }
-
-  preventGenerateText(e: any) {
-    if (!this.commonsService.isObjectEmpty(e)) {
-      if (e.target.classList.contains('icon-info-circle-solid')) {
-        return false;
-      } else if (e.target.classList.contains('indication')) {
-        return false;
-      }
-    }
-    return true;
   }
 
   // NUEVO
