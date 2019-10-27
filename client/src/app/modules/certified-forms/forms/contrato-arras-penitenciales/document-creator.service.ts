@@ -17,17 +17,19 @@ export class DocumentCreatorService {
     this.createEditorFromURI('fillForm', 'editorContainer', uri);
       return new Promise((resolve, reject) => {
         const checkIfEditorCreated = setInterval( () => {
-          if (document.getElementsByTagName('office:text').length) {
+          if (
+            window['editor'] &&
+            window['editor'].getEditorSession() &&
+            document.getElementsByTagName('office:text').length) {
             this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-            this.resizeEvent = this.resizeDocumentContainer();
-            window.addEventListener('resize', this.resizeEvent);
+            this.resizeDocumentContainer();
             this.commonsService.toggleSpinner();
             clearInterval(checkIfEditorCreated);
             resolve("Document ready");
             console.log('Document is ready');
           }
        }, 300);
-      })
+      });
   }
 
   destroy() {
@@ -54,6 +56,10 @@ export class DocumentCreatorService {
   }
 
   resizeDocumentContainer() {
+    this.resizeEvent = () => {
+      FormBasedDocsApi.documentToFitScreen();
+    };
+    window.addEventListener('resize', this.resizeEvent);
     FormBasedDocsApi.documentToFitScreen();
   }
 

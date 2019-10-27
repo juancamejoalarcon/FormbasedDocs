@@ -4,6 +4,7 @@ const User = mongoose.model('User');
 const Transaction = mongoose.model('Transaction');
 const braintree = require('braintree');
 const gateway = require('../../helpers/gateway');
+const gatewayPaypal = require('../../helpers/paypal-gateway');
 const emailSender = require('../../helpers/mail');
 const auth = require('../auth');
 const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
@@ -52,11 +53,17 @@ function createResultObject(transaction) {
 }
 
 router.get('/new', function(req, res) {
-    let clientToken;
-    gateway.clientToken.generate({}, function (err, response) {
-        clientToken = {clientToken: response.clientToken};
-        return res.json(clientToken);
-    });
+  let clientToken;
+  let currentGateway;
+  if (req.query.method === 'card') {
+    currentGateway = gateway;
+  } else {
+    currentGateway = gatewayPaypal;
+  }
+  currentGateway.clientToken.generate({}, function (err, response) {
+      clientToken = {clientToken: response.clientToken};
+      return res.json(clientToken);
+  });
 });
 
 router.get('/:id', function(req, res) {
@@ -74,6 +81,7 @@ router.get('/:id', function(req, res) {
 router.post('/', auth.optional, function(req, res, next) {
     let transactionErrors;
     let amount; // In production you should not take amounts directly from clients
+    let currentGateway;
     const steps = req.body.steps;
     const email = req.body.email;
     const nonce = req.body.payment_method_nonce;
@@ -83,9 +91,14 @@ router.post('/', auth.optional, function(req, res, next) {
         amount = form.amount;
       }
     });
+    if (req.body.method === 'card') {
+      currentGateway = gateway;
+    } else {
+      currentGateway = gatewayPaypal;
+    }
 
 
-    gateway.transaction.sale({
+    currentGateway.transaction.sale({
       amount: amount,
       paymentMethodNonce: nonce,
       options: {

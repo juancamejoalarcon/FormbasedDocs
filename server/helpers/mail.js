@@ -8,8 +8,8 @@ const emailSender =  {
             port: 587,
             secure: false, // true for 465, false for other ports
             auth: {
-                user: 'cole90@ethereal.email', // generated ethereal user
-                pass: '2rCqMh4b2AZVUvcWuT' // generated ethereal password
+                user: 'horacio.denesik@ethereal.email', // generated ethereal user
+                pass: 'WQ9dzYD9eWbR23FGeC' // generated ethereal password
             }
         });
 

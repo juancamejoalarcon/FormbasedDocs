@@ -3,6 +3,7 @@ import { UserService, CheckoutService, Form, CommonsService, FormService } from 
 import { Router } from '@angular/router';
 import * as braintree from 'braintree-web';
 import { ToastrService } from 'ngx-toastr';
+declare let paypal: any;
 
 @Component({
   selector: 'app-checkout',
@@ -21,6 +22,8 @@ export class CheckoutComponent implements OnInit {
   public hostedFieldsInstance: braintree.HostedFields;
   public cardholdersName: string;
   public conditionsChecked: any;
+  public idsOfFields: Array<string> = ['number', 'cvv', 'expirationDate'];
+  public paymentMethod = 'card';
   public steps = [
     {
       type: 'cart',
@@ -66,7 +69,7 @@ export class CheckoutComponent implements OnInit {
 
   moveStep(type: string) {
     if (type === 'next') {
-      if(this.validateBeforeNextStep()) {
+      if (this.validateBeforeNextStep()) {
         this.currentStep += 1;
       }
     } else if (type === 'previous') {
@@ -113,14 +116,18 @@ export class CheckoutComponent implements OnInit {
     this.tokenizeUserDetails();
   }
 
+  onPaymentMethodSelected(method: string) {
+    this.paymentMethod = method;
+    this.paymentProcess();
+  }
+
   paymentProcess() {
     if (this.steps[this.currentStep].type === 'payment') {
       this.commonsService.toggleSpinner();
-      this.checkoutService.getToken().subscribe((token: string) => {
+      this.checkoutService.getToken(this.paymentMethod).subscribe((token: string) => {
         this.loadingPayment = false;
         this.clientToken = token;
         this.createBraintreeUI(token);
-        this.commonsService.toggleSpinner();
       });
     } else {
       this.loadingPayment = true;
@@ -131,12 +138,12 @@ export class CheckoutComponent implements OnInit {
     this.commonsService.toggleSpinner();
     this.hostedFieldsInstance.tokenize({cardholderName: this.cardholdersName}).then((payload) => {
       // submit payload.nonce to the server from here
-      this.checkoutService.pay(payload.nonce, this.form.id).subscribe(
+      this.checkoutService.pay(JSON.stringify(this.form.fields), this.email, payload.nonce, this.form.id, this.paymentMethod).subscribe(
         data => {
-          if (data.resultTransactionId) {
+          if (data.transaction) {
             this.commonsService.toggleSpinner();
             this.moveStep('next');
-            this.onPaymentCompleted();
+            this.onPaymentCompleted(data.transaction.transactionId);
             this.toastr.success('Payment completed', 'Payment success', {
               positionClass: 'toast-bottom-right',
               progressBar: true,
@@ -155,65 +162,159 @@ export class CheckoutComponent implements OnInit {
         progressBar: true,
         progressAnimation: 'decreasing'
       });
+      console.log(error);
+      if (error.code === 'HOSTED_FIELDS_FIELDS_INVALID') {
+        this.idsOfFields.forEach((id) =>  {
+          if (error.details.invalidFieldKeys.includes(id)) {
+            const el = document.getElementById(id);
+            el.classList.add('hosted-fields-invalid');
+            el.nextElementSibling['hidden'] = false;
+          } else {
+            const el = document.getElementById(id);
+            el.classList.remove('hosted-fields-invalid');
+            el.nextElementSibling['hidden'] = true;
+          }
+        });
+      } else if (error.code === 'HOSTED_FIELDS_FIELDS_EMPTY') {
+        this.idsOfFields.forEach((id) =>  {
+          const el = document.getElementById(id);
+          el.classList.add('hosted-fields-invalid');
+          el.nextElementSibling['hidden'] = false;
+        });
+      }
     });
   }
 
   createBraintreeUI(TOKEN: any) {
-    braintree.client.create({
-      authorization: TOKEN
-    }).then((clientInstance) => {
-      braintree.hostedFields.create({
-        client: clientInstance,
-        styles: {
-          // Override styles for the hosted fields
-          input: {
-            'font-size': '16px',
-            'padding': '0.5rem 0.25rem 0.5rem',
-            'font-family': 'Lato',
-            'font-weight': '300',
-            color: 'rgba(46, 46, 46, 0.8)'
-          },
-          '::placeholder': {
-            'transition': 'transition: 100ms linear',
-            'font-weight': '300',
-            'font-family': 'Lato',
-            color: '#4ECDC4'
-          },
-        },
 
-        // The hosted fields that we will be using
-        // NOTE : cardholder's name field is not available in the field options
-        // and a separate input field has to be used incase you need it
-        fields: {
-          number: {
-            selector: '#card-number',
-            placeholder: '1111 1111 1111 1111'
+    if (this.paymentMethod === 'card') {
+      // CARD METHOD
+      braintree.client.create({
+        authorization: TOKEN
+      }).then((clientInstance) => {
+        braintree.hostedFields.create({
+          client: clientInstance,
+          styles: {
+            // Override styles for the hosted fields
+            input: {
+              'font-size': '16px',
+              'padding': '0.5rem 0.25rem 0.5rem',
+              'font-family': 'Lato',
+              'font-weight': '300',
+              color: 'rgba(46, 46, 46, 0.8)'
+            },
+            '::placeholder': {
+              'transition': 'transition: 100ms linear',
+              'font-weight': '300',
+              'font-family': 'Lato',
+              color: '#4ECDC4'
+            },
+            ':focus': {
+              'border-color': '#77db77',
+              'border-bottom': '3px solid #77db77'
+            },
+            'input:focus': {
+              'border-color': '#77db77',
+              'border-bottom': '3px solid #77db77'
+            },
           },
-          cvv: {
-            selector: '#cvv',
-            placeholder: '111'
-          },
-          expirationDate: {
-            selector: '#expiration-date',
-            placeholder: 'MM/YY'
+
+          // The hosted fields that we will be using
+          // NOTE : cardholder's name field is not available in the field options
+          // and a separate input field has to be used incase you need it
+          fields: {
+            number: {
+              selector: '#' + this.idsOfFields[0],
+              placeholder: '1111 1111 1111 1111'
+            },
+            cvv: {
+              selector: '#' + this.idsOfFields[1],
+              placeholder: '111'
+            },
+            expirationDate: {
+              selector: '#' + this.idsOfFields[2],
+              placeholder: 'MM/YY'
+            }
           }
-        }
-      }).then((hostedFieldsInstance) => {
+        }).then((hostedFieldsInstance) => {
 
-        this.hostedFieldsInstance = hostedFieldsInstance;
-        const fields = hostedFieldsInstance.getState().fields;
-        const isValid = Object.keys(fields).every(function (field) {
-          return fields[field].isValid;
+          this.hostedFieldsInstance = hostedFieldsInstance;
+          const fields = hostedFieldsInstance.getState().fields;
+          const isValid = Object.keys(fields).every(function (field) {
+            return fields[field].isValid;
+          });
+          this.commonsService.toggleSpinner();
         });
       });
-    });
+    } else if (this.paymentMethod === 'paypal') {
+       // PAYPAL METHOD
+        this.commonsService.toggleSpinner();
+        paypal.Button.render({
+          braintree: braintree,
+          env: 'sandbox',
+          client: {
+            sandbox: TOKEN,
+          },
+          style: {
+            size: 'medium'
+          },
+          payment: (data: any, actions: any) => {
+            this.commonsService.toggleSpinner();
+            return actions.payment.create({
+              payment: {
+                transactions: [{
+                  amount: {
+                    total: this.form.amount,
+                    currency: 'EUR'
+                  }
+                }]
+              }
+            });
+          },
+          onAuthorize: (data: any, actions: any) => {
+            this.commonsService.toggleSpinner();
+            return actions.payment.tokenize()
+              .then( (payload: any) => {
+                this.commonsService.toggleSpinner();
+                this.checkoutService.pay(
+                  JSON.stringify(this.form.fields),
+                  this.email,
+                  payload.nonce,
+                  this.form.id,
+                  this.paymentMethod)
+                  .subscribe(result => {
+                    this.commonsService.toggleSpinner();
+                    this.moveStep('next');
+                    this.onPaymentCompleted(result.transaction.transactionId);
+                    this.toastr.success('Payment completed', 'Payment success', {
+                      positionClass: 'toast-bottom-right',
+                      progressBar: true,
+                      progressAnimation: 'decreasing'
+                    });
+                    console.log(result);
+                });
+              });
+          },
+          onCancel: function (data: any) {
+            console.log('checkout.js payment cancelled', JSON.stringify(data));
+          },
+          onError: function (error: any) {
+            this.commonsService.toggleSpinner();
+            this.toastr.error('Paypal error', error, {
+              positionClass: 'toast-bottom-right',
+              progressBar: true,
+              progressAnimation: 'decreasing'
+            });
+          }
+        }, '#paypal-button');
+    }
   }
 
-  onPaymentCompleted() {
-    console.log('PAYMENT COMPLETED');
-    this.formService.getPaidCertifiedForm('contrato-arras-penitenciales').subscribe(
-      certifiedForm => {
-        this.formPaid.emit(certifiedForm);
+  onPaymentCompleted(transactionId: string) {
+    this.formService.getPaidCertifiedForm(transactionId).subscribe(
+      result => {
+        // this.formPaid.emit(certifiedForm);
+        console.log(result);
       } );
   }
 

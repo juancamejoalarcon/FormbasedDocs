@@ -124,7 +124,7 @@
                         <img src="https://designmodo.com/demo/checkout-panel/img/mastercard_logo.png"/>
                     </div>
                     <div class="checkout-panel__body__payment-method__method__radio-input">
-                        <input id="card" type="radio" name="payment">
+                        <input id="card" type="radio" name="payment" value="card" (change)="onPaymentMethodSelected('card')" checked >
                         with credit card
                     </div>
                 </label>
@@ -134,34 +134,37 @@
                         <img src="https://designmodo.com/demo/checkout-panel/img/paypal_logo.png"/>
                     </div>
                     <div class="checkout-panel__body__payment-method__method__radio-input">
-                        <input id="paypal" type="radio" name="payment">
+                        <input id="paypal" type="radio" name="payment" value="paypal" (change)="onPaymentMethodSelected('paypal')">
                         with PayPal
                     </div>
                 </label>
             </div>
-            <form class="checkout-panel__body__input-fields" *ngIf="this.loadingPayment === false">
+            <form class="checkout-panel__body__input-fields" *ngIf="this.loadingPayment === false && this.paymentMethod === 'card'">
                 <div class="checkout-panel__body__input-fields__column-1">
                     <label class="hosted-field--label" for="cardholder-name" name="cardholderName">Name</label>
                     <input type="text" id="cardholder" placeholder="e.g. JOHN DOE" class="name-custom-input" [(ngModel)]="cardholdersName" name="cardholderName"/>
                     <div class="checkout-panel__body__input-fields__small-inputs">
                         <div>
-                            <label for="expiration-date">Valid date</label>
-                            <!-- <input type="text" id="expiration-date" name="expiration-date"/> -->
-                            <div class="hosted-fields"  id="expiration-date"></div>
+                            <label for="expirationDate">Valid date</label>
+                            <div class="hosted-fields"  id="expirationDate"></div>
+                            <small class="secondary-color" hidden>Invalid Expiration date</small>
                         </div>
                         <div>
                             <label for="cvv">CVV / CVC *</label>
                             <div class="hosted-fields" id="cvv" name="cvv"></div>
+                            <small class="secondary-color" hidden>Invalid CVV</small>
                         </div>
                     </div>
                 </div>
                 <div class="checkout-panel__body__input-fields__column-2">
-                    <label for="cardnumber">Card Number</label>
-                    <!-- <input type="password" id="card-number" name="cardnumber"/> -->
-                    <div class="hosted-fields" id="card-number"></div>
+                    <label for="number">Card Number</label>
+                    <div class="hosted-fields" id="number"></div>
+                    <small class="secondary-color" hidden>Invalid Card Number</small>
                     <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
                 </div>
             </form>
+            <div id="paypal-button" style="height: 200px; margin-left: auto;margin-right:auto; display: flex;align-items: center;" 
+                *ngIf="this.paymentMethod === 'paypal'"></div>
         </div>
         <div class="checkout-panel__body__invoice" *ngIf="this.steps[this.currentStep].type === 'finish'">
             <p>FINAL</p>
@@ -180,7 +183,7 @@
     >Next Step</button>
 
     <button class="btn next-btn secondaryC-background-color" (click)="onSubmit()"
-    *ngIf="this.steps[this.currentStep].type === 'payment'">
+    *ngIf="this.steps[this.currentStep].type === 'payment' && this.paymentMethod === 'card'">
         <strong>PAGAR</strong>
     </button>
 </div>

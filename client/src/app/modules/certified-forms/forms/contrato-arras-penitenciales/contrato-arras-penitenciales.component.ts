@@ -51,6 +51,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
           this.form.title = certifiedForm.title;
           this.form.uri = certifiedForm.uri;
           this.form.id = 'contrato-arras-penitenciales';
+          this.form.amount = certifiedForm.amount;
           this.form.image = certifiedForm.image;
           this.setInitiaState();
         } );
