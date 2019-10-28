@@ -321,7 +321,20 @@ export class CheckoutComponent implements OnInit {
   downloadWord() {
     this.commonsService.toggleSpinner();
     this.convertService.toWord(this.form.id, this.form.uri).subscribe((data) => {
-      console.log(data);
+      const byteString = atob(data.word.split(',')[1]);
+      const mimeString = data.word.split(',')[0].split(':')[1].split(';')[0];
+      const ab = new ArrayBuffer(byteString.length);
+      const ia = new Uint8Array(ab);
+      for (let i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+      }
+      const blob = new Blob([ab], {type: mimeString});
+      const url = URL.createObjectURL(blob);
+      console.log(url);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'word.doc';
+      a.click();
       this.commonsService.toggleSpinner();
     });
   }
@@ -339,6 +352,10 @@ export class CheckoutComponent implements OnInit {
       const blob = new Blob([ab], {type: mimeString});
       const url = URL.createObjectURL(blob);
       console.log(url);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'document.pdf';
+      a.click();
       this.commonsService.toggleSpinner();
     });
   }
