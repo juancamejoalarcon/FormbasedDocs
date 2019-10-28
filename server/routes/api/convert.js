@@ -26,14 +26,15 @@ router.post('/toPdf', function(req, res) {
 
     fs.writeFile(`./tmp/${name}.odt`, odt, 'base64', function(err) {
         if(err) {
-            return console.log(err);
+            console.log(err);
+            return res.json(err);
         }
-        const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir';
+        const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir'
         + ` ./tmp/pdfs ./tmp/${name}.odt`;
         exec(cmd, function (err, stdout, stderr) {
             if (err) {
                 console.log('exec error: ', err);
-                return;
+                return res.json(err);
             }
             var file = path.basename(`./tmp/pdfs/${name}.pdf`);
             const data = fs.readFileSync(`./tmp/pdfs/${name}.pdf`);
@@ -51,14 +52,15 @@ router.post('/toWord', function(req, res) {
 
     fs.writeFile(`./tmp/${name}.odt`, odt, 'base64', function(err) {
         if(err) {
-            return console.log(err);
+            console.log(err);
+            return res.json(err);
         }
         const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to doc --outdir'
         + ` ./tmp/words ./tmp/${name}.odt`;
         exec(cmd, function (err, stdout, stderr) {
             if (err) {
                 console.log('exec error: ', err);
-                return;
+                return res.json(err);
             }
             var file = path.basename(`./tmp/words/${name}.doc`);
             const data = fs.readFileSync(`./tmp/words/${name}.doc`);

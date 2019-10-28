@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { UserService, CheckoutService, Form, CommonsService, FormService } from '../../../../core';
+import { UserService, CheckoutService, Form, CommonsService, FormService, ConvertService } from '../../../../core';
 import { Router } from '@angular/router';
 import * as braintree from 'braintree-web';
 import { ToastrService } from 'ngx-toastr';
@@ -48,6 +48,7 @@ export class CheckoutComponent implements OnInit {
     private checkoutService: CheckoutService,
     private formService: FormService,
     private commonsService: CommonsService,
+    private convertService: ConvertService,
     private router: Router,
     private toastr: ToastrService
   ) {}
@@ -312,10 +313,34 @@ export class CheckoutComponent implements OnInit {
 
   onPaymentCompleted(transactionId: string) {
     this.formService.getPaidCertifiedForm(transactionId).subscribe(
-      result => {
-        // this.formPaid.emit(certifiedForm);
-        console.log(result);
+      certifiedForm => {
+        this.formPaid.emit(certifiedForm);
       } );
+  }
+
+  downloadWord() {
+    this.commonsService.toggleSpinner();
+    this.convertService.toWord(this.form.id, this.form.uri).subscribe((data) => {
+      console.log(data);
+      this.commonsService.toggleSpinner();
+    });
+  }
+
+  downloadPdf() {
+    this.commonsService.toggleSpinner();
+    this.convertService.toPdf(this.form.id, this.form.uri).subscribe((data) => {
+      const byteString = atob(data.pdf.split(',')[1]);
+      const mimeString = data.pdf.split(',')[0].split(':')[1].split(';')[0];
+      const ab = new ArrayBuffer(byteString.length);
+      const ia = new Uint8Array(ab);
+      for (let i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+      }
+      const blob = new Blob([ab], {type: mimeString});
+      const url = URL.createObjectURL(blob);
+      console.log(url);
+      this.commonsService.toggleSpinner();
+    });
   }
 
 }

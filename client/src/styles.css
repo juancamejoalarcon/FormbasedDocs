@@ -4697,6 +4697,48 @@ input[type=checkbox] {
   font-size: 2.5rem;
 }
 
+.checkout-panel__body__success {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.checkout-panel__body__success__message {
+  font-weight: lighter;
+  font-size: 1.1rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.checkout-panel__body__success__download .icon {
+  font-size: 4rem;
+  color: #4ECDC4;
+}
+
+.checkout-panel__body__success__download .icon:hover {
+  color: #556270;
+  cursor: pointer;
+}
+
+.checkout-panel__body__success__download .icon-file-word-solid {
+  padding-right: 0.3rem;
+}
+
+.checkout-panel__body__success__download .icon-file-pdf-solid {
+  padding-left: 0.3rem;
+}
+
 .checkout-panel__body--choose-document-type {
   padding: 0px 80px 0;
 }
