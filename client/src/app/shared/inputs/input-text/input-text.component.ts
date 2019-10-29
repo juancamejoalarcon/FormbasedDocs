@@ -59,6 +59,7 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
     let steps = this.stepModelService.getStepsModel();
     steps = steps.filter(step => step != this.step);
     this.stepModelService.init(steps);
+    this.stepModelService.removeStep();
   }
 
   /**NEW FORM**/
@@ -89,7 +90,7 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
     // I add a character so that when we query the id without the inputTex it works
     this.referenceNumber = 'i' + Math.random().toString(36).substring(7);
     this.step.identifier = 'iText' + this.referenceNumber;
-    this.step.wordToReplace = 'iText' + this.referenceNumber;
+    this.step.wordToReplace = this.referenceNumber;
   }
 
   changeId(e: any) {
@@ -104,7 +105,7 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     this.referenceNumber = newValue;
     this.step.identifier = 'iText' + this.referenceNumber;
-    this.step.wordToReplace = 'iText' + this.referenceNumber;
+    this.step.wordToReplace = this.referenceNumber;
     this.enableDrag();
   }
   /************/
@@ -174,7 +175,7 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   input(replacement: string) {
-    this.step.replacement = replacement;
+    this.stepModelService.input(replacement, this.step.type, this.step.wordToReplace);
   }
 
   deleteDiv() {

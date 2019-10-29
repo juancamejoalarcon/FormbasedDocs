@@ -64,7 +64,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   updatingForm: boolean = false;
   isDeleting = false;
   isNewForm = false;
-  state: string;
   isFormValid = false;
 
   // Nuevo
@@ -73,8 +72,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   documentBodyClone: any;
   isInPreviewMode = false;
   reader = new FileReader();
-  base64data: any;
   documentService: any;
+  state: string;
 
   constructor(
     private componentInjectorService: ComponentInjectorService,
@@ -146,14 +145,25 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   preview(checked: boolean) {
     if (checked) {
       this.stateService.setState('fill-form');
+      this.documentService.setPreview();
     } else {
       this.stateService.setState('create-form');
+      this.documentService.unsetPreview();
     }
   }
 
   setInitialState() {
     this.stepModelService.init(this.form.fields);
     this.stateService.setState('create-form');
+    this.stateService.stateSubscribe().subscribe( (state: string) => { 
+      this.state = state;
+    });
+    this.stepModelService.stepsEvent.subscribe((event: string) => {
+      if (event === 'remove-step') {
+        this.setCurrentStep(this.currentStep - 1);
+        this.form.fields = this.stepModelService.getStepsModel();
+      }
+    })
   }
 
   setDocument(documentType: string) {
@@ -184,6 +194,17 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  setCurrentStep(stepNum: number) {
+    this.currentStep = stepNum;
+    this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
+      if (this.currentStep === index) {
+        step.style.display = 'block';
+      } else {
+        step.style.display = 'none';
+      }
+    });
+  }
+
   /********************/
   /****END NEW FORM****/
   /********************/
@@ -191,31 +212,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   injectComponent(component: Object) {
     this.componentInjectorService.appendComponentToBody('Component', component, 'formAreaDiv', 'formAreaDiv', 'divWhereIsDeleteButton', {});
     this.injectedComponents = this.formAreaDiv.nativeElement.querySelectorAll('.inputCollection');
-  }
-
-  setEditorForPreviewMode() {
-    this.odfEditorService.closeEditor();
-    this.odfEditorService.loadPreview();
-    this.commonsService.toggleSpinner();
-    setTimeout(() => {
-      this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-      this.odfEditorService.resizeDocumentContainer();
-      window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
-      this.odfEditorService.setDragAndDropForSetUp();
-      this.commonsService.toggleSpinner();
-      this.isInPreviewMode = false;
-    }, 2000);
-  }
-
-  unsetEditorForPreviewMode() {
-    this.odfEditorService.saveForPreview();
-    this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-    this.isInPreviewMode = true;
-    this.odfEditorService.resizeDocumentContainer();
-    // Hide Caret
-    this.odfEditorService.getEditorSession().getCaret().hide();
-    this.odfEditorService.getEditorSession().getCaret().setColor('#FFFFFF');
-    window['documentBodyCloneGlobal'] = this.documentBodyClone;
   }
 
   // NUEVO
@@ -314,17 +310,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       window.addEventListener('resize', this.commonsService.resizeEditor);
       this.commonsService.toggleSpinner();
     }, 100);
-  }
-
-  setCurrentStep(stepNum: number) {
-    // this.currentStep = stepNum;
-    // this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
-    //   if (this.currentStep === index) {
-    //     step.style.display = 'block';
-    //   } else {
-    //     step.style.display = 'none';
-    //   }
-    // });
   }
 
   nextStepAfterValidate() {

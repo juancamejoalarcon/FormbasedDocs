@@ -36,7 +36,7 @@
                     <div class="form-creator__fields-area__top__container">
                         <div>
                         </div>
-                        <div class="form-creator__fields-area__top__add-question d-flex">
+                        <div class="form-creator__fields-area__top__add-question d-flex" *ngIf="state === 'create-form'">
                             Add
                             <span class="icon icon-plus-circle-solid" (click)="toogleModal(addQuestionMenuModal, true)"></span>
                         </div>
@@ -61,8 +61,8 @@
                         <span class="pagination__left-icon icon icon-chevron-left-solid" 
                             *ngIf="this.form.fields.length >= 2 && currentStep !== 0" (click)="setCurrentStep(currentStep - 1)"></span>
                         <ul>
-                            <li *ngFor="let field of this.form.fields" 
-                            [ngClass]="{'current-page': currentStep === field.index }" (click)="setCurrentStep(field.index)">{{field.index + 1}}</li>
+                            <li *ngFor="let field of this.form.fields; let i = index" 
+                            [ngClass]="{'current-page': currentStep === i }" (click)="setCurrentStep(i)">{{i + 1}}</li>
                         </ul>
                         <span class="pagination__right-icon icon icon-chevron-right-solid" 
                             *ngIf="this.form.fields.length >= 2 && currentStep !== this.form.fields.length - 1" (click)="nextStepAfterValidate()"></span>

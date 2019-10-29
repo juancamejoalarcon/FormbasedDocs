@@ -9,6 +9,7 @@ export class OdfCreatorService {
   public currentDocumentBodyClone: any;
   public resizeEvent: any;
   public idOfContainer: any;
+  public reader = new FileReader();
 
   constructor(
     private commonsService: CommonsService,
@@ -16,7 +17,6 @@ export class OdfCreatorService {
 
   init(formType: string, uri: string = '', idOfContainer: string) {
     this.commonsService.toggleSpinner();
-    console.log(uri);
     if (uri !== '') {
       this.createEditorFromURI(formType, idOfContainer, uri);
     } else {
@@ -94,7 +94,200 @@ export class OdfCreatorService {
               }
           }
       });
+      this.refreshAndReload(event);
     });
   }
 
+  refreshAndReload(event: any) {
+    this.commonsService.toggleSpinner();
+    FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
+      if (err) {
+        alert(err);
+        this.commonsService.toggleSpinner();
+        return;
+      }
+      // TODO: odfcontainer should have a property mimetype
+      var mimetype = "application/vnd.oasis.opendocument.text";
+      const blob = new Blob([data.buffer], {type: mimetype});
+      window['ODTDOCUMENT'] = blob;
+      FormBasedDocsApi.getEditor().closeDocument(() => {
+        FormBasedDocsApi.getEditor().openDocumentFromUrl(URL.createObjectURL(blob), () => {
+          this.setDragAndDropForSetUp();
+          this.commonsService.toggleSpinner();
+          // If caret goes back to begining this needs to be fired after load
+          this.setCursorPositionForDragAndDrop(event);
+        });
+      });
+    });
+  }
+
+  setPreview() {
+    console.log('PREVIEW');
+    this.commonsService.toggleSpinner();
+    FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
+      if (err) {
+        alert(err);
+        this.commonsService.toggleSpinner();
+        return;
+      }
+      // TODO: odfcontainer should have a property mimetype
+      var mimetype = "application/vnd.oasis.opendocument.text";
+      const blob = new Blob([data.buffer], {type: mimetype});
+      window['ODTDOCUMENT'] = blob;
+      this.reader.readAsDataURL(blob);
+      this.reader.onloadend = () => {
+        FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
+          this.init('fillForm', this.reader.result as string, this.idOfContainer).then(() => {
+            this.commonsService.toggleSpinner();
+          })
+          
+        });
+      };
+    });
+  }
+
+  unsetPreview() {
+    console.log('EXIT PREVIEW');
+    this.commonsService.toggleSpinner();
+    FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
+      this.init('createForm', this.reader.result as string, this.idOfContainer).then(() => {
+        this.commonsService.toggleSpinner();
+      })
+    });
+  }
+
+  buildDocument(steps: any) {
+    console.log()
+    this.currentDocumentBodyClone = this.originalDocumentBodyClone.cloneNode(true);
+    // 1.- Change doc structure
+    this.structuralChanges(steps);
+    // 2.- Change values
+    this.replacements(steps);
+
+    document.getElementsByTagName('office:text')[0].parentElement.replaceChild(
+      this.currentDocumentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]
+    );
+    // this.scrollToElementWithClass('focused');
+  }
+
+  /************************/
+  /* CHANGE DOC STRUCTURE */
+  /************************/
+  structuralChanges(steps: any) {
+    // console.log(steps);
+    steps.forEach((step: any) => {
+      if (step.type === 'iRadioC') {
+        // this.buildForRadioC(step);
+      } else if (step.type === 'iCheckbox') {
+        // this.buildForCheckbox(step);
+      } else if (step.type === 'iForEach') {
+        // this.buildForEach(step);
+      }
+    });
+  }
+  /*****************************/
+  /*END OF CHANGE DOC STRUCTURE*/
+  /*****************************/
+
+  replacements(steps: any) {
+    steps.forEach((step: any) => {
+      if (step.type === 'iText' || step.type === 'iDate') {
+        const elementsContainingWord = this.findAllwords(step.wordToReplace);
+        const regexp = new RegExp(step.wordToReplace, 'g');
+        elementsContainingWord.forEach((elementContainingWord: any) => {
+          let element = elementContainingWord;
+          if (element.innerHTML !== step.wordToReplace) {
+            // Find the innermost element containing the word
+            element = this.findExactContainingElement(step.wordToReplace, element);
+          }
+          if (element) {
+            element.innerHTML = element.innerHTML.replace(regexp,
+            `<span class="${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
+          }
+        });
+      } else if (step.type === 'iRadioB') {
+        const elementsContainingWord = this.findAllwords(step.wordToReplace);
+        let replacement: any;
+        const regexp = new RegExp(step.wordToReplace, 'g');
+        elementsContainingWord.forEach((elementContainingWord: any) => {
+          step.radios.forEach((radio) => {
+            if (radio.checked) {
+              replacement = radio.replacement;
+              let element = elementContainingWord;
+              if (element.innerHTML !== step.wordToReplace) {
+                // Find the innermost element containing the word
+                element = this.findExactContainingElement(step.wordToReplace, element);
+              }
+              if (element) {
+                element.innerHTML = element.innerHTML.replace(regexp,
+                `<span class=" ${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
+              }
+            }
+          });
+          console.log(elementContainingWord);
+        });
+      }
+    });
+  }
+
+  findword(wordToReplace: string, bodyClone: any = this.currentDocumentBodyClone) {
+    // USE ARRAY FOR ALL VALUES
+    const children = bodyClone.childNodes;
+    for (let i = 0; i < children.length; i++) {
+      if (!this.elementIsExcluded(children[i])) {
+        if (children[i].innerHTML.includes(wordToReplace) || children[i].textContent.includes(wordToReplace)) {
+          return children[i];
+        }
+      }
+    }
+  }
+
+  findAllwords(wordToReplace: string, bodyClone: any = this.currentDocumentBodyClone) {
+    const allEelementsContainingWord = [];
+    const children = bodyClone.childNodes;
+    for (let i = 0; i < children.length; i++) {
+      if (!this.elementIsExcluded(children[i])) {
+        if (children[i].innerHTML.includes(wordToReplace)) {
+          allEelementsContainingWord.push(children[i]);
+        }
+      }
+    }
+    return allEelementsContainingWord;
+  }
+
+  findExactContainingElement(wordToReplace: string, bodyClone: any) {
+    let element: any = bodyClone;
+      while (element.childNodes && element.childNodes.length > 0 && element.innerHTML.includes(wordToReplace)) {
+        element.childNodes.forEach(((el: any) => {
+          if (el.nodeName !== '#text') {
+            if (el.innerHTML.includes(wordToReplace)) {
+              element = el;
+            }
+          } else {
+            if (el.textContent.includes(wordToReplace)) {
+              element = el;
+            }
+          }
+        }));
+      }
+      if (element.nodeName === '#text') {
+        element = element.parentNode;
+      }
+      return element;
+    }
+  
+    elementIsExcluded(element: any) {
+      const excludedElements = [
+          'office:text',
+          'text:sequence-decls',
+          'text:sequence-decl',
+          'draw:frame',
+          'draw:image',
+          'office:annotation',
+          'office:annotation-end',
+          'dc:creator',
+          'dc:date'
+      ];
+      return excludedElements.includes(element.nodeName);
+    }
 }
