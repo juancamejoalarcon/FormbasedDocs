@@ -21,6 +21,7 @@ export class CheckoutComponent implements OnInit {
   public clientToken: string;
   public hostedFieldsInstance: braintree.HostedFields;
   public cardholdersName: string;
+  public transactionId: string;
   public conditionsChecked: any;
   public idsOfFields: Array<string> = ['number', 'cvv', 'expirationDate'];
   public paymentMethod = 'card';
@@ -153,7 +154,6 @@ export class CheckoutComponent implements OnInit {
           } else {
             this.commonsService.toggleSpinner();
           }
-          console.log(data);
       });
 
     }).catch((error) => {
@@ -292,7 +292,6 @@ export class CheckoutComponent implements OnInit {
                       progressBar: true,
                       progressAnimation: 'decreasing'
                     });
-                    console.log(result);
                 });
               });
           },
@@ -312,8 +311,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   onPaymentCompleted(transactionId: string) {
+    this.transactionId = transactionId;
     this.formService.getPaidCertifiedForm(transactionId).subscribe(
       certifiedForm => {
+        certifiedForm['transactionId'] = transactionId;
         this.formPaid.emit(certifiedForm);
       } );
   }

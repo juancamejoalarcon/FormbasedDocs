@@ -55,6 +55,24 @@ export class DocumentCreatorService {
     return FormBasedDocsApi.getEditorSession();
   }
 
+  saveUri() {
+    const reader = new FileReader();
+    return new Promise((resolve, reject) => {
+      FormBasedDocsApi.getEditor().getDocumentAsByteArray((err, data) => {
+        if (err) {
+          alert(err);
+          return;
+        }
+        const mimetype = 'application/vnd.oasis.opendocument.text',
+        blob = new Blob([data.buffer], {type: mimetype});
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+            resolve(reader.result as string);
+        };
+      });
+    });
+  }
+
   resizeDocumentContainer() {
     this.resizeEvent = () => {
       FormBasedDocsApi.documentToFitScreen();

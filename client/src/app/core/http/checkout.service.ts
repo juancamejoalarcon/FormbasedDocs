@@ -29,4 +29,10 @@ export class CheckoutService {
       }
     ).pipe(map(data => data));
   }
+
+  sendMail(transactionId: string, uri: string): Observable<any> {
+    return this.apiService
+    .post(`/checkout/sendMail`, { 'transactionId': transactionId, 'uri': uri }
+    ).pipe(map(data => data));
+  }
 }

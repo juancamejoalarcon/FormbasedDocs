@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import {
   CommonsService,
   FormService,
+  CheckoutService,
   Form
 } from '../../../../core';
 import { StepModelService } from './step-model.service';
@@ -36,7 +37,8 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     private sharedService: SharedService,
     private documentCreatorService: DocumentCreatorService,
     private formsService: FormService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private checkoutService: CheckoutService
   ) { }
 
   ngOnInit() {
@@ -150,8 +152,14 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     this.form.fields = JSON.parse(certifiedForm.fields);
     this.stepModelService.init(this.form.fields);
     this.documentCreatorService.destroy();
-    this.documentCreatorService.init(this.form.uri).then( data => {
+    this.documentCreatorService.init(this.form.uri).then( inited => {
       this.stepModelService.buildDocument();
+      // Save uri and send Email
+      this.documentCreatorService.saveUri().then((uri: string) => {
+        this.checkoutService.sendMail(certifiedForm.transactionId, uri).subscribe((data: any) => {
+          console.log(data);
+        });
+      });
     });
   }
 

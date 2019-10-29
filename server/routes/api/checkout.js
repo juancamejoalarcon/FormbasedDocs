@@ -5,7 +5,7 @@ const Transaction = mongoose.model('Transaction');
 const braintree = require('braintree');
 const gateway = require('../../helpers/gateway');
 const gatewayPaypal = require('../../helpers/paypal-gateway');
-const emailSender = require('../../helpers/mail');
+const emailSender = require('../../helpers/mails/mail');
 const auth = require('../auth');
 const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
 
@@ -110,13 +110,15 @@ router.post('/', auth.optional, function(req, res, next) {
           User.findById(req.payload.id).then(function(user){
             if (!user) { return res.sendStatus(401); }
             const transaction = new Transaction();
+            const createdAt = new Date().toISOString();
             transaction.steps = steps;
             transaction.user = user;
             transaction.email = email;
             transaction.transactionId = result.transaction.id;
             transaction.formType = formType;
+            transaction.createdAt = createdAt;
             // Send email
-            emailSender.checkoutConfirm(email, result.transaction.id, formType);
+            // emailSender.checkoutConfirm(email, result.transaction.id, formType, createdAt);
             return transaction.save().then(function(){
               return res.json(
                 {
@@ -126,12 +128,14 @@ router.post('/', auth.optional, function(req, res, next) {
           }).catch(next);
         } else {
           const transaction = new Transaction();
+          const createdAt = new Date().toISOString();
           transaction.steps = steps;
           transaction.email = email;
           transaction.transactionId = result.transaction.id;
           transaction.formType = formType;
+          transaction.createdAt = createdAt;
           // Send email
-          emailSender.checkoutConfirm(email, result.transaction.id, formType);
+          // emailSender.checkoutConfirm(email, result.transaction.id, formType, createdAt);
           return transaction.save().then(function(){
             return res.json(
               {
@@ -144,6 +148,14 @@ router.post('/', auth.optional, function(req, res, next) {
         return res.json({errors: transactionErrors});
       }
     });
+});
+
+router.post('/sendMail', auth.optional, function(req, res, next) {
+  let certifiedForm;
+  Transaction.findOne({transactionId: req.body.transactionId}).then(function(transaction){
+    emailSender.checkoutConfirm(transaction.email, transaction.transactionId, transaction.formType, transaction.createdAt, req.body.uri);
+    return res.json({emailSent: 'OK'});
+  });
 });
 
 module.exports = router;
