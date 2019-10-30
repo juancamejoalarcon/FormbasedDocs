@@ -3,6 +3,8 @@ const router = require('express').Router();
 const passport = require('passport');
 const User = mongoose.model('User');
 const auth = require('../auth');
+const crypto = require('crypto');
+const emailSender = require('../../helpers/mails/mail');
 
 router.get('/', auth.required, function(req, res, next){
   User.findById(req.payload.id).then(function(user){
@@ -82,6 +84,38 @@ router.put('/', auth.required, function(req, res, next){
       return res.json({user: user.toAuthJSON()});
     });
   }).catch(next);
+});
+
+router.post('/forgot-password', function(req, res, next){
+  const email = req.body.email;
+  User.findOne({ email: email }).then(function(user){
+    if(!user){ return res.sendStatus(401); }
+    crypto.randomBytes(20, (err, buffer) => {
+      const token = buffer.toString('hex');
+      User.findByIdAndUpdate(
+        { _id: user._id }, 
+        { resetPasswordToken: token, resetPasswordExpires: Date.now() + 86400000 },
+        { upsert: true, new: true }
+      ).exec((err, new_user) => {
+        emailSender.forgotPassword(email, new_user, token);
+        return res.json({emailSend: true});
+      });
+    });
+  }).catch(next);
+});
+
+router.post('/reset-password', function(req, res, next){
+  const token = req.body.token;
+  const newPassword = req.body.newPassword;
+  const verifyPassword = req.body.verifyPassword;
+  User.findOne({ resetPasswordToken: token, resetPasswordExpires: {$gt: Date.now()} }).then(function(user){
+    if (newPassword === verifyPassword) {
+      // user.hash = bcrypt.hashSync(newPassword, 10);
+      user.reset_password_token = undefined;
+      user.reset_password_expires = undefined;
+      console.log(user);
+    }
+  });
 });
 
 module.exports = router;

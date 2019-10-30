@@ -55,7 +55,34 @@ const emailSender =  {
             console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
             // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
         })
-    }
+    },
+    forgotPassword: (email, user, token) => {
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.ethereal.email',
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: 'horacio.denesik@ethereal.email', // generated ethereal user
+                pass: 'WQ9dzYD9eWbR23FGeC' // generated ethereal password
+            }
+        });
+
+        // send mail with defined transport object
+        let info = transporter.sendMail({
+            from: '<formbaseddocs@formbaseddocs.com>', // sender address
+            to: `${email}, formbaseddocs@formbaseddocs.com`, // list of receivers
+            subject: `Formbaseddocs - Forgot password`, // Subject line
+            text: `Formbaseddocs - Forgot password`, // plain text body
+            html: mailStrings.resetPassword(token, 'http://localhost:4200/auth/recover-password?token=' + token),
+        });
+
+        console.log('Message sent: %s', info.messageId);
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+        // Preview only available when sending through an Ethereal account
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    },
 }
 
 module.exports = emailSender;

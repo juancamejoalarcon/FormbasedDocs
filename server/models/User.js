@@ -16,6 +16,8 @@ const UserSchema = new mongoose.Schema({
   other: Object,
   likedForms: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Form' }],
   likedComments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comments' }],
+  resetPasswordToken: String,
+  resetPasswordExpires: Date,
   hash: String,
   salt: String
 }, {
