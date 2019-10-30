@@ -1,4 +1,5 @@
 import { Profile } from './profile.model';
+import { NumberValueAccessor } from '@angular/forms/src/directives';
 
 export class Form {
   slug: string;
@@ -27,4 +28,5 @@ export class Form {
   documentType: string;
   uri: string;
   image: string;
+  amount: number;
 }

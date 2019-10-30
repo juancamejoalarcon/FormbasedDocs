@@ -16,7 +16,8 @@ import {
   TagsService,
   UserService,
   CommonsService,
-  ComponentInjectorService
+  ComponentInjectorService,
+  ConvertService
 } from './http';
 import {
   StepModelService,

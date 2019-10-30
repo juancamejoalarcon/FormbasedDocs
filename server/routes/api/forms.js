@@ -3,9 +3,10 @@ const router = require('express').Router();
 const Form = mongoose.model('Form');
 const Comment = mongoose.model('Comment');
 const User = mongoose.model('User');
+const Transaction = mongoose.model('Transaction');
 const auth = require('../auth');
 const url = require('url');
-const certifiedForms = require('../../certified-forms').certifiedForms;
+const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
 
 // Preload form objects on routes with ':form'
 router.param('form', function(req, res, next, slug) {
@@ -186,9 +187,11 @@ router.delete('/:form/like', auth.required, function(req, res, next) {
     });
   }).catch(next);
 });
+
 /********************/
 /** CERTIFIED FORMS**/
 /********************/
+
 router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
   let certifiedForm;
   certifiedForms.forEach((form) => {
@@ -205,20 +208,23 @@ router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
   return res.json({certifiedForm: certifiedForm});
 });
 
-router.get('/paid-certified-forms/:type', auth.optional, function(req, res, next) {
+router.get('/paid-certified-forms/:transactionId', auth.optional, function(req, res, next) {
   let certifiedForm;
-  certifiedForms.forEach((form) => {
-    if (form.id === req.params.type) {
-      certifiedForm = {
-        id: form.id,
-        title: form.title,
-        amount: form.amount,
-        image: form.image,
-        uri: form.paidUri
-      };
-    }
+  Transaction.findOne({transactionId: req.params.transactionId}).then(function(transaction){
+    certifiedForms.forEach((form) => {
+      if (form.id === transaction.formType) {
+        certifiedForm = {
+          id: form.id,
+          title: form.title,
+          amount: form.amount,
+          // image: form.image,
+          uri: form.paidUri,
+          fields: transaction.steps
+        };
+      }
+    });
+    return res.json({certifiedForm: certifiedForm});
   });
-  return res.json({certifiedForm: certifiedForm});
 });
 
 router.post('/certified-forms/fill', auth.required, function(req, res, next) {

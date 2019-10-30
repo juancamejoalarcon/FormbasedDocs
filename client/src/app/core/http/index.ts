@@ -10,3 +10,4 @@ export * from './tags.service';
 export * from './user.service';
 export * from './commons.service';
 export * from './component-injector.service';
+export * from './convert.service';

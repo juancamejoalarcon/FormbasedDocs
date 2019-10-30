@@ -1,7 +1,13 @@
 const router = require('express').Router();
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
+const Transaction = mongoose.model('Transaction');
 const braintree = require('braintree');
 const gateway = require('../../helpers/gateway');
-const certifiedForms = require('../../certified-forms').certifiedForms;
+const gatewayPaypal = require('../../helpers/paypal-gateway');
+const emailSender = require('../../helpers/mail');
+const auth = require('../auth');
+const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
 
 const TRANSACTION_SUCCESS_STATUSES = [
     braintree.Transaction.Status.Authorizing,
@@ -47,11 +53,17 @@ function createResultObject(transaction) {
 }
 
 router.get('/new', function(req, res) {
-    let clientToken;
-    gateway.clientToken.generate({}, function (err, response) {
-        clientToken = {clientToken: response.clientToken};
-        return res.json(clientToken);
-    });
+  let clientToken;
+  let currentGateway;
+  if (req.query.method === 'card') {
+    currentGateway = gateway;
+  } else {
+    currentGateway = gatewayPaypal;
+  }
+  currentGateway.clientToken.generate({}, function (err, response) {
+      clientToken = {clientToken: response.clientToken};
+      return res.json(clientToken);
+  });
 });
 
 router.get('/:id', function(req, res) {
@@ -66,9 +78,12 @@ router.get('/:id', function(req, res) {
     });
 });
 
-router.post('/', function(req, res) {
+router.post('/', auth.optional, function(req, res, next) {
     let transactionErrors;
     let amount; // In production you should not take amounts directly from clients
+    let currentGateway;
+    const steps = req.body.steps;
+    const email = req.body.email;
     const nonce = req.body.payment_method_nonce;
     const formType = req.body.formType;
     certifiedForms.forEach((form) => {
@@ -76,7 +91,14 @@ router.post('/', function(req, res) {
         amount = form.amount;
       }
     });
-    gateway.transaction.sale({
+    if (req.body.method === 'card') {
+      currentGateway = gateway;
+    } else {
+      currentGateway = gatewayPaypal;
+    }
+
+
+    currentGateway.transaction.sale({
       amount: amount,
       paymentMethodNonce: nonce,
       options: {
@@ -84,7 +106,39 @@ router.post('/', function(req, res) {
       }
     }, function (err, result) {
       if (result.success || result.transaction) {
-        return res.json({resultTransactionId: result.transaction.id});
+        if (req.payload) {
+          User.findById(req.payload.id).then(function(user){
+            if (!user) { return res.sendStatus(401); }
+            const transaction = new Transaction();
+            transaction.steps = steps;
+            transaction.user = user;
+            transaction.email = email;
+            transaction.transactionId = result.transaction.id;
+            transaction.formType = formType;
+            // Send email
+            emailSender.checkoutConfirm(email, result.transaction.id, formType);
+            return transaction.save().then(function(){
+              return res.json(
+                {
+                  transaction: transaction.toJSON(user)
+                }
+              )});
+          }).catch(next);
+        } else {
+          const transaction = new Transaction();
+          transaction.steps = steps;
+          transaction.email = email;
+          transaction.transactionId = result.transaction.id;
+          transaction.formType = formType;
+          // Send email
+          emailSender.checkoutConfirm(email, result.transaction.id, formType);
+          return transaction.save().then(function(){
+            return res.json(
+              {
+                transaction: transaction.toJSON()
+              }
+          )});
+        }
       } else {
         transactionErrors = result.errors.deepErrors();
         return res.json({errors: transactionErrors});

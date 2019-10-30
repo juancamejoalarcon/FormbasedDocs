@@ -11,20 +11,22 @@ export class CheckoutService {
     private apiService: ApiService
   ) {}
 
-  getToken(): Observable<any> {
-    return this.apiService.get('/checkout/new')
+  getToken(method: string): Observable<any> {
+    return this.apiService.get(`/checkout/new?method=${method}`)
       .pipe(map((data: any) => data.clientToken));
   }
 
-  pay(nonce: string, formType: string): Observable<any> {
+  pay(steps: string, email: string, nonce: string, formType: string, method: string): Observable<any> {
     return this.apiService
     .post(
       `/checkout`,
       {
+        'steps': steps,
+        'formType': formType,
+        'email': email,
         'payment_method_nonce': nonce,
-        'formType': formType
+        'method': method
       }
     ).pipe(map(data => data));
   }
-
 }
