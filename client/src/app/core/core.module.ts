@@ -16,13 +16,13 @@ import {
   TagsService,
   UserService,
   CommonsService,
-  ComponentInjectorService,
-  ConvertService
+  ComponentInjectorService
 } from './http';
 import {
   StepModelService,
   StateService,
-  OdfCreatorService
+  OdfCreatorService,
+  PlainTextCreatorService
 } from './singleton';
 
 @NgModule({
@@ -46,7 +46,8 @@ import {
     ComponentInjectorService,
     StepModelService,
     StateService,
-    OdfCreatorService
+    OdfCreatorService,
+    PlainTextCreatorService
   ],
   declarations: []
 })

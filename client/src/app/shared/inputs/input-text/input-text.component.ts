@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { CommonsService, StepModelService, StateService } from '../../../core';
+import { Component, OnInit, OnDestroy, AfterViewInit, Input, ViewChild, ElementRef, ɵConsole } from '@angular/core';
+import { CommonsService, StepModelService, StateService, OdfCreatorService } from '../../../core';
 /*new form*/
 import { iTextStep } from './input-text.interface';
 
@@ -27,12 +27,17 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
   public referenceNumber: any;
   public functionReference: any;
   public step: iTextStep;
-  public indications = {};
+  public indications = {
+    areIndications: false,
+    indicationsType: 'outsideText',
+    value: ''
+  };
 
   constructor(
     private commonsService: CommonsService,
     private stepModelService: StepModelService,
-    private stateService: StateService
+    private stateService: StateService,
+    private odfCreatorSerice: OdfCreatorService
     ) { }
 
   ngOnInit() {
@@ -70,11 +75,7 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
       wordToReplace: '',
       replacement: '',
       question: '',
-      indications: {
-        areIndications: false,
-        indicationsType: 'outsideText',
-        value: ''
-      },
+      indications: this.indications,
       mandatory: true,
       isFocused: false
     };
@@ -158,16 +159,18 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   showIndication(e: any) {
-    // e.preventDefault();
-    // if (this.indicationsType === 'outsideText') {
-    //   this.commonsService.toggleModal(this.modalIndication.nativeElement);
-    // } else {
+    e.preventDefault();
+    console.log(this.indications);
+    if (this.indications.indicationsType === 'outsideText') {
+      this.commonsService.toggleModal(this.modalIndication.nativeElement);
+    } else {
+      this.odfCreatorSerice.showIndicationInsideText(this.step.wordToReplace, this.indications.value);
     //   if (this.isPlainText()) {
     //     this.commonsService.showIndicationsInsideTextPlainText(this.referenceNumber, this.indications);
     //   } else {
     //     this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
     //   }
-    // }
+    }
   }
 
   onIndicationsChanged(indications: any) {

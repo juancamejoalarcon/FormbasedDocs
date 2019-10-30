@@ -8,7 +8,8 @@ import {
   ComponentInjectorService,
   StepModelService,
   StateService,
-  OdfCreatorService
+  OdfCreatorService,
+  PlainTextCreatorService
 } from '../../core';
 import { InputTextComponent,
   InputRadioAComponent,
@@ -88,7 +89,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     private odfEditorService: OdfEditorService,
     private stepModelService: StepModelService,
     private stateService: StateService,
-    private odfCreatorService: OdfCreatorService
+    private odfCreatorService: OdfCreatorService,
+    private plainTextCreatorService: PlainTextCreatorService
 
   ) {
     // use the FormBuilder to create a form group
@@ -118,7 +120,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           }
           this.updatingForm = true;
           this.state = 'editAuthor';
-          this.setDocumentType(this.form.documentType);
+          // this.setDocumentType(this.form.documentType);
           this.setDocumentPlayground();
           setTimeout(() => {
               this.setCurrentStep(this.form.currentStep);
@@ -172,12 +174,12 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.setDivHeight();
       window.addEventListener('resize', this.setDivHeight);
       this.documentService = this.odfCreatorService;
+      this.documentService.init('create-form', '', 'editorContainer').then( data => {
+        this.documentService.setDragAndDropForSetUp();
+      });
     } else {
-      
+      this.documentService = this.plainTextCreatorService;
     }
-    this.documentService.init('create-form', '', 'editorContainer').then( data => {
-      this.documentService.setDragAndDropForSetUp();
-    });
   }
 
   setDivHeight() {
@@ -205,25 +207,33 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     });
   }
 
-  /********************/
-  /****END NEW FORM****/
-  /********************/
+  nextStepAfterValidate() {
+    if (this.form.fields[this.currentStep]['mandatory'] && this.state === 'fill-form') {
+      if (this.form.fields[this.currentStep]['type'] === 'iText') {
+        if (this.form.fields[this.currentStep]['replacement'] === '') {
+          this.toastMessage('error', 'Validation error', 'This field is mandatory');
+        } else {
+          this.setCurrentStep(this.currentStep + 1);
+        }
+      }
+    } else {
+      this.setCurrentStep(this.currentStep + 1);
+    }
+  }
 
   injectComponent(component: Object) {
     this.componentInjectorService.appendComponentToBody('Component', component, 'formAreaDiv', 'formAreaDiv', 'divWhereIsDeleteButton', {});
     this.injectedComponents = this.formAreaDiv.nativeElement.querySelectorAll('.inputCollection');
   }
 
-  // NUEVO
-
   toogleModal(modal: ElementRef) {
     this.commonsService.toggleModal(modal, false);
   }
 
-  setDocumentType(documentType: string) {
-    this.documentType = documentType;
-    this.form.documentType = this.documentType;
-  }
+
+  /********************/
+  /****END NEW FORM****/
+  /********************/
 
   setDocumentPlayground() {
 
@@ -310,20 +320,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       window.addEventListener('resize', this.commonsService.resizeEditor);
       this.commonsService.toggleSpinner();
     }, 100);
-  }
-
-  nextStepAfterValidate() {
-    if (this.form.fields[this.currentStep]['mandatory'] && this.isInPreviewMode) {
-      if (this.form.fields[this.currentStep]['type'] === 'iText') {
-        if (this.form.fields[this.currentStep]['replacement'] === '') {
-          this.toastMessage('error', 'Validation error', 'This field is mandatory');
-        } else {
-          this.setCurrentStep(this.currentStep + 1);
-        }
-      }
-    } else {
-      this.setCurrentStep(this.currentStep + 1);
-    }
   }
 
   odfEditorConfig() {

@@ -14,6 +14,10 @@ export class StateService {
     this.stateSubject.next(stateType);
   }
 
+  getCurrentState() {
+    return this.state;
+  }
+
   stateSubscribe(): Observable<any> {
     return this.state;
   }

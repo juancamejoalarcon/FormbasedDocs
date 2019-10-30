@@ -193,7 +193,7 @@
                                 <span class="icon icon-info-circle-solid"></span>
                             </div> -->
                             <div class="checkout-panel__body__document-type-selection__button-area__doc-button"
-                            (click)="setDocumentType('office')" (dblclick)="toogleModal(modalChooseDocument); setDocument('office');"
+                            (click)="this.documentType = 'office'" (dblclick)="toogleModal(modalChooseDocument); setDocument('office');"
                             [ngClass]="{'checkout-panel__body__document-type-selection__button-area__doc-button--active': this.documentType === 'office'}">
                                 <span>Office doc</span>
                             </div>
@@ -203,7 +203,7 @@
                                 <span class="icon icon-info-circle-solid"></span>
                             </div> -->
                             <div class="checkout-panel__body__document-type-selection__button-area__doc-button"
-                            (click)="setDocumentType('plain')" (dblclick)="toogleModal(modalChooseDocument); setDocument('plain');"
+                            (click)="this.documentType = 'plain'" (dblclick)="toogleModal(modalChooseDocument); setDocument('plain');"
                             [ngClass]="{'checkout-panel__body__document-type-selection__button-area__doc-button--active': this.documentType === 'plain'}">
                                 <span>Plain text</span>
                             </div>
