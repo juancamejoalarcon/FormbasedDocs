@@ -82,7 +82,7 @@
             *ngIf="this.documentType === 'plain'">
                 <span class="icon icon-expand-solid"></span>
             </div>
-            <div id="editor-container" class="d-block" #quill *ngIf="this.documentType === 'plain-text'">
+            <div id="editor-container" class="d-block" #quill *ngIf="this.documentType === 'plain' && plainTextSelected">
                 <quill-editor id="editor" (onContentChanged)="quillText = $event.html" 
                             [ngModel]="quillText" [ngModelOptions]="{standalone: true}" 
                             [customOptions]="customOptions" [modules]="quillModules"
@@ -203,7 +203,7 @@
                                 <span class="icon icon-info-circle-solid"></span>
                             </div> -->
                             <div class="checkout-panel__body__document-type-selection__button-area__doc-button"
-                            (click)="this.documentType = 'plain'" (dblclick)="toogleModal(modalChooseDocument); setDocument('plain');"
+                            (click)="this.documentType = 'plain'" (dblclick)="toogleModal(modalChooseDocument); setDocument('plain'); plainTextSelected = true"
                             [ngClass]="{'checkout-panel__body__document-type-selection__button-area__doc-button--active': this.documentType === 'plain'}">
                                 <span>Plain text</span>
                             </div>

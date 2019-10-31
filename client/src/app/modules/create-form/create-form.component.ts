@@ -75,6 +75,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   reader = new FileReader();
   documentService: any;
   state: string;
+  plainTextSelected: boolean;
 
   constructor(
     private componentInjectorService: ComponentInjectorService,
@@ -179,6 +180,12 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       });
     } else {
       this.documentService = this.plainTextCreatorService;
+      this.quillModules = this.documentService.quillModules();
+      this.customOptions = this.documentService.customOptions();
+      this.documentService.init();
+      this.setDivHeight();
+      window.addEventListener('resize', this.setDivHeight);
+    
     }
   }
 
@@ -246,7 +253,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       }
       this.odfEditorConfig();
     } else if (this.documentType === 'plain') {
-      this.quillConfig();
       this.documentType = 'plain-text';
       this.commonsService.toggleSpinner();
     }
@@ -272,37 +278,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.commonsService.subMenuNav(e, this.subMenu.nativeElement);
   }
 
-  quillConfig() {
-
-    this.customOptions = [{
-      import: 'formats/font',
-      whitelist: ['roboto', 'times-new-roman', 'arial', 'lato', 'montserrat']
-    }];
-
-    this.quillModules =   {
-      toolbar: [
-        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-        ['blockquote', 'code-block'],
-
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-        [{ 'direction': 'rtl' }],                         // text direction
-
-        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-        [{ 'color': ['black', 'grey', '#556270', '#4ECDC4', '#C44D58', '#FF6B6B', '#C7F464'] },
-        { 'background': [] }],          // dropdown with defaults from theme
-        [{ 'font': ['', 'roboto', 'times-new-roman', 'arial', 'lato', 'montserrat'] }],
-        [{ 'align': [] }],
-        ['link', 'image'],
-
-        ['clean']
-      ]
-    };
-  }
-
-  setAdditionalQuillButtons(e: any) {
+  setAdditionalQuillButtons() {
     // Force check
     setTimeout( () => {
       const span = document.createElement('span');
@@ -316,9 +292,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
       this.quill.nativeElement.querySelector('.ql-toolbar').appendChild(span);
       this.quill.nativeElement.querySelector('.ql-container').style.height = this.updatingForm ? '94%' : '94%';
-      this.commonsService.resizeEditor();
-      window.addEventListener('resize', this.commonsService.resizeEditor);
-      this.commonsService.toggleSpinner();
     }, 100);
   }
 
