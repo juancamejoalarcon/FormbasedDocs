@@ -122,7 +122,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           this.updatingForm = true;
           this.state = 'editAuthor';
           // this.setDocumentType(this.form.documentType);
-          this.setDocumentPlayground();
+          // this.setDocumentPlayground();
           setTimeout(() => {
               this.setCurrentStep(this.form.currentStep);
           }, 0);
@@ -182,7 +182,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.documentService = this.plainTextCreatorService;
       this.quillModules = this.documentService.quillModules();
       this.customOptions = this.documentService.customOptions();
-      this.documentService.init();
+      this.documentService.init('editor-container', 'editor-preview');
       this.setDivHeight();
       window.addEventListener('resize', this.setDivHeight);
     
@@ -242,22 +242,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   /****END NEW FORM****/
   /********************/
 
-  setDocumentPlayground() {
-
-    if (this.documentType === 'office') {
-      if (!this.updatingForm) {
-        this.odfEditorService.createEditor('createForm');
-      } else {
-        this.odfEditorService.createEditorFromURI('createForm', 'editorContainer', this.form.text);
-        // createEditorFromURI
-      }
-      this.odfEditorConfig();
-    } else if (this.documentType === 'plain') {
-      this.documentType = 'plain-text';
-      this.commonsService.toggleSpinner();
-    }
-  }
-
   toastMessage(type: string, message1: string, message2: string) {
     if (type === 'error') {
       this.toastr.error(message1, message2, {
@@ -280,36 +264,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   setAdditionalQuillButtons() {
     // Force check
-    setTimeout( () => {
-      const span = document.createElement('span');
-      span.classList.add('ql-formats');
-      const button = document.createElement('button');
-      button.className = 'icon icon-expand-solid';
-      button.addEventListener('click', () => {
-        this.commonsService.enableFullScreen('editor-container');
-      });
-      span.appendChild(button);
-
-      this.quill.nativeElement.querySelector('.ql-toolbar').appendChild(span);
-      this.quill.nativeElement.querySelector('.ql-container').style.height = this.updatingForm ? '94%' : '94%';
-    }, 100);
-  }
-
-  odfEditorConfig() {
-    this.commonsService.toggleSpinner();
-    setTimeout(() => {
-      //  this.odfEditorService.resizeDocumentContainer();
-       this.documentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-       this.odfEditorService.resizeDocumentContainer();
-       window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
-       this.odfEditorService.setDragAndDropForSetUp();
-       this.commonsService.toggleSpinner();
-       // create node for preview
-    }, 4000);
-    window.addEventListener('resize', () => {
-      this.commonsService.resizeEditor();
-    });
-    this.commonsService.resizeEditor();
+    setTimeout( () => { this.documentService.setAdditionalQuillButtons(this.quill.nativeElement);}, 100);
   }
 
   toggleLightbox(lightBox: ElementRef) {

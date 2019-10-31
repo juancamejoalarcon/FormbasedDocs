@@ -1,11 +1,19 @@
 import { Injectable } from '@angular/core';
+import { CommonsService } from '../http';
 
 @Injectable()
 export class PlainTextCreatorService {
 
-  constructor() { }
+  public editorDiv: any;
+  public previewTextDiv: any;
 
-  init() {
+  constructor(
+    private commonsService: CommonsService
+  ) { }
+
+  init(editorDivId: any, previewDivId: any) {
+    this.editorDiv = editorDivId;
+    this.previewTextDiv = previewDivId;
   }
 
   quillModules() {
@@ -38,5 +46,27 @@ export class PlainTextCreatorService {
       import: 'formats/font',
       whitelist: ['roboto', 'times-new-roman', 'arial', 'lato', 'montserrat']
     }]
+  }
+
+  setAdditionalQuillButtons(quillElement: any) {
+    const span = document.createElement('span');
+    span.classList.add('ql-formats');
+    const button = document.createElement('button');
+    button.className = 'icon icon-expand-solid';
+    button.addEventListener('click', () => {
+      this.commonsService.enableFullScreen('editor-container');
+    });
+    span.appendChild(button);
+    quillElement.querySelector('.ql-toolbar').appendChild(span);
+  }
+
+  setPreview() {
+    document.getElementById(this.editorDiv).classList.replace('d-block', 'd-none');
+    document.getElementById(this.previewTextDiv).classList.replace('d-none', 'd-block');
+  }
+
+  unsetPreview() {
+    document.getElementById(this.editorDiv).classList.replace('d-none', 'd-block');
+    document.getElementById(this.previewTextDiv).classList.replace('d-block', 'd-none');
   }
 }
