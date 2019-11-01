@@ -34,7 +34,7 @@ export class AuthComponent implements OnInit {
     this.form = this.fb.group({
       'email': ['', Validators.required],
       'password': ['', Validators.required],
-      'rememberme': ['', Validators.required],
+      'rememberme': [true, Validators.required],
     });
   }
 
@@ -121,7 +121,7 @@ export class AuthComponent implements OnInit {
 
     const credentials = this.form.value;
     this.userService
-    .attemptAuth(this.authType, credentials)
+    .attemptAuth(this.authType, credentials, this.form.value.rememberme)
     .subscribe(
       data => {
         if (this.queryParams['formPath']) {

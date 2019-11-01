@@ -8,9 +8,22 @@ import { UserService } from './core';
 })
 export class AppComponent implements OnInit {
 
-  public isAuth: boolean;
   @ViewChild('navbar') navbar: ElementRef;
   @ViewChild('footer') footer: ElementRef;
+  public isAuth: boolean;
+  public includedUrlsForNavbar: Array<string> = [
+    '/auth/login',
+    '/auth/signup',
+    '/auth/recover-password'
+  ];
+  public includedUrlsForFooter: Array<string> = [
+    '/auth/login',
+    '/auth/signup',
+    '/auth/recover-password',
+    'certified-forms',
+    'create-form',
+    'fill-form'
+  ];
 
   constructor(
     private userService: UserService,
@@ -32,22 +45,28 @@ export class AppComponent implements OnInit {
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event['url'] === '/auth/login' || event['url'] === '/auth/signup' || event['url'] === '/auth/recover-password' ||
-            event['url'] === '/signup' || event['url'] === '/login' || event['url'] === '/recover-password') {
-          this.navbar.nativeElement.hidden = true;
-        } else if (event['url'].includes('/auth/login') || event['url'].includes('/auth/signup')) {
+        if (this.included(event['url'], this.includedUrlsForNavbar)) {
           this.navbar.nativeElement.hidden = true;
         } else {
           this.navbar.nativeElement.hidden = false;
         }
 
-        if (event['url'].includes('certified-forms') || event['url'].includes('create-form') || event['url'].includes('fill-form')) {
+        if (this.included(event['url'], this.includedUrlsForFooter)) {
           this.footer.nativeElement.hidden = true;
-        } else if (event['url'].includes('/auth/login') || event['url'].includes('/auth/signup')) {
-          this.footer.nativeElement.hidden = true;
+        } else {
+          this.footer.nativeElement.hidden = false;
         }
       }
     });
+  }
 
+  included(url: string, includedUrls: Array<string>) {
+    let isIncluded = false;
+    includedUrls.forEach((includedUrl: string) => {
+      if (url.includes(includedUrl)) {
+        isIncluded = true;
+      }
+    });
+    return isIncluded;
   }
 }
