@@ -89,7 +89,7 @@ router.put('/', auth.required, function(req, res, next){
 router.post('/forgot-password', function(req, res, next){
   const email = req.body.email;
   User.findOne({ email: email }).then(function(user){
-    if(!user){ return res.sendStatus(401); }
+    if(!user){ return res.json({emailNotFound: true}) }
     crypto.randomBytes(20, (err, buffer) => {
       const token = buffer.toString('hex');
       User.findByIdAndUpdate(
@@ -98,7 +98,7 @@ router.post('/forgot-password', function(req, res, next){
         { upsert: true, new: true }
       ).exec((err, new_user) => {
         emailSender.forgotPassword(email, new_user, token);
-        return res.json({emailSend: true});
+        return res.json({emailSent: true});
       });
     });
   }).catch(next);
@@ -109,11 +109,20 @@ router.post('/reset-password', function(req, res, next){
   const newPassword = req.body.newPassword;
   const verifyPassword = req.body.verifyPassword;
   User.findOne({ resetPasswordToken: token, resetPasswordExpires: {$gt: Date.now()} }).then(function(user){
+    if(!user){ return res.json({noToken: true}) }
     if (newPassword === verifyPassword) {
-      // user.hash = bcrypt.hashSync(newPassword, 10);
-      user.reset_password_token = undefined;
-      user.reset_password_expires = undefined;
-      console.log(user);
+      if (user.resetPasswordToken && user.resetPasswordToken === token) {
+        user.setPassword(req.body.newPassword);
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpires = undefined;
+        return user.save().then(function(){
+          return res.json({passwordRestored: true});
+        });
+      } else {
+        return res.json({noToken: true});
+      }
+    } else {
+      return res.json({passwordDoesNotMatch: true});
     }
   });
 });

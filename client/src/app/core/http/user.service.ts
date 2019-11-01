@@ -88,4 +88,16 @@ export class UserService {
     }));
   }
 
+  forgotPassword(email: string) {
+    return this.apiService
+    .post('/user/forgot-password', { email: email})
+    .pipe(map(data => data));
+  }
+
+  resetPassword(token: string, newPassword: string, verifyPassword: string) {
+    return this.apiService
+    .post('/user/reset-password', { token: token, newPassword: newPassword, verifyPassword: verifyPassword })
+    .pipe(map(data => data));
+  }
+
 }

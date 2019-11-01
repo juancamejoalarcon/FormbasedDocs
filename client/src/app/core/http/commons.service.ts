@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import * as FormBasedDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
 import * as screenfull from 'screenfull';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable()
 export class CommonsService {
 
-    constructor () {}
+    constructor (
+        private toastr: ToastrService
+    ) {}
 
     toggleModal(modal: any, closeWhenClickedOuside = true) {
         if (!modal.classList.contains('show-modal')) {
@@ -258,5 +261,27 @@ export class CommonsService {
     toggleSpinner() {
         document.getElementById('spinner').classList.toggle('show-spinner');
     }
+
+    validateEmail(email: string) {
+        // tslint:disable-next-line:max-line-length
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+
+    toastMessage(type: string, message1: string, message2: string) {
+        if (type === 'error') {
+          this.toastr.error(message1, message2, {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+        } else if (type === 'success') {
+          this.toastr.success(message1, message2, {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+        }
+      }
 
 }
