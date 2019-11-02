@@ -8,7 +8,7 @@
                         Id:
                     </span>
                     <span class="form-creator__fields-area__field__top__identifier__id">
-                        <span (dblclick)="showChangeIdInputField()" #draggableText>{{referenceNumber}}</span>
+                        <span (dblclick)="showChangeIdInputField()" (mousedown)="enableDrag()" #draggableText>{{referenceNumber}}</span>
                         <input (blur)="showChangeIdInputField()" (keyup.enter)="changeIdInput.blur()" 
                         (keyup)="changeId($event)" type="text" value="{{referenceNumber}}" #changeIdInput style="display: none">
                     </span>

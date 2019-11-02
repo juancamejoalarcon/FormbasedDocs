@@ -34,11 +34,11 @@ export class OdfCreatorService {
             this.resizeDocumentContainer();
             this.commonsService.toggleSpinner();
             clearInterval(checkIfEditorCreated);
-            resolve("Document ready");
+            resolve('Document ready');
             console.log('Document is ready');
           }
        }, 300);
-      })
+      });
   }
 
   createEditorFromURI(formType: string, idOfContainer: string, dataURI: string) {
@@ -131,7 +131,7 @@ export class OdfCreatorService {
         return;
       }
       // TODO: odfcontainer should have a property mimetype
-      var mimetype = "application/vnd.oasis.opendocument.text";
+      const mimetype = 'application/vnd.oasis.opendocument.text';
       const blob = new Blob([data.buffer], {type: mimetype});
       window['ODTDOCUMENT'] = blob;
       this.reader.readAsDataURL(blob);
@@ -139,8 +139,7 @@ export class OdfCreatorService {
         FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
           this.init('fillForm', this.reader.result as string, this.idOfContainer).then(() => {
             this.commonsService.toggleSpinner();
-          })
-          
+          });
         });
       };
     });
@@ -152,7 +151,7 @@ export class OdfCreatorService {
     FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
       this.init('createForm', this.reader.result as string, this.idOfContainer).then(() => {
         this.commonsService.toggleSpinner();
-      })
+      });
     });
   }
 
@@ -185,7 +184,7 @@ export class OdfCreatorService {
           para.parentNode.removeChild(para);
           window.removeEventListener('click', removeIndication);
       }
-    }
+    };
 
     window.addEventListener('click', removeIndication);
     this.scrollToElementWithClass('indicator', para.offsetHeight);
@@ -195,7 +194,6 @@ export class OdfCreatorService {
   /*****************************/
 
   buildDocument(steps: any) {
-    console.log()
     this.currentDocumentBodyClone = this.originalDocumentBodyClone.cloneNode(true);
     // 1.- Change doc structure
     this.structuralChanges(steps);

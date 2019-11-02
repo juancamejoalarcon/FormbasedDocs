@@ -156,9 +156,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   setInitialState() {
-    this.stepModelService.init(this.form.fields);
     this.stateService.setState('create-form');
-    this.stateService.stateSubscribe().subscribe( (state: string) => { 
+    this.stateService.stateSubscribe().subscribe( (state: string) => {
       this.state = state;
     });
     this.stepModelService.stepsEvent.subscribe((event: string) => {
@@ -166,11 +165,15 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         this.setCurrentStep(this.currentStep - 1);
         this.form.fields = this.stepModelService.getStepsModel();
       }
-    })
+    });
   }
 
   setDocument(documentType: string) {
+    if (documentType === 'plain') {
+      this.plainTextSelected = true;
+    }
     this.documentType = documentType;
+    this.stateService.setDocumentType(this.documentType);
     if (documentType === 'office') {
       this.setDivHeight();
       window.addEventListener('resize', this.setDivHeight);
@@ -185,8 +188,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.documentService.init('editor-container', 'editor-preview');
       this.setDivHeight();
       window.addEventListener('resize', this.setDivHeight);
-    
     }
+    this.stepModelService.init(this.form.fields, this.documentType);
   }
 
   setDivHeight() {
@@ -291,7 +294,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       // Checks if user has introduced any input, if not user cannot submit unless user is updating the form
       if (this.injectedComponents || this.updatingForm) {
         // saves author Form
-        
+
         // saves the generated text
         if (this.documentType === 'office') {
           if (this.isInPreviewMode) {

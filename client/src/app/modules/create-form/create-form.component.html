@@ -181,9 +181,8 @@
 
 <!-- CHOOSE DOCUMENT TYPE -->
 <div class="modal" #modalChooseDocument>
-    <div class="modal__content modal__content--payment">
+    <div class="modal__content modal__content--choose-document-type">
         <div class="checkout-panel">
-                <h1 class="checkout-panel__title">¿ Qué tipo de documento deseas crear ?</h1>
             <div class="checkout-panel__body checkout-panel__body--choose-document-type">    
 
                 <div class="checkout-panel__body__document-type-selection">
@@ -196,6 +195,7 @@
                             (click)="this.documentType = 'office'" (dblclick)="toogleModal(modalChooseDocument); setDocument('office');"
                             [ngClass]="{'checkout-panel__body__document-type-selection__button-area__doc-button--active': this.documentType === 'office'}">
                                 <span>Office doc</span>
+                                <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus aliquam provident excepturi iure aut ipsum facere et id alias minima dignissimos necessitatibus nihil eaque nisi, explicabo fuga nulla perferendis impedit.</small>
                             </div>
                         </div>
                         <div class="checkout-panel__body__document-type-selection__button-area">
@@ -203,9 +203,10 @@
                                 <span class="icon icon-info-circle-solid"></span>
                             </div> -->
                             <div class="checkout-panel__body__document-type-selection__button-area__doc-button"
-                            (click)="this.documentType = 'plain'" (dblclick)="toogleModal(modalChooseDocument); setDocument('plain'); plainTextSelected = true"
+                            (click)="this.documentType = 'plain'" (dblclick)="toogleModal(modalChooseDocument); setDocument('plain');"
                             [ngClass]="{'checkout-panel__body__document-type-selection__button-area__doc-button--active': this.documentType === 'plain'}">
                                 <span>Plain text</span>
+                                <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus aliquam provident excepturi iure aut ipsum facere et id alias minima dignissimos necessitatibus nihil eaque nisi, explicabo fuga nulla perferendis impedit.</small>
                             </div>
                         </div>
                     </div>
@@ -213,7 +214,7 @@
 
             </div>         
             <div class="checkout-panel__footer checkout-panel__footer--one-button">
-                <button class="btn next-btn" (click)="toogleModal(modalChooseDocument); setDocument();">Listo</button>
+                <button class="btn next-btn" (click)="toogleModal(modalChooseDocument); setDocument(this.documentType);">Listo</button>
             </div>
         </div>
     </div>

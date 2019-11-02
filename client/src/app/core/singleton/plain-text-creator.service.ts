@@ -69,4 +69,10 @@ export class PlainTextCreatorService {
     document.getElementById(this.editorDiv).classList.replace('d-none', 'd-block');
     document.getElementById(this.previewTextDiv).classList.replace('d-block', 'd-none');
   }
+
+  buildDocument(steps: any) {
+    console.log('---------');
+    console.log(steps);
+    console.log('---------');
+  }
 }

@@ -7,6 +7,7 @@ export class StateService {
 
   private stateSubject = new BehaviorSubject<string>('');
   public state = this.stateSubject.asObservable().pipe(distinctUntilChanged());
+  public documentType: string;
 
   constructor() { }
 
@@ -20,5 +21,13 @@ export class StateService {
 
   stateSubscribe(): Observable<any> {
     return this.state;
+  }
+
+  setDocumentType(documentType: string): void {
+    this.documentType = documentType;
+  }
+
+  getDocumentType(): string {
+    return this.documentType;
   }
 }

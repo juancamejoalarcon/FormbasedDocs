@@ -1,5 +1,18 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, Input, ViewChild, ElementRef, ɵConsole } from '@angular/core';
-import { CommonsService, StepModelService, StateService, OdfCreatorService } from '../../../core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
+import {
+  CommonsService,
+  StepModelService,
+  StateService,
+  OdfCreatorService,
+  PlainTextCreatorService
+} from '../../../core';
 /*new form*/
 import { iTextStep } from './input-text.interface';
 
@@ -7,7 +20,7 @@ import { iTextStep } from './input-text.interface';
   selector: 'app-input-text',
   templateUrl: './input-text.component.html'
 })
-export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
+export class InputTextComponent implements OnInit, OnDestroy {
 
   @Input() field: any;
   @ViewChild('delete') delete: ElementRef;
@@ -21,6 +34,8 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('divWhereIsDeleteButton') divWhereIsDeleteButton: ElementRef;
 
   public state: string;
+  public documentType: string;
+  public documentService: any;
   public isNewForm: boolean;
   public mandatory: boolean;
   public randomId: string;
@@ -37,11 +52,13 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
     private commonsService: CommonsService,
     private stepModelService: StepModelService,
     private stateService: StateService,
-    private odfCreatorSerice: OdfCreatorService
+    private odfCreatorService: OdfCreatorService,
+    private plainTextCreatorService: PlainTextCreatorService
     ) { }
 
   ngOnInit() {
     this.isNewForm = true;
+    this.documentType = this.stateService.getDocumentType();
     if (this.isNewForm) {
       this.createStep();
       this.getRandomId();
@@ -54,16 +71,17 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
         this.divWhereIsDeleteButton.nativeElement.hidden = true;
       }
     });
-  }
-
-  ngAfterViewInit() {
-    this.enableDrag();
+    if (this.documentType === 'plain') {
+      this.documentService = this.plainTextCreatorService;
+    } else if (this.documentType === 'office') {
+      this.documentService = this.odfCreatorService;
+    }
   }
 
   ngOnDestroy() {
     let steps = this.stepModelService.getStepsModel();
     steps = steps.filter(step => step != this.step);
-    this.stepModelService.init(steps);
+    this.stepModelService.init(steps, this.documentType);
     this.stepModelService.removeStep();
   }
 
@@ -164,7 +182,7 @@ export class InputTextComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.indications.indicationsType === 'outsideText') {
       this.commonsService.toggleModal(this.modalIndication.nativeElement);
     } else {
-      this.odfCreatorSerice.showIndicationInsideText(this.step.wordToReplace, this.indications.value);
+      this.documentService.showIndicationInsideText(this.step.wordToReplace, this.indications.value);
     //   if (this.isPlainText()) {
     //     this.commonsService.showIndicationsInsideTextPlainText(this.referenceNumber, this.indications);
     //   } else {
