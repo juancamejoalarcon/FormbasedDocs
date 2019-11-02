@@ -5,6 +5,8 @@ import {
   AfterViewInit,
   ViewChild,
   ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import {
   CommonsService,
@@ -38,27 +40,45 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     private documentCreatorService: DocumentCreatorService,
     private formsService: FormService,
     private toastr: ToastrService,
-    private checkoutService: CheckoutService
+    private checkoutService: CheckoutService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    if (window.sessionStorage['Contrato de Arras Penitenciales']) {
-      this.form = JSON.parse(window.sessionStorage['Contrato de Arras Penitenciales']);
-      this.steps = this.form.fields;
-      this.setInitiaState();
-    } else {
-      this.formsService.getCertifiedForm('contrato-arras-penitenciales').subscribe(
-        certifiedForm => {
-          this.form.fields = this.steps;
-          this.form.title = certifiedForm.title;
-          this.form.uri = certifiedForm.uri;
-          this.form.id = 'contrato-arras-penitenciales';
-          this.form.amount = certifiedForm.amount;
-          this.form.image = certifiedForm.image;
+    this.route.queryParams.subscribe(params => {
+      if (params.transactionId) {
+        this.formsService.getPaidCertifiedForm(params.transactionId).subscribe((data: any) => {
+          if (data.certifiedForm) {
+            const certifiedForm = data.certifiedForm;
+            this.form.fields = JSON.parse(certifiedForm.fields);
+            this.form.title = certifiedForm.title;
+            this.form.uri = certifiedForm.uri;
+            this.form.id = 'contrato-arras-penitenciales';
+            this.form.amount = certifiedForm.amount;
+            this.setInitiaState();
+          } else if (data.transactionNotFound) {
+            this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
+          }
+        });
+      } else {
+        if (window.sessionStorage['Contrato de Arras Penitenciales']) {
+          this.form = JSON.parse(window.sessionStorage['Contrato de Arras Penitenciales']);
+          this.steps = this.form.fields;
           this.setInitiaState();
-        } );
-    }
-
+        } else {
+          this.formsService.getCertifiedForm('contrato-arras-penitenciales').subscribe(
+            certifiedForm => {
+              this.form.fields = this.steps;
+              this.form.title = certifiedForm.title;
+              this.form.uri = certifiedForm.uri;
+              this.form.id = 'contrato-arras-penitenciales';
+              this.form.amount = certifiedForm.amount;
+              this.form.image = certifiedForm.image;
+              this.setInitiaState();
+            } );
+        }
+      }
+    });
   }
 
   ngAfterViewInit() {

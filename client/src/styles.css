@@ -6456,13 +6456,14 @@ input[type=checkbox] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 0.5rem;
+  margin: auto;
 }
 
 @media only screen and (max-width: 885px) {
@@ -6498,6 +6499,15 @@ input[type=checkbox] {
 }
 
 .lawyer-forms__top-right-link span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lawyer-forms__top-right-link span .icon {
   padding-left: 0.3rem;
   padding-top: 0.2rem;
 }
@@ -6692,6 +6702,77 @@ input[type=checkbox] {
 
 .lawyer-forms__block ul.tree li:last-child:before {
   border-left: 1px solid #4ECDC4;
+}
+
+.search-transaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-transaction__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 90%;
+}
+
+.search-transaction__container__title {
+  font-size: 3rem;
+  margin-top: 0;
+}
+
+@media only screen and (max-width: 540px) {
+  .search-transaction__container__title {
+    font-size: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .search-transaction__container__title {
+    font-size: 2rem;
+  }
+}
+
+.search-transaction__container input[type=submit] {
+  margin-top: 2rem;
+}
+
+.search-transaction__container__message {
+  color: #4ECDC4;
+  font-size: 2rem;
+  width: 80%;
+  padding-top: 1rem;
+}
+
+@media only screen and (max-width: 690px) {
+  .search-transaction__container__message {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .search-transaction__container__message {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .search-transaction__container__message {
+    font-size: 1.3rem;
+  }
 }
 
 .sign-in-search-button {

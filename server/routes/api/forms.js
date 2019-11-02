@@ -211,6 +211,7 @@ router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
 router.get('/paid-certified-forms/:transactionId', auth.optional, function(req, res, next) {
   let certifiedForm;
   Transaction.findOne({transactionId: req.params.transactionId}).then(function(transaction){
+    if (!transaction) { return res.json({transactionNotFound: true}); }
     certifiedForms.forEach((form) => {
       if (form.id === transaction.formType) {
         certifiedForm = {

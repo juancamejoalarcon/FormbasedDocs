@@ -313,9 +313,9 @@ export class CheckoutComponent implements OnInit {
   onPaymentCompleted(transactionId: string) {
     this.transactionId = transactionId;
     this.formService.getPaidCertifiedForm(transactionId).subscribe(
-      certifiedForm => {
-        certifiedForm['transactionId'] = transactionId;
-        this.formPaid.emit(certifiedForm);
+      data => {
+        data.certifiedForm['transactionId'] = transactionId;
+        this.formPaid.emit(data.certifiedForm);
       } );
   }
 

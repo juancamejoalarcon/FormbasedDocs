@@ -101,7 +101,7 @@ router.get('/', auth.optional, function(req, res, next) {
           if (query.type === 'Filled') {
             return form.toJSONForSearchFill(user);
           } else {
-            return form.toJSONFor(user);
+            return form.toJSONForSearch(user);
           }
         }),
         formsCount: formsCount

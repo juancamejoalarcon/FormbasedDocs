@@ -100,6 +100,28 @@ FormSchema.methods.toJSONForFill = function(user){
   };
 };
 
+FormSchema.methods.toJSONForSearch = function(user){
+  return {
+    slug: this.slug,
+    title: this.title,
+    description: this.description,
+    createdAt: this.createdAt,
+    updatedAt: this.updatedAt,
+    tags: this.tags,
+    liked: user ? user.isLike(this._id) : false,
+    likesCount: this.likesCount,
+    viewsCount: this.viewsCount,
+    author: this.author.toProfileJSONFor(user),
+    enabled: this.enabled,
+    public: this.public,
+    commentsEnabled: this.commentsEnabled,
+    type: this.type,
+    textType: this.textType,
+    ofPayment: this.ofPayment,
+    documentType: this.documentType
+  };
+};
+
 FormSchema.methods.toJSONForSearchFill = function(user){
   return {
     slug: this.slug,

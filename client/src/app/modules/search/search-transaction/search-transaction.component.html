@@ -1,0 +1,9 @@
+<div class="search-transaction" #searchTransactionDiv>
+  <div class="search-transaction__container">
+      <label for="transactionId"></label>
+      <input type="text" name="transactionId" id="transactionId" placeholder="Transaction Id" 
+      [(ngModel)]="transactionId" (keyup.enter)="findTransaction()" #transactionIdInput>
+      <input type="submit" value="Find" (click)="findTransaction()">
+      <label class="search-transaction__container__message">Type in the transaction id you got when you finished the form. Check you email.</label>
+  </div>
+</div>

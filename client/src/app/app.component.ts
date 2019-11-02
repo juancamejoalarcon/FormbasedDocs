@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
     '/auth/recover-password',
     'certified-forms',
     'create-form',
-    'fill-form'
+    'fill-form',
+    'search-transaction'
   ];
 
   constructor(

@@ -15,13 +15,21 @@
     <div class="lawyer-forms__container">
         <div class="lawyer-forms__header">
             <div class="lawyer-forms__top-right-link">
-                <a routerLink="/create-form" *appShowAuthed="true">
-                    Create my own form
-                </a>
-                <a routerLink="/auth/login" *appShowAuthed="false">
-                    Create my own form
-                </a>
-                <span class="icon icon-link-solid"></span>
+                <span>
+                    <a routerLink="/search/search-transaction">
+                        Find form by transaction id
+                    </a>
+                    <span class="icon icon-search"></span>
+                </span>
+                <span>
+                    <a routerLink="/create-form" *appShowAuthed="true">
+                        Create my own form
+                    </a>
+                    <a routerLink="/auth/login" *appShowAuthed="false">
+                        Create my own form
+                    </a>
+                    <span class="icon icon-link-solid"></span>
+                </span>
             </div>
             <div class="lawyer-forms__title">
                 <h1>Documentos creados por nuestros abogados</h1>
