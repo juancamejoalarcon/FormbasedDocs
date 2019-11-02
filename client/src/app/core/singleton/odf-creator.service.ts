@@ -121,7 +121,7 @@ export class OdfCreatorService {
     });
   }
 
-  setPreview() {
+  setPreview(htmlText: string = '') {
     console.log('PREVIEW');
     this.commonsService.toggleSpinner();
     FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {

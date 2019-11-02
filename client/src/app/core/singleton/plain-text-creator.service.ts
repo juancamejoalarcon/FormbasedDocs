@@ -6,6 +6,7 @@ export class PlainTextCreatorService {
 
   public editorDiv: any;
   public previewTextDiv: any;
+  public quillText: string;
 
   constructor(
     private commonsService: CommonsService
@@ -60,9 +61,10 @@ export class PlainTextCreatorService {
     quillElement.querySelector('.ql-toolbar').appendChild(span);
   }
 
-  setPreview() {
+  setPreview(quillText: string = '') {
     document.getElementById(this.editorDiv).classList.replace('d-block', 'd-none');
     document.getElementById(this.previewTextDiv).classList.replace('d-none', 'd-block');
+    this.quillText = quillText;
   }
 
   unsetPreview() {
@@ -71,8 +73,10 @@ export class PlainTextCreatorService {
   }
 
   buildDocument(steps: any) {
-    console.log('---------');
-    console.log(steps);
-    console.log('---------');
+    const textPreviewDiv = document.getElementById(this.previewTextDiv);
+    while (textPreviewDiv.firstChild) {
+      textPreviewDiv.removeChild(textPreviewDiv.firstChild);
+    }
+    textPreviewDiv.insertAdjacentHTML('beforeend', this.quillText);
   }
 }

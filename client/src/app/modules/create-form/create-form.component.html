@@ -83,7 +83,7 @@
                 <span class="icon icon-expand-solid"></span>
             </div>
             <div id="editor-container" class="d-block" #quill *ngIf="this.documentType === 'plain' && plainTextSelected">
-                <quill-editor id="editor" (onContentChanged)="quillText = $event.html" 
+                <quill-editor id="editor" (onContentChanged)="quillText = $event.html;" 
                             [ngModel]="quillText" [ngModelOptions]="{standalone: true}" 
                             [customOptions]="customOptions" [modules]="quillModules"
                             (onEditorCreated)="setAdditionalQuillButtons($event)">
@@ -92,7 +92,7 @@
             <!-- Result -->
             <div class="form-creator__text-area__quill-text-result d-none" id="editor-preview" #textPreviewDiv
             *ngIf="this.documentType === 'plain'">
-                {{textPreview}}
+                {{quillText}}
             </div>
         </div>
     </div>

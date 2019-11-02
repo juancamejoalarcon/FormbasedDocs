@@ -148,7 +148,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   preview(checked: boolean) {
     if (checked) {
       this.stateService.setState('fill-form');
-      this.documentService.setPreview();
+      this.documentService.setPreview(this.quillText);
     } else {
       this.stateService.setState('create-form');
       this.documentService.unsetPreview();
