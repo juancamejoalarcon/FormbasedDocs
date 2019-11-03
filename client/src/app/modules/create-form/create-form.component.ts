@@ -110,15 +110,17 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.route.data.subscribe(
       (data: {form: Form}) => {
         if (data.form) {
+          console.log(data.form);
+          // this.stepModelService.init(this.form.fields, );
           this.quillText = data.form.text;
           this.textPreview = data.form.text;
           this.form = data.form;
           this.formGroup.patchValue(data.form);
           this.fields = this.form.fields;
           // Recompose the id to update the form
-          for (const field of this.form.fields) {
-            field['id'] = field['type'] + field['referenceNumber'];
-          }
+          // for (const field of this.form.fields) {
+          //   field['id'] = field['type'] + field['referenceNumber'];
+          // }
           this.updatingForm = true;
           this.state = 'editAuthor';
           // this.setDocumentType(this.form.documentType);

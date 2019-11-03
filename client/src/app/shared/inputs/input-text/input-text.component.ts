@@ -178,7 +178,7 @@ export class InputTextComponent implements OnInit, OnDestroy {
 
   showIndication(e: any) {
     e.preventDefault();
-    console.log(this.indications);
+    // console.log(this.indications);
     if (this.indications.indicationsType === 'outsideText') {
       this.commonsService.toggleModal(this.modalIndication.nativeElement);
     } else {
