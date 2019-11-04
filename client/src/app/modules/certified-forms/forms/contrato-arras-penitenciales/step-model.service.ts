@@ -29,7 +29,6 @@ export class StepModelService {
         case 'iRadioC':
             this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
           break;
-      
         default:
           break;
       }

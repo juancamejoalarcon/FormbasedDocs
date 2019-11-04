@@ -16,9 +16,14 @@ import {
   TagsService,
   UserService,
   CommonsService,
-  ComponentInjectorService,
-  ConvertService
+  ComponentInjectorService
 } from './http';
+import {
+  StepModelService,
+  StateService,
+  OdfCreatorService,
+  PlainTextCreatorService
+} from './singleton';
 
 @NgModule({
   imports: [
@@ -39,7 +44,10 @@ import {
     UserService,
     CommonsService,
     ComponentInjectorService,
-    ConvertService
+    StepModelService,
+    StateService,
+    OdfCreatorService,
+    PlainTextCreatorService
   ],
   declarations: []
 })

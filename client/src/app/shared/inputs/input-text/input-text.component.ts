@@ -1,15 +1,27 @@
-import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { CommonsService } from '../../../core';
-import { InputCommonsService } from '../shared';
-import { OdfEditorService } from '../../services';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
+import {
+  CommonsService,
+  StepModelService,
+  StateService,
+  OdfCreatorService,
+  PlainTextCreatorService
+} from '../../../core';
+/*new form*/
+import { iTextStep } from './input-text.interface';
 
 @Component({
   selector: 'app-input-text',
   templateUrl: './input-text.component.html'
 })
-export class InputTextComponent implements OnInit, AfterViewInit {
+export class InputTextComponent implements OnInit, OnDestroy {
 
-  @Input() state: string;
   @Input() field: any;
   @ViewChild('delete') delete: ElementRef;
   @ViewChild('draggableText') draggableText: ElementRef;
@@ -19,54 +31,93 @@ export class InputTextComponent implements OnInit, AfterViewInit {
   @ViewChild('showModalButton') showModalButton: ElementRef;
   @ViewChild('modal') modal: ElementRef;
   @ViewChild('modalIndication') modalIndication: ElementRef;
-  @ViewChild('indicationsDiv') indicationsDiv: ElementRef;
+  @ViewChild('divWhereIsDeleteButton') divWhereIsDeleteButton: ElementRef;
 
+  public state: string;
+  public documentType: string;
+  public documentService: any;
+  public isNewForm: boolean;
+  public question: string;
   public mandatory: boolean;
-  public indications: string;
-  public indicationsType = 'outsideText';
-  public randomId: string;
   public referenceNumber: any;
-  public questionIdentifier: string;
-  public indicationsIdentifier: string;
-  public mandatoryIdentifier: string;
   public functionReference: any;
+  public step: iTextStep;
+  public indications = {
+    areIndications: false,
+    indicationsType: 'outsideText',
+    value: ''
+  };
 
   constructor(
     private commonsService: CommonsService,
-    private inputCommonsService: InputCommonsService,
-    private odfEditorService: OdfEditorService) { }
+    private stepModelService: StepModelService,
+    private stateService: StateService,
+    private odfCreatorService: OdfCreatorService,
+    private plainTextCreatorService: PlainTextCreatorService
+    ) { }
 
   ngOnInit() {
-    if ( this.isNewUser() || this.isEditUser() ) {
-      this.randomId = this.field['referenceNumber'];
-    } else {
-      this.getRandomId();
-    }
-    this.indicationsType = this.isNewAuthor() ? 'outsideText' : this.field.indicationsType;
-    this.indications = this.isNewAuthor() ? '' : this.field.indications;
     console.log(this.field);
-    console.log(this.indications);
+    this.documentType = this.stateService.getDocumentType();
+    if (!this.field) {
+      this.createStep();
+      this.getRandomId();
+      this.isNewForm = true;
+    } else {
+      this.step = this.field;
+      this.isNewForm = false;
+      this.mandatory = this.step.mandatory;
+      this.referenceNumber = this.step.identifier;
+      this.indications = this.step.indications;
+      this.question = this.step.question;
+    }
+    this.stateService.stateSubscribe().subscribe( (state: string) => {
+      this.state = state;
+      if (this.state === 'create-form') {
+        this.divWhereIsDeleteButton.nativeElement.hidden = false;
+      } else {
+        this.divWhereIsDeleteButton.nativeElement.hidden = true;
+      }
+    });
+    if (this.documentType === 'plain') {
+      this.documentService = this.plainTextCreatorService;
+    } else if (this.documentType === 'office') {
+      this.documentService = this.odfCreatorService;
+    }
   }
 
-  ngAfterViewInit() {
-    this.enableDrag();
+  ngOnDestroy() {
+    let steps = this.stepModelService.getStepsModel();
+    steps = steps.filter(step => step !== this.step);
+    this.stepModelService.init(steps, this.documentType);
+    this.stepModelService.removeStep();
+  }
+
+  /**NEW FORM**/
+  createStep() {
+    this.step = {
+      type: 'iText',
+      identifier: '',
+      wordToReplace: '',
+      replacement: '',
+      question: '',
+      indications: this.indications,
+      mandatory: true,
+      isFocused: false
+    };
+    this.indications = this.step.indications;
+    this.stepModelService.addNewStep(this.step);
+  }
+
+  onQuestionChanged(value: string) {
+    this.step.question = value;
   }
 
   getRandomId() {
-    if (this.isEditAuthor()) {
-      this.referenceNumber = this.field['referenceNumber'];
-      this.randomId = this.field['id'];
-      this.questionIdentifier = 'question' + this.field['referenceNumber'];
-      this.indicationsIdentifier = 'indications' + this.field['referenceNumber'];
-      this.mandatoryIdentifier = 'mandatory' + this.field['referenceNumber'];
-    } else {
-      // I add a character so that when we query the id without the inputTex it works
-      this.referenceNumber = 'i' + Math.random().toString(36).substring(7);
-      this.randomId = 'iText' + this.referenceNumber;
-      this.questionIdentifier = 'question' + this.referenceNumber;
-      this.indicationsIdentifier = 'indications' + this.referenceNumber;
-      this.mandatoryIdentifier = 'mandatory' + this.referenceNumber;
-    }
+    // I add a character so that when we query the id without the inputTex it works
+    this.referenceNumber = 'i' + Math.random().toString(36).substring(7);
+    this.step.identifier = this.referenceNumber;
+    this.step.wordToReplace = this.referenceNumber;
   }
 
   changeId(e: any) {
@@ -80,17 +131,14 @@ export class InputTextComponent implements OnInit, AfterViewInit {
       this.changeIdInput.nativeElement.value = newValue;
     }
     this.referenceNumber = newValue;
-    this.randomId = 'iText' + this.referenceNumber;
-    this.questionIdentifier = 'question' + this.referenceNumber;
-    this.indicationsIdentifier = 'indications' + this.referenceNumber;
-    this.mandatoryIdentifier = 'mandatory' + this.referenceNumber;
+    this.step.identifier = 'iText' + this.referenceNumber;
+    this.step.wordToReplace = this.referenceNumber;
     this.enableDrag();
   }
+  /************/
 
   enableDrag() {
-    if (this.isEditAuthor() || this.isNewAuthor()) {
-      this.commonsService.enableDrag(this.draggableText.nativeElement, this.referenceNumber);
-    }
+    this.commonsService.enableDrag(this.draggableText.nativeElement, this.referenceNumber);
   }
 
   showChangeIdInputField() {
@@ -138,28 +186,28 @@ export class InputTextComponent implements OnInit, AfterViewInit {
 
   showIndication(e: any) {
     e.preventDefault();
-    if (this.indicationsType === 'outsideText') {
+    // console.log(this.indications);
+    if (this.indications.indicationsType === 'outsideText') {
       this.commonsService.toggleModal(this.modalIndication.nativeElement);
     } else {
-      if (this.isPlainText()) {
-        this.commonsService.showIndicationsInsideTextPlainText(this.referenceNumber, this.indications);
-      } else {
-        this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
-      }
+      this.documentService.showIndicationInsideText(this.step.wordToReplace, this.indications.value);
+    //   if (this.isPlainText()) {
+    //     this.commonsService.showIndicationsInsideTextPlainText(this.referenceNumber, this.indications);
+    //   } else {
+    //     this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
+    //   }
     }
   }
 
-  // REFACTOR: ugly function to check if it is an odf
-  isPlainText() {
-    return document.getElementById('wodoformbaseddocs') === null;
+  onIndicationsChanged(indications: any) {
+    this.step.indications = indications;
+  }
+
+  input(replacement: string) {
+    this.stepModelService.input(replacement, this.step.type, this.step.wordToReplace);
   }
 
   deleteDiv() {
     this.delete.nativeElement.remove();
   }
-
-  isNewAuthor () { return this.state === undefined; }
-  isNewUser () { return this.state === 'newUser'; }
-  isEditAuthor () { return this.state === 'editAuthor'; }
-  isEditUser () { return this.state === 'editUser'; }
 }

@@ -181,11 +181,8 @@
     <div class="modal__content modal__content--add-new-question">
         <app-indications 
         (closeModal)="toogleModal(modal)" 
-        [indicationsIdentifier]='indicationsIdentifier'
         [indications]='indications'
-        [indicationsType]='indicationsType'
         (sendIndications)="indications = $event"
-        (sendIndicationsType)="indicationsType = $event"
         ></app-indications>
     </div>
 </div>

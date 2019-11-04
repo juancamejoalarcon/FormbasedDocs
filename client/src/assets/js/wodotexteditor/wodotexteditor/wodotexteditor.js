@@ -529,6 +529,21 @@ window.Wodo = window.Wodo || (function () {
                 this.destroy(function(){});
                 isInitalized = false;
                 pendingInstanceCreationCalls = [];
+                session.close(function (err) {
+                    if (err) {
+                        callback(err);
+                    } else {
+                        editorSession = undefined;
+                        session.destroy(function (err) {
+                            if (err) {
+                                callback(err);
+                            } else {
+                                session = undefined;
+                                callback();
+                            }
+                        });
+                    }
+                });
             }
         };
 
