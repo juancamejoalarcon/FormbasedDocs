@@ -58,6 +58,8 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
             this.setInitiaState();
           } else if (data.transactionNotFound) {
             this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
+          } else if (data.formExpired) {
+            this.commonsService.toastMessage('error', 'The period of 30 days to change the document has expired', 'Transaction expired');
           }
         });
       } else {

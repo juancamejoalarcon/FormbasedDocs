@@ -41,6 +41,9 @@ export class SearchTransactionComponent implements OnInit, OnDestroy {
       } else if (data.transactionNotFound) {
         this.transactionIdInput.nativeElement.style.borderBottom = '3px solid #C44D58';
         this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
+      } else if (data.formExpired) {
+        this.transactionIdInput.nativeElement.style.borderBottom = '3px solid #C44D58';
+        this.commonsService.toastMessage('error', 'The period of 30 days to change the document has expired', 'Transaction expired');
       }
     });
   }

@@ -191,7 +191,6 @@ router.delete('/:form/like', auth.required, function(req, res, next) {
 /********************/
 /** CERTIFIED FORMS**/
 /********************/
-
 router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
   let certifiedForm;
   certifiedForms.forEach((form) => {
@@ -208,10 +207,19 @@ router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
   return res.json({certifiedForm: certifiedForm});
 });
 
+// Testing transaction hc95e01p
 router.get('/paid-certified-forms/:transactionId', auth.optional, function(req, res, next) {
   let certifiedForm;
   Transaction.findOne({transactionId: req.params.transactionId}).then(function(transaction){
     if (!transaction) { return res.json({transactionNotFound: true}); }
+    const dateOfTransaction = new Date(transaction.createdAt);
+    const today = new Date();
+    const differenceInTime = today.getTime() - dateOfTransaction.getTime();
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+    if (differenceInDays >= 30) {
+      return res.json({formExpired: true});
+    }
+    
     certifiedForms.forEach((form) => {
       if (form.id === transaction.formType) {
         certifiedForm = {
