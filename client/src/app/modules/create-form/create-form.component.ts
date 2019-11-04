@@ -117,23 +117,19 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           this.form = data.form;
           this.formGroup.patchValue(data.form);
           this.fields = this.form.fields;
-          // Recompose the id to update the form
-          // for (const field of this.form.fields) {
-          //   field['id'] = field['type'] + field['referenceNumber'];
-          // }
+          this.form.documentType = data.form.documentType;
           this.updatingForm = true;
-          this.state = 'editAuthor';
-          // this.setDocumentType(this.form.documentType);
-          // this.setDocumentPlayground();
           setTimeout(() => {
               this.setCurrentStep(this.form.currentStep);
           }, 0);
         } else {
-          this.state = 'newAuthor';
           this.updatingForm = false;
           this.toogleModal(this.modalChooseDocument.nativeElement);
         }
         this.setInitialState();
+        if (this.updatingForm) {
+          this.setDocument(this.form.documentType);
+        }
       }
     );
   }
@@ -175,6 +171,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.plainTextSelected = true;
     }
     this.documentType = documentType;
+    this.form.documentType = documentType;
     this.stateService.setDocumentType(this.documentType);
     if (documentType === 'office') {
       this.setDivHeight();
@@ -198,9 +195,9 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     if (window.innerWidth > 885) {
       if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
         const newHeight = window.innerHeight - (document.querySelector('#form-creator') as HTMLElement).offsetTop + 'px';
-        const toolBarOffsetTop = (document.querySelector('.ql-toolbar') as HTMLElement).offsetTop;
-        const toolBarOffsetHeight = (document.querySelector('.ql-toolbar') as HTMLElement).offsetHeight;
-        const newHeightForEditor = window.innerHeight - (toolBarOffsetTop + toolBarOffsetHeight) + 'px';
+        // const toolBarOffsetTop = (document.querySelector('.ql-toolbar') as HTMLElement).offsetTop;
+        // const toolBarOffsetHeight = (document.querySelector('.ql-toolbar') as HTMLElement).offsetHeight;
+        // const newHeightForEditor = window.innerHeight - (toolBarOffsetTop + toolBarOffsetHeight) + 'px';
 
         (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
         // (document.querySelector('#editor-container') as HTMLElement).style.height = newHeightForEditor;

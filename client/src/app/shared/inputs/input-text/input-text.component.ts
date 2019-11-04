@@ -37,8 +37,8 @@ export class InputTextComponent implements OnInit, OnDestroy {
   public documentType: string;
   public documentService: any;
   public isNewForm: boolean;
+  public question: string;
   public mandatory: boolean;
-  public randomId: string;
   public referenceNumber: any;
   public functionReference: any;
   public step: iTextStep;
@@ -57,11 +57,19 @@ export class InputTextComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit() {
-    this.isNewForm = true;
+    console.log(this.field);
     this.documentType = this.stateService.getDocumentType();
-    if (this.isNewForm) {
+    if (!this.field) {
       this.createStep();
       this.getRandomId();
+      this.isNewForm = true;
+    } else {
+      this.step = this.field;
+      this.isNewForm = false;
+      this.mandatory = this.step.mandatory;
+      this.referenceNumber = this.step.identifier;
+      this.indications = this.step.indications;
+      this.question = this.step.question;
     }
     this.stateService.stateSubscribe().subscribe( (state: string) => {
       this.state = state;
@@ -80,7 +88,7 @@ export class InputTextComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     let steps = this.stepModelService.getStepsModel();
-    steps = steps.filter(step => step != this.step);
+    steps = steps.filter(step => step !== this.step);
     this.stepModelService.init(steps, this.documentType);
     this.stepModelService.removeStep();
   }
@@ -108,7 +116,7 @@ export class InputTextComponent implements OnInit, OnDestroy {
   getRandomId() {
     // I add a character so that when we query the id without the inputTex it works
     this.referenceNumber = 'i' + Math.random().toString(36).substring(7);
-    this.step.identifier = 'iText' + this.referenceNumber;
+    this.step.identifier = this.referenceNumber;
     this.step.wordToReplace = this.referenceNumber;
   }
 
