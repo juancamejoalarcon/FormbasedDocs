@@ -63,6 +63,10 @@ export class OdfCreatorService {
     FormBasedDocsApi.documentToFitScreen();
   }
 
+  destroyResizeDocumentContainer() {
+    window.removeEventListener('resize', this.resizeEvent);
+  }
+
   // DRAG AND DROP
   setCursorPositionForDragAndDrop(e: any) {
     FormBasedDocsApi.setCursorPositionForDragAndDrop(e);

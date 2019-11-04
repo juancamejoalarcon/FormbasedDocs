@@ -137,6 +137,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.documentType === 'office') {
       this.odfEditorService.closeAndDestroyEditor();
+      this.odfCreatorService.destroyResizeDocumentContainer();
     }
   }
 
