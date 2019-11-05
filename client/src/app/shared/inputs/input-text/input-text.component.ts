@@ -57,7 +57,6 @@ export class InputTextComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit() {
-    console.log(this.field);
     this.documentType = this.stateService.getDocumentType();
     if (!this.field) {
       this.createStep();

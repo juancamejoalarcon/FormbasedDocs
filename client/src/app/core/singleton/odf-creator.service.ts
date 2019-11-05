@@ -35,10 +35,13 @@ export class OdfCreatorService {
             this.commonsService.toggleSpinner();
             clearInterval(checkIfEditorCreated);
             resolve('Document ready');
-            console.log('Document is ready');
           }
        }, 300);
       });
+  }
+
+  closeAndDestroyEditor() {
+    FormBasedDocsApi.closeAndDestroyEditor();
   }
 
   createEditorFromURI(formType: string, idOfContainer: string, dataURI: string) {
@@ -126,7 +129,6 @@ export class OdfCreatorService {
   }
 
   setPreview(htmlText: string = '') {
-    console.log('PREVIEW');
     this.commonsService.toggleSpinner();
     FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
       if (err) {
@@ -150,7 +152,6 @@ export class OdfCreatorService {
   }
 
   unsetPreview() {
-    console.log('EXIT PREVIEW');
     this.commonsService.toggleSpinner();
     FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
       this.init('createForm', this.reader.result as string, this.idOfContainer).then(() => {
@@ -273,7 +274,6 @@ export class OdfCreatorService {
               }
             }
           });
-          console.log(elementContainingWord);
         });
       }
     });

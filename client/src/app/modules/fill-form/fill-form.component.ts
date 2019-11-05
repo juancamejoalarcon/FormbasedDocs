@@ -1,15 +1,23 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Form, FormService, UserService, CommonsService, ComponentInjectorService } from '../../core';
+import { 
+  Form,
+  FormService,
+  UserService,
+  CommonsService,
+  StateService,
+  OdfCreatorService,
+  PlainTextCreatorService,
+  StepModelService
+} from '../../core';
 import { ToastrService } from 'ngx-toastr';
-import { OdfEditorService } from '../../shared';
 import * as screenfull from 'screenfull';
 
 @Component({
   selector: 'app-fill-form',
   templateUrl: './fill-form.component.html'
 })
-export class FillFormComponent implements OnInit, AfterViewInit {
+export class FillFormComponent implements OnInit {
 
   @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
   @ViewChild('formBasedDocDiv') formBasedDocDiv: ElementRef;
@@ -32,6 +40,7 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   documentType = 'office';
   currentStep = 0;
   public progresBarPercentage = '0%';
+  documentService: any;
 
 
   constructor(
@@ -41,18 +50,19 @@ export class FillFormComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService,
-    private odfEditorService: OdfEditorService
+    private odfCreatorService: OdfCreatorService,
+    private plainTextCreatorService: PlainTextCreatorService,
+    private stateService: StateService,
+    private stepModelService: StepModelService
   ) { }
 
   ngOnInit() {
     this.route.data.subscribe(
       data => {
         const form: Form = data.form;
-
         this.form = form;
         this.fields = form.fields;
         this.generatedText = form.text;
-        this.state = form.type === 'Created' ? 'newUser' : 'editUser';
         if (form.type === 'Created') {
           this.form.originalSlug = form.slug;
           this.updatingForm = false;
@@ -60,7 +70,8 @@ export class FillFormComponent implements OnInit, AfterViewInit {
           this.updatingForm = true;
         }
         this.updateProgressBarPercentage();
-        this.setEditorConfig();
+        this.setInitialState();
+        this.setDocument();
         this.setDivHeight();
         window.addEventListener('resize', this.setDivHeight);
       }
@@ -73,18 +84,13 @@ export class FillFormComponent implements OnInit, AfterViewInit {
 
   ngOnDestroy() {
     if (this.form.documentType === 'office') {
-      this.odfEditorService.closeAndDestroyEditor();
+      this.odfCreatorService.closeAndDestroyEditor();
+      this.odfCreatorService.destroyResizeDocumentContainer();
     }
   }
 
-  ngAfterViewInit() {
-    // this.setDivHeight();
-    // window.addEventListener('resize', this.setDivHeight);
-    //     // Force click so it can update the value
-    // setTimeout( () => { this.formAreaDiv.nativeElement.click(); }, 10);
-    // if (this.form.indications !== '' && this.state === 'newUser') {
-    //   this.toggleModal();
-    // }
+  setInitialState() {
+    this.stateService.setState('fill-form');
   }
 
   generateText() {
@@ -146,18 +152,21 @@ export class FillFormComponent implements OnInit, AfterViewInit {
     this.commonsService.toggleModal(modal, false);
   }
 
-  setEditorConfig() {
+  setDocument() {
     this.commonsService.toggleSpinner();
     if (this.form.documentType === 'office') {
-      this.odfEditorService.createEditorFromURI('fillForm', 'editorContainer', this.form.text);
-      setTimeout(() => {
-        this.odfEditorService.resizeDocumentContainer();
-        window.addEventListener('resize', this.odfEditorService.resizeDocumentContainer);
+      this.setDivHeight();
+      window.addEventListener('resize', this.setDivHeight);
+      this.documentService = this.odfCreatorService;
+      this.documentService.init('fillForm', this.form.text, 'editorContainer').then( data => {
         this.commonsService.toggleSpinner();
-      }, 4000);
+        this.documentService.setDragAndDropForSetUp();
+      });
     } else {
+      this.documentService = this.plainTextCreatorService;
       this.commonsService.toggleSpinner();
     }
+    this.stepModelService.init(this.form.fields, this.documentType);
   }
 
   topMenuNav(e: any) {
