@@ -178,7 +178,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.setDivHeight();
       window.addEventListener('resize', this.setDivHeight);
       this.documentService = this.odfCreatorService;
-      this.documentService.init('create-form', '', 'editorContainer').then( data => {
+      this.documentService.init('create-form', '', 'editorContainer').then( (data: any) => {
         this.documentService.setDragAndDropForSetUp();
       });
     } else {
@@ -297,15 +297,19 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
         // saves the generated text
         if (this.documentType === 'office') {
-          if (this.isInPreviewMode) {
-            this.toastMessage('error', 'Exit preview mode', 'Preview Mode On');
-          } else {
-            this.odfEditorService.saveForPreview();
-            this.reader.readAsDataURL(window['ODTDOCUMENT']);
-            this.reader.onloadend = () => {
-                this.form.text = this.reader.result as string;
+          if (this.state === 'fill-form') {
+            this.stateService.setState('create-form');
+            this.documentService.unsetPreview().then(() => {
+              this.documentService.getDocumentToSave().then((data: any) => {
+                this.form.text = data;
                 this.saveForm();
-            };
+              });
+            });
+          } else {
+            this.documentService.getDocumentToSave().then((data: any) => {
+              this.form.text = data;
+              this.saveForm();
+            });
           }
         } else {
           this.form.text = this.quillText;

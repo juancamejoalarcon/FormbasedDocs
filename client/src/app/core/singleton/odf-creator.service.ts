@@ -114,7 +114,7 @@ export class OdfCreatorService {
         return;
       }
       // TODO: odfcontainer should have a property mimetype
-      var mimetype = "application/vnd.oasis.opendocument.text";
+      const mimetype = 'application/vnd.oasis.opendocument.text';
       const blob = new Blob([data.buffer], {type: mimetype});
       window['ODTDOCUMENT'] = blob;
       FormBasedDocsApi.getEditor().closeDocument(() => {
@@ -124,6 +124,25 @@ export class OdfCreatorService {
           // If caret goes back to begining this needs to be fired after load
           this.setCursorPositionForDragAndDrop(event);
         });
+      });
+    });
+  }
+
+  getDocumentToSave() {
+    return new Promise((resolve, reject) => {
+      FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
+        if (err) {
+          alert(err);
+          this.commonsService.toggleSpinner();
+          return;
+        }
+        // TODO: odfcontainer should have a property mimetype
+        const mimetype = 'application/vnd.oasis.opendocument.text';
+        const blob = new Blob([data.buffer], {type: mimetype});
+        this.reader.readAsDataURL(blob);
+        this.reader.onloadend = () => {
+          resolve(this.reader.result as string);
+        };
       });
     });
   }
@@ -153,10 +172,13 @@ export class OdfCreatorService {
 
   unsetPreview() {
     this.commonsService.toggleSpinner();
-    FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
-      this.init('createForm', this.reader.result as string, this.idOfContainer).then(() => {
-        this.setDragAndDropForSetUp();
-        this.commonsService.toggleSpinner();
+    return new Promise((resolve, reject) => {
+      FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
+        this.init('createForm', this.reader.result as string, this.idOfContainer).then(() => {
+          this.setDragAndDropForSetUp();
+          this.commonsService.toggleSpinner();
+          resolve('Exit preview');
+        });
       });
     });
   }
