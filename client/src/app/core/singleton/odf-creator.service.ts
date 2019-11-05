@@ -154,6 +154,7 @@ export class OdfCreatorService {
     this.commonsService.toggleSpinner();
     FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
       this.init('createForm', this.reader.result as string, this.idOfContainer).then(() => {
+        this.setDragAndDropForSetUp();
         this.commonsService.toggleSpinner();
       });
     });

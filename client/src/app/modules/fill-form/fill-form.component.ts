@@ -88,116 +88,12 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   }
 
   generateText() {
-    this.formBasedDocDiv.nativeElement.innerHTML = '';
-    this.generatedText = this.form.text;
-  //   // Save user form settings
-    const newFieldsToSave = [];
-
-    for (const field of this.fields) {
-  //     // TEXT
-      if (field['type'] === 'iText') {
-        const id = '#' + field['referenceNumber'];
-        const regexp = new RegExp(field['referenceNumber'], 'g');
-        const focused = this.formAreaDiv.nativeElement.querySelector(id) === document.activeElement;
-        let valueToInsert: any;
-        if (focused) {
-          valueToInsert = '<mark id="focused">' + this.formAreaDiv.nativeElement.querySelector(id).value + '</mark>';
-        } else {
-         valueToInsert = '<mark>' + this.formAreaDiv.nativeElement.querySelector(id).value + '</mark>';
-        }
-        this.generatedText = this.generatedText.replace(regexp, valueToInsert);
-        // Save user form settings
-        field['value'] = this.formAreaDiv.nativeElement.querySelector(id).value;
-      }
-  //     // DATE
-  //     // if (field['type'] === 'iDate') {
-  //     //   const id = '#' + field['referenceNumber'];
-  //     //   const regexp = new RegExp(field['referenceNumber'], 'g');
-  //     //   const valueToInsert = '<mark>' + this.formAreaDiv.nativeElement.querySelector(id).value + '</mark>';
-  //     //   this.generatedText = this.generatedText.replace(regexp, valueToInsert);
-  //     //   // Save user form settings
-  //     //   field['value'] = this.formAreaDiv.nativeElement.querySelector(id).value;
-  //     // }
-  //     // RADIO A
-      if (field['type'] === 'iRadioA') {
-        const radios = this.formAreaDiv.nativeElement.querySelectorAll('.' + field.referenceNumber);
-        // We check the radio button selected and save the value in a variable
-        for (let i = 0, length = radios.length; i < length; i++) {
-          if (radios[i].checked) {
-            const regexp = new RegExp(field['referenceNumber'], 'g');
-            const focused = radios[i] === document.activeElement;
-            let valueToInsert: any;
-            if (focused) {
-              valueToInsert = '<mark id="focused">' + [radios[i].value] + '</mark>';
-            } else {
-             valueToInsert = '<mark>' + [radios[i].value] + '</mark>';
-            }
-            this.generatedText = this.generatedText.replace(regexp, valueToInsert);
-            field['value'] = radios[i].value;
-            // only one radio can be logically checked, don't check the rest
-            break;
-          }
-        }
-      }
-  //     // RADIO B
-  //     if (field['type'] === 'iRadioB') {
-  //       const radios = this.formAreaDiv.nativeElement.querySelectorAll('.' + field.referenceNumber);
-  //       // We check the radio button selected and save the value in a variable
-  //       for (let i = 0, length = radios.length; i < length; i++) {
-  //         if (radios[i].checked) {
-  //           const regexp = new RegExp(field['referenceNumber'], 'g');
-  //           const focused = radios[i] === document.activeElement;
-  //           let valueToInsert: any;
-  //           if (focused) {
-  //             valueToInsert = '<mark id="focused">' + [radios[i].value] + '</mark>';
-  //           } else {
-  //            valueToInsert = '<mark>' + [radios[i].value] + '</mark>';
-  //           }
-  //           this.generatedText = this.generatedText.replace(regexp, valueToInsert);
-  //           field.radios[i]['checked'] = true;
-  //           // only one radio can be logically checked, don't check the rest
-  //         } else {
-  //           field.radios[i]['checked'] = false;
-  //         }
-  //       }
-  //     }
-  //     // RADIO C
-  //     if (field['type'] === 'iRadioC') {
-  //       const radios = this.formAreaDiv.nativeElement.querySelectorAll('.' + field.referenceNumber);
-  //       // We check the radio button selected and save the value in a variable
-  //       for (let i = 0, length = radios.length; i < length; i++) {
-  //         field.radios[i]['data-contentToExport'] = radios[i].getAttribute('data-contentToExport');
-  //         if (radios[i].checked) {
-  //           const regexp = new RegExp(field['referenceNumber'], 'g');
-  //           const focused = radios[i] === document.activeElement;
-  //           let valueToInsert: any;
-  //           if (focused) {
-  //             valueToInsert = '<mark id="focused">' + [radios[i].getAttribute('data-texto')] + '</mark>';
-  //           } else {
-  //            valueToInsert = '<mark>' + [radios[i].getAttribute('data-texto')] + '</mark>';
-  //           }
-  //           this.generatedText = this.generatedText.replace(regexp, valueToInsert);
-  //           field.radios[i]['checked'] = true;
-  //         } else {
-  //           field.radios[i]['checked'] = false;
-  //         }
-  //       }
-  //     }
-      // Save user form settings
-      newFieldsToSave.push(field);
-    }
     // Save user form settings
-    this.form.fields = newFieldsToSave;
-    this.formBasedDocDiv.nativeElement.insertAdjacentHTML('beforeend', this.generatedText);
-    const focusedElement = document.getElementById('focused');
-    if (focusedElement) {
-      focusedElement.scrollIntoView({ behavior: 'smooth' });
-    }
+    // this.form.fields = newFieldsToSave;
   }
 
   submitForm() {
     // Saves author Form
-    this.generateText();
     this.isSubmitting = true;
     this.form.type = 'Filled';
     // post the changes
@@ -249,13 +145,6 @@ export class FillFormComponent implements OnInit, AfterViewInit {
   toogleModal(modal: ElementRef) {
     this.commonsService.toggleModal(modal, false);
   }
-
-  // enableFullScreen(id: string) {
-  //   const el = document.getElementById(id);
-  //   if (screenfull && screenfull.enabled) {
-  //     screenfull.request(el);
-  //   }
-  // }
 
   setEditorConfig() {
     this.commonsService.toggleSpinner();
