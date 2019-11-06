@@ -43,8 +43,10 @@
                         <span class="slider slider--round"></span>
                     </label>
                 </div>
-                <span class="form-creator__fields-area__field__bottom__mandatory-label" *ngIf="state === 'fill-form' && mandatory">
-                    Obligatorio *
+                <span class="form-creator__fields-area__field__bottom__mandatory-label">
+                    <span *ngIf="state === 'fill-form' && mandatory">
+                        Obligatorio *
+                    </span>
                 </span>
                 <div class="form-creator__fields-area__field__bottom__menu d-block" *ngIf="state === 'create-form'">     
                     <div class="tooltip">
