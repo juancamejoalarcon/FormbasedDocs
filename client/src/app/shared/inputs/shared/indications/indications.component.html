@@ -34,6 +34,6 @@
     <input type="text" [value]="this.indications.value" hidden>         
     <div class="new-modal-content__footer new-modal-content__footer--indicactions">
         <button class="btn next-btn" (click)="closeModal.emit();">Hecho</button>
-        <button class="btn next-btn next-btn--delete" (click)="sendIndications.emit(''); closeModal.emit();">Eliminar</button>
+        <button class="btn next-btn next-btn--delete" (click)="changeIndicationsValue(''); closeModal.emit();">Eliminar</button>
     </div>
 </div>

@@ -91,6 +91,7 @@ export class FillFormComponent implements OnInit {
 
   setInitialState() {
     this.stateService.setState('fill-form');
+    this.stateService.setDocumentType(this.form.documentType);
   }
 
   generateText() {
@@ -161,12 +162,15 @@ export class FillFormComponent implements OnInit {
       this.documentService.init('fillForm', this.form.text, 'editorContainer').then( data => {
         this.commonsService.toggleSpinner();
         this.documentService.setDragAndDropForSetUp();
+        this.stepModelService.init(this.form.fields, this.documentType);
+        this.stepModelService.setInitialState();
       });
     } else {
       this.documentService = this.plainTextCreatorService;
       this.commonsService.toggleSpinner();
+      this.stepModelService.init(this.form.fields, this.documentType);
+      this.stepModelService.setInitialState();
     }
-    this.stepModelService.init(this.form.fields, this.documentType);
   }
 
   topMenuNav(e: any) {
@@ -183,6 +187,21 @@ export class FillFormComponent implements OnInit {
       }
     });
     this.updateProgressBarPercentage();
+  }
+
+  nextStepAfterValidate() {
+    const currentStep = this.form.fields[this.currentStep - 1];
+    if (currentStep['mandatory']) {
+      if (currentStep['type'] === 'iText') {
+        if (currentStep['replacement'] === '') {
+          this.commonsService.toastMessage('error', 'Validation error', 'This field is mandatory');
+        } else {
+          this.setCurrentStep(this.currentStep + 1);
+        }
+      }
+    } else {
+      this.setCurrentStep(this.currentStep + 1);
+    }
   }
 
   updateProgressBarPercentage() {

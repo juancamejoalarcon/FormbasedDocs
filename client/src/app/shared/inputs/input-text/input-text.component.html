@@ -17,7 +17,7 @@
             <!---------------->
             <!-- FILL FORM -->
             <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form" *ngIf="state === 'fill-form'">
-                <div class="indication" *ngIf="indications !== '' && indications !== undefined">
+                <div class="indication" *ngIf="indications.areIndications">
                     <span class="icon icon-info-circle-solid trigger" (click)="showIndication($event)"></span>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <span class="form-creator__fields-area__field__middle__question" 
                 *ngIf="state === 'fill-form'">{{question}}</span>
 
-                <input type="text" (keyup)="input(answer.value)" #answer *ngIf="state === 'fill-form'">
+                <input type="text" (keyup)="input(answer.value)" [value]='this.step.replacement' #answer *ngIf="state === 'fill-form'">
             </div>
             <div class="form-creator__fields-area__field__bottom">
                 <div class="form-creator__fields-area__field__bottom__trash divWhereIsDeleteButton" #divWhereIsDeleteButton>
@@ -39,7 +39,7 @@
                 <div class="form-creator__fields-area__field__bottom__mandatory d-flex" *ngIf="state === 'create-form'">
                     <span class="form-creator__fields-area__field__bottom__mandatory__switch-label">Obligatorio</span>
                     <label class="switch">
-                        <input type="checkbox" [(ngModel)]="mandatory">
+                        <input type="checkbox" [checked]="mandatory" (click)="onMandatoryChange(mandatoryInput.checked)" #mandatoryInput>
                         <span class="slider slider--round"></span>
                     </label>
                 </div>

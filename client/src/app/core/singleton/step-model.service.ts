@@ -29,6 +29,19 @@ export class StepModelService {
     }
   }
 
+  setInitialState() {
+    this.steps.forEach((step) => {
+      switch (step.type) {
+        case 'iText':
+            this.input(step.replacement, step.type, step.wordToReplace, false);
+          break;
+        default:
+          break;
+      }
+    });
+    this.buildDocument();
+  }
+
   addNewStep(step: object) {
     this.steps.push(step);
   }

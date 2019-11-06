@@ -16,7 +16,7 @@ export class StateService {
   }
 
   getCurrentState() {
-    return this.state;
+    return this.stateSubject;
   }
 
   stateSubscribe(): Observable<any> {

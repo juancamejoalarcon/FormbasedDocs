@@ -38,7 +38,7 @@ export class InputTextComponent implements OnInit, OnDestroy {
   public documentService: any;
   public isNewForm: boolean;
   public question: string;
-  public mandatory: boolean;
+  public mandatory = false;
   public referenceNumber: any;
   public functionReference: any;
   public step: iTextStep;
@@ -73,6 +73,7 @@ export class InputTextComponent implements OnInit, OnDestroy {
     this.stateService.stateSubscribe().subscribe( (state: string) => {
       this.state = state;
       if (this.state === 'create-form') {
+        this.step.replacement = '';
         this.divWhereIsDeleteButton.nativeElement.hidden = false;
       } else {
         this.divWhereIsDeleteButton.nativeElement.hidden = true;
@@ -101,7 +102,7 @@ export class InputTextComponent implements OnInit, OnDestroy {
       replacement: '',
       question: '',
       indications: this.indications,
-      mandatory: true,
+      mandatory: false,
       isFocused: false
     };
     this.indications = this.step.indications;
@@ -206,7 +207,17 @@ export class InputTextComponent implements OnInit, OnDestroy {
     this.stepModelService.input(replacement, this.step.type, this.step.wordToReplace);
   }
 
+  onMandatoryChange(mandatory: boolean) {
+    console.log(mandatory);
+    this.step.mandatory = mandatory;
+    this.mandatory = mandatory;
+  }
+
   deleteDiv() {
+    let steps = this.stepModelService.getStepsModel();
+    steps = steps.filter(step => step !== this.step);
+    this.stepModelService.init(steps, this.documentType);
+    this.stepModelService.removeStep();
     this.delete.nativeElement.remove();
   }
 }

@@ -6,10 +6,12 @@ import { CreateFormRoutingModule } from './create-form-routing.module';
 import { CreateFormComponent } from './create-form.component';
 import { CreateFormResolver } from './create-form-resolver.service';
 import { QuillModule } from 'ngx-quill';
+import { InputTextGuideComponent } from './inputs-guide-components/input-text-guide/input-text-guide.component';
+import { InputRadioAGuideComponent } from './inputs-guide-components/input-radio-a-guide/input-radio-a-guide.component';
 
 
 @NgModule({
-  declarations: [CreateFormComponent],
+  declarations: [CreateFormComponent, InputTextGuideComponent, InputRadioAGuideComponent],
   imports: [
     CommonModule,
     SharedModule,

@@ -76,6 +76,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   documentService: any;
   state: string;
   plainTextSelected: boolean;
+  currentGuide: string;
 
   constructor(
     private componentInjectorService: ComponentInjectorService,
@@ -138,6 +139,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     if (this.documentType === 'office') {
       this.odfCreatorService.closeAndDestroyEditor();
       this.odfCreatorService.destroyResizeDocumentContainer();
+      window['DOCUMENTOURL'] = false;
     }
   }
 
@@ -178,7 +180,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.setDivHeight();
       window.addEventListener('resize', this.setDivHeight);
       this.documentService = this.odfCreatorService;
-      this.documentService.init('create-form', '', 'editorContainer').then( (data: any) => {
+      this.documentService.init('create-form', this.updatingForm ? this.form.text : '', 'editorContainer').then( (data: any) => {
         this.documentService.setDragAndDropForSetUp();
       });
     } else {
@@ -218,6 +220,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   nextStepAfterValidate() {
+    console.log(this.form.fields[this.currentStep]);
     if (this.form.fields[this.currentStep]['mandatory'] && this.state === 'fill-form') {
       if (this.form.fields[this.currentStep]['type'] === 'iText') {
         if (this.form.fields[this.currentStep]['replacement'] === '') {
@@ -307,6 +310,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             });
           } else {
             this.documentService.getDocumentToSave().then((data: any) => {
+              console.log(data);
               this.form.text = data;
               this.saveForm();
             });
