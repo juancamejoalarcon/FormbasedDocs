@@ -14,7 +14,7 @@ import {
   PlainTextCreatorService
 } from '../../../core';
 /*new form*/
-import { iTextStep } from './input-text.interface';
+import { InputTextStep } from './input-text.interface';
 
 @Component({
   selector: 'app-input-text',
@@ -41,7 +41,7 @@ export class InputTextComponent implements OnInit, OnDestroy {
   public mandatory = false;
   public referenceNumber: any;
   public functionReference: any;
-  public step: iTextStep;
+  public step: InputTextStep;
   public indications = {
     areIndications: false,
     indicationsType: 'outsideText',

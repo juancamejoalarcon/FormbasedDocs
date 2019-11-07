@@ -72,8 +72,8 @@ export class ComponentInjectorService {
   private radioDeleteButton() {
 
     this.deleteButton = this.renderer.createElement('div');
+    this.renderer.addClass(this.deleteButton, 'form-creator__fields-area__field__middle__radio-input__remove-radio');
     this.renderer.addClass(this.deleteButton, 'remove-radio');
-    this.renderer.addClass(this.deleteButton, 'd-block');
 
     const icon = this.renderer.createElement('span');
 

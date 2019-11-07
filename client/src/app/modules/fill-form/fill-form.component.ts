@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { 
   Form,
@@ -17,7 +17,7 @@ import * as screenfull from 'screenfull';
   selector: 'app-fill-form',
   templateUrl: './fill-form.component.html'
 })
-export class FillFormComponent implements OnInit {
+export class FillFormComponent implements OnInit, OnDestroy {
 
   @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
   @ViewChild('formBasedDocDiv') formBasedDocDiv: ElementRef;
@@ -92,6 +92,7 @@ export class FillFormComponent implements OnInit {
   setInitialState() {
     this.stateService.setState('fill-form');
     this.stateService.setDocumentType(this.form.documentType);
+    this.documentType = this.form.documentType;
   }
 
   generateText() {

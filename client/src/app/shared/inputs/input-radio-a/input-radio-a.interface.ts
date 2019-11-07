@@ -4,12 +4,12 @@ export interface iRadioAStep {
     wordToReplace: string;
     replacement: string;
     question: string;
-    radios?: Array<any>;
+    radios: Array<any>;
     indications: {
         areIndications: boolean;
         indicationsType: string;
         value: string;
-    },
+    };
     mandatory: boolean;
     isFocused: boolean;
-};
+}

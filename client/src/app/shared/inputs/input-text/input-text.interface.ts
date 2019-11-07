@@ -1,4 +1,4 @@
-export interface iTextStep {
+export interface InputTextStep {
   type: string;
   identifier: string;
   wordToReplace: string;
@@ -11,4 +11,4 @@ export interface iTextStep {
   },
   mandatory: boolean;
   isFocused: boolean;
-};
+}

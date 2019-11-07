@@ -46,7 +46,7 @@ export class PlainTextCreatorService {
     return [{
       import: 'formats/font',
       whitelist: ['roboto', 'times-new-roman', 'arial', 'lato', 'montserrat']
-    }]
+    }];
   }
 
   setAdditionalQuillButtons(quillElement: any) {
@@ -157,7 +157,7 @@ export class PlainTextCreatorService {
   replacements(steps: any) {
     let textPreview: string = this.quillText;
     steps.forEach((step: any) => {
-      if (step.type === 'iText') {
+      if (step.type === 'iText' || step.type === 'iRadioA') {
         const replacement =
         `<mark id="${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</mark>`;
         textPreview = textPreview.replace(step.wordToReplace, replacement);

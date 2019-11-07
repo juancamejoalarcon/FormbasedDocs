@@ -3,18 +3,18 @@
 
     <p>
         <label>
-            <input class="with-gap" type="radio" name="{{randomName}}" value="{{radio}}" />
+            <input class="with-gap" type="radio" name="{{randomName}}" [checked]="checked" value="{{radioValue}}" (change)="onInputChange(radioInput.checked)" #radioInput/>
             <span>
                 <div *ngIf="state === 'create-form'"></div>
-                <div *ngIf="state === 'fill-form'">{{radio}}</div>
+                <div *ngIf="state === 'fill-form'">{{radioValue}}</div>
             </span>
         </label>
     </p>
 
-    <input [(ngModel)]="radio" type="text" class="d-block" name="radio" *ngIf="state === 'create-form'">
+    <input [(ngModel)]="radioValue" type="text" class="d-block" name="radio" (keyup)="onQuestionChange()" *ngIf="state === 'create-form'">
 
-    <!-- <div class="form-creator__fields-area__field__middle__radio-input__remove-radio remove-radio d-block" *ngIf="isEditAuthor()">
+    <div class="form-creator__fields-area__field__middle__radio-input__remove-radio remove-radio d-block" *ngIf="!isNewForm && state === 'create-form'">
         <span class="icon icon-times-solid" (click)="deleteElementDiv()"></span>
-    </div> -->
+    </div>
 </div>
 

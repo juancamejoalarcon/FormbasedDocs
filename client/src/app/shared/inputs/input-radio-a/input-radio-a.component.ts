@@ -24,7 +24,7 @@ import {  NewRadioAComponent } from './new-radio-a';
   selector: 'app-input-radio-a',
   templateUrl: './input-radio-a.component.html'
 })
-export class InputRadioAComponent implements OnInit {
+export class InputRadioAComponent implements OnInit, OnDestroy {
 
   @Input() field: any;
   @ViewChild('delete') delete: ElementRef;
@@ -202,20 +202,6 @@ export class InputRadioAComponent implements OnInit {
 
   onIndicationsChanged(indications: any) {
     this.step.indications = indications;
-  }
-
-  onInputChecked() {
-    const radiosCreated = this.radios.nativeElement.querySelectorAll(`input[name=${'name' + this.referenceNumber}]`);
-    radiosCreated.forEach((radio: HTMLInputElement) => {
-      if (radio.checked) {
-        console.log(radio);
-        this.stepModelService.input(radio.value, this.step.type, this.step.wordToReplace);
-      }
-    });
-  }
-
-  input(replacement: string) {
-    this.stepModelService.input(replacement, this.step.type, this.step.wordToReplace);
   }
 
   addNewRadio() {
