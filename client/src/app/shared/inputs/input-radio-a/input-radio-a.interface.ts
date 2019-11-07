@@ -4,6 +4,7 @@ export interface iRadioAStep {
     wordToReplace: string;
     replacement: string;
     question: string;
+    radios?: Array<any>;
     indications: {
         areIndications: boolean;
         indicationsType: string;

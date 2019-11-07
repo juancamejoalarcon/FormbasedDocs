@@ -220,7 +220,7 @@ export class InputRadioAComponent implements OnInit {
   addNewRadio() {
     this.componentInjectorService.appendComponentToBody(
                                         'Radio', NewRadioAComponent, this.referenceNumber, 'parentId' + this.referenceNumber,
-                                        'divWhereIsDeleteButton', { randomName: 'name' + this.referenceNumber});
+                                        'divWhereIsDeleteButton', { identifier: this.referenceNumber});
   }
 
   onMandatoryChange(mandatory: boolean) {
