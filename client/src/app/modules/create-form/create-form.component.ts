@@ -14,8 +14,8 @@ import {
 import { InputTextComponent,
   InputRadioAComponent,
   InputRadioBComponent,
-  InputRadioCComponent,
-  OdfEditorService } from '../../shared';
+  InputRadioCComponent
+ } from '../../shared';
 import { ToastrService } from 'ngx-toastr';
 
 import * as Sortable from 'sortablejs';
@@ -88,7 +88,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     private router: Router,
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private odfEditorService: OdfEditorService,
     private stepModelService: StepModelService,
     private stateService: StateService,
     private odfCreatorService: OdfCreatorService,

@@ -186,16 +186,10 @@ export class InputTextComponent implements OnInit, OnDestroy {
 
   showIndication(e: any) {
     e.preventDefault();
-    // console.log(this.indications);
     if (this.indications.indicationsType === 'outsideText') {
       this.commonsService.toggleModal(this.modalIndication.nativeElement);
     } else {
       this.documentService.showIndicationInsideText(this.step.wordToReplace, this.indications.value);
-    //   if (this.isPlainText()) {
-    //     this.commonsService.showIndicationsInsideTextPlainText(this.referenceNumber, this.indications);
-    //   } else {
-    //     this.odfEditorService.showIndicationInsideText(this.referenceNumber, this.indications);
-    //   }
     }
   }
 
@@ -208,7 +202,6 @@ export class InputTextComponent implements OnInit, OnDestroy {
   }
 
   onMandatoryChange(mandatory: boolean) {
-    console.log(mandatory);
     this.step.mandatory = mandatory;
     this.mandatory = mandatory;
   }

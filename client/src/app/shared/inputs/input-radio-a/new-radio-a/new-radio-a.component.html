@@ -1,76 +1,20 @@
-<!-- <div class="field-area-radio-input radio form-check-inline radio-create-form" #delete
-[ngClass]="{'radio-fill-form': isNewUser() || isEditUser() }"> -->
-        <!-- radio-fill-form -->
-    <!-- <input type="radio" id="{{ randomId }}" name="{{randomName}}" checked value="{{radio}}" *ngIf="isNewAuthor()">
-    <label for="{{ randomId }}" *ngIf="isNewAuthor()"></label>
-    <input type="radio" id="{{ randomId }}" name="{{randomName}}" checked value="{{valueRadio}}" *ngIf="isEditAuthor()">
-    <label for="{{ randomId }}" *ngIf="isEditAuthor()"></label>
-    <input class="{{field.referenceNumber}}" type="radio" id="{{ randomId }}" name="{{randomName}}" value="{{valueRadio}}" *ngIf="isNewUser()">
-    <label for="{{ randomId }}" *ngIf="isNewUser()"></label>
-    <input class="{{field.referenceNumber}}" type="radio" id="{{ randomId }}" name="{{randomName}}" value="{{valueRadio}}" 
-            [checked]="valueRadio === field.value" *ngIf="isEditUser()">
-    <label for="{{ randomId }}" *ngIf="isEditUser()"></label>
-
-
-
-    <input [(ngModel)]="radio" type="text" class="d-block" name="radio" *ngIf="isNewAuthor()">
-    <label class="d-none label-fill-form" *ngIf="isNewAuthor()">
-        {{radio}}
-    </label>
-    <input [(ngModel)]="valueRadio" type="text" class="d-block" name="radio" *ngIf="isEditAuthor()">
-    <label class="d-none label-fill-form" *ngIf="isEditAuthor()">{{valueRadio}}</label>
-
-    <label class="d-block label-fill-form" *ngIf="isNewUser() || isEditUser()">{{valueRadio}}</label>
-
-    <div class="remove-radio d-block" (click)="deleteElementDiv()" *ngIf="isEditAuthor()">
-        <span class="icon icon-times-solid"></span>
-    </div>
-</div> -->
-
-
-
 <div class="form-creator__fields-area__field__middle__radio-input radio divWhereIsDeleteButton" #delete 
-    [ngClass]="{'form-creator__fields-area__field__middle__radio-input--fill-form': isNewUser() || isEditUser() }">
+    [ngClass]="{'form-creator__fields-area__field__middle__radio-input--fill-form': state === 'fill-form' }">
 
-    <p *ngIf="isNewAuthor()">
+    <p>
         <label>
-            <input class="with-gap" type="radio" id="{{ randomId }}" name="{{randomName}}" checked value="{{radio}}"  />
+            <input class="with-gap" type="radio" name="{{randomName}}" value="{{radio}}" />
             <span>
-                <div class="d-block"></div>
-                <div class="d-none" *ngIf="isNewAuthor()">{{radio}}</div>
+                <div *ngIf="state === 'create-form'"></div>
+                <div *ngIf="state === 'fill-form'">{{radio}}</div>
             </span>
         </label>
     </p>
-    <p *ngIf="isEditAuthor()">
-        <label>
-            <input class="with-gap" type="radio" id="{{ randomId }}" name="{{randomName}}" checked value="{{valueRadio}}" />
-            <span>
-                <div class="d-block"></div>
-                <div class="d-none" *ngIf="isEditAuthor()">{{valueRadio}}</div>
-            </span>
-        </label>
-    </p>
-    <p *ngIf="isNewUser()">
-        <label>
-            <input class="with-gap {{field.referenceNumber}}" type="radio" id="{{ randomId }}" name="{{randomName}}" value="{{valueRadio}}" />
-            <span>{{valueRadio}}</span>
-        </label>
-    </p>
-    <p *ngIf="isEditUser()">
-        <label>
-            <input class="with-gap {{field.referenceNumber}}" type="radio" id="{{ randomId }}" name="{{randomName}}" value="{{valueRadio}}" 
-            [checked]="valueRadio === field.value" />
-            <span>{{valueRadio}}</span>
-        </label>
-    </p>
 
+    <input [(ngModel)]="radio" type="text" class="d-block" name="radio" *ngIf="state === 'create-form'">
 
-
-    <input [(ngModel)]="radio" type="text" class="d-block" name="radio" *ngIf="isNewAuthor()">
-    <input [(ngModel)]="valueRadio" type="text" class="d-block" name="radio" *ngIf="isEditAuthor()">
-
-    <div class="form-creator__fields-area__field__middle__radio-input__remove-radio remove-radio d-block" *ngIf="isEditAuthor()">
+    <!-- <div class="form-creator__fields-area__field__middle__radio-input__remove-radio remove-radio d-block" *ngIf="isEditAuthor()">
         <span class="icon icon-times-solid" (click)="deleteElementDiv()"></span>
-    </div>
+    </div> -->
 </div>
 

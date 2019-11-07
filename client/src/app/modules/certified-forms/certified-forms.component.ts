@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import {
   CommonsService,
@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-certified-forms',
   templateUrl: './certified-forms.component.html'
 })
-export class CertifiedFormsComponent implements OnInit {
+export class CertifiedFormsComponent implements OnInit, OnDestroy {
 
   @ViewChild('subMenu') subMenu: ElementRef;
   @ViewChild('loginModal') loginModal: ElementRef;
@@ -53,7 +53,11 @@ export class CertifiedFormsComponent implements OnInit {
         }
       }
     );
+    document.getElementsByTagName('html')[0].style.overflow = "hidden";
+  }
 
+  ngOnDestroy() {
+    document.getElementsByTagName('html')[0].style.overflow = "";
   }
 
   topMenuNav(e: any) {

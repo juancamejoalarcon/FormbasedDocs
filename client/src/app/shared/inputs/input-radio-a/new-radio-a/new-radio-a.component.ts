@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { StateService } from '../../../../core';
 
 @Component({
     selector: 'app-new-radio-a',
@@ -6,40 +7,38 @@ import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class NewRadioAComponent implements OnInit {
 
-  @Input() state: string;
   @Input() field: any;
-  @Input() valueRadio: any;
   @Input() optionalValues: any;
   @ViewChild('delete') delete: ElementRef;
+
+  public state: string;
   public randomName: string;
-  public randomId: string;
+
+  constructor(
+    private stateService: StateService
+  ) { }
 
   ngOnInit() {
-    if (this.isNewUser() || this.isEditUser()) {
-      this.randomName = 'name' + this.field['referenceNumber'];
-    } else {
-      this.getRandomName();
-    }
-    this.getRandomId();
-  }
-
-  getRandomId() {
-    this.randomId = 'iNewRadioA' + Math.random().toString(36).substring(7);
+    this.getRandomName();
+    this.stateService.stateSubscribe().subscribe( (state: string) => {
+      this.state = state;
+      if (this.state === 'create-form') {
+        // this.step.replacement = '';
+        // this.divWhereIsDeleteButton.nativeElement.hidden = false;
+      } else {
+        // this.divWhereIsDeleteButton.nativeElement.hidden = true;
+      }
+    });
   }
 
   getRandomName() {
-    if (this.isEditAuthor()) {
-      this.randomName = 'name' + this.field['referenceNumber'];
-    } else {
-      this.randomName = this.optionalValues['randomName'];
+    if (this.optionalValues.randomName) {
+      this.randomName = this.optionalValues.randomName;
     }
   }
+
   deleteElementDiv() {
     this.delete.nativeElement.remove();
   }
 
-  isNewAuthor () { return this.state === undefined; }
-  isNewUser () { return this.state === 'newUser'; }
-  isEditAuthor () { return this.state === 'editAuthor'; }
-  isEditUser () { return this.state === 'editUser'; }
 }
