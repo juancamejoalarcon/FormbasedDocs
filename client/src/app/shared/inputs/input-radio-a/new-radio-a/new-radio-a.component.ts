@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { StateService } from '../../../../core';
+import { StateService, StepModelService } from '../../../../core';
 
 @Component({
     selector: 'app-new-radio-a',
@@ -15,26 +15,29 @@ export class NewRadioAComponent implements OnInit {
   public randomName: string;
 
   constructor(
-    private stateService: StateService
+    private stateService: StateService,
+    private stepModelService: StepModelService
   ) { }
 
   ngOnInit() {
-    this.getRandomName();
     this.stateService.stateSubscribe().subscribe( (state: string) => {
       this.state = state;
-      if (this.state === 'create-form') {
-        // this.step.replacement = '';
-        // this.divWhereIsDeleteButton.nativeElement.hidden = false;
-      } else {
-        // this.divWhereIsDeleteButton.nativeElement.hidden = true;
-      }
     });
+
+    if (this.optionalValues.identifier) {
+      this.randomName = 'name' + this.optionalValues.identifier;
+      this.pushNewRadio();
+    } else {
+
+    }
   }
 
-  getRandomName() {
-    if (this.optionalValues.randomName) {
-      this.randomName = this.optionalValues.randomName;
-    }
+  pushNewRadio() {
+    this.stepModelService.getStepsModel().forEach((step: any) => {
+      if (step.identifier === this.optionalValues.identifier) {
+        console.log(step);
+      }
+    })
   }
 
   deleteElementDiv() {

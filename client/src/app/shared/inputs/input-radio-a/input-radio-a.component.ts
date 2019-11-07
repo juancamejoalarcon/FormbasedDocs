@@ -103,10 +103,11 @@ export class InputRadioAComponent implements OnInit {
 
   createStep() {
     this.step = {
-      type: 'iText',
+      type: 'iRadioA',
       identifier: '',
       wordToReplace: '',
       replacement: '',
+      radios: [],
       question: '',
       indications: this.indications,
       mandatory: false,
