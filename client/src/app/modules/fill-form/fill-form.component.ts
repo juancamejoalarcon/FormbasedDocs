@@ -168,9 +168,13 @@ export class FillFormComponent implements OnInit, OnDestroy {
       });
     } else {
       this.documentService = this.plainTextCreatorService;
-      this.commonsService.toggleSpinner();
+      this.documentService.init('editor-container', 'editor-preview');
+      this.documentService.setQuillText(this.form.text);
+      this.setDivHeight();
+      window.addEventListener('resize', this.setDivHeight);
       this.stepModelService.init(this.form.fields, this.documentType);
-      this.stepModelService.setInitialState();
+      // this.stepModelService.setInitialState();
+      this.commonsService.toggleSpinner();
     }
   }
 

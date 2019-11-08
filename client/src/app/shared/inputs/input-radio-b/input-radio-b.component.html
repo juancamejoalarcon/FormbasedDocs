@@ -1,151 +1,109 @@
-<!-- Radio-a -->
-<div class="field smooth-intro divWhereIsDeleteButton" [id]="'parentId' + randomId" #delete
-[ngClass]="{'field-fill-form': isNewUser() || isEditUser() }">
-    <div class="field-content d-none-grid-100" [ngClass]="{'field-content-fill-form': isNewUser() || isEditUser() }">
-        <div class="field-area">
-
-            <!-- HEADER-->
-            <div class="field-area-top d-block" *ngIf="isEditAuthor() || isNewAuthor()">
-                <div class="label">
-                    <span>Radio B</span>
-                </div>
-                <div class="dragAndDropBotton">
-                    <span class="icon icon-ellipsis-h-solid"></span>
-                    <span class="icon icon-ellipsis-h-solid"></span>
-                </div>
-                <div class="identifier">
-                    <span class="identifier-label">
+<div class="form-creator__fields-area__field" [id]="'parentId' + referenceNumber" #delete>
+    <div class="form-creator__fields-area__field__container">
+        <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
+            <!-- CREATE FORM -->
+            <div class="form-creator__fields-area__field__top d-flex" *ngIf="state === 'create-form'">
+                <div class="form-creator__fields-area__field__top__identifier">
+                    <span class="form-creator__fields-area__field__top__identifier__label">
                         Id:
                     </span>
-                    <span class="identifier-id">
-                        <span (dblclick)="showChangeIdInputField()" #draggableText>{{referenceNumber}}</span>
+                    <span class="form-creator__fields-area__field__top__identifier__id">
+                        <span (dblclick)="showChangeIdInputField()" (mousedown)="enableDrag()" #draggableText>{{referenceNumber}}</span>
                         <input (blur)="showChangeIdInputField()" (keyup.enter)="changeIdInput.blur()" 
-                                (keyup)="changeId($event)" type="text" value="{{referenceNumber}}" #changeIdInput>
+                        (keyup)="changeId($event)" type="text" value="{{referenceNumber}}" #changeIdInput style="display: none">
                     </span>
                 </div>
             </div>
-
-
-            <span *ngIf="isNewAuthor()">
-                <div class="field-area-top field-area-top-fill-form d-none-flex"
-                (click)="toggleModal(false)"
-                *ngIf="indications !== '' && indications !== undefined">
-                    <div class="indication">
-                        <span class="icon icon-info-circle-solid"></span>
-                    </div>
+            <!---------------->
+            <!-- FILL FORM -->
+            <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form" *ngIf="state === 'fill-form'">
+                <div class="indication" *ngIf="indications.areIndications">
+                    <span class="icon icon-info-circle-solid trigger" (click)="showIndication($event)"></span>
                 </div>
-            </span>
-            
-            <span *ngIf="isEditAuthor()">
-                <div class="field-area-top field-area-top-fill-form d-none-flex"
-                    (click)="toggleModal(false)"
-                    *ngIf="field.indications !== '' && field.indications !== undefined">
-                    <div class="indication">
-                        <span class="icon icon-info-circle-solid"></span>
-                    </div>
-                </div>
-            </span>
+            </div>
+            <!---------------->
 
-            <span *ngIf="isNewUser() || isEditUser()">
-                <div class="field-area-top"
-                    (click)="toggleModal(false)"
-                    *ngIf="field.indications !== '' && field.indications !== undefined">
+            <!------------>
+            <!-- MIDDLE -->
+            <!------------>
+            <div class="form-creator__fields-area__field__middle">
 
-                    <div class="indication">
-                        <span class="icon icon-info-circle-solid"></span>
-                    </div>
-                    
-                </div>
-            </span>
+                <input type="text" placeholder="Question" id="question" placeholder="Question" (keyup)="onQuestionChanged(questionValue.value)" 
+                [(ngModel)]="question" #questionValue *ngIf="state === 'create-form'">
+                <span class="form-creator__fields-area__field__middle__question" 
+                *ngIf="state === 'fill-form'">{{question}}</span>
 
-            <div class="field-area-middle">
-              
-                <input *ngIf="isEditAuthor()"
-                type="text" 
-                id="question"
-                class="{{questionIdentifier}} question-field d-block"
-                placeholder="Question" [(ngModel)]="field.question">
-
-                <input *ngIf="isNewAuthor()"
-                type="text"
-                id="question"
-                class="{{questionIdentifier}} question-field d-block"
-                placeholder="Question" [(ngModel)]="question">
-
-                <span class="question d-none" *ngIf="isNewAuthor()">{{question}}</span>
-                <span class="question d-none" *ngIf="isEditAuthor()">{{field.question}}</span>
-                <span class="question" *ngIf="isNewUser() || isEditUser()">{{field.question}}</span>
-                
-                <div #radios id="{{randomId}}" class="inputRadio inputCollection">
-                    <span *ngIf="isEditAuthor() || isNewUser() || isEditUser()">
-                      <app-new-radio-b *ngFor="let radio of field.radios" [state]="state" [valueRadio]="radio.radio" [field]="radio"></app-new-radio-b>
+                <div #radios id="{{referenceNumber}}">
+                    <span *ngIf="!isNewForm">
+                      <app-new-radio-b *ngFor="let radio of field.radios" [field]="radio"></app-new-radio-b>
                     </span>
                 </div>
 
-                <div class="add-another-radio-button d-block" (click)="addNewRadio()" *ngIf="isEditAuthor() || isNewAuthor()">
-                    <span class="icon icon-plus-circle-solid"></span>
+                <div class="form-creator__fields-area__field__middle__add-another-radio-button d-flex"
+                *ngIf="state === 'create-form'">
+                    <span class="icon icon-plus-circle-solid" (click)="addNewRadio()"></span>
                 </div>
             </div>
-            
-            <div class="field-area-bottom d-block" *ngIf="isNewAuthor() || isEditAuthor()">
-                <label class="switch d-block" >
-                        <input type="checkbox" class="{{mandatoryIdentifier}}" [(ngModel)]="mandatory" *ngIf="isNewAuthor()">
-                        <input type="checkbox" class="{{mandatoryIdentifier}}" [(ngModel)]="field.mandatory" *ngIf="isEditAuthor()">
-                    <span class="slider round"></span>
-                </label>
-                <span class="switch-label d-block">Obligatorio</span>
-            </div>
-
-            <div class="field-area-bottom field-area-bottom-input-text d-none-flex" *ngIf="isNewAuthor() && mandatory">
-                <span class="mandatory">
-                    Obligatorio *
-                </span>
-            </div>
-            <div class="field-area-bottom field-area-bottom-input-text" 
-                *ngIf="(isEditAuthor() || isNewUser() || isEditUser()) && field.mandatory" [ngClass]="{'d-none-flex': isEditAuthor() }">
-                <span class="mandatory">
-                    Obligatorio *
-                </span>
-            </div>
-        </div>
-        <div class="right-button d-flex" id="right-button" *ngIf="isNewAuthor() || isEditAuthor()">
-            <div class="tooltip">
-                <span class="icon icon-ellipsis-v-solid" id="right-button-menu" #rightMenuButton (click)="showRightMenu()"></span>
-                <span class="right-button-menu" #rightMenu>
-                    <div class="group">
-                        <span #showModalButton>Indicactions for this field</span>
+            <!------------>
+            <!-- BOTTOM -->
+            <!------------>
+            <div class="form-creator__fields-area__field__bottom">
+                <div class="form-creator__fields-area__field__bottom__trash divWhereIsDeleteButton" #divWhereIsDeleteButton>
+                    <div class="remove-button d-block smooth-intro" (click)="deleteDiv()" *ngIf="!isNewForm">
+                        <span class="icon icon-trash-alt-regular"></span>
                     </div>
+                </div>
+                <div class="form-creator__fields-area__field__bottom__mandatory d-flex" *ngIf="state === 'create-form'">
+                    <span class="form-creator__fields-area__field__bottom__mandatory__switch-label">Obligatorio</span>
+                    <label class="switch">
+                        <input type="checkbox" [checked]="mandatory" (click)="onMandatoryChange(mandatoryInput.checked)" #mandatoryInput>
+                        <span class="slider slider--round"></span>
+                    </label>
+                </div>
+                <span class="form-creator__fields-area__field__bottom__mandatory-label">
+                    <span *ngIf="state === 'fill-form' && mandatory">
+                        Obligatorio *
+                    </span>
                 </span>
+                <div class="form-creator__fields-area__field__bottom__menu d-block" *ngIf="state === 'create-form'">     
+                    <div class="tooltip">
+                        <span class="icon icon-ellipsis-v-solid" id="right-button-menu" #rightMenuButton (click)="showRightMenu()"></span>
+                        <span class="tooltip__right-button-menu" #rightMenu>
+                            <div class="tooltip__right-button-menu__group">
+                                <span #showModalButton (click)="toogleModal(modal)">Indicactions for this field</span>
+                            </div>
+                        </span>
+                    </div>
+                </div>
             </div>
+            <!------------------->
+            <!-- END OF BOTTOM -->
+            <!------------------->
         </div>
-    </div>
-    <div class="remove-button d-block" *ngIf="isEditAuthor()" (click)="deleteDiv()">
-        <span class="icon icon-trash-alt-regular"></span>
     </div>
 </div>
 
-<!-- Modal -->
 <div class="modal" #modal>
-    <div class="modal-content">
-        <div class="modal-top modal-top-input-text">
-            <h5>Indicaciones para pregunta</h5>
-            <span *ngIf="isNewAuthor()">{{question}}</span>
-            <span *ngIf="isEditAuthor()">{{field.question}}</span>
-
-            <span *ngIf="isNewUser()">{{field.question}}</span>
+    <div class="modal__content modal__content--add-new-question">
+        <app-indications 
+        (closeModal)="toogleModal(modal)"
+        [indications]='this.indications'
+        (sendIndications)="onIndicationsChanged($event)"
+        ></app-indications>
+    </div>
+</div>
+    
+<div class="modal" #modalIndication>
+    <div class="modal__content modal__content--question-indication">
+        <div class="modal__content__top modal__content__top--privacy">
+            <h2>{{question}}</h2>
         </div>
-        <div class="modal-middle modal-middle-input-text">
-            <textarea class="d-block {{indicationsIdentifier}}" cols="30" rows="10" [(ngModel)]="indications" *ngIf="isNewAuthor()"></textarea>
-            <textarea class="d-block {{indicationsIdentifier}}" cols="30" rows="10" [(ngModel)]="field.indications" *ngIf="isEditAuthor()"></textarea>
-            <p class="d-none" *ngIf="isNewAuthor()">{{indications}}</p>
-            <p class="d-none" *ngIf="isEditAuthor()">{{field.indications}}</p>
-
-            <p class="d-block" *ngIf="isNewUser()">{{field.indications}}</p>
+        <div class="modal__content__modal-middle modal__content__modal-middle--question-indication">
+            <div class="modal__content__modal-middle__container" [innerHTML]="this.indications.value">
+            </div>
         </div>
-        <div class="modal-bottom modal-bottom-input-text">
-            <button class="button d-block" (click)="toggleModal(false)" *ngIf="isNewAuthor() || isEditAuthor()">Guardar</button>
-            <button class="button delete-indications d-block" (click)="toggleModal(true)" *ngIf="isNewAuthor() || isEditAuthor()">Borrar</button>
-            <button class="button" (click)="toggleModal(false)" [ngClass]="{'d-none': isNewAuthor() || isEditAuthor() }">Entendido</button>
+        <div class="new-modal-content__footer new-modal-content__footer--indicactions">
+            <button class="btn next-btn" (click)="toogleModal(modalIndication);">Entendido</button>
         </div>
     </div>
 </div>

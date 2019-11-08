@@ -49,8 +49,8 @@
                             <div *ngFor="let field of fields">
                                 <app-input-text *ngIf="field['type'] == 'iText'" [field]="field"></app-input-text>
                                 <app-input-radio-a *ngIf="field['type'] == 'iRadioA'" [field]="field"></app-input-radio-a>
-                                <!-- <app-input-radio-b *ngIf="field['type'] == 'iRadioB'" [state]="state" [field]="field"></app-input-radio-b>
-                                <app-input-radio-c *ngIf="field['type'] == 'iRadioC'" [state]="state" [field]="field"></app-input-radio-c> -->
+                                <app-input-radio-b *ngIf="field['type'] == 'iRadioB'" [field]="field"></app-input-radio-b>
+                                <!-- <app-input-radio-c *ngIf="field['type'] == 'iRadioC'" [state]="state" [field]="field"></app-input-radio-c> -->
                             </div>
                         </div>
                     </div>
@@ -252,19 +252,10 @@
                         <div class="modal__content__modal-middle__button-panel__row">
                             <span class="modal__content__modal-middle__button-panel__row__label">
                                 Input radio b
-                                <sup class="icon icon-info-circle-solid" onclick="toggleLightbox()"></sup>
+                                <sup class="icon icon-info-circle-solid" (click)="toggleLightbox(lightBox); currentGuide = 'input-radio-b'"></sup>
                             </span>
-                            <button class="button-filled button-filled--add-new-question">
-                                Add
-                                <span class="icon icon-plus-solid"></span>
-                            </button>
-                        </div>
-                        <div class="modal__content__modal-middle__button-panel__row">
-                            <span class="modal__content__modal-middle__button-panel__row__label">
-                                Input radio c
-                                <sup class="icon icon-info-circle-solid" onclick="toggleLightbox()"></sup>
-                            </span>
-                            <button class="button-filled button-filled--add-new-question">
+                            <button class="button-filled button-filled--add-new-question"
+                            (click)="injectComponent(inputs[2]); toogleModal(addQuestionMenuModal, true); setCurrentStep(this.form.fields.length - 1);">
                                 Add
                                 <span class="icon icon-plus-solid"></span>
                             </button>
@@ -286,5 +277,6 @@
     <div class="info-lightbox__content">
         <app-input-text-guide *ngIf="currentGuide === 'input-text'"></app-input-text-guide>
         <app-input-radio-a-guide *ngIf="currentGuide === 'input-radio-a'"></app-input-radio-a-guide>
+        <app-input-radio-b-guide *ngIf="currentGuide === 'input-radio-b'"></app-input-radio-b-guide>
     </div>
 </div>

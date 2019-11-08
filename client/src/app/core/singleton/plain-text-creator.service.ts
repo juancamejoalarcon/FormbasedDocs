@@ -72,6 +72,10 @@ export class PlainTextCreatorService {
     document.getElementById(this.previewTextDiv).classList.replace('d-block', 'd-none');
   }
 
+  setQuillText(quillText: string) {
+    this.quillText = quillText;
+  }
+
   /************************/
   /* INDICATIONS */
   /************************/
@@ -157,7 +161,7 @@ export class PlainTextCreatorService {
   replacements(steps: any) {
     let textPreview: string = this.quillText;
     steps.forEach((step: any) => {
-      if (step.type === 'iText' || step.type === 'iRadioA') {
+      if (step.type === 'iText' || step.type === 'iRadioA' || step.type === 'iRadioB') {
         const replacement =
         `<mark id="${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</mark>`;
         textPreview = textPreview.replace(step.wordToReplace, replacement);

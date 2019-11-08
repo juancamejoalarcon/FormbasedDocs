@@ -1,46 +1,39 @@
-<div #delete>
-    <div class="field-area-radio-input radio form-check-inline radio-create-form" [ngClass]="{'radio-fill-form': isNewUser() || isEditUser() }">
-        <input type="radio" id="{{ randomId }}" name="{{randomName}}" checked value="{{radio}}" *ngIf="isNewAuthor()">
-        <label for="{{ randomId }}" *ngIf="isNewAuthor()"></label>
-        <input type="radio" id="{{ randomId }}" name="{{randomName}}" checked value="{{valueRadio}}" *ngIf="isEditAuthor()">
-        <label for="{{ randomId }}" *ngIf="isEditAuthor()"></label>
-        <input class="{{field.referenceNumber}}" type="radio" id="{{ randomId }}" name="{{randomName}}" value="{{field.value}}" *ngIf="isNewUser()">
-        <label for="{{ randomId }}" *ngIf="isNewUser()"></label>
-        <input class="{{field.referenceNumber}}" type="radio" id="{{ randomId }}" name="{{randomName}}" value="{{field.value}}" 
-                [checked]="field.checked === true" *ngIf="isEditUser()">
-        <label for="{{ randomId }}" *ngIf="isEditUser()"></label>
+<div class="form-creator__fields-area__field__middle__radio-input radio divWhereIsDeleteButton" #delete 
+    [ngClass]="{'form-creator__fields-area__field__middle__radio-input--fill-form': state === 'fill-form' }">
 
-
-
-        <input [(ngModel)]="radio" type="text" class="d-block" name="{{randomName}}" *ngIf="isNewAuthor()">
-        <label class="d-none label-fill-form" *ngIf="isNewAuthor()">
-            {{radio}}
+    <p>
+        <label>
+            <input class="with-gap" type="radio" name="{{randomName}}" [checked]="checked" value="{{radioValue}}" (change)="onInputChange(radioInput.checked)" #radioInput/>
+            <span>
+                <div *ngIf="state === 'create-form'"></div>
+                <div *ngIf="state === 'fill-form'">{{question}}</div>
+            </span>
         </label>
-        <input [(ngModel)]="valueRadio" type="text" class="d-block"  name="{{randomName}}" *ngIf="isEditAuthor()">
-        <label class="d-none label-fill-form" *ngIf="isEditAuthor()">{{valueRadio}}</label>
+    </p>
 
-        <label class="d-block label-fill-form" *ngIf="isNewUser() || isEditUser()">{{valueRadio}}</label>
-        
-        <div class="modal-button d-block modal-button-radio" (click)="toggleModal()" *ngIf="isNewAuthor() || isEditAuthor()">
-            <span class="icon icon-modal-icon"></span>
-        </div>
-        <div class="remove-radio d-block" (click)="deleteElementDiv()" *ngIf="isEditAuthor()">
-            <span class="icon icon-times-solid"></span>
-        </div>
+    <input [(ngModel)]="question" type="text" name="radio" (keyup)="onQuestionChange()" *ngIf="state === 'create-form'">
+
+    <div class="modal-button d-block modal-button-radio" (click)="toggleModal()" *ngIf="state === 'create-form'">
+        <span class="icon icon-modal-icon"></span>
     </div>
+
+    <div class="form-creator__fields-area__field__middle__radio-input__remove-radio remove-radio d-block" *ngIf="!isNewForm && state === 'create-form'">
+        <span class="icon icon-times-solid" (click)="deleteElementDiv()"></span>
+    </div>
+
     <!-- Modal -->
     <div class="modal" #modal>
-        <div class="modal-content">
-            <div class="modal-top modal-top-input-text">
-                <h5>Este texto se sustituirá por el identificador</h5>
-            </div>
-            <div class="modal-middle">
-                <textarea class="{{randomName}}" cols="30" rows="10" *ngIf="isNewAuthor()"></textarea>
-                <textarea class="{{randomName}}" cols="30" rows="10"
-                            value="{{field.value}}" *ngIf="isEditAuthor()"></textarea>
-            </div>
-            <div class="modal-bottom">
-                <button class="button" (click)="toggleModal()">Guardar</button>
+        <div class="modal__content modal__content--add-new-question">
+            <div class="new-modal-content">
+                <div class="modal__content__top modal__content__top--privacy">
+                    <h3>Este texto se sustituirá por el identificador</h3>
+                </div>
+                <div class="new-modal-content__body" style="border-bottom: 3px solid #556270;">
+                    <textarea style="height: 85%;" cols="30" rows="10" (keyup)="onValueChanged()" [(ngModel)]="radioValue"></textarea>
+                </div>
+                <div class="modal__content__modal-bottom modal__content__modal-bottom--privacy">
+                    <button class="button-filled" (click)="toggleModal()">Guardar</button>
+                </div>
             </div>
         </div>
     </div>

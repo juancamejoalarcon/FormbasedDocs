@@ -1,10 +1,22 @@
-import { Component,
-         OnInit,
-         AfterViewInit,
-         Input,
-         ViewChild,
-         ElementRef } from '@angular/core';
-import { CommonsService, ComponentInjectorService} from '../../../core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  AfterViewInit,
+  Input,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
+import {
+  CommonsService,
+  ComponentInjectorService,
+  StepModelService,
+  StateService,
+  OdfCreatorService,
+  PlainTextCreatorService
+} from '../../../core';
+import { InputCommonsService } from '../shared';
+import { iRadioBStep } from './input-radio-b.interface';
 
 import {  NewRadioBComponent } from './new-radio-b';
 
@@ -12,9 +24,8 @@ import {  NewRadioBComponent } from './new-radio-b';
   selector: 'app-input-radio-b',
   templateUrl: './input-radio-b.component.html'
 })
-export class InputRadioBComponent implements OnInit, AfterViewInit {
+export class InputRadioBComponent implements OnInit, OnDestroy {
 
-  @Input() state: string;
   @Input() field: any;
   @ViewChild('delete') delete: ElementRef;
   @ViewChild('draggableText') draggableText: ElementRef;
@@ -24,48 +35,96 @@ export class InputRadioBComponent implements OnInit, AfterViewInit {
   @ViewChild('rightMenuButton') rightMenuButton: ElementRef;
   @ViewChild('showModalButton') showModalButton: ElementRef;
   @ViewChild('modal') modal: ElementRef;
+  @ViewChild('modalIndication') modalIndication: ElementRef;
+  @ViewChild('divWhereIsDeleteButton') divWhereIsDeleteButton: ElementRef;
 
-  public mandatory: boolean;
-  public indications: string;
-  public randomId: string;
+  public state: string;
+  public documentType: string;
+  public documentService: any;
+  public isNewForm: boolean;
+  public question: string;
+  public mandatory = false;
   public referenceNumber: any;
-  public questionIdentifier: string;
-  public indicationsIdentifier: string;
-  public mandatoryIdentifier: string;
   public functionReference: any;
+  public step: iRadioBStep;
+  public indications = {
+    areIndications: false,
+    indicationsType: 'outsideText',
+    value: ''
+  };
 
   constructor(
     private commonsService: CommonsService,
-    private componentInjectorService: ComponentInjectorService
+    private stepModelService: StepModelService,
+    private stateService: StateService,
+    private componentInjectorService: ComponentInjectorService,
+    private inputCommonsService: InputCommonsService,
+    private odfCreatorService: OdfCreatorService,
+    private plainTextCreatorService: PlainTextCreatorService
   ) {}
 
   ngOnInit() {
-    if (this.isNewUser() || this.isEditUser()) {
-      this.randomId = this.field['referenceNumber'];
-    } else {
+    this.documentType = this.stateService.getDocumentType();
+    if (!this.field) {
+      this.createStep();
       this.getRandomId();
+      this.isNewForm = true;
+    } else {
+      this.step = this.field;
+      this.isNewForm = false;
+      this.mandatory = this.step.mandatory;
+      this.referenceNumber = this.step.identifier;
+      this.indications = this.step.indications;
+      this.question = this.step.question;
+    }
+    this.stateService.stateSubscribe().subscribe( (state: string) => {
+      this.state = state;
+      if (this.state === 'create-form') {
+        this.step.replacement = '';
+        this.divWhereIsDeleteButton.nativeElement.hidden = false;
+      } else {
+        this.divWhereIsDeleteButton.nativeElement.hidden = true;
+      }
+    });
+    if (this.documentType === 'plain') {
+      this.documentService = this.plainTextCreatorService;
+    } else if (this.documentType === 'office') {
+      this.documentService = this.odfCreatorService;
     }
   }
 
-  ngAfterViewInit() {
-    this.enableDrag();
+  ngOnDestroy() {
+    let steps = this.stepModelService.getStepsModel();
+    steps = steps.filter(step => step !== this.step);
+    this.stepModelService.init(steps, this.documentType);
+    this.stepModelService.removeStep();
+  }
+
+  createStep() {
+    this.step = {
+      type: 'iRadioB',
+      identifier: '',
+      wordToReplace: '',
+      replacement: '',
+      radios: [],
+      question: '',
+      indications: this.indications,
+      mandatory: false,
+      isFocused: false
+    };
+    this.indications = this.step.indications;
+    this.stepModelService.addNewStep(this.step);
+  }
+
+  onQuestionChanged(value: string) {
+    this.step.question = value;
   }
 
   getRandomId() {
-    if (this.isEditAuthor()) {
-      this.referenceNumber = this.field['referenceNumber'];
-      this.randomId = this.field['id'];
-      this.questionIdentifier = 'question' + this.field['referenceNumber'];
-      this.indicationsIdentifier = 'indications' + this.field['referenceNumber'];
-      this.mandatoryIdentifier = 'mandatory' + this.field['referenceNumber'];
-    } else {
-      // I add a character so that when we query the id without the inputTex it works
-      this.referenceNumber = 'i' + Math.random().toString(36).substring(7);
-      this.randomId = 'iRadioB' + this.referenceNumber;
-      this.questionIdentifier = 'question' + this.referenceNumber;
-      this.indicationsIdentifier = 'indications' + this.referenceNumber;
-      this.mandatoryIdentifier = 'mandatory' + this.referenceNumber;
-    }
+    // I add a character so that when we query the id without the inputTex it works
+    this.referenceNumber = 'i' + Math.random().toString(36).substring(7);
+    this.step.identifier = this.referenceNumber;
+    this.step.wordToReplace = this.referenceNumber;
   }
 
   changeId(e: any) {
@@ -78,27 +137,14 @@ export class InputRadioBComponent implements OnInit, AfterViewInit {
       newValue = newValue.substring(0, 10);
       this.changeIdInput.nativeElement.value = newValue;
     }
-    // Update injected radios first, after change reference number
-    const name = 'input[name="' + ('name' + this.referenceNumber) + '"]';
-    this.radios.nativeElement.querySelectorAll(name).forEach(radio => {
-      radio.name = 'name' + newValue;
-    });
-    this.radios.nativeElement.querySelectorAll('.name' + this.referenceNumber).forEach(element => {
-      element.classList.replace('name' + this.referenceNumber, 'name' + newValue);
-    });
-
     this.referenceNumber = newValue;
-    this.randomId = 'iRadioB' + this.referenceNumber;
-    this.questionIdentifier = 'question' + this.referenceNumber;
-    this.indicationsIdentifier = 'indications' + this.referenceNumber;
-    this.mandatoryIdentifier = 'mandatory' + this.referenceNumber;
+    this.step.identifier = 'iText' + this.referenceNumber;
+    this.step.wordToReplace = this.referenceNumber;
     this.enableDrag();
   }
 
   enableDrag() {
-    if (this.isEditAuthor() || this.isNewAuthor()) {
-      this.commonsService.enableDrag(this.draggableText.nativeElement, this.referenceNumber);
-    }
+    this.commonsService.enableDrag(this.draggableText.nativeElement, this.referenceNumber);
   }
 
   showChangeIdInputField() {
@@ -132,7 +178,7 @@ export class InputRadioBComponent implements OnInit, AfterViewInit {
       if (event.target === this.showModalButton.nativeElement) {
         this.rightMenu.nativeElement.style.display = 'none';
         window.removeEventListener('click', this.functionReference);
-        this.toggleModal(false);
+        // this.toggleModal(false);
       }
     } else {
       this.rightMenu.nativeElement.style.display = 'none';
@@ -140,26 +186,40 @@ export class InputRadioBComponent implements OnInit, AfterViewInit {
     }
   }
 
-  toggleModal(eraseIndications: boolean) {
-    this.modal.nativeElement.classList.toggle('show-modal');
-    if (eraseIndications) {
-      this.indications = '';
+  toogleModal(modal: ElementRef) {
+    this.commonsService.toggleModal(modal, false);
+  }
+
+  showIndication(e: any) {
+    e.preventDefault();
+    if (this.indications.indicationsType === 'outsideText') {
+      this.commonsService.toggleModal(this.modalIndication.nativeElement);
+    } else {
+      this.documentService.showIndicationInsideText(this.step.wordToReplace, this.indications.value);
     }
+  }
+
+  onIndicationsChanged(indications: any) {
+    this.step.indications = indications;
   }
 
   addNewRadio() {
     this.componentInjectorService.appendComponentToBody(
-                                        'Radio', NewRadioBComponent, this.randomId, 'parentId' + this.randomId,
-                                        'form-check-inline', { randomName: 'name' + this.referenceNumber});
+                                        'Radio', NewRadioBComponent, this.referenceNumber, 'parentId' + this.referenceNumber,
+                                        'divWhereIsDeleteButton', { identifier: this.referenceNumber});
   }
 
-  deleteElementDiv() {
+  onMandatoryChange(mandatory: boolean) {
+    this.step.mandatory = mandatory;
+    this.mandatory = mandatory;
+  }
+
+  deleteDiv() {
+    let steps = this.stepModelService.getStepsModel();
+    steps = steps.filter(step => step !== this.step);
+    this.stepModelService.init(steps, this.documentType);
+    this.stepModelService.removeStep();
     this.delete.nativeElement.remove();
   }
-
-  isNewAuthor () { return this.state === undefined; }
-  isNewUser () { return this.state === 'newUser'; }
-  isEditAuthor () { return this.state === 'editAuthor'; }
-  isEditUser () { return this.state === 'editUser'; }
 
 }
