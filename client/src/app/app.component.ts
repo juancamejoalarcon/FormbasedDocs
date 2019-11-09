@@ -44,6 +44,8 @@ export class AppComponent implements OnInit {
       }
     );
 
+    this.onPageLoad();
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (this.included(event['url'], this.includedUrlsForNavbar)) {
@@ -69,5 +71,19 @@ export class AppComponent implements OnInit {
       }
     });
     return isIncluded;
+  }
+
+  onPageLoad() {
+    if (this.included(window.location.href, this.includedUrlsForNavbar)) {
+      this.navbar.nativeElement.hidden = true;
+    } else {
+      this.navbar.nativeElement.hidden = false;
+    }
+
+    if (this.included(window.location.href, this.includedUrlsForFooter)) {
+      this.footer.nativeElement.hidden = true;
+    } else {
+      this.footer.nativeElement.hidden = false;
+    }
   }
 }
