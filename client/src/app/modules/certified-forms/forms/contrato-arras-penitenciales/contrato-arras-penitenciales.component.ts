@@ -84,11 +84,12 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   }
 
   ngAfterViewInit() {
-    this.commonsService.resizeEditor();
+    this.commonsService.resizeEditor(false);
   }
 
   ngOnDestroy() {
     this.documentCreatorService.destroy();
+    window.removeEventListener('resize', this.commonsService.resizeEditor.bind(this));
   }
 
   setInitiaState() {
@@ -104,6 +105,8 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
       }
     });
     this.documentCreatorService.init(this.form.uri).then( data => {
+      this.commonsService.resizeEditor(true);
+      window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.stepModelService.buildDocument();
       if (!window.sessionStorage['Contrato de Arras Penitenciales']) {
         this.stepModelService.setInitialState();
@@ -175,6 +178,8 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     this.stepModelService.init(this.form.fields);
     this.documentCreatorService.destroy();
     this.documentCreatorService.init(this.form.uri).then( inited => {
+      this.commonsService.resizeEditor(true);
+      window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.stepModelService.buildDocument();
       // Save uri and send Email
       this.documentCreatorService.saveUri().then((uri: string) => {
@@ -183,6 +188,11 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
         });
       });
     });
+  }
+
+  previewDocumentButton() {
+    this.commonsService.previewDocumentButton(true);
+    this.documentCreatorService.resizeEvent();
   }
 
 }

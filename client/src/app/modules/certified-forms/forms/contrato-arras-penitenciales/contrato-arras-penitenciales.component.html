@@ -295,6 +295,9 @@
                       <span class="icon icon-chevron-left-solid"></span>
                       <span class="form-creator__fields-area__bottom__arrow-button__label">Anterior</span>
                   </div>
+                  <div class="form-creator__fields-area__bottom__preview-button" (click)="previewDocumentButton();">
+                      Preview <span>⬇</span>
+                    </div>
                   <div class="form-creator__fields-area__bottom__arrow-button" (click)="moveStep('next')" 
                       *ngIf="this.steps[this.currentStep].type !== 'end'">
                       <span class="form-creator__fields-area__bottom__arrow-button__label">Siguiente</span>
@@ -309,6 +312,7 @@
       <div id="editorContainer" style="width:100%; height:100%; margin:0px; padding:0px">
       </div>
   </div>
+  <button class="button-filled button-filled--preview-document" id="scrollToTop" style="display: none;" (click)="this.commonsService.previewDocumentButton(false)">Form <span style='font-size:20px;'>&#8593;</span></button>
   </div>
 </div>
 

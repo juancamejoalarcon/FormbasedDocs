@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class CommonsService {
 
+    public isDocumentVisible = false;
     constructor (
         private toastr: ToastrService
     ) {}
@@ -141,18 +142,47 @@ export class CommonsService {
         }
     }
 
-    resizeEditor() {
+    resizeEditor(isLoaded: boolean = true) {
         if (window.innerWidth > 885) {
-            const newHeight = window.innerHeight - document.getElementById('form-creator').offsetTop + 'px';
-            document.getElementById('form-creator').style.height = newHeight;
-            document.getElementById('fields-area').style.height = '100%';
-            document.getElementById('text-area').style.height = '100%';
-            // document.getElementsByClassName('sub-menu')[0]
+          if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
+            const newHeight = window.innerHeight - (document.querySelector('#form-creator') as HTMLElement).offsetTop + 'px';
+            // const toolBarOffsetTop = (document.querySelector('.ql-toolbar') as HTMLElement).offsetTop;
+            // const toolBarOffsetHeight = (document.querySelector('.ql-toolbar') as HTMLElement).offsetHeight;
+            // const newHeightForEditor = window.innerHeight - (toolBarOffsetTop + toolBarOffsetHeight) + 'px';
+            (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
+            document.getElementById('text-area').style.display = 'block';
+            document.getElementById('fields-area').style.display = 'block';
+            document.getElementById('scrollToTop').style.display = 'none';
+            // (document.querySelector('#editor-container') as HTMLElement).style.height = newHeightForEditor;
+          }
         } else {
-            const newHeight = window.innerHeight - document.getElementById('form-creator').offsetTop + 'px';
-            document.getElementById('form-creator').style.height = '100%';
-            document.getElementById('fields-area').style.height = newHeight;
-            document.getElementById('text-area').style.height = window.innerHeight + 'px';
+            // Mobile mode
+            if (isLoaded) {
+                if (document.getElementById('fields-area').style.display === 'none') {
+                    document.getElementById('fields-area').style.display = 'none';
+                    document.getElementById('text-area').style.display = 'block';
+                    document.getElementById('scrollToTop').style.display = 'block';
+                } else {
+                    document.getElementById('fields-area').style.display = 'block';
+                    document.getElementById('text-area').style.display = 'none';
+                    document.getElementById('scrollToTop').style.display = 'none';
+                }
+            }
+            const newHeight = window.innerHeight - (document.querySelector('#fields-area') as HTMLElement).offsetTop + 'px';
+            (document.querySelector('#fields-area') as HTMLElement).style.height = newHeight;
+            (document.querySelector('#text-area') as HTMLElement).style.height = newHeight;
+        }
+    }
+
+    previewDocumentButton(setDocumentVisible: boolean) {
+        if (setDocumentVisible) {
+            document.getElementById('fields-area').style.display = 'none';
+            document.getElementById('text-area').style.display = 'block';
+            document.getElementById('scrollToTop').style.display = 'block';
+        } else {
+            document.getElementById('fields-area').style.display = 'block';
+            document.getElementById('text-area').style.display = 'none';
+            document.getElementById('scrollToTop').style.display = 'none';
         }
     }
 
