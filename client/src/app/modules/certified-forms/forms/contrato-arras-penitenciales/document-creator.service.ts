@@ -125,15 +125,21 @@ export class DocumentCreatorService {
     elementContainingWord.appendChild(para);
 
     const removeIndication = (e: any) => {
-      if (e.target.classList.contains('icon-info-circle-solid')
-      || e.target.classList.contains('indication')) {
-          if (document.querySelectorAll('.indicator').length >= 2) {
-              para.parentNode.removeChild(para);
-              window.removeEventListener('click', removeIndication);
-          }
+      if (window.innerWidth > 885) {
+        if (e.target.classList.contains('icon-info-circle-solid') || e.target.classList.contains('indication')) {
+            if (document.querySelectorAll('.indicator').length >= 2) {
+                para.parentNode.removeChild(para);
+                window.removeEventListener('click', removeIndication);
+            }
+        } else {
+            para.parentNode.removeChild(para);
+            window.removeEventListener('click', removeIndication);
+        }
       } else {
+        if (e.target.id === 'scrollToTop' || e.target.id === 'close-indication') {
           para.parentNode.removeChild(para);
           window.removeEventListener('click', removeIndication);
+        }
       }
     }
 

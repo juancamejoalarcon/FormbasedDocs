@@ -159,7 +159,12 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   showIndication() {
     const step = this.steps[this.currentStep];
     if (step.indications.areIndications) {
-      this.documentCreatorService.showIndicationInsideText(step.wordToReplace, step.indications.value);
+      if (window.innerWidth > 885) {
+        this.documentCreatorService.showIndicationInsideText(step.wordToReplace, step.indications.value);
+      } else {
+        this.previewDocumentButton();
+        this.documentCreatorService.showIndicationInsideText(step.wordToReplace, step.indications.value);
+      }
     }
   }
 
