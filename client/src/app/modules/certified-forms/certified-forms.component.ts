@@ -86,31 +86,6 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
           });
         }
       );
-      // this.formService
-      // .save(this.form)
-      // .subscribe(
-      //   form => {
-      //     if (!this.updatingForm) {
-      //       this.toastr.success('Has been created', form.title, {
-      //         positionClass: 'toast-bottom-right',
-      //         progressBar: true,
-      //         progressAnimation: 'decreasing'
-      //       });
-      //       this.router.navigateByUrl('/create-form/edit/' + form.slug);
-      //     } else {
-      //       this.toastr.success('Has been updated', form.title, {
-      //         positionClass: 'toast-bottom-right',
-      //         progressBar: true,
-      //         progressAnimation: 'decreasing'
-      //       });
-      //     }
-      //     this.isSubmitting = false;
-      //   },
-      //   err => {
-      //     this.errors = err;
-      //     this.isSubmitting = false;
-      //   }
-      // );
     } else {
       window.sessionStorage[this.form.title] = JSON.stringify(this.form);
       this.router.navigate(['/auth/login'], {
