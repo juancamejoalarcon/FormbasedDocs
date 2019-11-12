@@ -23,7 +23,7 @@
                     </div>
                     <div class="checkout-panel__body__invoice__text__total">
                         <span class="checkout-panel__body__invoice__text__total__right">Total:</span>
-                        <span class="checkout-panel__body__invoice__text__total__left">19.90 eur</span>
+                        <span class="checkout-panel__body__invoice__text__total__left">19.90€</span>
                     </div>
                     <div class="checkout-panel__body__invoice__text__more-info">
                         <span>
@@ -108,16 +108,16 @@
         </div>
         <div class="checkout-panel__body__success" *ngIf="this.steps[this.currentStep].type === 'finish'">
             <span class=" form-creator__fields-area__end-step__check icon icon-check-circle-solid"></span>
-            <h2 style="padding-bottom: 2rem;">Transacción: </h2>
+            <h2>Transacción: </h2>
             <div class="checkout-panel__body__invoice__text__total">
-                <span class="checkout-panel__body__invoice__text__total__right">{{form.title}}</span>
-                <span class="checkout-panel__body__invoice__text__total__left">19.90 eur</span>
+                <span class="checkout-panel__body__invoice__text__total__right total-success">{{form.title}}</span>
+                <span class="checkout-panel__body__invoice__text__total__left total-success">19.90 eur</span>
             </div>
             <p class="checkout-panel__body__success__message">Recibirás un mensaje a <strong>{{this.email}}</strong> con tu factura así como los documentos. 
                 Durante los próximos 15 días podrás modificar el formulario de nuevo sin tener que pagar 
                 y volver a descargarlo, una vez terminado el plazo caducará.</p>
             <div class="checkout-panel__body__success__download">
-                <h3 style="padding-bottom: 1rem;">Descarga ahora</h3>
+                <h3>Descarga ahora</h3>
                 <span class="icon icon-file-word-solid trigger" (click)="downloadWord()"></span>
                 <span class="icon icon-file-pdf-solid" (click)="downloadPdf()"></span>
             </div>
@@ -127,7 +127,11 @@
 <div class="modal__content__modal-bottom modal__content__modal-bottom--privacy checkout-panel__footer">
     <button class="btn back-btn" (click)="moveStep('previous')" 
     [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'cart' ? 0 : 1 }"
-    [disabled]="this.steps[this.currentStep].type === 'cart'">Back</button>
+    [disabled]="this.steps[this.currentStep].type === 'cart'"
+    *ngIf="this.steps[this.currentStep].type !== 'finish'">Back</button>
+
+    <button class="btn back-btn" (click)="this.exitModal.emit();" 
+    *ngIf="this.steps[this.currentStep].type === 'finish'">Back</button>
     
     <button class="btn next-btn" (click)="moveStep('next')"
     [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'finish' ? 0 : 1 }"

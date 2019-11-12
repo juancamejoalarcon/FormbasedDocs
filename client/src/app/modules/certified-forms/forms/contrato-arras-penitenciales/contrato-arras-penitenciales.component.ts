@@ -32,6 +32,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   public currentStep = 0;
   public progresBarPercentage = '0%';
   public steps: any = stepsImport.steps;
+  public formAlreadyPaid = false;
 
   constructor(
     private stepModelService: StepModelService,
@@ -47,6 +48,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       if (params.transactionId) {
+        this.formAlreadyPaid = true;
         this.formsService.getPaidCertifiedForm(params.transactionId).subscribe((data: any) => {
           if (data.certifiedForm) {
             const certifiedForm = data.certifiedForm;
@@ -178,6 +180,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   }
 
   onFormPaid(certifiedForm: any) {
+    this.formAlreadyPaid = true;
     this.form.uri = certifiedForm.uri;
     this.form.fields = JSON.parse(certifiedForm.fields);
     this.stepModelService.init(this.form.fields);
@@ -198,6 +201,10 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
   previewDocumentButton() {
     this.commonsService.previewDocumentButton(true);
     this.documentCreatorService.resizeEvent();
+  }
+
+  onExitPayment() {
+    this.toogleModal(this.modalEnd.nativeElement);
   }
 
 }

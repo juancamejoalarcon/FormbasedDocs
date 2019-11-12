@@ -256,9 +256,14 @@
                               <div class="form-creator__fields-area__end-step__container">
                                   <span class=" form-creator__fields-area__end-step__check icon icon-check-circle-solid"></span>
                                   <h1>Finalizado</h1>
-                                  <button class="button-filled button-filled--start-form trigger" (click)="toogleModal(modalEnd);startCheckout();">
+                                  <button class="button-filled button-filled--start-form trigger" (click)="toogleModal(modalEnd);startCheckout();"
+                                  *ngIf="!formAlreadyPaid">
                                       Descargar
                                   </button>
+                                  <button class="button-filled button-filled--start-form trigger"
+                                  *ngIf="formAlreadyPaid">
+                                  Descargar
+                                </button>
                                   <div class="form-creator__fields-area__end-step__icons">
                                       <span class="icon icon-file-word-solid trigger"></span>
                                       <span class="icon icon-file-pdf-solid"></span>
@@ -378,5 +383,5 @@
 </div>
 
 <div class="modal" #modalEnd>
-    <app-checkout class="modal__content modal__content--privacy" [form]="form" (formPaid)="onFormPaid($event)"></app-checkout>
+    <app-checkout class="modal__content modal__content--privacy" [form]="form" (formPaid)="onFormPaid($event)" (exitModal)="onExitPayment();"></app-checkout>
 </div>

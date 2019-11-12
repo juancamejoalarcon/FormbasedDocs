@@ -13,6 +13,7 @@ export class CheckoutComponent implements OnInit {
 
   @Input() form: Form;
   @Output() formPaid: EventEmitter<any> = new EventEmitter();
+  @Output() exitModal: EventEmitter<any> = new EventEmitter();
   @ViewChild('emailInput') emailInput: ElementRef;
   @ViewChild('conditions') conditions: ElementRef;
   public currentStep = 0;
