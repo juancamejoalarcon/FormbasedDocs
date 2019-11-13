@@ -1,4 +1,66 @@
-<section id="settings">
+<div class="sub-menu">
+    <div class="sub-menu__container">
+        <ul class="sub-menu__nav sub-menu__nav--my-forms" style="justify-content: center;">
+            <li class="sub-menu__nav__button sub-menu__nav__button--without-hover">
+                {{user.username}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="settings">
+    <app-list-errors [errors]="errors"></app-list-errors>
+    <form class="settings__container" [formGroup]="settingsForm" (ngSubmit)="submitForm()">
+        <div class="settings__profile-image">
+            <div class="settings__profile-image__container">
+                <div class="settings__profile__image__img">
+                    <img src="{{user.image}}" alt="profile image" #imageSrc>
+                </div>
+                <fieldset class="settings__profile__image__input">
+                    <label class="input-file">
+                        Cambiar imagen de perfil
+                        <input type="file" name="profile-image" (change)="onFileChange($event)">
+                    </label>
+                </fieldset>
+            </div>
+        </div>
+        <div class="settings__form">
+            <div class="settings__form__container">
+                <fieldset class="settings__form__group">
+                    <input type="text" placeholder="Nombre de usuario" formControlName="username">
+                    <input type="text" placeholder="Nombre y apellidos">
+                    <input type="text" placeholder="Corren electrónico" formControlName="email">
+                </fieldset>
+                <fieldset class="settings__form__group">
+                    <textarea name="description" cols="30" rows="10"
+                    placeholder="Description" formControlName="description"></textarea>
+                    <input type="date" placeholder="Fecha de nacimiento">
+                    <input type="text" placeholder="Empresa">
+                    <input type="text" placeholder="Contacto" formControlName="contactInformation">
+                </fieldset>
+                <div class="settings__form__button-container">
+                    <button type="submit" class="button-filled icon icon-save-solid"></button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="settings__buttons">
+            <div class="settings__buttons__container">
+                <button class="button-filled trigger" type="button">
+                    Cambiar contraseña
+                </button>
+                <button class="button-filled" type="button">
+                    Cerrar sesión
+                </button>
+                <button class="button-filled" type="button">
+                    Eliminar cuenta
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- <section id="settings">
     <div class="settings-container">
         
         <app-list-errors [errors]="errors"></app-list-errors>
@@ -49,7 +111,7 @@
 
 
   </div>
-</section>
+</section> -->
 
 <!-- Modal -->
 <div class="modal" #modal>

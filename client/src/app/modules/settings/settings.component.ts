@@ -11,6 +11,7 @@ import { User, UserService } from '../../core';
 export class SettingsComponent implements OnInit {
 
   @ViewChild('modal') modal: ElementRef;
+  @ViewChild('imageSrc') imageSrc: ElementRef;
   user: User = new User();
   settingsForm: FormGroup;
   errors: Object = {};
@@ -46,9 +47,9 @@ export class SettingsComponent implements OnInit {
       const [file] = event.target.files;
       const fileSize = file.size / 1024 / 1024; // in MB
       if (this.hasExtension(event.target.value, ['.jpg', '.gif', '.png'])) {
-        if ( fileSize > 2) {
+        if ( fileSize > 1) {
           event.target.value = '';
-          this.toastr.error('File is bigger than 2 MB', 'Error', {
+          this.toastr.error('File is bigger than 1 MB', 'Error', {
             positionClass: 'toast-bottom-right',
             progressBar: true,
             progressAnimation: 'decreasing'
@@ -59,6 +60,7 @@ export class SettingsComponent implements OnInit {
             this.settingsForm.patchValue({
               image: reader.result
             });
+            this.imageSrc.nativeElement.src = reader.result;
         };
         }
       } else {
