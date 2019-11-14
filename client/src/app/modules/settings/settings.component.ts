@@ -83,6 +83,7 @@ export class SettingsComponent implements OnInit {
 
     // update the model
     this.updateUser(this.settingsForm.value);
+    console.log(this.user);
 
     this.userService
     .update(this.user)

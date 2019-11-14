@@ -50,6 +50,8 @@ router.post('/signup', function(req, res, next){
 router.put('/', auth.required, function(req, res, next){
   User.findById(req.payload.id).then(function(user){
     if(!user){ return res.sendStatus(401); }
+
+    let userImage;
     // only update fields that were actually passed...
     if(typeof req.body.user.username !== 'undefined'){
       user.username = req.body.user.username;
@@ -72,17 +74,20 @@ router.put('/', auth.required, function(req, res, next){
     if(typeof req.body.user.contactInformation !== 'undefined'){
       user.contactInformation = req.body.user.contactInformation;
     }
-    if(typeof req.body.user.image !== 'undefined'){
-      user.image = req.body.user.image;
-    }
     if(typeof req.body.user.password !== 'undefined'){
       // Check if password is valid
       user.setPassword(req.body.user.password);
     }
 
-    return user.save().then(function(){
-      return res.json({user: user.toAuthJSON()});
-    });
+    if(typeof req.body.user.image !== 'undefined'){
+      userImage = req.body.user.image;
+      let pathName = `./tmp/${user.id}.odt`;
+    } else {
+      return user.save().then(function(){
+        return res.json({user: user.toAuthJSON()});
+      });
+    }
+    console.log(user.id);
   }).catch(next);
 });
 
