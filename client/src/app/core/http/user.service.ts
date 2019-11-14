@@ -44,7 +44,7 @@ export class UserService {
       this.jwtService.saveTokenInSession(user.token);
     }
 
-    if (user.image === undefined) {
+    if (!user.image) {
       user.image = 'assets/images/avatar.jpg';
     }
     // Set current user data into observable

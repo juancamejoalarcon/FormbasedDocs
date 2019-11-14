@@ -3,10 +3,12 @@ const uniqueValidator = require('mongoose-unique-validator');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const secret = require('../config').secret;
+const fs = require('fs');
 
 const UserSchema = new mongoose.Schema({
   username: {type: String, unique: true, required: [true, "can't be blank"], match: [/^[A-zÀ-ÿ0-9 ]+$/, 'is invalid'], index: true},
   email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
+  nameAndSurname: String,
   description: String,
   dateOfBirth: Date,
   companyName: String,
@@ -49,26 +51,39 @@ UserSchema.methods.generateJWT = function() {
   }, secret);
 };
 
-UserSchema.methods.toAuthJSON = function(){
+UserSchema.methods.toAuthJSON = function(image){
   return {
     username: this.username,
     email: this.email,
     token: this.generateJWT(),
     description: this.description,
-    image: this.image,
+    nameAndSurname: this.nameAndSurname,
+    companyName: this.companyName,
+    image: image,
     contactInformation: this.contactInformation
   };
 };
 
 UserSchema.methods.toProfileJSONFor = function(user){
+  let image64;
+  ['jpeg', 'png', 'jpg'].forEach((type) => {
+    // Delete current saved image
+    const path = `./tmp/images/${user.id}.${type}`;
+    if (fs.existsSync(path)) {
+      const data = fs.readFileSync(path);
+      image64 = `data:image/${type};base64,` + data.toString('base64');
+    };
+  });
   return {
     id: this._id,
     username: this.username,
     description: this.description,
+    nameAndSurname: this.nameAndSurname,
     email: this.email,
+    dateOfBirth: this.dateOfBirth,
     companyName: this.companyName,
     contactInformation: this.contactInformation,
-    image: this.image || null
+    image: image64
   };
 };
 

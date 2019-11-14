@@ -29,7 +29,10 @@ export class SettingsComponent implements OnInit {
       username: '',
       email: '',
       description: '',
+      nameAndSurname: '',
       contactInformation: '',
+      dateOfBirth: '',
+      companyName: '',
     });
   }
 
@@ -37,6 +40,7 @@ export class SettingsComponent implements OnInit {
     // Make a fresh copy of the current user's object to place in editable form fields
     (<any>Object).assign(this.user, this.userService.getCurrentUser());
     // Fill the form
+    console.log(this.user);
     this.settingsForm.patchValue(this.user);
   }
 
@@ -82,12 +86,13 @@ export class SettingsComponent implements OnInit {
     this.isSubmitting = true;
 
     // update the model
-    this.updateUser(this.settingsForm.value);
-    console.log(this.user);
+    const updatedUser = this.validation(this.settingsForm.value);
+
+    console.log(updatedUser);
 
     this.userService
-    .update(this.user)
-    .subscribe( updatedUser => {
+    .update(updatedUser)
+    .subscribe( newUser => {
       this.toastr.success('User updated', '', {
         positionClass: 'toast-bottom-right',
         progressBar: true,
@@ -101,9 +106,22 @@ export class SettingsComponent implements OnInit {
     );
   }
 
-  updateUser(values: Object) {
-    (<any>Object).assign(this.user, values);
+  validation(values: Object) {
+    const updatedUser = {};
+    const entries = Object.entries(values);
+    for (const [key, value] of entries) {
+      if (values[key] !== this.user[key]) {
+        updatedUser[key] = value;
+        this.user[key] = value;
+      }
+    }
+    return updatedUser;
   }
+
+  // updateUser(values: Object) {
+  //   console.log(values);
+  //   (<any>Object).assign(this.user, values);
+  // }
 
   toggleModal() {
     this.modal.nativeElement.classList.toggle('show-modal');
