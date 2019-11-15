@@ -60,11 +60,26 @@ export class SettingsComponent implements OnInit {
           });
         } else {
           reader.readAsDataURL(file);
-          reader.onload = () => {
-            this.settingsForm.patchValue({
-              image: reader.result
-            });
-            this.imageSrc.nativeElement.src = reader.result;
+          reader.onload = (e: any) => {
+
+            var image = new Image();
+            //Set the Base64 string return from FileReader as source.
+            image.src = e.target.result;
+            image.onload = () => {
+              if (image.height === image.width) {
+                this.settingsForm.patchValue({
+                  image: reader.result
+                });
+                this.imageSrc.nativeElement.src = reader.result;
+              } else {
+                event.target.value = '';
+                this.toastr.error('Size error width and height must be equal', 'Error', {
+                  positionClass: 'toast-bottom-right',
+                  progressBar: true,
+                  progressAnimation: 'decreasing'
+                });
+              }
+            }
         };
         }
       } else {
@@ -142,16 +157,25 @@ export class SettingsComponent implements OnInit {
       });
     } else {
       this.userService
-      .update({
-        password : newPass
+      .changePassword({
+        oldPassword : oldPass,
+        newPassword : newPass,
       })
       .subscribe( updatedUser => {
-        this.toggleModal();
-        this.toastr.success('User updated', '', {
-          positionClass: 'toast-bottom-right',
-          progressBar: true,
-          progressAnimation: 'decreasing'
-        });
+        if (updatedUser.invalidPassword) {
+          this.toastr.error('Current password is wrong', '', {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+        } else {
+          this.toggleModal();
+          this.toastr.success('User updated', '', {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+        }
       },
         err => {
           this.errors = err;

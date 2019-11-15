@@ -11,7 +11,7 @@ router.get('/', auth.required, function(req, res, next){
   User.findById(req.payload.id).then(function(user){
     if(!user){ return res.sendStatus(401); }
     let image64;
-    ['jpeg', 'png', 'jpg'].forEach((type) => {
+    ['jpeg', 'png', 'jpg', 'gif'].forEach((type) => {
       // Delete current saved image
       const path = `./tmp/images/${user.id}.${type}`;
       if (fs.existsSync(path)) {
@@ -56,6 +56,26 @@ router.post('/signup', function(req, res, next){
   }).catch(next);
 });
 
+router.put('/change-password', auth.required, function(req, res, next){
+  User.findById(req.payload.id).then(function(user){
+    if(!user){ return res.sendStatus(401); }
+    let oldPass = req.body.oldPassword;
+    let newPass = req.body.newPassword;
+    if (oldPass === newPass) {
+      return res.sendStatus(401);
+    } else {
+      if (!user.validPassword(oldPass)) {
+        return res.json({invalidPassword: true});
+      } else {
+        user.password = newPass;
+        return user.save().then(function(){
+          return res.json({user: user.toAuthJSON()});
+        }).catch(next);
+      }
+    }
+  });
+});
+
 router.put('/', auth.required, function(req, res, next){
   User.findById(req.payload.id).then(function(user){
     if(!user){ return res.sendStatus(401); }
@@ -96,7 +116,7 @@ router.put('/', auth.required, function(req, res, next){
 
       let userImage = req.body.user.image;
       let imageType;
-      ['jpeg', 'png', 'jpg'].forEach((type) => {
+      ['jpeg', 'png', 'jpg', 'gif'].forEach((type) => {
         // Delete current saved image
         const path = `./tmp/images/${user.id}.${type}`;
         if (fs.existsSync(path)) {

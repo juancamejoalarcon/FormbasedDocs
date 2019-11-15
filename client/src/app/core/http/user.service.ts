@@ -88,6 +88,12 @@ export class UserService {
     }));
   }
 
+  changePassword(passwords: any) {
+    return this.apiService
+    .put('/user/change-password', passwords)
+    .pipe(map(data => data));
+  }
+
   forgotPassword(email: string) {
     return this.apiService
     .post('/user/forgot-password', { email: email})

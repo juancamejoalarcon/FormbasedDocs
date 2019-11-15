@@ -66,9 +66,13 @@ UserSchema.methods.toAuthJSON = function(image){
 
 UserSchema.methods.toProfileJSONFor = function(user){
   let image64;
-  ['jpeg', 'png', 'jpg'].forEach((type) => {
-    // Delete current saved image
-    const path = `./tmp/images/${user.id}.${type}`;
+  ['jpeg', 'png', 'jpg', 'gif'].forEach((type) => {
+    let path
+    if (user) {
+      path = `./tmp/images/${user.id}.${type}`;
+    } else {
+      path = `./tmp/images/${this._id}.${type}`;
+    }
     if (fs.existsSync(path)) {
       const data = fs.readFileSync(path);
       image64 = `data:image/${type};base64,` + data.toString('base64');
