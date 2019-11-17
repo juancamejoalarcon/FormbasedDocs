@@ -54,7 +54,6 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
           if (data.certifiedForm) {
             const certifiedForm = data.certifiedForm;
             this.form.fields = JSON.parse(certifiedForm.fields);
-            console.log(this.form.fields);
             this.form.title = certifiedForm.title;
             this.form.uri = certifiedForm.uri;
             this.form.id = 'contrato-arras-penitenciales';
