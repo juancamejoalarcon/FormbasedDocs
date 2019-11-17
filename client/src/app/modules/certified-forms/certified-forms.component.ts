@@ -53,11 +53,14 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
         }
       }
     );
-    document.getElementsByTagName('html')[0].style.overflow = "hidden";
+    document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+    window.addEventListener('unload', this.saveInSessionStorage.bind(this));
   }
 
   ngOnDestroy() {
-    document.getElementsByTagName('html')[0].style.overflow = "";
+    document.getElementsByTagName('html')[0].style.overflow = '';
+    this.saveInSessionStorage();
+    window.removeEventListener('unload', this.saveInSessionStorage);
   }
 
   topMenuNav(e: any) {
@@ -94,6 +97,10 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
         }
       });
     }
+  }
+
+  saveInSessionStorage() {
+    window.sessionStorage[this.form.title] = JSON.stringify(this.form);
   }
 
   toogleModal(modal: ElementRef) {

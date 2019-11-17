@@ -828,7 +828,7 @@ window.Wodo = window.Wodo || (function () {
             tools = new Tools(toolbarElementId, {
                 onToolDone: setFocusToOdfCanvas,
                 loadOdtFile: loadOdtFile,
-                saveOdtFile: saveOdtFile,
+                saveOdtFile: editorOptions.formType !== 'fillForm' ? saveOdtFile : false,
                 saveAsOdtFile: saveAsOdtFile,
                 downloadOdtFile: downloadOdtFile,
                 close: close,

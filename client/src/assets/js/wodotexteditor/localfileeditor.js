@@ -159,6 +159,10 @@ function createEditor(formType, idOfContainer) {
 
         editor.getDocumentAsByteArray(saveByteArrayLocally);
     }
+
+    function emptySave() {
+        
+    }
     // Fill form
     editorOptions = {
         loadCallback: formType === 'fillForm' ? false : load,

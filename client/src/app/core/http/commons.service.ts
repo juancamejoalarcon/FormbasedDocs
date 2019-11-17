@@ -149,10 +149,12 @@ export class CommonsService {
             // const toolBarOffsetTop = (document.querySelector('.ql-toolbar') as HTMLElement).offsetTop;
             // const toolBarOffsetHeight = (document.querySelector('.ql-toolbar') as HTMLElement).offsetHeight;
             // const newHeightForEditor = window.innerHeight - (toolBarOffsetTop + toolBarOffsetHeight) + 'px';
-            (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
             document.getElementById('text-area').style.display = 'block';
             document.getElementById('fields-area').style.display = 'block';
             document.getElementById('scrollToTop').style.display = 'none';
+            (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
+            (document.querySelector('#fields-area') as HTMLElement).style.height = newHeight;
+            (document.querySelector('#text-area') as HTMLElement).style.height = newHeight;
             // (document.querySelector('#editor-container') as HTMLElement).style.height = newHeightForEditor;
           }
         } else {
@@ -162,15 +164,20 @@ export class CommonsService {
                     document.getElementById('fields-area').style.display = 'none';
                     document.getElementById('text-area').style.display = 'block';
                     document.getElementById('scrollToTop').style.display = 'block';
+
+                    const newHeight = window.innerHeight - (document.querySelector('#text-area') as HTMLElement).offsetTop + 'px';
+                    (document.querySelector('#text-area') as HTMLElement).style.height = newHeight;
+
                 } else {
                     document.getElementById('fields-area').style.display = 'block';
                     document.getElementById('text-area').style.display = 'none';
                     document.getElementById('scrollToTop').style.display = 'none';
+
+                    const newHeight = window.innerHeight - (document.querySelector('#fields-area') as HTMLElement).offsetTop + 'px';
+                    (document.querySelector('#fields-area') as HTMLElement).style.height = newHeight;
                 }
             }
-            const newHeight = window.innerHeight - (document.querySelector('#fields-area') as HTMLElement).offsetTop + 'px';
-            (document.querySelector('#fields-area') as HTMLElement).style.height = newHeight;
-            (document.querySelector('#text-area') as HTMLElement).style.height = newHeight;
+
         }
     }
 
@@ -184,6 +191,7 @@ export class CommonsService {
             document.getElementById('text-area').style.display = 'none';
             document.getElementById('scrollToTop').style.display = 'none';
         }
+        this.resizeEditor(true);
     }
 
     isObjectEmpty(obj: object) {
@@ -312,6 +320,13 @@ export class CommonsService {
             progressAnimation: 'decreasing'
           });
         }
-      }
+    }
+
+    getBrowserType() {
+        const windowVariable = window as any;
+        if (!!windowVariable.chrome && (!!windowVariable.chrome.webstore || !!windowVariable.chrome.runtime)) {
+            return 'Chrome';
+        }
+    }
 
 }

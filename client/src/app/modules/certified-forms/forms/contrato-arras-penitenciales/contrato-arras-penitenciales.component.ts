@@ -27,6 +27,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
 
   @ViewChild('modal') modal: ElementRef;
   @ViewChild('modalEnd') modalEnd: ElementRef;
+  @ViewChild('modalDownload') modalDownload: ElementRef;
   @ViewChild('input') input: ElementRef;
   public form: Form = new Form();
   public currentStep = 0;
@@ -53,6 +54,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
           if (data.certifiedForm) {
             const certifiedForm = data.certifiedForm;
             this.form.fields = JSON.parse(certifiedForm.fields);
+            console.log(this.form.fields);
             this.form.title = certifiedForm.title;
             this.form.uri = certifiedForm.uri;
             this.form.id = 'contrato-arras-penitenciales';
@@ -68,6 +70,8 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
         if (window.sessionStorage['Contrato de Arras Penitenciales']) {
           this.form = JSON.parse(window.sessionStorage['Contrato de Arras Penitenciales']);
           this.steps = this.form.fields;
+          this.formAlreadyPaid = this.form.alreadyPaid;
+          console.log(this.form.alreadyPaid);
           this.setInitiaState();
         } else {
           this.formsService.getCertifiedForm('contrato-arras-penitenciales').subscribe(
@@ -101,7 +105,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
       if (step.isCurrentStep) {
         this.currentStep = index;
         this.updateProgressBarPercentage();
-        if (this.steps[this.currentStep].type === 'end' && this.steps[this.currentStep].checkoutProcess.isInited) {
+        if (this.steps[this.currentStep].type === 'end' && this.steps[this.currentStep].checkoutProcess.isInited && !this.formAlreadyPaid) {
           this.toogleModal(this.modalEnd.nativeElement);
         }
       }
@@ -109,6 +113,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     this.documentCreatorService.init(this.form.uri).then( data => {
       this.commonsService.resizeEditor(true);
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
+      this.documentCreatorService.resizeDocumentContainer();
       this.stepModelService.buildDocument();
       if (!window.sessionStorage['Contrato de Arras Penitenciales']) {
         this.stepModelService.setInitialState();
@@ -181,10 +186,12 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
 
   onFormPaid(certifiedForm: any) {
     this.formAlreadyPaid = true;
+    this.form.alreadyPaid = true;
     this.form.uri = certifiedForm.uri;
     this.form.fields = JSON.parse(certifiedForm.fields);
     this.stepModelService.init(this.form.fields);
     this.documentCreatorService.destroy();
+    this.sharedService.setForm(this.form);
     this.documentCreatorService.init(this.form.uri).then( inited => {
       this.commonsService.resizeEditor(true);
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
@@ -200,11 +207,28 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
 
   previewDocumentButton() {
     this.commonsService.previewDocumentButton(true);
-    this.documentCreatorService.resizeEvent();
+      this.documentCreatorService.resizeEvent();
   }
 
   onExitPayment() {
     this.toogleModal(this.modalEnd.nativeElement);
+  }
+
+  toogleCheckout() {
+    if (!this.formAlreadyPaid) {
+      this.toogleModal(this.modalEnd.nativeElement);
+      this.startCheckout();
+    } else {
+      this.toogleModal(this.modalDownload.nativeElement);
+    }
+  }
+
+  downloadWord() {
+    this.documentCreatorService.downloadWord(this.form.id, this.form.uri);
+  }
+
+  downloadPdf() {
+    this.documentCreatorService.downloadPdf(this.form.id, this.form.uri);
   }
 
 }

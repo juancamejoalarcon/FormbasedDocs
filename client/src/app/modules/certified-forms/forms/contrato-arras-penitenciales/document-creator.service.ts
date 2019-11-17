@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CommonsService } from '../../../../core';
+import { CommonsService, ConvertService } from '../../../../core';
 import * as FormBasedDocsApi from '../../../../../assets/js/wodotexteditor/localfileeditor.js';
 @Injectable()
 export class DocumentCreatorService {
@@ -10,6 +10,7 @@ export class DocumentCreatorService {
 
   constructor(
     private commonsService: CommonsService,
+    private convertService: ConvertService
   ) { }
 
   init(uri: any) {
@@ -22,7 +23,6 @@ export class DocumentCreatorService {
             window['editor'].getEditorSession() &&
             document.getElementsByTagName('office:text').length) {
             this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-            this.resizeDocumentContainer();
             this.commonsService.toggleSpinner();
             clearInterval(checkIfEditorCreated);
             resolve("Document ready");
@@ -76,6 +76,10 @@ export class DocumentCreatorService {
   resizeDocumentContainer() {
     this.resizeEvent = () => {
       FormBasedDocsApi.documentToFitScreen();
+      // Fix weird behaviour in Chrome
+      setTimeout(() => {
+        document.getElementById('webodfeditor-editor1').style.height = document.getElementById('text-area').clientHeight + 'px';
+      }, 10);
     };
     window.addEventListener('resize', this.resizeEvent);
     FormBasedDocsApi.documentToFitScreen();
@@ -380,5 +384,51 @@ export class DocumentCreatorService {
         'dc:date'
     ];
     return excludedElements.includes(element.nodeName);
+  }
+
+  downloadWord(formId: string, formURI: string) {
+    this.commonsService.toggleSpinner();
+    this.saveUri().then((uri: string) => {
+      this.convertService.toWord(formId, uri).subscribe((data) => {
+        const byteString = atob(data.word.split(',')[1]);
+        const mimeString = data.word.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([ab], {type: mimeString});
+        const url = URL.createObjectURL(blob);
+        console.log(url);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'word.doc';
+        a.click();
+        this.commonsService.toggleSpinner();
+      });
+    });
+  }
+
+  downloadPdf(formId: string, formURI: string) {
+    this.commonsService.toggleSpinner();
+    this.saveUri().then((uri: string) => {
+      this.convertService.toPdf(formId, uri).subscribe((data) => {
+        const byteString = atob(data.pdf.split(',')[1]);
+        const mimeString = data.pdf.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([ab], {type: mimeString});
+        const url = URL.createObjectURL(blob);
+        console.log(url);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'document.pdf';
+        a.click();
+        this.commonsService.toggleSpinner();
+      });
+    });
   }
 }

@@ -256,14 +256,7 @@
                               <div class="form-creator__fields-area__end-step__container">
                                   <span class=" form-creator__fields-area__end-step__check icon icon-check-circle-solid"></span>
                                   <h1>Finalizado</h1>
-                                  <button class="button-filled button-filled--start-form trigger" (click)="toogleModal(modalEnd);startCheckout();"
-                                  *ngIf="!formAlreadyPaid">
-                                      Descargar
-                                  </button>
-                                  <button class="button-filled button-filled--start-form trigger"
-                                  *ngIf="formAlreadyPaid">
-                                  Descargar
-                                </button>
+                                  <button class="button-filled button-filled--start-form trigger" (click)="toogleCheckout()">Descargar</button>
                                   <div class="form-creator__fields-area__end-step__icons">
                                       <span class="icon icon-file-word-solid trigger"></span>
                                       <span class="icon icon-file-pdf-solid"></span>
@@ -383,5 +376,23 @@
 </div>
 
 <div class="modal" #modalEnd>
-    <app-checkout class="modal__content modal__content--privacy" [form]="form" (formPaid)="onFormPaid($event)" (exitModal)="onExitPayment();"></app-checkout>
+    <app-checkout class="modal__content modal__content--privacy" [form]="form" 
+    (formPaid)="onFormPaid($event)" (exitModal)="onExitPayment();"
+    (downloadWordOutput)="downloadWord()" (downloadPdfOutput)="downloadPdf();"></app-checkout>
+</div>
+
+<div class="modal" #modalDownload>
+    <div class="modal__content" style="padding: 2rem">
+        <div class="modal__content__modal-middle modal__content__modal-middle--change-password">
+            <div class="modal__content__modal-middle__container">
+                <div class="download-documents-modal">
+                    <span class="icon icon-file-word-solid trigger" (click)="downloadWord()"></span>
+                    <span class="icon icon-file-pdf-solid" (click)="downloadPdf()"></span>
+                </div>
+            </div>
+        </div>
+        <div class="modal__content__modal-bottom">
+            <button class="button-filled" id="modal-button" (click)="toogleModal(modalDownload)">Cancelar</button>
+        </div>
+    </div>
 </div>

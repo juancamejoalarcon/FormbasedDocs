@@ -108,7 +108,7 @@
         </div>
         <div class="checkout-panel__body__success" *ngIf="this.steps[this.currentStep].type === 'finish'">
             <span class=" form-creator__fields-area__end-step__check icon icon-check-circle-solid"></span>
-            <h2>Transacción: </h2>
+            <h2>Transacción: {{transactionId}}</h2>
             <div class="checkout-panel__body__invoice__text__total">
                 <span class="checkout-panel__body__invoice__text__total__right total-success">{{form.title}}</span>
                 <span class="checkout-panel__body__invoice__text__total__left total-success">19.90 eur</span>

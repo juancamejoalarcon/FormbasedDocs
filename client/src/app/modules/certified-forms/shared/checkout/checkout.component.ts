@@ -14,6 +14,8 @@ export class CheckoutComponent implements OnInit {
   @Input() form: Form;
   @Output() formPaid: EventEmitter<any> = new EventEmitter();
   @Output() exitModal: EventEmitter<any> = new EventEmitter();
+  @Output() downloadPdfOutput: EventEmitter<any> = new EventEmitter();
+  @Output() downloadWordOutput: EventEmitter<any> = new EventEmitter();
   @ViewChild('emailInput') emailInput: ElementRef;
   @ViewChild('conditions') conditions: ElementRef;
   public currentStep = 0;
@@ -321,45 +323,11 @@ export class CheckoutComponent implements OnInit {
   }
 
   downloadWord() {
-    this.commonsService.toggleSpinner();
-    this.convertService.toWord(this.form.id, this.form.uri).subscribe((data) => {
-      const byteString = atob(data.word.split(',')[1]);
-      const mimeString = data.word.split(',')[0].split(':')[1].split(';')[0];
-      const ab = new ArrayBuffer(byteString.length);
-      const ia = new Uint8Array(ab);
-      for (let i = 0; i < byteString.length; i++) {
-          ia[i] = byteString.charCodeAt(i);
-      }
-      const blob = new Blob([ab], {type: mimeString});
-      const url = URL.createObjectURL(blob);
-      console.log(url);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'word.doc';
-      a.click();
-      this.commonsService.toggleSpinner();
-    });
+    this.downloadWordOutput.emit();
   }
 
   downloadPdf() {
-    this.commonsService.toggleSpinner();
-    this.convertService.toPdf(this.form.id, this.form.uri).subscribe((data) => {
-      const byteString = atob(data.pdf.split(',')[1]);
-      const mimeString = data.pdf.split(',')[0].split(':')[1].split(';')[0];
-      const ab = new ArrayBuffer(byteString.length);
-      const ia = new Uint8Array(ab);
-      for (let i = 0; i < byteString.length; i++) {
-          ia[i] = byteString.charCodeAt(i);
-      }
-      const blob = new Blob([ab], {type: mimeString});
-      const url = URL.createObjectURL(blob);
-      console.log(url);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'document.pdf';
-      a.click();
-      this.commonsService.toggleSpinner();
-    });
+    this.downloadPdfOutput.emit();
   }
 
 }

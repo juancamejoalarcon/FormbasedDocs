@@ -29,4 +29,5 @@ export class Form {
   uri: string;
   image: string;
   amount: number;
+  alreadyPaid: boolean;
 }
