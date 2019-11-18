@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GuideComponent, CgvComponent } from './components';
+import { GuideComponent, CgvComponent, CondicionesUsoComponent } from './components';
 
 const routes: Routes = [
   {
@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'cgv',
     component: CgvComponent,
+  },
+  {
+    path: 'condiciones-uso',
+    component: CondicionesUsoComponent,
   },
 ];
 
