@@ -1,3 +1,7 @@
+git checkout dev
 pushd ./client
-ng serve
-# popd
+ng build
+popd
+pushd ./server
+ls
+popd
