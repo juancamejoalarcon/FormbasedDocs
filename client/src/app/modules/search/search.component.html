@@ -1,10 +1,10 @@
 <div class="sub-menu" #subMenu>
     <div class="sub-menu__container sub-menu__container--search-page">
         <ul class="sub-menu__nav sub-menu__nav--search-page" (click)="topMenuNav($event)">
-            <li class="sub-menu__nav__button sub-menu__nav__button--search-page sub-menu__nav__button--current" data-toogle="lawyer-forms">
+            <li class="sub-menu__nav__button sub-menu__nav__button--search-page sub-menu__nav__button--current" data-toogle="lawyer-forms" (click)="setUrl(false)">
                 Creados por abogados
             </li>
-            <li class="sub-menu__nav__button sub-menu__nav__button--search-page" data-toogle="user-forms">
+            <li class="sub-menu__nav__button sub-menu__nav__button--search-page" data-toogle="user-forms" (click)="setUrl(true)" #userFormsTab>
                 Creados por otros usuarios
             </li>
         </ul>
@@ -197,7 +197,7 @@
                     <div class="search__results__result__more-info">
                         <div class="search__results__result__more-info__author">
                             <img src="{{
-                                form.author.image === null ? 'assets/images/avatar.jpeg' : form.author.image
+                                !form.author.image ? 'assets/images/avatar.jpeg' : form.author.image
                             }}" alt="avatar">
                             <span [routerLink]="['/profile', form.author.username]">{{ form.author.username }}</span>
                         </div>

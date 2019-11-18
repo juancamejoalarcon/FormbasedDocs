@@ -9,6 +9,10 @@ const routes: Routes = [
     component: SearchComponent,
   },
   {
+    path: 'user-forms',
+    component: SearchComponent,
+  },
+  {
     path: 'search-transaction',
     component: SearchTransactionComponent,
   }

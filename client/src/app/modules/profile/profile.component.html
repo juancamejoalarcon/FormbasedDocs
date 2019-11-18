@@ -2,7 +2,7 @@
     <div class="profile__container">
         <div class="profile__image">
             <img src="{{
-                user.image === null ? 'assets/images/avatar.jpeg' : user.image
+                !user.image ? 'assets/images/avatar.jpeg' : form.author.image
             }}" alt="avatar">
         </div>
         <div class="profile__info">
@@ -66,7 +66,7 @@
                 <div class="search__results__result__more-info">
                     <div class="search__results__result__more-info__author">
                         <img src="{{
-                            form.author.image === null ? 'assets/images/avatar.jpeg' : form.author.image
+                            !form.author.image ? 'assets/images/avatar.jpeg' : form.author.image
                         }}" alt="avatar">
                         <span [routerLink]="['/profile', form.author.username]">{{ form.author.username }}</span>
                     </div>

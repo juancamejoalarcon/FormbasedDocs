@@ -1223,7 +1223,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav__logo {
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   padding: 0.5rem;
 }
 
@@ -1274,7 +1274,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #4ECDC4;
   width: 100%;
   color: white;
-  margin-top: 6rem;
+  margin-top: 3rem;
 }
 
 .footer__container {
@@ -5071,6 +5071,29 @@ input[type=checkbox] {
   }
 }
 
+.condiciones__container {
+  padding: 2rem;
+  font-weight: lighter;
+  text-align: justify;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.condiciones__container h1, .condiciones__container h2, .condiciones__container h3, .condiciones__container h4, .condiciones__container h5, .condiciones__container h6 {
+  padding-top: 1rem;
+}
+
+.condiciones__container p, .condiciones__container ul {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.condiciones__container ul li {
+  list-style: disc outside none;
+  display: list-item;
+  margin-left: 1.2rem;
+}
+
 .form-creator__container {
   display: -ms-grid;
   display: grid;
@@ -6461,6 +6484,9 @@ input[type=checkbox] {
   transition: all ease-out;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
+}
+
+.search__results__result__document:hover .search__results__result__document__container__title {
   text-decoration: underline;
 }
 

@@ -7,6 +7,7 @@ import {
   UserService,
   User
 } from '../../core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-search',
@@ -15,6 +16,7 @@ import {
 export class SearchComponent implements OnInit {
 
   @ViewChild('subMenu') subMenu: ElementRef;
+  @ViewChild('userFormsTab') userFormsTab: ElementRef;
 
   public isAuthenticated: boolean;
   public currentUser: String;
@@ -28,7 +30,8 @@ export class SearchComponent implements OnInit {
   constructor(
     private userService: UserService,
     private searchService: SearchService,
-    private commonsService: CommonsService
+    private commonsService: CommonsService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -50,6 +53,10 @@ export class SearchComponent implements OnInit {
          });
       }
     );
+
+    if (window.location.pathname === '/search/user-forms') {
+      this.userFormsTab.nativeElement.click();
+    }
   }
 
   setListTo(type: string = '') {
@@ -63,6 +70,10 @@ export class SearchComponent implements OnInit {
     };
   }
 
+  setVisibilityOfFooter(visible: boolean) {
+    document.getElementsByTagName('footer')[0].hidden = visible;
+  }
+
   moreForms() {
     this.loadingQuery = true;
     this.setPageTo();
@@ -74,8 +85,10 @@ export class SearchComponent implements OnInit {
     this.searchService.search(this.listConfig).subscribe(forms => {
       if (forms.length !== 0) {
         this.results = this.results.concat(forms);
+        this.setVisibilityOfFooter(true);
       } else {
         this.noMoreForms = true;
+        this.setVisibilityOfFooter(false);
       }
        this.loadingQuery = false;
    });
@@ -122,5 +135,13 @@ export class SearchComponent implements OnInit {
 
   topMenuNav(e: any) {
     this.commonsService.subMenuNav(e, this.subMenu.nativeElement);
+  }
+
+  setUrl(userForms: boolean) {
+    if (userForms) {
+      this.location.replaceState('/search/user-forms');
+    } else {
+      this.location.replaceState('/search');
+    }
   }
 }

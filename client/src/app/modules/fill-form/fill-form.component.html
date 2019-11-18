@@ -1,88 +1,3 @@
-<!-- 
-<div class="container">
-    <div class="form-creator content" id="form-creator" #formCreatorDiv>
-        <div class="form-creator-container">
-            <div class="fields-area">
-                    <div class="fields-container fields-container-fill-formm" id="listWithHandle" #formAreaDiv (keyup)="generateText()" (click)="generateText()">
-                        
-                        <div class="form-information-label">
-                            <div class="label-top">
-                                <div class="author-date">
-                                    <div class="author">
-                                        <div class="author-image-container">
-                                            <img src="assets/images/avatar.jpg" alt="avatar">
-                                        </div>
-                                        <span [routerLink]="['/profile', form.author.username]">
-                                            {{form.author.username}}
-                                        </span>
-                                    </div>
-                                    <div class="date">
-                                        <span>Last updated:</span>
-                                        {{originalForm.updatedAt | date: 'dd/MM/yyyy'}}
-                                    </div>
-                                </div>
-                                <div class="information-modal-icon trigger-indications"
-                                    (click)="toggleModal()" *ngIf="form.indications !== '' && form.indications !== undefined">
-                                    <span class="icon icon-info-solid"></span>
-                                </div>
-                            </div>
-                            <div class="label-bottom">
-                                <h1>{{form.title}}</h1>
-                                <p>{{form.description}}</p>
-                            </div>
-                        </div>
-
-                        <div class="modal-indications" #modal>
-                            <div class="modal-content-indications">
-                                <div class="modal-top-indications">
-                                    <h1>Indicaciones previas del autor</h1>
-                                </div>
-                                <div class="modal-middle-indications">
-                                    <p>
-                                        {{form.indications}}
-                                    </p>
-                                </div>
-                                <div class="modal-bottom-indications">
-                                    <button class="button close-button-indications" (click)="toggleModal()">Entendido</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div *ngFor="let field of fields">
-                            <app-input-text *ngIf="field['type'] == 'iText'" [state]="state" [field]="field"></app-input-text>
-                            <app-input-radio-a *ngIf="field['type'] == 'iRadioA'" [state]="state" [field]="field"></app-input-radio-a>
-                            <app-input-radio-b *ngIf="field['type'] == 'iRadioB'" [state]="state" [field]="field"></app-input-radio-b>
-                            <app-input-radio-c *ngIf="field['type'] == 'iRadioC'" [state]="state" [field]="field"></app-input-radio-c>
-                        </div>
-
-                    </div>
-                </div>
-            <div class="text-area text-area-fill-form">
-
-                <div id="editor-container" class="editor-fill-form ">
-                    <div class="toolbar-fill-form">
-
-                        <span class="icon icon-expand-solid expand-fill-form" (click)="enableFullScreen('editor')"></span>
-                        <button class="save-button-fill-form" [disabled]="isSubmitting" (click)="submitForm()" *appShowAuthed="true">
-                            <span class="icon icon-save-regular"></span>
-                        </button>
-
-                        <button class="save-button-fill-form" routerLink="/auth/login" *appShowAuthed="false">
-                            <span class="icon icon-save-regular"></span>
-                        </button>
-                        
-                        <button class="button-delete-editor" [disabled]="isDeleting" *ngIf="updatingForm" (click)="deleteForm()">
-                            <span class="icon icon-trash-alt-regular"></span>
-                        </button>
-                    </div>
-                    <div class="ql-editor" id="editor" #formBasedDocDiv>
-                        {{generatedText}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="sub-menu">
     <div class="sub-menu__container sub-menu__container--fill-form" #subMenu>
         <div class="sub-menu__left-button sub-menu__left-button--fill-form">
@@ -113,7 +28,9 @@
                         <div class="form-creator__fields-area__top__author-date">
                             <span class="form-creator__fields-area__top__author-date__author">
                                 <div class="form-creator__fields-area__top__author-date__author__image-container">
-                                    <img src="/assets/images/avatar.jpg" alt="avatar">
+                                    <img src="{{
+                                        !form.author.image ? 'assets/images/avatar.jpeg' : form.author.image
+                                    }}" alt="avatar">
                                 </div>
                                 <span [routerLink]="['/profile', form.author.username]">
                                     {{form.author.username}}
