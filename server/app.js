@@ -13,7 +13,7 @@ const http = require('http'),
 const secret = require('./config').secret;
 
 const isProduction = process.env.NODE_ENV === 'production',
-      isLocal = false,
+      isLocal = process.env.NODE_ENV === 'local' || 'local:windows',
       isDevelopment = process.env.NODE_ENV === 'development';
 
 const app = express();
@@ -40,7 +40,10 @@ if (isProduction) {
   mongoose.connect(process.env.MONGODB_URI);
 } 
 if (isDevelopment) {
-  mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
+  mongoose.connect(process.env.MONGODB_URI);
+  console.log('------------------');
+  console.log(process.env.MONGODB_URI);
+  console.log('------------------');
   // Braintree
   process.env.BT_ENVIRONMENT='Sandbox';
   process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
@@ -48,8 +51,6 @@ if (isDevelopment) {
   process.env.BT_PRIVATE_KEY='045c02af0a5753f7093137cb502054af';
   // Paypal Braintree
   process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
-
-  mongoose.set('debug', true);
 }
 if (isLocal) {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
