@@ -37,23 +37,21 @@ if (!isProduction) {
   app.use(errorhandler());
 }
 if (isProduction) {
-  console.log('--------PROD---------');
-  console.log(process.env.MONGODB_URI);
-  console.log('-----------------');
   mongoose.connect(process.env.MONGODB_URI);
 } 
 if (isDevelopment) {
   mongoose.connect(process.env.MONGODB_URI);
-  console.log('--------DEV---------');
-  console.log(process.env.MONGODB_URI);
-  console.log('-----------------');
+  // Braintree
+  process.env.BT_ENVIRONMENT='Sandbox';
+  process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
+  process.env.BT_PUBLIC_KEY='2qhjt9fhxdw7m6z2';
+  process.env.BT_PRIVATE_KEY='045c02af0a5753f7093137cb502054af';
+  // Paypal Braintree
+  process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
 
   mongoose.set('debug', true);
 }
 if (isLocal) {
-  console.log('--------LOCALHOST---------');
-  console.log(process.env.MONGODB_URI);
-  console.log('-----------------');
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);
   // Braintree
