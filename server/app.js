@@ -37,13 +37,23 @@ if (!isProduction) {
   app.use(errorhandler());
 }
 if (isProduction) {
+  console.log('--------PROD---------');
+  console.log(process.env.MONGODB_URI);
+  console.log('-----------------');
   mongoose.connect(process.env.MONGODB_URI);
 } 
 if (isDevelopment) {
   mongoose.connect(process.env.MONGODB_URI);
+  console.log('--------DEV---------');
+  console.log(process.env.MONGODB_URI);
+  console.log('-----------------');
+
   mongoose.set('debug', true);
 }
 if (isLocal) {
+  console.log('--------LOCALHOST---------');
+  console.log(process.env.MONGODB_URI);
+  console.log('-----------------');
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);
   // Braintree
