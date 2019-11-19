@@ -13,8 +13,14 @@ const http = require('http'),
 const secret = require('./config').secret;
 
 const isProduction = process.env.NODE_ENV === 'production',
-      isLocal = false,
-      isDevelopment = process.env.NODE_ENV === 'development';
+      isDevelopment = process.env.NODE_ENV === 'development',
+      isLocal;
+      if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') {
+        isLocal = true;
+      } else {
+        isLocal = false;
+      }
+      
 
 const app = express();
 
@@ -41,9 +47,7 @@ if (isProduction) {
 } 
 if (isDevelopment) {
   mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
-  console.log('------------------');
-  console.log(process.env.MONGODB_URI);
-  console.log('------------------');
+  mongoose.set('debug', true);
   // Braintree
   process.env.BT_ENVIRONMENT='Sandbox';
   process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
