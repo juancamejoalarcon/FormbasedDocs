@@ -34,7 +34,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 if (process.env.NODE_ENV === 'production') {
   console.log('--PRODUCTION--');
-  mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
+  mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds111618.mlab.com:11618/heroku_cz1m6n84');
+  // mongodb://<dbuser>:<dbpassword>@ds111618.mlab.com:11618/heroku_cz1m6n84
     // Braintree
     process.env.BT_ENVIRONMENT='Sandbox';
     process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
