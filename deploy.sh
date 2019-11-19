@@ -47,8 +47,8 @@ build_and_deploy() {
     popd
     # Rewrite commands of Procfile
     pushd ./server
-    sed -i "1 a web: npm run $environment" Procfile
-    sed -i '1d' Procfile
+    # sed -i "1 a web: npm run $environment" Procfile
+    # sed -i '1d' Procfile
     popd
     git add .
     git commit -m "Build for deploy"
