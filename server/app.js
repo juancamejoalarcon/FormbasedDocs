@@ -36,16 +36,13 @@ app.use(session({
 if (!isProduction) {
   app.use(errorhandler());
 }
-if (isProduction){
-  // process.env.MONGODB_URI
-  // HEROKU LINK: mongodb://heroku_h0zc43f6:448ukq109g7kp33ula7crreer@ds261570.mlab.com:61570/heroku_h0zc43f6
-  mongoose.connect('mongodb://heroku_h0zc43f6:448ukq109g7kp33ula7crreer@ds261570.mlab.com:61570/heroku_h0zc43f6');
+if (isProduction) {
+  mongoose.connect(process.env.MONGODB_URI);
 } 
 if (isDevelopment) {
-  mongoose.connect('mongodb://juancamejoalarcon:23bocomfi@ds259268.mlab.com:59268/formbaseddocs');
+  mongoose.connect(process.env.MONGODB_URI);
   mongoose.set('debug', true);
 }
-
 if (isLocal) {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);

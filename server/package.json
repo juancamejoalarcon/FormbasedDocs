@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./app.js",
-    "dev": "NODE_ENV='development' nodemon ./app.js",
+    "prod": "NODE_ENV='production' node ./app.js",
+    "dev": "NODE_ENV='development' node ./app.js",
     "local": "NODE_ENV='local' nodemon ./app.js",
     "local:windows": "SET NODE_ENV='local:windows' & nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
