@@ -40,7 +40,7 @@ if (isProduction) {
   mongoose.connect(process.env.MONGODB_URI);
 } 
 if (isDevelopment) {
-  mongoose.connect(process.env.MONGODB_URI);
+  mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
   // Braintree
   process.env.BT_ENVIRONMENT='Sandbox';
   process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
