@@ -34,7 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 if (process.env.NODE_ENV === 'production') {
   console.log('--PRODUCTION--');
-  mongoose.connect(process.env.MONGODB_URI);
+  mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
 } 
 if (process.env.NODE_ENV === 'development') {
   console.log('--DEVELOPMENT--');
