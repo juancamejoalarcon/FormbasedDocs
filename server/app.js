@@ -42,7 +42,7 @@ app.use(session({
 if (!isProduction) {
   app.use(errorhandler());
 }
-if (isProduction) {
+if (isProduction === ) {
   mongoose.connect(process.env.MONGODB_URI);
 } 
 if (isDevelopment) {
@@ -56,7 +56,7 @@ if (isDevelopment) {
   // Paypal Braintree
   process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
 }
-if (isLocal) {
+if (isLocal === true) {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);
   // Braintree
