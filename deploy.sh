@@ -41,11 +41,14 @@ are_uncommited_changes() {
 
 # BUILD AND DEPLOY
 build_and_deploy() {
+    # Build angular project
     pushd ./client
     ng build
     popd
+    # Rewrite commands of Procfile
     pushd ./server
-    ls
+    sed -i "1 a web: npm run $environment" Procfile
+    sed -i '1d' Procfile
     popd
     git add .
     git commit -m "Build for deploy"
@@ -78,10 +81,6 @@ environment=$1
 #         fi
 #     fi
 # fi
-cd ./server
-file=Procfile
-
-sed '1d' $file
 
 
 
