@@ -57,7 +57,7 @@ build_and_deploy() {
 
 environment=$1
 
-DEVELOPMENT
+# DEVELOPMENT
 if [ "$environment" = 'dev' ]; then 
     echo -e "####### START DEPLOY IN DEVELOPMENT ########"
     if check_if_current_branch_correct 'dev' == 0; then
@@ -69,7 +69,7 @@ if [ "$environment" = 'dev' ]; then
         fi
     fi
 
-PRODUCTION
+# PRODUCTION
 elif [ "$environment" = 'prod' ]; then 
     echo -e "####### START DEPLOY IN PRODUCTION ########"
     if check_if_current_branch_correct 'prod' == 0; then
