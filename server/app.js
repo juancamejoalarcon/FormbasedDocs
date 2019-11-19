@@ -12,6 +12,16 @@ const http = require('http'),
 
 const secret = require('./config').secret;
 
+const isProduction = process.env.NODE_ENV === 'production',
+      isDevelopment = process.env.NODE_ENV === 'development';
+let isLocal;
+      if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') {
+        isLocal = true;
+      } else {
+        isLocal = false;
+      }
+      
+
 const app = express();
 
 app.use(cors());
@@ -29,25 +39,15 @@ app.use(session({
 }));
 
 
-if (process.env.NODE_ENV !== 'production') {
+if (!isProduction) {
   app.use(errorhandler());
 }
-if (process.env.NODE_ENV === 'production') {
-  console.log('--PRODUCTION--');
-  mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds111618.mlab.com:11618/heroku_cz1m6n84');
-  // mongodb://<dbuser>:<dbpassword>@ds111618.mlab.com:11618/heroku_cz1m6n84
-    // Braintree
-    process.env.BT_ENVIRONMENT='Sandbox';
-    process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
-    process.env.BT_PUBLIC_KEY='2qhjt9fhxdw7m6z2';
-    process.env.BT_PRIVATE_KEY='045c02af0a5753f7093137cb502054af';
-    // Paypal Braintree
-    process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
+if (isProduction) {
+  mongoose.connect(process.env.MONGODB_URI);
 } 
-if (process.env.NODE_ENV === 'development') {
-  console.log('--DEVELOPMENT--');
-  mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
-  // mongoose.set('debug', true);
+if (isDevelopment) {
+  mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds111618.mlab.com:11618/heroku_cz1m6n84');
+  mongoose.set('debug', true);
   // Braintree
   process.env.BT_ENVIRONMENT='Sandbox';
   process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
@@ -56,9 +56,7 @@ if (process.env.NODE_ENV === 'development') {
   // Paypal Braintree
   process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
 }
-if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') {
-  console.log('--LOCAL---');
-  console.log('----------');
+if (isLocal) {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);
   // Braintree
@@ -89,7 +87,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (process.env.NODE_ENV !== 'production') {
+if (!isProduction) {
   app.use(function(err, req, res, next) {
     console.log(err.stack);
 
