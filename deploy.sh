@@ -57,30 +57,30 @@ build_and_deploy() {
 
 environment=$1
 
-# DEVELOPMENT
-# if [ "$environment" = 'dev' ]; then 
-#     echo -e "####### START DEPLOY IN DEVELOPMENT ########"
-#     if check_if_current_branch_correct 'dev' == 0; then
-#         echo -e "${RED}Error:${NC} you are not in Dev branch"
-#     else
-#         echo -e "${GREEN}Success:${NC} Correct branch"
-#         if are_uncommited_changes == 0; then
-#             echo -e "${GREEN}Success:${NC} Changes are commited"
-#         fi
-#     fi
+DEVELOPMENT
+if [ "$environment" = 'dev' ]; then 
+    echo -e "####### START DEPLOY IN DEVELOPMENT ########"
+    if check_if_current_branch_correct 'dev' == 0; then
+        echo -e "${RED}Error:${NC} you are not in Dev branch"
+    else
+        echo -e "${GREEN}Success:${NC} Correct branch"
+        if are_uncommited_changes == 0; then
+            echo -e "${GREEN}Success:${NC} Changes are commited"
+        fi
+    fi
 
-# PRODUCTION
-# elif [ "$environment" = 'prod' ]; then 
-#     echo -e "####### START DEPLOY IN PRODUCTION ########"
-#     if check_if_current_branch_correct 'prod' == 0; then
-#         echo -e "${RED}Error:${NC} you are not in Master branch"
-#     else
-#         echo -e "${GREEN}Success:${NC} Correct branch"
-#         if are_uncommited_changes == 0; then
-#             echo -e "${GREEN}Success:${NC} Changes are commited"
-#         fi
-#     fi
-# fi
+PRODUCTION
+elif [ "$environment" = 'prod' ]; then 
+    echo -e "####### START DEPLOY IN PRODUCTION ########"
+    if check_if_current_branch_correct 'prod' == 0; then
+        echo -e "${RED}Error:${NC} you are not in Master branch"
+    else
+        echo -e "${GREEN}Success:${NC} Correct branch"
+        if are_uncommited_changes == 0; then
+            echo -e "${GREEN}Success:${NC} Changes are commited"
+        fi
+    fi
+fi
 
 
 
