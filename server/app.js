@@ -50,6 +50,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') {
   console.log('--LOCAL---');
+  console.log('----------');
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);
   // Braintree
