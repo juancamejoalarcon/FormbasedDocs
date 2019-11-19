@@ -46,7 +46,7 @@ if (isProduction) {
   mongoose.connect(process.env.MONGODB_URI);
 } 
 if (isDevelopment) {
-  mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds111618.mlab.com:11618/heroku_cz1m6n84');
+  mongoose.connect(process.env.MONGODB_URI);
   mongoose.set('debug', true);
   // Braintree
   process.env.BT_ENVIRONMENT='Sandbox';
