@@ -12,16 +12,6 @@ const http = require('http'),
 
 const secret = require('./config').secret;
 
-const isProduction = process.env.NODE_ENV === 'production',
-      isDevelopment = process.env.NODE_ENV === 'development';
-let isLocal;
-      if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') {
-        isLocal = true;
-      } else {
-        isLocal = false;
-      }
-      
-
 const app = express();
 
 app.use(cors());
@@ -39,13 +29,13 @@ app.use(session({
 }));
 
 
-if (!isProduction) {
+if (process.env.NODE_ENV !== 'production') {
   app.use(errorhandler());
 }
-if (isProduction === ) {
+if (process.env.NODE_ENV === 'production') {
   mongoose.connect(process.env.MONGODB_URI);
 } 
-if (isDevelopment) {
+if (process.env.NODE_ENV === 'development') {
   mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
   mongoose.set('debug', true);
   // Braintree
@@ -56,7 +46,7 @@ if (isDevelopment) {
   // Paypal Braintree
   process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
 }
-if (isLocal === true) {
+if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);
   // Braintree
@@ -87,7 +77,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (!isProduction) {
+if (process.env.NODE_ENV !== 'production') {
   app.use(function(err, req, res, next) {
     console.log(err.stack);
 
