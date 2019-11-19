@@ -35,6 +35,13 @@ if (process.env.NODE_ENV !== 'production') {
 if (process.env.NODE_ENV === 'production') {
   console.log('--PRODUCTION--');
   mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
+    // Braintree
+    process.env.BT_ENVIRONMENT='Sandbox';
+    process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
+    process.env.BT_PUBLIC_KEY='2qhjt9fhxdw7m6z2';
+    process.env.BT_PRIVATE_KEY='045c02af0a5753f7093137cb502054af';
+    // Paypal Braintree
+    process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
 } 
 if (process.env.NODE_ENV === 'development') {
   console.log('--DEVELOPMENT--');
