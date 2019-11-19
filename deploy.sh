@@ -43,7 +43,7 @@ are_uncommited_changes() {
 build_and_deploy() {
     # Build angular project
     pushd ./client
-    ng build --env=prod
+    ng build --configuration=prod
     popd
     # Rewrite commands of Procfile
     pushd ./server
