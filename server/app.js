@@ -33,9 +33,11 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(errorhandler());
 }
 if (process.env.NODE_ENV === 'production') {
+  console.log('--PRODUCTION--');
   mongoose.connect(process.env.MONGODB_URI);
 } 
 if (process.env.NODE_ENV === 'development') {
+  console.log('--DEVELOPMENT--');
   mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
   mongoose.set('debug', true);
   // Braintree
@@ -47,6 +49,7 @@ if (process.env.NODE_ENV === 'development') {
   process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
 }
 if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') {
+  console.log('--LOCAL---');
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
   mongoose.set('debug', true);
   // Braintree
