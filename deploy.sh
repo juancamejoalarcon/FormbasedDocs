@@ -47,12 +47,12 @@ build_and_deploy() {
     popd
     # Rewrite commands of Procfile
     pushd ./server
-    ed Procfile << END
-        1i
-        web: npm run ${environment}
-        .
-        w
-        q
+ed Procfile << END
+1i
+web: npm run ${1}
+.
+w
+q
 END
     sed -i '' '2d' Procfile
     popd
@@ -72,7 +72,7 @@ if [ "$environment" = 'dev' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
-            build_and_deploy
+            build_and_deploy ${environment}
         fi
     fi
 
@@ -85,7 +85,8 @@ elif [ "$environment" = 'prod' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
-            build_and_deploy
+            build_and_deploy ${environment}
         fi
     fi
 fi
+
