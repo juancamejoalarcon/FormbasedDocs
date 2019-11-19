@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'production') {
 if (process.env.NODE_ENV === 'development') {
   console.log('--DEVELOPMENT--');
   mongoose.connect('mongodb://juancamejoalarcon:23Bocomfi@ds261570.mlab.com:61570/heroku_cz1m6n84');
-  mongoose.set('debug', true);
+  // mongoose.set('debug', true);
   // Braintree
   process.env.BT_ENVIRONMENT='Sandbox';
   process.env.BT_MERCHANT_ID='7tdbfv3bq87239jm';
