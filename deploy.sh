@@ -47,8 +47,14 @@ build_and_deploy() {
     popd
     # Rewrite commands of Procfile
     pushd ./server
-    # sed -i "1 a web: npm run $environment" Procfile
-    # sed -i '1d' Procfile
+    ed Procfile << END
+        1i
+        web: npm run ${environment}
+        .
+        w
+        q
+END
+    sed -i '' '2d' Procfile
     popd
     git add .
     git commit -m "Build for deploy"
@@ -57,7 +63,7 @@ build_and_deploy() {
 
 environment=$1
 
-# DEVELOPMENT
+DEVELOPMENT
 if [ "$environment" = 'dev' ]; then 
     echo -e "####### START DEPLOY IN DEVELOPMENT ########"
     if check_if_current_branch_correct 'dev' == 0; then
@@ -79,9 +85,7 @@ elif [ "$environment" = 'prod' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
+            build_and_deploy
         fi
     fi
 fi
-
-
-
