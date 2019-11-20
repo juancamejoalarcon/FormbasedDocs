@@ -32,12 +32,15 @@ app.use(bodyParser.json({ limit: '5mb' }));
 app.use(require('method-override')());
 app.use(express.static(__dirname + '/public'));
 
-if (isProduction || isDevelopment) {
-  console.log('Rewrite enable');
-  app.get('/*', function(req,res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
-  });
-}
+
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname + '/public/index.html'));
+// });
+
+// ---- SERVE STATIC FILES ---- //
+// app.server.get('*.*', express.static(__dirname + '/public', {maxAge: '1y'}));
+
+
 
 app.use(session({
   secret: 'secret',
