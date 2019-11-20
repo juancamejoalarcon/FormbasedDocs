@@ -33,13 +33,6 @@ app.use(require('method-override')());
 app.use(express.static(__dirname + '/public'));
 
 
-// app.get('/*', function(req, res) {
-//   res.sendFile(path.join(__dirname + '/public/index.html'));
-// });
-
-// ---- SERVE STATIC FILES ---- //
-// app.server.get('*.*', express.static(__dirname + '/public', {maxAge: '1y'}));
-
 
 
 app.use(session({
@@ -78,6 +71,10 @@ require('./models/Transaction');
 require('./config/passport');
 
 app.use(require('./routes'));
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/index.html'));
+});
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
