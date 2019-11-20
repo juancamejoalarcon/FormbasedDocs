@@ -6729,7 +6729,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false,
-    api_url: 'http://localhost:3001'
+    api_url: 'https://formbaseddocs-dev.herokuapp.com'
 };
 
 

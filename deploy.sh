@@ -47,8 +47,14 @@ build_and_deploy() {
     popd
     # Rewrite commands of Procfile
     pushd ./server
-    sed -i "1 a web: npm run $environment" Procfile
-    sed -i '1d' Procfile
+ed Procfile << END
+1i
+web: npm run ${1}
+.
+w
+q
+END
+    sed -i '' '2d' Procfile
     popd
     git add .
     git commit -m "Build for deploy"
@@ -57,30 +63,30 @@ build_and_deploy() {
 
 environment=$1
 
-# DEVELOPMENT
-# if [ "$environment" = 'dev' ]; then 
-#     echo -e "####### START DEPLOY IN DEVELOPMENT ########"
-#     if check_if_current_branch_correct 'dev' == 0; then
-#         echo -e "${RED}Error:${NC} you are not in Dev branch"
-#     else
-#         echo -e "${GREEN}Success:${NC} Correct branch"
-#         if are_uncommited_changes == 0; then
-#             echo -e "${GREEN}Success:${NC} Changes are commited"
-#         fi
-#     fi
+DEVELOPMENT
+if [ "$environment" = 'dev' ]; then 
+    echo -e "####### START DEPLOY IN DEVELOPMENT ########"
+    if check_if_current_branch_correct 'dev' == 0; then
+        echo -e "${RED}Error:${NC} you are not in Dev branch"
+    else
+        echo -e "${GREEN}Success:${NC} Correct branch"
+        if are_uncommited_changes == 0; then
+            echo -e "${GREEN}Success:${NC} Changes are commited"
+            build_and_deploy ${environment}
+        fi
+    fi
 
 # PRODUCTION
-# elif [ "$environment" = 'prod' ]; then 
-#     echo -e "####### START DEPLOY IN PRODUCTION ########"
-#     if check_if_current_branch_correct 'prod' == 0; then
-#         echo -e "${RED}Error:${NC} you are not in Master branch"
-#     else
-#         echo -e "${GREEN}Success:${NC} Correct branch"
-#         if are_uncommited_changes == 0; then
-#             echo -e "${GREEN}Success:${NC} Changes are commited"
-#         fi
-#     fi
-# fi
-
-
+elif [ "$environment" = 'prod' ]; then 
+    echo -e "####### START DEPLOY IN PRODUCTION ########"
+    if check_if_current_branch_correct 'prod' == 0; then
+        echo -e "${RED}Error:${NC} you are not in Master branch"
+    else
+        echo -e "${GREEN}Success:${NC} Correct branch"
+        if are_uncommited_changes == 0; then
+            echo -e "${GREEN}Success:${NC} Changes are commited"
+            build_and_deploy ${environment}
+        fi
+    fi
+fi
 
