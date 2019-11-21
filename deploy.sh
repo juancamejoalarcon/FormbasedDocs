@@ -43,7 +43,7 @@ are_uncommited_changes() {
 build_and_deploy() {
     # Build angular project
     pushd ./client
-    ng build
+    ng build --configuration=${1}
     popd
     # Rewrite commands of Procfile
     pushd ./server
@@ -72,7 +72,7 @@ if [ "$environment" = 'dev' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
-            build_and_deploy ${environment}
+            build_and_deploy 'development'
         fi
     fi
 
@@ -85,7 +85,7 @@ elif [ "$environment" = 'prod' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
-            build_and_deploy ${environment}
+            build_and_deploy 'production'
         fi
     fi
 fi
