@@ -56,6 +56,8 @@ export class SearchComponent implements OnInit {
 
     if (window.location.pathname === '/search/user-forms') {
       this.userFormsTab.nativeElement.click();
+    } else {
+      this.location.replaceState('/');
     }
   }
 
@@ -141,7 +143,7 @@ export class SearchComponent implements OnInit {
     if (userForms) {
       this.location.replaceState('/search/user-forms');
     } else {
-      this.location.replaceState('/search');
+      this.location.replaceState('/');
     }
   }
 }
