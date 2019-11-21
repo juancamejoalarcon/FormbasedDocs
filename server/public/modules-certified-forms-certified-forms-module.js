@@ -18237,10 +18237,11 @@ var DocumentCreatorService = /** @class */ (function () {
     };
     DocumentCreatorService.prototype.resizeDocumentContainer = function () {
         this.resizeEvent = function () {
-            _assets_js_wodotexteditor_localfileeditor_js__WEBPACK_IMPORTED_MODULE_3__["documentToFitScreen"]();
             // Fix weird behaviour in Chrome
             setTimeout(function () {
                 document.getElementById('webodfeditor-editor1').style.height = document.getElementById('text-area').clientHeight + 'px';
+                document.getElementById('webodfeditor-editor1').style.width = document.getElementById('text-area').clientWidth + 'px';
+                _assets_js_wodotexteditor_localfileeditor_js__WEBPACK_IMPORTED_MODULE_3__["documentToFitScreen"]();
             }, 10);
         };
         window.addEventListener('resize', this.resizeEvent);
