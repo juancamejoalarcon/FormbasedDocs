@@ -75,10 +75,11 @@ export class DocumentCreatorService {
 
   resizeDocumentContainer() {
     this.resizeEvent = () => {
-      FormBasedDocsApi.documentToFitScreen();
       // Fix weird behaviour in Chrome
       setTimeout(() => {
         document.getElementById('webodfeditor-editor1').style.height = document.getElementById('text-area').clientHeight + 'px';
+        document.getElementById('webodfeditor-editor1').style.width = document.getElementById('text-area').clientWidth + 'px';
+        FormBasedDocsApi.documentToFitScreen();
       }, 10);
     };
     window.addEventListener('resize', this.resizeEvent);
