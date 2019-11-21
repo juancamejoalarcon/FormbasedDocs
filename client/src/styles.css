@@ -3726,7 +3726,9 @@ input[type=checkbox] {
 
 @media only screen and (max-width: 380px) {
   .sub-menu__nav__button {
-    font-size: 0.6rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -6829,7 +6831,7 @@ input[type=checkbox] {
 
 @media only screen and (max-width: 590px) {
   .lawyer-forms__top-right-link {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -6886,7 +6888,7 @@ input[type=checkbox] {
 
 @media only screen and (max-width: 640px) {
   .lawyer-forms__title h1 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -6908,12 +6910,6 @@ input[type=checkbox] {
 @media only screen and (max-width: 885px) {
   .lawyer-forms__title p {
     font-size: 0.9rem;
-  }
-}
-
-@media only screen and (max-width: 640px) {
-  .lawyer-forms__title p {
-    font-size: 0.8rem;
   }
 }
 
@@ -7023,7 +7019,7 @@ input[type=checkbox] {
 
 @media only screen and (max-width: 490px) {
   .lawyer-forms__block ul.tree li {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 
