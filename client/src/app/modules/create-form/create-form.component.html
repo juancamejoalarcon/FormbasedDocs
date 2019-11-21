@@ -233,7 +233,7 @@
                                 <sup class="icon icon-info-circle-solid" (click)="toggleLightbox(lightBox); currentGuide = 'input-text'"></sup>
                             </span>
                             <button class="button-filled button-filled--add-new-question"
-                            (click)="injectComponent(inputs[0]); toogleModal(addQuestionMenuModal, true); setCurrentStep(this.form.fields.length - 1);" >
+                            (click)="injectComponent(inputs[0]); toogleModal(addQuestionMenuModal); setCurrentStep(this.form.fields.length - 1);" >
                                 Add
                                 <span class="icon icon-plus-solid"></span>
                             </button>
@@ -244,7 +244,7 @@
                                 <sup class="icon icon-info-circle-solid" (click)="toggleLightbox(lightBox); currentGuide = 'input-radio-a'"></sup>
                             </span>
                             <button class="button-filled button-filled--add-new-question"
-                            (click)="injectComponent(inputs[1]); toogleModal(addQuestionMenuModal, true); setCurrentStep(this.form.fields.length - 1);">
+                            (click)="injectComponent(inputs[1]); toogleModal(addQuestionMenuModal); setCurrentStep(this.form.fields.length - 1);">
                                 Add
                                 <span class="icon icon-plus-solid"></span>
                             </button>
@@ -255,7 +255,7 @@
                                 <sup class="icon icon-info-circle-solid" (click)="toggleLightbox(lightBox); currentGuide = 'input-radio-b'"></sup>
                             </span>
                             <button class="button-filled button-filled--add-new-question"
-                            (click)="injectComponent(inputs[2]); toogleModal(addQuestionMenuModal, true); setCurrentStep(this.form.fields.length - 1);">
+                            (click)="injectComponent(inputs[2]); toogleModal(addQuestionMenuModal); setCurrentStep(this.form.fields.length - 1);">
                                 Add
                                 <span class="icon icon-plus-solid"></span>
                             </button>
@@ -264,7 +264,7 @@
                 </div>
             </div>
             <div class="modal__content__modal-bottom modal__content__modal-bottom--privacy">
-                <button class="button-filled" id="modal-button" (click)="toogleModal(addQuestionMenuModal, true)">
+                <button class="button-filled" id="modal-button" (click)="toogleModal(addQuestionMenuModal)">
                     Cerrar
                 </button>
             </div>
