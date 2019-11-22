@@ -168,7 +168,7 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
       if (window.innerWidth > 885) {
         this.documentCreatorService.showIndicationInsideText(step.wordToReplace, step.indications.value);
       } else {
-        this.previewDocumentButton();
+        this.previewDocumentButton(true);
         this.documentCreatorService.showIndicationInsideText(step.wordToReplace, step.indications.value);
       }
     }
@@ -204,8 +204,8 @@ export class ContratoArrasPenitencialesComponent implements OnInit, AfterViewIni
     });
   }
 
-  previewDocumentButton() {
-    this.commonsService.previewDocumentButton(true);
+  previewDocumentButton(setDocumentVisible: boolean) {
+    this.commonsService.previewDocumentButton(setDocumentVisible);
       this.documentCreatorService.resizeEvent();
   }
 

@@ -2,7 +2,7 @@
     <div class="profile__container">
         <div class="profile__image">
             <img src="{{
-                !user.image ? 'assets/images/avatar.jpeg' : form.author.image
+                !user.image ? 'assets/images/avatar.jpeg' : user.image
             }}" alt="avatar">
         </div>
         <div class="profile__info">
@@ -25,7 +25,7 @@
 
 <div class="search__container">
     <div class="search__button">
-        <input type="text" (keyup.enter)="search(input.value)" #input>
+        <!-- <input type="text" (keyup.enter)="search(input.value)" #input> -->
     </div>
     <div class="search__orderby">
         <div class="search__orderby__container">

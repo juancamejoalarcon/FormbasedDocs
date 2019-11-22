@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://formbaseddocs-dev.herokuapp.com'
+  api_url: 'http://localhost:3001'
 };

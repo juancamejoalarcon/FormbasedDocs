@@ -127,8 +127,12 @@
 <div class="modal__content__modal-bottom modal__content__modal-bottom--privacy checkout-panel__footer">
     <button class="btn back-btn" (click)="moveStep('previous')" 
     [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'cart' ? 0 : 1 }"
+    [style.display]="this.steps[this.currentStep].type === 'cart' ? 'none' : 'block'"
     [disabled]="this.steps[this.currentStep].type === 'cart'"
     *ngIf="this.steps[this.currentStep].type !== 'finish'">Back</button>
+
+    <button class="btn back-btn" (click)="this.exitModal.emit();" 
+    *ngIf="this.steps[this.currentStep].type === 'cart'">Back</button>
 
     <button class="btn back-btn" (click)="this.exitModal.emit();" 
     *ngIf="this.steps[this.currentStep].type === 'finish'">Back</button>
