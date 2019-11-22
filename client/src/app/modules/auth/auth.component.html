@@ -42,9 +42,7 @@
                     <label for="repeat-password"></label>
                     <input type="password" name="repeat-password" id="repeat-password" formControlName="repeatPassword" placeholder="REPEAT PASSWORD">
                 </div>
-
                 <div class="sign-in__container__form__checkbox--signup" *ngIf="authType == 'signup'">
-                    <small class="privacy-error" #privacyError *ngIf="authType == 'signup'">Debe leer y aceptar la política de privacidad</small>
                     <label for="privacy-checkbox" id="privacy-label" (click)="remindUserToReadPrivacyPolicy($event)">
                         <input type="checkbox" class="filled-in" name="privacy" id="privacy-checkbox" value="privacy" disabled #privacyCheckbox/>
                         <span id="privacy-span">He leído y acepto el aviso legal y la <a class="trigger" (click)="toogleModal(modal)">política de privacidad</a></span>

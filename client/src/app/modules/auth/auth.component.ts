@@ -20,7 +20,6 @@ export class AuthComponent implements OnInit {
   @ViewChild('modalMiddle') modalMiddle: ElementRef;
   @ViewChild('closeModalButton') closeModalButton: ElementRef;
   @ViewChild('privacyCheckbox') privacyCheckbox: ElementRef;
-  @ViewChild('privacyError') privacyError: ElementRef;
 
 
   constructor(
@@ -82,9 +81,8 @@ export class AuthComponent implements OnInit {
     if (this.authType === 'signup') {
       e.preventDefault();
       if (!this.privacyCheckbox.nativeElement.checked) {
-        this.privacyError.nativeElement.style.display = 'block';
+        this.commonsService.toastMessage('error', 'Debes leer todas las condiciones de privacidad', 'Condiciones');
       } else {
-        this.privacyError.nativeElement.style.display = 'none';
         this.submitForm();
       }
     }
@@ -92,7 +90,7 @@ export class AuthComponent implements OnInit {
 
   closeModalAndEnableCheckbox() {
     if (this.closeModalButton.nativeElement.classList.contains('button-filled__disabled')) {
-        alert('Debes leer todas las condiciones');
+      this.commonsService.toastMessage('error', 'Debes leer todas las condiciones de privacidad', 'Condiciones');
     } else {
       this.toogleModal(this.modal.nativeElement);
     }
@@ -102,7 +100,7 @@ export class AuthComponent implements OnInit {
     e.preventDefault();
     if (e.target.nodeName !== 'A') {
       if (this.privacyCheckbox.nativeElement.disabled === true) {
-        alert('Debes leer todas las condiciones');
+        this.commonsService.toastMessage('error', 'Debes leer todas las condiciones de privacidad', 'Condiciones');
       } else {
         this.privacyCheckbox.nativeElement.checked = !this.privacyCheckbox.nativeElement.checked;
       }
