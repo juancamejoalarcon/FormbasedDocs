@@ -1,38 +1,36 @@
 CONTRATO DE COMPRAVENTA DE VEHÍCULO AUTOMÓVIL DE OCASIÓN ENTRE PARTICULARES
 
 
-En ________, a ________
+En Madrid, a 23 de noviembre 2019
 
 
 REUNIDOS
 
 De una parte,
 
-________, mayor de edad, con domicilio en ________, con D.N.I número ________, y en su propio nombre y representación.
+asdf, mayor de edad, con domicilio en asdf, con D.N.I número 1234, y en su propio nombre y representación.
 
-________, mayor de edad, con domicilio en ________, con D.N.I número ________, y en su propio nombre y representación.
-
-En adelante, los "Vendedores".
+En adelante, el "Vendedor".
 
 
 De otra parte,
 
-________, mayor de edad, con domicilio en ________, con D.N.I número ________, y en su propio nombre y representación.
+2134, mayor de edad, con domicilio en 1234, con D.N.I número 1234, y en su propio nombre y representación.
 
 En adelante, el "Comprador".
 
 
-En adelante, los Vendedores y el Comprador serán referidos conjuntamente como las "Partes", y cada uno de ellos, individualmente, como la "Parte", reconociéndose mutuamente la capacidad jurídica necesaria para contratar y obligarse, y en especial, para el otorgamiento del presente CONTRATO DE COMPRAVENTA DE VEHÍCULO AUTOMÓVIL DE OCASIÓN. En adelante, el "Contrato".
+En adelante, el Vendedor y el Comprador serán referidos conjuntamente como las "Partes", y cada uno de ellos, individualmente, como la "Parte", reconociéndose mutuamente la capacidad jurídica necesaria para contratar y obligarse, y en especial, para el otorgamiento del presente CONTRATO DE COMPRAVENTA DE VEHÍCULO AUTOMÓVIL DE OCASIÓN. En adelante, el "Contrato".
 
 
 EXPONEN
 
 
-I. Que los Vendedores son los titulares en pleno dominio del vehículo (en adelante, el "Vehículo"), y que éste se encuentra libre de cargas y gravámenes que pudieran impedir la formalización de la transferencia de la propiedad, por el Comprador, en la Jefatura Provincial de Tráfico correspondiente.
+I. Que el Vendedor es el titular en pleno dominio del vehículo (en adelante, el "Vehículo"), y que éste se encuentra libre de cargas y gravámenes que pudieran impedir la formalización de la transferencia de la propiedad, por el Comprador, en la Jefatura Provincial de Tráfico correspondiente.
 
 II. Que el Comprador se compromete a formalizar la transferencia de la propiedad del Vehículo a su favor inmediatamente.
 
-III. Que el Comprador manifiesta que ha sido informada por los Vendedores del estado del Vehículo, en su conjunto y en el de sus elementos mecánicos y componentes fundamentales, de su antigüedad y de su kilometraje.
+III. Que el Comprador manifiesta que ha sido informada por el Vendedor del estado del Vehículo, en su conjunto y en el de sus elementos mecánicos y componentes fundamentales, de su antigüedad y de su kilometraje.
 
 IV. Que los elementos identificadores básicos del Vehículo son los siguientes:
 
@@ -50,14 +48,14 @@ CLÁUSULAS
 
 PRIMERA. OBJETO
 
-El presente Contrato tiene por objeto la constitución y regulación de la compraventa del Vehículo, tal y como se ha identificado en el expositivo del Contrato, entre los Vendedores, quien lo vende siendo el Vehículo de su legítima propiedad, y el Comprador, quien compra conociendo el estado real (técnico y de conservación) del Vehículo, sus elementos mecánicos, su antigüedad y kilometraje, habiéndolo examinado personalmente y previamente a la conclusión de este Contrato.
+El presente Contrato tiene por objeto la constitución y regulación de la compraventa del Vehículo, tal y como se ha identificado en el expositivo del Contrato, entre el Vendedor, quien lo vende siendo el Vehículo de su legítima propiedad, y el Comprador, quien compra conociendo el estado real (técnico y de conservación) del Vehículo, sus elementos mecánicos, su antigüedad y kilometraje, habiéndolo examinado personalmente y previamente a la conclusión de este Contrato.
 
 
 SEGUNDA. CARACTERÍSTICAS Y ESTADO DE USO
 
 El Vehículo consta de las siguientes características:
 
-Tipo de Vehículo automóvil: ciclomotor
+Tipo de Vehículo automóvil: motocicleta tipo ________
 Marca: ________
 Modelo: ________
 Número de serie y bastidor: ________
@@ -71,7 +69,7 @@ Características del Vehículo automóvil:
 
 - Motor original (motor de fábrica): Sí
 
-- Número de propietarios anteriores (a los Vendedores) del Vehículo: ________
+- Número de propietarios anteriores (al Vendedor) del Vehículo: ________
 
 Estado general de conservación del vehículo automóvil: Perfecto estado de conservación, como nuevo.
 Asimismo, se hace constar que el Comprador ha examinado personal y directamente el Vehículo, y realizado todas las pruebas que libremente ha estimado pertinentes.
@@ -94,20 +92,20 @@ Titular de la cuenta: ________
 
 CUARTA. OBLIGACIONES DE LA PARTE VENDEDORA
 
-Los Vendedores se obligan a entregar materialmente al Comprador la posesión del Vehículo. Los Vendedores realizarán la entrega del Vehículo en el siguiente lugar: ________ en el momento de firma de este Contrato.
+El Vendedor se obliga a entregar materialmente al Comprador la posesión del Vehículo. El Vendedor realizará la entrega del Vehículo en el siguiente lugar: ________ en el momento de firma de este Contrato.
 
-Los Vendedores, igualmente, declaran que no pesa sobre el Vehículo ninguna carga, limitación de disposición, gravamen ni impuesto y sanción pendientes de abono en la fecha de la firma de este contrato, y se obliga a, en caso contrario, regularizar tal situación a su exclusivo cargo.
+El Vendedor, igualmente, declara que no pesa sobre el Vehículo ninguna carga, limitación de disposición, gravamen ni impuesto y sanción pendientes de abono en la fecha de la firma de este contrato, y se obliga a, en caso contrario, regularizar tal situación a su exclusivo cargo.
 
 Asimismo se compromete a facilitar los distintos documentos relativos al Vehículo, así como a firmar cuantos documentos aparte de éste sean necesarios para que el Vehículo quede correctamente inscrito a nombre del Comprador en los correspondientes Organismos Públicos, del Estado, Provincia o Municipio que corresponda.
 
-Los Vendedores se comprometen, en su caso, a poner en conocimiento de su compañía aseguradora la transacción de compraventa del Vehículo que hasta el momento venía asegurando para poner en marcha todo procedimiento necesario para la terminación y/o modificación del contrato de seguro afectado por esta transacción.
+El Vendedor se compromete, en su caso, a poner en conocimiento de su compañía aseguradora la transacción de compraventa del Vehículo que hasta el momento venía asegurando para poner en marcha todo procedimiento necesario para la terminación y/o modificación del contrato de seguro afectado por esta transacción.
 
 
 QUINTA. OBLIGACIONES DE LA PARTE COMPRADORA
 
 El Comprador se hace cargo desde el momento en el que recibe materialmente el Vehículo de cuantas responsabilidades puedan contraerse como consecuencia de la propiedad que acepta del Vehículo descrito en la cláusula Segunda, de su tenencia y/o de su uso.
 
-El Comprador se obliga al pago del precio pactado y a inscribir a su nombre en los correspondientes Organismos Públicos, del Estado, Provincia o Municipio que corresponda, siendo todos los gastos que esto pudiera ocasionar a su cargo, y remitirá a los Vendedores dentro de los 15 (quince) días hábiles siguientes a la fecha de la firma del presente Contrato copia del permiso de circulación donde conste que el Vehículo ya está a su nombre.
+El Comprador se obliga al pago del precio pactado y a inscribir a su nombre en los correspondientes Organismos Públicos, del Estado, Provincia o Municipio que corresponda, siendo todos los gastos que esto pudiera ocasionar a su cargo, y remitirá al Vendedor dentro de los 15 (quince) días hábiles siguientes a la fecha de la firma del presente Contrato copia del permiso de circulación donde conste que el Vehículo ya está a su nombre.
 
 Igualmente, el Comprador se obliga a contratar un seguro válido para el Vehículo automóvil objeto de este Contrato antes de comenzar a circular con el mismo. Si ocurriese un siniestro, además de la sanción correspondiente, el Comprador sería el responsable de dar cobertura a los daños que pudieran producirse.
 
@@ -116,7 +114,7 @@ SEXTA. GARANTÍA
 
 No se establece Garantía sobre la venta del Vehículo automóvil objeto de la compraventa. No obstante, ambas Partes, en el caso de que existan discrepancias en cuanto al funcionamiento del mismo, se someterán a lo dispuesto en el Código Civil para la compraventa de bienes muebles, tanto en lo relativo a los efectos del presente Contrato como a los derechos y obligaciones que corresponden a cada una.
 
-El Comprador declara conocer el estado actual del Vehículo, por lo que exime a los Vendedores de toda responsabilidad por los vicios o defectos o averías que surjan con posterioridad a la entrega, según se determina en el Artículo 1.485 del Código Civil, salvo aquellos ocultos que tengan su origen en dolo o mala fe de los Vendedores.
+El Comprador declara conocer el estado actual del Vehículo, por lo que exime al Vendedor de toda responsabilidad por los vicios o defectos o averías que surjan con posterioridad a la entrega, según se determina en el Artículo 1.485 del Código Civil, salvo aquellos ocultos que tengan su origen en dolo o mala fe del Vendedor.
 
 
 SÉPTIMA. CONDICIÓN RESOLUTORIA
@@ -144,16 +142,7 @@ NOVENA. 88858855 2528255, 25255288588 822588825 8 858558588588
 
 Y en prueba de conformidad y aceptación de todo lo establecido, ambas Partes firman este contrato en tres ejemplares y a un solo efecto, en el lugar y fecha al comienzo indicados
 
-LOS VENDEDORES
-
-
-
-
-
-
-...........................................
-
-________
+EL VENDEDOR
 
 
 
@@ -161,7 +150,7 @@ ________
 
 ...........................................
 
-________
+asdf
 
 
 EL COMPRADOR
@@ -172,7 +161,7 @@ EL COMPRADOR
 
 ...........................................
 
-________
+2134
 
 
 
@@ -190,7 +179,7 @@ El Comprador certifica haber recibido:
 
 6. Matricula(s)
 
-Los Vendedores certifican haber recibido:
+El Vendedor certifica haber recibido:
 El pago de la cantidad de ________ € (________).
 
 
@@ -199,16 +188,7 @@ Fecha:
 
 Hora:
 
-LOS VENDEDORES
-
-
-
-
-
-
-...........................................
-
-________
+EL VENDEDOR
 
 
 
@@ -216,7 +196,7 @@ ________
 
 ...........................................
 
-________
+asdf
 
 
 EL COMPRADOR
@@ -227,4 +207,4 @@ EL COMPRADOR
 
 ...........................................
 
-________
+2134

@@ -1,21 +1,21 @@
 CONTRATO DE COMPRAVENTA DE VEHÍCULO AUTOMÓVIL DE OCASIÓN ENTRE PARTICULARES
 
 
-En ________, a ________
+En Madrid, a 23 de noviembre 2019
 
 
 REUNIDOS
 
 De una parte,
 
-________, mayor de edad, con domicilio en ________, con D.N.I número ________, y en su propio nombre y representación.
+asdf, mayor de edad, con domicilio en asdf, con D.N.I número 1234, y en su propio nombre y representación.
 
 En adelante, el "Vendedor".
 
 
 De otra parte,
 
-________, mayor de edad, con domicilio en ________, con D.N.I número ________, y en su propio nombre y representación.
+2134, mayor de edad, con domicilio en 1234, con D.N.I número 1234, y en su propio nombre y representación.
 
 En adelante, el "Comprador".
 
@@ -55,7 +55,7 @@ SEGUNDA. CARACTERÍSTICAS Y ESTADO DE USO
 
 El Vehículo consta de las siguientes características:
 
-Tipo de Vehículo automóvil: ciclomotor
+Tipo de Vehículo automóvil: motocicleta scooter
 Marca: ________
 Modelo: ________
 Número de serie y bastidor: ________
@@ -150,7 +150,7 @@ EL VENDEDOR
 
 ...........................................
 
-________
+asdf
 
 
 EL COMPRADOR
@@ -161,7 +161,7 @@ EL COMPRADOR
 
 ...........................................
 
-________
+2134
 
 
 
@@ -196,7 +196,7 @@ EL VENDEDOR
 
 ...........................................
 
-________
+asdf
 
 
 EL COMPRADOR
@@ -207,4 +207,4 @@ EL COMPRADOR
 
 ...........................................
 
-________
+2134
