@@ -4,7 +4,6 @@ const path = require('path');
 const exec = require('child_process').exec;
 
 router.post('/toPdf', function(req, res) {
-    // const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir ./tmp/pdfs /Users/Juan/Downloads/cosa.odt';
     const name = req.body.fileName;
     let odt = req.body.doc;
     odt = odt.replace('data:application/vnd.oasis.opendocument.text;base64,', '');
@@ -18,7 +17,7 @@ router.post('/toPdf', function(req, res) {
                 console.log(err);
                 return res.json(err);
             }
-            const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir'
+            const cmd = `${process.env.SOFFICE_PATH} ` + '--headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir'
             + ` ./tmp/pdfs ${odtPathName}`;
             exec(cmd, function (err, stdout, stderr) {
                 if (err) {
@@ -69,8 +68,6 @@ router.post('/toPdf', function(req, res) {
 });
 
 router.post('/toWord', function(req, res) {
-
-        // const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir ./tmp/pdfs /Users/Juan/Downloads/cosa.odt';
         const name = req.body.fileName;
         let odt = req.body.doc;
         odt = odt.replace('data:application/vnd.oasis.opendocument.text;base64,', '');
@@ -84,7 +81,7 @@ router.post('/toWord', function(req, res) {
                     console.log(err);
                     return res.json(err);
                 }
-                const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to doc --outdir'
+                const cmd = `${process.env.SOFFICE_PATH} ` + '--headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to doc --outdir'
                 + ` ./tmp/words ${odtPathName}`;
 
                 exec(cmd, function (err, stdout, stderr) {

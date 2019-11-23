@@ -42,10 +42,12 @@ if (!isProduction) {
 }
 if (isProduction) {
   mongoose.connect(process.env.MONGODB_URI);
+  process.env.SOFFICE_PATH='/vendor/libreoffice/opt/libreoffice6.3/program/soffice';
 } 
 if (isDevelopment) {
   mongoose.connect(process.env.MONGODB_URI);
   mongoose.set('debug', true);
+  process.env.SOFFICE_PATH='/vendor/libreoffice/opt/libreoffice6.3/program/soffice';
 }
 if (isLocal) {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
@@ -57,6 +59,8 @@ if (isLocal) {
   process.env.BT_PRIVATE_KEY='045c02af0a5753f7093137cb502054af';
   // Paypal Braintree
   process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
+  // Other path
+  process.env.SOFFICE_PATH='/Applications/LibreOffice.app/Contents/MacOS/soffice';
 }
 
 require('./models/User');
