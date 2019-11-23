@@ -14,7 +14,7 @@ const convert = {
                     console.log(err);
                     resolve(err);
                 }
-                const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to doc --outdir'
+                const cmd = `${process.env.SOFFICE_PATH} ` + '--headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to doc --outdir'
                 + ` ./tmp/words ./tmp/${name}.odt`;
                 exec(cmd, function (err, stdout, stderr) {
                     if (err) {
@@ -40,7 +40,7 @@ const convert = {
                     console.log(err);
                     resolve(err);
                 }
-                const cmd = '/Applications/LibreOffice.app/Contents/MacOS/soffice --headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir'
+                const cmd = `${process.env.SOFFICE_PATH} ` + '--headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir'
                 + ` ./tmp/pdfs ./tmp/${name}.odt`;
                 exec(cmd, function (err, stdout, stderr) {
                     if (err) {
