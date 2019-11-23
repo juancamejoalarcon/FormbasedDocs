@@ -1,3 +1,10 @@
+############# GUIDE ############
+
+# Libreoffice config
+# https://elements.heroku.com/buildpacks/bluetealondon/heroku-buildpack-libreoffice-for-heroku-18
+
+##################################
+
 ############# SCRIPTS ############
 # Deploy in dev: ./deploy.sh dev
 # Deploy in prod: ./deploy.sh prod
