@@ -42,12 +42,12 @@ if (!isProduction) {
 }
 if (isProduction) {
   mongoose.connect(process.env.MONGODB_URI);
-  process.env.SOFFICE_PATH='/vendor/libreoffice/opt/libreoffice6.3/program/soffice';
+  process.env.SOFFICE_PATH='./vendor/libreoffice/opt/libreoffice6.3/program/soffice';
 } 
 if (isDevelopment) {
   mongoose.connect(process.env.MONGODB_URI);
   mongoose.set('debug', true);
-  process.env.SOFFICE_PATH='/vendor/libreoffice/opt/libreoffice6.3/program/soffice';
+  process.env.SOFFICE_PATH='./vendor/libreoffice/opt/libreoffice6.3/program/soffice';
 }
 if (isLocal) {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
