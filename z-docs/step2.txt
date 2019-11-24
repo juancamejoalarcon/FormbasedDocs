@@ -1,21 +1,21 @@
 CONTRATO DE COMPRAVENTA DE VEHÍCULO AUTOMÓVIL DE OCASIÓN ENTRE PARTICULARES
 
 
-En Madrid, a 23 de noviembre 2019
+En Valencia, a 28 de noviembre 2019
 
 
 REUNIDOS
 
 De una parte,
 
-asdf, mayor de edad, con domicilio en asdf, con D.N.I número 1234, y en su propio nombre y representación.
+Juan, mayor de edad, con domicilio en Calle Serrano, con D.N.I número 123124, y en su propio nombre y representación.
 
 En adelante, el "Vendedor".
 
 
 De otra parte,
 
-2134, mayor de edad, con domicilio en 1234, con D.N.I número 1234, y en su propio nombre y representación.
+Juan, mayor de edad, con domicilio en Calle Serrano, con D.N.I número 1234, y en su propio nombre y representación.
 
 En adelante, el "Comprador".
 
@@ -35,10 +35,10 @@ III. Que el Comprador manifiesta que ha sido informada por el Vendedor del estad
 IV. Que los elementos identificadores básicos del Vehículo son los siguientes:
 
 Marca: ________
-Modelo: ________
-Número de serie y bastidor: ________
+Modelo: Ibiza
+Número de serie y bastidor: asdf
 Kilometraje marcado: ________ Km
-V. La próxima inspección de ITV del Vehículo deberá realizarse en: ________.
+V. Que el Vehículo objeto del presente Contrato de compraventa se encuentra revisado reglamentariamente por la ITV de asdfsd en fecha 28 de noviembre 2019. La próxima inspección de ITV del Vehículo deberá realizarse en: ________.
 
 VI. Que, en virtud de las consideraciones precedentes, las Partes acuerdan, libre y voluntariamente, otorgar el presente Contrato de compraventa con sujeción a las siguientes
 
@@ -55,15 +55,15 @@ SEGUNDA. CARACTERÍSTICAS Y ESTADO DE USO
 
 El Vehículo consta de las siguientes características:
 
-Tipo de Vehículo automóvil: motocicleta tipo ________
+Tipo de Vehículo automóvil: ciclomotor
 Marca: ________
-Modelo: ________
-Número de serie y bastidor: ________
+Modelo: Ibiza
+Número de serie y bastidor: asdf
 Kilometraje marcado: ________ Km
 Matrícula: ________
 Fecha de la primera matriculación: ________
 Características del Vehículo automóvil:
-- Color: ________
+- Color: Rojo
 
 - Combustible: ________
 
@@ -71,7 +71,8 @@ Características del Vehículo automóvil:
 
 - Número de propietarios anteriores (al Vendedor) del Vehículo: ________
 
-Estado general de conservación del vehículo automóvil: Perfecto estado de conservación, como nuevo.
+Estado general de conservación del vehículo automóvil: Estado de conservación no adecuado para un uso normal e inmediato del vehículo. Los desperfectos y/o golpes visibles que tiene el Vehículo son los siguientes:
+asdfasf
 Asimismo, se hace constar que el Comprador ha examinado personal y directamente el Vehículo, y realizado todas las pruebas que libremente ha estimado pertinentes.
 
 
@@ -81,18 +82,16 @@ El precio pactado por las Partes, teniendo en cuenta las características del Ve
 
 En todo caso, todos los gastos, impuestos y similares que se deriven de la transferencia de la propiedad del Vehículo, cambio o inscripción del nuevo titular, y otros trámites que sean necesarios para dicha inscripción correrán por cuenta del Comprador, así como los impuestos de circulación a partir del presente año.
 
-El pago del precio por el Comprador se realizará mediante ingreso o transferencia bancaria. Este pago se realizará en la fecha de entrega del Vehículo en la siguiente cuenta bancaria:
+El pago del precio por el Comprador se realizará mediante:
 
-Entidad bancaria: ________
+SADFASDF
 
-IBAN identificador de la cuenta: ________
-
-Titular de la cuenta: ________
+Este pago se realizará en la fecha de entrega del Vehículo
 
 
 CUARTA. OBLIGACIONES DE LA PARTE VENDEDORA
 
-El Vendedor se obliga a entregar materialmente al Comprador la posesión del Vehículo. El Vendedor realizará la entrega del Vehículo en el siguiente lugar: ________ en el momento de firma de este Contrato.
+El Vendedor se obliga a entregar materialmente al Comprador la posesión del Vehículo. El Vendedor realizará la entrega del Vehículo en el siguiente lugar: Domicilio dentro del plazo de 15 desde la fecha recogida en el encabezado de este Contrato.
 
 El Vendedor, igualmente, declara que no pesa sobre el Vehículo ninguna carga, limitación de disposición, gravamen ni impuesto y sanción pendientes de abono en la fecha de la firma de este contrato, y se obliga a, en caso contrario, regularizar tal situación a su exclusivo cargo.
 
@@ -150,7 +149,7 @@ EL VENDEDOR
 
 ...........................................
 
-asdf
+Juan
 
 
 EL COMPRADOR
@@ -161,7 +160,7 @@ EL COMPRADOR
 
 ...........................................
 
-2134
+Juan
 
 
 
@@ -178,6 +177,10 @@ El Comprador certifica haber recibido:
 5. La llaves y/o mando
 
 6. Matricula(s)
+
+7. Otros:
+
+________
 
 El Vendedor certifica haber recibido:
 El pago de la cantidad de ________ € (________).
@@ -196,7 +199,7 @@ EL VENDEDOR
 
 ...........................................
 
-asdf
+Juan
 
 
 EL COMPRADOR
@@ -207,4 +210,4 @@ EL COMPRADOR
 
 ...........................................
 
-2134
+Juan
