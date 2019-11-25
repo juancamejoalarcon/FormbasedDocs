@@ -8,7 +8,11 @@ import {
   PactoDeSociosComponent,
   ContratoArrasPenitencialesComponent,
   StepModelService,
-  DocumentCreatorService } from './forms';
+  DocumentCreatorService,
+  ContratoCompraventaVehiculoComponent,
+  ContratoCompraventaVehiculoStepsService,
+  ContratoCompraventaVehiculoCreatorService,
+} from './forms';
 import { CheckoutComponent, SharedService } from './shared';
 
 @NgModule({
@@ -16,7 +20,9 @@ import { CheckoutComponent, SharedService } from './shared';
     CertifiedFormsComponent,
     PactoDeSociosComponent,
     CheckoutComponent,
-    ContratoArrasPenitencialesComponent],
+    ContratoArrasPenitencialesComponent,
+    ContratoCompraventaVehiculoComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
@@ -25,7 +31,9 @@ import { CheckoutComponent, SharedService } from './shared';
   providers: [
     SharedService,
     StepModelService,
-    DocumentCreatorService
+    DocumentCreatorService,
+    ContratoCompraventaVehiculoStepsService,
+    ContratoCompraventaVehiculoCreatorService
   ]
 })
 export class CertifiedFormsModule { }
