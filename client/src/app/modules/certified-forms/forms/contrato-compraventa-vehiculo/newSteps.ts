@@ -58,7 +58,9 @@ export const steps = [
                             label: 'en su propio nombre y representación',
                             radioId: '3_1_opA_1_opA',
                             identifier: '3_1_opA_1_opA',
+                            // tslint:disable-next-line:max-line-length
                             replacementOriginal: '3_1_opA_1_opA_1, mayor de edad, con domicilio en 3_1_opA_1_opA_2, con 3_1_opA_1_opA_3 número 3_1_opA_1_opA_4, y en su propio nombre y representación.',
+                            // tslint:disable-next-line:max-line-length
                             replacement: '3_1_opA_1_opA_1, mayor de edad, con domicilio en 3_1_opA_1_opA_2, con 3_1_opA_1_opA_3 número 3_1_opA_1_opA_4, y en su propio nombre y representación.',
                             extraReplacements: [],
                             checked: true,
@@ -73,18 +75,12 @@ export const steps = [
                           ]
                           },
                           {
-                            label: 'Persona jurídica',
+                            label: 'por medio de un representante (legal o voluntario)',
                             // tslint:disable-next-line:max-line-length
-                            replacementOriginal: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
-                            replacement: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
-                            extraReplacements: [
-                              {
-                                insideId: 'opA',
-                                // tslint:disable-next-line:max-line-length
-                                replacementOriginal: 'iNombreJuridica, quien comparece en nombre y representación de iDenominacion con NIF iNIF, y con domicilio en iDomicilioJuridica, y ello en virtud de Escritura pública y/o autorización pertinente, donde se recoge y motiva su facultad de intervención, como PARTE VENDEDORA.',
-                                replacement: ''
-                              }
-                            ],
+                            replacementOriginal: '3_1_opA_1_opB_5, mayor de edad, con 3_1_opA_1_opB_6: 3_1_opA_1_opB_7, quien actúa en calidad de 3_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de 3_1_opA_1_opB_1, con domicilio en 3_1_opA_1_opB_2 y 3_1_opA_1_opB_3 número 3_1_opA_1_opB_4.',
+                            // tslint:disable-next-line:max-line-length
+                            replacement: '3_1_opA_1_opB_5, mayor de edad, con 3_1_opA_1_opB_6: 3_1_opA_1_opB_7, quien actúa en calidad de 3_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de 3_1_opA_1_opB_1, con domicilio en 3_1_opA_1_opB_2 y 3_1_opA_1_opB_3 número 3_1_opA_1_opB_4.',
+                            extraReplacements: [],
                             radioId: 'persona-juridica',
                             identifier: 'persona-juridica',
                             checked: false,
