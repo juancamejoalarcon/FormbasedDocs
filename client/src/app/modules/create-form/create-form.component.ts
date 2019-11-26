@@ -106,6 +106,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    window['DOCUMENTOURL'] = false;
     // If there's a form prefetched, load it
     this.route.data.subscribe(
       (data: {form: Form}) => {
@@ -138,7 +139,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     if (this.documentType === 'office') {
       this.odfCreatorService.closeAndDestroyEditor();
       this.odfCreatorService.destroyResizeDocumentContainer();
-      window['DOCUMENTOURL'] = false;
     }
   }
 
