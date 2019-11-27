@@ -77,7 +77,7 @@ export const steps = [
                       identifier: 'iPersonaFisica',
                       wordToReplace: 'iPersonaFisica',
                       indications: 'Marque la opción Persona ...',
-                      defaultRadioId: 'persona-fisica',
+                      defaultRadioId: '3_1_opA_1_opA',
                       replacement: '',
                       extraReplacements: [
                       ],
@@ -91,7 +91,7 @@ export const steps = [
                           // tslint:disable-next-line:max-line-length
                           replacement: '3_1_opA_1_opA_1, mayor de edad, con domicilio en 3_1_opA_1_opA_2, con 3_1_opA_1_opA_3 número 3_1_opA_1_opA_4, y en su propio nombre y representación.',
                           extraReplacements: [],
-                          checked: true,
+                          checked: false,
                           subSteps: [
                           {
                             question: 'Nombre completo del vendedor:',
@@ -122,7 +122,7 @@ export const steps = [
                                 radioId: '3_1_opA_1_opA_3_opA',
                                 identifier: '3_1_opA_1_opA_3_opA',
                                 extraReplacements: [],
-                                checked: false,
+                                checked: true,
                               },
                               {
                                 label: 'NIE',
@@ -193,7 +193,7 @@ export const steps = [
                                   radioId: '3_1_opA_1_opB_3_opA',
                                   identifier: '3_1_opA_1_opB_3_opA',
                                   extraReplacements: [],
-                                  checked: false,
+                                  checked: true,
                                 },
                                 {
                                   label: 'NIE',
@@ -244,7 +244,7 @@ export const steps = [
                                   radioId: '3_1_opA_1_opB_6_opA',
                                   identifier: '3_1_opA_1_opB_6_opA',
                                   extraReplacements: [],
-                                  checked: false,
+                                  checked: true,
                                 },
                                 {
                                   label: 'NIE',

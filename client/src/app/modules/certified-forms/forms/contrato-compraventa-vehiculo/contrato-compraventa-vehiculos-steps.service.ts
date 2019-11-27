@@ -127,7 +127,7 @@ export class ContratoCompraventaVehiculoStepsService {
     if (buildDocumentAfter) {
       refreshRadioCSteps.forEach((step) => {
         this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
-      })
+      });
       this.buildDocument();
     }
   }
@@ -153,14 +153,12 @@ export class ContratoCompraventaVehiculoStepsService {
   }
 
   onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
-    console.log(radioSelectedId, wordToReplace);
-    console.log(this.steps);
     // 1. Find the step
     this.steps.forEach((step, index) => {
-      if (step.identifier === wordToReplace) {
+      if (step.identifier === wordToReplace || step.inheritFromRadioC) {
         // 2. Find radio selected
         step.radios.forEach((radio) => {
-          if (radio.radioId === radioSelectedId) {
+          if (radio.radioId === radioSelectedId || (step.inheritFromRadioC && radio.radioId === step.defaultRadioId)) {
             // 3. Clean possible previously added steps, so we don't repeat them
             while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
               this.steps.splice((index + 1), 1);
@@ -169,6 +167,7 @@ export class ContratoCompraventaVehiculoStepsService {
             let replacement = radio.replacementOriginal;
             radio.extraReplacements.forEach((extraReplacement) => { extraReplacement.replacement = extraReplacement.replacementOriginal; });
             radio.subSteps.forEach((subStep, subStepIndex) => {
+              let copySubStep;
                 // Make step unique modifying identifier
               subStep.wordToReplace = step.identifier + subStep.identifier;
               replacement = replacement.replace(subStep.identifier, subStep.wordToReplace);
@@ -179,8 +178,24 @@ export class ContratoCompraventaVehiculoStepsService {
               if (subStep.type === 'iCheckbox') {
                 subStep.checkboxes.forEach((checkbox) => { checkbox.checked = false; });
               }
-
-              this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
+              if (subStep.type === 'iRadioC') {
+                copySubStep = JSON.parse(JSON.stringify(subStep));
+                copySubStep.inheritFromRadioC = true;
+                copySubStep.radios.forEach((radioC: any) => {
+                  radioC.subSteps.forEach((radioCsubstep: any) => {
+                    const newIndentifier = subStep.wordToReplace + radioCsubstep.identifier;
+                    radioC.replacement = radioC.replacement.replace(radioCsubstep.identifier, newIndentifier);
+                    radioC.replacementOriginal = radioC.replacementOriginal.replace(radioCsubstep.identifier, newIndentifier);
+                    radioCsubstep.wordToReplace = newIndentifier;
+                    radioCsubstep.identifier = newIndentifier;
+                  });
+                });
+              }
+              if (subStep.type !== 'iRadioC') {
+                this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
+              } else {
+                this.steps.splice(((index + 1) + subStepIndex ), 0, copySubStep);
+              }
             });
             radio.replacement = replacement;
             radio.checked = true;
