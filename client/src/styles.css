@@ -3717,6 +3717,7 @@ input[type=checkbox] {
   text-transform: uppercase;
   font-weight: lighter;
   color: white;
+  text-align: center;
 }
 
 .sub-menu__nav__button a {
@@ -5283,6 +5284,10 @@ input[type=checkbox] {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 0.2rem;
+}
+
+.form-creator__fields-area__middle__initial-screen__form-title {
+  text-align: center;
 }
 
 .form-creator__fields-area__middle__initial-screen__description {

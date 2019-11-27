@@ -110,6 +110,16 @@ export class ContratoCompraventaVehiculoCreatorService {
       // }, 500);
     }
   }
+
+  dateToSpanishFormat(dateSelected: string) {
+    const dateSelectedObject = new Date(dateSelected);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    let dateToReturn = '';
+    if (dateSelected) {
+      dateToReturn = dateSelectedObject.toLocaleDateString('es-ES', options);
+    }
+    return dateToReturn;
+  }
   /************************/
   /* INDICATIONS */
   /************************/
@@ -292,13 +302,17 @@ export class ContratoCompraventaVehiculoCreatorService {
         const regexp = new RegExp(step.wordToReplace, 'g');
         elementsContainingWord.forEach((elementContainingWord: any) => {
           let element = elementContainingWord;
+          let replacement = step.replacement;
           if (element.innerHTML !== step.wordToReplace) {
             // Find the innermost element containing the word
             element = this.findExactContainingElement(step.wordToReplace, element);
           }
+          if (step.type === 'iDate') {
+            replacement = this.dateToSpanishFormat(step.replacement);
+          }
           if (element) {
             element.innerHTML = element.innerHTML.replace(regexp,
-            `<span class="${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
+            `<span class="${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${replacement}</span>`);
           }
         });
       } else if (step.type === 'iRadioB') {
