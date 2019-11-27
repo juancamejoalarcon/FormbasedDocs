@@ -153,6 +153,8 @@ export class ContratoCompraventaVehiculoStepsService {
   }
 
   onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
+    console.log(radioSelectedId, wordToReplace);
+    console.log(this.steps);
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.identifier === wordToReplace) {

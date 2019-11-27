@@ -202,7 +202,6 @@ export class ContratoCompraventaVehiculoCreatorService {
           }
 
           exactElementContainingWord = this.findExactContainingElement(step.wordToReplace, exactElementContainingWord);
-          console.log(exactElementContainingWord);
           exactElementContainingWord.innerHTML = exactElementContainingWord.innerHTML.replace(regexp, modifiedReplacement);
         });
 
@@ -334,7 +333,6 @@ export class ContratoCompraventaVehiculoCreatorService {
               }
             }
           });
-          console.log(elementContainingWord);
         });
       }
     });
