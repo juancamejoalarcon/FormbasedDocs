@@ -67,11 +67,62 @@ export const steps = [
                             subSteps: [
                             {
                               question: 'Nombre completo del vendedor:',
-                              wordToReplace: '3_1_opA_1_opA',
-                              identifier: '3_1_opA_1_opA',
+                              wordToReplace: '3_1_opA_1_opA_1',
+                              identifier: '3_1_opA_1_opA_1',
                               type: 'iText',
                               replacement: '',
                             },
+                            {
+                              question: 'Dirección completa del lugar de residencia del vendedor:',
+                              wordToReplace: '3_1_opA_1_opA_2',
+                              identifier: '3_1_opA_1_opA_2',
+                              type: 'iText',
+                              replacement: '',
+                            },
+                            {
+                              type: 'iRadioB',
+                              question: 'Tipo de dpcumento de identificación del vendedor',
+                              identifier: '3_1_opA_1_opA_3',
+                              wordToReplace: '3_1_opA_1_opA_3',
+                              indications: 'Marque la opción Persona ...',
+                              replacement: '',
+                              radios: [
+                                {
+                                  label: 'DNI',
+                                  replacementOriginal: 'DNI',
+                                  replacement: '',
+                                  radioId: '3_1_opA_1_opA_3_opA',
+                                  identifier: '3_1_opA_1_opA_3_opA',
+                                  extraReplacements: [],
+                                  checked: false,
+                                },
+                                {
+                                  label: 'NIE',
+                                  replacementOriginal: 'NIE',
+                                  replacement: '',
+                                  radioId: '3_1_opA_1_opA_3_opB',
+                                  identifier: '3_1_opA_1_opA_3_opB',
+                                  extraReplacements: [],
+                                  checked: false,
+                                },
+                                {
+                                  label: 'Pasaporte',
+                                  replacementOriginal: 'Pasaporte',
+                                  replacement: '',
+                                  radioId: '3_1_opA_1_opA_3_opC',
+                                  identifier: '3_1_opA_1_opA_3_opC',
+                                  extraReplacements: [],
+                                  checked: false,
+                                }
+                              ]
+                            },
+                            {
+                              question: 'Número del documento',
+                              wordToReplace: '3_1_opA_1_opA_4',
+                              identifier: '3_1_opA_1_opA_4',
+                              type: 'iText',
+                              replacement: '',
+                            }
                           ]
                           },
                           {
@@ -81,62 +132,126 @@ export const steps = [
                             // tslint:disable-next-line:max-line-length
                             replacement: '3_1_opA_1_opB_5, mayor de edad, con 3_1_opA_1_opB_6: 3_1_opA_1_opB_7, quien actúa en calidad de 3_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de 3_1_opA_1_opB_1, con domicilio en 3_1_opA_1_opB_2 y 3_1_opA_1_opB_3 número 3_1_opA_1_opB_4.',
                             extraReplacements: [],
-                            radioId: 'persona-juridica',
-                            identifier: 'persona-juridica',
+                            radioId: '3_1_opA_1_opB',
+                            identifier: '3_1_opA_1_opB',
                             checked: false,
                             subSteps: [
                               {
-                                // tslint:disable-next-line:max-line-length
-                                question: 'Nombre completo de la persona que firma o firmará el contrato en nombre de la parte vendedora (propietario) nº1 (ya que ésta es una persona jurídica):',
-                                wordToReplace: 'iNombreJuridica',
-                                identifier: 'iNombreJuridica',
+                                question: 'Nombre completo del vendedor:',
+                                wordToReplace: '3_1_opA_1_opB_1',
+                                identifier: '3_1_opA_1_opB_1',
                                 type: 'iText',
                                 replacement: '',
                               },
                               {
-                                // tslint:disable-next-line:max-line-length
-                                question: 'Tipo de documento de identificación personal para identificar a la persona que firma el contrato en nombre de la parte vendedora (propietario) nº1:',
-                                wordToReplace: 'iDcoumentoJuridica',
-                                identifier: 'iDcoumentoJuridica',
+                                question: 'Dirección completa del lugar de residencia del vendedor:',
+                                wordToReplace: '3_1_opA_1_opB_2',
+                                identifier: '3_1_opA_1_opB_2',
                                 type: 'iText',
                                 replacement: '',
                               },
                               {
-                                // tslint:disable-next-line:max-line-length
-                                question: 'Número del documento personal de identificación de la persona que representa con su firma a la parte vendedora (propietario) nº1 del inmueble:',
-                                wordToReplace: 'iDcoumentoNumeroJuridica',
-                                identifier: 'iDcoumentoNumeroJuridica',
+                                type: 'iRadioB',
+                                question: 'Tipo de dpcumento de identificación del vendedor',
+                                identifier: '3_1_opA_1_opB_3',
+                                wordToReplace: '3_1_opA_1_opB_3',
+                                indications: 'Marque la opción Persona ...',
+                                replacement: '',
+                                radios: [
+                                  {
+                                    label: 'DNI',
+                                    replacementOriginal: 'DNI',
+                                    replacement: '',
+                                    radioId: '3_1_opA_1_opB_3_opA',
+                                    identifier: '3_1_opA_1_opB_3_opA',
+                                    extraReplacements: [],
+                                    checked: false,
+                                  },
+                                  {
+                                    label: 'NIE',
+                                    replacementOriginal: 'NIE',
+                                    replacement: '',
+                                    radioId: '3_1_opA_1_opB_3_opB',
+                                    identifier: '3_1_opA_1_opB_3_opB',
+                                    extraReplacements: [],
+                                    checked: false,
+                                  },
+                                  {
+                                    label: 'Pasaporte',
+                                    replacementOriginal: 'Pasaporte',
+                                    replacement: '',
+                                    radioId: '3_1_opA_1_opB_3_opC',
+                                    identifier: '3_1_opA_1_opB_3_opC',
+                                    extraReplacements: [],
+                                    checked: false,
+                                  }
+                                ]
+                              },
+                              {
+                                question: 'Número del documento',
+                                wordToReplace: '3_1_opA_1_opB_4',
+                                identifier: '3_1_opA_1_opB_4',
                                 type: 'iText',
                                 replacement: '',
                               },
                               {
-                                question: 'Cargo o puesto que ostenta la persona que representa con su firma en el contrato a la parte vendedora nº1',
-                                wordToReplace: 'iCargo',
-                                identifier: 'iCargo',
+                                question: 'Nombre completo de la persona que firma este contrato en nombre y representación del vendedor:',
+                                wordToReplace: '3_1_opA_1_opB_5',
+                                identifier: '3_1_opA_1_opB_5',
                                 type: 'iText',
                                 replacement: '',
                               },
                               {
-                                question: 'Denominación o razón social de la parte vendedora (propietario) nº1 del inmueble:',
-                                wordToReplace: 'iDenominacion',
-                                identifier: 'iDenominacion',
+                                type: 'iRadioB',
+                                question: 'Documento de identificación personal de la persona que firma este contrato en nombre y representación del vendedor:',
+                                identifier: '3_1_opA_1_opB_6',
+                                wordToReplace: '3_1_opA_1_opB_6',
+                                indications: 'Marque la opción Persona ...',
+                                replacement: '',
+                                radios: [
+                                  {
+                                    label: 'DNI',
+                                    replacementOriginal: 'DNI',
+                                    replacement: '',
+                                    radioId: '3_1_opA_1_opB_6_opA',
+                                    identifier: '3_1_opA_1_opB_6_opA',
+                                    extraReplacements: [],
+                                    checked: false,
+                                  },
+                                  {
+                                    label: 'NIE',
+                                    replacementOriginal: 'NIE',
+                                    replacement: '',
+                                    radioId: '3_1_opA_1_opB_6_opB',
+                                    identifier: '3_1_opA_1_opB_6_opB',
+                                    extraReplacements: [],
+                                    checked: false,
+                                  },
+                                  {
+                                    label: 'Pasaporte',
+                                    replacementOriginal: 'Pasaporte',
+                                    replacement: '',
+                                    radioId: '3_1_opA_1_opB_6_opC',
+                                    identifier: '3_1_opA_1_opB_6_opC',
+                                    extraReplacements: [],
+                                    checked: false,
+                                  }
+                                ]
+                              },
+                              {
+                                question: 'Número del documento de identificación personal seleccionado:',
+                                wordToReplace: '3_1_opA_1_opB_7',
+                                identifier: '3_1_opA_1_opB_7',
                                 type: 'iText',
                                 replacement: '',
                               },
                               {
-                                question: 'Número del NIF identificador (antiguo CIF) de la parte vendedora (propietario) nº1 del inmueble:',
-                                wordToReplace: 'iNIF',
-                                identifier: 'iNIF',
+                                question: 'Calidad o concepto en el que esta persona firma este contrato en nombre y representación del vendedor:',
+                                wordToReplace: '3_1_opA_1_opB_8',
+                                identifier: '3_1_opA_1_opB_8',
                                 type: 'iText',
                                 replacement: '',
                               },
-                              {
-                                question: 'Domicilio social o dirección de la parte vendedora (propietario) nº1 del inmueble:',
-                                wordToReplace: 'iDomicilioJuridica',
-                                identifier: 'iDomicilioJuridica',
-                                type: 'iText',
-                                replacement: '',
-                              }
                             ]
                           },
                         ],
@@ -146,72 +261,99 @@ export const steps = [
                 {
                   label: 'Persona jurídica',
                   // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
-                  replacement: 'iNombreJuridica, con iDcoumentoJuridica iDcoumentoNumeroJuridica, y que ostenta el cargo de iCargo.',
-                  extraReplacements: [
-                    {
-                      insideId: 'opA',
-                      // tslint:disable-next-line:max-line-length
-                      replacementOriginal: 'iNombreJuridica, quien comparece en nombre y representación de iDenominacion con NIF iNIF, y con domicilio en iDomicilioJuridica, y ello en virtud de Escritura pública y/o autorización pertinente, donde se recoge y motiva su facultad de intervención, como PARTE VENDEDORA.',
-                      replacement: ''
-                    }
-                  ],
+                  replacementOriginal: '3_1_opB_5, mayor de edad, con domicilio en 3_1_opB_6, con 3_1_opB_7 número 3_1_opB_8, en nombre y representación de: 3_1_opB_1, con N.I.F número 3_1_opB_2, e inscrita en: 3_1_opB_3 con la siguiente información: 3_1_opB_4.',
+                  replacement: '3_1_opB_5, mayor de edad, con domicilio en 3_1_opB_6, con 3_1_opB_7 número 3_1_opB_8, en nombre y representación de: 3_1_opB_1, con N.I.F número 3_1_opB_2, e inscrita en: 3_1_opB_3 con la siguiente información: 3_1_opB_4.',
+                  extraReplacements: [],
                   radioId: 'persona-juridica',
                   identifier: 'persona-juridica',
                   checked: false,
                   subSteps: [
                     {
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Nombre completo de la persona que firma o firmará el contrato en nombre de la parte vendedora (propietario) nº1 (ya que ésta es una persona jurídica):',
-                      wordToReplace: 'iNombreJuridica',
-                      identifier: 'iNombreJuridica',
+                      question: 'Nombre completo de la persona jurídica que desea vender el vehículo:',
+                      wordToReplace: '3_1_opB_1',
+                      identifier: '3_1_opB_1',
                       type: 'iText',
                       replacement: '',
                     },
                     {
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Tipo de documento de identificación personal para identificar a la persona que firma el contrato en nombre de la parte vendedora (propietario) nº1:',
-                      wordToReplace: 'iDcoumentoJuridica',
-                      identifier: 'iDcoumentoJuridica',
+                      question: 'Número de Identificación Fiscal o NIF completo de la persona jurídica que desea vender el vehículo:',
+                      wordToReplace: '3_1_opB_2',
+                      identifier: '3_1_opB_2',
                       type: 'iText',
                       replacement: '',
                     },
                     {
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Número del documento personal de identificación de la persona que representa con su firma a la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iDcoumentoNumeroJuridica',
-                      identifier: 'iDcoumentoNumeroJuridica',
+                      question: 'Indique el tipo de registro y lugar donde está inscrita la persona jurídica que desea vender el vehículo:',
+                      wordToReplace: '3_1_opB_3',
+                      identifier: '3_1_opB_3',
                       type: 'iText',
                       replacement: '',
                     },
                     {
-                      question: 'Cargo o puesto que ostenta la persona que representa con su firma en el contrato a la parte vendedora nº1',
-                      wordToReplace: 'iCargo',
-                      identifier: 'iCargo',
+                      question: 'Datos registrales completos de la persona jurídica que desea vender el vehículo:',
+                      wordToReplace: '3_1_opB_4',
+                      identifier: '3_1_opB_4',
                       type: 'iText',
                       replacement: '',
                     },
                     {
-                      question: 'Denominación o razón social de la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iDenominacion',
-                      identifier: 'iDenominacion',
+                      question: 'Nombre completo del representante persona física de la persona jurídica que desea vender el vehículo:',
+                      wordToReplace: '3_1_opB_5',
+                      identifier: '3_1_opB_5',
                       type: 'iText',
                       replacement: '',
                     },
                     {
-                      question: 'Número del NIF identificador (antiguo CIF) de la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iNIF',
-                      identifier: 'iNIF',
+                      question: 'Domicilio completo del representante persona física de la persona jurídica que desea vender el vehículo:',
+                      wordToReplace: '3_1_opB_6',
+                      identifier: '3_1_opB_6',
                       type: 'iText',
                       replacement: '',
                     },
                     {
-                      question: 'Domicilio social o dirección de la parte vendedora (propietario) nº1 del inmueble:',
-                      wordToReplace: 'iDomicilioJuridica',
-                      identifier: 'iDomicilioJuridica',
+                      type: 'iRadioB',
+                      question: 'Documento de identidad del representante persona física de la persona jurídica que desea vender el vehículo:',
+                      identifier: '3_1_opB_7',
+                      wordToReplace: '3_1_opB_7',
+                      indications: 'Marque la opción Persona ...',
+                      replacement: '',
+                      radios: [
+                        {
+                          label: 'DNI',
+                          replacementOriginal: 'DNI',
+                          replacement: '',
+                          radioId: '3_1_opB_7_opA',
+                          identifier: '3_1_opB_7_opA',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'NIE',
+                          replacementOriginal: 'NIE',
+                          replacement: '',
+                          radioId: '3_1_opB_7_opB',
+                          identifier: '3_1_opB_7_opB',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Pasaporte',
+                          replacementOriginal: 'Pasaporte',
+                          replacement: '',
+                          radioId: '3_1_opB_7_opC',
+                          identifier: '3_1_opB_7_opC',
+                          extraReplacements: [],
+                          checked: false,
+                        }
+                      ]
+                    },
+                    {
+                      question: 'Número del documento de identificación personal seleccionado:',
+                      wordToReplace: '3_1_opB_8',
+                      identifier: '3_1_opB_8',
                       type: 'iText',
                       replacement: '',
-                    }
+                    },
                   ]
                 },
               ],
