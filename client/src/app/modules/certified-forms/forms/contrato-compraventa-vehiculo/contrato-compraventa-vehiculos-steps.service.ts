@@ -153,12 +153,15 @@ export class ContratoCompraventaVehiculoStepsService {
   }
 
   onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
+    const randomIdForThisScope = 
     // 1. Find the step
     this.steps.forEach((step, index) => {
-      if (step.identifier === wordToReplace || step.inheritFromRadioC) {
+      // || step.inheritFromRadioC
+      if (step.identifier === wordToReplace) {
         // 2. Find radio selected
         step.radios.forEach((radio) => {
-          if (radio.radioId === radioSelectedId || (step.inheritFromRadioC && radio.radioId === step.defaultRadioId)) {
+          // (step.inheritFromRadioC && radio.radioId === step.defaultRadioId)
+          if (radio.radioId === radioSelectedId) {
             // 3. Clean possible previously added steps, so we don't repeat them
             while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
               this.steps.splice((index + 1), 1);
@@ -180,7 +183,7 @@ export class ContratoCompraventaVehiculoStepsService {
               }
               if (subStep.type === 'iRadioC') {
                 copySubStep = JSON.parse(JSON.stringify(subStep));
-                copySubStep.inheritFromRadioC = true;
+                copySubStep.inheritFromRadioC = subStep.wordToReplace;
                 copySubStep.radios.forEach((radioC: any) => {
                   radioC.subSteps.forEach((radioCsubstep: any) => {
                     const newIndentifier = subStep.wordToReplace + radioCsubstep.identifier;
@@ -203,6 +206,63 @@ export class ContratoCompraventaVehiculoStepsService {
             radio.checked = false;
           }
         });
+      } else if (step.inheritFromRadioC) {
+        console.log('-----');
+        console.log(step.inheritFromRadioC);
+        console.log(wordToReplace);
+        console.log('-----');
+        if (step.inheritFromRadioC === wordToReplace) {
+          step.radios.forEach((radio) => {
+          console.log('-----');
+          console.log(radio.radioId);
+          console.log(radioSelectedId);
+          console.log('-----');
+          if (radio.radioId === radioSelectedId) {
+            // 3. Clean possible previously added steps, so we don't repeat them
+            while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
+              this.steps.splice((index + 1), 1);
+            }
+            // 2. Add steps
+            let replacement = radio.replacementOriginal;
+            radio.extraReplacements.forEach((extraReplacement) => { extraReplacement.replacement = extraReplacement.replacementOriginal; });
+            radio.subSteps.forEach((subStep, subStepIndex) => {
+              let copySubStep;
+                // Make step unique modifying identifier
+              subStep.wordToReplace = step.identifier + subStep.identifier;
+              replacement = replacement.replace(subStep.identifier, subStep.wordToReplace);
+              radio.extraReplacements.forEach( (extraReplacement) => {
+                extraReplacement.replacement = extraReplacement.replacement.replace(subStep.identifier, subStep.wordToReplace);
+              });
+              // reset checkboxes if any
+              if (subStep.type === 'iCheckbox') {
+                subStep.checkboxes.forEach((checkbox) => { checkbox.checked = false; });
+              }
+              if (subStep.type === 'iRadioC') {
+                copySubStep = JSON.parse(JSON.stringify(subStep));
+                copySubStep.inheritFromRadioC = wordToReplace;
+                copySubStep.radios.forEach((radioC: any) => {
+                  radioC.subSteps.forEach((radioCsubstep: any) => {
+                    const newIndentifier = subStep.wordToReplace + radioCsubstep.identifier;
+                    radioC.replacement = radioC.replacement.replace(radioCsubstep.identifier, newIndentifier);
+                    radioC.replacementOriginal = radioC.replacementOriginal.replace(radioCsubstep.identifier, newIndentifier);
+                    radioCsubstep.wordToReplace = newIndentifier;
+                    radioCsubstep.identifier = newIndentifier;
+                  });
+                });
+              }
+              if (subStep.type !== 'iRadioC') {
+                this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
+              } else {
+                this.steps.splice(((index + 1) + subStepIndex ), 0, copySubStep);
+              }
+            });
+            radio.replacement = replacement;
+            radio.checked = true;
+          } else {
+            radio.checked = false;
+          }
+          });
+        }
       }
     });
     if (buildDocumentAfter) {
