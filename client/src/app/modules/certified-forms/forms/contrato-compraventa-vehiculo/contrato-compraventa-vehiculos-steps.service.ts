@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { ContratoCompraventaVehiculoCreatorService } from './contrato-compraventa-vehiculo-creator.service';
 
 @Injectable()
 export class ContratoCompraventaVehiculoStepsService {
-
+  public initializing = true;
   public steps: Array<any>;
 
   constructor(
@@ -15,6 +15,7 @@ export class ContratoCompraventaVehiculoStepsService {
   }
 
   setInitialState() {
+    this.initializing = true;
     this.steps.forEach((step) => {
       switch (step.type) {
         case 'iText':
@@ -33,6 +34,7 @@ export class ContratoCompraventaVehiculoStepsService {
           break;
       }
     });
+    this.initializing = false;
     this.buildDocument();
   }
 
@@ -62,6 +64,7 @@ export class ContratoCompraventaVehiculoStepsService {
       if (step.wordToReplace === wordToReplace) {
         step.value = value;
         // 2. Clean possible previously added steps, so we don't repeat them
+        const cache = JSON.parse(JSON.stringify(this.steps));
         while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
           this.steps.splice((index + 1), 1);
         }
@@ -99,7 +102,13 @@ export class ContratoCompraventaVehiculoStepsService {
                 // });
               });
               // Deep copy
-              const copySubStep = JSON.parse(JSON.stringify(subStep));
+              let copySubStep = JSON.parse(JSON.stringify(subStep));
+              cache.forEach((cachedStep) => {
+                if (cachedStep.wordToReplace == newIndentifier) {
+                  copySubStep = JSON.parse(JSON.stringify(cachedStep));
+                  copySubStep.cached = true;
+                }
+              });
               copySubStep.identifier = newIndentifier;
               copySubStep.wordToReplace = newIndentifier;
 
@@ -126,7 +135,15 @@ export class ContratoCompraventaVehiculoStepsService {
     });
     if (buildDocumentAfter) {
       refreshRadioCSteps.forEach((step) => {
-        this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
+        if (step.cached) {
+          step.radios.forEach((radio) => {
+            if (radio.checked) {
+              this.onInputRadioCSelected(radio.radioId, step.wordToReplace, false);
+            }
+          })
+        } else {
+          this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
+        }
       });
       this.buildDocument();
     }
@@ -153,9 +170,9 @@ export class ContratoCompraventaVehiculoStepsService {
   }
 
   onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
+    const cache = JSON.parse(JSON.stringify(this.steps));
     const buildSelectedRadio = (step: any, index: number, radio: any, ) => {
       // 3. Clean possible previously added steps, so we don't repeat them
-      // Mirar si se puede sustituir step.identifier por step.wordToReplace
       while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
           this.steps.splice((index + 1), 1);
       }
@@ -167,6 +184,7 @@ export class ContratoCompraventaVehiculoStepsService {
           // Make step unique modifying identifier
           subStep.wordToReplace = step.identifier + subStep.identifier;
           replacement = replacement.replace(subStep.identifier, subStep.wordToReplace);
+          
           radio.extraReplacements.forEach( (extraReplacement) => {
               extraReplacement.replacement = extraReplacement.replacement.replace(subStep.identifier, subStep.wordToReplace);
           });
@@ -176,16 +194,20 @@ export class ContratoCompraventaVehiculoStepsService {
           }
           if (subStep.type === 'iRadioC') {
               // Mirar Si se puede quitar el deep copy
-              copySubStep = JSON.parse(JSON.stringify(subStep));
+              copySubStep = subStep;
               copySubStep.inheritFromRadioC = subStep.wordToReplace;
               copySubStep.radios.forEach((radioC: any) => {
                   radioC.subSteps.forEach((radioCsubstep: any) => {
                       const newIndentifier = subStep.wordToReplace + radioCsubstep.identifier;
-                      radioC.replacement = radioC.replacement.replace(radioCsubstep.identifier, newIndentifier);
                       radioC.replacementOriginal = radioC.replacementOriginal.replace(radioCsubstep.identifier, newIndentifier);
                       radioCsubstep.wordToReplace = newIndentifier;
                       // Mirar si se puede quitar esto
                       radioCsubstep.identifier = newIndentifier;
+                      cache.forEach((cacheStep) => {
+                        if (cacheStep.identifier === radioCsubstep.identifier) {
+                          console.log(cacheStep);
+                        }
+                      });
                   });
               });
           }

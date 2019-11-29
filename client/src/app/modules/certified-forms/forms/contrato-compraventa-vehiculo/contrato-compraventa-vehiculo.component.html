@@ -4,7 +4,7 @@
       <div class="form-creator__fields-area__container">
           <div class="form-creator__fields-area__top">
               <!-- START (Step 0) -->
-              <div class="form-creator__fields-area__top__container" *ngIf="this.steps[this.currentStep].type === 'start'">
+              <div class="form-creator__fields-area__top__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'start'">
                   <div class="form-creator__fields-area__top__author-date">
                       <span class="form-creator__fields-area__top__author-date__author">
                           <div class="form-creator__fields-area__top__author-date__author__image-container">
@@ -35,7 +35,7 @@
 
           <div class="form-creator__fields-area__middle">
               <!-- START -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'start'">
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'start'">
                   <div class="form-creator__fields-area__middle__initial-screen">
                       <h2 class="form-creator__fields-area__middle__initial-screen__form-title">
                           {{this.steps[this.currentStep].title}}
@@ -50,7 +50,7 @@
               </div>
                <!-- END OF START -->
                <!-- INPUT TEXT -->
-               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iText'">
+               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'iText'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -74,7 +74,7 @@
               </div>
                <!-- END OF INPUT TEXT -->
                <!-- INPUT FOR EACH -->
-               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iForEach'">
+               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'iForEach'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -98,7 +98,7 @@
               </div>
                <!-- END OF INPUT TEXT -->
                <!-- INPUT DATE -->
-               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iDate'">
+               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'iDate'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -124,7 +124,7 @@
               </div>
               <!-- END OF INPUT DATE -->
               <!-- INPUT RANGE -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'inputRange'">
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'inputRange'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -152,7 +152,7 @@
               </div>
               <!-- END OF INPUT RANGE -->
               <!-- INPUT RADIO B -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iRadioB'">
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'iRadioB'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -185,7 +185,7 @@
               </div>
               <!-- END OF INPUT RADIO B -->
               <!-- INPUT RADIO C -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iRadioC'">
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'iRadioC'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -218,7 +218,7 @@
               </div>
               <!-- END OF INPUT RADIO C -->
               <!-- INPUT SELECT -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iSelect'">
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'iSelect'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -259,7 +259,7 @@
               </div>
               <!-- END OF INPUT RADIO C -->
               <!-- INPUT CHECKBOX -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iCheckbox'">
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'iCheckbox'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -290,7 +290,7 @@
               </div>
               <!-- END OF INPUT RADIO C -->
               <!-- END -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'end'">
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'end'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__end-step">
@@ -310,7 +310,7 @@
               <!-- END OF END -->
           </div>
            <!-- START -->
-          <div class="form-creator__fields-area__bottom form-creator__fields-area__bottom--initial-screen" *ngIf="this.steps[this.currentStep].type === 'start'">
+          <div class="form-creator__fields-area__bottom form-creator__fields-area__bottom--initial-screen" *ngIf="this.steps[this.currentStep] && this.steps[this.currentStep].type === 'start'">
               <div class="form-creator__fields-area__bottom__step">
                   <span class="icon icon-file-regular"></span>
                   <span class="form-creator__fields-area__bottom__step__number">1.</span>
