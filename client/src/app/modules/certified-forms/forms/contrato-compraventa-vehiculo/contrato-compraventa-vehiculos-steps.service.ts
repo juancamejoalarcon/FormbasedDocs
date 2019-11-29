@@ -155,6 +155,7 @@ export class ContratoCompraventaVehiculoStepsService {
   onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
     const buildSelectedRadio = (step: any, index: number, radio: any, ) => {
       // 3. Clean possible previously added steps, so we don't repeat them
+      // Mirar si se puede sustituir step.identifier por step.wordToReplace
       while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
           this.steps.splice((index + 1), 1);
       }
@@ -174,6 +175,7 @@ export class ContratoCompraventaVehiculoStepsService {
               subStep.checkboxes.forEach((checkbox) => { checkbox.checked = false; });
           }
           if (subStep.type === 'iRadioC') {
+              // Mirar Si se puede quitar el deep copy
               copySubStep = JSON.parse(JSON.stringify(subStep));
               copySubStep.inheritFromRadioC = subStep.wordToReplace;
               copySubStep.radios.forEach((radioC: any) => {
@@ -182,6 +184,7 @@ export class ContratoCompraventaVehiculoStepsService {
                       radioC.replacement = radioC.replacement.replace(radioCsubstep.identifier, newIndentifier);
                       radioC.replacementOriginal = radioC.replacementOriginal.replace(radioCsubstep.identifier, newIndentifier);
                       radioCsubstep.wordToReplace = newIndentifier;
+                      // Mirar si se puede quitar esto
                       radioCsubstep.identifier = newIndentifier;
                   });
               });
