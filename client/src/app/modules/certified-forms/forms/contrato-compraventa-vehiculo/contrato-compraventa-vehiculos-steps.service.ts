@@ -28,7 +28,16 @@ export class ContratoCompraventaVehiculoStepsService {
             this.buildForEach(step.value, step.wordToReplace, false);
           break;
         case 'iRadioC':
-            this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
+          let noneIsChecked = true;
+            step.radios.forEach((radio) => {
+              if (radio.checked) {
+                noneIsChecked = false;
+                this.onInputRadioCSelected(radio.radioId, step.wordToReplace, false);
+              }
+            });
+            if (noneIsChecked) {
+              this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
+            }
           break;
         default:
           break;
@@ -68,6 +77,8 @@ export class ContratoCompraventaVehiculoStepsService {
         while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
           this.steps.splice((index + 1), 1);
         }
+        console.log('---After deleted For each---');
+        console.log(JSON.parse(JSON.stringify(this.steps)));
         // 3. Loop through the texts that will be inserted
         step.content.forEach((content, contentIndex) => {
           content.modifiedReplacements = [];
@@ -140,7 +151,7 @@ export class ContratoCompraventaVehiculoStepsService {
             if (radio.checked) {
               this.onInputRadioCSelected(radio.radioId, step.wordToReplace, false);
             }
-          })
+          });
         } else {
           this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
         }
@@ -170,11 +181,12 @@ export class ContratoCompraventaVehiculoStepsService {
   }
 
   onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
+    const refreshRadioCSteps = [];
     const cache = JSON.parse(JSON.stringify(this.steps));
     const buildSelectedRadio = (step: any, index: number, radio: any, ) => {
       // 3. Clean possible previously added steps, so we don't repeat them
-      while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
-          this.steps.splice((index + 1), 1);
+      while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.wordToReplace)) {
+        this.steps.splice((index + 1), 1);
       }
       // 2. Add steps
       let replacement = radio.replacementOriginal;
@@ -194,6 +206,8 @@ export class ContratoCompraventaVehiculoStepsService {
           }
           if (subStep.type === 'iRadioC') {
               // Mirar Si se puede quitar el deep copy
+              console.log('---On build subtype of radio c---');
+              console.log(JSON.parse(JSON.stringify(this.steps)));
               copySubStep = subStep;
               copySubStep.inheritFromRadioC = subStep.wordToReplace;
               copySubStep.radios.forEach((radioC: any) => {
@@ -203,11 +217,7 @@ export class ContratoCompraventaVehiculoStepsService {
                       radioCsubstep.wordToReplace = newIndentifier;
                       // Mirar si se puede quitar esto
                       radioCsubstep.identifier = newIndentifier;
-                      cache.forEach((cacheStep) => {
-                        if (cacheStep.identifier === radioCsubstep.identifier) {
-                          console.log(cacheStep);
-                        }
-                      });
+                      radioCsubstep.inherited = true;
                   });
               });
           }
