@@ -3,7 +3,6 @@ import { ContratoCompraventaVehiculoCreatorService } from './contrato-compravent
 
 @Injectable()
 export class ContratoCompraventaVehiculoStepsService {
-  public initializing = true;
   public steps: Array<any>;
 
   constructor(
@@ -15,35 +14,38 @@ export class ContratoCompraventaVehiculoStepsService {
   }
 
   setInitialState() {
-    this.initializing = true;
-    this.steps.forEach((step) => {
-      switch (step.type) {
-        case 'iText':
-            this.input(step.replacement, step.type, step.wordToReplace, false);
-          break;
-        case 'iDate':
-            this.input(step.replacement, step.type, step.wordToReplace, false);
-          break;
-        case 'iForEach':
-            this.buildForEach(step.value, step.wordToReplace, false);
-          break;
-        case 'iRadioC':
-          let noneIsChecked = true;
-            step.radios.forEach((radio) => {
-              if (radio.checked) {
-                noneIsChecked = false;
-                this.onInputRadioCSelected(radio.radioId, step.wordToReplace, false);
+    const buildSteps = () => {
+      this.steps.forEach((step) => {
+        switch (step.type) {
+          case 'iText':
+              this.input(step.replacement, step.wordToReplace, false);
+            break;
+          case 'iDate':
+              this.input(step.replacement, step.wordToReplace, false);
+            break;
+          case 'iForEach':
+              this.buildForEach(step.value, step.wordToReplace, false);
+            break;
+          case 'iRadioC':
+            let noneIsChecked = true;
+              step.radios.forEach((radio: any) => {
+                if (radio.checked) {
+                  noneIsChecked = false;
+                  this.onInputRadioCSelected(radio.radioId, step.wordToReplace, false);
+                }
+              });
+              if (noneIsChecked) {
+                this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
               }
-            });
-            if (noneIsChecked) {
-              this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
-            }
-          break;
-        default:
-          break;
-      }
-    });
-    this.initializing = false;
+            break;
+          default:
+            break;
+        }
+      });
+    };
+    // I do it twice, weird behaviour
+    buildSteps();
+    buildSteps();
     this.buildDocument();
   }
 
@@ -51,7 +53,7 @@ export class ContratoCompraventaVehiculoStepsService {
     this.documentCreatorService.buildDocument(this.steps);
   }
 
-  input(replacement: string, inputType: string, wordToReplace: string, buildDocumentAfter: boolean = true) {
+  input(replacement: string, wordToReplace: string, buildDocumentAfter: boolean = true) {
     // 1. Find the step
     this.steps.forEach((step) => {
       if (step.wordToReplace === wordToReplace) {
@@ -77,8 +79,6 @@ export class ContratoCompraventaVehiculoStepsService {
         while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
           this.steps.splice((index + 1), 1);
         }
-        console.log('---After deleted For each---');
-        console.log(JSON.parse(JSON.stringify(this.steps)));
         // 3. Loop through the texts that will be inserted
         step.content.forEach((content, contentIndex) => {
           content.modifiedReplacements = [];
@@ -181,8 +181,6 @@ export class ContratoCompraventaVehiculoStepsService {
   }
 
   onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
-    const refreshRadioCSteps = [];
-    const cache = JSON.parse(JSON.stringify(this.steps));
     const buildSelectedRadio = (step: any, index: number, radio: any, ) => {
       // 3. Clean possible previously added steps, so we don't repeat them
       while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.wordToReplace)) {
@@ -192,11 +190,10 @@ export class ContratoCompraventaVehiculoStepsService {
       let replacement = radio.replacementOriginal;
       radio.extraReplacements.forEach((extraReplacement) => { extraReplacement.replacement = extraReplacement.replacementOriginal; });
       radio.subSteps.forEach((subStep, subStepIndex) => {
-          let copySubStep;
           // Make step unique modifying identifier
           subStep.wordToReplace = step.identifier + subStep.identifier;
           replacement = replacement.replace(subStep.identifier, subStep.wordToReplace);
-          
+
           radio.extraReplacements.forEach( (extraReplacement) => {
               extraReplacement.replacement = extraReplacement.replacement.replace(subStep.identifier, subStep.wordToReplace);
           });
@@ -205,12 +202,9 @@ export class ContratoCompraventaVehiculoStepsService {
               subStep.checkboxes.forEach((checkbox) => { checkbox.checked = false; });
           }
           if (subStep.type === 'iRadioC') {
-              // Mirar Si se puede quitar el deep copy
-              console.log('---On build subtype of radio c---');
-              console.log(JSON.parse(JSON.stringify(this.steps)));
-              copySubStep = subStep;
-              copySubStep.inheritFromRadioC = subStep.wordToReplace;
-              copySubStep.radios.forEach((radioC: any) => {
+            // Si falla algo, mete el substep en la variable copysubstep
+              subStep.inheritFromRadioC = subStep.wordToReplace;
+              subStep.radios.forEach((radioC: any) => {
                   radioC.subSteps.forEach((radioCsubstep: any) => {
                       const newIndentifier = subStep.wordToReplace + radioCsubstep.identifier;
                       radioC.replacementOriginal = radioC.replacementOriginal.replace(radioCsubstep.identifier, newIndentifier);
@@ -224,7 +218,7 @@ export class ContratoCompraventaVehiculoStepsService {
           if (subStep.type !== 'iRadioC') {
               this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
           } else {
-              this.steps.splice(((index + 1) + subStepIndex ), 0, copySubStep);
+              this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
           }
       });
       radio.replacement = replacement;

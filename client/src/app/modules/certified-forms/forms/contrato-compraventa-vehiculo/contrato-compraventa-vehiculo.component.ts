@@ -174,6 +174,10 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
     }
   }
 
+  onInputSelectChanged(e: any) {
+    this.stepModelService.onInputRadioCSelected(e.target.value, this.steps[this.currentStep].wordToReplace);
+  }
+
   prepareForCheckout() {
     this.form.fields = this.steps;
     this.sharedService.setForm(this.form);

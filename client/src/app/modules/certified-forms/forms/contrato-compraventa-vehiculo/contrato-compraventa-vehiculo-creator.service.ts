@@ -97,14 +97,16 @@ export class ContratoCompraventaVehiculoCreatorService {
       this.currentDocumentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]
     );
 
+    this.getEditorSession().getOdfCanvas().refreshSize();
     this.scrollToElementWithClass('focused');
   }
 
   scrollToElementWithClass(className: any, offset = 0) {
     const element = document.querySelector('.' + className);
     if (element) {
-      element.parentElement
-      .scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+      // element.parentElement
+      // .scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+
       // setTimeout(() => {
       //   document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, offset);
       // }, 500);
