@@ -311,6 +311,18 @@ export class ContratoCompraventaVehiculoCreatorService {
           if (step.type === 'iDate') {
             replacement = this.dateToSpanishFormat(step.replacement);
           }
+          if (step.isEmpty) {
+            if (step.replacement !== '') {
+              if (step.isEmpty.prepend) {
+                replacement = step.replacement.replace(step.isEmpty.prepend, '');
+                replacement = step.isEmpty.prepend + step.replacement;
+              }
+              if (step.isEmpty.append) {
+                replacement = step.replacement.replace(step.isEmpty.append, '');
+                replacement = step.replacement + step.isEmpty.append;
+              }
+            }
+          }
           if (element) {
             element.innerHTML = element.innerHTML.replace(regexp,
             `<span class="${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${replacement}</span>`);

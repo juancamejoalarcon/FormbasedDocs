@@ -1213,14 +1213,14 @@ export const steps = [
   },
   {
     type: 'iRadioB',
-    question: 'Tipo de documento de identificación del comprador',
+    question: 'El vehículo que se desea vender mediante este contrato, ¿lleva el motor original (el motor de fábrica)?',
     identifier: 'id14',
     wordToReplace: 'id14',
     indications: 'Marque la opción Persona ...',
     replacement: '',
     radios: [
       {
-        label: 'DNI',
+        label: 'Sí',
         replacementOriginal: 'Sí',
         replacement: 'Sí',
         radioId: 'id14_opA',
@@ -1229,7 +1229,7 @@ export const steps = [
         checked: true,
       },
       {
-        label: 'NIE',
+        label: 'No',
         replacementOriginal: 'No',
         replacement: 'No',
         radioId: 'id14_opB',
@@ -1254,6 +1254,72 @@ export const steps = [
     },
     mandatory: true,
     isFocused: false
+  },
+  {
+    type: 'iRadioC',
+    subType: 'select',
+    question: 'El estado de conservación del vehículo que se desea vender es:',
+    identifier: 'id16',
+    wordToReplace: 'id16',
+    indications: 'Marque la opción Persona ...',
+    defaultRadioId: 'id16_opA',
+    replacement: '',
+    extraReplacements: [
+    ],
+    radios: [
+      {
+        label: 'Perfecto estado de conservación, como nuevo.',
+        replacementOriginal: 'Perfecto estado de conservación, como nuevo.',
+        replacement: 'Perfecto estado de conservación, como nuevo',
+        extraReplacements: [],
+        radioId: 'id16_opA',
+        identifier: 'id16_opA',
+        checked: false,
+        subSteps: []
+      },
+      {
+        label: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo.',
+        replacementOriginal: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo. id16_opB_1',
+        replacement: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo. id16_opB_1',
+        extraReplacements: [],
+        radioId: 'id16_opB',
+        identifier: 'id16_opB',
+        checked: true,
+        subSteps: [
+          {
+            question: 'Desperfectos o golpes visibles que tiene el vehículo que se desea vender',
+            placeholder: 'Opcional',
+            wordToReplace: 'id16_opB_1',
+            identifier: 'id16_opB_1',
+            type: 'iText',
+            replacement: '',
+            isEmpty: {
+              prepend: 'Los desperfectos y/o golpes visibles que tiene el Vehículo son los siguientes: ',
+              append: '',
+            }
+          }
+        ]
+      },
+      {
+        label: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo.',
+        replacementOriginal: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo. id16_opC_1',
+        replacement: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo. id16_opC_1',
+        extraReplacements: [],
+        radioId: 'id16_opC',
+        identifier: 'id16_opC',
+        checked: true,
+        subSteps: [
+          {
+            question: 'Desperfectos o golpes visibles que tiene el vehículo que se desea vender',
+            placeholder: 'Opcional',
+            wordToReplace: 'id16_opC_1',
+            identifier: 'id16_opC_1',
+            type: 'iText',
+            replacement: '',
+          }
+        ]
+      },
+    ],
   },
   {
       type: 'end',
