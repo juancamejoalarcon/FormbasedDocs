@@ -43,7 +43,8 @@ export class ContratoCompraventaVehiculoStepsService {
         }
       });
     };
-    // I do it twice, weird behaviour
+    // We need to check the level of depth
+    buildSteps();
     buildSteps();
     buildSteps();
     this.buildDocument();
