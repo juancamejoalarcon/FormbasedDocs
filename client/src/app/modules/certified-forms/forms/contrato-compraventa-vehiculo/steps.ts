@@ -1322,6 +1322,64 @@ export const steps = [
     ],
   },
   {
+    type: 'iRadioC',
+    question: 'El vehículo que se desea vender ha pasado la ITV alguna vez:',
+    identifier: 'id17',
+    wordToReplace: 'id17',
+    indications: 'Marque la opción Persona ...',
+    defaultRadioId: 'id17_opA',
+    replacement: '',
+    extraReplacements: [
+    ],
+    radios: [
+      {
+        label: 'Sí',
+        replacementOriginal: 'Que el Vehículo objeto del presente Contrato de compraventa se encuentra revisado reglamentariamente por la ITV de id17_opA_1 en fecha id17_opA_2.',
+        replacement: 'Que el Vehículo objeto del presente Contrato de compraventa se encuentra revisado reglamentariamente por la ITV de id17_opA_1 en fecha id17_opA_2.',
+        extraReplacements: [],
+        radioId: 'id17_opA',
+        identifier: 'id17_opA',
+        checked: false,
+        subSteps: [
+          {
+            question: 'Municipio y/o nombre del centro de ITV en el que el vehículo que se desea vender pasó su última Inspección ITV:',
+            placeholder: 'Ej. Alcorcón - OCA ITV, S.A.',
+            wordToReplace: 'id17_opA_1',
+            identifier: 'id17_opA_1',
+            type: 'iText',
+            replacement: '',
+          },
+          {
+            question: 'Fecha en la que el vehículo que se desea vender pasó la última ITV:',
+            placeholder: 'Ej. Alcorcón - OCA ITV, S.A.',
+            wordToReplace: 'id17_opA_1',
+            identifier: 'id17_opA_1',
+            type: 'iDate',
+            replacement: '',
+          }
+        ]
+      },
+      {
+        label: 'No',
+        replacementOriginal: '',
+        replacement: '',
+        extraReplacements: [],
+        radioId: 'id17_opB',
+        identifier: 'id17_opB',
+        checked: true,
+        subSteps: []
+      }
+    ],
+  },
+  {
+    question: 'Mes y año en el que el vehículo que se desea vender debe pasar la próxima ITV:',
+    placeholder: 'Octubre 2019',
+    wordToReplace: 'id18',
+    identifier: 'id18',
+    type: 'iText',
+    replacement: '',
+  },
+  {
       type: 'end',
       identifier: 'end',
       wordToReplace: 'end',
