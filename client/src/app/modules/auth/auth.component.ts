@@ -66,7 +66,7 @@ export class AuthComponent implements OnInit {
 
   checkIfUserHasScrolledToBottom() {
     this.modalMiddle.nativeElement.addEventListener('scroll', (e: any) => {
-      if (e.srcElement.scrollHeight - e.srcElement.scrollTop === e.srcElement.clientHeight) {
+      if (e.srcElement.scrollHeight - e.srcElement.scrollTop <= (e.srcElement.clientHeight + 200)) {
           this.enablePrivacyButton();
           this.privacyCheckbox.nativeElement.disabled = false;
       }
