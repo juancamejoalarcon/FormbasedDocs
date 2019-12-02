@@ -178,6 +178,21 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
     this.stepModelService.onInputRadioCSelected(e.target.value, this.steps[this.currentStep].wordToReplace);
   }
 
+  onInputNumberChanged(input: any) {
+
+    if (isNaN(input)) {
+      this.toastr.error('Form cannot be empty', 'Must be a number', {
+        positionClass: 'toast-bottom-right',
+        progressBar: true,
+        progressAnimation: 'decreasing'
+      });
+      this.input.nativeElement.style.borderBottom = '3px solid red';
+    } else {
+      this.input.nativeElement.style.borderBottom = '';
+      this.stepModelService.input(input, this.steps[this.currentStep].wordToReplace);
+    }
+  }
+
   prepareForCheckout() {
     this.form.fields = this.steps;
     this.sharedService.setForm(this.form);

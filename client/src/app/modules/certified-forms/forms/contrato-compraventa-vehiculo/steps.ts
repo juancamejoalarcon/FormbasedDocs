@@ -1153,231 +1153,254 @@ export const steps = [
   //   mandatory: true,
   //   isFocused: false
   // },
+  // {
+  //   type: 'iRadioC',
+  //   question: 'El vehículo tiene otras características especiales que quiere añadir:',
+  //   identifier: 'idnew1',
+  //   wordToReplace: 'idnew1',
+  //   indications: 'Marque la opción Persona ...',
+  //   defaultRadioId: 'idnew1_opA',
+  //   replacement: '',
+  //   extraReplacements: [
+  //   ],
+  //   radios: [
+  //     {
+  //       label: 'Sí',
+  //       replacementOriginal: '- Otras características del vehículo: idnew1_opA_1',
+  //       replacement: '- Otras características del vehículo: idnew1_opA_1',
+  //       extraReplacements: [],
+  //       radioId: 'idnew1_opA',
+  //       identifier: 'idnew1_opA',
+  //       checked: false,
+  //       subSteps: [
+  //         {
+  //           question: 'Indique otras características del vehículo',
+  //           placeholder: 'Aire acondicionado',
+  //           wordToReplace: 'idnew1_opA_1',
+  //           identifier: 'idnew1_opA_1',
+  //           type: 'iText',
+  //           replacement: '',
+  //         },
+  //       ]
+  //     },
+  //     {
+  //       label: 'No',
+  //       replacementOriginal: '',
+  //       replacement: '',
+  //       extraReplacements: [],
+  //       radioId: 'idnew1_opB',
+  //       identifier: 'idnew1_opB',
+  //       checked: true,
+  //       subSteps: []
+  //     },
+  //   ],
+  // },
+  // {
+  //   type: 'iText',
+  //   identifier: 'id13',
+  //   wordToReplace: 'id13',
+  //   replacement: '',
+  //   placeholder: 'Sin plomo 95',
+  //   question: 'Tipo de combustible que utiliza el vehículo que se desea vender:',
+  //   indications: {
+  //     areIndications: true,
+  //     indicationsType: 'insideText',
+  //     // tslint:disable-next-line:max-line-length
+  //     value: 'Indique en este espacio el tipo específico de combustible que utiliza el vehículo que se desea vender.'
+  //   },
+  //   mandatory: true,
+  //   isFocused: false
+  // },
+  // {
+  //   type: 'iRadioB',
+  //   question: 'El vehículo que se desea vender mediante este contrato, ¿lleva el motor original (el motor de fábrica)?',
+  //   identifier: 'id14',
+  //   wordToReplace: 'id14',
+  //   indications: 'Marque la opción Persona ...',
+  //   replacement: '',
+  //   radios: [
+  //     {
+  //       label: 'Sí',
+  //       replacementOriginal: 'Sí',
+  //       replacement: 'Sí',
+  //       radioId: 'id14_opA',
+  //       identifier: 'id14_opA',
+  //       extraReplacements: [],
+  //       checked: true,
+  //     },
+  //     {
+  //       label: 'No',
+  //       replacementOriginal: 'No',
+  //       replacement: 'No',
+  //       radioId: 'id14_opB',
+  //       identifier: 'id14_opB',
+  //       extraReplacements: [],
+  //       checked: false,
+  //     },
+  //   ]
+  // },
+  // {
+  //   type: 'iText',
+  //   identifier: 'id15',
+  //   wordToReplace: 'id15',
+  //   replacement: '',
+  //   placeholder: '',
+  //   question: 'Número de propietarios que ha tenido el vehículo que se desea vender antes que el actual propietario vendedor:',
+  //   indications: {
+  //     areIndications: true,
+  //     indicationsType: 'insideText',
+  //     // tslint:disable-next-line:max-line-length
+  //     value: 'Introduzca el número de propietarios que ha tenido el vehículo que se desea vender antes que el actual propietario que vendedor. Si el propietario que ahora lo vende es el primer y único propietario que ha tenido el vehículo introduzca 0.'
+  //   },
+  //   mandatory: true,
+  //   isFocused: false
+  // },
+  // {
+  //   type: 'iRadioC',
+  //   subType: 'select',
+  //   question: 'El estado de conservación del vehículo que se desea vender es:',
+  //   identifier: 'id16',
+  //   wordToReplace: 'id16',
+  //   indications: 'Marque la opción Persona ...',
+  //   defaultRadioId: 'id16_opA',
+  //   replacement: '',
+  //   extraReplacements: [
+  //   ],
+  //   radios: [
+  //     {
+  //       label: 'Perfecto estado de conservación, como nuevo.',
+  //       replacementOriginal: 'Perfecto estado de conservación, como nuevo.',
+  //       replacement: 'Perfecto estado de conservación, como nuevo',
+  //       extraReplacements: [],
+  //       radioId: 'id16_opA',
+  //       identifier: 'id16_opA',
+  //       checked: false,
+  //       subSteps: []
+  //     },
+  //     {
+  //       label: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo.',
+  //       replacementOriginal: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo. id16_opB_1',
+  //       replacement: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo. id16_opB_1',
+  //       extraReplacements: [],
+  //       radioId: 'id16_opB',
+  //       identifier: 'id16_opB',
+  //       checked: true,
+  //       subSteps: [
+  //         {
+  //           question: 'Desperfectos o golpes visibles que tiene el vehículo que se desea vender',
+  //           placeholder: 'Opcional',
+  //           wordToReplace: 'id16_opB_1',
+  //           identifier: 'id16_opB_1',
+  //           type: 'iText',
+  //           replacement: '',
+  //           isEmpty: {
+  //             prepend: 'Los desperfectos y/o golpes visibles que tiene el Vehículo son los siguientes: ',
+  //             append: '',
+  //           }
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       label: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo.',
+  //       replacementOriginal: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo. id16_opC_1',
+  //       replacement: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo. id16_opC_1',
+  //       extraReplacements: [],
+  //       radioId: 'id16_opC',
+  //       identifier: 'id16_opC',
+  //       checked: true,
+  //       subSteps: [
+  //         {
+  //           question: 'Desperfectos o golpes visibles que tiene el vehículo que se desea vender',
+  //           placeholder: 'Opcional',
+  //           wordToReplace: 'id16_opC_1',
+  //           identifier: 'id16_opC_1',
+  //           type: 'iText',
+  //           replacement: '',
+  //           isEmpty: {
+  //             prepend: 'Los desperfectos y/o golpes visibles que tiene el Vehículo son los siguientes: ',
+  //             append: '',
+  //           }
+  //         }
+  //       ]
+  //     },
+  //   ],
+  // },
+  // {
+  //   type: 'iRadioC',
+  //   question: 'El vehículo que se desea vender ha pasado la ITV alguna vez:',
+  //   identifier: 'id17_weirdBehaviour',
+  //   wordToReplace: 'id17',
+  //   indications: 'Marque la opción Persona ...',
+  //   defaultRadioId: 'id17_opA',
+  //   replacement: '',
+  //   extraReplacements: [
+  //   ],
+  //   radios: [
+  //     {
+  //       label: 'Sí',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'Que el Vehículo objeto del presente Contrato de compraventa se encuentra revisado reglamentariamente por la ITV de id17_opA_1 en fecha id17_opA_2.',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacement: 'Que el Vehículo objeto del presente Contrato de compraventa se encuentra revisado reglamentariamente por la ITV de id17_opA_1 en fecha id17_opA_2.',
+  //       extraReplacements: [],
+  //       radioId: 'id17_opA',
+  //       identifier: 'id17_opA',
+  //       checked: false,
+  //       subSteps: [
+  //         {
+  //           question: 'Municipio y/o nombre del centro de ITV en el que el vehículo que se desea vender pasó su última Inspección ITV:',
+  //           placeholder: 'Ej. Alcorcón - OCA ITV, S.A.',
+  //           wordToReplace: 'id17_opA_1',
+  //           identifier: 'id17_opA_1',
+  //           type: 'iText',
+  //           replacement: '',
+  //         },
+  //         {
+  //           question: 'Fecha en la que el vehículo que se desea vender pasó la última ITV:',
+  //           placeholder: 'Ej. Alcorcón - OCA ITV, S.A.',
+  //           wordToReplace: 'id17_opA_1',
+  //           identifier: 'id17_opA_1',
+  //           type: 'iDate',
+  //           replacement: '',
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       label: 'No',
+  //       replacementOriginal: '',
+  //       replacement: '',
+  //       extraReplacements: [],
+  //       radioId: 'id17_opB',
+  //       identifier: 'id17_opB',
+  //       checked: true,
+  //       subSteps: []
+  //     }
+  //   ],
+  // },
+  // {
+  //   question: 'Mes y año en el que el vehículo que se desea vender debe pasar la próxima ITV:',
+  //   placeholder: 'Octubre 2019',
+  //   wordToReplace: 'id18',
+  //   identifier: 'id18',
+  //   type: 'iText',
+  //   replacement: '',
+  // },
   {
-    type: 'iRadioC',
-    question: 'El vehículo tiene otras características especiales que quiere añadir:',
-    identifier: 'idnew1',
-    wordToReplace: 'idnew1',
-    indications: 'Marque la opción Persona ...',
-    defaultRadioId: 'idnew1_opA',
+    question: 'Precio (en euros) que se fija para la venta del vehículo que se desea vender:',
+    placeholder: 'Escriba un número mayor que cero',
+    wordToReplace: 'id19',
+    identifier: 'id19',
+    type: 'iNumber',
     replacement: '',
-    extraReplacements: [
-    ],
-    radios: [
+    rules: [
       {
-        label: 'Sí',
-        replacementOriginal: '- Otras características del vehículo: idnew1_opA_1',
-        replacement: '- Otras características del vehículo: idnew1_opA_1',
-        extraReplacements: [],
-        radioId: 'idnew1_opA',
-        identifier: 'idnew1_opA',
-        checked: false,
-        subSteps: [
-          {
-            question: 'Indique otras características del vehículo',
-            placeholder: 'Aire acondicionado',
-            wordToReplace: 'idnew1_opA_1',
-            identifier: 'idnew1_opA_1',
-            type: 'iText',
-            replacement: '',
-          },
-        ]
-      },
-      {
-        label: 'No',
-        replacementOriginal: '',
-        replacement: '',
-        extraReplacements: [],
-        radioId: 'idnew1_opB',
-        identifier: 'idnew1_opB',
-        checked: true,
-        subSteps: []
-      },
-    ],
-  },
-  {
-    type: 'iText',
-    identifier: 'id13',
-    wordToReplace: 'id13',
-    replacement: '',
-    placeholder: 'Sin plomo 95',
-    question: 'Tipo de combustible que utiliza el vehículo que se desea vender:',
-    indications: {
-      areIndications: true,
-      indicationsType: 'insideText',
-      // tslint:disable-next-line:max-line-length
-      value: 'Indique en este espacio el tipo específico de combustible que utiliza el vehículo que se desea vender.'
-    },
-    mandatory: true,
-    isFocused: false
-  },
-  {
-    type: 'iRadioB',
-    question: 'El vehículo que se desea vender mediante este contrato, ¿lleva el motor original (el motor de fábrica)?',
-    identifier: 'id14',
-    wordToReplace: 'id14',
-    indications: 'Marque la opción Persona ...',
-    replacement: '',
-    radios: [
-      {
-        label: 'Sí',
-        replacementOriginal: 'Sí',
-        replacement: 'Sí',
-        radioId: 'id14_opA',
-        identifier: 'id14_opA',
-        extraReplacements: [],
-        checked: true,
-      },
-      {
-        label: 'No',
-        replacementOriginal: 'No',
-        replacement: 'No',
-        radioId: 'id14_opB',
-        identifier: 'id14_opB',
-        extraReplacements: [],
-        checked: false,
-      },
-    ]
-  },
-  {
-    type: 'iText',
-    identifier: 'id15',
-    wordToReplace: 'id15',
-    replacement: '',
-    placeholder: '',
-    question: 'Número de propietarios que ha tenido el vehículo que se desea vender antes que el actual propietario vendedor:',
-    indications: {
-      areIndications: true,
-      indicationsType: 'insideText',
-      // tslint:disable-next-line:max-line-length
-      value: 'Introduzca el número de propietarios que ha tenido el vehículo que se desea vender antes que el actual propietario que vendedor. Si el propietario que ahora lo vende es el primer y único propietario que ha tenido el vehículo introduzca 0.'
-    },
-    mandatory: true,
-    isFocused: false
-  },
-  {
-    type: 'iRadioC',
-    subType: 'select',
-    question: 'El estado de conservación del vehículo que se desea vender es:',
-    identifier: 'id16',
-    wordToReplace: 'id16',
-    indications: 'Marque la opción Persona ...',
-    defaultRadioId: 'id16_opA',
-    replacement: '',
-    extraReplacements: [
-    ],
-    radios: [
-      {
-        label: 'Perfecto estado de conservación, como nuevo.',
-        replacementOriginal: 'Perfecto estado de conservación, como nuevo.',
-        replacement: 'Perfecto estado de conservación, como nuevo',
-        extraReplacements: [],
-        radioId: 'id16_opA',
-        identifier: 'id16_opA',
-        checked: false,
-        subSteps: []
-      },
-      {
-        label: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo.',
-        replacementOriginal: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo. id16_opB_1',
-        replacement: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo. id16_opB_1',
-        extraReplacements: [],
-        radioId: 'id16_opB',
-        identifier: 'id16_opB',
-        checked: true,
-        subSteps: [
-          {
-            question: 'Desperfectos o golpes visibles que tiene el vehículo que se desea vender',
-            placeholder: 'Opcional',
-            wordToReplace: 'id16_opB_1',
-            identifier: 'id16_opB_1',
-            type: 'iText',
-            replacement: '',
-            isEmpty: {
-              prepend: 'Los desperfectos y/o golpes visibles que tiene el Vehículo son los siguientes: ',
-              append: '',
-            }
-          }
-        ]
-      },
-      {
-        label: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo.',
-        replacementOriginal: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo. id16_opC_1',
-        replacement: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo. id16_opC_1',
-        extraReplacements: [],
-        radioId: 'id16_opC',
-        identifier: 'id16_opC',
-        checked: true,
-        subSteps: [
-          {
-            question: 'Desperfectos o golpes visibles que tiene el vehículo que se desea vender',
-            placeholder: 'Opcional',
-            wordToReplace: 'id16_opC_1',
-            identifier: 'id16_opC_1',
-            type: 'iText',
-            replacement: '',
-          }
-        ]
-      },
-    ],
-  },
-  {
-    type: 'iRadioC',
-    question: 'El vehículo que se desea vender ha pasado la ITV alguna vez:',
-    identifier: 'id17',
-    wordToReplace: 'id17',
-    indications: 'Marque la opción Persona ...',
-    defaultRadioId: 'id17_opA',
-    replacement: '',
-    extraReplacements: [
-    ],
-    radios: [
-      {
-        label: 'Sí',
-        replacementOriginal: 'Que el Vehículo objeto del presente Contrato de compraventa se encuentra revisado reglamentariamente por la ITV de id17_opA_1 en fecha id17_opA_2.',
-        replacement: 'Que el Vehículo objeto del presente Contrato de compraventa se encuentra revisado reglamentariamente por la ITV de id17_opA_1 en fecha id17_opA_2.',
-        extraReplacements: [],
-        radioId: 'id17_opA',
-        identifier: 'id17_opA',
-        checked: false,
-        subSteps: [
-          {
-            question: 'Municipio y/o nombre del centro de ITV en el que el vehículo que se desea vender pasó su última Inspección ITV:',
-            placeholder: 'Ej. Alcorcón - OCA ITV, S.A.',
-            wordToReplace: 'id17_opA_1',
-            identifier: 'id17_opA_1',
-            type: 'iText',
-            replacement: '',
-          },
-          {
-            question: 'Fecha en la que el vehículo que se desea vender pasó la última ITV:',
-            placeholder: 'Ej. Alcorcón - OCA ITV, S.A.',
-            wordToReplace: 'id17_opA_1',
-            identifier: 'id17_opA_1',
-            type: 'iDate',
-            replacement: '',
-          }
-        ]
-      },
-      {
-        label: 'No',
-        replacementOriginal: '',
-        replacement: '',
-        extraReplacements: [],
-        radioId: 'id17_opB',
-        identifier: 'id17_opB',
-        checked: true,
-        subSteps: []
+        condition: false,
+        rulename: 'extraReplacementToCharacter',
+        identifier: 'extraReplacementToCharacterid19',
+        wordToReplace: 'extraReplacementToCharacterid19',
+        replacement: ''
       }
-    ],
-  },
-  {
-    question: 'Mes y año en el que el vehículo que se desea vender debe pasar la próxima ITV:',
-    placeholder: 'Octubre 2019',
-    wordToReplace: 'id18',
-    identifier: 'id18',
-    type: 'iText',
-    replacement: '',
+    ]
   },
   {
       type: 'end',
