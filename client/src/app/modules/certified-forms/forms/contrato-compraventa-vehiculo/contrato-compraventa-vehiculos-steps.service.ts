@@ -1,4 +1,5 @@
-import { Injectable, ɵConsole } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { CommonsService } from '../../../../core'
 import { ContratoCompraventaVehiculoCreatorService } from './contrato-compraventa-vehiculo-creator.service';
 
 @Injectable()
@@ -6,7 +7,8 @@ export class ContratoCompraventaVehiculoStepsService {
   public steps: Array<any>;
 
   constructor(
-    private documentCreatorService: ContratoCompraventaVehiculoCreatorService
+    private documentCreatorService: ContratoCompraventaVehiculoCreatorService,
+    private commonsService: CommonsService
   ) { }
 
   init(steps: Array<Object>) {
@@ -18,6 +20,9 @@ export class ContratoCompraventaVehiculoStepsService {
       this.steps.forEach((step) => {
         switch (step.type) {
           case 'iText':
+              this.input(step.replacement, step.wordToReplace, false);
+            break;
+          case 'iNumber':
               this.input(step.replacement, step.wordToReplace, false);
             break;
           case 'iDate':
@@ -76,15 +81,20 @@ export class ContratoCompraventaVehiculoStepsService {
     if (step.rules.length) {
       step.rules.forEach((rule: any) => {
         if (rule.rulename === 'extraReplacementToCharacter') {
-          while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
-            this.steps.splice((index + 1), 1);
-          }
-          console.log(this.numeroALetras(step.replacement, {
-            plural: 'dólares estadounidenses',
-            singular: 'dólar estadounidense',
-            centPlural: 'centavos',
-            centSingular: 'centavo'
-          }));
+          step.extraReplacements.forEach((extraReplacement: any, index: number) => {
+            if (extraReplacement.wordToReplace === rule.wordToReplace) {
+              step.extraReplacements.splice(index, 1);
+            }
+          })
+          step.extraReplacements.push({
+            wordToReplace: rule.wordToReplace,
+            replacement: this.commonsService.numeroALetras(step.replacement, {
+              plural: 'euros',
+              singular: 'euro',
+              centPlural: 'centavos',
+              centSingular: 'centavo'
+            })
+          });
         }
       });
     }
@@ -351,169 +361,5 @@ export class ContratoCompraventaVehiculoStepsService {
 
   getStepsModel() {
     return this.steps;
-  }
-
-  numeroALetras (num, currency) {
-    // Código basado en https://gist.github.com/alfchee/e563340276f89b22042a
-    const Unidades = (number: number) => {
-
-      switch (number) {
-
-        case 1: return 'UN';
-        case 2: return 'DOS';
-        case 3: return 'TRES';
-        case 4: return 'CUATRO';
-        case 5: return 'CINCO';
-        case 6: return 'SEIS';
-        case 7: return 'SIETE';
-        case 8: return 'OCHO';
-        case 9: return 'NUEVE';
-      }
-      return '';
-    };
-
-    const Decenas = (number: number) => {
-      const decena = Math.floor(number / 10);
-      const unidad = number - (decena * 10);
-
-      switch (decena) {
-        case 1:
-          switch (unidad) {
-            case 0: return 'DIEZ';
-            case 1: return 'ONCE';
-            case 2: return 'DOCE';
-            case 3: return 'TRECE';
-            case 4: return 'CATORCE';
-            case 5: return 'QUINCE';
-            default: return 'DIECI' + Unidades(unidad);
-          }
-        case 2:
-          switch (unidad) {
-            case 0: return 'VEINTE';
-            default: return 'VEINTI' + Unidades(unidad);
-          }
-        case 3: return DecenasY('TREINTA', unidad);
-        case 4: return DecenasY('CUARENTA', unidad);
-        case 5: return DecenasY('CINCUENTA', unidad);
-        case 6: return DecenasY('SESENTA', unidad);
-        case 7: return DecenasY('SETENTA', unidad);
-        case 8: return DecenasY('OCHENTA', unidad);
-        case 9: return DecenasY('NOVENTA', unidad);
-        case 0: return Unidades(unidad);
-      }
-    };
-
-    const DecenasY = (strSin, numUnidades) => {
-      if (numUnidades > 0) {
-        return strSin + ' Y ' + Unidades(numUnidades);
-      }
-      return strSin;
-    };
-
-    const Centenas = (number: number) => {
-      const centenas = Math.floor(number / 100);
-      const decenas = number - (centenas * 100);
-
-      switch (centenas) {
-        case 1:
-          if (decenas > 0) {
-            return 'CIENTO ' + Decenas(decenas);
-          } else {
-            return 'CIEN';
-          }
-        case 2: return 'DOSCIENTOS ' + Decenas(decenas);
-        case 3: return 'TRESCIENTOS ' + Decenas(decenas);
-        case 4: return 'CUATROCIENTOS ' + Decenas(decenas);
-        case 5: return 'QUINIENTOS ' + Decenas(decenas);
-        case 6: return 'SEISCIENTOS ' + Decenas(decenas);
-        case 7: return 'SETECIENTOS ' + Decenas(decenas);
-        case 8: return 'OCHOCIENTOS ' + Decenas(decenas);
-        case 9: return 'NOVECIENTOS ' + Decenas(decenas);
-      }
-
-      return Decenas(decenas);
-    };
-
-    const Seccion = (number, divisor, strSingular, strPlural) => {
-      const cientos = Math.floor(number / divisor);
-      const resto = number - (cientos * divisor);
-      let letras = '';
-
-      if (cientos > 0) {
-        if (cientos > 1) {
-          letras = Centenas(cientos) + ' ' + strPlural;
-        } else {
-          letras = strSingular;
-        }
-      }
-
-      if (resto > 0) {
-        letras += '';
-      }
-
-      return letras;
-    };
-
-    const Miles = (number) => {
-      const divisor = 1000;
-      const cientos = Math.floor(number / divisor);
-      const resto = number - (cientos * divisor);
-      const strMiles = Seccion(number, divisor, 'UN MIL', 'MIL');
-      const strCentenas = Centenas(resto);
-
-      if (strMiles === '') {
-        return strCentenas;
-      }
-      return strMiles + ' ' + strCentenas;
-    };
-
-    const Millones = (number) => {
-      const divisor = 1000000;
-      const cientos = Math.floor(number / divisor);
-      const resto = number - (cientos * divisor);
-      const strMillones = Seccion(number, divisor, 'UN MILLON DE', 'MILLONES DE');
-      const strMiles = Miles(resto);
-
-      if (strMillones === '') {
-        return strMiles;
-      }
-
-      return strMillones + ' ' + strMiles;
-    };
-
-    const finalAmount = (number, cur) => {
-      cur = cur || {};
-      const data = {
-        numero: number,
-        enteros: Math.floor(number),
-        centavos: (((Math.round(number * 100)) - (Math.floor(number) * 100))),
-        letrasCentavos: '',
-        letrasMonedaPlural: cur.plural || 'PESOS CHILENOS',//'PESOS', 'Dólares', 'Bolívares', 'etcs'
-        letrasMonedaSingular: cur.singular || 'PESO CHILENO', //'PESO', 'Dólar', 'Bolivar', 'etc'
-        letrasMonedaCentavoPlural: cur.centPlural || 'CHIQUI PESOS CHILENOS',
-        letrasMonedaCentavoSingular: cur.centSingular || 'CHIQUI PESO CHILENO'
-      };
-
-      if (data.centavos > 0) {
-        data.letrasCentavos = 'CON ' + (() => {
-          if (data.centavos === 1) {
-            return Millones(data.centavos) + ' ' + data.letrasMonedaCentavoSingular;
-          } else {
-            return Millones(data.centavos) + ' ' + data.letrasMonedaCentavoPlural;
-          }
-        })();
-      }
-
-      if (data.enteros === 0) {
-        return 'CERO ' + data.letrasMonedaPlural + ' ' + data.letrasCentavos;
-      }
-      if (data.enteros === 1) {
-        return Millones(data.enteros) + ' ' + data.letrasMonedaSingular + ' ' + data.letrasCentavos;
-      } else {
-        return Millones(data.enteros) + ' ' + data.letrasMonedaPlural + ' ' + data.letrasCentavos;
-      }
-    };
-
-    return finalAmount(num, currency);
   }
 }

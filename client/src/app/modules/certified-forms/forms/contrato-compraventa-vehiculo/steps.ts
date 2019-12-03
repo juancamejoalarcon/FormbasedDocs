@@ -1392,12 +1392,13 @@ export const steps = [
     identifier: 'id19',
     type: 'iNumber',
     replacement: '',
+    extraReplacements: [],
     rules: [
       {
         condition: false,
         rulename: 'extraReplacementToCharacter',
-        identifier: 'extraReplacementToCharacterid19',
-        wordToReplace: 'extraReplacementToCharacterid19',
+        identifier: 'blablam',
+        wordToReplace: 'blablam',
         replacement: ''
       }
     ]

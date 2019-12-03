@@ -349,6 +349,26 @@ export class ContratoCompraventaVehiculoCreatorService {
           });
         });
       }
+      // Extra replacements
+      if (step.extraReplacements && step.extraReplacements.length) {
+        step.extraReplacements.forEach((extraReplacement: any) => {
+          const elementsContainingWord = this.findAllwords(extraReplacement.wordToReplace);
+          const regexp = new RegExp(extraReplacement.wordToReplace, 'g');
+          elementsContainingWord.forEach((elementContainingWord: any) => {
+            let element = elementContainingWord;
+            let replacement = extraReplacement.replacement;
+            if (element.innerHTML !== extraReplacement.wordToReplace) {
+              // Find the innermost element containing the word
+              element = this.findExactContainingElement(extraReplacement.wordToReplace, element);
+            }
+
+            if (element) {
+              element.innerHTML = element.innerHTML.replace(regexp,
+              `<span class="${extraReplacement.isFocused ? 'highlight focused' : ''}" data-identifier="${extraReplacement.wordToReplace}">${replacement}</span>`);
+            }
+          });
+        })
+      }
     });
   }
 
