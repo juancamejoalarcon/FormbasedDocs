@@ -181,7 +181,7 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
   onInputNumberChanged(input: any) {
 
     if (isNaN(input)) {
-      this.toastr.error('Form cannot be empty', 'Must be a number', {
+      this.toastr.error('Number not valid', 'Must be a number', {
         positionClass: 'toast-bottom-right',
         progressBar: true,
         progressAnimation: 'decreasing'
@@ -189,6 +189,12 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
       this.input.nativeElement.style.borderBottom = '3px solid red';
     } else {
       this.input.nativeElement.style.borderBottom = '';
+      if (input.includes(',')) {
+        input = input.replace(',', '')
+      }
+      if (input.includes('.')) {
+        input = input.replace('.', '')
+      }
       this.stepModelService.input(input, this.steps[this.currentStep].wordToReplace);
     }
   }
