@@ -336,7 +336,7 @@ export class ContratoCompraventaVehiculoStepsService {
           });
         step.replacement = replacement;
         // Aplly rules
-        if (step.rules.length) {
+        if (step.rules && step.rules.length) {
           step.rules.forEach((rule: any) => {
             if (rule.condition === 'noneIsChecked') {
               let isAnyCheck = false;

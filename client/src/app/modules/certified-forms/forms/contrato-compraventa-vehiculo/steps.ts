@@ -1385,23 +1385,283 @@ export const steps = [
   //   type: 'iText',
   //   replacement: '',
   // },
+  // {
+  //   question: 'Precio (en euros) que se fija para la venta del vehículo que se desea vender:',
+  //   placeholder: 'Escriba un número mayor que cero',
+  //   wordToReplace: 'id19',
+  //   identifier: 'id19',
+  //   type: 'iNumber',
+  //   replacement: '',
+  //   extraReplacements: [],
+  //   rules: [
+  //     {
+  //       condition: false,
+  //       rulename: 'extraReplacementToCharacter',
+  //       identifier: 'blablam',
+  //       wordToReplace: 'blablam',
+  //       replacement: ''
+  //     }
+  //   ]
+  // },
+  // {
+  //   type: 'iRadioC',
+  //   question: 'Se va a pagar una cantidad en concepto de señal o reserva:',
+  //   identifier: 'id20',
+  //   wordToReplace: 'id20',
+  //   indications: 'Marque la opción Persona ...',
+  //   defaultRadioId: 'id20_opA',
+  //   replacement: '',
+  //   extraReplacements: [
+  //   ],
+  //   radios: [
+  //     {
+  //       label: 'Sí',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'Se acuerda abonar en concepto de señal a la fecha de firma de este Contrato la cantidad de id20_opA_1 € (blablam2), que se restará al precio total a la hora de realizar el pago.',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacement: 'Se acuerda abonar en concepto de señal a la fecha de firma de este Contrato la cantidad de id20_opA_1 € (blablam2), que se restará al precio total a la hora de realizar el pago.',
+  //       extraReplacements: [],
+  //       radioId: 'id20_opA',
+  //       identifier: 'id20_opA',
+  //       checked: false,
+  //       subSteps: [
+  //         {
+  //           // tslint:disable-next-line:max-line-length
+  //           question: 'Cantidad (en euros) que se desea pagar en concepto de señal o de reserva del vehículo al momento de firmar el contrato:',
+  //           placeholder: 'Escriba un número mayor que 0.',
+  //           wordToReplace: 'id20_opA_1',
+  //           identifier: 'id20_opA_1',
+  //           type: 'iNumber',
+  //           replacement: '',
+  //           extraReplacements: [],
+  //           rules: [
+  //             {
+  //               condition: false,
+  //               rulename: 'extraReplacementToCharacter',
+  //               identifier: 'blablam2',
+  //               wordToReplace: 'blablam2',
+  //               replacement: ''
+  //             }
+  //           ],
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       label: 'No',
+  //       replacementOriginal: '',
+  //       replacement: '',
+  //       extraReplacements: [],
+  //       radioId: 'id20_opB',
+  //       identifier: 'id20_opB',
+  //       checked: true,
+  //       subSteps: []
+  //     }
+  //   ],
+  // },
+  // {
+  //   type: 'iRadioC',
+  //   subType: 'select',
+  //   question: 'Método de pago del precio del vehículo que se desea vender:',
+  //   identifier: 'id21',
+  //   wordToReplace: 'id21',
+  //   indications: 'Marque la opción Persona ...',
+  //   defaultRadioId: 'id21_opA',
+  //   replacement: '',
+  //   extraReplacements: [
+  //   ],
+  //   radios: [
+  //     {
+  //       label: 'Ingreso o transferencia bancaria',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'El pago del precio por la Parte Compradora se realizará mediante ingreso o transferencia bancaria. Este pago se realizará en la fecha de entrega del Vehículo en la siguiente cuenta bancaria: Entidad bancaria: id21_opA_1 IBAN identificador de la cuenta: id21_opA_2 Titular de la cuenta: id21_opA_3',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacement: 'El pago del precio por la Parte Compradora se realizará mediante ingreso o transferencia bancaria. Este pago se realizará en la fecha de entrega del Vehículo en la siguiente cuenta bancaria: Entidad bancaria: id21_opA_1 IBAN identificador de la cuenta: id21_opA_2 Titular de la cuenta: id21_opA_3',
+  //       extraReplacements: [],
+  //       radioId: 'id21_opA',
+  //       identifier: 'id21_opA',
+  //       checked: false,
+  //       subSteps: [
+  //         {
+  //           // tslint:disable-next-line:max-line-length
+  //           question: 'Nombre o denominación completa de la entidad bancaria en la que se encuentra abierta la cuenta en la que el comprador deberá ingresar el precio del vehículo que se desea vender:',
+  //           placeholder: 'Banco de mi caja de ahorros.',
+  //           wordToReplace: 'id21_opA_1',
+  //           identifier: 'id21_opA_1',
+  //           type: 'iText',
+  //           replacement: '',
+  //         },
+  //         {
+  //           // tslint:disable-next-line:max-line-length
+  //           question: 'IBAN o número identificador de la cuenta bancaria donde el comprador ingresará el precio del vehículo se desea vender:',
+  //           placeholder: 'Banco de mi caja de ahorros.',
+  //           wordToReplace: 'id21_opA_2',
+  //           identifier: 'id21_opA_2',
+  //           type: 'iText',
+  //           replacement: '',
+  //         },
+  //         {
+  //           // tslint:disable-next-line:max-line-length
+  //           question: 'Nombre y apellidos completos del titular de la cuenta bancaria en la que el comprador ingresará el precio del vehículo se desea vender:',
+  //           placeholder: 'Pepito de los Palotes',
+  //           wordToReplace: 'id21_opA_3',
+  //           identifier: 'id21_opA_3',
+  //           type: 'iText',
+  //           replacement: '',
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       label: 'En efectivo',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'El pago del precio por la Parte Compradora se realizará mediante efectivo. La Parte Compradora hará entrega de la suma total especificada anteriormente en el mismo momento de la entrega del Vehículo.',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacement: 'El pago del precio por la Parte Compradora se realizará mediante efectivo. La Parte Compradora hará entrega de la suma total especificada anteriormente en el mismo momento de la entrega del Vehículo.',
+  //       extraReplacements: [],
+  //       radioId: 'id21_opB',
+  //       identifier: 'id21_opB',
+  //       checked: true,
+  //       subSteps: []
+  //     },
+  //     {
+  //       label: 'Cheque',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'El pago del precio por la Parte Compradora se realizará mediante cheque. La Parte Compradora hará entrega de un cheque correspondiente a la suma total especificada anteriormente en el mismo momento de la entrega del Vehículo.',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacement: 'El pago del precio por la Parte Compradora se realizará mediante cheque. La Parte Compradora hará entrega de un cheque correspondiente a la suma total especificada anteriormente en el mismo momento de la entrega del Vehículo.',
+  //       extraReplacements: [],
+  //       radioId: 'id21_opC',
+  //       identifier: 'id21_opC',
+  //       checked: true,
+  //       subSteps: []
+  //     },
+  //     {
+  //       label: 'Otro',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'El pago del precio por la Parte Compradora se realizará mediante: id21_opD_1. Este pago se realizará en la fecha de entrega del Vehículo',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacement: 'El pago del precio por la Parte Compradora se realizará mediante: id21_opD_1. Este pago se realizará en la fecha de entrega del Vehículo',
+  //       extraReplacements: [],
+  //       radioId: 'id21_opD',
+  //       identifier: 'id21_opD',
+  //       checked: true,
+  //       subSteps: [
+  //         {
+  //           // tslint:disable-next-line:max-line-length
+  //           question: 'Especifique el método de pago mediante el cual el comprador pagará al vendedor el precio del vehículo que se desea vender:',
+  //           placeholder: 'Mitad en cheque, mitad en efectivo',
+  //           wordToReplace: 'id21_opD_1',
+  //           identifier: 'id21_opD_1',
+  //           type: 'iText',
+  //           replacement: '',
+  //         }
+  //       ]
+  //     },
+  //   ],
+  // },
+  // {
+  //   // tslint:disable-next-line:max-line-length
+  //   question: 'Lugar en el que el vendedor deberá hacer entrega del vehículo en favor del comprador:',
+  //   placeholder: 'Domicilio del vendedor',
+  //   wordToReplace: 'id22',
+  //   identifier: 'id22',
+  //   type: 'iText',
+  //   replacement: '',
+  // },
+  // {
+  //   type: 'iRadioC',
+  //   question: 'El vendedor deberá hacer entrega del vehículo en favor del comprador:',
+  //   identifier: 'id23',
+  //   wordToReplace: 'id23',
+  //   indications: 'Marque la opción Persona ...',
+  //   defaultRadioId: 'id23_opA',
+  //   replacement: '',
+  //   extraReplacements: [
+  //   ],
+  //   radios: [
+  //     {
+  //       label: 'en el momento de firma de este contrato',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'en el momento de firma de este contrato',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacement: 'en el momento de firma de este contrato',
+  //       extraReplacements: [],
+  //       radioId: 'id23_opA',
+  //       identifier: 'id23_opA',
+  //       checked: false,
+  //       subSteps: [
+  //       ]
+  //     },
+  //     {
+  //       label: 'en una fecha posterior a la fecha de firma de este contrato',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'dentro del plazo de id23_opB_1 desde la fecha recogida en el encabezado de este Contrato.',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacement: 'dentro del plazo de id23_opB_1 desde la fecha recogida en el encabezado de este Contrato.',
+  //       extraReplacements: [],
+  //       radioId: 'id23_opB',
+  //       identifier: 'id23_opB',
+  //       checked: false,
+  //       subSteps: [
+  //         {
+  //           // tslint:disable-next-line:max-line-length
+  //           question: 'Plazo (desde la firma de este contrato) en el que el vendedor deberá hacer entrega del vehículo en favor del comprador (en "meses", "semanas", etc.):',
+  //           placeholder: 'Ej. 15 días',
+  //           wordToReplace: 'id23_opB_1',
+  //           identifier: 'id23_opB_1',
+  //           type: 'iText',
+  //           replacement: '',
+  //           extraReplacements: []
+  //         }
+  //       ]
+  //     },
+  //   ],
+  // },
   {
-    question: 'Precio (en euros) que se fija para la venta del vehículo que se desea vender:',
-    placeholder: 'Escriba un número mayor que cero',
-    wordToReplace: 'id19',
-    identifier: 'id19',
-    type: 'iNumber',
+    type: 'iRadioC',
+    // tslint:disable-next-line:max-line-length
+    question: 'además del permiso de circulación del vehículo, la ficha técnica, y el recibo del impuesto de circulación del año anterior, el comprador recibió otro documento/accesorio relativo al vehículo que se desea vender?',
+    identifier: 'id24',
+    wordToReplace: 'id24',
+    indications: 'Marque la opción Persona ...',
+    defaultRadioId: 'id24_opA',
     replacement: '',
-    extraReplacements: [],
-    rules: [
+    extraReplacements: [
+    ],
+    radios: [
       {
-        condition: false,
-        rulename: 'extraReplacementToCharacter',
-        identifier: 'blablam',
-        wordToReplace: 'blablam',
-        replacement: ''
-      }
-    ]
+        label: 'Sí',
+        replacementOriginal: '7. Otros: id24_opA_1',
+        replacement: '7. Otros: id24_opA_1',
+        extraReplacements: [],
+        radioId: 'id24_opA',
+        identifier: 'id24_opA',
+        checked: false,
+        subSteps: [
+          {
+            question: 'Indique qué otros documentos o accesorios recibe el comprador:',
+            placeholder: 'Ej. 15 días',
+            wordToReplace: 'id24_opA_1',
+            identifier: 'id24_opA_1',
+            type: 'iText',
+            replacement: '',
+            extraReplacements: []
+          }
+        ]
+      },
+      {
+        label: 'No',
+        // tslint:disable-next-line:max-line-length
+        replacementOriginal: '',
+        // tslint:disable-next-line:max-line-length
+        replacement: '',
+        extraReplacements: [],
+        radioId: 'id24_opB',
+        identifier: 'id24_opB',
+        checked: false,
+        subSteps: [
+        ]
+      },
+    ],
   },
   {
       type: 'end',
