@@ -107,6 +107,8 @@ export class ContratoCompraventaVehiculoCreatorService {
       // element.parentElement
       // .scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
 
+      // document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, document.getElementsByTagName('text:p')[49].getBoundingClientRect().top - (document.getElementById('webodfeditor-canvascontainer1').getBoundingClientRect().top + document.querySelector('.nav').getBoundingClientRect().bottom + document.querySelector('.sub-menu__nav').getBoundingClientRect().bottom))
+
       // setTimeout(() => {
       //   document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, offset);
       // }, 500);
