@@ -6,20 +6,20 @@ export const steps = [
     inmueble y los derechos y obligaciones de arrendador (el propietario) y arrendatario (inquilino).`,
     isCurrentStep: true
   },
-  // {
-  //   type: 'iText',
-  //   identifier: 'id-unid-1',
-  //   wordToReplace: 'id-unid-1',
-  //   replacement: '',
-  //   question: 'Lugar en el que se firma este contrato:',
-  //   indications: {
-  //     areIndications: true,
-  //     indicationsType: 'insideText',
-  //     value: 'Indique el lugar en el que se firma este contrato.'
-  //   },
-  //   mandatory: true,
-  //   isFocused: false
-  // },
+  {
+    type: 'iText',
+    identifier: 'id-unid-1',
+    wordToReplace: 'id-unid-1',
+    replacement: '',
+    question: 'Lugar en el que se firma este contrato:',
+    indications: {
+      areIndications: true,
+      indicationsType: 'insideText',
+      value: 'Indique el lugar en el que se firma este contrato.'
+    },
+    mandatory: true,
+    isFocused: false
+  },
   // {
   //   type: 'iDate',
   //   identifier: 'id-unid-2',
@@ -34,478 +34,478 @@ export const steps = [
   //   mandatory: true,
   //   isFocused: false
   // },
-  {
-    type: 'iForEach',
-    value: 1,
-    replacement: '',
-    identifier: 'id-unid-3',
-    wordToReplace: 'id-unid-3',
-    question: 'Número de personas propietarias del vehículo (que desean venderlo por medio de este contrato):',
-    indications: {
-      areIndications: true,
-      indicationsType: 'outsideText',
-      value: 'Indique el número de personas propietarias de este vehículo',
-    },
-    content: [
-      {
-        identifier: 'id-unid-3',
-        wordToReplace: 'id-unid-3',
-        replacementOriginal: 'id-unid-3_1',
-        replacement: '',
-        extraReplacements: [],
-        modifiedReplacements: [],
-        modifiedExtraReplacements: [],
-        subSteps: [
-          {
-            type: 'iRadioC',
-            question: 'El vendedor (propietario del vehículo) es):',
-            identifier: 'id-unid-3_1',
-            wordToReplace: 'id-unid-3_1',
-            indications: {
-              areIndications: true,
-              indicationsType: 'outsideText',
-              value: 'Seleccione el tipo de personalidad jurídica del primer vendedor. Se tratará de persona física si es una persona natural, mientras que se tratará de persona jurídica en el caso de que la primera persona vendedora sea una institución o ente como puede ser una fundación, una sociedad mercantil o una asociación, entre otros',
-            },
-            defaultRadioId: 'id-unid-3_1_opA',
-            replacement: '',
-            extraReplacements: [
-            ],
-            radios: [
-              {
-                label: 'Persona física',
-                radioId: 'id-unid-3_1_opA',
-                identifier: 'id-unid-3_1_opA',
-                replacementOriginal: 'id-unid-3_1_opA_1',
-                replacement: 'id-unid-3_1_opA_1',
-                extraReplacements: [],
-                checked: true,
-                subSteps: [
-                  {
-                      type: 'iRadioC',
-                      question: 'El vendedor (propietario del vehículo) celebra este contrato:',
-                      identifier: 'id-unid-3_1_opA_1',
-                      wordToReplace: 'id-unid-3_1_opA_1',
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'outsideText',
-                        value: 'Indique aquí si el vendedor concluye y firma este contrato en nombre y representación propios o representado por otra persona. La persona que representa al vendedor puede ser un representante legal (caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). El representante voluntario debe estar debidamente autorizado mediante documento público o privado en el que se recoja y motive su intervención en este contrato. Si el contrato se concluye en nombre y representación propios, es la persona que firma el contrato quien asumirá las obligaciones del vendedor. Por el contrario, si se concluye por medio de representante, es esta otra persona quien firmará el contrato; sin embargo, es el vendedor quien asumirá las obligaciones derivadas de este contrato.',
-                      },
-                      defaultRadioId: 'id-unid-3_1_opA_1_opA',
-                      replacement: '',
-                      extraReplacements: [
-                      ],
-                      radios: [
-                        {
-                          label: 'en su propio nombre y representación',
-                          radioId: 'id-unid-3_1_opA_1_opA',
-                          identifier: 'id-unid-3_1_opA_1_opA',
-                          // tslint:disable-next-line:max-line-length
-                          replacementOriginal: 'id-unid-3_1_opA_1_opA_1, mayor de edad, con domicilio en id-unid-3_1_opA_1_opA_2, con id-unid-3_1_opA_1_opA_3 número id-unid-3_1_opA_1_opA_4, y en su propio nombre y representación.',
-                          // tslint:disable-next-line:max-line-length
-                          replacement: 'id-unid-3_1_opA_1_opA_1, mayor de edad, con domicilio en id-unid-3_1_opA_1_opA_2, con id-unid-3_1_opA_1_opA_3 número id-unid-3_1_opA_1_opA_4, y en su propio nombre y representación.',
-                          extraReplacements: [],
-                          checked: true,
-                          subSteps: [
-                          {
-                            question: 'Nombre completo del vendedor:',
-                            wordToReplace: 'id-unid-3_1_opA_1_opA_1',
-                            identifier: 'id-unid-3_1_opA_1_opA_1',
-                            type: 'iText',
-                            replacement: '',
-                            indications: {
-                              areIndications: true,
-                              indicationsType: 'insideText',
-                              value: 'Indique el nombre completo, incluyendo sus dos apellidos, del vendedor.',
-                            },
-                          },
-                          {
-                            question: 'Dirección completa del lugar de residencia del vendedor:',
-                            wordToReplace: 'id-unid-3_1_opA_1_opA_2',
-                            identifier: 'id-unid-3_1_opA_1_opA_2',
-                            type: 'iText',
-                            replacement: '',
-                            indications: {
-                              areIndications: true,
-                              indicationsType: 'insideText',
-                              value: 'Indique la dirección completa, incluyendo el tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país, del lugar de residencia del vendedor.',
-                            },
-                          },
-                          {
-                            type: 'iRadioB',
-                            question: 'Tipo de dpcumento de identificación del vendedor',
-                            identifier: 'id-unid-3_1_opA_1_opA_3',
-                            wordToReplace: 'id-unid-3_1_opA_1_opA_3',
-                            indications: {
-                              areIndications: true,
-                              indicationsType: 'outsideText',
-                              value: 'Seleccione el tipo de documento de identificación del vendedor. Si esta persona cuenta con Documento Nacional de Identidad (DNI) es necesario escoger esta opción, y reservar las opciones de NIE o pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo.',
-                            },
-                            replacement: '',
-                            radios: [
-                              {
-                                label: 'DNI',
-                                replacementOriginal: 'DNI',
-                                replacement: '',
-                                radioId: 'id-unid-3_1_opA_1_opA_3_opA',
-                                identifier: 'id-unid-3_1_opA_1_opA_3_opA',
-                                extraReplacements: [],
-                                checked: true,
-                              },
-                              {
-                                label: 'NIE',
-                                replacementOriginal: 'NIE',
-                                replacement: '',
-                                radioId: 'id-unid-3_1_opA_1_opA_3_opB',
-                                identifier: 'id-unid-3_1_opA_1_opA_3_opB',
-                                extraReplacements: [],
-                                checked: false,
-                              },
-                              {
-                                label: 'Pasaporte',
-                                replacementOriginal: 'Pasaporte',
-                                replacement: '',
-                                radioId: 'id-unid-3_1_opA_1_opA_3_opC',
-                                identifier: 'id-unid-3_1_opA_1_opA_3_opC',
-                                extraReplacements: [],
-                                checked: false,
-                              }
-                            ]
-                          },
-                          {
-                            question: 'Número del documento',
-                            wordToReplace: 'id-unid-3_1_opA_1_opA_4',
-                            identifier: 'id-unid-3_1_opA_1_opA_4',
-                            type: 'iText',
-                            replacement: '',
-                            indications: {
-                              areIndications: true,
-                              indicationsType: 'insideText',
-                              value: 'Introduzca el número que corresponde con el documento de identificación personal escogido para identificar a la parte compradora nº1.',
-                            },
-                          }
-                        ]
-                        },
-                        {
-                          label: 'por medio de un representante (legal o voluntario)',
-                          // tslint:disable-next-line:max-line-length
-                          replacementOriginal: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con id-unid-3_1_opA_1_opB_6: id-unid-3_1_opA_1_opB_7, quien actúa en calidad de id-unid-3_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
-                          // tslint:disable-next-line:max-line-length
-                          replacement: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con id-unid-3_1_opA_1_opB_6: id-unid-3_1_opA_1_opB_7, quien actúa en calidad de id-unid-3_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
-                          extraReplacements: [],
-                          radioId: 'id-unid-3_1_opA_1_opB',
-                          identifier: 'id-unid-3_1_opA_1_opB',
-                          checked: false,
-                          subSteps: [
-                            {
-                              question: 'Nombre completo del vendedor:',
-                              wordToReplace: 'id-unid-3_1_opA_1_opB_1',
-                              identifier: 'id-unid-3_1_opA_1_opB_1',
-                              type: 'iText',
-                              replacement: '',
-                              indications: {
-                                areIndications: true,
-                                indicationsType: 'insideText',
-                                value: 'Indique el nombre completo, incluyendo sus dos apellidos, del vendedor.',
-                              },
-                            },
-                            {
-                              question: 'Dirección completa del lugar de residencia del vendedor:',
-                              wordToReplace: 'id-unid-3_1_opA_1_opB_2',
-                              identifier: 'id-unid-3_1_opA_1_opB_2',
-                              type: 'iText',
-                              replacement: '',
-                              indications: {
-                                areIndications: true,
-                                indicationsType: 'insideText',
-                                value: 'Indique la dirección completa, incluyendo el tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país, del lugar de residencia del vendedor.',
-                              },
-                            },
-                            {
-                              type: 'iRadioB',
-                              question: 'Tipo de documento de identificación del vendedor',
-                              identifier: 'id-unid-3_1_opA_1_opB_3',
-                              wordToReplace: '3_1_opA_1_opB_3',
-                              indications: {
-                                areIndications: true,
-                                indicationsType: 'insideText',
-                                value: 'Seleccione el tipo de documento de identificación del vendedor. Si esta persona cuenta con Documento Nacional de Identidad (DNI) es necesario escoger esta opción, y reservar las opciones de NIE o pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo.',
-                              },
-                              replacement: '',
-                              radios: [
-                                {
-                                  label: 'DNI',
-                                  replacementOriginal: 'DNI',
-                                  replacement: '',
-                                  radioId: 'id-unid-3_1_opA_1_opB_3_opA',
-                                  identifier: 'id-unid-3_1_opA_1_opB_3_opA',
-                                  extraReplacements: [],
-                                  checked: true,
-                                },
-                                {
-                                  label: 'NIE',
-                                  replacementOriginal: 'NIE',
-                                  replacement: '',
-                                  radioId: 'id-unid-3_1_opA_1_opB_3_opB',
-                                  identifier: 'id-unid-3_1_opA_1_opB_3_opB',
-                                  extraReplacements: [],
-                                  checked: false,
-                                },
-                                {
-                                  label: 'Pasaporte',
-                                  replacementOriginal: 'Pasaporte',
-                                  replacement: '',
-                                  radioId: 'id-unid-3_1_opA_1_opB_3_opC',
-                                  identifier: 'id-unid-3_1_opA_1_opB_3_opC',
-                                  extraReplacements: [],
-                                  checked: false,
-                                }
-                              ]
-                            },
-                            {
-                              question: 'Número del documento',
-                              wordToReplace: 'id-unid-3_1_opA_1_opB_4',
-                              identifier: 'id-unid-3_1_opA_1_opB_4',
-                              type: 'iText',
-                              replacement: '',
-                              indications: {
-                                areIndications: true,
-                                indicationsType: 'insideText',
-                                value: 'Introduzca el número que corresponde con el documento de identificación personal escogido para identificar a la parte compradora nº1.',
-                              },
-                            },
-                            {
-                              question: 'Nombre completo de la persona que firma este contrato en nombre y representación del vendedor:',
-                              wordToReplace: 'id-unid-3_1_opA_1_opB_5',
-                              identifier: 'id-unid-3_1_opA_1_opB_5',
-                              type: 'iText',
-                              replacement: '',
-                              indications: {
-                                areIndications: true,
-                                indicationsType: 'outsideText',
-                                value: 'Indique aquí el nombre completo (nombre(s) y apellidos) de la persona física que firma este contrato en nombre y representación del vendedor. El contrato puede ser firmado por un representante legal (caso de los menores e incapacitados/as) o voluntario (apoderado, por ejemplo) del vendedor.',
-                              },
-                            },
-                            {
-                              type: 'iRadioB',
-                              question: 'Documento de identificación personal de la persona que firma este contrato en nombre y representación del vendedor:',
-                              identifier: 'id-unid-3_1_opA_1_opB_6',
-                              wordToReplace: 'id-unid-3_1_opA_1_opB_6',
-                              indications: {
-                                areIndications: true,
-                                indicationsType: 'outsideText',
-                                value: 'Escoja el tipo de documento que identificará personalmente a la persona física que firma el contrato en nombre y representación del vendedor. Si esta persona cuenta con DNI/NIF es necesario escoger esta opción, y reservar las opciones de NIE o pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo.',
-                              },
-                              replacement: '',
-                              radios: [
-                                {
-                                  label: 'DNI',
-                                  replacementOriginal: 'DNI',
-                                  replacement: '',
-                                  radioId: 'id-unid-3_1_opA_1_opB_6_opA',
-                                  identifier: 'id-unid-3_1_opA_1_opB_6_opA',
-                                  extraReplacements: [],
-                                  checked: true,
-                                },
-                                {
-                                  label: 'NIE',
-                                  replacementOriginal: 'NIE',
-                                  replacement: '',
-                                  radioId: 'id-unid-3_1_opA_1_opB_6_opB',
-                                  identifier: 'id-unid-3_1_opA_1_opB_6_opB',
-                                  extraReplacements: [],
-                                  checked: false,
-                                },
-                                {
-                                  label: 'Pasaporte',
-                                  replacementOriginal: 'Pasaporte',
-                                  replacement: '',
-                                  radioId: 'id-unid-3_1_opA_1_opB_6_opC',
-                                  identifier: 'id-unid-3_1_opA_1_opB_6_opC',
-                                  extraReplacements: [],
-                                  checked: false,
-                                }
-                              ]
-                            },
-                            {
-                              question: 'Número del documento de identificación personal seleccionado:',
-                              wordToReplace: 'id-unid-3_1_opA_1_opB_7',
-                              identifier: 'id-unid-3_1_opA_1_opB_7',
-                              type: 'iText',
-                              replacement: '',
-                              indications: {
-                                areIndications: true,
-                                indicationsType: 'insideText',
-                                value: 'Introduzca aquí el número correspondiente al documento de identificación personal escogido en la pregunta anterior para la persona que firma este contrato en nombre y representación del vendedor.',
-                              },
-                            },
-                            {
-                              question: 'Calidad o concepto en el que esta persona firma este contrato en nombre y representación del vendedor:',
-                              wordToReplace: 'id-unid-3_1_opA_1_opB_8',
-                              identifier: 'id-unid-3_1_opA_1_opB_8',
-                              type: 'iText',
-                              replacement: '',
-                              indications: {
-                                areIndications: true,
-                                indicationsType: 'insideText',
-                                value: 'Indique aquí en qué calidad o concepto esta persona física firma este contrato en nombre y representación del vendedor.',
-                              },
-                            },
-                          ]
-                        },
-                      ],
-                  },
-              ]
-              },
-              {
-                label: 'Persona jurídica',
-                // tslint:disable-next-line:max-line-length
-                replacementOriginal: 'id-unid-3_1_opB_5, mayor de edad, con domicilio en id-unid-3_1_opB_6, con id-unid-3_1_opB_7 número id-unid-3_1_opB_8, en nombre y representación de: id-unid-3_1_opB_1, con N.I.F número id-unid-3_1_opB_2, e inscrita en: id-unid-3_1_opB_3 con la siguiente información: id-unid-3_1_opB_4.',
-                replacement: 'id-unid-3_1_opB_5, mayor de edad, con domicilio en id-unid-3_1_opB_6, con id-unid-3_1_opB_7 número id-unid-3_1_opB_8, en nombre y representación de: id-unid-3_1_opB_1, con N.I.F número id-unid-3_1_opB_2, e inscrita en: id-unid-3_1_opB_3 con la siguiente información: id-unid-3_1_opB_4.',
-                extraReplacements: [],
-                radioId: 'id-unid-3_1_opB',
-                identifier: 'id-unid-3_1_opB',
-                checked: false,
-                subSteps: [
-                  {
-                    question: 'Nombre completo de la persona jurídica que desea vender el vehículo:',
-                    wordToReplace: 'id-unid-3_1_opB_1',
-                    identifier: 'id-unid-3_1_opB_1',
-                    type: 'iText',
-                    placeholder: 'BBVA, S.A',
-                    replacement: '',
-                    indications: {
-                      areIndications: true,
-                      indicationsType: 'outsideText',
-                      value: 'Indique el nombre completo de la persona jurídica que desea vender el vehículo. En el caso de desconocimiento del nombre de la persona jurídica, se puede solicitar dicha información a través del registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc).',
-                    },
-                  },
-                  {
-                    question: 'Número de Identificación Fiscal o NIF completo de la persona jurídica que desea vender el vehículo:',
-                    wordToReplace: 'id-unid-3_1_opB_2',
-                    identifier: 'id-unid-3_1_opB_2',
-                    type: 'iText',
-                    placeholder: 'B01234567',
-                    replacement: '',
-                    indications: {
-                      areIndications: true,
-                      indicationsType: 'outsideText',
-                      value: 'Indique el Número de Identificación Fiscal o NIF completo de la persona jurídica que desea vender el vehículo. El NIF es el número otorgado por la Hacienda Española para identificar a cada persona jurídica a efectos fiscales. Tenga en cuenta que todas las personas jurídicas que operan en España están obligadas a contar con un número NIF, incluso en el caso de que sean de nacionalidad extranjera.',
-                    },
-                  },
-                  {
-                    question: 'Indique el tipo de registro y lugar donde está inscrita la persona jurídica que desea vender el vehículo:',
-                    wordToReplace: 'id-unid-3_1_opB_3',
-                    identifier: 'id-unid-3_1_opB_3',
-                    type: 'iText',
-                    placeholder: 'Registro Mercantil de Sevilla',
-                    replacement: '',
-                    indications: {
-                      areIndications: true,
-                      indicationsType: 'outsideText',
-                      value: 'Indique el tipo de registro y lugar donde está inscrita la persona jurídica que desea vender el vehículo. Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc).',
-                    },
-                  },
-                  {
-                    question: 'Datos registrales completos de la persona jurídica que desea vender el vehículo:',
-                    wordToReplace: 'id-unid-3_1_opB_4',
-                    identifier: 'id-unid-3_1_opB_4',
-                    type: 'iText',
-                    placeholder: 'Tomo 123, folio 10, hoja SE-1234',
-                    replacement: '',
-                    indications: {
-                      areIndications: true,
-                      indicationsType: 'outsideText',
-                      value: 'Indique los datos registrales completos de la persona jurídica que desea vender el vehículo. Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc).',
-                    },
-                  },
-                  {
-                    question: 'Nombre completo del representante persona física de la persona jurídica que desea vender el vehículo:',
-                    wordToReplace: 'id-unid-3_1_opB_5',
-                    identifier: 'id-unid-3_1_opB_5',
-                    type: 'iText',
-                    placeholder: 'Juan Carlos',
-                    replacement: '',
-                    indications: {
-                      areIndications: true,
-                      indicationsType: 'outsideText',
-                      value: 'Indique los datos registrales completos de la persona jurídica que desea vender el vehículo. Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc).',
-                    },
-                  },
-                  {
-                    question: 'Domicilio completo del representante persona física de la persona jurídica que desea vender el vehículo:',
-                    wordToReplace: 'id-unid-3_1_opB_6',
-                    identifier: 'id-unid-3_1_opB_6',
-                    type: 'iText',
-                    placeholder: 'Calle ejemplo',
-                    replacement: '',
-                    indications: {
-                      areIndications: true,
-                      indicationsType: 'outsideText',
-                      value: 'Indique el domicilio completo, incluyendo el tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país, del representante persona física de la persona jurídica que desea vender el vehículo. El representante persona física debe ser la persona física que pueda obligar a la persona jurídica y contratar en su nombre. Dicha persona debe haber sido nombrada o apoderada debidamente por la persona jurídica que desea vender el vehículo.',
-                    },
-                  },
-                  {
-                    type: 'iRadioB',
-                    question: 'Documento de identidad del representante persona física de la persona jurídica que desea vender el vehículo:',
-                    identifier: 'id-unid-3_1_opB_7',
-                    wordToReplace: 'id-unid-3_1_opB_7',
-                    indications: {
-                      areIndications: true,
-                      indicationsType: 'outsideText',
-                      value: 'Seleccione el documento de identidad del representante persona física de la persona jurídica que desea vender el vehículo. El representante persona física debe ser la persona física que pueda obligar a la persona jurídica y contratar en su nombre. Dicha persona debe haber sido nombrada o apoderada debidamente por la persona jurídica que desea vender el vehículo.',
-                    },
-                    replacement: '',
-                    radios: [
-                      {
-                        label: 'DNI',
-                        replacementOriginal: 'DNI',
-                        replacement: '',
-                        radioId: 'id-unid-3_1_opB_7_opA',
-                        identifier: 'id-unid-3_1_opB_7_opA',
-                        extraReplacements: [],
-                        checked: true,
-                      },
-                      {
-                        label: 'NIE',
-                        replacementOriginal: 'NIE',
-                        replacement: '',
-                        radioId: 'id-unid-3_1_opB_7_opB',
-                        identifier: 'id-unid-3_1_opB_7_opB',
-                        extraReplacements: [],
-                        checked: false,
-                      },
-                      {
-                        label: 'Pasaporte',
-                        replacementOriginal: 'Pasaporte',
-                        replacement: '',
-                        radioId: 'id-unid-3_1_opB_7_opC',
-                        identifier: 'id-unid-3_1_opB_7_opC',
-                        extraReplacements: [],
-                        checked: false,
-                      }
-                    ]
-                  },
-                  {
-                    question: 'Número del documento de identificación personal seleccionado:',
-                    wordToReplace: 'id-unid-3_1_opB_8',
-                    identifier: 'id-unid-3_1_opB_8',
-                    type: 'iText',
-                    replacement: '',
-                    indications: {
-                      areIndications: true,
-                      indicationsType: 'insideText',
-                      value: 'Introduzca el número que corresponde con el documento de identificación personal escogido para identificar a la parte vendedora',
-                    },
-                  },
-                ]
-              },
-            ],
-          },
-        ]
-      }
-      // {}
-    ]
-  },
+  // {
+  //   type: 'iForEach',
+  //   value: 1,
+  //   replacement: '',
+  //   identifier: 'id-unid-3',
+  //   wordToReplace: 'id-unid-3',
+  //   question: 'Número de personas propietarias del vehículo (que desean venderlo por medio de este contrato):',
+  //   indications: {
+  //     areIndications: true,
+  //     indicationsType: 'outsideText',
+  //     value: 'Indique el número de personas propietarias de este vehículo',
+  //   },
+  //   content: [
+  //     {
+  //       identifier: 'id-unid-3',
+  //       wordToReplace: 'id-unid-3',
+  //       replacementOriginal: 'id-unid-3_1',
+  //       replacement: '',
+  //       extraReplacements: [],
+  //       modifiedReplacements: [],
+  //       modifiedExtraReplacements: [],
+  //       subSteps: [
+  //         {
+  //           type: 'iRadioC',
+  //           question: 'El vendedor (propietario del vehículo) es):',
+  //           identifier: 'id-unid-3_1',
+  //           wordToReplace: 'id-unid-3_1',
+  //           indications: {
+  //             areIndications: true,
+  //             indicationsType: 'outsideText',
+  //             value: 'Seleccione el tipo de personalidad jurídica del primer vendedor. Se tratará de persona física si es una persona natural, mientras que se tratará de persona jurídica en el caso de que la primera persona vendedora sea una institución o ente como puede ser una fundación, una sociedad mercantil o una asociación, entre otros',
+  //           },
+  //           defaultRadioId: 'id-unid-3_1_opA',
+  //           replacement: '',
+  //           extraReplacements: [
+  //           ],
+  //           radios: [
+  //             {
+  //               label: 'Persona física',
+  //               radioId: 'id-unid-3_1_opA',
+  //               identifier: 'id-unid-3_1_opA',
+  //               replacementOriginal: 'id-unid-3_1_opA_1',
+  //               replacement: 'id-unid-3_1_opA_1',
+  //               extraReplacements: [],
+  //               checked: true,
+  //               subSteps: [
+  //                 {
+  //                     type: 'iRadioC',
+  //                     question: 'El vendedor (propietario del vehículo) celebra este contrato:',
+  //                     identifier: 'id-unid-3_1_opA_1',
+  //                     wordToReplace: 'id-unid-3_1_opA_1',
+  //                     indications: {
+  //                       areIndications: true,
+  //                       indicationsType: 'outsideText',
+  //                       value: 'Indique aquí si el vendedor concluye y firma este contrato en nombre y representación propios o representado por otra persona. La persona que representa al vendedor puede ser un representante legal (caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). El representante voluntario debe estar debidamente autorizado mediante documento público o privado en el que se recoja y motive su intervención en este contrato. Si el contrato se concluye en nombre y representación propios, es la persona que firma el contrato quien asumirá las obligaciones del vendedor. Por el contrario, si se concluye por medio de representante, es esta otra persona quien firmará el contrato; sin embargo, es el vendedor quien asumirá las obligaciones derivadas de este contrato.',
+  //                     },
+  //                     defaultRadioId: 'id-unid-3_1_opA_1_opA',
+  //                     replacement: '',
+  //                     extraReplacements: [
+  //                     ],
+  //                     radios: [
+  //                       {
+  //                         label: 'en su propio nombre y representación',
+  //                         radioId: 'id-unid-3_1_opA_1_opA',
+  //                         identifier: 'id-unid-3_1_opA_1_opA',
+  //                         // tslint:disable-next-line:max-line-length
+  //                         replacementOriginal: 'id-unid-3_1_opA_1_opA_1, mayor de edad, con domicilio en id-unid-3_1_opA_1_opA_2, con id-unid-3_1_opA_1_opA_3 número id-unid-3_1_opA_1_opA_4, y en su propio nombre y representación.',
+  //                         // tslint:disable-next-line:max-line-length
+  //                         replacement: 'id-unid-3_1_opA_1_opA_1, mayor de edad, con domicilio en id-unid-3_1_opA_1_opA_2, con id-unid-3_1_opA_1_opA_3 número id-unid-3_1_opA_1_opA_4, y en su propio nombre y representación.',
+  //                         extraReplacements: [],
+  //                         checked: true,
+  //                         subSteps: [
+  //                         {
+  //                           question: 'Nombre completo del vendedor:',
+  //                           wordToReplace: 'id-unid-3_1_opA_1_opA_1',
+  //                           identifier: 'id-unid-3_1_opA_1_opA_1',
+  //                           type: 'iText',
+  //                           replacement: '',
+  //                           indications: {
+  //                             areIndications: true,
+  //                             indicationsType: 'insideText',
+  //                             value: 'Indique el nombre completo, incluyendo sus dos apellidos, del vendedor.',
+  //                           },
+  //                         },
+  //                         {
+  //                           question: 'Dirección completa del lugar de residencia del vendedor:',
+  //                           wordToReplace: 'id-unid-3_1_opA_1_opA_2',
+  //                           identifier: 'id-unid-3_1_opA_1_opA_2',
+  //                           type: 'iText',
+  //                           replacement: '',
+  //                           indications: {
+  //                             areIndications: true,
+  //                             indicationsType: 'insideText',
+  //                             value: 'Indique la dirección completa, incluyendo el tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país, del lugar de residencia del vendedor.',
+  //                           },
+  //                         },
+  //                         {
+  //                           type: 'iRadioB',
+  //                           question: 'Tipo de dpcumento de identificación del vendedor',
+  //                           identifier: 'id-unid-3_1_opA_1_opA_3',
+  //                           wordToReplace: 'id-unid-3_1_opA_1_opA_3',
+  //                           indications: {
+  //                             areIndications: true,
+  //                             indicationsType: 'outsideText',
+  //                             value: 'Seleccione el tipo de documento de identificación del vendedor. Si esta persona cuenta con Documento Nacional de Identidad (DNI) es necesario escoger esta opción, y reservar las opciones de NIE o pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo.',
+  //                           },
+  //                           replacement: '',
+  //                           radios: [
+  //                             {
+  //                               label: 'DNI',
+  //                               replacementOriginal: 'DNI',
+  //                               replacement: '',
+  //                               radioId: 'id-unid-3_1_opA_1_opA_3_opA',
+  //                               identifier: 'id-unid-3_1_opA_1_opA_3_opA',
+  //                               extraReplacements: [],
+  //                               checked: true,
+  //                             },
+  //                             {
+  //                               label: 'NIE',
+  //                               replacementOriginal: 'NIE',
+  //                               replacement: '',
+  //                               radioId: 'id-unid-3_1_opA_1_opA_3_opB',
+  //                               identifier: 'id-unid-3_1_opA_1_opA_3_opB',
+  //                               extraReplacements: [],
+  //                               checked: false,
+  //                             },
+  //                             {
+  //                               label: 'Pasaporte',
+  //                               replacementOriginal: 'Pasaporte',
+  //                               replacement: '',
+  //                               radioId: 'id-unid-3_1_opA_1_opA_3_opC',
+  //                               identifier: 'id-unid-3_1_opA_1_opA_3_opC',
+  //                               extraReplacements: [],
+  //                               checked: false,
+  //                             }
+  //                           ]
+  //                         },
+  //                         {
+  //                           question: 'Número del documento',
+  //                           wordToReplace: 'id-unid-3_1_opA_1_opA_4',
+  //                           identifier: 'id-unid-3_1_opA_1_opA_4',
+  //                           type: 'iText',
+  //                           replacement: '',
+  //                           indications: {
+  //                             areIndications: true,
+  //                             indicationsType: 'insideText',
+  //                             value: 'Introduzca el número que corresponde con el documento de identificación personal escogido para identificar a la parte compradora nº1.',
+  //                           },
+  //                         }
+  //                       ]
+  //                       },
+  //                       {
+  //                         label: 'por medio de un representante (legal o voluntario)',
+  //                         // tslint:disable-next-line:max-line-length
+  //                         replacementOriginal: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con id-unid-3_1_opA_1_opB_6: id-unid-3_1_opA_1_opB_7, quien actúa en calidad de id-unid-3_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
+  //                         // tslint:disable-next-line:max-line-length
+  //                         replacement: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con id-unid-3_1_opA_1_opB_6: id-unid-3_1_opA_1_opB_7, quien actúa en calidad de id-unid-3_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
+  //                         extraReplacements: [],
+  //                         radioId: 'id-unid-3_1_opA_1_opB',
+  //                         identifier: 'id-unid-3_1_opA_1_opB',
+  //                         checked: false,
+  //                         subSteps: [
+  //                           {
+  //                             question: 'Nombre completo del vendedor:',
+  //                             wordToReplace: 'id-unid-3_1_opA_1_opB_1',
+  //                             identifier: 'id-unid-3_1_opA_1_opB_1',
+  //                             type: 'iText',
+  //                             replacement: '',
+  //                             indications: {
+  //                               areIndications: true,
+  //                               indicationsType: 'insideText',
+  //                               value: 'Indique el nombre completo, incluyendo sus dos apellidos, del vendedor.',
+  //                             },
+  //                           },
+  //                           {
+  //                             question: 'Dirección completa del lugar de residencia del vendedor:',
+  //                             wordToReplace: 'id-unid-3_1_opA_1_opB_2',
+  //                             identifier: 'id-unid-3_1_opA_1_opB_2',
+  //                             type: 'iText',
+  //                             replacement: '',
+  //                             indications: {
+  //                               areIndications: true,
+  //                               indicationsType: 'insideText',
+  //                               value: 'Indique la dirección completa, incluyendo el tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país, del lugar de residencia del vendedor.',
+  //                             },
+  //                           },
+  //                           {
+  //                             type: 'iRadioB',
+  //                             question: 'Tipo de documento de identificación del vendedor',
+  //                             identifier: 'id-unid-3_1_opA_1_opB_3',
+  //                             wordToReplace: '3_1_opA_1_opB_3',
+  //                             indications: {
+  //                               areIndications: true,
+  //                               indicationsType: 'insideText',
+  //                               value: 'Seleccione el tipo de documento de identificación del vendedor. Si esta persona cuenta con Documento Nacional de Identidad (DNI) es necesario escoger esta opción, y reservar las opciones de NIE o pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo.',
+  //                             },
+  //                             replacement: '',
+  //                             radios: [
+  //                               {
+  //                                 label: 'DNI',
+  //                                 replacementOriginal: 'DNI',
+  //                                 replacement: '',
+  //                                 radioId: 'id-unid-3_1_opA_1_opB_3_opA',
+  //                                 identifier: 'id-unid-3_1_opA_1_opB_3_opA',
+  //                                 extraReplacements: [],
+  //                                 checked: true,
+  //                               },
+  //                               {
+  //                                 label: 'NIE',
+  //                                 replacementOriginal: 'NIE',
+  //                                 replacement: '',
+  //                                 radioId: 'id-unid-3_1_opA_1_opB_3_opB',
+  //                                 identifier: 'id-unid-3_1_opA_1_opB_3_opB',
+  //                                 extraReplacements: [],
+  //                                 checked: false,
+  //                               },
+  //                               {
+  //                                 label: 'Pasaporte',
+  //                                 replacementOriginal: 'Pasaporte',
+  //                                 replacement: '',
+  //                                 radioId: 'id-unid-3_1_opA_1_opB_3_opC',
+  //                                 identifier: 'id-unid-3_1_opA_1_opB_3_opC',
+  //                                 extraReplacements: [],
+  //                                 checked: false,
+  //                               }
+  //                             ]
+  //                           },
+  //                           {
+  //                             question: 'Número del documento',
+  //                             wordToReplace: 'id-unid-3_1_opA_1_opB_4',
+  //                             identifier: 'id-unid-3_1_opA_1_opB_4',
+  //                             type: 'iText',
+  //                             replacement: '',
+  //                             indications: {
+  //                               areIndications: true,
+  //                               indicationsType: 'insideText',
+  //                               value: 'Introduzca el número que corresponde con el documento de identificación personal escogido para identificar a la parte compradora nº1.',
+  //                             },
+  //                           },
+  //                           {
+  //                             question: 'Nombre completo de la persona que firma este contrato en nombre y representación del vendedor:',
+  //                             wordToReplace: 'id-unid-3_1_opA_1_opB_5',
+  //                             identifier: 'id-unid-3_1_opA_1_opB_5',
+  //                             type: 'iText',
+  //                             replacement: '',
+  //                             indications: {
+  //                               areIndications: true,
+  //                               indicationsType: 'outsideText',
+  //                               value: 'Indique aquí el nombre completo (nombre(s) y apellidos) de la persona física que firma este contrato en nombre y representación del vendedor. El contrato puede ser firmado por un representante legal (caso de los menores e incapacitados/as) o voluntario (apoderado, por ejemplo) del vendedor.',
+  //                             },
+  //                           },
+  //                           {
+  //                             type: 'iRadioB',
+  //                             question: 'Documento de identificación personal de la persona que firma este contrato en nombre y representación del vendedor:',
+  //                             identifier: 'id-unid-3_1_opA_1_opB_6',
+  //                             wordToReplace: 'id-unid-3_1_opA_1_opB_6',
+  //                             indications: {
+  //                               areIndications: true,
+  //                               indicationsType: 'outsideText',
+  //                               value: 'Escoja el tipo de documento que identificará personalmente a la persona física que firma el contrato en nombre y representación del vendedor. Si esta persona cuenta con DNI/NIF es necesario escoger esta opción, y reservar las opciones de NIE o pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo.',
+  //                             },
+  //                             replacement: '',
+  //                             radios: [
+  //                               {
+  //                                 label: 'DNI',
+  //                                 replacementOriginal: 'DNI',
+  //                                 replacement: '',
+  //                                 radioId: 'id-unid-3_1_opA_1_opB_6_opA',
+  //                                 identifier: 'id-unid-3_1_opA_1_opB_6_opA',
+  //                                 extraReplacements: [],
+  //                                 checked: true,
+  //                               },
+  //                               {
+  //                                 label: 'NIE',
+  //                                 replacementOriginal: 'NIE',
+  //                                 replacement: '',
+  //                                 radioId: 'id-unid-3_1_opA_1_opB_6_opB',
+  //                                 identifier: 'id-unid-3_1_opA_1_opB_6_opB',
+  //                                 extraReplacements: [],
+  //                                 checked: false,
+  //                               },
+  //                               {
+  //                                 label: 'Pasaporte',
+  //                                 replacementOriginal: 'Pasaporte',
+  //                                 replacement: '',
+  //                                 radioId: 'id-unid-3_1_opA_1_opB_6_opC',
+  //                                 identifier: 'id-unid-3_1_opA_1_opB_6_opC',
+  //                                 extraReplacements: [],
+  //                                 checked: false,
+  //                               }
+  //                             ]
+  //                           },
+  //                           {
+  //                             question: 'Número del documento de identificación personal seleccionado:',
+  //                             wordToReplace: 'id-unid-3_1_opA_1_opB_7',
+  //                             identifier: 'id-unid-3_1_opA_1_opB_7',
+  //                             type: 'iText',
+  //                             replacement: '',
+  //                             indications: {
+  //                               areIndications: true,
+  //                               indicationsType: 'insideText',
+  //                               value: 'Introduzca aquí el número correspondiente al documento de identificación personal escogido en la pregunta anterior para la persona que firma este contrato en nombre y representación del vendedor.',
+  //                             },
+  //                           },
+  //                           {
+  //                             question: 'Calidad o concepto en el que esta persona firma este contrato en nombre y representación del vendedor:',
+  //                             wordToReplace: 'id-unid-3_1_opA_1_opB_8',
+  //                             identifier: 'id-unid-3_1_opA_1_opB_8',
+  //                             type: 'iText',
+  //                             replacement: '',
+  //                             indications: {
+  //                               areIndications: true,
+  //                               indicationsType: 'insideText',
+  //                               value: 'Indique aquí en qué calidad o concepto esta persona física firma este contrato en nombre y representación del vendedor.',
+  //                             },
+  //                           },
+  //                         ]
+  //                       },
+  //                     ],
+  //                 },
+  //             ]
+  //             },
+  //             {
+  //               label: 'Persona jurídica',
+  //               // tslint:disable-next-line:max-line-length
+  //               replacementOriginal: 'id-unid-3_1_opB_5, mayor de edad, con domicilio en id-unid-3_1_opB_6, con id-unid-3_1_opB_7 número id-unid-3_1_opB_8, en nombre y representación de: id-unid-3_1_opB_1, con N.I.F número id-unid-3_1_opB_2, e inscrita en: id-unid-3_1_opB_3 con la siguiente información: id-unid-3_1_opB_4.',
+  //               replacement: 'id-unid-3_1_opB_5, mayor de edad, con domicilio en id-unid-3_1_opB_6, con id-unid-3_1_opB_7 número id-unid-3_1_opB_8, en nombre y representación de: id-unid-3_1_opB_1, con N.I.F número id-unid-3_1_opB_2, e inscrita en: id-unid-3_1_opB_3 con la siguiente información: id-unid-3_1_opB_4.',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-3_1_opB',
+  //               identifier: 'id-unid-3_1_opB',
+  //               checked: false,
+  //               subSteps: [
+  //                 {
+  //                   question: 'Nombre completo de la persona jurídica que desea vender el vehículo:',
+  //                   wordToReplace: 'id-unid-3_1_opB_1',
+  //                   identifier: 'id-unid-3_1_opB_1',
+  //                   type: 'iText',
+  //                   placeholder: 'BBVA, S.A',
+  //                   replacement: '',
+  //                   indications: {
+  //                     areIndications: true,
+  //                     indicationsType: 'outsideText',
+  //                     value: 'Indique el nombre completo de la persona jurídica que desea vender el vehículo. En el caso de desconocimiento del nombre de la persona jurídica, se puede solicitar dicha información a través del registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc).',
+  //                   },
+  //                 },
+  //                 {
+  //                   question: 'Número de Identificación Fiscal o NIF completo de la persona jurídica que desea vender el vehículo:',
+  //                   wordToReplace: 'id-unid-3_1_opB_2',
+  //                   identifier: 'id-unid-3_1_opB_2',
+  //                   type: 'iText',
+  //                   placeholder: 'B01234567',
+  //                   replacement: '',
+  //                   indications: {
+  //                     areIndications: true,
+  //                     indicationsType: 'outsideText',
+  //                     value: 'Indique el Número de Identificación Fiscal o NIF completo de la persona jurídica que desea vender el vehículo. El NIF es el número otorgado por la Hacienda Española para identificar a cada persona jurídica a efectos fiscales. Tenga en cuenta que todas las personas jurídicas que operan en España están obligadas a contar con un número NIF, incluso en el caso de que sean de nacionalidad extranjera.',
+  //                   },
+  //                 },
+  //                 {
+  //                   question: 'Indique el tipo de registro y lugar donde está inscrita la persona jurídica que desea vender el vehículo:',
+  //                   wordToReplace: 'id-unid-3_1_opB_3',
+  //                   identifier: 'id-unid-3_1_opB_3',
+  //                   type: 'iText',
+  //                   placeholder: 'Registro Mercantil de Sevilla',
+  //                   replacement: '',
+  //                   indications: {
+  //                     areIndications: true,
+  //                     indicationsType: 'outsideText',
+  //                     value: 'Indique el tipo de registro y lugar donde está inscrita la persona jurídica que desea vender el vehículo. Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc).',
+  //                   },
+  //                 },
+  //                 {
+  //                   question: 'Datos registrales completos de la persona jurídica que desea vender el vehículo:',
+  //                   wordToReplace: 'id-unid-3_1_opB_4',
+  //                   identifier: 'id-unid-3_1_opB_4',
+  //                   type: 'iText',
+  //                   placeholder: 'Tomo 123, folio 10, hoja SE-1234',
+  //                   replacement: '',
+  //                   indications: {
+  //                     areIndications: true,
+  //                     indicationsType: 'outsideText',
+  //                     value: 'Indique los datos registrales completos de la persona jurídica que desea vender el vehículo. Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc).',
+  //                   },
+  //                 },
+  //                 {
+  //                   question: 'Nombre completo del representante persona física de la persona jurídica que desea vender el vehículo:',
+  //                   wordToReplace: 'id-unid-3_1_opB_5',
+  //                   identifier: 'id-unid-3_1_opB_5',
+  //                   type: 'iText',
+  //                   placeholder: 'Juan Carlos',
+  //                   replacement: '',
+  //                   indications: {
+  //                     areIndications: true,
+  //                     indicationsType: 'outsideText',
+  //                     value: 'Indique los datos registrales completos de la persona jurídica que desea vender el vehículo. Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc).',
+  //                   },
+  //                 },
+  //                 {
+  //                   question: 'Domicilio completo del representante persona física de la persona jurídica que desea vender el vehículo:',
+  //                   wordToReplace: 'id-unid-3_1_opB_6',
+  //                   identifier: 'id-unid-3_1_opB_6',
+  //                   type: 'iText',
+  //                   placeholder: 'Calle ejemplo',
+  //                   replacement: '',
+  //                   indications: {
+  //                     areIndications: true,
+  //                     indicationsType: 'outsideText',
+  //                     value: 'Indique el domicilio completo, incluyendo el tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país, del representante persona física de la persona jurídica que desea vender el vehículo. El representante persona física debe ser la persona física que pueda obligar a la persona jurídica y contratar en su nombre. Dicha persona debe haber sido nombrada o apoderada debidamente por la persona jurídica que desea vender el vehículo.',
+  //                   },
+  //                 },
+  //                 {
+  //                   type: 'iRadioB',
+  //                   question: 'Documento de identidad del representante persona física de la persona jurídica que desea vender el vehículo:',
+  //                   identifier: 'id-unid-3_1_opB_7',
+  //                   wordToReplace: 'id-unid-3_1_opB_7',
+  //                   indications: {
+  //                     areIndications: true,
+  //                     indicationsType: 'outsideText',
+  //                     value: 'Seleccione el documento de identidad del representante persona física de la persona jurídica que desea vender el vehículo. El representante persona física debe ser la persona física que pueda obligar a la persona jurídica y contratar en su nombre. Dicha persona debe haber sido nombrada o apoderada debidamente por la persona jurídica que desea vender el vehículo.',
+  //                   },
+  //                   replacement: '',
+  //                   radios: [
+  //                     {
+  //                       label: 'DNI',
+  //                       replacementOriginal: 'DNI',
+  //                       replacement: '',
+  //                       radioId: 'id-unid-3_1_opB_7_opA',
+  //                       identifier: 'id-unid-3_1_opB_7_opA',
+  //                       extraReplacements: [],
+  //                       checked: true,
+  //                     },
+  //                     {
+  //                       label: 'NIE',
+  //                       replacementOriginal: 'NIE',
+  //                       replacement: '',
+  //                       radioId: 'id-unid-3_1_opB_7_opB',
+  //                       identifier: 'id-unid-3_1_opB_7_opB',
+  //                       extraReplacements: [],
+  //                       checked: false,
+  //                     },
+  //                     {
+  //                       label: 'Pasaporte',
+  //                       replacementOriginal: 'Pasaporte',
+  //                       replacement: '',
+  //                       radioId: 'id-unid-3_1_opB_7_opC',
+  //                       identifier: 'id-unid-3_1_opB_7_opC',
+  //                       extraReplacements: [],
+  //                       checked: false,
+  //                     }
+  //                   ]
+  //                 },
+  //                 {
+  //                   question: 'Número del documento de identificación personal seleccionado:',
+  //                   wordToReplace: 'id-unid-3_1_opB_8',
+  //                   identifier: 'id-unid-3_1_opB_8',
+  //                   type: 'iText',
+  //                   replacement: '',
+  //                   indications: {
+  //                     areIndications: true,
+  //                     indicationsType: 'insideText',
+  //                     value: 'Introduzca el número que corresponde con el documento de identificación personal escogido para identificar a la parte vendedora',
+  //                   },
+  //                 },
+  //               ]
+  //             },
+  //           ],
+  //         },
+  //       ]
+  //     }
+  //     // {}
+  //   ]
+  // },
   // {
   //   type: 'iForEach',
   //   value: 1,
