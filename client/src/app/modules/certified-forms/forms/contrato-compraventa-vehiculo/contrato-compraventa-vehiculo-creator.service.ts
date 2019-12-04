@@ -104,10 +104,6 @@ export class ContratoCompraventaVehiculoCreatorService {
   scrollToElementWithClass(className: any, offset = 0) {
     const element = document.querySelector('.' + className);
     if (element) {
-      // element.parentElement
-      // .scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-      // Cambiar a scrollTo con behavior
-
       const cont = document.getElementById('webodfeditor-canvascontainer1');
       const h = cont.clientHeight / 2;
       const elementTop = element.getBoundingClientRect().top;
@@ -116,7 +112,6 @@ export class ContratoCompraventaVehiculoCreatorService {
         top: pos,
         behavior: 'smooth'
       });
-
     }
   }
 
