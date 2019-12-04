@@ -1001,418 +1001,418 @@ export const steps = [
   //     // {}
   //   ]
   // },
-  {
-    type: 'iRadioC',
-    subType: 'select',
-    question: 'Tipo de vehículo que se desea vender mediante este contrato:',
-    identifier: 'id-unid-5',
-    wordToReplace: 'id-unid-5',
-    indications: {
-      areIndications: true,
-      indicationsType: 'outsideText',
-      // tslint:disable-next-line:max-line-length
-      value: 'Seleccione el tipo de vehículo que se desea vender mediante este contrato. En el caso de que el vehículo que se desea vender no se corresponda a ninguno de los indicados, seleccione "otro vehículo".',
-    },
-    defaultRadioId: 'id-unid-5_opA',
-    replacement: '',
-    extraReplacements: [
-    ],
-    radios: [
-      {
-        label: 'ciclomotor (vehículo con dos ruedas, con pedales y que cuenta con un pequeño motor)',
-        radioId: 'id-unid-5_opA',
-        identifier: 'id-unid-5_opA',
-        replacementOriginal: 'Tipo de Vehículo automóvil: ciclomotor',
-        replacement: 'Tipo de Vehículo automóvil: ciclomotor',
-        extraReplacements: [
-        ],
-        checked: false,
-        subSteps: []
-      },
-      {
-        label: 'motocicleta o moto (vehículo de dos ruedas con motor)',
-        // tslint:disable-next-line:max-line-length
-        replacementOriginal: 'id-unid-5_opB_1',
-        replacement: 'id-unid-5_opB_1',
-        extraReplacements: [
-        ],
-        radioId: 'id-unid-5_opB',
-        identifier: 'id-unid-5_opB',
-        checked: false,
-        subSteps: [
-          {
-            type: 'iRadioC',
-            subType: 'select',
-            question: 'Tipo de motocicleta que se desea vender mediante este contrato:',
-            identifier: 'id-unid-5_opB_1',
-            wordToReplace: 'id-unid-5_opB_1',
-            indications: {
-              areIndications: true,
-              indicationsType: 'outsideText',
-              // tslint:disable-next-line:max-line-length
-              value: 'Indique el tipo de motocicleta que se desea vender mediante este contrato. En el caso de que la motocicleta que se desea vender no se corresponda a ninguno de los indicados, seleccione "otro tipo de motocicleta".',
-            },
-            defaultRadioId: 'id-unid-5_opA',
-            replacement: '',
-            extraReplacements: [
-            ],
-            radios: [
-              {
-                label: 'scooter (motocicleta urbana de pequeña cilindrada)',
-                radioId: 'id-unid-5_opA_1_opA',
-                identifier: 'id-unid-5_opA_1_opA',
-                replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta scooter',
-                replacement: 'Tipo de Vehículo automóvil: motocicleta scooter',
-                extraReplacements: [],
-                checked: true,
-                subSteps: []
-              },
-              {
-                label: 'motocross (motocicleta de campo)',
-                replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta de motocross',
-                replacement: 'motocross (motocicleta de campo)',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opA_1_opB',
-                identifier: 'id-unid-5_opA_1_opB',
-                checked: false,
-                subSteps: []
-              },
-              {
-                label: 'motocicleta eléctrica (motocicleta con motor eléctrico)',
-                replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta eléctrica',
-                replacement: 'Tipo de Vehículo automóvil: motocicleta eléctrica',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opA_1_opC',
-                identifier: 'id-unid-5_opA_1_opC',
-                checked: false,
-                subSteps: []
-              },
-              {
-                label: 'motocicleta deportiva o superbike',
-                replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta deportiva',
-                replacement: 'Tipo de Vehículo automóvil: motocicleta deportiva',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opA_1_opD',
-                identifier: 'id-unid-5_opA_1_opD',
-                checked: false,
-                subSteps: []
-              },
-              {
-                label: 'motocicleta naked (motocicleta con motor al descubierto)',
-                replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta naked',
-                replacement: 'Tipo de Vehículo automóvil: motocicleta naked',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opA_1_opE',
-                identifier: 'id-unid-5_opA_1_opE',
-                checked: false,
-                subSteps: []
-              },
-              {
-                label: 'motocicleta gran turismo (motocicleta de carretera)',
-                replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta gran turismo',
-                replacement: 'Tipo de Vehículo automóvil: motocicleta gran turismo',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opA_1_opF',
-                identifier: 'id-unid-5_opA_1_opF',
-                checked: false,
-                subSteps: []
-              },
-              {
-                label: 'otro tipo de motocicleta',
-                replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta tipo id-unid-5_opA_1_opG_1',
-                replacement: 'Tipo de Vehículo automóvil: motocicleta tipo id-unid-5_opA_1_opG_1',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opA_1_opG',
-                identifier: 'id-unid-5_opA_1_opG',
-                checked: false,
-                subSteps: [
-                  {
-                    question: 'Tipo de motocicleta que se desea vender mediante este contrato:',
-                    placeholder: 'moto tral, enduro',
-                    wordToReplace: 'id-unid-5_opA_1_opG_1',
-                    identifier: 'id-unid-5_opA_1_opG_1',
-                    type: 'iText',
-                    replacement: '',
-                    indications: {
-                      areIndications: true,
-                      indicationsType: 'outsideText',
-                      // tslint:disable-next-line:max-line-length
-                      value: 'Indique el tipo de motocicleta que se desea vender mediante este contrato. Las motocicletas pueden ser, a modo de ejemplo: MegaScooter, Moto Enduro, Moto Supermotard, Moto Trial, Moto Cruiser, Moto Chopper, Moto Streetfighter, Moto Sport Turismo, etc',
-                    },
-                  },
-                ]
-              },
-            ],
-          },
-        ]
-      },
-      {
-        label: 'motocarro (vehículo de tres ruedas dotado de plataforma para el transporte de mercancías)',
-        radioId: 'id-unid-5_opC',
-        identifier: 'id-unid-5_opC',
-        replacementOriginal: 'Tipo de Vehículo automóvil: motocarro',
-        replacement: 'Tipo de Vehículo automóvil: motocarro',
-        extraReplacements: [
-        ],
-        checked: false,
-        subSteps: []
-      },
-      {
-        label: 'turismo o coche (vehículo que permite el transporte de hasta 9 personas)',
-        // tslint:disable-next-line:max-line-length
-        replacementOriginal: 'id-unid-5_opD_1',
-        replacement: 'id-unid-5_opD_1',
-        extraReplacements: [
-        ],
-        radioId: 'id-unid-5_opD',
-        identifier: 'id-unid-5_opD',
-        checked: false,
-        subSteps: [
-          {
-            type: 'iRadioC',
-            subType: 'select',
-            question: 'Tipo de vehículo que se desea vender mediante este contrato:',
-            identifier: 'id-unid-5_opD_1',
-            wordToReplace: 'id-unid-5_opD_1',
-            indications: {
-              areIndications: true,
-              indicationsType: 'outsideText',
-              // tslint:disable-next-line:max-line-length
-              value: 'Seleccione el tipo de vehículo que se desea vender mediante este contrato. En el caso de que el vehículo que se desea vender no se corresponda a ninguno de los indicados, seleccione "otro vehículo".',
-            },
-            defaultRadioId: 'id-unid-5_opA',
-            replacement: '',
-            extraReplacements: [
-            ],
-            radios: [
-              {
-                label: 'monovolumen (vehículo amplio con 5 plazas o más)',
-                radioId: 'id-unid-5_opD_1_opA',
-                identifier: 'id-unid-5_opD_1_opA',
-                replacementOriginal: 'Tipo de Vehículo automóvil: coche monovolumen',
-                replacement: 'Tipo de Vehículo automóvil: coche monovolumen',
-                extraReplacements: [],
-                checked: true,
-                subSteps: []
-              },
-              {
-                label: 'berlina (coche de 4 o más plazas con luna trasera fija)',
-                replacementOriginal: 'Tipo de Vehículo automóvil: coche berlina',
-                replacement: 'Tipo de Vehículo automóvil: coche berlina',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opD_1_opB',
-                identifier: 'id-unid-5_opD_1_opB',
-                checked: false,
-                subSteps: []
-              },
-              {
-                label: 'cupé (coche con forma de berlina pero que cuenta con tres puertas)',
-                replacementOriginal: 'Tipo de Vehículo automóvil: coche cupé',
-                replacement: 'Tipo de Vehículo automóvil: coche cupé',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opD_1_opC',
-                identifier: 'id-unid-5_opD_1_opC',
-                checked: false,
-                subSteps: []
-              },
-              {
-                label: 'descapotable (coche con techo plegable o capota)',
-                replacementOriginal: 'Tipo de Vehículo automóvil: coche descapotable',
-                replacement: 'Tipo de Vehículo automóvil: coche descapotable',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opD_1_opD',
-                identifier: 'id-unid-5_opD_1_opD',
-                checked: false,
-                subSteps: []
-              },
-              {
-                label: 'todoterreno (vehículo adaptado para su uso en terrenos agrarios)',
-                replacementOriginal: 'Tipo de Vehículo automóvil: coche todoterreno',
-                replacement: 'Tipo de Vehículo automóvil: coche todoterreno',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opD_1_opE',
-                identifier: 'id-unid-5_opD_1_opE',
-                checked: false,
-                subSteps: []
-              },
-              {
-                label: 'otro tipo de turismo',
-                replacementOriginal: 'Tipo de Vehículo automóvil: coche tipo id-unid-5_opD_1_opF_1',
-                replacement: 'Tipo de Vehículo automóvil: coche tipo id-unid-5_opD_1_opF_1',
-                extraReplacements: [],
-                radioId: 'id-unid-5_opD_1_opF',
-                identifier: 'id-unid-5_opD_1_opF',
-                checked: false,
-                subSteps: [
-                  {
-                    question: 'Tipo de turismo o coche que se desea vender mediante este contrato:',
-                    placeholder: 'suv, familiar, de competeción',
-                    wordToReplace: 'id-unid-5_opD_1_opF_1',
-                    identifier: 'id-unid-5_opD_1_opF_1',
-                    type: 'iText',
-                    replacement: '',
-                  },
-                ]
-              },
-            ],
-          },
-        ]
-      },
-      {
-        label: 'furgón o furgoneta (vehículo que permite el transporte de mercancías hasta 3.500 kilos)',
-        radioId: 'id-unid-5_opE',
-        identifier: 'id-unid-5_opE',
-        replacementOriginal: 'Tipo de Vehículo automóvil: furgoneta',
-        replacement: 'Tipo de Vehículo automóvil: furgoneta',
-        extraReplacements: [
-        ],
-        checked: false,
-        subSteps: []
-      },
-      {
-        label: 'camión (vehículo que permite el transporte de mercancías de más de 3.500 kilos)',
-        radioId: 'id-unid-5_opF',
-        identifier: 'id-unid-5_opF',
-        replacementOriginal: 'Tipo de Vehículo automóvil: camión',
-        replacement: 'Tipo de Vehículo automóvil: camión',
-        extraReplacements: [
-        ],
-        checked: false,
-        subSteps: []
-      },
-      {
-        label: 'autobús o autocar (vehículo que permite el transporte de más de 9 personas)',
-        radioId: 'id-unid-5_opG',
-        identifier: 'id-unid-5_opG',
-        replacementOriginal: 'Tipo de Vehículo automóvil: camión',
-        replacement: 'Tipo de Vehículo automóvil: camión',
-        extraReplacements: [
-        ],
-        checked: false,
-        subSteps: []
-      },
-      {
-        label: 'otro vehículo',
-        radioId: 'id-unid-5_opH',
-        identifier: 'id-unid-5_opH',
-        replacementOriginal: 'Tipo de Vehículo automóvil: id-unid-5_opH_1',
-        replacement: 'Tipo de Vehículo automóvil: id-unid-5_opH_1',
-        extraReplacements: [
-        ],
-        checked: true,
-        subSteps: [
-          {
-            question: 'Tipo de vehículo que se desea vender mediante este contrato distinto a los indicados en la pregunta anterior:',
-            placeholder: 'autocaravana, quad',
-            wordToReplace: 'id-unid-5_opH_1',
-            identifier: 'id-unid-5_opH_1',
-            type: 'iText',
-            replacement: '',
-            indications: {
-              areIndications: true,
-              indicationsType: 'insideText',
-              // tslint:disable-next-line:max-line-length
-              value: 'Indique en este espacio el tipo de vehículo que desea vender mediante este contrato distinto a los indicados en la pregunta anterior.',
-            },
-          }
-        ]
-      }
-    ],
-  },
-  {
-    type: 'iText',
-    identifier: 'id-unid-6',
-    wordToReplace: 'id-unid-6',
-    replacement: '',
-    placeholder: 'Seat, Citroen, Suzuki,...',
-    question: 'Tipo de vehículo que se desea vender mediante este contrato:',
-    indications: {
-      areIndications: true,
-      indicationsType: 'insideText',
-      value: 'Indique en este espacio la marca fabricante del vehículo que se desea vender mediante este contrato.'
-    },
-    mandatory: true,
-    isFocused: false
-  },
-  {
-    type: 'iText',
-    identifier: 'id-unid-7',
-    wordToReplace: 'id-unid-7',
-    replacement: '',
-    placeholder: 'Ibiza, Polo, C4,...',
-    question: 'Modelo específico del vehículo que se desea vender:',
-    indications: {
-      areIndications: true,
-      indicationsType: 'insideText',
-      value: 'Indique en este espacio el modelo específico del vehículo que se desea vender.'
-    },
-    mandatory: true,
-    isFocused: false
-  },
   // {
-  //   type: 'iText',
-  //   identifier: 'id8',
-  //   wordToReplace: 'id8',
-  //   replacement: '',
-  //   placeholder: 'Ibiza, Polo, C4,...',
-  //   question: 'Número de serie y bastidor (o simplemente conocido como nº de bastidor) del vehículo que se desea vender:',
+  //   type: 'iRadioC',
+  //   subType: 'select',
+  //   question: 'Tipo de vehículo que se desea vender mediante este contrato:',
+  //   identifier: 'id-unid-5',
+  //   wordToReplace: 'id-unid-5',
   //   indications: {
   //     areIndications: true,
   //     indicationsType: 'outsideText',
   //     // tslint:disable-next-line:max-line-length
-  //     value: 'Indique en este espacio el número de serie y bastidor (o simplemente conocido como nº de bastidor) del vehículo que se desea vender. Este es el número de identificación único del vehículo y puede encontrarlo, por ejemplo, en los papeles del vehículo o en el vehículo mismo grabado o en una pegatina que, en ocasiones, se encuentra en la puerta del conductor (coche), o bajo la zona donde se introduce la llave (contacto) en las motos.'
+  //     value: 'Seleccione el tipo de vehículo que se desea vender mediante este contrato. En el caso de que el vehículo que se desea vender no se corresponda a ninguno de los indicados, seleccione "otro vehículo".',
+  //   },
+  //   defaultRadioId: 'id-unid-5_opA',
+  //   replacement: '',
+  //   extraReplacements: [
+  //   ],
+  //   radios: [
+  //     {
+  //       label: 'ciclomotor (vehículo con dos ruedas, con pedales y que cuenta con un pequeño motor)',
+  //       radioId: 'id-unid-5_opA',
+  //       identifier: 'id-unid-5_opA',
+  //       replacementOriginal: 'Tipo de Vehículo automóvil: ciclomotor',
+  //       replacement: 'Tipo de Vehículo automóvil: ciclomotor',
+  //       extraReplacements: [
+  //       ],
+  //       checked: false,
+  //       subSteps: []
+  //     },
+  //     {
+  //       label: 'motocicleta o moto (vehículo de dos ruedas con motor)',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'id-unid-5_opB_1',
+  //       replacement: 'id-unid-5_opB_1',
+  //       extraReplacements: [
+  //       ],
+  //       radioId: 'id-unid-5_opB',
+  //       identifier: 'id-unid-5_opB',
+  //       checked: false,
+  //       subSteps: [
+  //         {
+  //           type: 'iRadioC',
+  //           subType: 'select',
+  //           question: 'Tipo de motocicleta que se desea vender mediante este contrato:',
+  //           identifier: 'id-unid-5_opB_1',
+  //           wordToReplace: 'id-unid-5_opB_1',
+  //           indications: {
+  //             areIndications: true,
+  //             indicationsType: 'outsideText',
+  //             // tslint:disable-next-line:max-line-length
+  //             value: 'Indique el tipo de motocicleta que se desea vender mediante este contrato. En el caso de que la motocicleta que se desea vender no se corresponda a ninguno de los indicados, seleccione "otro tipo de motocicleta".',
+  //           },
+  //           defaultRadioId: 'id-unid-5_opA',
+  //           replacement: '',
+  //           extraReplacements: [
+  //           ],
+  //           radios: [
+  //             {
+  //               label: 'scooter (motocicleta urbana de pequeña cilindrada)',
+  //               radioId: 'id-unid-5_opA_1_opA',
+  //               identifier: 'id-unid-5_opA_1_opA',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta scooter',
+  //               replacement: 'Tipo de Vehículo automóvil: motocicleta scooter',
+  //               extraReplacements: [],
+  //               checked: true,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'motocross (motocicleta de campo)',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta de motocross',
+  //               replacement: 'motocross (motocicleta de campo)',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opA_1_opB',
+  //               identifier: 'id-unid-5_opA_1_opB',
+  //               checked: false,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'motocicleta eléctrica (motocicleta con motor eléctrico)',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta eléctrica',
+  //               replacement: 'Tipo de Vehículo automóvil: motocicleta eléctrica',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opA_1_opC',
+  //               identifier: 'id-unid-5_opA_1_opC',
+  //               checked: false,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'motocicleta deportiva o superbike',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta deportiva',
+  //               replacement: 'Tipo de Vehículo automóvil: motocicleta deportiva',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opA_1_opD',
+  //               identifier: 'id-unid-5_opA_1_opD',
+  //               checked: false,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'motocicleta naked (motocicleta con motor al descubierto)',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta naked',
+  //               replacement: 'Tipo de Vehículo automóvil: motocicleta naked',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opA_1_opE',
+  //               identifier: 'id-unid-5_opA_1_opE',
+  //               checked: false,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'motocicleta gran turismo (motocicleta de carretera)',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta gran turismo',
+  //               replacement: 'Tipo de Vehículo automóvil: motocicleta gran turismo',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opA_1_opF',
+  //               identifier: 'id-unid-5_opA_1_opF',
+  //               checked: false,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'otro tipo de motocicleta',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: motocicleta tipo id-unid-5_opA_1_opG_1',
+  //               replacement: 'Tipo de Vehículo automóvil: motocicleta tipo id-unid-5_opA_1_opG_1',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opA_1_opG',
+  //               identifier: 'id-unid-5_opA_1_opG',
+  //               checked: false,
+  //               subSteps: [
+  //                 {
+  //                   question: 'Tipo de motocicleta que se desea vender mediante este contrato:',
+  //                   placeholder: 'moto tral, enduro',
+  //                   wordToReplace: 'id-unid-5_opA_1_opG_1',
+  //                   identifier: 'id-unid-5_opA_1_opG_1',
+  //                   type: 'iText',
+  //                   replacement: '',
+  //                   indications: {
+  //                     areIndications: true,
+  //                     indicationsType: 'outsideText',
+  //                     // tslint:disable-next-line:max-line-length
+  //                     value: 'Indique el tipo de motocicleta que se desea vender mediante este contrato. Las motocicletas pueden ser, a modo de ejemplo: MegaScooter, Moto Enduro, Moto Supermotard, Moto Trial, Moto Cruiser, Moto Chopper, Moto Streetfighter, Moto Sport Turismo, etc',
+  //                   },
+  //                 },
+  //               ]
+  //             },
+  //           ],
+  //         },
+  //       ]
+  //     },
+  //     {
+  //       label: 'motocarro (vehículo de tres ruedas dotado de plataforma para el transporte de mercancías)',
+  //       radioId: 'id-unid-5_opC',
+  //       identifier: 'id-unid-5_opC',
+  //       replacementOriginal: 'Tipo de Vehículo automóvil: motocarro',
+  //       replacement: 'Tipo de Vehículo automóvil: motocarro',
+  //       extraReplacements: [
+  //       ],
+  //       checked: false,
+  //       subSteps: []
+  //     },
+  //     {
+  //       label: 'turismo o coche (vehículo que permite el transporte de hasta 9 personas)',
+  //       // tslint:disable-next-line:max-line-length
+  //       replacementOriginal: 'id-unid-5_opD_1',
+  //       replacement: 'id-unid-5_opD_1',
+  //       extraReplacements: [
+  //       ],
+  //       radioId: 'id-unid-5_opD',
+  //       identifier: 'id-unid-5_opD',
+  //       checked: false,
+  //       subSteps: [
+  //         {
+  //           type: 'iRadioC',
+  //           subType: 'select',
+  //           question: 'Tipo de vehículo que se desea vender mediante este contrato:',
+  //           identifier: 'id-unid-5_opD_1',
+  //           wordToReplace: 'id-unid-5_opD_1',
+  //           indications: {
+  //             areIndications: true,
+  //             indicationsType: 'outsideText',
+  //             // tslint:disable-next-line:max-line-length
+  //             value: 'Seleccione el tipo de vehículo que se desea vender mediante este contrato. En el caso de que el vehículo que se desea vender no se corresponda a ninguno de los indicados, seleccione "otro vehículo".',
+  //           },
+  //           defaultRadioId: 'id-unid-5_opA',
+  //           replacement: '',
+  //           extraReplacements: [
+  //           ],
+  //           radios: [
+  //             {
+  //               label: 'monovolumen (vehículo amplio con 5 plazas o más)',
+  //               radioId: 'id-unid-5_opD_1_opA',
+  //               identifier: 'id-unid-5_opD_1_opA',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: coche monovolumen',
+  //               replacement: 'Tipo de Vehículo automóvil: coche monovolumen',
+  //               extraReplacements: [],
+  //               checked: true,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'berlina (coche de 4 o más plazas con luna trasera fija)',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: coche berlina',
+  //               replacement: 'Tipo de Vehículo automóvil: coche berlina',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opD_1_opB',
+  //               identifier: 'id-unid-5_opD_1_opB',
+  //               checked: false,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'cupé (coche con forma de berlina pero que cuenta con tres puertas)',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: coche cupé',
+  //               replacement: 'Tipo de Vehículo automóvil: coche cupé',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opD_1_opC',
+  //               identifier: 'id-unid-5_opD_1_opC',
+  //               checked: false,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'descapotable (coche con techo plegable o capota)',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: coche descapotable',
+  //               replacement: 'Tipo de Vehículo automóvil: coche descapotable',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opD_1_opD',
+  //               identifier: 'id-unid-5_opD_1_opD',
+  //               checked: false,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'todoterreno (vehículo adaptado para su uso en terrenos agrarios)',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: coche todoterreno',
+  //               replacement: 'Tipo de Vehículo automóvil: coche todoterreno',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opD_1_opE',
+  //               identifier: 'id-unid-5_opD_1_opE',
+  //               checked: false,
+  //               subSteps: []
+  //             },
+  //             {
+  //               label: 'otro tipo de turismo',
+  //               replacementOriginal: 'Tipo de Vehículo automóvil: coche tipo id-unid-5_opD_1_opF_1',
+  //               replacement: 'Tipo de Vehículo automóvil: coche tipo id-unid-5_opD_1_opF_1',
+  //               extraReplacements: [],
+  //               radioId: 'id-unid-5_opD_1_opF',
+  //               identifier: 'id-unid-5_opD_1_opF',
+  //               checked: false,
+  //               subSteps: [
+  //                 {
+  //                   question: 'Tipo de turismo o coche que se desea vender mediante este contrato:',
+  //                   placeholder: 'suv, familiar, de competeción',
+  //                   wordToReplace: 'id-unid-5_opD_1_opF_1',
+  //                   identifier: 'id-unid-5_opD_1_opF_1',
+  //                   type: 'iText',
+  //                   replacement: '',
+  //                 },
+  //               ]
+  //             },
+  //           ],
+  //         },
+  //       ]
+  //     },
+  //     {
+  //       label: 'furgón o furgoneta (vehículo que permite el transporte de mercancías hasta 3.500 kilos)',
+  //       radioId: 'id-unid-5_opE',
+  //       identifier: 'id-unid-5_opE',
+  //       replacementOriginal: 'Tipo de Vehículo automóvil: furgoneta',
+  //       replacement: 'Tipo de Vehículo automóvil: furgoneta',
+  //       extraReplacements: [
+  //       ],
+  //       checked: false,
+  //       subSteps: []
+  //     },
+  //     {
+  //       label: 'camión (vehículo que permite el transporte de mercancías de más de 3.500 kilos)',
+  //       radioId: 'id-unid-5_opF',
+  //       identifier: 'id-unid-5_opF',
+  //       replacementOriginal: 'Tipo de Vehículo automóvil: camión',
+  //       replacement: 'Tipo de Vehículo automóvil: camión',
+  //       extraReplacements: [
+  //       ],
+  //       checked: false,
+  //       subSteps: []
+  //     },
+  //     {
+  //       label: 'autobús o autocar (vehículo que permite el transporte de más de 9 personas)',
+  //       radioId: 'id-unid-5_opG',
+  //       identifier: 'id-unid-5_opG',
+  //       replacementOriginal: 'Tipo de Vehículo automóvil: camión',
+  //       replacement: 'Tipo de Vehículo automóvil: camión',
+  //       extraReplacements: [
+  //       ],
+  //       checked: false,
+  //       subSteps: []
+  //     },
+  //     {
+  //       label: 'otro vehículo',
+  //       radioId: 'id-unid-5_opH',
+  //       identifier: 'id-unid-5_opH',
+  //       replacementOriginal: 'Tipo de Vehículo automóvil: id-unid-5_opH_1',
+  //       replacement: 'Tipo de Vehículo automóvil: id-unid-5_opH_1',
+  //       extraReplacements: [
+  //       ],
+  //       checked: true,
+  //       subSteps: [
+  //         {
+  //           question: 'Tipo de vehículo que se desea vender mediante este contrato distinto a los indicados en la pregunta anterior:',
+  //           placeholder: 'autocaravana, quad',
+  //           wordToReplace: 'id-unid-5_opH_1',
+  //           identifier: 'id-unid-5_opH_1',
+  //           type: 'iText',
+  //           replacement: '',
+  //           indications: {
+  //             areIndications: true,
+  //             indicationsType: 'insideText',
+  //             // tslint:disable-next-line:max-line-length
+  //             value: 'Indique en este espacio el tipo de vehículo que desea vender mediante este contrato distinto a los indicados en la pregunta anterior.',
+  //           },
+  //         }
+  //       ]
+  //     }
+  //   ],
+  // },
+  // {
+  //   type: 'iText',
+  //   identifier: 'id-unid-6',
+  //   wordToReplace: 'id-unid-6',
+  //   replacement: '',
+  //   placeholder: 'Seat, Citroen, Suzuki,...',
+  //   question: 'Tipo de vehículo que se desea vender mediante este contrato:',
+  //   indications: {
+  //     areIndications: true,
+  //     indicationsType: 'insideText',
+  //     value: 'Indique en este espacio la marca fabricante del vehículo que se desea vender mediante este contrato.'
   //   },
   //   mandatory: true,
   //   isFocused: false
   // },
   // {
   //   type: 'iText',
-  //   identifier: 'id9',
-  //   wordToReplace: 'id9',
+  //   identifier: 'id-unid-7',
+  //   wordToReplace: 'id-unid-7',
   //   replacement: '',
-  //   placeholder: 'Escribe un número mayor que cero',
-  //   question: 'Kilometraje o número de kilómetros recorridos según se indica en el cuenta kilómetros del vehículo que se desea vender:',
+  //   placeholder: 'Ibiza, Polo, C4,...',
+  //   question: 'Modelo específico del vehículo que se desea vender:',
   //   indications: {
   //     areIndications: true,
   //     indicationsType: 'insideText',
-  //     // tslint:disable-next-line:max-line-length
-  //     value: 'Indique en este espacio kilometraje o número de kilómetros recorridos según se indica en el cuenta kilómetros del vehículo que se desea vender.'
+  //     value: 'Indique en este espacio el modelo específico del vehículo que se desea vender.'
   //   },
   //   mandatory: true,
   //   isFocused: false
   // },
-  // {
-  //   type: 'iText',
-  //   identifier: 'id10',
-  //   wordToReplace: 'id10',
-  //   replacement: '',
-  //   placeholder: '2483YBY',
-  //   question: 'Matrícula del vehículo que se desea vender:',
-  //   indications: {
-  //     areIndications: true,
-  //     indicationsType: 'insideText',
-  //     // tslint:disable-next-line:max-line-length
-  //     value: 'Indique en este espacio la matrícula del vehículo que se desea vender mediante este contrato de compraventa.'
-  //   },
-  //   mandatory: true,
-  //   isFocused: false
-  // },
-  // {
-  //   type: 'iText',
-  //   identifier: 'id11',
-  //   wordToReplace: 'id11',
-  //   replacement: '',
-  //   placeholder: 'Julio 2002',
-  //   question: 'MMes y año de la primera matriculación del vehículo que desea vender:',
-  //   indications: {
-  //     areIndications: true,
-  //     indicationsType: 'insideText',
-  //     // tslint:disable-next-line:max-line-length
-  //     value: 'Indique en este espacio el mes y año de la primera matriculación del vehículo que se desea vender.'
-  //   },
-  //   mandatory: true,
-  //   isFocused: false
-  // },
+  {
+    type: 'iText',
+    identifier: 'id-unid-8',
+    wordToReplace: 'id-unid-8',
+    replacement: '',
+    placeholder: 'Ibiza, Polo, C4,...',
+    question: 'Número de serie y bastidor (o simplemente conocido como nº de bastidor) del vehículo que se desea vender:',
+    indications: {
+      areIndications: true,
+      indicationsType: 'outsideText',
+      // tslint:disable-next-line:max-line-length
+      value: 'Indique en este espacio el número de serie y bastidor (o simplemente conocido como nº de bastidor) del vehículo que se desea vender. Este es el número de identificación único del vehículo y puede encontrarlo, por ejemplo, en los papeles del vehículo o en el vehículo mismo grabado o en una pegatina que, en ocasiones, se encuentra en la puerta del conductor (coche), o bajo la zona donde se introduce la llave (contacto) en las motos.'
+    },
+    mandatory: true,
+    isFocused: false
+  },
+  {
+    type: 'iText',
+    identifier: 'id-unid-9',
+    wordToReplace: 'id-unid-9',
+    replacement: '',
+    placeholder: 'Escribe un número mayor que cero',
+    question: 'Kilometraje o número de kilómetros recorridos según se indica en el cuenta kilómetros del vehículo que se desea vender:',
+    indications: {
+      areIndications: true,
+      indicationsType: 'insideText',
+      // tslint:disable-next-line:max-line-length
+      value: 'Indique en este espacio kilometraje o número de kilómetros recorridos según se indica en el cuenta kilómetros del vehículo que se desea vender.'
+    },
+    mandatory: true,
+    isFocused: false
+  },
+  {
+    type: 'iText',
+    identifier: 'id-dec-10',
+    wordToReplace: 'id-dec-10',
+    replacement: '',
+    placeholder: '2483YBY',
+    question: 'Matrícula del vehículo que se desea vender:',
+    indications: {
+      areIndications: true,
+      indicationsType: 'insideText',
+      // tslint:disable-next-line:max-line-length
+      value: 'Indique en este espacio la matrícula del vehículo que se desea vender mediante este contrato de compraventa.'
+    },
+    mandatory: true,
+    isFocused: false
+  },
+  {
+    type: 'iText',
+    identifier: 'id-dec-11',
+    wordToReplace: 'id-dec-11',
+    replacement: '',
+    placeholder: 'Julio 2002',
+    question: 'MMes y año de la primera matriculación del vehículo que desea vender:',
+    indications: {
+      areIndications: true,
+      indicationsType: 'insideText',
+      // tslint:disable-next-line:max-line-length
+      value: 'Indique en este espacio el mes y año de la primera matriculación del vehículo que se desea vender.'
+    },
+    mandatory: true,
+    isFocused: false
+  },
   // {
   //   type: 'iText',
   //   identifier: 'id12',
