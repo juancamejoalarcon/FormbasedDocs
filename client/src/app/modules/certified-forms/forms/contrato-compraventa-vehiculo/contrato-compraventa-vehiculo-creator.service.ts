@@ -104,18 +104,14 @@ export class ContratoCompraventaVehiculoCreatorService {
   scrollToElementWithClass(className: any, offset = 0) {
     const element = document.querySelector('.' + className);
     if (element) {
-      // element.parentElement
-      // .scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-      // Cambiar a scrollTo con behavior
-      // document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, document.getElementsByTagName('text:p')[49].getBoundingClientRect().top - (document.getElementById('webodfeditor-canvascontainer1').getBoundingClientRect().top + document.querySelector('.nav').getBoundingClientRect().bottom + document.querySelector('.sub-menu__nav').getBoundingClientRect().bottom))
-      // document.getElementById('webodfeditor-canvascontainer1').scrollTo({
-      //   top: element.parentElement.getBoundingClientRect().top - (document.getElementById('webodfeditor-canvascontainer1').getBoundingClientRect().top + document.querySelector('.nav').getBoundingClientRect().bottom + document.querySelector('.sub-menu__nav').getBoundingClientRect().bottom),
-      //   behavior: 'smooth'
-      // })
-
-      // setTimeout(() => {
-      //   document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, offset);
-      // }, 500);
+      const cont = document.getElementById('webodfeditor-canvascontainer1');
+      const h = cont.clientHeight / 2;
+      const elementTop = element.getBoundingClientRect().top;
+      const pos = cont.scrollTop + elementTop - h;
+      cont.scrollTo({
+        top: pos,
+        behavior: 'smooth'
+      });
     }
   }
 
