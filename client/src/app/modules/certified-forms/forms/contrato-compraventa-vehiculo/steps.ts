@@ -17,6 +17,7 @@ export const steps = [
       indicationsType: 'insideText',
       value: 'Indique el lugar en el que se firma este contrato.'
     },
+    placeholder: 'P. ej. Madrid',
     mandatory: true,
     isFocused: false
   },

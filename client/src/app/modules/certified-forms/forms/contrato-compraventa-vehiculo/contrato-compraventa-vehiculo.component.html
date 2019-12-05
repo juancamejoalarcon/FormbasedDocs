@@ -61,7 +61,8 @@
                               </div>
                               <div class="form-creator__fields-area__field__middle">
                                   <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
-                                  <input type="text" #input (keyup)="this.stepModelService.input(input.value, this.steps[this.currentStep].wordToReplace)" [value]="this.steps[this.currentStep].replacement">
+                                  <input type="text" #input (keyup)="this.stepModelService.input(input.value, this.steps[this.currentStep].wordToReplace)" [value]="this.steps[this.currentStep].replacement"
+                                  [placeholder]="this.steps[this.currentStep].placeholder ? this.steps[this.currentStep].placeholder : ''">
                               </div>
                               <div class="form-creator__fields-area__field__bottom" *ngIf="this.steps[this.currentStep].mandatory">
                                   <span class="form-creator__fields-area__field__bottom__mandatory-label">
@@ -85,7 +86,8 @@
                               </div>
                               <div class="form-creator__fields-area__field__middle">
                                   <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
-                                  <input type="text" #input (keyup)="onInputNumberChanged(input.value)" [value]="this.steps[this.currentStep].replacement">
+                                  <input type="text" #input (keyup)="onInputNumberChanged(input.value)" [value]="this.steps[this.currentStep].replacement"
+                                  [placeholder]="this.steps[this.currentStep].placeholder ? this.steps[this.currentStep].placeholder : ''">
                               </div>
                               <div class="form-creator__fields-area__field__bottom" *ngIf="this.steps[this.currentStep].mandatory">
                                   <span class="form-creator__fields-area__field__bottom__mandatory-label">
