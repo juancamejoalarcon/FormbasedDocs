@@ -259,15 +259,8 @@ export class ContratoCompraventaVehiculoCreatorService {
         });
       }
     });
-    // // Case where we have just one paragraph with the wordToReplace
-    // if (elementContainingWord.children.length === 1) {
-    //   elementContainingWord.firstChild.innerHTML = replacement;
-    // } else {
-    //   while (elementContainingWord.firstElementChild) {
-    //     elementContainingWord = elementContainingWord.firstElementChild;
-    //   }
-    //   elementContainingWord.innerHTML = elementContainingWord.innerHTML.replace(regexp, replacement);
-    // }
+
+    elementContainingWord = this.findExactContainingElement(step.wordToReplace, elementContainingWord);
     while (elementContainingWord.firstElementChild) {
         elementContainingWord = elementContainingWord.firstElementChild;
       }
