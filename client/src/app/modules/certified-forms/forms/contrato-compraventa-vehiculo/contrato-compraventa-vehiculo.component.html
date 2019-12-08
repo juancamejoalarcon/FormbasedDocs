@@ -27,7 +27,7 @@
               <!-- PROGRESSBAR -->
               <div class="progress-container" *ngIf="this.steps[this.currentStep].type !== 'start'">
                   <div class="progress progress-large">
-                      <span [style.width]="progresBarPercentage">{{progresBarPercentage}}</span>
+                      <span [style.width]="progresBarPercentage" #progressBar>{{progresBarPercentage}}</span>
                   </div>
               </div>
               <!-- END OF PROGRESSBAR -->

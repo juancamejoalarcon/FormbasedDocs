@@ -29,6 +29,7 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
   @ViewChild('modalEnd') modalEnd: ElementRef;
   @ViewChild('modalDownload') modalDownload: ElementRef;
   @ViewChild('input') input: ElementRef;
+  @ViewChild('progressBar') progressBar: ElementRef;
   public form: Form = new Form();
   public currentStep = 0;
   public progresBarPercentage = '0%';
@@ -159,7 +160,20 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
   }
 
   updateProgressBarPercentage() {
-    this.progresBarPercentage = Math.round(((this.currentStep / (this.steps.length - 1)) * 100)) + '%';
+    if (this.progressBar && this.currentStep) {
+      const oldPercentage = Math.round(((this.currentStep / (this.steps.length - 1)) * 100));
+      const currentPercentage = parseInt(this.progresBarPercentage, 10);
+      const difference = (oldPercentage > currentPercentage) ? (oldPercentage - currentPercentage) : (currentPercentage - oldPercentage);
+      for (let i = 0; i < difference + 1; i++) {
+        setTimeout(() => {
+          const newPercentage = (oldPercentage > currentPercentage) ? (currentPercentage + i) : (currentPercentage - i)
+          this.progressBar.nativeElement.style.width = newPercentage + '%';
+          this.progresBarPercentage = newPercentage + '%';
+        }, 10 * i);
+      }
+    } else {
+      this.progresBarPercentage = Math.round(((this.currentStep / (this.steps.length - 1)) * 100)) + '%';
+    }
   }
 
   showIndication() {
@@ -190,10 +204,10 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
     } else {
       this.input.nativeElement.style.borderBottom = '';
       if (input.includes(',')) {
-        input = input.replace(',', '')
+        input = input.replace(',', '');
       }
       if (input.includes('.')) {
-        input = input.replace('.', '')
+        input = input.replace('.', '');
       }
       this.stepModelService.input(input, this.steps[this.currentStep].wordToReplace);
     }
