@@ -52,11 +52,11 @@ export class ContratoCompraventaVehiculoStepsService {
     buildSteps();
     buildSteps();
     buildSteps();
-    this.buildDocument();
+    this.buildDocument(false);
   }
 
-  buildDocument() {
-    this.documentCreatorService.buildDocument(this.steps);
+  buildDocument(scrollToElement: boolean = true) {
+    this.documentCreatorService.buildDocument(this.steps, scrollToElement);
   }
 
   input(replacement: string, wordToReplace: string, buildDocumentAfter: boolean = true) {

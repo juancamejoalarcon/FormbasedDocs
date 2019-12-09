@@ -50,7 +50,7 @@
               </div>
                <!-- END OF START -->
                <!-- INPUT TEXT -->
-               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iText'">
+               <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iText'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -75,7 +75,7 @@
               </div>
                <!-- END OF INPUT TEXT -->
                <!-- INPUT NUMBER -->
-               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iNumber'">
+               <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iNumber'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -100,13 +100,13 @@
               </div>
                <!-- END OF INPUT NUMBER -->
                <!-- INPUT FOR EACH -->
-               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iForEach'">
+               <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iForEach'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
                               <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
                                   <div class="indication">
-                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
                                   </div>
                               </div>
                               <div class="form-creator__fields-area__field__middle">
@@ -124,7 +124,7 @@
               </div>
                <!-- END OF INPUT TEXT -->
                <!-- INPUT DATE -->
-               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iDate'">
+               <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iDate'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
@@ -150,13 +150,13 @@
               </div>
               <!-- END OF INPUT DATE -->
               <!-- INPUT RANGE -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'inputRange'">
+              <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'inputRange'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
                               <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
                                   <div class="indication">
-                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
                                   </div>
                               </div>
                               <div class="form-creator__fields-area__field__middle">
@@ -178,13 +178,13 @@
               </div>
               <!-- END OF INPUT RANGE -->
               <!-- INPUT RADIO B -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iRadioB'">
+              <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iRadioB'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
                               <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
                                   <div class="indication">
-                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
                                   </div>
                               </div>
                               <div class="form-creator__fields-area__field__middle">
@@ -211,13 +211,13 @@
               </div>
               <!-- END OF INPUT RADIO B -->
               <!-- INPUT RADIO C -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType !== 'select'">
+              <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType !== 'select'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
                               <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
                                   <div class="indication">
-                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
                                   </div>
                               </div>
                               <div class="form-creator__fields-area__field__middle">
@@ -244,13 +244,13 @@
               </div>
               <!-- END OF INPUT RADIO C -->
               <!-- INPUT SELECT -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType === 'select'">
+              <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType === 'select'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
                               <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
                                   <div class="indication">
-                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
                                   </div>
                               </div>
                               <div class="form-creator__fields-area__field__middle">
@@ -275,13 +275,13 @@
               </div>
               <!-- END OF INPUT RADIO C -->
               <!-- INPUT CHECKBOX -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'iCheckbox'">
+              <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iCheckbox'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
                               <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
                                   <div class="indication">
-                                      <span class="icon icon-info-circle-solid trigger"></span>
+                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
                                   </div>
                               </div>
                               <div class="form-creator__fields-area__field__middle">
@@ -450,6 +450,21 @@
         </div>
         <div class="modal__content__modal-bottom">
             <button class="button-filled" id="modal-button" (click)="toogleModal(modalDownload)">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" #modalIndication>
+    <div class="modal__content modal__content--question-indication">
+        <div class="modal__content__top modal__content__top--privacy">
+            <h2>{{this.steps[this.currentStep].question}}</h2>
+        </div>
+        <div class="modal__content__modal-middle modal__content__modal-middle--question-indication">
+            <div class="modal__content__modal-middle__container" [innerHTML]="this.indications.value">
+            </div>
+        </div>
+        <div class="new-modal-content__footer new-modal-content__footer--indicactions">
+            <button class="btn next-btn" (click)="toogleModal(modalIndication);">Entendido</button>
         </div>
     </div>
 </div>

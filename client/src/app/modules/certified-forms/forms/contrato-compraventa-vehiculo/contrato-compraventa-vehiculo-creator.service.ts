@@ -86,7 +86,7 @@ export class ContratoCompraventaVehiculoCreatorService {
     FormBasedDocsApi.documentToFitScreen();
   }
 
-  buildDocument(steps: any) {
+  buildDocument(steps: any, scrollToElement: boolean = true) {
     this.currentDocumentBodyClone = this.originalDocumentBodyClone.cloneNode(true);
     // 1.- Change doc structure
     this.structuralChanges(steps);
@@ -98,7 +98,9 @@ export class ContratoCompraventaVehiculoCreatorService {
     );
 
     this.getEditorSession().getOdfCanvas().refreshSize();
-    this.scrollToElementWithClass('focused');
+    if (scrollToElement) {
+      this.scrollToElementWithClass('focused');
+    }
   }
 
   scrollToElementWithClass(className: any, offset = 0) {
@@ -160,7 +162,7 @@ export class ContratoCompraventaVehiculoCreatorService {
           window.removeEventListener('click', removeIndication);
         }
       }
-    }
+    };
 
     window.addEventListener('click', removeIndication);
     this.scrollToElementWithClass('indicator', para.offsetHeight);

@@ -28,6 +28,7 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
   @ViewChild('modal') modal: ElementRef;
   @ViewChild('modalEnd') modalEnd: ElementRef;
   @ViewChild('modalDownload') modalDownload: ElementRef;
+  @ViewChild('modalIndication') modalIndication: ElementRef;
   @ViewChild('input') input: ElementRef;
   @ViewChild('progressBar') progressBar: ElementRef;
   public form: Form = new Form();
@@ -35,6 +36,11 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
   public progresBarPercentage = '0%';
   public steps: any = stepsImport.steps;
   public formAlreadyPaid = false;
+  public indications: any = {
+    areIndications: true,
+    indicationsType: 'outsideText',
+    value: '',
+  };
 
   constructor(
     private stepModelService: ContratoCompraventaVehiculoStepsService,
@@ -179,14 +185,25 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
   showIndication() {
     const step = this.steps[this.currentStep];
     if (step.indications.areIndications) {
-      if (window.innerWidth > 885) {
-        this.documentCreatorService.showIndicationInsideText(step.wordToReplace, step.indications.value);
+      console.log('pasa1');
+      if (step.indications.indicationsType === 'outsideText') {
+        console.log('pasa2');
+        this.indications = step.indications;
+        this.toogleModal(this.modalIndication.nativeElement);
       } else {
-        this.previewDocumentButton(true);
         this.documentCreatorService.showIndicationInsideText(step.wordToReplace, step.indications.value);
       }
     }
   }
+
+  // showIndication(e: any) {
+  //   e.preventDefault();
+  //   if (this.indications.indicationsType === 'outsideText') {
+  //     this.commonsService.toggleModal(this.modalIndication.nativeElement);
+  //   } else {
+  //     this.documentService.showIndicationInsideText(this.step.wordToReplace, this.indications.value);
+  //   }
+  // }
 
   onInputSelectChanged(e: any) {
     this.stepModelService.onInputRadioCSelected(e.target.value, this.steps[this.currentStep].wordToReplace);
