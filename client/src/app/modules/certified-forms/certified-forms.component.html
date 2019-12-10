@@ -5,14 +5,10 @@
             (click)="saveForm()" [hidden]="!this.currentStep"></button>
         </div>
         <ul class="sub-menu__nav sub-menu__nav--fill-form" style="justify-content: center;">
-            <!-- <li class="sub-menu__nav__button sub-menu__nav__button--current" data-toogle="form-creator">
-                Form
-            </li> -->
             <li class="sub-menu__nav__button sub-menu__nav__button--without-hover">
-                {{this.form.title}}
+                {{this.form.topLabelTitle}}
             </li>
         </ul>
-        <!-- <app-likes-button class="sub-menu__likes-views" [form]="originalForm"></app-likes-button> -->
     </div>
 </div>
 <div class="form-creator" id="form-creator">

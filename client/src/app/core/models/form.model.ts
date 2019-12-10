@@ -30,4 +30,5 @@ export class Form {
   image: string;
   amount: number;
   alreadyPaid: boolean;
+  topLabelTitle: string;
 }

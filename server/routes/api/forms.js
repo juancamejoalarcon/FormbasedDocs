@@ -198,6 +198,7 @@ router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
       certifiedForm = {
         id: form.id,
         title: form.title,
+        topLabelTitle: form.topLabelTitle,
         amount: form.amount,
         image: form.image,
         uri: form.uri
@@ -225,6 +226,7 @@ router.get('/paid-certified-forms/:transactionId', auth.optional, function(req, 
         certifiedForm = {
           id: form.id,
           title: form.title,
+          topLabelTitle: form.topLabelTitle,
           amount: form.amount,
           // image: form.image,
           uri: form.paidUri,

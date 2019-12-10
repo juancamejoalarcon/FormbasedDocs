@@ -65,6 +65,7 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
             this.form.uri = certifiedForm.uri;
             this.form.id = 'contrato-compraventa-vehiculo';
             this.form.amount = certifiedForm.amount;
+            this.form.topLabelTitle = certifiedForm.topLabelTitle;
             this.setInitiaState();
           } else if (data.transactionNotFound) {
             this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
@@ -82,12 +83,14 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
         } else {
           this.formsService.getCertifiedForm('contrato-compraventa-vehiculo').subscribe(
             certifiedForm => {
+              console.log(certifiedForm);
               this.form.fields = this.steps;
               this.form.title = certifiedForm.title;
               this.form.uri = certifiedForm.uri;
               this.form.id = 'contrato-compraventa-vehiculo';
               this.form.amount = certifiedForm.amount;
               this.form.image = certifiedForm.image;
+              this.form.topLabelTitle = certifiedForm.topLabelTitle;
               this.setInitiaState();
             } );
         }
@@ -185,9 +188,7 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
   showIndication() {
     const step = this.steps[this.currentStep];
     if (step.indications.areIndications) {
-      console.log('pasa1');
-      if (step.indications.indicationsType === 'outsideText') {
-        console.log('pasa2');
+      if (step.indications.indicationsType === 'outsideText' || window.innerWidth < 885) {
         this.indications = step.indications;
         this.toogleModal(this.modalIndication.nativeElement);
       } else {
