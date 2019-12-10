@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GuideComponent, CgvComponent, CondicionesUsoComponent } from './components';
+import { GuideComponent,CgvComponent, CondicionesUsoComponent, SilviaProfileComponent } from './components';
 
 const routes: Routes = [
   {
@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'condiciones-uso',
     component: CondicionesUsoComponent,
+  },
+  {
+    path: 'silvia-profile',
+    component: SilviaProfileComponent,
   },
 ];
 

@@ -1,9 +1,9 @@
 export const steps = [
   {
     type: 'start',
-    title: 'Contrato de alquiler',
-    description: `El contrato de alquiler es el documento que regula la cesión y el uso de
-    inmueble y los derechos y obligaciones de arrendador (el propietario) y arrendatario (inquilino).`,
+    title: 'Contrato de compraventa de vehículo usado entre particulares',
+    description: `Por medio de este contrato un particular (persona o empresa) 
+    propietario de un vehículo automóvil usado, puede venderlo a otro.`,
     isCurrentStep: true
   },
   {
