@@ -7,6 +7,7 @@ export class ContratoCompraventaVehiculoCreatorService {
   public originalDocumentBodyClone: any;
   public currentDocumentBodyClone: any;
   public resizeEvent: any;
+  public scrollToelement = false;
 
   constructor(
     private commonsService: CommonsService,
@@ -86,7 +87,7 @@ export class ContratoCompraventaVehiculoCreatorService {
     FormBasedDocsApi.documentToFitScreen();
   }
 
-  buildDocument(steps: any, scrollToElement: boolean = true) {
+  buildDocument(steps: any, scrollToElement: boolean) {
     this.currentDocumentBodyClone = this.originalDocumentBodyClone.cloneNode(true);
     // 1.- Change doc structure
     this.structuralChanges(steps);

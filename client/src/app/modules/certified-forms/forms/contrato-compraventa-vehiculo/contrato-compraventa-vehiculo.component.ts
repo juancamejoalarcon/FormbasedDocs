@@ -120,7 +120,7 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
       this.commonsService.resizeEditor(true);
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.documentCreatorService.resizeDocumentContainer();
-      this.stepModelService.buildDocument();
+      this.stepModelService.buildDocument(false);
       if (!window.sessionStorage['Contrato de Arras Penitenciales']) {
         this.stepModelService.setInitialState();
       }
