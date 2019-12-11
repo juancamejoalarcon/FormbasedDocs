@@ -196,9 +196,9 @@ export const steps = [
                         {
                           label: 'por medio de un representante (legal o voluntario)',
                           // tslint:disable-next-line:max-line-length
-                          replacementOriginal: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con id-unid-3_1_opA_1_opB_6: id-unid-3_1_opA_1_opB_7, quien actúa en calidad de id-unid-3_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
+                          replacementOriginal: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con id-unid-3_1_opA_1_opB_6: id-unid-3_1_opA_1_opB_7, en calidad de id-unid-3_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, actuando en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
                           // tslint:disable-next-line:max-line-length
-                          replacement: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con id-unid-3_1_opA_1_opB_6: id-unid-3_1_opA_1_opB_7, quien actúa en calidad de id-unid-3_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
+                          replacement: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con id-unid-3_1_opA_1_opB_6: id-unid-3_1_opA_1_opB_7, en calidad de id-unid-3_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, actuando en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
                           extraReplacements: [],
                           radioId: 'id-unid-3_1_opA_1_opB',
                           identifier: 'id-unid-3_1_opA_1_opB',
@@ -697,9 +697,9 @@ export const steps = [
                         {
                           label: 'por medio de un representante (legal o voluntario)',
                           // tslint:disable-next-line:max-line-length
-                          replacementOriginal: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con id-unid-4_1_opA_1_opB_6: id-unid-4_1_opA_1_opB_7, quien actúa en calidad de id-unid-4_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
+                          replacementOriginal: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con id-unid-4_1_opA_1_opB_6: id-unid-4_1_opA_1_opB_7, quien actúa en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
                           // tslint:disable-next-line:max-line-length
-                          replacement: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con id-unid-4_1_opA_1_opB_6: id-unid-4_1_opA_1_opB_7, quien actúa en calidad de id-unid-4_1_opA_1_opB_8, en virtud de escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
+                          replacement: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con id-unid-4_1_opA_1_opB_6: id-unid-4_1_opA_1_opB_7, quien actúa en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
                           extraReplacements: [],
                           radioId: 'id-unid-4_1_opA_1_opB',
                           identifier: 'id-unid-4_1_opA_1_opB',
@@ -1595,9 +1595,9 @@ export const steps = [
     ],
     radios: [
       {
-        label: 'Perfecto estado de conservación, como nuevo.',
-        replacementOriginal: 'Perfecto estado de conservación, como nuevo.',
-        replacement: 'Perfecto estado de conservación, como nuevo',
+        label: 'Muy bueno, poco uso.',
+        replacementOriginal: 'Muy bueno, poco uso.',
+        replacement: 'Muy bueno, poco uso.',
         extraReplacements: [],
         radioId: 'id-dec-16_opA',
         identifier: 'id-dec-16_opA',
@@ -1605,9 +1605,9 @@ export const steps = [
         subSteps: []
       },
       {
-        label: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo.',
-        replacementOriginal: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo. id-dec-16_opB_1',
-        replacement: 'Buen estado de conservación, con el desgaste propio a la antigüedad del vehículo. id-dec-16_opB_1',
+        label: 'Bueno, deterioro derivado del uso normal del vehículo y su antigüedad.',
+        replacementOriginal: 'Bueno, deterioro derivado del uso normal del vehículo y su antigüedad. id-dec-16_opB_1',
+        replacement: 'Bueno, deterioro derivado del uso normal del vehículo y su antigüedad. id-dec-16_opB_1',
         extraReplacements: [],
         radioId: 'id-dec-16_opB',
         identifier: 'id-dec-6_opB',
@@ -1628,9 +1628,9 @@ export const steps = [
         ]
       },
       {
-        label: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo.',
-        replacementOriginal: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo. id-dec-16_opC_1',
-        replacement: 'Estado de conservación no adecuado para un uso normal e inmediato del vehículo. id-dec-16_opC_1',
+        label: 'Malo. Requiere arreglos que impedirán un uso inmediato del vehículo.',
+        replacementOriginal: 'Malo. Requiere arreglos que impedirán un uso inmediato del vehículo. id-dec-16_opC_1',
+        replacement: 'Malo. Requiere arreglos que impedirán un uso inmediato del vehículo. id-dec-16_opC_1',
         extraReplacements: [],
         radioId: 'id-dec-16_opC',
         identifier: 'id-dec-16_opC',
@@ -1665,9 +1665,9 @@ export const steps = [
       {
         label: 'Sí',
         // tslint:disable-next-line:max-line-length
-        replacementOriginal: 'Que el Vehículo objeto del presente Contrato de compraventa se encuentra revisado reglamentariamente por la ITV de id-dec-17_opA_1 en fecha id-dec-17_opA_2.',
+        replacementOriginal: 'Que el Vehículo objeto del presente Contrato de compraventa está al día en las inspecciones reglamentarias de la ITV, habiéndose realizado la última inspección en id-dec-17_opA_1 el pasado día id-dec-17_opA_2.',
         // tslint:disable-next-line:max-line-length
-        replacement: 'Que el Vehículo objeto del presente Contrato de compraventa se encuentra revisado reglamentariamente por la ITV de id-dec-17_opA_1 en fecha id-dec-17_opA_2.',
+        replacement: 'Que el Vehículo objeto del presente Contrato de compraventa está al día en las inspecciones reglamentarias de la ITV, habiéndose realizado la última inspección en id-dec-17_opA_1 el pasado día id-dec-17_opA_2.',
         extraReplacements: [],
         radioId: 'id-dec-17_opA',
         identifier: 'id-dec-17_opA',
@@ -1747,9 +1747,9 @@ export const steps = [
       {
         label: 'Sí',
         // tslint:disable-next-line:max-line-length
-        replacementOriginal: 'Se acuerda abonar en concepto de señal a la fecha de firma de este Contrato la cantidad de id-dec-20_opA_1 € (iddec20-precioAletras), que se restará al precio total a la hora de realizar el pago.',
+        replacementOriginal: 'En el momento de la firma del presente contrato la parte compradora entrega a la vendedora en concepto de adelanto la cantidad de id-dec-20_opA_1 € (iddec20-precioAletras). Cantidad que se descontará del precio total de compraventa establecido.',
         // tslint:disable-next-line:max-line-length
-        replacement: 'Se acuerda abonar en concepto de señal a la fecha de firma de este Contrato la cantidad de id-dec-20_opA_1 € (iddec20-precioAletras), que se restará al precio total a la hora de realizar el pago.',
+        replacement: 'En el momento de la firma del presente contrato la parte compradora entrega a la vendedora en concepto de adelanto la cantidad de id-dec-20_opA_1 € (iddec20-precioAletras). Cantidad que se descontará del precio total de compraventa establecido.',
         extraReplacements: [],
         radioId: 'id-dec-20_opA',
         identifier: 'id-dec-20_opA',
@@ -1802,9 +1802,9 @@ export const steps = [
       {
         label: 'Ingreso o transferencia bancaria',
         // tslint:disable-next-line:max-line-length
-        replacementOriginal: 'El pago del precio por la Parte Compradora se realizará mediante ingreso o transferencia bancaria. Este pago se realizará en la fecha de entrega del Vehículo en la siguiente cuenta bancaria: <br><br>    - Entidad bancaria: id-dec-21_opA_1 <br><br>    - IBAN identificador de la cuenta: id-dec-21_opA_2 <br><br>    - Titular de la cuenta: id-dec-21_opA_3',
+        replacementOriginal: 'Las partes acuerdan que el pago del precio del vehículo será mediante ingreso en cuenta o transferencia bancaria. Este pago se realizará en la fecha de entrega del Vehículo en la siguiente cuenta bancaria: <br><br>    - Entidad bancaria: id-dec-21_opA_1 <br><br>    - IBAN identificador de la cuenta: id-dec-21_opA_2 <br><br>    - Titular de la cuenta: id-dec-21_opA_3',
         // tslint:disable-next-line:max-line-length
-        replacement: 'El pago del precio por la Parte Compradora se realizará mediante ingreso o transferencia bancaria. Este pago se realizará en la fecha de entrega del Vehículo en la siguiente cuenta bancaria: Entidad bancaria: id-dec-21_opA_1 IBAN identificador de la cuenta: id-dec-21_opA_2 Titular de la cuenta: id-dec-21_opA_3',
+        replacement: 'Las partes acuerdan que el pago del precio del vehículo será mediante ingreso en cuenta o transferencia bancaria. Este pago se realizará en la fecha de entrega del Vehículo en la siguiente cuenta bancaria: Entidad bancaria: id-dec-21_opA_1 IBAN identificador de la cuenta: id-dec-21_opA_2 Titular de la cuenta: id-dec-21_opA_3',
         extraReplacements: [],
         radioId: 'id-dec-21_opA',
         identifier: 'id-dec-21_opA',
@@ -1842,9 +1842,9 @@ export const steps = [
       {
         label: 'En efectivo',
         // tslint:disable-next-line:max-line-length
-        replacementOriginal: 'El pago del precio por la Parte Compradora se realizará mediante efectivo. La Parte Compradora hará entrega de la suma total especificada anteriormente en el mismo momento de la entrega del Vehículo.',
+        replacementOriginal: 'Las partes acuerdan que el pago del precio del vehículo será mediante entrega en efectivo. Este pago se realizará en la fecha de entrega del Vehículo.',
         // tslint:disable-next-line:max-line-length
-        replacement: 'El pago del precio por la Parte Compradora se realizará mediante efectivo. La Parte Compradora hará entrega de la suma total especificada anteriormente en el mismo momento de la entrega del Vehículo.',
+        replacement: 'Las partes acuerdan que el pago del precio del vehículo será mediante entrega en efectivo. Este pago se realizará en la fecha de entrega del Vehículo.',
         extraReplacements: [],
         radioId: 'id-dec-21_opB',
         identifier: 'id-dec-21_opB',
@@ -1854,9 +1854,9 @@ export const steps = [
       {
         label: 'Cheque',
         // tslint:disable-next-line:max-line-length
-        replacementOriginal: 'El pago del precio por la Parte Compradora se realizará mediante cheque. La Parte Compradora hará entrega de un cheque correspondiente a la suma total especificada anteriormente en el mismo momento de la entrega del Vehículo.',
+        replacementOriginal: 'Las partes acuerdan que el pago del precio del vehículo será mediante cheque. Este pago se realizará en la fecha de entrega del Vehículo.',
         // tslint:disable-next-line:max-line-length
-        replacement: 'El pago del precio por la Parte Compradora se realizará mediante cheque. La Parte Compradora hará entrega de un cheque correspondiente a la suma total especificada anteriormente en el mismo momento de la entrega del Vehículo.',
+        replacement: 'Las partes acuerdan que el pago del precio del vehículo será mediante cheque. Este pago se realizará en la fecha de entrega del Vehículo.',
         extraReplacements: [],
         radioId: 'id-dec-21_opC',
         identifier: 'id-dec-21_opC',
@@ -1957,8 +1957,8 @@ export const steps = [
     radios: [
       {
         label: 'Sí',
-        replacementOriginal: '7. Otros: id-dec-24_opA_1',
-        replacement: '7. Otros: id-dec-24_opA_1',
+        replacementOriginal: '9. Otros: id-dec-24_opA_1',
+        replacement: '9. Otros: id-dec-24_opA_1',
         extraReplacements: [],
         radioId: 'id-dec-24_opA',
         identifier: 'id-dec-24_opA',
