@@ -15,7 +15,6 @@ export class ContratoCompraventaVehiculoCreatorService {
   ) { }
 
   init(uri: any) {
-    this.commonsService.toggleSpinner();
     this.createEditorFromURI('fillForm', 'editorContainer', uri);
       return new Promise((resolve, reject) => {
         const checkIfEditorCreated = setInterval( () => {
@@ -24,10 +23,8 @@ export class ContratoCompraventaVehiculoCreatorService {
             window['editor'].getEditorSession() &&
             document.getElementsByTagName('office:text').length) {
             this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-            this.commonsService.toggleSpinner();
             clearInterval(checkIfEditorCreated);
             resolve("Document ready");
-            console.log('Document is ready');
           }
        }, 300);
       });

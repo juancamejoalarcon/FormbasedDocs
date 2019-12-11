@@ -54,6 +54,7 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
   ) { }
 
   ngOnInit() {
+    this.commonsService.toggleSpinner();
     this.route.queryParams.subscribe(params => {
       if (params.transactionId) {
         this.formAlreadyPaid = true;
@@ -78,12 +79,11 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
           this.form = JSON.parse(window.sessionStorage['Contrato de Arras Penitenciales']);
           this.steps = this.form.fields;
           this.formAlreadyPaid = this.form.alreadyPaid;
-          console.log(this.form.alreadyPaid);
+
           this.setInitiaState();
         } else {
           this.formsService.getCertifiedForm('contrato-compraventa-vehiculo').subscribe(
             certifiedForm => {
-              console.log(certifiedForm);
               this.form.fields = this.steps;
               this.form.title = certifiedForm.title;
               this.form.uri = certifiedForm.uri;
@@ -127,6 +127,7 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
       if (!window.sessionStorage['Contrato de Arras Penitenciales']) {
         this.stepModelService.setInitialState();
       }
+      this.commonsService.toggleSpinner();
     });
   }
 
