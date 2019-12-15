@@ -54,7 +54,7 @@ En adelante, la misma será denominada la "Habitación".
 III. Que ambas Partes conocen perfectamente y aceptan la superficie y demás características de la Habitación y de la Vivienda, incluyendo su mobiliario, así como su estado de uso y conservación. No obstante, la Habitación se arrienda como cuerpo cierto; así, de diferir la superficie real y la aquí descrita, esto no afectará de forma alguna a las condiciones y cláusulas que aquí se fijan, particularmente en lo relativo al precio de la renta.
 
 
-IV. Que la PARTE ARRENDATARIA necesita una habitación para su uso personal como vivienda temporal por motivos relativos a vacaciones, turismo u ocio. En este sentido, la PARTE ARRENDADORA pone en conocimiento de la PARTE ARRENDATARIA que se encuentra inscrita en el Registro de Turismo o en la entidad correspondiente según la normativa aplicable en la siguiente Comunidad Autónoma: ______________________, y que su Código de Inscripción es el siguiente: ________.
+IV. Que la PARTE ARRENDATARIA necesita una habitación para su uso personal como vivienda habitual y permanente.
 
 
 V. Que la PARTE ARRENDADORA tiene facultades legales para celebrar un contrato de arrendamiento total o parcial sobre la Vivienda y consiente dicha cesión, y la PARTE ARRENDATARIA, al encontrarla adecuada a sus necesidades, está interesada en el arrendamiento de la Habitación para el uso mencionado en el Expositivo anterior.
@@ -78,7 +78,7 @@ Ambas Partes aceptan dicho arrendamiento bajo las condiciones por ellas pactadas
 
 SEGUNDA.- Destino y estado de conservación.
 
-La PARTE ARRENDATARIA arrienda a la PARTE ARRENDADORA la Habitación para destinarla exclusivamente a ser su propia vivienda temporal por motivos relativos a vacaciones, turismo u ocio. En este sentido, la Habitación será destinada a segunda residencia, por no satisfacer sus necesidades permanentes de vivienda.
+La PARTE ARRENDATARIA arrienda a la PARTE ARRENDADORA la Habitación para destinarla exclusivamente a ser su propia vivienda habitual y permanente. En este sentido, la PARTE ARRENDATARIA hace constar que actualmente no tiene arrendada ninguna otra vivienda o habitación destinada a la finalidad de satisfacer su necesidad permanente de vivienda.
 
 La PARTE ARRENDATARIA no podrá modificar el uso de la Habitación aquí convenido. Igualmente, la PARTE ARRENDATARIA se obliga a no realizar ningún uso o disposición de la misma que sea de carácter ilícito, o contraria a la Ley, la moral o el orden público, o que de cualquier otro modo pueda acarrear lesión o daños a terceras personas, cosas, la propia Habitación o la Vivienda.
 
@@ -91,16 +91,16 @@ En este acto, la PARTE ARRENDATARIA declara que ha revisado suficientemente la H
 La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad. La Vivienda y su mobiliario son propiedad de la PARTE ARRENDADORA y deberán serle devueltos, en el momento de la finalización del presente Contrato, en igual estado de conservación y limpieza con que los entrega, salvo el desgaste normal y apropiado de los mismos. Por esta razón, al finalizar el Contrato se comprobará que haya habido una correcta conservación de la Vivienda y de su mobiliario; en caso contrario, la PARTE ARRENDATARIA incurrirá en responsabilidad en los términos previstos en este Contrato.
 
 
-TERCERA.- Derecho de uso y acceso a la Vivienda por la PARTE ARRENDADORA.
+TERCERA.- Derecho de acceso a la Vivienda por la PARTE ARRENDADORA.
 
-La PARTE ARRENDADORA declara que destinará la Vivienda a ser su propia vivienda habitual y permanente, por lo que podrá utilizar la totalidad de la Vivienda, salvo la Habitación objeto del presente Contrato de arrendamiento. Incluso si la PARTE ARRENDADORA dejara de utilizar la Vivienda como su residencia permanente, las Partes acuerdan que la PARTE ARRENDATARIA renuncia expresamente a impedir el libre acceso de la PARTE ARRENDADORA a las zonas comunes de la Vivienda y al resto de habitaciones de la misma que no se encuentren arrendadas en el momento de acceso. En este sentido, la PARTE ARRENDATARIA se obliga a no cambiar la cerradura de la puerta de la Vivienda sin el previo consentimiento de la PARTE ARRENDADORA, salvo casos de urgencia.
+Las Partes acuerdan que la PARTE ARRENDATARIA renuncia expresamente a impedir el libre acceso de la PARTE ARRENDADORA a las zonas comunes de la Vivienda y al resto de habitaciones de la misma que no se encuentren arrendadas en el momento de acceso. En este sentido, la PARTE ARRENDATARIA se obliga a no cambiar la cerradura de la puerta de la Vivienda sin el previo consentimiento de la PARTE ARRENDADORA, salvo casos de urgencia.
 
 El incumplimiento de lo previsto en la presente estipulación por la PARTE ARRENDATARIA o por cualquier persona que se encontrare en la Vivienda será motivo de resolución del Contrato. La PARTE ARRENDATARIA incurrirá en responsabilidad por los daños y perjuicios que el impedimento del acceso a la Vivienda causaren a la PARTE ARRENDADORA, incluyendo la pérdida de beneficios por no poder arrendar el resto de las habitaciones.
 
 
 CUARTA.- Duración.
 
-El arrendamiento se pacta por la temporada de: ________, a contar desde el día ________. En consecuencia, el presente Contrato finalizará por todo y de forma automática, es decir, sin necesidad de requerimiento alguno una vez transcurrida dicha temporada.
+El arrendamiento se pacta por el plazo de: ________, a contar desde el día ________. En consecuencia, el presente Contrato finalizará por todo y de forma automática, es decir, sin necesidad de requerimiento alguno una vez transcurrido dicho plazo.
 
 La vigencia de este Contrato no estará sujeta a ningún tipo de prórroga adicional, salvo que llegado el momento de vencimiento del Contrato las Partes pudieran pactar expresamente y por escrito algo distinto.
 
@@ -121,33 +121,35 @@ El pago de la renta se realizará cada mes, anticipadamente, dentro de los siete
 
 El pago de la renta se realizará mediante ingreso o transferencia bancaria al número de cuenta (IBAN): ________ de la entidad bancaria: ________ y cuyo titular es: ________. El comprobante de ingreso o transferencia servirá como comprobante o justificante del pago. No obstante, la PARTE ARRENDADORA emitirá y entregará a la PARTE ARRENDATARIA la factura con el desglose de cantidades y conceptos que corresponda.
 
-La renta satisfecha por la PARTE ARRENDATARIA será actualizada con la siguiente periodicidad o frecuencia: AN. Este incremento será de un veinte por ciento (20%). La revisión se efectuará tomando como base la última renta pagada por la PARTE ARRENDATARIA.
-
-La renta actualizada será exigible a la PARTE ARRENDATARIA a partir del pago siguiente al momento en que la PARTE ARRENDADORA se lo notifique expresamente y por escrito. La demora por la PARTE ARRENDADORA a la hora de proceder a aplicar la actualización no supondrá la renuncia o caducidad de dicha actualización de la renta.
-
 El incumplimiento por la PARTE ARRENDATARIA de la obligación de pago de la renta en el plazo fijado será motivo de resolución del Contrato, debiendo en tal caso restituir inmediatamente la Habitación a la PARTE ARRENDADORA, siendo por cuenta de aquella Parte los gastos que la resolución pudiera ocasionar, así como el interés de demora legalmente establecido.
 
 
 SEXTA.- Gastos generales y suministros.
 
-La PARTE ARRENDATARIA no será responsable de llevar a cabo con el Ayuntamiento ni con las compañías correspondientes la contratación de los servicios y suministros individualizados de luz, agua, gas, ni teléfono. Sin embargo, la PARTE ARRENDATARIA deberá proceder a la contratación de los servicios de internet.
+La PARTE ARRENDATARIA no será responsable de llevar a cabo con el Ayuntamiento ni con las compañías correspondientes la contratación de los servicios y suministros individualizados de luz, agua, ni gas. Sin embargo, la PARTE ARRENDATARIA deberá proceder a la contratación de los servicios de internet, teléfono y otros similares.
 
-El pago de todos los servicios y suministros individualizados será por cuenta y a cargo de la PARTE ARRENDADORA.
+El pago de todos los servicios y suministros individualizados será por cuenta y a cargo de ambas Partes, siendo divididos de la siguiente manera:
+
+ASDFASDF
 
 Los gastos generales u ordinarios de Comunidad que correspondan a la Vivienda y que dicha Comunidad gire para la misma, por cuotas ordinarias, con las modificaciones en su cuantía, según las variaciones en el costo de los servicios, que se establezcan durante la vigencia del Contrato, y con arreglo a las modificaciones o incrementos permitidos por la ley serán por cuenta y a cargo de la PARTE ARRENDADORA en su totalidad.
 
-Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo de la PARTE ARRENDADORA en su totalidad.
+Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un cien por ciento (100 %) de los mismos.
 
-El Impuesto sobre Bienes Inmuebles (IBI) que corresponda a la Vivienda será por cuenta y a cargo de la PARTE ARRENDADORA en su totalidad.
+El Impuesto sobre Bienes Inmuebles (IBI) que corresponda a la Vivienda será por cuenta y a cargo de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un treinta y cuatro por ciento (34 %) del mismo. A este efecto, se hace saber a la PARTE ARRENDATARIA que el último importe anual conocido para el IBI fue de veintidós euros (22 €).
 
 
-SÉPTIMA.- Fianza.
+SÉPTIMA.- Fiador personal solidario.
 
-En este acto, la PARTE ARRENDATARIA hace entrega a la PARTE ARRENDADORA de ________ euros (________ €) en concepto de fianza o depósito de garantía con el objetivo de garantizar, hasta donde alcance, el cumplimiento de sus obligaciones legales y contractuales. La PARTE ARRENDADORA declara en este acto recibir dicha cantidad en la fecha y lugar mencionados en el encabezamiento, constituyendo el presente documento la más formal y solemne carta de pago que en derecho corresponda.
+Con el fin de garantizar el cumplimiento de todas las obligaciones que emanan del presente Contrato para la PARTE ARRENDATARIA, se constituye por la presente estipulación la figura del fiador personal y solidario (en adelante, el FIADOR). El FIADOR será integrado por:
 
-La misma servirá, por ejemplo, para reparar los daños ocasionados en la Habitación o en cualquier zona de la Vivienda o de su mobiliario, de los cuales siendo su responsabilidad no se hubiese hecho cargo la PARTE ARRENDATARIA; para hacer frente a la falta de pago de la renta u otros conceptos.
+________, con DNI/NIF núm. ________ y domicilio en ca.
 
-Esta fianza será devuelta a la PARTE ARRENDATARIA una vez se haya comprobado el estado y condiciones en las que se entrega la Habitación y el resto de la Vivienda a la PARTE ARRENDADORA al finalizar el Contrato, así como el cumplimiento del resto de sus obligaciones.
+El FIADOR se constituye solidaria e indefinidamente, considerando como propias las obligaciones de la PARTE ARRENDATARIA. Así, se obliga a cumplir todas y cada una de las obligaciones en caso de incumplimiento por esta, incluyendo los gastos judiciales, que pudieran ocasionarse con el fin de asegurar el cumplimiento de estas obligaciones.
+
+El FIADOR reconoce saber que su obligación será vinculante durante todo el período que dure el Contrato. La responsabilidad del FIADOR estará vigente hasta que sean cumplidas todas las obligaciones del Contrato, incluyendo, pero no únicamente, las rentas, gastos de reparación y todo otro que la PARTE ARRENDATARIA deje pendiente y la PARTE ARRENDADORA deba satisfacer.
+
+Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil. Por tanto, la acción para cobrar las cantidades garantizadas podrá dirigirse indistintamente contra el FIADOR y la PARTE ARRENDATARIA.
 
 
 OCTAVA.- Obras.
@@ -167,7 +169,23 @@ NOVENA.- Normas de la Comunidad y normas de convivencia.
 
 Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato las normas estatutarias o reglamentos y los acuerdos de la Comunidad que pudieran estar vigentes o que se establezcan, especialmente las relativas al establecimiento de buen orden de convivencia, y a la utilización de los servicios, y/o elementos comunes del inmueble. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.
 
-Mediante el presente Contrato, la PARTE ARRENDATARIA acepta utilizar de forma compartida con el resto de habitantes de la Vivienda las zonas comunes de la misma indicadas en la estipulación primera. Con este fin, se obliga al cumplimiento de las normas de convivencia, mantenimiento, respeto y conducta contenidas, particularmente, en la presente estipulación. La PARTE ARRENDATARIA se obliga a mantener las zonas comunes de la Vivienda sobre las que se le concede el derecho de uso en buenas condiciones de orden e higiene.
+Mediante el presente Contrato, la PARTE ARRENDATARIA acepta utilizar de forma compartida con el resto de habitantes de la Vivienda las zonas comunes de la misma indicadas en la estipulación primera. Con este fin, se obliga al cumplimiento de las normas de convivencia, mantenimiento, respeto y conducta contenidas, particularmente, en la presente estipulación, así como en el documento relativo a dichas normas que se adjunta como Anexo al presente Contrato. Además de a lo previsto en dicho documento, la PARTE ARRENDATARIA se obliga a mantener las zonas comunes de la Vivienda sobre las que se le concede el derecho de uso en buenas condiciones de orden e higiene.
+
+Respecto a la limpieza de las zonas comunes de la Vivienda sobre las que se le concede el derecho de uso compartido, la PARTE ARRENDATARIA se obliga a lo siguiente:
+
+ddds
+
+Respecto de las basuras de la Vivienda, la PARTE ARRENDATARIA se obliga a lo siguiente:
+
+Los desehcos
+
+Respecto de los horarios de utilización de las zonas comunes sobre las que se le concede derecho de uso compartido, la PARTE ARRENDATARIA se obliga a lo siguiente:
+
+las zoas
+
+Se prohíbe de forma expresa a la PARTE ARRENDATARIA introducir, tener y mantener en la Habitación y en la Vivienda cualquier tipo de animal de compañía o mascota, particularmente aquellos considerados peligrosos. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.
+
+La Vivienda es una vivienda de no fumadores, por lo que la PARTE ARRENDATARIA se compromete, en su caso, a no fumar en las zonas comunes de la Vivienda sobre las que se le concede el derecho de uso compartido. Al fumar al exterior de la Vivienda, deberá vigilar, en todo momento, no dejar colillas u otros desechos en dicha zona.
 
 Asimismo, la PARTE ARRENDATARIA se compromete a cumplir las normas de convivencia razonables relativas al uso de las zonas comunes de la Vivienda que por mayoría decidan los habitantes de la misma, y a no adoptar comportamientos que perturben la normal convivencia.
 
@@ -193,7 +211,7 @@ Asimismo, se estará al régimen de responsabilidad vigente en la legislación a
 
 DECIMOPRIMERA.- Seguros.
 
-La PARTE ARRENDADORA manifiesta tener contratado un seguro de la siguiente clase: ________ en la compañía aseguradora: ________. Las Partes declaran que la póliza de dicho seguro ha sido puesta en conocimiento de la PARTE ARRENDATARIA.
+La PARTE ARRENDATARIA se compromete a la contratación de un seguro de la siguiente clase: afd. Este seguro deberá indicar como beneficiaria a la PARTE ARRENDADORA, tener una cobertura mínima igual a doscientos euros (200 €), y ser mantenido durante toda la vigencia del presente Contrato.
 
 
 DECIMOSEGUNDA.- Derecho de adquisición preferente.
@@ -205,9 +223,19 @@ No obstante, la PARTE ARRENDADORA comunicará a la PARTE ARRENDATARIA con una an
 
 DECIMOTERCERA.- Subarriendo y cesión.
 
-Se prohíbe expresamente a la PARTE ARRENDATARIA la cesión de este Contrato, así como el subarriendo parcial o total de la Habitación.
+De conformidad con lo dispuesto en el artículo 1550 del Código Civil, este Contrato se podrá ceder y la Habitación se podrá subarrendar en todo o en parte. Para ello, la PARTE ARRENDADORA deberá ser notificada necesariamente por la PARTE ARRENDATARIA como mínimo con veintidós (22) días de antelación a la formalización del acuerdo de subarriendo o cesión, de forma expresa y por escrito. Asimismo, el contenido de dicho acuerdo o contrato deberá ser puesto en conocimiento de la PARTE ARRENDADORA.
 
-El incumplimiento por parte de la PARTE ARRENDATARIA de esta prohibición dará lugar a la resolución del presente Contrato de forma inmediata.
+En caso de cesión, el cesionario se subrogará en la posición de la PARTE ARRENDATARIA frente a la PARTE ARRENDADORA.
+
+En caso de subarriendo, la PARTE ARRENDATARIA continuará siendo responsable del cumplimiento del Contrato para con la PARTE ARRENDADORA, y se deberán respetar una serie de condiciones:
+
+a) El subarriendo, respetando el objeto de este Contrato, será de la Habitación.
+
+b) La PARTE ARRENDATARIA no podrá obtener por el subarriendo una renta ni igual ni superior a la establecida en el presente Contrato para el arrendamiento.
+
+c) La parte subarrendataria no podrá dar un uso o destino a la Habitación que sea de carácter ilícito, o contrario a la Ley, la moral o el orden público, o que de cualquier otro modo pueda acarrear lesión o daños a terceras personas, cosas, la Habitación o la Vivienda.
+
+d) El subarriendo no podrá tener en ningún caso una duración superior a la duración de este Contrato de arrendamiento.
 
 
 DECIMOCUARTA.- Resolución del Contrato.
@@ -222,7 +250,7 @@ c) dar un uso a la Habitación distinto del aquí convenido o uno que resulte in
 
 d) causar daños dolosamente en la Habitación o en la Vivienda o realizar obras no consentidas por la PARTE ARRENDADORA cuando su consentimiento sea necesario;
 
-e) el incumplimiento de las normas de convivencia establecidas por la Comunidad de Propietarios, y por el presente Contrato; y
+e) el incumplimiento de las normas de convivencia establecidas por la Comunidad de Propietarios, por el presente Contrato, y por el documento Anexo al presente Contrato al que se hace referencia en la estipulación novena; y
 
 f) las demás establecidas por el presente Contrato y por la Ley.
 
@@ -240,9 +268,9 @@ Llegada la fecha de finalización del Contrato en los términos de la estipulaci
 Si llegado este momento, no se hiciera entrega de la Habitación, la PARTE ARRENDATARIA queda obligada a satisfacer, como penalización, el doble de la renta diaria existente al momento de la finalización del Contrato por cada día de retraso, además de todos los gastos directos e indirectos que dicho retraso genere de cara a hacer efectiva la recuperación de la Vivienda y de la Habitación, y sin perjuicio de una posible acción por daños y perjuicios y/o acción de desahucio.
 
 
-DECIMOSEXTA.- Elevación a público.
+DECIMOSEXTA.- Elevación a público y Registro de la propiedad.
 
-Tanto la PARTE ARRENDADORA como la PARTE ARRENDATARIA podrán promover la elevación a escritura pública del documento privado de este Contrato de arrendamiento sin necesidad de expresa autorización de la otra Parte. Los gastos que esta elevación a público conlleve serán asumidos por la Parte que promueve la elevación, y se repartirán a partes iguales si interesara a ambas Partes.
+Tanto la PARTE ARRENDADORA como la PARTE ARRENDATARIA podrán promover la elevación a escritura pública del documento privado de este Contrato de arrendamiento e, igualmente, inscribir el presente Contrato de arrendamiento en el Registro de la Propiedad en el que se encuentre registrada la Vivienda, ello sin necesidad de expresa autorización de la otra Parte. Los gastos que esta elevación a público e inscripción conlleven serán asumidos por la Parte que promueve la elevación, y/o acude al Registro para efectuar la inscripción, y se repartirán a partes iguales si interesara a ambas Partes.
 
 En caso de elevación a público, dicha Parte deberá enviar requerimiento a la otra Parte designando un Notario o Notaria. La otra Parte se compromete a firmar el instrumento público cuando para ello fuera requerida.
 
@@ -275,7 +303,7 @@ VIGÉSIMA.- 855885888822.
 52 8582 52 822252825885, 5822522885, 822288822 2 52885258822 22 855222 58 82225522, 2 22 52858822 58 2 52588552 528 28822, 858 255228, 822 52252885 5 85 252282 25252 22 82 22228225, 58525552 852 82 822222552 5 85 255885888822 52 828 85225528 2 5588525828 82222222228 528 85255 52252 82 228522255 5888555 85 58882255.
 
 
-Y en prueba de conformidad y aceptación de todo lo establecido, ambas Partes firman en el lugar y fecha señalados en el encabezamiento, a un solo efecto, todas las hojas de este Contrato en dos ejemplares, uno para cada Parte.
+Y en prueba de conformidad y aceptación de todo lo establecido, ambas Partes, al igual que el FIADOR, firman en el lugar y fecha señalados en el encabezamiento, a un solo efecto, todas las hojas de este Contrato en tantos ejemplares como miembros de cada Parte resultan del encabezamiento de este documento, y como miembros del FIADOR resultan de la estipulación séptima del mismo.
 
 
 
@@ -292,3 +320,11 @@ LA PARTE ARRENDADORA
 
 ...........................................
 LA PARTE ARRENDATARIA
+
+
+
+
+
+
+...........................................
+EL FIADOR
