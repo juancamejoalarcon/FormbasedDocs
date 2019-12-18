@@ -41,17 +41,17 @@ EXPONEN
 
 I. Que la PARTE ARRENDADORA es propietaria de la vivienda ubicada en:
 
-w
+________
 
 y de ________ (________) metros cuadrados de superficie y que comprende:
 
-f
+________
 
 (y en adelante se denominará conjuntamente La Vivienda). Dicha superficie y composición así como demás características y estado son perfectamente conocidas y aceptadas por las partes intervinientes en este Contrato. No obstante, La Vivienda se arrienda como cuerpo cierto, así, de diferir la superficie real y la aquí descrita, esto no afectará de forma alguna a las condiciones y cláusulas que aquí se fijan, particularmente en lo relativo al precio de la renta.
 
 II. Igualmente, se hace constar que la PARTE ARRENDADORA ha exhibido una copia del Certificado de Eficiencia Energética correspondiente a La Vivienda regulado en el Real Decreto 235/2013, de 5 de abril, por el que se aprueba el procedimiento básico para la certificación de la eficiencia energética de los edificios. Dicha copia se incorporaría como anexo al presente Contrato si la PARTE ARRENDATARIA así lo solicita.
 
-III. La PARTE ARRENDADORA pone en conocimiento de la PARTE ARRENDATARIA que se encuentra inscrita en el Registro de Turismo de Andalucía (RTA), conforme al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos, y que su Código de Inscripción es el siguiente: ASD.
+III. En este sentido, la PARTE ARRENDADORA pone en conocimiento de la PARTE ARRENDATARIA que se encuentra inscrita en el Registro de Turismo o en la entidad correspondiente según la normativa aplicable en la siguiente Comunidad Autónoma: ______________________
 
 IV. Que la PARTE ARRENDATARIA está interesada en arrendar La Vivienda para su uso por motivos relativos a vacaciones y/o turismo y/u ocio, y la PARTE ARRENDADORA está interesada en arrendársela, así convienen pactar de forma expresa y detallada la oferta y aceptación en arrendamiento de la misma, acordando expresamente otorgar el presente CONTRATO DE ARRENDAMIENTO DE VIVIENDA PARA USO TURÍSTICO O VACACIONAL que se rige por las siguientes
 
@@ -95,12 +95,14 @@ Esta cantidad acordada en concepto de precio de la renta se ha fijado tomando en
 
 La referencia al Impuesto sobre el Valor Añadido deberá entenderse hecha al Impuesto General Indirecto Canario y/o al Impuesto sobre la Producción, los Servicios y la Importación en las Ciudades de Ceuta y Melilla, en aquellos territorios en los que estas figuras impositivas rijan, o bien, a cualesquiera otras figuras impositivas que vengan a sustituir a las anteriores.
 
+La renta se verá incrementada en 22 € (veintidós euros) en concepto de gastos de limpieza de La Vivienda.
+
 
 CUARTA. FORMA DE PAGO
 
 La renta acordada será satisfecha conforme a las siguientes instrucciones:
 
-Al momento del inicio del presente Contrato de arrendamiento, es decir, al momento de la entrada/llegada a La Vivienda de la PARTE ARRENDATARIA para su uso y disfrute.
+________
 
 El abono de la renta o precio será realizado mediante: ingreso o transferencia bancaria a la cuenta de la que la PARTE ARRENDADORA es titular y de la que, a continuación, se especifican todos los datos necesarios:
 
@@ -171,7 +173,7 @@ DECIMOPRIMERA. CAUSAS DE RESOLUCIÓN DEL CONTRATO
 
 De forma general, el incumplimiento por cualquiera de las Partes de las obligaciones que emanan para estas mismas del presente Contrato dará derecho a la Parte que sí hubiere cumplido las suyas a exigir el cumplimiento de la obligación o a promover la resolución del Contrato de acuerdo con lo dispuesto en el Artículo 1.124 del Código Civil.
 
-Asimismo, la PARTE ARRENDADORA podrá resolver el Contrato por las causas siguientes, que se enumeran con carácter enunciativo y no exhaustivo: la falta de pago de la renta o de cualquiera de las cantidades cuyo pago corresponda a la PARTE ARRENDATARIA; causar daños dolosamente en La Vivienda o realizar obras; cuando en La Vivienda tengan lugar actividades no comprendidas en el uso para el que ésta se ha arrendado, o resulten insalubres, nocivas, peligrosas o ilícitas y/o contrarias a la Ley, moral y orden público, o por no sujetarse en su uso a lo que se ordena en el número 2º del Artículo 1.555 del Código Civil.
+Asimismo, la PARTE ARRENDADORA podrá resolver el Contrato por las causas siguientes, que se enumeran con carácter enunciativo y no exhaustivo: la falta de pago de la renta o de cualquiera de las cantidades cuyo pago corresponda a la PARTE ARRENDATARIA; la falta de pago del importe de la fianza; causar daños dolosamente en La Vivienda o realizar obras; cuando en La Vivienda tengan lugar actividades no comprendidas en el uso para el que ésta se ha arrendado, o resulten insalubres, nocivas, peligrosas o ilícitas y/o contrarias a la Ley, moral y orden público, o por no sujetarse en su uso a lo que se ordena en el número 2º del Artículo 1.555 del Código Civil.
 
 
 DECIMOSEGUNDA. DESISTIMIENTO (CANCELACIÓN Y/O SALIDA ANTICIPADA)
@@ -197,7 +199,18 @@ DECIMOTERCERA. FIN DEL CONTRATO DE ARRENDAMIENTO
 Llegada la fecha de finalización del Contrato la PARTE ARRENDATARIA deberá entregar a la PARTE ARRENDADORA las llaves de La Vivienda. Si llegado este momento, no se hiciera entrega de La Vivienda arrendada, la PARTE ARRENDATARIA queda obligada a satisfacer, como penalización, el doble de la renta diaria existente al momento de la finalización del Contrato por cada día de retraso en la puesta a disposición de las llaves de La Vivienda, además de todos los gastos directos e indirectos que dicho retraso genere de cara a hacer efectiva la recuperación de La Vivienda, y sin perjuicio de una posible acción por daños y perjuicios y/o acción de desahucio.
 
 
-DECIMOCUARTA. PROTECCIÓN DE DATOS
+DECIMOCUARTA. FIANZA
+
+Una fianza de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta.
+
+Esta fianza servirá para garantizar el cumplimiento de sus obligaciones, hasta donde alcance, derivadas del presente Contrato como, pero no solo: reparar daños ocasionados en La Vivienda y, que siendo su responsabilidad, no se hubiese hecho cargo; falta de pago de la renta u otros conceptos.
+
+Esta fianza será devuelta a la PARTE ARRENDATARIA una vez se haya comprobado el estado y condiciones en las que se entrega La Vivienda a la PARTE ARRENDADORA al finalizar el Contrato, y por el mismo medio a través del cual se abonó. La existencia de esta fianza no habilita a la PARTE ARRENDATARIA a retrasar, impagar o compensar el pago de renta por el arrendamiento de La Vivienda.
+
+Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.
+
+
+DECIMOQUINTA. PROTECCIÓN DE DATOS
 
 Las Partes de este Contrato conocen y se obligan a cumplir el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos (RGPD), así como la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales.
 
@@ -208,12 +221,12 @@ En todo caso, las Partes se comprometen a que estos datos personales no serán c
 De esta cláusula no resulta ninguna limitación o restricción para las Partes en cuanto al ejercicio de los derechos de acceso, rectificación, supresión, limitación, portabilidad u oposición con los que pudieran contar.
 
 
-DECIMOQUINTA. DOMICILIO PARA NOTIFICACIONES
+DECIMOSEXTA. DOMICILIO PARA NOTIFICACIONES
 
 Para realizar cualquier notificación entre las Partes que tenga como origen el presente contrato, éstas acuerdan que su domicilio a efectos de las mismas sean las direcciones indicadas al principio de este contrato. Para que una notificación entre las Partes sea efectuada de forma válida, deberá realizarse por un medio fehaciente que deje constancia del momento en que ha sido enviada, a qué dirección ha sido enviada y el momento de su recepción por la otra parte. Cuando se produjera un cambio en el domicilio a efectos de notificaciones, se deberá comunicar esta nueva información, lo más pronto posible, a la otra parte y siguiendo el procedimiento aquí establecido.
 
 
-DECIMOSEXTA. INTEGRIDAD DEL CONTRATO Y ANULABILIDAD
+DECIMOSÉPTIMA. INTEGRIDAD DEL CONTRATO Y ANULABILIDAD
 
 Este Contrato deja sin efecto todo acuerdo, entendimiento, compromiso y/o negociación que se hubiese desarrollado previamente entre las Partes.
 
@@ -222,11 +235,11 @@ Asimismo, las Partes reconocen que, en caso de existir, documentos Anexos y/o ad
 Además, si se diese el caso de que una o varias cláusulas devinieran ineficaces o fuesen anulables o nulas de pleno derecho, se tendrán por no puestas, manteniendo el resto del contrato toda su fuerza vinculante entre las Partes. Llegado este caso, las Partes se comprometen, si fuera necesario, a negociar de forma amigable y/o de buena fe un nuevo texto para aquellas cláusulas o partes del contrato afectadas.
 
 
-DECIMOSÉPTIMA. ACCIONES LEGALES, LEGISLACIÓN APLICABLE Y JURISDICCIÓN
+DECIMOCTAVA. ACCIONES LEGALES, LEGISLACIÓN APLICABLE Y JURISDICCIÓN
 
 Las Partes reconocen quedar obligadas por el presente Contrato así como sus correspondientes anexos, si los hubiere, y sus efectos jurídicos y se comprometen a su cumplimiento de buena fe.
 
-Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos y de modificación del Decreto 194/2010, de 20 de abril, de establecimientos de apartamentos turísticos.
+Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente a la Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos.
 
 Así las cosas, en caso de controversia, diferencia, conflicto o reclamación en cuanto al Contrato, o en relación al mismo, las Partes acuerdan que se someterán a la jurisdicción de los Juzgados y Tribunales competentes del lugar donde se encuentra ubicada La Vivienda.
 
