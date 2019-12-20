@@ -1,6 +1,18 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { UserService } from './core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  LOCALE_ID,
+  Inject
+} from '@angular/core';
+import {
+  Router,
+  NavigationEnd
+} from '@angular/router';
+import {
+  UserService
+} from './core';
 
 @Component({
   selector: 'app-root',
@@ -25,8 +37,13 @@ export class AppComponent implements OnInit {
     'fill-form',
     'search-transaction'
   ];
+  public languageList = [
+    { code: 'en', label: 'English' },
+    { code: 'es', label: 'Espanol' }
+  ];
 
   constructor(
+    @Inject(LOCALE_ID) protected localeId: string,
     private userService: UserService,
     private router: Router
   ) {}
