@@ -4718,6 +4718,10 @@ input[type=checkbox] {
   }
 }
 
+.checkout-panel__body__invoice__text {
+  max-width: 500px;
+}
+
 .checkout-panel__body__invoice__text__title {
   text-align: center;
 }
@@ -5737,7 +5741,7 @@ input[type=checkbox] {
 .form-creator__fields-area__field__middle {
   width: 90%;
   margin: auto;
-  padding: 2rem 0rem 3rem 0rem;
+  padding: 2rem 0rem 2rem 0rem;
 }
 
 @media only screen and (max-width: 450px) {
@@ -5847,6 +5851,7 @@ input[type=checkbox] {
 }
 
 .form-creator__fields-area__field__bottom {
+  min-height: 1rem;
   padding-left: 0.6rem;
   padding-bottom: 0.3rem;
   display: -webkit-box;
