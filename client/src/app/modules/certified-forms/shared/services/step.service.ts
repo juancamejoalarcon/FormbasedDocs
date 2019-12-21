@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { CommonsService } from '../../../../core'
-import { ContratoCompraventaVehiculoCreatorService } from './contrato-compraventa-vehiculo-creator.service';
+import { CommonsService } from '../../../../core';
+import { DocCreatorService } from './doc-creator.service';
 
 @Injectable()
-export class ContratoCompraventaVehiculoStepsService {
+export class StepsService {
   public steps: Array<any>;
 
   constructor(
-    private documentCreatorService: ContratoCompraventaVehiculoCreatorService,
+    private documentCreatorService: DocCreatorService,
     private commonsService: CommonsService
   ) { }
 

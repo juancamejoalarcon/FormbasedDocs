@@ -14,9 +14,11 @@ import {
   CheckoutService,
   Form
 } from '../../../../core';
-import { ContratoCompraventaVehiculoStepsService } from './contrato-compraventa-vehiculos-steps.service';
-import { ContratoCompraventaVehiculoCreatorService } from './contrato-compraventa-vehiculo-creator.service';
-import { SharedService } from '../../shared';
+import {
+  StepsService,
+  DocCreatorService,
+  SharedService
+} from '../../shared';
 import * as stepsImport from './steps';
 
 @Component({
@@ -43,10 +45,10 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
   };
 
   constructor(
-    private stepModelService: ContratoCompraventaVehiculoStepsService,
+    private stepModelService: StepsService,
     private commonsService: CommonsService,
     private sharedService: SharedService,
-    private documentCreatorService: ContratoCompraventaVehiculoCreatorService,
+    private documentCreatorService: DocCreatorService,
     private formsService: FormService,
     private toastr: ToastrService,
     private checkoutService: CheckoutService,
@@ -197,15 +199,6 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
       }
     }
   }
-
-  // showIndication(e: any) {
-  //   e.preventDefault();
-  //   if (this.indications.indicationsType === 'outsideText') {
-  //     this.commonsService.toggleModal(this.modalIndication.nativeElement);
-  //   } else {
-  //     this.documentService.showIndicationInsideText(this.step.wordToReplace, this.indications.value);
-  //   }
-  // }
 
   onInputSelectChanged(e: any) {
     this.stepModelService.onInputRadioCSelected(e.target.value, this.steps[this.currentStep].wordToReplace);

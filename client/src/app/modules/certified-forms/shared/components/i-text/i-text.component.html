@@ -1,0 +1,23 @@
+<div class="form-creator__fields-area__middle__container fade-in">
+  <div class="form-creator__fields-area__field">
+      <div class="form-creator__fields-area__field__container">
+          <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
+              <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
+                  <div class="indication">
+                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
+                  </div>
+              </div>
+              <div class="form-creator__fields-area__field__middle">
+                  <span class="form-creator__fields-area__field__middle__question">{{step.question}}</span>
+                  <input type="text" #input (keyup)="this.stepModelService.input(input.value, step.wordToReplace)" [value]="step.replacement"
+                  [placeholder]="step.placeholder ? step.placeholder : ''">
+              </div>
+              <div class="form-creator__fields-area__field__bottom">
+                  <span class="form-creator__fields-area__field__bottom__mandatory-label" *ngIf="step.mandatory">
+                      Obligatorio *
+                  </span>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

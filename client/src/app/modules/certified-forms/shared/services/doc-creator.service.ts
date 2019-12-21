@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CommonsService, ConvertService } from '../../../../core';
 import * as FormBasedDocsApi from '../../../../../assets/js/wodotexteditor/localfileeditor.js';
 @Injectable()
-export class ContratoCompraventaVehiculoCreatorService {
+export class DocCreatorService {
 
   public originalDocumentBodyClone: any;
   public currentDocumentBodyClone: any;
