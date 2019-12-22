@@ -38,6 +38,8 @@ export const steps = [
   {
     type: 'iForEach',
     value: 1,
+    min: 1,
+    max: 10,
     replacement: '',
     identifier: 'id-unid-3',
     wordToReplace: 'id-unid-3',

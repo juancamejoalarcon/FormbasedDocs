@@ -43,6 +43,7 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
     indicationsType: 'outsideText',
     value: '',
   };
+  public inputInvalid = false;
 
   constructor(
     private stepModelService: StepsService,
@@ -164,8 +165,10 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
           progressBar: true,
           progressAnimation: 'decreasing'
         });
-        this.input.nativeElement.style.borderBottom = '3px solid red';
+        this.inputInvalid = true;
         return false;
+      } else {
+        this.inputInvalid = false;
       }
     }
     return true;
@@ -202,27 +205,6 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
 
   onInputSelectChanged(e: any) {
     this.stepModelService.onInputRadioCSelected(e.target.value, this.steps[this.currentStep].wordToReplace);
-  }
-
-  onInputNumberChanged(input: any) {
-
-    if (isNaN(input)) {
-      this.toastr.error('Number not valid', 'Must be a number', {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-      this.input.nativeElement.style.borderBottom = '3px solid red';
-    } else {
-      this.input.nativeElement.style.borderBottom = '';
-      if (input.includes(',')) {
-        input = input.replace(',', '');
-      }
-      if (input.includes('.')) {
-        input = input.replace('.', '');
-      }
-      this.stepModelService.input(input, this.steps[this.currentStep].wordToReplace);
-    }
   }
 
   prepareForCheckout() {

@@ -11,12 +11,11 @@ import {
   StepsService
 } from '../../services';
 
-
 @Component({
-  selector: 'app-i-text',
-  templateUrl: './i-text.component.html'
+  selector: 'app-i-for-each',
+  templateUrl: './i-for-each.component.html'
 })
-export class ITextComponent implements OnInit {
+export class IForEachComponent implements OnInit {
 
   @Input() step: any;
   @Input() inputInvalid: any;

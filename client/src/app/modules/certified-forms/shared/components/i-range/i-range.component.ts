@@ -11,12 +11,11 @@ import {
   StepsService
 } from '../../services';
 
-
 @Component({
-  selector: 'app-i-text',
-  templateUrl: './i-text.component.html'
+  selector: 'app-i-range',
+  templateUrl: './i-range.component.html'
 })
-export class ITextComponent implements OnInit {
+export class IRangeComponent implements OnInit {
 
   @Input() step: any;
   @Input() inputInvalid: any;
@@ -28,9 +27,6 @@ export class ITextComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  }
-
-  showIndication() {
     this.emitIndication.emit();
   }
 

@@ -16,7 +16,12 @@ import {
   SharedService,
   DocCreatorService,
   StepsService,
-  ITextComponent
+  ITextComponent,
+  IDateComponent,
+  INumberComponent,
+  IRangeComponent,
+  IForEachComponent,
+  IRadioBComponent
 } from './shared';
 
 
@@ -27,7 +32,12 @@ import {
     CheckoutComponent,
     ContratoArrasPenitencialesComponent,
     ContratoCompraventaVehiculoComponent,
-    ITextComponent
+    ITextComponent,
+    IDateComponent,
+    INumberComponent,
+    IRangeComponent,
+    IForEachComponent,
+    IRadioBComponent
   ],
   imports: [
     CommonModule,
