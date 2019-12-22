@@ -241,7 +241,11 @@ export class DocCreatorService {
     let replacement: string;
     step.radios.forEach((radio) => {
       if (radio.checked) {
-        replacement = radio.replacement;
+        if (step.isFocused) {
+          replacement = `<span class="highlight-disapear focused">${radio.replacement}</span>`;
+        } else {
+          replacement = radio.replacement;
+        }
         step.extraReplacements.forEach((extraReplacement: any, index: any) => {
           const regexp2 = new RegExp(extraReplacement.wordToReplace, 'g');
           const elementContainingReplacementWord = this.findword(extraReplacement.wordToReplace);
@@ -250,7 +254,6 @@ export class DocCreatorService {
           let replacement2: any;
           radio.extraReplacements.forEach((radioExtraReplacement: any) => {
             if (radioExtraReplacement.insideId === extraReplacement.insideId) {
-              // console.log(radioExtraReplacement);
               replacement2 = radioExtraReplacement.replacement;
             }
           });
@@ -338,7 +341,7 @@ export class DocCreatorService {
               }
               if (element) {
                 element.innerHTML = element.innerHTML.replace(regexp,
-                `<span class=" ${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
+                `<span class=" ${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
               }
             }
           });

@@ -6,7 +6,6 @@ import {
   ViewChild,
   ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import {
   CommonsService,
@@ -201,10 +200,6 @@ export class ContratoCompraventaVehiculoComponent implements OnInit, AfterViewIn
         this.documentCreatorService.showIndicationInsideText(step.wordToReplace, step.indications.value);
       }
     }
-  }
-
-  onInputSelectChanged(e: any) {
-    this.stepModelService.onInputRadioCSelected(e.target.value, this.steps[this.currentStep].wordToReplace);
   }
 
   prepareForCheckout() {

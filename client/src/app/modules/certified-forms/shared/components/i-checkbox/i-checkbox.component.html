@@ -9,18 +9,19 @@
               </div>
               <div class="form-creator__fields-area__field__middle">
                   <span class="form-creator__fields-area__field__middle__question">{{step.question}}</span>
-                  <div class="form-creator__fields-area__field__middle__radio-input--fill-form radio">
-                      <p *ngFor="let radio of step.radios">
-                          <label>
-                              <input class="with-gap" name="group1" type="radio" 
-                                  value="Valor de la pregunta numero 1" [checked]="radio.checked"
-                                  (change)="this.stepModelService.onInputRadioBSelected(radio.radioId, step.wordToReplace)" />
-                              <span>{{radio.label}}</span>
-                          </label>
-                      </p>
+                  <div class="form-creator__fields-area__field__middle__checkbox-input">
+                    <label *ngFor="let checkbox of step.checkboxes">
+                        <input type="checkbox" class="filled-in" #input
+                        (change)="this.stepModelService.onInputCheckboxSelected(checkbox.identifier, step.wordToReplace, input.checked)"
+                        [checked]="checkbox.checked"  />
+                        <span>{{checkbox.label}}.</span>
+                    </label>
                   </div>
               </div>
               <div class="form-creator__fields-area__field__bottom">
+                  <span class="form-creator__fields-area__field__bottom__mandatory-label">
+                      Obligatorio *
+                  </span>
               </div>
           </div>
       </div>

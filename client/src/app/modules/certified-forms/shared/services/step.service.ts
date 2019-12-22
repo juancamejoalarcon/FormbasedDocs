@@ -196,6 +196,7 @@ export class StepsService {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.wordToReplace === wordToReplace) {
+        step.isFocused = true;
         // 2. Find radio selected
         step.radios.forEach((radio) => {
           if (radio.radioId === radioSelectedId) {
@@ -205,6 +206,8 @@ export class StepsService {
             radio.checked = false;
           }
         });
+      } else {
+        step.isFocused = false;
       }
     });
     if (buildDocumentAfter) {
@@ -296,6 +299,12 @@ export class StepsService {
             });
           }
         }
+      }
+
+      if (step.wordToReplace === wordToReplace) {
+        step.isFocused = true;
+      } else {
+        step.isFocused = false;
       }
     });
     if (buildDocumentAfter) {

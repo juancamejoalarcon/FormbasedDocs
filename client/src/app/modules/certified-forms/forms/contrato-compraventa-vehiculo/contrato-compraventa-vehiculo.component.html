@@ -71,102 +71,19 @@
                <app-i-radio-b [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
                *ngIf="this.steps[this.currentStep].type === 'iRadioB'"></app-i-radio-b>
+
+               <app-i-radio-c [step]="this.steps[this.currentStep]" 
+               (emitIndication)="showIndication()"
+               *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType !== 'select'"></app-i-radio-c>
+
+               <app-i-select [step]="this.steps[this.currentStep]" 
+               (emitIndication)="showIndication()"
+               *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType === 'select'"></app-i-select>
+
+               <app-i-checkbox [step]="this.steps[this.currentStep]" 
+               (emitIndication)="showIndication()"
+               *ngIf="this.steps[this.currentStep].type === 'iCheckbox'"></app-i-checkbox>
                
-              <!-- INPUT RADIO C -->
-              <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType !== 'select'">
-                  <div class="form-creator__fields-area__field">
-                      <div class="form-creator__fields-area__field__container">
-                          <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
-                              <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
-                                  <div class="indication">
-                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
-                                  </div>
-                              </div>
-                              <div class="form-creator__fields-area__field__middle">
-                                  <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
-                                  <div class="form-creator__fields-area__field__middle__radio-input--fill-form radio">
-                                      <p *ngFor="let radio of this.steps[this.currentStep].radios">
-                                          <label>
-                                              <input class="with-gap" name="group1" type="radio" 
-                                                  value="Valor de la pregunta numero 1" [checked]="radio.checked"
-                                                  (change)="this.stepModelService.onInputRadioCSelected(radio.radioId, this.steps[this.currentStep].wordToReplace)" />
-                                              <span>{{radio.label}}</span>
-                                          </label>
-                                      </p>
-                                  </div>
-                              </div>
-                              <div class="form-creator__fields-area__field__bottom">
-                                  <span class="form-creator__fields-area__field__bottom__mandatory-label">
-                                      Obligatorio *
-                                  </span>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!-- END OF INPUT RADIO C -->
-              <!-- INPUT SELECT -->
-              <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType === 'select'">
-                  <div class="form-creator__fields-area__field">
-                      <div class="form-creator__fields-area__field__container">
-                          <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
-                              <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
-                                  <div class="indication">
-                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
-                                  </div>
-                              </div>
-                              <div class="form-creator__fields-area__field__middle">
-                                  <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
-                                  <div class="input-select">
-                                    <select class="browser-default" (change)="onInputSelectChanged($event)">
-                                        <option *ngFor="let radio of this.steps[this.currentStep].radios" 
-                                        value="{{radio.radioId}}" [selected]="radio.checked">
-                                            {{radio.label}}
-                                        </option>
-                                    </select>
-                                </div>
-                              </div>
-                              <div class="form-creator__fields-area__field__bottom">
-                                  <span class="form-creator__fields-area__field__bottom__mandatory-label">
-                                      Obligatorio *
-                                  </span>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!-- END OF INPUT RADIO C -->
-              <!-- INPUT CHECKBOX -->
-              <div class="form-creator__fields-area__middle__container fade-in" *ngIf="this.steps[this.currentStep].type === 'iCheckbox'">
-                  <div class="form-creator__fields-area__field">
-                      <div class="form-creator__fields-area__field__container">
-                          <div class="form-creator__fields-area__field__field-area form-creator__fields-area__field__field-area--input-text">
-                              <div class="form-creator__fields-area__field__top form-creator__fields-area__field__top--fill-form">
-                                  <div class="indication">
-                                      <span class="icon icon-info-circle-solid trigger" (click)="showIndication()"></span>
-                                  </div>
-                              </div>
-                              <div class="form-creator__fields-area__field__middle">
-                                  <span class="form-creator__fields-area__field__middle__question">{{this.steps[this.currentStep].question}}</span>
-                                  <div class="form-creator__fields-area__field__middle__checkbox-input">
-                                    <label *ngFor="let checkbox of this.steps[this.currentStep].checkboxes">
-                                        <input type="checkbox" class="filled-in" #input
-                                        (change)="this.stepModelService.onInputCheckboxSelected(checkbox.identifier, this.steps[this.currentStep].wordToReplace, input.checked)"
-                                        [checked]="checkbox.checked"  />
-                                        <span>{{checkbox.label}}.</span>
-                                    </label>
-                                  </div>
-                              </div>
-                              <div class="form-creator__fields-area__field__bottom">
-                                  <span class="form-creator__fields-area__field__bottom__mandatory-label">
-                                      Obligatorio *
-                                  </span>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!-- END OF INPUT RADIO C -->
               <!-- END -->
               <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'end'">
                   <div class="form-creator__fields-area__field">

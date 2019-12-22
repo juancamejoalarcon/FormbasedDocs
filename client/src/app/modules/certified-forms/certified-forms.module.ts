@@ -19,9 +19,11 @@ import {
   ITextComponent,
   IDateComponent,
   INumberComponent,
-  IRangeComponent,
   IForEachComponent,
-  IRadioBComponent
+  IRadioBComponent,
+  IRadioCComponent,
+  ISelectComponent,
+  ICheckboxComponent
 } from './shared';
 
 
@@ -35,9 +37,11 @@ import {
     ITextComponent,
     IDateComponent,
     INumberComponent,
-    IRangeComponent,
     IForEachComponent,
-    IRadioBComponent
+    IRadioBComponent,
+    IRadioCComponent,
+    ISelectComponent,
+    ICheckboxComponent
   ],
   imports: [
     CommonModule,

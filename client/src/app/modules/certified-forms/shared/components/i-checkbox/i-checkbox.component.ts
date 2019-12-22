@@ -12,10 +12,10 @@ import {
 } from '../../services';
 
 @Component({
-  selector: 'app-i-range',
-  templateUrl: './i-range.component.html'
+  selector: 'app-i-checkbox',
+  templateUrl: './i-checkbox.component.html'
 })
-export class IRangeComponent implements OnInit {
+export class ICheckboxComponent implements OnInit {
 
   @Input() step: any;
   @Input() inputInvalid: any;
@@ -27,7 +27,11 @@ export class IRangeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  showIndication() {
     this.emitIndication.emit();
   }
+
 
 }
