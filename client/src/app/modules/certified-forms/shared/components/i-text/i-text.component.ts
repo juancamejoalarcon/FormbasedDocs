@@ -34,4 +34,8 @@ export class ITextComponent implements OnInit {
     this.emitIndication.emit();
   }
 
+  onInput(value: any, wordToReplace: any) {
+    this.stepModelService.input(value, wordToReplace);
+  }
+
 }

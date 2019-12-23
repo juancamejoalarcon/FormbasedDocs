@@ -11,7 +11,7 @@
                   <div class="form-creator__fields-area__field__middle__date-container">
                       <span class="form-creator__fields-area__field__middle__question">{{step.question}}</span>
                       <input type="date" #input [value]="step.replacement"
-                      (change)="this.stepModelService.input(input.value, step.wordToReplace)"
+                      (change)="onInput(input.value, step.wordToReplace)"
                       [ngStyle]="{'borderBottom': inputInvalid ? '3px solid red' : ''}">
                   </div>
               </div>

@@ -55,4 +55,8 @@ export class INumberComponent implements OnInit {
     }
   }
 
+  showIndication() {
+    this.emitIndication.emit();
+  }
+
 }

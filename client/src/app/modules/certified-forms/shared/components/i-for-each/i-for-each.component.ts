@@ -33,4 +33,8 @@ export class IForEachComponent implements OnInit {
     this.emitIndication.emit();
   }
 
+  onInput(value: any, wordToReplace: any) {
+    this.stepModelService.buildForEach(value, wordToReplace);
+  }
+
 }

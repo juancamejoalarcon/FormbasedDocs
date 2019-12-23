@@ -12,7 +12,7 @@
                 <div class="slider-range-container">
                   <input type="range" min="{{step.min}}" max="{{step.max}}"  class="range-slider"
                   #input [value]="step.value" 
-                  (change)="this.stepModelService.buildForEach(input.value, step.wordToReplace)">
+                  (change)="onInput(input.value, step.wordToReplace)">
                   <p>
                     <span>{{input.value}}</span>
                   </p>
