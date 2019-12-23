@@ -31,4 +31,5 @@ export class Form {
   amount: number;
   alreadyPaid: boolean;
   topLabelTitle: string;
+  steps: any;
 }

@@ -5,7 +5,6 @@ import { SharedModule } from '../../shared';
 import { CertifiedFormsRoutingModule } from './certified-forms-routing.module';
 import { CertifiedFormsComponent } from './certified-forms.component';
 import {
-  PactoDeSociosComponent,
   ContratoArrasPenitencialesComponent,
   StepModelService,
   DocumentCreatorService,
@@ -25,12 +24,12 @@ import {
   ISelectComponent,
   ICheckboxComponent
 } from './shared';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
   declarations: [
     CertifiedFormsComponent,
-    PactoDeSociosComponent,
     CheckoutComponent,
     ContratoArrasPenitencialesComponent,
     ContratoCompraventaVehiculoComponent,
@@ -41,7 +40,8 @@ import {
     IRadioBComponent,
     IRadioCComponent,
     ISelectComponent,
-    ICheckboxComponent
+    ICheckboxComponent,
+    FormComponent
   ],
   imports: [
     CommonModule,

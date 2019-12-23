@@ -1,30 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {
-  PactoDeSociosComponent,
   ContratoArrasPenitencialesComponent,
-  ContratoCompraventaVehiculoComponent
  } from './forms';
 import { CertifiedFormsComponent } from './certified-forms.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: CertifiedFormsComponent,
-    children: [
-      {
-        path: 'pacto-de-socios',
-        component: PactoDeSociosComponent,
-      },
-      {
-        path: 'contrato-arras-penitenciales',
-        component: ContratoArrasPenitencialesComponent
-      },
-      {
-        path: 'contrato-compraventa-vehiculo',
-        component: ContratoCompraventaVehiculoComponent
-      }
-    ]
+    children: []
   }
 ];
 
