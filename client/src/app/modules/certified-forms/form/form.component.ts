@@ -57,47 +57,50 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.commonsService.toggleSpinner();
-    this.route.queryParams.subscribe(params => {
-      if (params.transactionId) {
-        this.formAlreadyPaid = true;
-        this.formsService.getPaidCertifiedForm(params.transactionId).subscribe((data: any) => {
-          if (data.certifiedForm) {
-            const certifiedForm = data.certifiedForm;
-            this.form.fields = JSON.parse(certifiedForm.fields);
-            this.form.title = certifiedForm.title;
-            this.form.uri = certifiedForm.uri;
-            this.form.id = 'contrato-compraventa-vehiculo';
-            this.form.amount = certifiedForm.amount;
-            this.form.topLabelTitle = certifiedForm.topLabelTitle;
-            this.setInitiaState();
-          } else if (data.transactionNotFound) {
-            this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
-          } else if (data.formExpired) {
-            this.commonsService.toastMessage('error', 'The period of 30 days to change the document has expired', 'Transaction expired');
-          }
-        });
-      } else {
-        if (window.sessionStorage['Contrato de Arras Penitenciales']) {
-          this.form = JSON.parse(window.sessionStorage['Contrato de Arras Penitenciales']);
-          this.steps = this.form.fields;
-          this.formAlreadyPaid = this.form.alreadyPaid;
-
-          this.setInitiaState();
-        } else {
-          this.formsService.getCertifiedForm('contrato-compraventa-vehiculo').subscribe(
-            certifiedForm => {
-              this.form.fields = this.steps;
+    this.route.params.subscribe(routeParams => {
+      this.route.queryParams.subscribe(params => {
+        if (params.transactionId) {
+          this.formAlreadyPaid = true;
+          this.formsService.getPaidCertifiedForm(params.transactionId).subscribe((data: any) => {
+            if (data.certifiedForm) {
+              const certifiedForm = data.certifiedForm;
+              this.form.fields = JSON.parse(certifiedForm.fields);
               this.form.title = certifiedForm.title;
               this.form.uri = certifiedForm.uri;
-              this.form.id = 'contrato-compraventa-vehiculo';
+              this.form.id = routeParams.id;
               this.form.amount = certifiedForm.amount;
-              this.form.image = certifiedForm.image;
               this.form.topLabelTitle = certifiedForm.topLabelTitle;
-              this.steps = certifiedForm.steps;
+              this.form.information = certifiedForm.information;
               this.setInitiaState();
-            } );
+            } else if (data.transactionNotFound) {
+              this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
+            } else if (data.formExpired) {
+              this.commonsService.toastMessage('error', 'The period of 30 days to change the document has expired', 'Transaction expired');
+            }
+          });
+        } else {
+          if (window.sessionStorage[routeParams.id]) {
+            this.form = JSON.parse(window.sessionStorage[routeParams.id]);
+            this.steps = this.form.fields;
+            this.formAlreadyPaid = this.form.alreadyPaid;
+            this.setInitiaState();
+          } else {
+            this.formsService.getCertifiedForm(routeParams.id).subscribe(
+              certifiedForm => {
+                this.form.fields = this.steps;
+                this.form.title = certifiedForm.title;
+                this.form.uri = certifiedForm.uri;
+                this.form.id = routeParams.id;
+                this.form.amount = certifiedForm.amount;
+                this.form.image = certifiedForm.image;
+                this.form.topLabelTitle = certifiedForm.topLabelTitle;
+                this.form.information = certifiedForm.information;
+                this.steps = certifiedForm.steps;
+                this.setInitiaState();
+              } );
+          }
         }
-      }
+      });
     });
   }
 
@@ -258,9 +261,5 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   downloadPdf() {
     this.documentCreatorService.downloadPdf(this.form.id, this.form.uri);
   }
-
-//   this.route.params.subscribe(params => {
-//     console.log(params);
-//  });
 
 }

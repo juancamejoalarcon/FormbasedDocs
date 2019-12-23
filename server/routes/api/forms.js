@@ -202,7 +202,8 @@ router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
         amount: form.amount,
         image: form.image,
         uri: form.uri,
-        steps: form.steps
+        steps: form.steps,
+        information: form.information.replace(/\n/ig, '')
       };
     }
   });

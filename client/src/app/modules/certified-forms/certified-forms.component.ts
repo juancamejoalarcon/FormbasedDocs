@@ -90,7 +90,7 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
         }
       );
     } else {
-      window.sessionStorage[this.form.title] = JSON.stringify(this.form);
+      window.sessionStorage[this.form.id] = JSON.stringify(this.form);
       this.router.navigate(['/auth/login'], {
         queryParams: {
           formPath: this.router.url.substring(this.router.url.lastIndexOf('/') + 1)
@@ -100,7 +100,7 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
   }
 
   saveInSessionStorage() {
-    window.sessionStorage[this.form.title] = JSON.stringify(this.form);
+    window.sessionStorage[this.form.id] = JSON.stringify(this.form);
   }
 
   toogleModal(modal: ElementRef) {

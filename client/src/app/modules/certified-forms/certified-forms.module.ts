@@ -5,12 +5,6 @@ import { SharedModule } from '../../shared';
 import { CertifiedFormsRoutingModule } from './certified-forms-routing.module';
 import { CertifiedFormsComponent } from './certified-forms.component';
 import {
-  ContratoArrasPenitencialesComponent,
-  StepModelService,
-  DocumentCreatorService,
-  ContratoCompraventaVehiculoComponent
-} from './forms';
-import {
   CheckoutComponent,
   SharedService,
   DocCreatorService,
@@ -31,8 +25,6 @@ import { FormComponent } from './form/form.component';
   declarations: [
     CertifiedFormsComponent,
     CheckoutComponent,
-    ContratoArrasPenitencialesComponent,
-    ContratoCompraventaVehiculoComponent,
     ITextComponent,
     IDateComponent,
     INumberComponent,
@@ -50,8 +42,6 @@ import { FormComponent } from './form/form.component';
   ],
   providers: [
     SharedService,
-    StepModelService,
-    DocumentCreatorService,
     DocCreatorService,
     StepsService
   ]

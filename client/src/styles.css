@@ -2846,6 +2846,11 @@ input[type=checkbox] {
   border-bottom: 3px solid #556270;
 }
 
+.modal__content__modal-middle__container {
+  max-width: 900px;
+  margin: auto;
+}
+
 .modal__content__modal-middle textarea {
   margin: 0rem 0rem 0rem 0rem;
   padding: 1rem;

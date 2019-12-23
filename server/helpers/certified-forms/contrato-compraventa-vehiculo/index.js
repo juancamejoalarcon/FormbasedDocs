@@ -2,6 +2,7 @@ const uri = require('./uri');
 const paidUri = require('./paidUri');
 const imageUri = require('./imageUri');
 const steps = require('./steps');
+const information = require('./information');
 
 const contrato_ompraventa_vehiculo = {
     id: 'contrato-compraventa-vehiculo',
@@ -11,7 +12,8 @@ const contrato_ompraventa_vehiculo = {
     image: imageUri,
     uri: uri,
     paidUri: paidUri,
-    steps: steps
+    steps: steps,
+    information: information
 };
 
 module.exports = contrato_ompraventa_vehiculo;

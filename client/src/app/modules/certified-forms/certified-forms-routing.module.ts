@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {
-  ContratoArrasPenitencialesComponent,
- } from './forms';
 import { CertifiedFormsComponent } from './certified-forms.component';
 import { FormComponent } from './form/form.component';
 

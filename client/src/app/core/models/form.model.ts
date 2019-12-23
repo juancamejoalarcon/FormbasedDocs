@@ -32,4 +32,5 @@ export class Form {
   alreadyPaid: boolean;
   topLabelTitle: string;
   steps: any;
+  information: string;
 }
