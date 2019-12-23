@@ -69,6 +69,9 @@ export class CheckoutComponent implements OnInit {
     );
     if (this.form.fields[this.form.fields.length - 1]) {
       this.currentStep = this.form.fields[this.form.fields.length - 1]['checkoutProcess'].phase;
+      if (this.steps[this.currentStep].type === 'payment') {
+        this.currentStep = this.currentStep - 1;
+      }
     }
   }
 
