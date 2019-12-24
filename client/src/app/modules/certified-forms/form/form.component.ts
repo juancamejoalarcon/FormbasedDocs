@@ -18,7 +18,6 @@ import {
   DocCreatorService,
   SharedService
 } from '../shared';
-import * as stepsImport from './steps';
 
 @Component({
   selector: 'app-form',
@@ -35,7 +34,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   public form: Form = new Form();
   public currentStep = 0;
   public progresBarPercentage = '0%';
-  public steps: any = stepsImport.steps;
+  public steps: any = [];
   public formAlreadyPaid = false;
   public indications: any = {
     areIndications: true,
@@ -87,6 +86,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
           } else {
             this.formsService.getCertifiedForm(routeParams.id).subscribe(
               certifiedForm => {
+                this.steps = certifiedForm.steps;
                 this.form.fields = this.steps;
                 this.form.title = certifiedForm.title;
                 this.form.uri = certifiedForm.uri;
@@ -95,7 +95,6 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.form.image = certifiedForm.image;
                 this.form.topLabelTitle = certifiedForm.topLabelTitle;
                 this.form.information = certifiedForm.information;
-                this.steps = certifiedForm.steps;
                 this.setInitiaState();
               } );
           }

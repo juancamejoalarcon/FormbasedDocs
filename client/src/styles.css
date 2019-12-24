@@ -4814,7 +4814,8 @@ input[type=checkbox] {
 .checkout-panel__body__invoice__text__total__right {
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  text-align: left;
 }
 
 @media only screen and (max-width: 450px) {
@@ -5041,7 +5042,7 @@ input[type=checkbox] {
   max-width: 650px;
   margin: auto;
   text-align: center;
-  height: 90%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

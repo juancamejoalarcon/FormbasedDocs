@@ -4,7 +4,7 @@
       <div class="form-creator__fields-area__container">
           <div class="form-creator__fields-area__top">
               <!-- START (Step 0) -->
-              <div class="form-creator__fields-area__top__container" *ngIf="this.steps[this.currentStep].type === 'start'">
+              <div class="form-creator__fields-area__top__container" *ngIf="this.steps[this.currentStep]?.type === 'start'">
                   <div class="form-creator__fields-area__top__author-date">
                       <span class="form-creator__fields-area__top__author-date__author">
                           <div class="form-creator__fields-area__top__author-date__author__image-container">
@@ -25,7 +25,7 @@
               </div>
               <!-- END OF START (Step 0) -->
               <!-- PROGRESSBAR -->
-              <div class="progress-container" *ngIf="this.steps[this.currentStep].type !== 'start'">
+              <div class="progress-container" *ngIf="this.steps[this.currentStep]?.type !== 'start'">
                   <div class="progress progress-large">
                       <span [style.width]="progresBarPercentage" #progressBar>{{progresBarPercentage}}</span>
                   </div>
@@ -35,7 +35,7 @@
 
           <div class="form-creator__fields-area__middle">
               <!-- START -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'start'">
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep]?.type === 'start'">
                   <div class="form-creator__fields-area__middle__initial-screen">
                       <h3 class="form-creator__fields-area__middle__initial-screen__form-title">
                           {{this.steps[this.currentStep].title}}
@@ -52,40 +52,40 @@
                <app-i-text [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
                [inputInvalid]="inputInvalid"
-               *ngIf="this.steps[this.currentStep].type === 'iText'"></app-i-text>
+               *ngIf="this.steps[this.currentStep]?.type === 'iText'"></app-i-text>
 
                <app-i-date [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
                [inputInvalid]="inputInvalid"
-               *ngIf="this.steps[this.currentStep].type === 'iDate'"></app-i-date>
+               *ngIf="this.steps[this.currentStep]?.type === 'iDate'"></app-i-date>
 
                <app-i-number [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
                [inputInvalid]="inputInvalid"
-               *ngIf="this.steps[this.currentStep].type === 'iNumber'"></app-i-number>
+               *ngIf="this.steps[this.currentStep]?.type === 'iNumber'"></app-i-number>
 
                <app-i-for-each [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
-               *ngIf="this.steps[this.currentStep].type === 'iForEach'"></app-i-for-each>
+               *ngIf="this.steps[this.currentStep]?.type === 'iForEach'"></app-i-for-each>
 
                <app-i-radio-b [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
-               *ngIf="this.steps[this.currentStep].type === 'iRadioB'"></app-i-radio-b>
+               *ngIf="this.steps[this.currentStep]?.type === 'iRadioB'"></app-i-radio-b>
 
                <app-i-radio-c [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
-               *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType !== 'select'"></app-i-radio-c>
+               *ngIf="this.steps[this.currentStep]?.type === 'iRadioC' && this.steps[this.currentStep]?.subType !== 'select'"></app-i-radio-c>
 
                <app-i-select [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
-               *ngIf="this.steps[this.currentStep].type === 'iRadioC' && this.steps[this.currentStep].subType === 'select'"></app-i-select>
+               *ngIf="this.steps[this.currentStep]?.type === 'iRadioC' && this.steps[this.currentStep]?.subType === 'select'"></app-i-select>
 
                <app-i-checkbox [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
-               *ngIf="this.steps[this.currentStep].type === 'iCheckbox'"></app-i-checkbox>
+               *ngIf="this.steps[this.currentStep]?.type === 'iCheckbox'"></app-i-checkbox>
                
               <!-- END -->
-              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep].type === 'end'">
+              <div class="form-creator__fields-area__middle__container" *ngIf="this.steps[this.currentStep]?.type === 'end'">
                   <div class="form-creator__fields-area__field">
                       <div class="form-creator__fields-area__field__container">
                           <div class="form-creator__fields-area__end-step">
@@ -105,7 +105,7 @@
               <!-- END OF END -->
           </div>
            <!-- START -->
-          <div class="form-creator__fields-area__bottom form-creator__fields-area__bottom--initial-screen" *ngIf="this.steps[this.currentStep].type === 'start'">
+          <div class="form-creator__fields-area__bottom form-creator__fields-area__bottom--initial-screen" *ngIf="this.steps[this.currentStep]?.type === 'start'">
               <div class="form-creator__fields-area__bottom__step">
                   <span class="icon icon-file-regular"></span>
                   <span class="form-creator__fields-area__bottom__step__number">1.</span>
@@ -123,7 +123,7 @@
               </div>
           </div>
           <!-- END OF START -->
-          <div class="form-creator__fields-area__bottom" *ngIf="this.steps[this.currentStep].type !== 'start'">
+          <div class="form-creator__fields-area__bottom" *ngIf="this.steps[this.currentStep]?.type !== 'start'">
               <div class="form-creator__fields-area__bottom__container">
                   <div class="form-creator__fields-area__bottom__arrow-button" (click)="moveStep('previous')">
                       <span class="icon icon-chevron-left-solid"></span>
@@ -133,7 +133,7 @@
                       Preview <span>⬇</span>
                     </div>
                   <div class="form-creator__fields-area__bottom__arrow-button" (click)="moveStep('next')" 
-                      *ngIf="this.steps[this.currentStep].type !== 'end'">
+                      *ngIf="this.steps[this.currentStep]?.type !== 'end'">
                       <span class="form-creator__fields-area__bottom__arrow-button__label">Siguiente</span>
                       <span class="icon icon-chevron-right-solid"></span>
                   </div>

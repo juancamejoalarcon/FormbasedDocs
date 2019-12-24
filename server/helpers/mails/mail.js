@@ -7,12 +7,12 @@ const emailSender =  {
     checkoutConfirm: (email, transactionId, formType, date, uri) => {
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
+            host: 'smtp.gmail.com',
             port: 587,
             secure: false, // true for 465, false for other ports
             auth: {
-                user: 'horacio.denesik@ethereal.email', // generated ethereal user
-                pass: 'WQ9dzYD9eWbR23FGeC' // generated ethereal password
+                user: 'formbaseddocs@formbaseddocs.com', // generated ethereal user
+                pass: '23bocomfi' // generated ethereal password
             }
         });
 
