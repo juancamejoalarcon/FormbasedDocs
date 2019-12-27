@@ -215,24 +215,20 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onFormPaid(certifiedForm: any) {
+    this.documentCreatorService.destroy();
+    window.removeEventListener('resize', this.commonsService.resizeEditor.bind(this));
     this.formAlreadyPaid = true;
     this.form.alreadyPaid = true;
     this.form.uri = certifiedForm.uri;
     this.form.fields = JSON.parse(certifiedForm.fields);
-    this.stepModelService.init(this.form.fields);
-    this.documentCreatorService.destroy();
-    this.sharedService.setForm(this.form);
-    this.documentCreatorService.init(this.form.uri).then( inited => {
-      this.commonsService.resizeEditor(true);
-      window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
-      this.stepModelService.buildDocument();
-      // Save uri and send Email
-      this.documentCreatorService.saveUri().then((uri: string) => {
-        this.checkoutService.sendMail(certifiedForm.transactionId, uri).subscribe((data: any) => {
-          console.log(data);
-        });
+    this.setInitiaState();
+    this.documentCreatorService.saveUri().then((uri: string) => {
+      this.checkoutService.sendMail(certifiedForm.transactionId, uri).subscribe((data: any) => {
+        console.log(data);
       });
     });
+    this.commonsService.toggleSpinner();
+
   }
 
   previewDocumentButton(setDocumentVisible: boolean) {

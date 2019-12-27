@@ -177,10 +177,12 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.stateService.setDocumentType(this.documentType);
     if (documentType === 'office') {
       this.setDivHeight();
-      window.addEventListener('resize', this.setDivHeight);
       this.documentService = this.odfCreatorService;
       this.documentService.init('create-form', this.updatingForm ? this.form.text : '', 'editorContainer').then( (data: any) => {
+        this.commonsService.resizeEditor(true);
+        window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
         this.documentService.setDragAndDropForSetUp();
+        this.documentService.resizeDocumentContainer();
       });
     } else {
       this.documentService = this.plainTextCreatorService;

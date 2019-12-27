@@ -94,6 +94,7 @@
             *ngIf="this.documentType === 'plain'">
                 {{quillText}}
             </div>
+            <button class="button-filled button-filled--preview-document" id="scrollToTop" style="display: none;" (click)="previewDocumentButton(false)">Form <span style='font-size:20px;'>&#8593;</span></button>
         </div>
     </div>
 </div>
@@ -194,8 +195,10 @@
                             <div class="checkout-panel__body__document-type-selection__button-area__doc-button"
                             (click)="this.documentType = 'office'" (dblclick)="toogleModal(modalChooseDocument); setDocument('office');"
                             [ngClass]="{'checkout-panel__body__document-type-selection__button-area__doc-button--active': this.documentType === 'office'}">
-                                <span>Office doc</span>
-                                <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus aliquam provident excepturi iure aut ipsum facere et id alias minima dignissimos necessitatibus nihil eaque nisi, explicabo fuga nulla perferendis impedit.</small>
+                                <span>Documento Office</span>
+                                <br>
+                                <small>Seleccione la opción Documento Office cuando lo que desee crear sea un documento exportable a formatos word o pdf.
+                                    Un documento de las dimensiones de un folio. </small>
                             </div>
                         </div>
                         <div class="checkout-panel__body__document-type-selection__button-area">
@@ -205,8 +208,9 @@
                             <div class="checkout-panel__body__document-type-selection__button-area__doc-button"
                             (click)="this.documentType = 'plain'" (dblclick)="toogleModal(modalChooseDocument); setDocument('plain');"
                             [ngClass]="{'checkout-panel__body__document-type-selection__button-area__doc-button--active': this.documentType === 'plain'}">
-                                <span>Plain text</span>
-                                <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus aliquam provident excepturi iure aut ipsum facere et id alias minima dignissimos necessitatibus nihil eaque nisi, explicabo fuga nulla perferendis impedit.</small>
+                                <span>Texto Simple</span>
+                                <br>
+                                <small>Seleccione la opción Texto Simple cuando lo que desea crear es un texto sin ningún formato específico.</small>
                             </div>
                         </div>
                     </div>
@@ -224,7 +228,7 @@
 <div class="modal" #addQuestionMenuModal>
     <div class="modal__content modal__content--add-new-question">
         <div class="modal__content__modal-middle modal__content__modal-middle--add-new-question">
-            <div class="modal__content__modal-middle__container">
+            <div class="modal__content__modal-middle__container" style="margin: 0px">
                 <div class="modal__content__modal-middle__button-panel">
                     <div class="modal__content__modal-middle__button-panel__container">
                         <div class="modal__content__modal-middle__button-panel__row">

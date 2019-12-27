@@ -25,16 +25,14 @@ export class OdfCreatorService {
       return new Promise((resolve, reject) => {
         const checkIfEditorCreated = setInterval( () => {
           if (
-            document.getElementsByTagName('office:text').length &&
+            window['editor'] &&
             window['editor'].getEditorSession() &&
-            window['editor'].getEditorSession().getOdfCanvas()
-            ) {
-            this.originalDocumentBodyClone = document.getElementById(idOfContainer).getElementsByTagName('office:text')[0].cloneNode(true);
-            this.idOfContainer = idOfContainer;
-            this.resizeDocumentContainer();
-            this.commonsService.toggleSpinner();
-            clearInterval(checkIfEditorCreated);
-            resolve('Document ready');
+            document.getElementsByTagName('office:text').length) {
+              this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+              this.idOfContainer = idOfContainer;
+              clearInterval(checkIfEditorCreated);
+              this.commonsService.toggleSpinner();
+              resolve("Document ready");
           }
        }, 300);
       });
@@ -42,6 +40,7 @@ export class OdfCreatorService {
 
   closeAndDestroyEditor() {
     FormBasedDocsApi.closeAndDestroyEditor();
+    window.removeEventListener('resize', this.resizeEvent);
   }
 
   createEditorFromURI(formType: string, idOfContainer: string, dataURI: string) {
@@ -60,7 +59,12 @@ export class OdfCreatorService {
 
   resizeDocumentContainer() {
     this.resizeEvent = () => {
-      FormBasedDocsApi.documentToFitScreen();
+      // Fix weird behaviour in Chrome
+      setTimeout(() => {
+        document.getElementById('webodfeditor-editor1').style.height = document.getElementById('text-area').clientHeight + 'px';
+        document.getElementById('webodfeditor-editor1').style.width = document.getElementById('text-area').clientWidth + 'px';
+        FormBasedDocsApi.documentToFitScreen();
+      }, 10);
     };
     window.addEventListener('resize', this.resizeEvent);
     FormBasedDocsApi.documentToFitScreen();

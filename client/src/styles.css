@@ -4975,6 +4975,15 @@ input[type=checkbox] {
   height: 100%;
 }
 
+@media only screen and (max-width: 590px) {
+  .checkout-panel__body__document-type-selection__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .checkout-panel__body__document-type-selection__button-area {
   width: 100%;
   height: 100%;
@@ -5031,6 +5040,14 @@ input[type=checkbox] {
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
   font-size: 2.5rem;
+  text-align: center;
+  line-height: 2.8rem;
+}
+
+@media only screen and (max-width: 450px) {
+  .checkout-panel__body__document-type-selection__button-area__doc-button span {
+    font-size: 2rem;
+  }
 }
 
 .checkout-panel__body__document-type-selection__button-area__doc-button small {
