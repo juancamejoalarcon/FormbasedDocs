@@ -34,7 +34,9 @@
                 
                 <div class="form-creator__fields-area__top">
                     <div class="form-creator__fields-area__top__container">
-                        <div>
+                        <div class="form-creator__fields-area__top__preview-button" (click)="previewDocumentButton(true);">
+                            Preview Doc 
+                            <span class="icon icon-sort-down-solid"></span>
                         </div>
                         <div class="form-creator__fields-area__top__add-question d-flex" *ngIf="state === 'create-form'">
                             Add
@@ -94,7 +96,7 @@
             *ngIf="this.documentType === 'plain'">
                 {{quillText}}
             </div>
-            <!-- <button class="button-filled button-filled--preview-document" id="scrollToTop" style="display: none;" (click)="previewDocumentButton(false)">Form <span style='font-size:20px;'>&#8593;</span></button> -->
+            <button class="button-filled button-filled--preview-document" id="scrollToTop" style="display: none;" (click)="previewDocumentButton(false)">Form <span style='font-size:20px;'>&#8593;</span></button>
         </div>
     </div>
 </div>

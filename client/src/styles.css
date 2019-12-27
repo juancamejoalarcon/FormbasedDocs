@@ -707,6 +707,10 @@ fieldset {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-sort-down-solid:before {
+  content: "\e900";
+}
+
 .icon-italic-solid:before {
   content: "\e915";
 }
@@ -5355,6 +5359,34 @@ input[type=checkbox] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1rem;
+}
+
+.form-creator__fields-area__top__preview-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all ease-out;
+  transition: all ease-out;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+.form-creator__fields-area__top__preview-button:hover {
+  cursor: pointer;
+  color: #4ECDC4;
+}
+
+.form-creator__fields-area__top__preview-button span {
+  margin-left: 0.4rem;
+  font-size: 1.4rem;
+  margin-top: -10px;
 }
 
 .form-creator__fields-area__top__add-question {

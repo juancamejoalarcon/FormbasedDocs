@@ -244,6 +244,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.commonsService.toggleModal(modal, false);
   }
 
+  previewDocumentButton(setDocumentVisible: boolean) {
+    this.commonsService.previewDocumentButton(setDocumentVisible);
+      this.documentService.resizeEvent();
+  }
+
 
   /********************/
   /****END NEW FORM****/
