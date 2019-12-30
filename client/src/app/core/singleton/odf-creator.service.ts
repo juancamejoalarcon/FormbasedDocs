@@ -153,24 +153,28 @@ export class OdfCreatorService {
 
   setPreview(htmlText: string = '') {
     this.commonsService.toggleSpinner();
-    FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
-      if (err) {
-        alert(err);
-        this.commonsService.toggleSpinner();
-        return;
-      }
-      // TODO: odfcontainer should have a property mimetype
-      const mimetype = 'application/vnd.oasis.opendocument.text';
-      const blob = new Blob([data.buffer], {type: mimetype});
-      window['ODTDOCUMENT'] = blob;
-      this.reader.readAsDataURL(blob);
-      this.reader.onloadend = () => {
-        FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
-          this.init('fillForm', this.reader.result as string, this.idOfContainer).then(() => {
-            this.commonsService.toggleSpinner();
+    return new Promise((resolve, reject) => {
+      FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
+        if (err) {
+          alert(err);
+          this.commonsService.toggleSpinner();
+          return;
+        }
+        // TODO: odfcontainer should have a property mimetype
+        const mimetype = 'application/vnd.oasis.opendocument.text';
+        const blob = new Blob([data.buffer], {type: mimetype});
+        window['ODTDOCUMENT'] = blob;
+        this.reader.readAsDataURL(blob);
+        this.reader.onloadend = () => {
+          FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
+            this.init('fillForm', this.reader.result as string, this.idOfContainer).then(() => {
+              this.resizeEvent();
+              this.commonsService.toggleSpinner();
+              resolve();
+            });
           });
-        });
-      };
+        };
+      });
     });
   }
 
@@ -180,6 +184,7 @@ export class OdfCreatorService {
       FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
         this.init('createForm', this.reader.result as string, this.idOfContainer).then(() => {
           this.setDragAndDropForSetUp();
+          this.resizeEvent();
           this.commonsService.toggleSpinner();
           resolve('Exit preview');
         });

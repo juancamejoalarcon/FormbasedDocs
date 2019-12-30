@@ -75,7 +75,6 @@ export class IndicationsComponent implements OnInit {
   }
 
   changeIndicationsValue(value: string) {
-    console.log(value);
     if (value && value !== '') {
       this.indications.value = value;
       this.indications.areIndications = true;
