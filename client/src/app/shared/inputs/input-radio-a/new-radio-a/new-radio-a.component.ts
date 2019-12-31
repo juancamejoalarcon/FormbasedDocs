@@ -31,7 +31,7 @@ export class NewRadioAComponent implements OnInit, OnDestroy {
       if (this.isNewForm && this.state === 'fill-form') {
         this.delete.nativeElement.querySelector('.remove-radio').style.display = 'none';
       } else if (this.isNewForm) {
-        this.delete.nativeElement.querySelector('.remove-radio').style.display = 'block';
+        this.delete.nativeElement.querySelector('.remove-radio').style.display = 'flex';
       }
     });
 

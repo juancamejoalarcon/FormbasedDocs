@@ -92,8 +92,8 @@
                 </quill-editor>
             </div>
             <!-- Result -->
-            <div class="form-creator__text-area__quill-text-result d-none" id="editor-preview" #textPreviewDiv
-            *ngIf="this.documentType === 'plain'">
+            <div class="form-creator__text-area__quill-text-result ql-container ql-snow d-none" id="editor-preview" #textPreviewDiv
+            *ngIf="this.documentType === 'plain'" style="height: auto;">
                 {{quillText}}
             </div>
             <button class="button-filled button-filled--preview-document" id="scrollToTop" style="display: none;" (click)="previewDocumentButton(false)">Form <span style='font-size:20px;'>&#8593;</span></button>

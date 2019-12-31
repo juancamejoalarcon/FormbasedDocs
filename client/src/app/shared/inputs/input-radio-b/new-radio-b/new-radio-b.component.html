@@ -13,7 +13,7 @@
 
     <input [(ngModel)]="question" type="text" name="radio" (keyup)="onQuestionChange()" *ngIf="state === 'create-form'">
 
-    <div class="modal-button d-block modal-button-radio" (click)="toggleModal()" *ngIf="state === 'create-form'">
+    <div class="modal-button d-flex modal-button-radio" (click)="toggleModal()" *ngIf="state === 'create-form'">
         <span class="icon icon-modal-icon"></span>
     </div>
 

@@ -65,6 +65,9 @@ export class PlainTextCreatorService {
     document.getElementById(this.editorDiv).classList.replace('d-block', 'd-none');
     document.getElementById(this.previewTextDiv).classList.replace('d-none', 'd-block');
     this.quillText = quillText;
+    return new Promise((resolve, reject) => {
+      resolve();
+    });
   }
 
   unsetPreview() {
@@ -154,7 +157,7 @@ export class PlainTextCreatorService {
     while (textPreviewDiv.firstChild) {
       textPreviewDiv.removeChild(textPreviewDiv.firstChild);
     }
-    textPreviewDiv.insertAdjacentHTML('beforeend', textPreview);
+    textPreviewDiv.insertAdjacentHTML('beforeend', `<div class="ql-editor">${textPreview}</div>`);
     this.scrollToElement();
   }
 
