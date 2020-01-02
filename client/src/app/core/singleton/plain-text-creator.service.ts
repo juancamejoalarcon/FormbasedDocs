@@ -7,6 +7,7 @@ export class PlainTextCreatorService {
   public editorDiv: any;
   public previewTextDiv: any;
   public quillText: string;
+  public resizeEvent: any;
 
   constructor(
     private commonsService: CommonsService
@@ -184,5 +185,22 @@ export class PlainTextCreatorService {
     if (focusedElement) {
       focusedElement.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  resizeDocumentContainer() {
+    this.resizeEvent = () => {
+      // 32px equals to 2 rem
+      document.getElementById('editor-container').style.height = (
+        window.innerHeight - (
+          document.querySelector('.nav').clientHeight
+          + document.querySelector('.sub-menu').clientHeight
+          + document.querySelector('.ql-toolbar').clientHeight) - 32) + 'px';
+    };
+    window.addEventListener('resize', this.resizeEvent);
+    setTimeout(() => { this.resizeEvent(); }, 10);
+  }
+
+  destroyResizeDocumentContainer() {
+    window.removeEventListener('resize', this.resizeEvent);
   }
 }

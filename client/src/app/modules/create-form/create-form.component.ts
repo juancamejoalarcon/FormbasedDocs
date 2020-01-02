@@ -136,9 +136,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.documentType === 'office') {
-      this.odfCreatorService.closeAndDestroyEditor();
-      this.odfCreatorService.destroyResizeDocumentContainer();
+    if (this.documentService) {
+      if (this.documentType === 'office') {
+        this.odfCreatorService.closeAndDestroyEditor();
+      }
+    this.documentService.destroyResizeDocumentContainer();
     }
   }
 
@@ -191,8 +193,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.quillModules = this.documentService.quillModules();
       this.customOptions = this.documentService.customOptions();
       this.documentService.init('editor-container', 'editor-preview');
+      this.documentService.resizeDocumentContainer();
       this.setDivHeight();
       window.addEventListener('resize', this.setDivHeight);
+      this.commonsService.resizeEditor(true);
+      window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
     }
     this.stepModelService.init(this.form.fields, this.documentType);
   }
