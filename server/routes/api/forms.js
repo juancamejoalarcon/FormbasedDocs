@@ -7,6 +7,7 @@ const Transaction = mongoose.model('Transaction');
 const auth = require('../auth');
 const url = require('url');
 const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
+const fs = require('fs');
 
 // Preload form objects on routes with ':form'
 router.param('form', function(req, res, next, slug) {
@@ -32,6 +33,12 @@ router.get('/:form', auth.optional, function(req, res, next) {
       const user = results[0];
       // Increments the views if receives view: true
       if (req.query.view) { req.form.updateViewCount() };
+
+      if (req.form.documentType === 'office') {
+        const odtFile = fs.readFileSync(`./tmp/odts/${req.form.slug}.odt`, { encoding: 'base64' });
+        req.form.text = 'data:application/vnd.oasis.opendocument.text;base64,' + odtFile; 
+      }
+
       if (req.form.type === 'Filled') {
         return res.json({form: req.form.toJSONForFill(user)});
       } else {
@@ -45,12 +52,31 @@ router.post('/create', auth.required, function(req, res, next) {
       if (!user) { return res.sendStatus(401); }
   
       const form = new Form(req.body.form);
-  
+      let officeText;
       form.author = user;
       form.type = 'Created';
-  
+      if (form.documentType === 'office') {
+        officeText = form.text;
+        form.text = 'Office Text';
+      }
+
       return form.save().then(function(){
-        return res.json({form: form.toJSONFor(user)});
+        if (form.documentType === 'office') {
+          const name = form.slug;
+          let odt = officeText;
+          odt = odt.replace('data:application/vnd.oasis.opendocument.text;base64,', '');
+          let odtPathName = `./tmp/odts/${name}.odt`;
+          fs.writeFile(odtPathName, odt, 'base64', function(err) {
+            if(err) {
+                console.log(err);
+                return res.json(err);
+            }
+            form.text = '';
+            return res.json({form: form.toJSONFor(user)});
+          });
+        } else {
+          return res.json({form: form.toJSONFor(user)});
+        }
       });
     }).catch(next);
   });
@@ -89,7 +115,7 @@ router.put('/:form', auth.required, function(req, res, next) {
           req.form.description = req.body.form.description;
         }
   
-        if(typeof req.body.form.text !== 'undefined'){
+        if(typeof req.body.form.text !== 'undefined' && req.body.form.documentType !== 'office'){
           req.form.text = req.body.form.text;
         }
   
@@ -126,7 +152,21 @@ router.put('/:form', auth.required, function(req, res, next) {
         }
   
         req.form.save().then(function(form){
-          return res.json({form: form.toJSONFor(user)});
+          if (form.documentType === 'office') {
+            const name = req.body.form.slug;
+            let odt = req.body.form.text;
+            odt = odt.replace('data:application/vnd.oasis.opendocument.text;base64,', '');
+            let odtPathName = `./tmp/odts/${name}.odt`;
+            fs.writeFile(odtPathName, odt, 'base64', function(err) {
+              if(err) {
+                  console.log(err);
+                  return res.json(err);
+              }
+              return res.json({form: form.toJSONFor(user)});
+            });
+          } else {
+            return res.json({form: form.toJSONFor(user)});
+          }
         }).catch(next);
       } else {
         return res.sendStatus(403);
@@ -142,7 +182,13 @@ router.delete('/:form', auth.required, function(req, res, next) {
       if (req.form.type === 'Created') {
         if(req.form.author._id.toString() === req.payload.id.toString()){
           return req.form.remove().then(function(){
-            return res.sendStatus(204);
+            if (req.form.documentType === 'office') {
+              fs.unlink(`./tmp/odts/${req.form.slug}.odt`, () => {
+                return res.sendStatus(204);
+              });
+            } else {
+              return res.sendStatus(204);
+            }
           });
         } else {
           return res.sendStatus(403);
