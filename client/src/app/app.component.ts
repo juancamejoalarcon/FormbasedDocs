@@ -76,8 +76,11 @@ export class AppComponent implements OnInit {
         } else {
           this.footer.nativeElement.hidden = false;
         }
+        this.putFooterAtBottom();
       }
     });
+
+    window.addEventListener('resize', this.putFooterAtBottom.bind(this));
   }
 
   included(url: string, includedUrls: Array<string>) {
@@ -101,6 +104,16 @@ export class AppComponent implements OnInit {
       this.footer.nativeElement.hidden = true;
     } else {
       this.footer.nativeElement.hidden = false;
+    }
+  }
+
+  putFooterAtBottom() {
+    const bottomOfFooter = document.getElementsByTagName('footer')[0].getBoundingClientRect().bottom;
+    if (bottomOfFooter < window.innerHeight) {
+      if (!this.footer.nativeElement.hidden) {
+        console.log('pasa');
+        this.footer.nativeElement.style.marginTop = (window.innerHeight - this.footer.nativeElement.getBoundingClientRect().bottom) + 'px';
+      }
     }
   }
 }
