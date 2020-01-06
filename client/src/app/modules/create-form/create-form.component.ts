@@ -13,13 +13,13 @@ import {
 } from '../../core';
 import { InputTextComponent,
   InputRadioAComponent,
-  InputRadioBComponent,
-  InputRadioCComponent
- } from '../../shared';
+  InputRadioBComponent
+ } from './inputsSchema';
 import { ToastrService } from 'ngx-toastr';
 
 import * as Sortable from 'sortablejs';
 import * as screenfull from 'screenfull';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-form',
@@ -48,8 +48,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   public inputs: Array<any> = [
     InputTextComponent,
     InputRadioAComponent,
-    InputRadioBComponent,
-    InputRadioCComponent];
+    InputRadioBComponent
+  ];
   public quillText = '';
   public customOptions: any;
   public quillModules: any;
@@ -117,7 +117,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           this.textPreview = data.form.text;
           this.form = data.form;
           this.formGroup.patchValue(data.form);
-          this.fields = this.form.fields;
+          // this.fields = this.form.fields;
           this.form.documentType = data.form.documentType;
           this.updatingForm = true;
           setTimeout(() => {
@@ -243,8 +243,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   injectComponent(component: Object) {
-    this.componentInjectorService.appendComponentToBody('Component', component, 'formAreaDiv', 'formAreaDiv', 'divWhereIsDeleteButton', {});
-    this.injectedComponents = this.formAreaDiv.nativeElement.querySelectorAll('.inputCollection');
+    const copyObjectComponent = JSON.parse(JSON.stringify(component));
+    this.stepModelService.addNewStep(copyObjectComponent);
   }
 
   toogleModal(modal: ElementRef) {
@@ -308,7 +308,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   submitForm() {
     if (this.validate()) {
       // Checks if user has introduced any input, if not user cannot submit unless user is updating the form
-      if (this.injectedComponents || this.updatingForm) {
+      if (this.form.fields.length || this.updatingForm) {
         // saves author Form
 
         // saves the generated text

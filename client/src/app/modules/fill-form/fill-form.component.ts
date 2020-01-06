@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { 
   Form,
@@ -17,12 +17,14 @@ import * as screenfull from 'screenfull';
   selector: 'app-fill-form',
   templateUrl: './fill-form.component.html'
 })
-export class FillFormComponent implements OnInit, OnDestroy {
+export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
   @ViewChild('formBasedDocDiv') formBasedDocDiv: ElementRef;
   @ViewChild('linkFormButton') linkFormButton: ElementRef;
+  @ViewChild('progressBar') progressBar: ElementRef;
   @ViewChild('modal') modal: ElementRef;
+  @ViewChild('modalDownload') modalDownload: ElementRef;
 
   @ViewChild('subMenu') subMenu: ElementRef;
 
@@ -82,6 +84,12 @@ export class FillFormComponent implements OnInit, OnDestroy {
       } );
   }
 
+  ngAfterViewInit() {
+    if (this.form.documentType === 'plain') {
+      this.stepModelService.setInitialState();
+    }
+  }
+
   ngOnDestroy() {
     if (this.form.documentType === 'office') {
       this.odfCreatorService.closeAndDestroyEditor();
@@ -93,11 +101,6 @@ export class FillFormComponent implements OnInit, OnDestroy {
     this.stateService.setState('fill-form');
     this.stateService.setDocumentType(this.form.documentType);
     this.documentType = this.form.documentType;
-  }
-
-  generateText() {
-    // Save user form settings
-    // this.form.fields = newFieldsToSave;
   }
 
   submitForm() {
@@ -161,6 +164,9 @@ export class FillFormComponent implements OnInit, OnDestroy {
       window.addEventListener('resize', this.setDivHeight);
       this.documentService = this.odfCreatorService;
       this.documentService.init('fillForm', this.form.text, 'editorContainer').then( data => {
+        this.commonsService.resizeEditor(true);
+        window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
+        this.odfCreatorService.resizeDocumentContainer();
         this.commonsService.toggleSpinner();
         this.documentService.setDragAndDropForSetUp();
         this.stepModelService.init(this.form.fields, this.documentType);
@@ -172,8 +178,9 @@ export class FillFormComponent implements OnInit, OnDestroy {
       this.documentService.setQuillText(this.form.text);
       this.setDivHeight();
       window.addEventListener('resize', this.setDivHeight);
+      this.commonsService.resizeEditor(true);
+      window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.stepModelService.init(this.form.fields, this.documentType);
-      // this.stepModelService.setInitialState();
       this.commonsService.toggleSpinner();
     }
   }
@@ -210,7 +217,52 @@ export class FillFormComponent implements OnInit, OnDestroy {
   }
 
   updateProgressBarPercentage() {
-    this.progresBarPercentage = Math.round(((this.currentStep / this.form.fields.length) * 100)) + '%';
+    if (this.progressBar && this.currentStep) {
+      const oldPercentage = Math.round(((this.currentStep / (this.form.fields.length + 1)) * 100));
+      const currentPercentage = parseInt(this.progresBarPercentage, 10);
+      const difference = (oldPercentage > currentPercentage) ? (oldPercentage - currentPercentage) : (currentPercentage - oldPercentage);
+      for (let i = 0; i < difference + 1; i++) {
+        setTimeout(() => {
+          const newPercentage = (oldPercentage > currentPercentage) ? (currentPercentage + i) : (currentPercentage - i)
+          this.progressBar.nativeElement.style.width = newPercentage + '%';
+          this.progresBarPercentage = newPercentage + '%';
+        }, 10 * i);
+      }
+    } else {
+      this.progresBarPercentage = Math.round(((this.currentStep / (this.form.fields.length + 1)) * 100)) + '%';
+    }
   }
 
+  previewDocumentButton(setDocumentVisible: boolean) {
+    this.commonsService.previewDocumentButton(setDocumentVisible);
+    if (this.form.documentType === 'office') {
+      this.documentService.resizeEvent();
+    }
+  }
+
+  downloadWord() {
+    this.documentService.downloadWord(this.form.slug, this.form.uri);
+  }
+
+  downloadPdf() {
+    this.documentService.downloadPdf(this.form.slug, this.form.uri);
+  }
+
+  downloadHtml() {
+    const blob = new Blob([this.formBasedDocDiv.nativeElement.outerHTML], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${this.form.slug}.html`;
+    a.click();
+  }
+
+  downloadTxt() {
+    const blob = new Blob([this.formBasedDocDiv.nativeElement.textContent], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${this.form.slug}.txt`;
+    a.click();
+  }
 }

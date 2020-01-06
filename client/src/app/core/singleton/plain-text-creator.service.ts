@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CommonsService } from '../http';
+import { CommonsService } from './commons.service';
 
 @Injectable()
 export class PlainTextCreatorService {
@@ -166,8 +166,13 @@ export class PlainTextCreatorService {
     let textPreview: string = this.quillText;
     steps.forEach((step: any) => {
       if (step.type === 'iText' || step.type === 'iRadioA' || step.type === 'iRadioB') {
-        const replacement =
+        let replacement: string;
+        if (step.isFocused) {
+          replacement =
         `<mark id="${step.isFocused ? 'focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</mark>`;
+        } else {
+          replacement = `<span data-identifier="${step.wordToReplace}">${step.replacement}</span>`;
+        }
         textPreview = textPreview.replace(step.wordToReplace, replacement);
       } else if (step.type === 'iRadioC') {
         // this.buildForRadioC(step);

@@ -77,15 +77,17 @@ export class NewRadioAComponent implements OnInit, OnDestroy {
   }
 
   onInputChange(checked: boolean) {
-    this.stepModelService.getStepsModel().forEach((step: any) => {
-      if (step.identifier === this.identifier) {
-        step.radios.forEach((radio: NewRadioA) => {
-          radio.checked = false;
-        });
-        this.radio.checked = checked;
-        this.stepModelService.input(this.radioValue, step.type, step.wordToReplace, true);
-      }
-    });
+    if (this.state !== 'create-form') {
+      this.stepModelService.getStepsModel().forEach((step: any) => {
+        if (step.identifier === this.identifier) {
+          step.radios.forEach((radio: NewRadioA) => {
+            radio.checked = false;
+          });
+          this.radio.checked = checked;
+          this.stepModelService.input(this.radioValue, step.type, step.wordToReplace, true);
+        }
+      });
+    }
   }
 
   onQuestionChange() {

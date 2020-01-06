@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CommonsService } from '../http';
+import { ConvertService } from '../http';
+import { CommonsService } from './commons.service';
 import * as FormBasedDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
 
 @Injectable()
@@ -13,6 +14,7 @@ export class OdfCreatorService {
 
   constructor(
     private commonsService: CommonsService,
+    private convertService: ConvertService
   ) { }
 
   init(formType: string, uri: string = '', idOfContainer: string) {
@@ -36,6 +38,10 @@ export class OdfCreatorService {
           }
        }, 300);
       });
+  }
+
+  getEditorSession() {
+    return FormBasedDocsApi.getEditorSession();
   }
 
   closeAndDestroyEditor() {
@@ -230,7 +236,7 @@ export class OdfCreatorService {
   /*END OF INDICATIONS**********/
   /*****************************/
 
-  buildDocument(steps: any) {
+  buildDocument(steps: any, scrollToElement: boolean) {
     this.currentDocumentBodyClone = this.originalDocumentBodyClone.cloneNode(true);
     // 1.- Change doc structure
     this.structuralChanges(steps);
@@ -240,14 +246,23 @@ export class OdfCreatorService {
     document.getElementsByTagName('office:text')[0].parentElement.replaceChild(
       this.currentDocumentBodyClone.cloneNode(true), document.getElementsByTagName('office:text')[0]
     );
-    this.scrollToElementWithClass('focused');
+    this.getEditorSession().getOdfCanvas().refreshSize();
+    if (scrollToElement) {
+      this.scrollToElementWithClass('focused');
+    }
   }
 
   scrollToElementWithClass(className: any, offset = 0) {
     const element = document.querySelector('.' + className);
     if (element) {
-      element.parentElement
-      .scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+      const cont = document.getElementById('webodfeditor-canvascontainer1');
+      const h = cont.clientHeight / 2;
+      const elementTop = element.getBoundingClientRect().top;
+      const pos = cont.scrollTop + elementTop - h;
+      cont.scrollTo({
+        top: pos,
+        behavior: 'smooth'
+      });
     }
   }
 
@@ -370,4 +385,65 @@ export class OdfCreatorService {
       ];
       return excludedElements.includes(element.nodeName);
     }
+
+  saveUri() {
+    const reader = new FileReader();
+    return new Promise((resolve, reject) => {
+      FormBasedDocsApi.getEditor().getDocumentAsByteArray((err, data) => {
+        if (err) {
+          alert(err);
+          return;
+        }
+        const mimetype = 'application/vnd.oasis.opendocument.text',
+        blob = new Blob([data.buffer], {type: mimetype});
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+            resolve(reader.result as string);
+        };
+      });
+    });
+  }
+  downloadWord(formId: string, formURI: string) {
+    this.commonsService.toggleSpinner();
+    this.saveUri().then((uri: string) => {
+      this.convertService.toWord(formId, uri).subscribe((data) => {
+        const byteString = atob(data.word.split(',')[1]);
+        const mimeString = data.word.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([ab], {type: mimeString});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'word.doc';
+        a.click();
+        this.commonsService.toggleSpinner();
+      });
+    });
+  }
+
+  downloadPdf(formId: string, formURI: string) {
+    this.commonsService.toggleSpinner();
+    this.saveUri().then((uri: string) => {
+      this.convertService.toPdf(formId, uri).subscribe((data) => {
+        const byteString = atob(data.pdf.split(',')[1]);
+        const mimeString = data.pdf.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([ab], {type: mimeString});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'document.pdf';
+        a.click();
+        this.commonsService.toggleSpinner();
+      });
+    });
+  }
 }

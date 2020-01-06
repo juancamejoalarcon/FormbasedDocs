@@ -34,9 +34,7 @@
                 *ngIf="state === 'fill-form'">{{question}}</span>
 
                 <div #radios id="{{referenceNumber}}">
-                    <span *ngIf="!isNewForm">
-                      <app-new-radio-a *ngFor="let radio of field.radios" [field]="radio"></app-new-radio-a>
-                    </span>
+                    <app-new-radio-a *ngFor="let radio of field.radios" [field]="radio"></app-new-radio-a>
                 </div>
 
                 <div class="form-creator__fields-area__field__middle__add-another-radio-button d-flex"

@@ -16,14 +16,14 @@ import {
   SearchService,
   TagsService,
   UserService,
-  CommonsService,
   ComponentInjectorService
 } from './http';
 import {
   StepModelService,
   StateService,
   OdfCreatorService,
-  PlainTextCreatorService
+  PlainTextCreatorService,
+  CommonsService
 } from './singleton';
 
 @NgModule({

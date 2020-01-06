@@ -52,7 +52,7 @@
                     <!-- PROGRESSBAR -->
                     <div class="progress-container" *ngIf="this.currentStep !== 0">
                         <div class="progress progress-large">
-                            <span [style.width]="progresBarPercentage">{{progresBarPercentage}}</span>
+                            <span [style.width]="progresBarPercentage" #progressBar>{{progresBarPercentage}}</span>
                         </div>
                     </div>
                     <!-- END OF PROGRESSBAR -->
@@ -78,8 +78,28 @@
                             <app-input-text *ngIf="field['type'] == 'iText'" [field]="field"></app-input-text>
                             <app-input-radio-a *ngIf="field['type'] == 'iRadioA'" [field]="field"></app-input-radio-a>
                             <app-input-radio-b *ngIf="field['type'] == 'iRadioB'" [field]="field"></app-input-radio-b>
-                            <!-- <app-input-radio-c *ngIf="field['type'] == 'iRadioC'" [state]="state" [field]="field"></app-input-radio-c> -->
                         </div>
+                        <!-- END -->
+                        <div class="form-creator__fields-area__middle__container" *ngIf="this.currentStep === this.form.fields.length + 1">
+                            <div class="form-creator__fields-area__field">
+                                <div class="form-creator__fields-area__field__container">
+                                    <div class="form-creator__fields-area__end-step">
+                                        <div class="form-creator__fields-area__end-step__container">
+                                            <span class=" form-creator__fields-area__end-step__check icon icon-check-circle-solid"></span>
+                                            <h1>Finalizado</h1>
+                                            <button class="button-filled button-filled--start-form trigger" (click)="this.toogleModal(this.modalDownload);">Descargar</button>
+                                            <div class="form-creator__fields-area__end-step__icons">
+                                                <span class="icon icon-file-word-solid trigger"  *ngIf="this.form.documentType === 'office'"></span>
+                                                <span class="icon icon-file-pdf-solid"  *ngIf="this.form.documentType === 'office'"></span>
+                                                <span class="icon icon-file-download-solid"  *ngIf="this.form.documentType === 'plain'"></span>
+                                                <span class="icon icon-file-code-solid"  *ngIf="this.form.documentType === 'plain'"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END OF END -->
                     </div>
                 </div>
                 <!-- START -->
@@ -108,8 +128,11 @@
                             <span class="icon icon-chevron-left-solid"></span>
                             <span class="form-creator__fields-area__bottom__arrow-button__label">Anterior</span>
                         </div>
+                        <div class="form-creator__fields-area__bottom__preview-button" (click)="previewDocumentButton(true);">
+                            Preview <span>⬇</span>
+                          </div>
                         <div class="form-creator__fields-area__bottom__arrow-button" (click)="nextStepAfterValidate()" 
-                            *ngIf="this.form.fields.length >= 2 && currentStep !== this.form.fields.length">
+                            *ngIf="this.form.fields.length >= 2 && currentStep !== this.form.fields.length + 1">
                             <span class="form-creator__fields-area__bottom__arrow-button__label">Siguiente</span>
                             <span class="icon icon-chevron-right-solid"></span>
                         </div>
@@ -120,8 +143,8 @@
         <div class="form-creator__text-area" id="text-area"
         [ngClass]="{'form-creator__text-area--quill-text': this.form.documentType === 'plain'}">
             <!-- Create the editor container -->
-            <div class="form-creator__text-area__quill-text-result"  id="editor-preview" #formBasedDocDiv
-            *ngIf="this.form.documentType === 'plain'">
+            <div class="form-creator__text-area__quill-text-result ql-container ql-snow"  id="editor-preview" #formBasedDocDiv
+            *ngIf="this.form.documentType === 'plain'" style="height: auto;">
                 {{generatedText}}
             </div>
             <!-- Office document -->
@@ -129,6 +152,7 @@
                 <div id="editorContainer" style="width:100%; height:100%; margin:0px; padding:0px">
                 </div>
             </div>
+            <button class="button-filled button-filled--preview-document" id="scrollToTop" style="display: none;" (click)="previewDocumentButton(false)">Form <span style='font-size:20px;'>&#8593;</span></button>
         </div>
     </div>
 </div>
@@ -150,6 +174,24 @@
         </div>
         <div class="modal__content__modal-bottom modal__content__modal-bottom--privacy">
             <button class="button-filled" id="modal-button" (click)="toogleModal(modal); setCurrentStep(currentStep + 1);">Rellenar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" #modalDownload>
+    <div class="modal__content" style="padding: 2rem">
+        <div class="modal__content__modal-middle modal__content__modal-middle--change-password">
+            <div class="modal__content__modal-middle__container">
+                <div class="download-documents-modal">
+                    <span class="icon icon-file-word-solid" (click)="downloadWord()" *ngIf="this.form.documentType === 'office'"></span>
+                    <span class="icon icon-file-pdf-solid" (click)="downloadPdf()" *ngIf="this.form.documentType === 'office'"></span>
+                    <span class="icon icon-file-download-solid" (click)="downloadTxt()" *ngIf="this.form.documentType === 'plain'"></span>
+                    <span class="icon icon-file-code-solid" (click)="downloadHtml()" *ngIf="this.form.documentType === 'plain'"></span>
+                </div>
+            </div>
+        </div>
+        <div class="modal__content__modal-bottom">
+            <button class="button-filled" id="modal-button" (click)="toogleModal(modalDownload)">Cancelar</button>
         </div>
     </div>
 </div>

@@ -66,9 +66,13 @@ export class InputTextComponent implements OnInit, OnDestroy {
       this.step = this.field;
       this.isNewForm = false;
       this.mandatory = this.step.mandatory;
-      this.referenceNumber = this.step.identifier;
       this.indications = this.step.indications;
       this.question = this.step.question;
+      if (this.step.identifier) {
+        this.referenceNumber = this.step.identifier;
+      } else {
+        this.getRandomId();
+      }
     }
     this.stateService.stateSubscribe().subscribe( (state: string) => {
       this.state = state;
@@ -198,6 +202,7 @@ export class InputTextComponent implements OnInit, OnDestroy {
   }
 
   input(replacement: string) {
+    console.log(this.step.wordToReplace);
     this.stepModelService.input(replacement, this.step.type, this.step.wordToReplace);
   }
 

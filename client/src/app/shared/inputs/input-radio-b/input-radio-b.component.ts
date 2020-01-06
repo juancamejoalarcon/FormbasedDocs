@@ -73,9 +73,13 @@ export class InputRadioBComponent implements OnInit, OnDestroy {
       this.step = this.field;
       this.isNewForm = false;
       this.mandatory = this.step.mandatory;
-      this.referenceNumber = this.step.identifier;
       this.indications = this.step.indications;
       this.question = this.step.question;
+      if (this.step.identifier) {
+        this.referenceNumber = this.step.identifier;
+      } else {
+        this.getRandomId();
+      }
     }
     this.stateService.stateSubscribe().subscribe( (state: string) => {
       this.state = state;
@@ -204,9 +208,15 @@ export class InputRadioBComponent implements OnInit, OnDestroy {
   }
 
   addNewRadio() {
-    this.componentInjectorService.appendComponentToBody(
-                                        'Radio', NewRadioBComponent, this.referenceNumber, 'parentId' + this.referenceNumber,
-                                        'divWhereIsDeleteButton', { identifier: this.referenceNumber});
+    this.step.radios.push({
+      label: '',
+      replacementOriginal: '',
+      replacement: '',
+      radioId: '',
+      identifier: this.referenceNumber,
+      extraReplacements: [],
+      checked: false
+    });
   }
 
   onMandatoryChange(mandatory: boolean) {

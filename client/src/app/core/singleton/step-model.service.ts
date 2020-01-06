@@ -39,7 +39,7 @@ export class StepModelService {
           break;
       }
     });
-    this.buildDocument();
+    this.buildDocument(false);
   }
 
   addNewStep(step: object) {
@@ -50,8 +50,8 @@ export class StepModelService {
     this.stepsEvent.next('remove-step');
   }
 
-  buildDocument() {
-    this.documentService.buildDocument(this.steps);
+  buildDocument(scrollToElement: boolean = true) {
+    this.documentService.buildDocument(this.steps, scrollToElement);
   }
 
   input(replacement: string, inputType: string, wordToReplace: string, buildDocumentAfter: boolean = true) {

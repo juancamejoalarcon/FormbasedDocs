@@ -707,6 +707,22 @@ fieldset {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-copy-solid:before {
+  content: "\e901";
+}
+
+.icon-file-code-solid:before {
+  content: "\e902";
+}
+
+.icon-file-download-solid:before {
+  content: "\e903";
+}
+
+.icon-copy-regular:before {
+  content: "\e904";
+}
+
 .icon-sort-down-solid:before {
   content: "\e900";
 }
@@ -4039,6 +4055,12 @@ input[type=checkbox] {
 
 .sub-menu__likes-views__likes {
   padding-right: 0.8rem;
+  z-index: 3;
+}
+
+.sub-menu__likes-views .like-form-button:hover {
+  cursor: pointer;
+  color: #556270;
 }
 
 @media only screen and (max-width: 590px) {

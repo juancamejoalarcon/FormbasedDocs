@@ -2,7 +2,8 @@ import { Component,
          OnInit,
          ViewChild,
          Input,
-         ElementRef } from '@angular/core';
+         ElementRef, 
+         OnDestroy} from '@angular/core';
 import { StateService, StepModelService } from '../../../../core';
 import { NewRadioB } from './new-radio-b.interface';
 
@@ -10,7 +11,7 @@ import { NewRadioB } from './new-radio-b.interface';
   selector: 'app-new-radio-b',
   templateUrl: './new-radio-b.component.html'
 })
-export class NewRadioBComponent implements OnInit {
+export class NewRadioBComponent implements OnInit, OnDestroy {
 
   @Input() field: any;
   @Input() valueRadio: any;
@@ -87,15 +88,17 @@ export class NewRadioBComponent implements OnInit {
   }
 
   onInputChange(checked: boolean) {
-    this.stepModelService.getStepsModel().forEach((step: any) => {
-      if (step.identifier === this.identifier) {
-        step.radios.forEach((radio: NewRadioB) => {
-          radio.checked = false;
-        });
-        this.radio.checked = checked;
-        this.stepModelService.input(this.radioValue, step.type, step.wordToReplace, true);
-      }
-    });
+    if (this.state !== 'create-form') {
+      this.stepModelService.getStepsModel().forEach((step: any) => {
+        if (step.identifier === this.identifier) {
+          step.radios.forEach((radio: NewRadioB) => {
+            radio.checked = false;
+          });
+          this.radio.checked = checked;
+          this.stepModelService.input(this.radioValue, step.type, step.wordToReplace, true);
+        }
+      });
+    }
   }
 
   onValueChanged() {
