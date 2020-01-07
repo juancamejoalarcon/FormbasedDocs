@@ -3,7 +3,7 @@
         <img src="{{
             !comment.author.image ? 'assets/images/avatar.jpeg' : comment.author.image
         }}" alt="avatar">
-        <h4>{{comment.author.username}}</h4>
+        <h4 [routerLink]="['/profile', comment.author.username]">{{comment.author.username}}</h4>
     </div>
     <span class="comments__comment__top__date">{{comment.updatedAt | date: 'dd/MM/yyyy'}}</span>
 </div>
