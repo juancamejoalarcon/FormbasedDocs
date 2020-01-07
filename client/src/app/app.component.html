@@ -1,71 +1,75 @@
-<nav class="nav" #navbar>
-  <div class="nav__container">
-    <img src="/assets/images/logo.png" alt="logo" class="nav__logo" routerLink="/search">
-    <ul class="nav__menu">
-      <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current">
-        <a routerLink="/search">Search</a>
-      </li>
-      <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
-        <a routerLink="/auth/login" i18n="@@myName">Create form</a>
-      </li>
-      <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
-        <a routerLink="/create-form">Create form</a>
-      </li>
-      <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
-        <a routerLink="/my-forms">My forms</a>
-      </li>
-      <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
-        <a routerLink="/settings">Settings</a>
-      </li>
-      <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
-        <a routerLink="/auth/login">Login</a>
-      </li>
-    </ul>
+<div class="navbar-and-main">
+  <div>
+    <nav class="nav" #navbar>
+      <div class="nav__container">
+        <img src="/assets/images/logo.png" alt="logo" class="nav__logo" routerLink="/search">
+        <ul class="nav__menu">
+          <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current">
+            <a routerLink="/search">Search</a>
+          </li>
+          <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
+            <a routerLink="/auth/login" i18n="@@myName">Create form</a>
+          </li>
+          <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
+            <a routerLink="/create-form">Create form</a>
+          </li>
+          <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
+            <a routerLink="/my-forms">My forms</a>
+          </li>
+          <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
+            <a routerLink="/settings">Settings</a>
+          </li>
+          <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
+            <a routerLink="/auth/login">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- SPINNER -->
+    <app-loading-spinner></app-loading-spinner>
+      <!-- END OF SPINNER -->
+
+    <router-outlet></router-outlet>
   </div>
-</nav>
 
-<!-- SPINNER -->
-<app-loading-spinner></app-loading-spinner>
-  <!-- END OF SPINNER -->
-
-<router-outlet></router-outlet>
-
-<footer class="footer" #footer>
-  <div class="footer__container">
-    <div class="footer__social">
-      <ul class="footer__social__links">
-        <li>
-          <a href="www.google.com">
-            <span class="icon icon-facebook-f-brands"></span>
-          </a>
-        </li>
-        <li>
-          <a href="www.google.com">
-            <span class="icon icon-twitter-brands"></span>
-          </a>
-        </li>
-        <li>
-          <a href="www.google.com">
-            <span class="icon icon-google-plus-g-brands"></span>
-          </a>
-        </li>
-      </ul>
+  <footer class="footer" #footer>
+    <div class="footer__container">
+      <div class="footer__social">
+        <ul class="footer__social__links">
+          <li>
+            <a href="www.google.com">
+              <span class="icon icon-facebook-f-brands"></span>
+            </a>
+          </li>
+          <li>
+            <a href="www.google.com">
+              <span class="icon icon-twitter-brands"></span>
+            </a>
+          </li>
+          <li>
+            <a href="www.google.com">
+              <span class="icon icon-google-plus-g-brands"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__email">
+        <a href="">formbaseddocs@gmail</a>
+      </div>
+      <div class="footer__legal">
+        <ul class="footer__legal__links">
+          <li>
+            <a routerLink="/static-pages/condiciones-uso">Condiciones de uso</a>
+          </li>
+          <li>
+            <a href="">Nota de privacidad</a>
+          </li>
+          <li>
+            <span>© 2019 Camejo Alarcón abogados</span>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="footer__email">
-      <a href="">formbaseddocs@gmail</a>
-    </div>
-    <div class="footer__legal">
-      <ul class="footer__legal__links">
-        <li>
-          <a routerLink="/static-pages/condiciones-uso">Condiciones de uso</a>
-        </li>
-        <li>
-          <a href="">Nota de privacidad</a>
-        </li>
-        <li>
-          <span>© 2019 Camejo Alarcón abogados</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</footer>
+  </footer>
+</div>
