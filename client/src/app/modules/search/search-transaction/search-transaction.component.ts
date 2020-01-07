@@ -37,13 +37,13 @@ export class SearchTransactionComponent implements OnInit, OnDestroy {
     this.formService.getPaidCertifiedForm(this.transactionId).subscribe((data: any) => {
       if (data.certifiedForm) {
         this.router.navigate([('/certified-forms/' + data.certifiedForm.id)], { queryParams: { transactionId: this.transactionId } });
-        this.commonsService.toastMessage('success', 'Transaction found', 'Transaction found');
+        this.commonsService.toastMessage('success', 'Transacción encontrada', 'Transacción encontrada');
       } else if (data.transactionNotFound) {
         this.transactionIdInput.nativeElement.style.borderBottom = '3px solid #C44D58';
-        this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
+        this.commonsService.toastMessage('error', 'El ID de su transacción no existe', 'ID no encontrado');
       } else if (data.formExpired) {
         this.transactionIdInput.nativeElement.style.borderBottom = '3px solid #C44D58';
-        this.commonsService.toastMessage('error', 'The period of 30 days to change the document has expired', 'Transaction expired');
+        this.commonsService.toastMessage('error', 'El período de 15 días para cambiar el documento ha terminado', 'Transaccion caducada');
       }
     });
   }
