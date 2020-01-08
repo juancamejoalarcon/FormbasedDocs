@@ -9,13 +9,13 @@
         </div>
         <ul class="sub-menu__nav sub-menu__nav--form" (click)="topMenuNav($event)">
             <li class="sub-menu__nav__button sub-menu__nav__button--current" data-toogle="form-creator" #linkFormButton>
-                Form
+                Formulario
             </li>
             <li class="sub-menu__nav__button" data-toogle="information" #linkInformationButton>
-                Information
+                Info
             </li>
             <li class="sub-menu__nav__button" data-toogle="comments" *ngIf="updatingForm">
-                Comments
+                Comentarios
             </li>
         </ul>
         <div class="sub-menu__right-button">
@@ -39,7 +39,7 @@
                             <span class="icon icon-sort-down-solid"></span>
                         </div>
                         <div class="form-creator__fields-area__top__add-question d-flex" *ngIf="state === 'create-form'">
-                            Add
+                            Añadir
                             <span class="icon icon-plus-circle-solid" (click)="toogleModal(addQuestionMenuModal, true)"></span>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
         <div class="information__section-left">
             <input formControlName="title" type="text" placeholder="Título" #title>
             <textarea formControlName="description" name="description" id="description" cols="30" 
-            rows="6" placeholder="description" #description (keyup)=validateDescription($event)></textarea>
+            rows="6" placeholder="Descripción" #description (keyup)=validateDescription($event)></textarea>
             <!-- <textarea formControlName="indications" name="indications" id="description" cols="30" rows="10" placeholder="indications"></textarea> -->
             <div class="information__section-left__indications">
                 <!-- Create the editor container -->
@@ -237,7 +237,7 @@
                             </span>
                             <button class="button-filled button-filled--add-new-question"
                             (click)="injectComponent(inputs[0]); toogleModal(addQuestionMenuModal); setCurrentStep(this.form.fields.length - 1);" >
-                                Add
+                                Añadir
                                 <span class="icon icon-plus-solid"></span>
                             </button>
                         </div>
@@ -248,7 +248,7 @@
                             </span>
                             <button class="button-filled button-filled--add-new-question"
                             (click)="injectComponent(inputs[1]); toogleModal(addQuestionMenuModal); setCurrentStep(this.form.fields.length - 1);">
-                                Add
+                                Añadir
                                 <span class="icon icon-plus-solid"></span>
                             </button>
                         </div>
@@ -259,7 +259,7 @@
                             </span>
                             <button class="button-filled button-filled--add-new-question"
                             (click)="injectComponent(inputs[2]); toogleModal(addQuestionMenuModal); setCurrentStep(this.form.fields.length - 1);">
-                                Add
+                                Añadir
                                 <span class="icon icon-plus-solid"></span>
                             </button>
                         </div>

@@ -26,9 +26,9 @@
     </div>
     <div class="comments__comment__bottom" [ngClass]="{'comment-d-none': isEditing}">
         <div class="comments__comment__bottom__likes">
-            <span class="icon icon-like-button" *ngIf="!isAuth"></span>
+            <span class="icon icon-thumbs-up-regular" *ngIf="!isAuth"></span>
             <span class="icon icon-thumbs-up-regular comment-not-liked" (click)="likeComment()" *ngIf="!comment.liked && isAuth"></span>
-            <span class="icon icon-like-button comment-liked" *ngIf="comment.liked && isAuth" (click)="dislikeComment()"></span>
+            <span class="icon icon-thumbs-up comment-liked" *ngIf="comment.liked && isAuth" (click)="dislikeComment()"></span>
 
             <span> &emsp; {{ comment.likesCount }}</span>
         </div>

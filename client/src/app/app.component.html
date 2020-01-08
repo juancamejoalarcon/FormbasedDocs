@@ -5,22 +5,22 @@
         <img src="/assets/images/logo.png" alt="logo" class="nav__logo" routerLink="/search">
         <ul class="nav__menu">
           <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current">
-            <a routerLink="/search">Search</a>
+            <a routerLink="/search" i18n="@@search">Buscar</a>
           </li>
           <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
-            <a routerLink="/auth/login" i18n="@@myName">Create form</a>
+            <a routerLink="/auth/login" i18n="@@createForm">Crear</a>
           </li>
           <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
-            <a routerLink="/create-form">Create form</a>
+            <a routerLink="/create-form">Crear</a>
           </li>
           <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
-            <a routerLink="/my-forms">My forms</a>
+            <a routerLink="/my-forms">Mis formularios</a>
           </li>
           <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
-            <a routerLink="/settings">Settings</a>
+            <a routerLink="/settings">Ajustes</a>
           </li>
           <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
-            <a routerLink="/auth/login">Login</a>
+            <a routerLink="/auth/login">Iniciar sesión</a>
           </li>
         </ul>
       </div>
