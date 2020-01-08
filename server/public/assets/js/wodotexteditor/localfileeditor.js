@@ -172,7 +172,7 @@ function createEditor(formType, idOfContainer) {
         directTextStylingEnabled: formType === 'fillForm' ? false : true,
         directParagraphStylingEnabled: formType === 'fillForm' ? false : true,
         paragraphStyleSelectingEnabled: formType === 'fillForm' ? false : true,
-        paragraphStyleEditingEnabled: false,
+        paragraphStyleEditingEnabled: formType === 'fillForm' ? false : true,
         imageEditingEnabled: formType === 'fillForm' ? false : true,
         hyperlinkEditingEnabled: formType === 'fillForm' ? false : true,
         annotationsEnabled: formType === 'fillForm' ? false : true,
