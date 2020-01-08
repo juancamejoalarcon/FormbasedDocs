@@ -1,7 +1,7 @@
 <div style="width: 100%;">
     <div class="comments__new-comment" *appShowAuthed="true">
         <textarea cols="70" rows="5" #commentTextArea></textarea>
-        <input type="submit" value="Comment" (click)="addComment(commentTextArea.value)" [disabled]="isSubmitting">
+        <input type="submit" value="Comentar" (click)="addComment(commentTextArea.value)" [disabled]="isSubmitting">
     </div>
     <div class="comments__new-comment" *appShowAuthed="false">
         <textarea cols="70" rows="5" disabled style="background-color:#ECF9F8;"></textarea>
