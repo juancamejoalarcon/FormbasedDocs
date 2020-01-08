@@ -11,14 +11,14 @@ REUNIDOS
 
 De una parte,
 
-TT, mayor de edad, con domicilio en GHJ, con D.N.I número ________, y en su propio nombre y representación.
+________, mayor de edad, con domicilio en ________, con D.N.I número ________, y en su propio nombre y representación.
 
 En adelante, el "Permutante 1".
 
 
 De otra parte,
 
-________, mayor de edad, con domicilio en ________, con D.N.I número 656, y en su propio nombre y representación.
+________, mayor de edad, con domicilio en ________, con D.N.I número ________, y en su propio nombre y representación.
 
 En adelante, el "Permutante 2".
 
@@ -28,19 +28,21 @@ En adelante, el Permutante 1 y el Permutante 2 serán referidos conjuntamente, c
 EXPONEN
 
 
-I. Que el Permutante 1 es propietario, en pleno dominio, del siguiente bien:
-
-________
+I. Que el Permutante 1 es propietario, en pleno dominio, del siguiente vehículo a motor, en concreto, ________, marca ________, modelo ________, con matrícula número ________ y fecha de matriculación ________.
 
 En adelante, el "Bien Mueble Permutante 1";
 
-II. Que el Permutante 2 es propietario, en su totalidad, de la siguiente vivienda situada en la siguiente dirección: ________, en virtud de escritura pública otorgada el ________ ante el Notario: ________ de: ________, con el número de su protocolo ________. En adelante, el "Inmueble Permutante 2";
+II. A efectos de este contrato, el Bien Mueble Permutante 1 se valora en la cantidad total de doscientos euros (200€);
 
-III. Que el Inmueble Permutante 2 se encuentra inscrito en el Registro de la Propiedad de ________, al tomo ________, folio ________ y hoja ________, y con referencia catastral ________;
+III. Que el Permutante 2 es propietario, en su totalidad, de la siguiente vivienda situada en la siguiente dirección: ________, en virtud de escritura pública otorgada el ________ ante el Notario: ________ de: ________, con el número de su protocolo ________. En adelante, el "Inmueble Permutante 2";
+
+IV. Que el Inmueble Permutante 2 se encuentra inscrito en el Registro de la Propiedad de ________, al tomo ________, folio ________ y hoja ________, y con referencia catastral ________;
+
+V. A efectos de este contrato, el Inmueble Permutante 2 se valora en la cantidad total de ________ (________€);
 
 En adelante, el Bien Mueble Permutante 1 y el Inmueble Permutante 2 se denominarán en su conjunto como los "Bienes".
 
-IV. Que, en virtud de lo anterior, las Partes, libres y espontáneamente, desean realizar el intercambio del 100% de la propiedad de los Bienes entre las Partes, operación que las Partes desean formalizar a través del presente Contrato. En adelante, la "Permuta".
+VI. Que, en virtud de lo anterior, las Partes, libres y espontáneamente, desean realizar el intercambio del 100% de la propiedad de los Bienes entre las Partes, operación que las Partes desean formalizar a través del presente Contrato. En adelante, la "Permuta".
 
 
 
@@ -53,19 +55,23 @@ Las Partes se comprometen, mediante el presente Contrato, a realizar el intercam
 
 Siguiendo lo anterior, el Permutante 1 pasa a ser el propietario de pleno dominio del Inmueble Permutante 2, y viceversa, el Permutante 2 pasa a ser el propietario de pleno dominio del Bien Mueble Permutante 1.
 
+Por otro lado, dada la diferencia de valor entre los Bienes, el Permutante 2 se compromete al pago de una compensación económica en favor del Permutante 1 en concepto de precio derivado de la diferencia de valor de los Bienes, tal y como se describe en la Cláusula posterior.
+
 Por último, esta Permuta se realiza incluyendo todos los derechos, usos, servicios y obligaciones inherentes sobre los Bienes, cuyo conocimiento declaran expresamente las Partes.
 
 
-SEGUNDA. Precio de la Permuta
+SEGUNDA. Precio de la Permuta y forma de pago
 
-Siguiendo lo dispuesto en el objeto del presente contrato, no se ha establecido una compensación económica en dinero por el intercambio de los Bienes entre las Partes. De esta forma, el precio de la Permuta será 100% en especie, consistiendo únicamente en la entrega del bien o cosa propiedad de pleno dominio del Permutante 1 en favor del Permutante 2, y viceversa.
+Además del intercambio de los Bienes detallado en la Cláusula anterior, las Partes acuerdan que el Permutante 2 abone en favor del Permutante 1, en concepto de precio derivado de la diferencia de valor entre los Bienes, la cantidad de ________ (________€).
+
+El pago del precio se realizará en la fecha recogida en el encabezado del presente Contrato mediante pago en efectivo en favor del Permutante 1.
 
 
 TERCERA. Representaciones y garantías
 
 A los efectos oportunos, las Partes declaran y garantizan que tienen plena capacidad para la firma del presente Contrato, y que los Bienes son propiedad de pleno dominio de las Partes.
 
-El Permutante 1 declara que el Bien Mueble Permutante 1: (a) se encuentra libre de cualesquiera cargas, gravámenes y afecciones; (b) que los préstamos, reservas de dominio o prendas que pudieran haber gravado el Bien Mueble Permutante 1 se encuentran totalmente cancelados; (c) que no existe ninguna cantidad pendiente en impuestos y tasas derivadas de la propiedad del Bien Mueble Permutante 1; y, (d) que cumple con todos los requisitos técnicos, legales y administrativos para su correcto uso y circulación de acuerdo a la legislación española.
+El Permutante 1 declara que el Bien Mueble Permutante 1: (a) se encuentra sujeto a cargas, gravámenes y afecciones, en concreto, a la siguiente: prenda, en favor de Juan Martinez, según se recoge en el Registro de Bienes Muebles correspondiente; (b) que existen obligaciones tributarias derivadas de la titularidad del Bien Mueble Permutante 1 pendientes de pago, en concreto, la siguiente: ________ en la cantidad de veintidós euros (22€); y, (c) que no cumple con todos los requisitos técnicos, legales y administrativos para su correcto uso y circulación en España, en concreto, debido a la siguiente causa: DS.
 
 Por otro lado, el Permutante 2 declara que el Inmueble Permutante 2: (a) se encuentra libre de cualesquiera cargas, gravámenes y afecciones; (b) que los préstamos e hipotecas que pudieran haber gravado el Inmueble Permutante 2 se encuentran totalmente cancelados; (c) que no está afecto a procesos de recalificación o modificación de parámetros de ordenación urbanística, y no es actualmente objeto de actuación, recalificación o cualquier otra contingencia de carácter urbanístico o administrativo; y, (d) que tanto el Inmueble Permutante 2, como las obras cometidas en el mismo, cumplen, y han cumplido, en todo momento, con toda la normativa urbanística que le fuera de aplicación.
 
@@ -188,7 +194,7 @@ EL PERMUTANTE 1
 
 
 .........................................................
-TT
+________
 
 EL PERMUTANTE 2
 
