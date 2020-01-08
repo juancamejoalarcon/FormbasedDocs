@@ -55,7 +55,7 @@
             (deleteComment)="onDeleteComment(commentResponse)" [comment]="commentResponse"></app-comment-response>
             <div class="comments__new-comment" *ngIf="!canModify">
                 <textarea cols="50" rows="5" #commentTextArea></textarea>
-                <input type="submit" value="Respond" (click)="addCommentResponse(commentTextArea.value)">
+                <input type="submit" value="Responder" (click)="addCommentResponse(commentTextArea.value)">
             </div>
         </div>
     </div>
