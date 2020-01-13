@@ -13,43 +13,42 @@ export class SearchService {
 
   search(config: any): Observable<any> {
     let params: HttpParams;
+    let paramsObject: any;
+
     if (config.query === '') {
-      params = new HttpParams()
-      .set('orderBy', config.orderBy)
-      .set('limit', config.limit)
-      .set('offset', config.offset);
+      paramsObject = {
+        'orderBy': config.orderBy,
+        'limit': config.limit,
+        'offset': config.offset
+      }
     } else {
-      params = new HttpParams()
-      .set('orderBy', config.orderBy)
-      .set('limit', config.limit)
-      .set('offset', config.offset)
-      .set('query', config.query);
+      paramsObject = {
+        'orderBy': config.orderBy,
+        'limit': config.limit,
+        'offset': config.offset,
+        'query': config.query
+      }
     }
 
-    return this.apiService.get('/search', params)
-    .pipe(map(data => data.forms));
-  }
+    if (config.public) {
+      paramsObject['public'] = config.public;
+    }
 
-  searchProfile(config: any): Observable<any> {
-    let params: HttpParams;
-      params = new HttpParams()
-      .set('orderBy', config.orderBy)
-      .set('limit', config.limit)
-      .set('offset', config.offset)
-      .set('author', config.author);
+    if (config.author) {
+      paramsObject['author'] = config.author;
+    }
 
-    return this.apiService.get('/search', params)
-    .pipe(map(data => data.forms));
-  }
+    if (config.filledBy) {
+      paramsObject['filledBy'] = config.filledBy;
+    }
 
-  searchFilledForms(config: any): Observable<any> {
-    let params: HttpParams;
-      params = new HttpParams()
-      .set('orderBy', config.orderBy)
-      .set('limit', config.limit)
-      .set('offset', config.offset)
-      .set('filledBy', config.filledBy)
-      .set('type', config.type);
+    if (config.type) {
+      paramsObject['type'] = config.type;
+    }
+
+    params = new HttpParams({
+      fromObject: paramsObject
+    });
 
     return this.apiService.get('/search', params)
     .pipe(map(data => data.forms));

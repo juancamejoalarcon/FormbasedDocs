@@ -22,7 +22,8 @@ router.get('/', auth.optional, function(req, res, next) {
     };
   } else {
     var query = {
-      "type": "Created"
+      "type": "Created",
+      // "public": true
     }
   }
 
@@ -36,6 +37,11 @@ router.get('/', auth.optional, function(req, res, next) {
 
   if(typeof req.query.filledBy !== 'undefined'){
     query["filledBy"] = req.query.filledBy
+  }
+
+  if(typeof req.query.public !== 'undefined'){
+    console.log('PASA');
+    query["public"] = req.query.public
   }
 
   if(typeof req.query.limit !== 'undefined'){

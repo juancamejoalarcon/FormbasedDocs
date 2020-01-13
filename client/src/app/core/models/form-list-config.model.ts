@@ -1,5 +1,5 @@
 export class FormListConfig {
-  type: string = 'all';
+  type?: string;
   tag?: string;
   author?: string;
   favorited?: string;
@@ -8,5 +8,6 @@ export class FormListConfig {
   offset?: number;
   query?: string;
   filledBy?: string;
+  public?: boolean;
 }
 

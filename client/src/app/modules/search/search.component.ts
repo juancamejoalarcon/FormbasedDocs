@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
-          this.setListTo('all');
+          this.setListTo();
           // Load the current user's data
           this.userService.currentUser.subscribe(
           (user: User) => {
@@ -61,14 +61,14 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  setListTo(type: string = '') {
+  setListTo() {
     // Takes all forms
     this.listConfig = {
-      type: type,
       limit: this.limit,
       orderBy: 'Date',
       offset: (this.limit * (this.currentPage - 1)),
       query: '',
+      public: true
     };
   }
 

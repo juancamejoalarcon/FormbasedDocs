@@ -157,9 +157,12 @@
     </div>
 </div>
 <div id="comments" style="display: none">
-    <div class="comments">
+    <div class="comments" *ngIf="originalForm.commentsEnabled">
         <app-comments class="comments__container" [form]="originalForm"
         *ngIf="originalForm.title !== ''"></app-comments>
+    </div>
+    <div class="comments comments__disabled">
+        <h2 *ngIf="!originalForm.commentsEnabled">Los comentarios han sido desactivados para este formulario</h2>
     </div>
 </div>
 

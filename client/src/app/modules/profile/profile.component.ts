@@ -29,23 +29,23 @@ export class ProfileComponent implements OnInit {
     );
     this.loadingQuery = true;
     this.listConfig.orderBy = 'Date';
-    this.setListTo('all');
-    this.searchService.searchProfile(this.listConfig)
+    this.setListTo();
+    this.searchService.search(this.listConfig)
     .subscribe(forms => {
        this.loadingQuery = false;
        this.results = forms;
    });
   }
 
-  setListTo(type: string = '') {
+  setListTo() {
     // Takes all forms
     this.listConfig = {
-      type: type,
       limit: this.limit,
       orderBy: 'Date',
       offset: (this.limit * (this.currentPage - 1)),
       query: '',
-      author: this.user.username
+      author: this.user.username,
+      public: true
     };
   }
 
@@ -57,7 +57,7 @@ export class ProfileComponent implements OnInit {
       this.listConfig.limit = this.limit;
       this.listConfig.offset =  (this.limit * (this.currentPage - 1));
     }
-    this.searchService.searchProfile(this.listConfig).subscribe(forms => {
+    this.searchService.search(this.listConfig).subscribe(forms => {
       if (forms.length !== 0) {
         this.results = this.results.concat(forms);
       } else {
@@ -86,7 +86,7 @@ export class ProfileComponent implements OnInit {
     this.results = [];
     this.noMoreForms = false;
     this.listConfig.orderBy = order;
-    this.searchService.searchProfile(this.listConfig).subscribe(forms => {
+    this.searchService.search(this.listConfig).subscribe(forms => {
         this.loadingQuery = false;
         this.results = forms;
       });

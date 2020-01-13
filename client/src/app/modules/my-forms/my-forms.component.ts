@@ -38,8 +38,8 @@ export class MyFormsComponent implements OnInit {
     this.user = this.userService.getCurrentUser();
     this.loadingQuery = true;
     this.listConfig.orderBy = 'Date';
-    this.setListTo('all');
-    this.searchService.searchProfile(this.listConfig)
+    this.setListTo();
+    this.searchService.search(this.listConfig)
     .subscribe(forms => {
        this.loadingQuery = false;
        this.results = forms;
@@ -48,17 +48,16 @@ export class MyFormsComponent implements OnInit {
     this.loadingQueryFilled = true;
     this.listConfigFilled.orderBy = 'Date';
     this.setListToFilled();
-    this.searchService.searchFilledForms(this.listConfigFilled)
+    this.searchService.search(this.listConfigFilled)
     .subscribe(forms => {
         this.loadingQueryFilled = false;
         this.resultsFilled = forms;
     });
   }
 
-  setListTo(type: string = '') {
+  setListTo() {
     // Takes all forms
     this.listConfig = {
-      type: type,
       limit: this.limit,
       orderBy: 'Date',
       offset: (this.limit * (this.currentPage - 1)),
@@ -87,7 +86,7 @@ export class MyFormsComponent implements OnInit {
       this.listConfig.limit = this.limit;
       this.listConfig.offset =  (this.limit * (this.currentPage - 1));
     }
-    this.searchService.searchProfile(this.listConfig).subscribe(forms => {
+    this.searchService.search(this.listConfig).subscribe(forms => {
       if (forms.length !== 0) {
         this.results = this.results.concat(forms);
       } else {
@@ -105,7 +104,7 @@ export class MyFormsComponent implements OnInit {
       this.listConfigFilled.limit = this.limit;
       this.listConfigFilled.offset =  (this.limitFilled * (this.currentPageFilled - 1));
     }
-    this.searchService.searchFilledForms(this.listConfigFilled).subscribe(forms => {
+    this.searchService.search(this.listConfigFilled).subscribe(forms => {
       if (forms.length !== 0) {
         this.resultsFilled = this.resultsFilled.concat(forms);
       } else {
@@ -130,7 +129,7 @@ export class MyFormsComponent implements OnInit {
     this.results = [];
     this.noMoreForms = false;
     this.listConfig.orderBy = order;
-    this.searchService.searchProfile(this.listConfig).subscribe(forms => {
+    this.searchService.search(this.listConfig).subscribe(forms => {
         this.loadingQuery = false;
         this.results = forms;
       });
@@ -143,7 +142,7 @@ export class MyFormsComponent implements OnInit {
     this.resultsFilled = [];
     this.noMoreFormsFilled = false;
     this.listConfigFilled.orderBy = order;
-    this.searchService.searchFilledForms(this.listConfigFilled).subscribe(forms => {
+    this.searchService.search(this.listConfigFilled).subscribe(forms => {
         this.loadingQueryFilled = false;
         this.resultsFilled = forms;
       });
@@ -187,7 +186,8 @@ export class MyFormsComponent implements OnInit {
     }
   }
 
-  updateForm(e: any, form: Form) {
+  updateForm(e: any, form: Form) {  
+    console.log('llega');
     form[e.srcElement.value] = e.srcElement.checked;
     this.formService
     .save(form)
