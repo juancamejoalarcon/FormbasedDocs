@@ -45,10 +45,10 @@
                 </td>
                 <td data-column="Comentarios">
                     <label class="select-my-forms" for="{{ form.slug + 'commnents' }}">
-                        <input type="checkbox" class="filled-in" name="{{ form.slug + 'commnents' }}" id="{{ form.slug + 'comments' }}" value="commentsEnabled" 
+                        <input type="checkbox" class="filled-in" name="{{ form.slug + 'commnents' }}" id="{{ form.slug + 'commnents' }}" value="commentsEnabled" 
                         [checked]="form.commentsEnabled" (change)="updateForm($event, form)"/>
                         <span>Comentarios</span>
-                    </label> 
+                    </label>   
                 </td>
 
                 <td data-column="Likes">{{ form.likesCount }}</td>
