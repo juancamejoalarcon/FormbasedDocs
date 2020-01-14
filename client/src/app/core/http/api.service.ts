@@ -34,9 +34,10 @@ export class ApiService {
     ).pipe(catchError(this.formatErrors));
   }
 
-  delete(path: string): Observable<any> {
+  delete(path: string, params: HttpParams = new HttpParams()): Observable<any> {
+    console.log(params);
     return this.http.delete(
-      `${environment.api_url}${path}`
+      `${environment.api_url}${path}`, { params }
     ).pipe(catchError(this.formatErrors));
   }
 }

@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const router = require('express').Router();
 const passport = require('passport');
 const User = mongoose.model('User');
+const Form = mongoose.model('Form');
+const Comment = mongoose.model('Comment');
 const auth = require('../auth');
 const crypto = require('crypto');
 const emailSender = require('../../helpers/mails/mail');
@@ -190,6 +192,47 @@ router.post('/reset-password', function(req, res, next){
       return res.json({passwordDoesNotMatch: true});
     }
   });
+});
+
+router.delete('/', auth.required, function(req, res, next){
+  User.findById(req.payload.id).then(function(user){
+    if(!user){ return res.sendStatus(401); }
+    let password = req.query.password;
+
+
+    if (!user.validPassword(password)) {
+      return res.json({invalidPassword: true});
+    } else {
+
+      Promise.all([
+        Form.find({ author:  user._id})
+          .exec(),
+      ]).then(function(results){
+        var forms = results[0];
+        forms.forEach((form) => {
+          form.comments.forEach((commentId) => {
+            Comment.findById(commentId).then((comment) => {
+              comment.remove().then( () => {
+              });
+            });
+          });
+          form.remove().then( () => {
+            if (form.documentType === 'office') {
+              fs.unlink(`./tmp/odts/${form.slug}.odt`, () => {
+  
+              });
+            }
+          });
+        });
+        user.remove().then(function(){
+          console.log('-------------');
+          console.log('USER DELETED');
+          console.log('-------------');
+          res.json({userRemoved: true});
+        });
+      });
+    }
+  }).catch(next);
 });
 
 module.exports = router;

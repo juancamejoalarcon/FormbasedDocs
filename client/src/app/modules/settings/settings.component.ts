@@ -16,6 +16,8 @@ export class SettingsComponent implements OnInit {
   settingsForm: FormGroup;
   errors: Object = {};
   isSubmitting: boolean = false;
+  modalStatus: string;
+  oldPass: string;
 
   constructor(
     private router: Router,
@@ -138,7 +140,8 @@ export class SettingsComponent implements OnInit {
   //   (<any>Object).assign(this.user, values);
   // }
 
-  toggleModal() {
+  toggleModal(modalStatus: string = '') {
+    this.modalStatus = modalStatus;
     this.modal.nativeElement.classList.toggle('show-modal');
   }
 
@@ -175,6 +178,34 @@ export class SettingsComponent implements OnInit {
             progressBar: true,
             progressAnimation: 'decreasing'
           });
+        }
+      },
+        err => {
+          this.errors = err;
+          this.isSubmitting = false;
+        }
+      );
+    }
+  }
+
+  removeAccount(pass: string) {
+    if (confirm(`¿Seguro que deseas eliminar tu usuario? Una vez eliminado no habrá posibilidad de recuperarlo, así como tampoco podrás recuperar ninguno de los documentos creados con este usuario`)) {
+      this.userService
+      .removeAccount(pass)
+      .subscribe( data => {
+        if (data.invalidPassword) {
+          this.toastr.error('Contraseña incorrecta', '', {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+        } else if (data.userRemoved) {
+          this.toastr.success('Usuario eliminado', '', {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+          this.logout();
         }
       },
         err => {

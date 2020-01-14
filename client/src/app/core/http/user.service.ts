@@ -5,6 +5,7 @@ import { ApiService } from './api.service';
 import { JwtService } from './jwt.service';
 import { User } from '../models';
 import { map ,  distinctUntilChanged } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
 
 
 @Injectable()
@@ -103,6 +104,13 @@ export class UserService {
   resetPassword(token: string, newPassword: string, verifyPassword: string) {
     return this.apiService
     .post('/user/reset-password', { token: token, newPassword: newPassword, verifyPassword: verifyPassword })
+    .pipe(map(data => data));
+  }
+
+  removeAccount(password: string) {
+    const params = new HttpParams().set('password', password);
+    return this.apiService
+    .delete('/user', params)
     .pipe(map(data => data));
   }
 

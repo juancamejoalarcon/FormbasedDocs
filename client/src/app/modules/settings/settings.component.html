@@ -46,13 +46,13 @@
         <hr>
         <div class="settings__buttons">
             <div class="settings__buttons__container">
-                <button class="button-filled trigger" type="button" (click)="toggleModal()">
+                <button class="button-filled trigger" type="button" (click)="toggleModal('changePass')">
                     Cambiar contraseña
                 </button>
                 <button class="button-filled" type="button" (click)="logout()">
                     Cerrar sesión
                 </button>
-                <button class="button-filled" type="button">
+                <button class="button-filled" type="button" (click)="toggleModal('remove')">
                     Eliminar cuenta
                 </button>
             </div>
@@ -64,13 +64,18 @@
     <div class="modal__content" style="padding: 2rem">
         <div class="modal__content__modal-middle modal__content__modal-middle--change-password">
             <div class="modal__content__modal-middle__container">
-                <input type="password" placeholder="Contraseña actual" #oldPass>
-                <input type="password" placeholder="Contraseña nueva" #newPass>
+                <input type="password" placeholder="Contraseña actual" [(ngModel)]="oldPass" *ngIf="modalStatus === 'changePass'">
+                <input type="password" placeholder="Contraseña nueva" [(ngModel)]="newPass" *ngIf="modalStatus === 'changePass'">
+                <input type="password" placeholder="Contraseña"  [(ngModel)]="removeAccountPass" *ngIf="modalStatus === 'remove'">
             </div>
         </div>
         <div class="modal__content__modal-bottom">
             <button class="button-filled"
-            id="modal-button" (click)="changePassword(this.oldPass.value, newPass.value)">Guardar</button>
+            id="modal-button" (click)="changePassword(this.oldPass.value, this.newPass.value)"
+            *ngIf="modalStatus === 'changePass'">Guardar</button>
+            <button class="button-filled"
+            id="modal-button" (click)="removeAccount(this.removeAccountPass)"
+            *ngIf="modalStatus === 'remove'">Eliminar</button>
             <button class="button-filled"
             id="modal-button" (click)="toggleModal()">Cancelar</button>
         </div>

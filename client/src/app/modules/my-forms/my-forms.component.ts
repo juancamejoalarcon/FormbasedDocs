@@ -149,7 +149,7 @@ export class MyFormsComponent implements OnInit {
   }
 
   deleteForm(form: Form) {
-    if (confirm('Are you sure you want to delete?')) {
+    if (confirm('¿Seguro que deseas eliminar?')) {
       this.isDeleting = true;
       this.formService.destroy(form.slug)
         .subscribe(
@@ -168,7 +168,7 @@ export class MyFormsComponent implements OnInit {
   }
 
   deleteFilled(form: Form) {
-    if (confirm('Are you sure you want to delete?')) {
+    if (confirm('¿Seguro que deseas eliminar?')) {
       this.isDeleting = true;
       this.formService.destroy(form.slug)
         .subscribe(
