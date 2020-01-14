@@ -149,7 +149,7 @@ export class MyFormsComponent implements OnInit {
   }
 
   deleteForm(form: Form) {
-    if (confirm('¿Seguro que deseas eliminar?')) {
+    if (confirm('¿Seguro que deseas eliminar el formulario?')) {
       this.isDeleting = true;
       this.formService.destroy(form.slug)
         .subscribe(
@@ -168,12 +168,12 @@ export class MyFormsComponent implements OnInit {
   }
 
   deleteFilled(form: Form) {
-    if (confirm('¿Seguro que deseas eliminar?')) {
+    if (confirm('¿Seguro que deseas eliminar el formulario?')) {
       this.isDeleting = true;
       this.formService.destroy(form.slug)
         .subscribe(
           success => {
-            this.toastr.success('Deleted', form.title, {
+            this.toastr.success('Eliminado', form.title, {
               positionClass: 'toast-bottom-right',
               progressBar: true,
               progressAnimation: 'decreasing'
@@ -186,14 +186,13 @@ export class MyFormsComponent implements OnInit {
     }
   }
 
-  updateForm(e: any, form: Form) {  
-    console.log('llega');
+  updateForm(e: any, form: Form) {
     form[e.srcElement.value] = e.srcElement.checked;
     this.formService
     .save(form)
     .subscribe(
       formUpdated => {
-          this.toastr.success('Has been Updated', formUpdated.title, {
+          this.toastr.success('Actualizado', formUpdated.title, {
             positionClass: 'toast-bottom-right',
             progressBar: true,
             progressAnimation: 'decreasing'
@@ -201,7 +200,6 @@ export class MyFormsComponent implements OnInit {
       }
     );
   }
-
 
   // UTILITY
   topMenuNav(e: any) {
