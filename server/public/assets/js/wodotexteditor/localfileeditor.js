@@ -128,7 +128,7 @@ function createEditor(formType, idOfContainer) {
         input.id = "fileloader";
         input.setAttribute("type", "file");
         input.addEventListener("change", internalHandler, false);
-        document.getElementById('wodoformbaseddocs').appendChild(form);
+        document.getElementById('wodoautomatikdocs').appendChild(form);
     }
 
     function load() {
