@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as FormBasedDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
+import * as AutomatikDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
 import { CommonsService } from '../../core';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class OdfEditorService {
     ) {}
 
     createEditor(formType: string, idOfContainer: string = 'editorContainer') {
-        FormBasedDocsApi.createEditor(formType, idOfContainer);
+        AutomatikDocsApi.createEditor(formType, idOfContainer);
     }
 
     createEditorFromURI(formType: string, idOfContainer: string = 'editorContainer', dataURI: string) {
@@ -41,39 +41,39 @@ export class OdfEditorService {
         // return URL
         const url = URL.createObjectURL(blob);
         window['DOCUMENTOURL'] = url;
-        FormBasedDocsApi.createEditor(formType, idOfContainer);
+        AutomatikDocsApi.createEditor(formType, idOfContainer);
     }
 
     resizeDocumentContainer() {
-        FormBasedDocsApi.documentToFitScreen();
+        AutomatikDocsApi.documentToFitScreen();
     }
 
     closeEditor() {
-        FormBasedDocsApi.closeDocument();
+        AutomatikDocsApi.closeDocument();
     }
 
     closeAndDestroyEditor() {
-        FormBasedDocsApi.closeAndDestroyEditor();
+        AutomatikDocsApi.closeAndDestroyEditor();
     }
 
     setCursorPositionForDragAndDrop(e: any) {
-        FormBasedDocsApi.setCursorPositionForDragAndDrop(e);
+        AutomatikDocsApi.setCursorPositionForDragAndDrop(e);
     }
 
     saveForPreview() {
-        FormBasedDocsApi.saveForPreview();
+        AutomatikDocsApi.saveForPreview();
     }
 
     removeCursor() {
-        FormBasedDocsApi.removeCursor();
+        AutomatikDocsApi.removeCursor();
     }
 
     loadPreview() {
-        FormBasedDocsApi.loadPreview();
+        AutomatikDocsApi.loadPreview();
     }
 
     getEditorSession() {
-        return FormBasedDocsApi.getEditorSession();
+        return AutomatikDocsApi.getEditorSession();
     }
 
     setDragAndDropForSetUp() {

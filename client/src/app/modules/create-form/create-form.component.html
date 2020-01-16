@@ -27,7 +27,7 @@
         </div>
     </div>
 </div>
-<div class="form-creator" id="form-creator" #formBasedDocDiv>
+<div class="form-creator" id="form-creator" #automatikDocDiv>
     <div class="form-creator__container">
         <div class="form-creator__fields-area" id="fields-area">
             <div class="form-creator__fields-area__container">
@@ -72,7 +72,7 @@
         <div class="form-creator__text-area" id="text-area" 
         [ngClass]="{'form-creator__text-area--quill-text': this.documentType === 'plain'}">
             <!-- Office document -->
-            <div id="wodoformbaseddocs" style="width:100%; height:100%; margin:0px; padding:0px" *ngIf="this.documentType === 'office'">
+            <div id="wodoautomatikdocs" style="width:100%; height:100%; margin:0px; padding:0px" *ngIf="this.documentType === 'office'">
                 <div id="editorContainer" style="width:100%; height:100%; margin:0px; padding:0px">
                 </div>
             </div>

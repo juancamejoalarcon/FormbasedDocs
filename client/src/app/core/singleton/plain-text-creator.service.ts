@@ -194,15 +194,18 @@ export class PlainTextCreatorService {
 
   resizeDocumentContainer() {
     this.resizeEvent = () => {
+      const editorContainer = document.getElementById('editor-container');
       // 32px equals to 2 rem
-      document.getElementById('editor-container').style.height = (
-        window.innerHeight - (
-          document.querySelector('.nav').clientHeight
-          + document.querySelector('.sub-menu').clientHeight
-          + document.querySelector('.ql-toolbar').clientHeight) - 32) + 'px';
+      if (editorContainer) {
+        document.getElementById('editor-container').style.height = (
+          window.innerHeight - (
+            document.querySelector('.nav').clientHeight
+            + document.querySelector('.sub-menu').clientHeight
+            + document.querySelector('.ql-toolbar').clientHeight) - 32) + 'px';
+      }
     };
     window.addEventListener('resize', this.resizeEvent);
-    setTimeout(() => { this.resizeEvent(); }, 10);
+    setTimeout(() => { this.resizeEvent(); }, 100);
   }
 
   destroyResizeDocumentContainer() {

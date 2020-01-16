@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ConvertService } from '../http';
 import { CommonsService } from './commons.service';
-import * as FormBasedDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
+import * as AutomatikDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
 
 @Injectable()
 export class OdfCreatorService {
@@ -22,7 +22,7 @@ export class OdfCreatorService {
     if (uri !== '') {
       this.createEditorFromURI(formType, idOfContainer, uri);
     } else {
-      FormBasedDocsApi.createEditor(formType, idOfContainer);
+      AutomatikDocsApi.createEditor(formType, idOfContainer);
     }
       return new Promise((resolve, reject) => {
         const checkIfEditorCreated = setInterval( () => {
@@ -41,11 +41,11 @@ export class OdfCreatorService {
   }
 
   getEditorSession() {
-    return FormBasedDocsApi.getEditorSession();
+    return AutomatikDocsApi.getEditorSession();
   }
 
   closeAndDestroyEditor() {
-    FormBasedDocsApi.closeAndDestroyEditor();
+    AutomatikDocsApi.closeAndDestroyEditor();
     window.removeEventListener('resize', this.resizeEvent);
   }
 
@@ -60,7 +60,7 @@ export class OdfCreatorService {
     const blob = new Blob([ab], {type: mimeString});
     const url = URL.createObjectURL(blob);
     window['DOCUMENTOURL'] = url;
-    FormBasedDocsApi.createEditor(formType, idOfContainer);
+    AutomatikDocsApi.createEditor(formType, idOfContainer);
   }
 
   resizeDocumentContainer() {
@@ -69,11 +69,11 @@ export class OdfCreatorService {
       setTimeout(() => {
         document.getElementById('webodfeditor-editor1').style.height = document.getElementById('text-area').clientHeight + 'px';
         document.getElementById('webodfeditor-editor1').style.width = document.getElementById('text-area').clientWidth + 'px';
-        FormBasedDocsApi.documentToFitScreen();
-      }, 10);
+        AutomatikDocsApi.documentToFitScreen();
+      }, 100);
     };
     window.addEventListener('resize', this.resizeEvent);
-    FormBasedDocsApi.documentToFitScreen();
+    AutomatikDocsApi.documentToFitScreen();
   }
 
   destroyResizeDocumentContainer() {
@@ -82,7 +82,7 @@ export class OdfCreatorService {
 
   // DRAG AND DROP
   setCursorPositionForDragAndDrop(e: any) {
-    FormBasedDocsApi.setCursorPositionForDragAndDrop(e);
+    AutomatikDocsApi.setCursorPositionForDragAndDrop(e);
   }
   setDragAndDropForSetUp() {
     // Dragover
@@ -117,7 +117,7 @@ export class OdfCreatorService {
 
   refreshAndReload(event: any) {
     this.commonsService.toggleSpinner();
-    FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
+    AutomatikDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
       if (err) {
         alert(err);
         this.commonsService.toggleSpinner();
@@ -127,8 +127,8 @@ export class OdfCreatorService {
       const mimetype = 'application/vnd.oasis.opendocument.text';
       const blob = new Blob([data.buffer], {type: mimetype});
       window['ODTDOCUMENT'] = blob;
-      FormBasedDocsApi.getEditor().closeDocument(() => {
-        FormBasedDocsApi.getEditor().openDocumentFromUrl(URL.createObjectURL(blob), () => {
+      AutomatikDocsApi.getEditor().closeDocument(() => {
+        AutomatikDocsApi.getEditor().openDocumentFromUrl(URL.createObjectURL(blob), () => {
           this.setDragAndDropForSetUp();
           this.commonsService.toggleSpinner();
           // If caret goes back to begining this needs to be fired after load
@@ -140,7 +140,7 @@ export class OdfCreatorService {
 
   getDocumentToSave() {
     return new Promise((resolve, reject) => {
-      FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
+      AutomatikDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
         if (err) {
           alert(err);
           this.commonsService.toggleSpinner();
@@ -160,7 +160,7 @@ export class OdfCreatorService {
   setPreview(htmlText: string = '') {
     this.commonsService.toggleSpinner();
     return new Promise((resolve, reject) => {
-      FormBasedDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
+      AutomatikDocsApi.getEditor().getDocumentAsByteArray((err: any, data: any) => {
         if (err) {
           alert(err);
           this.commonsService.toggleSpinner();
@@ -172,7 +172,7 @@ export class OdfCreatorService {
         window['ODTDOCUMENT'] = blob;
         this.reader.readAsDataURL(blob);
         this.reader.onloadend = () => {
-          FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
+          AutomatikDocsApi.getEditor().closeAndDestroyEditor(() => {
             this.init('fillForm', this.reader.result as string, this.idOfContainer).then(() => {
               this.resizeEvent();
               this.commonsService.toggleSpinner();
@@ -187,7 +187,7 @@ export class OdfCreatorService {
   unsetPreview() {
     this.commonsService.toggleSpinner();
     return new Promise((resolve, reject) => {
-      FormBasedDocsApi.getEditor().closeAndDestroyEditor(() => {
+      AutomatikDocsApi.getEditor().closeAndDestroyEditor(() => {
         this.init('createForm', this.reader.result as string, this.idOfContainer).then(() => {
           this.setDragAndDropForSetUp();
           this.resizeEvent();
@@ -389,7 +389,7 @@ export class OdfCreatorService {
   saveUri() {
     const reader = new FileReader();
     return new Promise((resolve, reject) => {
-      FormBasedDocsApi.getEditor().getDocumentAsByteArray((err, data) => {
+      AutomatikDocsApi.getEditor().getDocumentAsByteArray((err, data) => {
         if (err) {
           alert(err);
           return;

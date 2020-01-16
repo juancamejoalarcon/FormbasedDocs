@@ -143,12 +143,12 @@
         <div class="form-creator__text-area" id="text-area"
         [ngClass]="{'form-creator__text-area--quill-text': this.form.documentType === 'plain'}">
             <!-- Create the editor container -->
-            <div class="form-creator__text-area__quill-text-result ql-container ql-snow"  id="editor-preview" #formBasedDocDiv
+            <div class="form-creator__text-area__quill-text-result ql-container ql-snow"  id="editor-preview" #automatikDocDiv
             *ngIf="this.form.documentType === 'plain'" style="height: auto;">
                 {{generatedText}}
             </div>
             <!-- Office document -->
-            <div id="wodoformbaseddocs" style="width:100%; height:100%; margin:0px; padding:0px" *ngIf="this.form.documentType === 'office'">
+            <div id="wodoautomatikdocs" style="width:100%; height:100%; margin:0px; padding:0px" *ngIf="this.form.documentType === 'office'">
                 <div id="editorContainer" style="width:100%; height:100%; margin:0px; padding:0px">
                 </div>
             </div>

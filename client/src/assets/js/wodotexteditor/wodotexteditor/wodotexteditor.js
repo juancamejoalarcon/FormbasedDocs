@@ -400,7 +400,7 @@ window.Wodo = window.Wodo || (function () {
             runtime.assert(editorSession, "editorSession should exist here.");
 
             tools.setEditorSession(undefined);
-            // FormbaseddocsApi
+            // AutomatikDocsApi
             // Remove for fill form
             if (editorOptions.formType !== 'fillForm') {
                 editorSession.sessionController.endEditing();
@@ -717,7 +717,7 @@ window.Wodo = window.Wodo || (function () {
         // this.openDocumentFromByteArray = openDocumentFromByteArray; see also https://github.com/kogmbh/WebODF/issues/375
         // setReadOnly: setReadOnly,
 
-        // FORMBASEDDOCS API
+        // AUTOMATIKDOCS API
 
         this.setDocumentToFitScreen = function() {
             editorSession.getOdfCanvas().getZoomHelper().setZoomLevel(1);
@@ -729,17 +729,17 @@ window.Wodo = window.Wodo || (function () {
             }
         };
 
-        // FORMBASEDDOCS API
+        // AUTOMATIKDOCS API
         this.setCursorPositionForDragAndDrop = function(event) {
             editorSession.setCursorPositionForDragAndDrop(event);
         }
 
-        // FORMBASEDDOCS API
+        // AUTOMATIKDOCS API
         this.removeCursor = function() {
             editorSession.removeCursor();
         }
 
-        // FORMBASEDDOCS API
+        // AUTOMATIKDOCS API
         this.getEditorSession = function() {
             return editorSession;
         }
@@ -808,7 +808,7 @@ window.Wodo = window.Wodo || (function () {
             // style all elements with Dojo's claro.
             // Not nice to do this on body, but then there is no other way known
             // to style also all dialogs, which are attached directly to body
-            document.getElementById('wodoformbaseddocs').classList.add("claro");
+            document.getElementById('wodoautomatikdocs').classList.add("claro");
 
             // prevent browser translation service messing up internal address system
             // TODO: this should be done more centrally, but where exactly?
@@ -950,7 +950,7 @@ window.Wodo = window.Wodo || (function () {
     }
 
     // Save editor so I can use it later to retrieve 
-    // the Formbaseddocs api
+    // the AutomatikDocs api
     function saveEditor(self) {
         self.editor = editor;
     }

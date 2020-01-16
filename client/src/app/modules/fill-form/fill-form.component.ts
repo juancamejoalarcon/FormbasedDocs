@@ -20,7 +20,7 @@ import * as screenfull from 'screenfull';
 export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
-  @ViewChild('formBasedDocDiv') formBasedDocDiv: ElementRef;
+  @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
   @ViewChild('linkFormButton') linkFormButton: ElementRef;
   @ViewChild('progressBar') progressBar: ElementRef;
   @ViewChild('modal') modal: ElementRef;
@@ -75,7 +75,6 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
         this.setInitialState();
         this.setDocument();
         this.setDivHeight();
-        window.addEventListener('resize', this.setDivHeight);
       }
     );
     this.formsService.get(this.form.originalSlug).subscribe(
@@ -145,12 +144,15 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // // UTILITY
   setDivHeight() {
-    if (window.innerWidth > 885) {
-      if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
-        const newHeight = window.innerHeight - (document.querySelector('#form-creator') as HTMLElement).offsetTop + 'px';
-        (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
+    setTimeout(() => {
+      if (window.innerWidth > 885) {
+        if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
+          const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
+
+          (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
+        }
       }
-    }
+    }, 100);
   }
 
   toogleModal(modal: ElementRef) {
@@ -161,14 +163,13 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
     this.commonsService.toggleSpinner();
     if (this.form.documentType === 'office') {
       this.setDivHeight();
-      window.addEventListener('resize', this.setDivHeight);
       this.documentService = this.odfCreatorService;
       this.documentService.init('fillForm', this.form.text, 'editorContainer').then( data => {
         this.commonsService.resizeEditor(true);
         window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
-        this.odfCreatorService.resizeDocumentContainer();
         this.commonsService.toggleSpinner();
         this.documentService.setDragAndDropForSetUp();
+        this.documentService.resizeDocumentContainer();
         this.stepModelService.init(this.form.fields, this.documentType);
         this.stepModelService.setInitialState();
       });
@@ -176,10 +177,10 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
       this.documentService = this.plainTextCreatorService;
       this.documentService.init('editor-container', 'editor-preview');
       this.documentService.setQuillText(this.form.text);
-      this.setDivHeight();
-      window.addEventListener('resize', this.setDivHeight);
       this.commonsService.resizeEditor(true);
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
+      this.documentService.resizeDocumentContainer();
+      this.setDivHeight();
       this.stepModelService.init(this.form.fields, this.documentType);
       this.commonsService.toggleSpinner();
     }
@@ -249,7 +250,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   downloadHtml() {
-    const blob = new Blob([this.formBasedDocDiv.nativeElement.outerHTML], {type: 'text/plain'});
+    const blob = new Blob([this.automatikDocDiv.nativeElement.outerHTML], {type: 'text/plain'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -258,7 +259,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   downloadTxt() {
-    const blob = new Blob([this.formBasedDocDiv.nativeElement.textContent], {type: 'text/plain'});
+    const blob = new Blob([this.automatikDocDiv.nativeElement.textContent], {type: 'text/plain'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

@@ -29,7 +29,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   @ViewChild('quill') quill: any;
   @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
-  @ViewChild('formBasedDocDiv') formBasedDocDiv: ElementRef;
+  @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
   @ViewChild('inputsMenuDiv') inputsMenuDiv: ElementRef;
   @ViewChild('textPreviewDiv') textPreviewDiv: ElementRef;
   // @ViewChild('addQuestionMenuDiv') addQuestionMenuDiv: ElementRef;
@@ -193,27 +193,24 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.quillModules = this.documentService.quillModules();
       this.customOptions = this.documentService.customOptions();
       this.documentService.init('editor-container', 'editor-preview');
-      this.documentService.resizeDocumentContainer();
-      this.setDivHeight();
-      window.addEventListener('resize', this.setDivHeight);
       this.commonsService.resizeEditor(true);
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
+      this.documentService.resizeDocumentContainer();
+      this.setDivHeight();
     }
     this.stepModelService.init(this.form.fields, this.documentType);
   }
 
   setDivHeight() {
-    if (window.innerWidth > 885) {
-      if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
-        const newHeight = window.innerHeight - (document.querySelector('#form-creator') as HTMLElement).offsetTop + 'px';
-        // const toolBarOffsetTop = (document.querySelector('.ql-toolbar') as HTMLElement).offsetTop;
-        // const toolBarOffsetHeight = (document.querySelector('.ql-toolbar') as HTMLElement).offsetHeight;
-        // const newHeightForEditor = window.innerHeight - (toolBarOffsetTop + toolBarOffsetHeight) + 'px';
+    setTimeout(() => {
+      if (window.innerWidth > 885) {
+        if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
+          const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
 
-        (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
-        // (document.querySelector('#editor-container') as HTMLElement).style.height = newHeightForEditor;
+          (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
+        }
       }
-    }
+    }, 100);
   }
 
   setCurrentStep(stepNum: number) {
@@ -228,7 +225,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   nextStepAfterValidate() {
-    console.log(this.form.fields[this.currentStep]);
     if (this.form.fields[this.currentStep]['mandatory'] && this.state === 'fill-form') {
       if (this.form.fields[this.currentStep]['type'] === 'iText') {
         if (this.form.fields[this.currentStep]['replacement'] === '') {

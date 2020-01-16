@@ -19,7 +19,7 @@ export class ModalContentComponent implements OnInit, AfterViewInit {
   @Input() field: any;
   @ViewChild('quill') quill: any;
   @ViewChild('inputsMenuDiv') inputsMenuDiv: ElementRef;
-  @ViewChild('formBasedDocDiv') formBasedDocDiv: ElementRef;
+  @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
   @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
   @ViewChild('textPreviewDiv') textPreviewDiv: ElementRef;
   @ViewChild('addQuestionMenuDiv') addQuestionMenuDiv: ElementRef;
@@ -74,10 +74,10 @@ export class ModalContentComponent implements OnInit, AfterViewInit {
   }
 
   preview() {
-    // this.commonsService.replaceClassDnoneForDblock(this.formBasedDocDiv);
-    // this.commonsService.replaceClassDnoneflexForDflex(this.formBasedDocDiv);
-    // this.commonsService.replaceClassDnonegridForDgrid(this.formBasedDocDiv);
-    this.commonsService.replaceOtherClasses(this.formBasedDocDiv);
+    // this.commonsService.replaceClassDnoneForDblock(this.automatikDocDiv);
+    // this.commonsService.replaceClassDnoneflexForDflex(this.automatikDocDiv);
+    // this.commonsService.replaceClassDnonegridForDgrid(this.automatikDocDiv);
+    this.commonsService.replaceOtherClasses(this.automatikDocDiv);
   }
   generateText() {
     this.injectedComponents = this.formAreaDiv.nativeElement.querySelectorAll('.inputCollection');
@@ -266,8 +266,8 @@ export class ModalContentComponent implements OnInit, AfterViewInit {
   setDivHeight() {
     if (window.innerWidth > 885) {
       setTimeout(function() {
-        const newHeight = this.formBasedDocDiv.nativeElement.clientHeight;
-        this.formBasedDocDiv.nativeElement.style.height = newHeight;
+        const newHeight = this.automatikDocDiv.nativeElement.clientHeight;
+        this.automatikDocDiv.nativeElement.style.height = newHeight;
         this.editorContainer.nativeElement.style.height = newHeight;
       }.bind(this), 100);
 

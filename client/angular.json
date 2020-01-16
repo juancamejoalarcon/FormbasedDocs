@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "formbaseddocs": {
+    "automatikdocs": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -89,24 +89,24 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "formbaseddocs:build"
+            "browserTarget": "automatikdocs:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "formbaseddocs:build:production"
+              "browserTarget": "automatikdocs:build:production"
             },
             "development": {
-              "browserTarget": "formbaseddocs:build:production"
+              "browserTarget": "automatikdocs:build:production"
             },
             "es": {
-              "browserTarget": "formbaseddocs:build:es"
+              "browserTarget": "automatikdocs:build:es"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "formbaseddocs:build"
+            "browserTarget": "automatikdocs:build"
           }
         },
         "test": {
@@ -144,7 +144,7 @@
         }
       }
     },
-    "formbaseddocs-e2e": {
+    "automatikdocs-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -153,14 +153,14 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "formbaseddocs:serve"
+            "devServerTarget": "automatikdocs:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "formbaseddocs:serve:production"
+              "devServerTarget": "automatikdocs:serve:production"
             },
             "development": {
-              "devServerTarget": "formbaseddocs:serve:production"
+              "devServerTarget": "automatikdocs:serve:production"
             }
           }
         },
@@ -176,5 +176,5 @@
       }
     }
   },
-  "defaultProject": "formbaseddocs"
+  "defaultProject": "automatikdocs"
 }

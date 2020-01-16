@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CommonsService, ConvertService } from '../../../../core';
-import * as FormBasedDocsApi from '../../../../../assets/js/wodotexteditor/localfileeditor.js';
+import * as AutomatikDocsApi from '../../../../../assets/js/wodotexteditor/localfileeditor.js';
 @Injectable()
 export class DocCreatorService {
 
@@ -31,7 +31,7 @@ export class DocCreatorService {
   }
 
   destroy() {
-    FormBasedDocsApi.closeAndDestroyEditor();
+    AutomatikDocsApi.closeAndDestroyEditor();
     window.removeEventListener('resize', this.resizeEvent);
   }
 
@@ -46,17 +46,17 @@ export class DocCreatorService {
     const blob = new Blob([ab], {type: mimeString});
     const url = URL.createObjectURL(blob);
     window['DOCUMENTOURL'] = url;
-    FormBasedDocsApi.createEditor(formType, idOfContainer);
+    AutomatikDocsApi.createEditor(formType, idOfContainer);
   }
 
   getEditorSession() {
-    return FormBasedDocsApi.getEditorSession();
+    return AutomatikDocsApi.getEditorSession();
   }
 
   saveUri() {
     const reader = new FileReader();
     return new Promise((resolve, reject) => {
-      FormBasedDocsApi.getEditor().getDocumentAsByteArray((err, data) => {
+      AutomatikDocsApi.getEditor().getDocumentAsByteArray((err, data) => {
         if (err) {
           alert(err);
           return;
@@ -77,11 +77,11 @@ export class DocCreatorService {
       setTimeout(() => {
         document.getElementById('webodfeditor-editor1').style.height = document.getElementById('text-area').clientHeight + 'px';
         document.getElementById('webodfeditor-editor1').style.width = document.getElementById('text-area').clientWidth + 'px';
-        FormBasedDocsApi.documentToFitScreen();
+        AutomatikDocsApi.documentToFitScreen();
       }, 10);
     };
     window.addEventListener('resize', this.resizeEvent);
-    FormBasedDocsApi.documentToFitScreen();
+    AutomatikDocsApi.documentToFitScreen();
   }
 
   buildDocument(steps: any, scrollToElement: boolean) {

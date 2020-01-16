@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as FormBasedDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
+import * as AutomatikDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
 import * as screenfull from 'screenfull';
 import { ToastrService } from 'ngx-toastr';
 
@@ -152,6 +152,7 @@ export class CommonsService {
             document.getElementById('text-area').style.display = 'block';
             document.getElementById('fields-area').style.display = 'block';
             document.getElementById('scrollToTop').style.display = 'none';
+            
             (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
             (document.querySelector('#fields-area') as HTMLElement).style.height = newHeight;
             (document.querySelector('#text-area') as HTMLElement).style.height = newHeight;
@@ -161,20 +162,26 @@ export class CommonsService {
             // Mobile mode
             if (isLoaded) {
                 if (document.getElementById('fields-area').style.display === 'none') {
-                    document.getElementById('fields-area').style.display = 'none';
-                    document.getElementById('text-area').style.display = 'block';
-                    document.getElementById('scrollToTop').style.display = 'block';
+                  document.getElementById('fields-area').style.display = 'none';
+                  document.getElementById('text-area').style.display = 'block';
+                  document.getElementById('scrollToTop').style.display = 'block';
 
-                    const newHeight = window.innerHeight - (document.querySelector('#text-area') as HTMLElement).offsetTop + 'px';
+                    const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
                     (document.querySelector('#text-area') as HTMLElement).style.height = newHeight;
+                    (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
+
 
                 } else {
-                    document.getElementById('fields-area').style.display = 'block';
-                    document.getElementById('text-area').style.display = 'none';
-                    document.getElementById('scrollToTop').style.display = 'none';
-
-                    const newHeight = window.innerHeight - (document.querySelector('#fields-area') as HTMLElement).offsetTop + 'px';
+                  document.getElementById('fields-area').style.display = 'block';
+                  document.getElementById('text-area').style.display = 'none';
+                  document.getElementById('scrollToTop').style.display = 'none';
+                  
+                  // Cuando hay un resize muy rápido tiene que esperar a que se recoloquen todos los elementos
+                  setTimeout(() => {
+                    const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
                     (document.querySelector('#fields-area') as HTMLElement).style.height = newHeight;
+                    (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
+                  }, 600)
                 }
             }
 
