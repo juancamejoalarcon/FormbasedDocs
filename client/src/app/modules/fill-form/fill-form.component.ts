@@ -148,7 +148,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
       if (window.innerWidth > 885) {
         if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
           const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
-
+  
           (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
         }
       }
@@ -160,18 +160,19 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   setDocument() {
+
     this.commonsService.toggleSpinner();
     if (this.form.documentType === 'office') {
       this.setDivHeight();
       this.documentService = this.odfCreatorService;
       this.documentService.init('fillForm', this.form.text, 'editorContainer').then( data => {
-        this.commonsService.resizeEditor(true);
-        window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
-        this.commonsService.toggleSpinner();
-        this.documentService.setDragAndDropForSetUp();
-        this.documentService.resizeDocumentContainer();
-        this.stepModelService.init(this.form.fields, this.documentType);
-        this.stepModelService.setInitialState();
+      this.commonsService.resizeEditor(true);
+      window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
+      this.documentService.resizeDocumentContainer();
+      this.commonsService.toggleSpinner();
+      this.documentService.setDragAndDropForSetUp();
+      this.stepModelService.init(this.form.fields, this.documentType);
+      this.stepModelService.setInitialState();
       });
     } else {
       this.documentService = this.plainTextCreatorService;
