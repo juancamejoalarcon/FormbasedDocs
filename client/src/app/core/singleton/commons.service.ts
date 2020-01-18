@@ -165,7 +165,7 @@ export class CommonsService {
         } else if (document.querySelector('app-create-form')) {
           formContainer = document.querySelector('app-create-form');
         }
-      }
+      };
 
       const setElementsForDesktop = () => {
 
@@ -183,13 +183,13 @@ export class CommonsService {
         formCreator.style.flex = '1 1 auto';
         formCreator.style.height = 'auto';
 
-      }
+      };
         if (window.innerWidth > 885) {
           if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
             getAllElements();
-            setElementsForDesktop();
             textArea.style.display = 'block';
             fieldsArea.style.display = 'block';
+            setElementsForDesktop();
           }
         } else {
           getAllElements();
@@ -206,12 +206,10 @@ export class CommonsService {
                   fieldsArea.style.display = 'block';
                   textArea.style.display = 'none';
                   scrollToTop.style.display = 'none';
-                  
                 }
             }
 
         }
-
     }
 
     previewDocumentButton(setDocumentVisible: boolean) {

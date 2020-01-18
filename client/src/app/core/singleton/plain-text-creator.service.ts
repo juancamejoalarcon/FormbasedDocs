@@ -193,19 +193,16 @@ export class PlainTextCreatorService {
   }
 
   resizeDocumentContainer() {
-    // this.resizeEvent = () => {
-    //   const editorContainer = document.getElementById('editor-container');
-    //   // 32px equals to 2 rem
-    //   if (editorContainer) {
-    //     document.getElementById('editor-container').style.height = (
-    //       window.innerHeight - (
-    //         document.querySelector('.nav').clientHeight
-    //         + document.querySelector('.sub-menu').clientHeight
-    //         + document.querySelector('.ql-toolbar').clientHeight) - 32) + 'px';
-    //   }
-    // };
-    // window.addEventListener('resize', this.resizeEvent);
-    // setTimeout(() => { this.resizeEvent(); }, 100);
+    this.resizeEvent = () => {
+      setTimeout(() => {
+        const quillContainer: HTMLElement = document.getElementById('editor-container').querySelector('[quill-editor-element]');
+        const editorPreview: HTMLElement = document.getElementById('editor-preview');
+        quillContainer.style.height = (window.innerHeight - quillContainer.offsetTop - 10) + 'px';
+        editorPreview.style.height = (window.innerHeight - editorPreview.offsetTop) + 'px';
+      }, 200);
+    };
+    window.addEventListener('resize', this.resizeEvent);
+    setTimeout(() => { this.resizeEvent(); }, 100);
   }
 
   destroyResizeDocumentContainer() {

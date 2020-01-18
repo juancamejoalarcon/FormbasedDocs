@@ -65,10 +65,10 @@ export class OdfCreatorService {
 
   resizeDocumentContainer() {
     this.resizeEvent = () => {
-      // Fix weird behaviour in Chrome
       setTimeout(() => {
-        // document.getElementById('webodfeditor-editor1').style.height = document.getElementById('text-area').clientHeight + 'px';
-        // document.getElementById('webodfeditor-editor1').style.width = document.getElementById('text-area').clientWidth + 'px';
+        document.getElementById('webodfeditor-editor1').style.height = '100%';
+        document.getElementById('webodfeditor-editor1').style.width = '100%';
+      // Fix weird behaviour in Chrome
         AutomatikDocsApi.documentToFitScreen();
       }, 100);
     };
