@@ -1,35 +1,36 @@
 <div class="navbar-and-main" id="navbar-and-main">
-  <div>
-    <nav class="nav" #navbar>
-      <div class="nav__container">
-        <img src="/assets/images/logo.png" alt="logo" class="nav__logo" routerLink="/search">
-        <ul class="nav__menu">
-          <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current">
-            <a routerLink="/search" i18n="@@search">Buscar</a>
-          </li>
-          <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
-            <a routerLink="/auth/login" i18n="@@createForm">Crear</a>
-          </li>
-          <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
-            <a routerLink="/create-form">Crear</a>
-          </li>
-          <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
-            <a routerLink="/my-forms">Mis formularios</a>
-          </li>
-          <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
-            <a routerLink="/settings">Ajustes</a>
-          </li>
-          <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
-            <a routerLink="/auth/login">Iniciar sesión</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <div id="nav-and-content">
+    <div id="nav-and-others">
+      <nav class="nav" #navbar>
+        <div class="nav__container">
+          <img src="/assets/images/logo.png" alt="logo" class="nav__logo" routerLink="/search">
+          <ul class="nav__menu">
+            <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current">
+              <a routerLink="/search" i18n="@@search">Buscar</a>
+            </li>
+            <li  class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
+              <a routerLink="/auth/login" i18n="@@createForm">Crear</a>
+            </li>
+            <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
+              <a routerLink="/create-form">Crear</a>
+            </li>
+            <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
+              <a routerLink="/my-forms">Mis formularios</a>
+            </li>
+            <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="true">
+              <a routerLink="/settings">Ajustes</a>
+            </li>
+            <li class="nav__menu__button" routerLinkActive="nav__menu__button--current" *appShowAuthed="false">
+              <a routerLink="/auth/login">Iniciar sesión</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-    <!-- SPINNER -->
-    <app-loading-spinner></app-loading-spinner>
-      <!-- END OF SPINNER -->
-
+      <!-- SPINNER -->
+      <app-loading-spinner></app-loading-spinner>
+        <!-- END OF SPINNER -->
+    </div>
     <router-outlet></router-outlet>
   </div>
 

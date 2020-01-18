@@ -206,7 +206,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       if (window.innerWidth > 885) {
         if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
           const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
-
+  
           (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
         }
       }

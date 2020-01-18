@@ -143,49 +143,75 @@ export class CommonsService {
     }
 
     resizeEditor(isLoaded: boolean = true) {
+      let navAndContent: HTMLElement;
+      let navAndOthers: HTMLElement;
+      let formContainer: HTMLElement;
+      let subMenu: HTMLElement;
+      let formCreator: HTMLElement;
+      let fieldsArea: HTMLElement;
+      let textArea: HTMLElement;
+      let scrollToTop: HTMLElement;
+
+      const getAllElements = () => {
+        navAndContent = document.getElementById('nav-and-content');
+        navAndOthers = document.getElementById('nav-and-others');
+        subMenu = document.querySelector('.sub-menu');
+        formCreator = document.getElementById('form-creator');
+        fieldsArea = document.getElementById('fields-area');
+        textArea = document.getElementById('text-area');
+        scrollToTop = document.getElementById('scrollToTop');
+        if (document.querySelector('app-fill-form')) {
+          formContainer = document.querySelector('app-fill-form');
+        } else if (document.querySelector('app-create-form')) {
+          formContainer = document.querySelector('app-create-form');
+        }
+      }
+
+      const setElementsForDesktop = () => {
+
+        navAndContent.style.display = 'flex';
+        navAndContent.style.flexDirection = 'column';
+        navAndContent.style.height = '100vh';
+        navAndOthers.style.flex = '0 1 auto';
+
+        formContainer.style.display = 'flex';
+        formContainer.style.flexDirection = 'column';
+        formContainer.style.height = '100%';
+        formContainer.style.flex = '1 1 auto';
+
+        subMenu.style.flex = '0 1 auto';
+        formCreator.style.flex = '1 1 auto';
+        formCreator.style.height = 'auto';
+
+      }
         if (window.innerWidth > 885) {
           if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
-            const newHeight = window.innerHeight - (document.querySelector('#form-creator') as HTMLElement).offsetTop + 'px';
-            // const toolBarOffsetTop = (document.querySelector('.ql-toolbar') as HTMLElement).offsetTop;
-            // const toolBarOffsetHeight = (document.querySelector('.ql-toolbar') as HTMLElement).offsetHeight;
-            // const newHeightForEditor = window.innerHeight - (toolBarOffsetTop + toolBarOffsetHeight) + 'px';
-            document.getElementById('text-area').style.display = 'block';
-            document.getElementById('fields-area').style.display = 'block';
-            document.getElementById('scrollToTop').style.display = 'none';
-            
-            (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
-            (document.querySelector('#fields-area') as HTMLElement).style.height = newHeight;
-            (document.querySelector('#text-area') as HTMLElement).style.height = newHeight;
-            // (document.querySelector('#editor-container') as HTMLElement).style.height = newHeightForEditor;
+            getAllElements();
+            setElementsForDesktop();
+            textArea.style.display = 'block';
+            fieldsArea.style.display = 'block';
           }
         } else {
+          getAllElements();
+          setElementsForDesktop();
             // Mobile mode
             if (isLoaded) {
-                if (document.getElementById('fields-area').style.display === 'none') {
-                  document.getElementById('fields-area').style.display = 'none';
-                  document.getElementById('text-area').style.display = 'block';
-                  document.getElementById('scrollToTop').style.display = 'block';
-
-                    const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
-                    (document.querySelector('#text-area') as HTMLElement).style.height = newHeight;
-                    (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
+                if (fieldsArea.style.display === 'none') {
+                  fieldsArea.style.display = 'none';
+                  textArea.style.display = 'block';
+                  scrollToTop.style.display = 'block';
 
 
                 } else {
-                  document.getElementById('fields-area').style.display = 'block';
-                  document.getElementById('text-area').style.display = 'none';
-                  document.getElementById('scrollToTop').style.display = 'none';
+                  fieldsArea.style.display = 'block';
+                  textArea.style.display = 'none';
+                  scrollToTop.style.display = 'none';
                   
-                  // Cuando hay un resize muy rápido tiene que esperar a que se recoloquen todos los elementos
-                  setTimeout(() => {
-                    const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
-                    (document.querySelector('#fields-area') as HTMLElement).style.height = newHeight;
-                    (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
-                  }, 600)
                 }
             }
 
         }
+
     }
 
     previewDocumentButton(setDocumentVisible: boolean) {
