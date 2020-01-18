@@ -53,12 +53,12 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
         }
       }
     );
-    document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+
     window.addEventListener('unload', this.saveInSessionStorage.bind(this));
   }
 
   ngOnDestroy() {
-    document.getElementsByTagName('html')[0].style.overflow = '';
+
     this.saveInSessionStorage();
     window.removeEventListener('unload', this.saveInSessionStorage);
   }
