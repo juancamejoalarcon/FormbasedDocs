@@ -110,6 +110,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.documentCreatorService.destroy();
     window.removeEventListener('resize', this.commonsService.resizeEditor.bind(this));
+    this.commonsService.setFormCreatorPlayground(true);
   }
 
   setInitiaState() {
@@ -125,6 +126,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
     this.documentCreatorService.init(this.form.uri).then( data => {
+      this.commonsService.setFormCreatorPlayground(false);
       this.commonsService.resizeEditor(true);
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.documentCreatorService.resizeDocumentContainer();

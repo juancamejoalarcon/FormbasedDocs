@@ -141,6 +141,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         this.odfCreatorService.closeAndDestroyEditor();
       }
     this.documentService.destroyResizeDocumentContainer();
+    this.commonsService.setFormCreatorPlayground(true);
     }
   }
 
@@ -183,6 +184,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.setDivHeight();
       this.documentService = this.odfCreatorService;
       this.documentService.init('create-form', this.updatingForm ? this.form.text : '', 'editorContainer').then( (data: any) => {
+        this.commonsService.setFormCreatorPlayground(false);
         this.commonsService.resizeEditor(true);
         window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
         this.documentService.setDragAndDropForSetUp();
@@ -193,6 +195,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.quillModules = this.documentService.quillModules();
       this.customOptions = this.documentService.customOptions();
       this.documentService.init('editor-container', 'editor-preview');
+      this.commonsService.setFormCreatorPlayground(false);
       this.commonsService.resizeEditor(true);
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.documentService.resizeDocumentContainer();

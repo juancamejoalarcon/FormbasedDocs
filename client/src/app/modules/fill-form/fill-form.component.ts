@@ -94,6 +94,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
       this.odfCreatorService.closeAndDestroyEditor();
       this.odfCreatorService.destroyResizeDocumentContainer();
     }
+    this.commonsService.setFormCreatorPlayground(true);
   }
 
   setInitialState() {
@@ -166,18 +167,20 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
       this.setDivHeight();
       this.documentService = this.odfCreatorService;
       this.documentService.init('fillForm', this.form.text, 'editorContainer').then( data => {
-      this.commonsService.resizeEditor(true);
-      window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
-      this.documentService.resizeDocumentContainer();
-      this.commonsService.toggleSpinner();
-      this.documentService.setDragAndDropForSetUp();
-      this.stepModelService.init(this.form.fields, this.documentType);
-      this.stepModelService.setInitialState();
+        this.commonsService.setFormCreatorPlayground(false);
+        this.commonsService.resizeEditor(true);
+        window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
+        this.documentService.resizeDocumentContainer();
+        this.commonsService.toggleSpinner();
+        this.documentService.setDragAndDropForSetUp();
+        this.stepModelService.init(this.form.fields, this.documentType);
+        this.stepModelService.setInitialState();
       });
     } else {
       this.documentService = this.plainTextCreatorService;
       this.documentService.init('editor-container', 'editor-preview');
       this.documentService.setQuillText(this.form.text);
+      this.commonsService.setFormCreatorPlayground(false);
       this.commonsService.resizeEditor(true);
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.documentService.resizeDocumentContainer();

@@ -142,74 +142,65 @@ export class CommonsService {
         }
     }
 
-    resizeEditor(isLoaded: boolean = true) {
-      let navAndContent: HTMLElement;
-      let navAndOthers: HTMLElement;
+    setFormCreatorPlayground(onDestroyComponent: boolean) {
+      const navAndContent: HTMLElement = document.getElementById('nav-and-content');
+      const navAndOthers: HTMLElement = document.getElementById('nav-and-others');
+      const subMenu: HTMLElement = document.querySelector('.sub-menu');
+      const formCreator: HTMLElement = document.getElementById('form-creator');
       let formContainer: HTMLElement;
-      let subMenu: HTMLElement;
-      let formCreator: HTMLElement;
+      if (document.querySelector('app-fill-form')) {
+        formContainer = document.querySelector('app-fill-form');
+      } else if (document.querySelector('app-create-form')) {
+        formContainer = document.querySelector('app-create-form');
+      } else if (document.querySelector('app-certified-forms')) {
+        formContainer = document.querySelector('app-certified-forms');
+      }
+
+      navAndContent.style.display = onDestroyComponent ? '' : 'flex';
+      navAndContent.style.flexDirection = onDestroyComponent ? '' : 'column';
+      navAndContent.style.height = onDestroyComponent ? '' : '100vh';
+      navAndOthers.style.flex = onDestroyComponent ? '' : '0 1 auto';
+
+      formContainer.style.display = onDestroyComponent ? '' : 'flex';
+      formContainer.style.flexDirection = onDestroyComponent ? '' : 'column';
+      formContainer.style.height = onDestroyComponent ? '' : '100%';
+      formContainer.style.flex = onDestroyComponent ? '' : '1 1 auto';
+
+      subMenu.style.flex = onDestroyComponent ? '' : '0 1 auto';
+      formCreator.style.flex = onDestroyComponent ? '' : '1 1 auto';
+      formCreator.style.height = onDestroyComponent ? '' : 'auto';
+    }
+
+    resizeEditor(isLoaded: boolean = true) {
       let fieldsArea: HTMLElement;
       let textArea: HTMLElement;
       let scrollToTop: HTMLElement;
 
-      const getAllElements = () => {
-        navAndContent = document.getElementById('nav-and-content');
-        navAndOthers = document.getElementById('nav-and-others');
-        subMenu = document.querySelector('.sub-menu');
-        formCreator = document.getElementById('form-creator');
-        fieldsArea = document.getElementById('fields-area');
-        textArea = document.getElementById('text-area');
-        scrollToTop = document.getElementById('scrollToTop');
-        if (document.querySelector('app-fill-form')) {
-          formContainer = document.querySelector('app-fill-form');
-        } else if (document.querySelector('app-create-form')) {
-          formContainer = document.querySelector('app-create-form');
+      fieldsArea = document.getElementById('fields-area');
+      textArea = document.getElementById('text-area');
+      scrollToTop = document.getElementById('scrollToTop');
+
+      if (window.innerWidth > 885) {
+        if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
+          textArea.style.display = 'block';
+          fieldsArea.style.display = 'block';
         }
-      };
+      } else {
+          // Mobile mode
+          if (isLoaded) {
+              if (fieldsArea.style.display === 'none') {
+                fieldsArea.style.display = 'none';
+                textArea.style.display = 'block';
+                scrollToTop.style.display = 'block';
 
-      const setElementsForDesktop = () => {
 
-        navAndContent.style.display = 'flex';
-        navAndContent.style.flexDirection = 'column';
-        navAndContent.style.height = '100vh';
-        navAndOthers.style.flex = '0 1 auto';
-
-        formContainer.style.display = 'flex';
-        formContainer.style.flexDirection = 'column';
-        formContainer.style.height = '100%';
-        formContainer.style.flex = '1 1 auto';
-
-        subMenu.style.flex = '0 1 auto';
-        formCreator.style.flex = '1 1 auto';
-        formCreator.style.height = 'auto';
-
-      };
-        if (window.innerWidth > 885) {
-          if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
-            getAllElements();
-            textArea.style.display = 'block';
-            fieldsArea.style.display = 'block';
-            setElementsForDesktop();
+              } else {
+                fieldsArea.style.display = 'block';
+                textArea.style.display = 'none';
+                scrollToTop.style.display = 'none';
+              }
           }
-        } else {
-          getAllElements();
-          setElementsForDesktop();
-            // Mobile mode
-            if (isLoaded) {
-                if (fieldsArea.style.display === 'none') {
-                  fieldsArea.style.display = 'none';
-                  textArea.style.display = 'block';
-                  scrollToTop.style.display = 'block';
-
-
-                } else {
-                  fieldsArea.style.display = 'block';
-                  textArea.style.display = 'none';
-                  scrollToTop.style.display = 'none';
-                }
-            }
-
-        }
+      }
     }
 
     previewDocumentButton(setDocumentVisible: boolean) {
