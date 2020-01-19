@@ -92,9 +92,10 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy() {
     if (this.form.documentType === 'office') {
       this.odfCreatorService.closeAndDestroyEditor();
-      this.odfCreatorService.destroyResizeDocumentContainer();
     }
+    this.documentService.destroyResizeDocumentContainer();
     this.commonsService.setFormCreatorPlayground(true);
+    window.removeEventListener('resize', (this.commonsService.resizeEditor as any));
   }
 
   setInitialState() {
@@ -169,7 +170,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
       this.documentService.init('fillForm', this.form.text, 'editorContainer').then( data => {
         this.commonsService.setFormCreatorPlayground(false);
         this.commonsService.resizeEditor(true);
-        window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
+        window.addEventListener('resize', (this.commonsService.resizeEditor as any));
         this.documentService.resizeDocumentContainer();
         this.commonsService.toggleSpinner();
         this.documentService.setDragAndDropForSetUp();
@@ -182,7 +183,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
       this.documentService.setQuillText(this.form.text);
       this.commonsService.setFormCreatorPlayground(false);
       this.commonsService.resizeEditor(true);
-      window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
+      window.addEventListener('resize', (this.commonsService.resizeEditor as any));
       this.documentService.resizeDocumentContainer();
       this.setDivHeight();
       this.stepModelService.init(this.form.fields, this.documentType);

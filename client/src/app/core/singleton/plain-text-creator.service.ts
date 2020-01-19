@@ -195,10 +195,16 @@ export class PlainTextCreatorService {
   resizeDocumentContainer() {
     this.resizeEvent = () => {
       setTimeout(() => {
-        const quillContainer: HTMLElement = document.getElementById('editor-container').querySelector('[quill-editor-element]');
-        const editorPreview: HTMLElement = document.getElementById('editor-preview');
-        quillContainer.style.height = (window.innerHeight - quillContainer.offsetTop - 10) + 'px';
-        editorPreview.style.height = (window.innerHeight - editorPreview.offsetTop) + 'px';
+        if (document.getElementById('editor-container')) {
+          const quillContainer: HTMLElement = document.getElementById('editor-container').querySelector('[quill-editor-element]');
+          if (quillContainer) {
+            quillContainer.style.height = (window.innerHeight - quillContainer.offsetTop - 10) + 'px';
+          }
+        }
+        const formCreatorContainer: HTMLElement = document.getElementById('form-creator');
+        if (formCreatorContainer) {
+          formCreatorContainer.style.height = (window.innerHeight - formCreatorContainer.offsetTop - 10) + 'px';
+        }
       }, 200);
     };
     window.addEventListener('resize', this.resizeEvent);

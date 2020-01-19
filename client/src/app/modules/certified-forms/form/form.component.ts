@@ -134,6 +134,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       if (!window.sessionStorage['Contrato de Arras Penitenciales']) {
         this.stepModelService.setInitialState();
       }
+      this.documentCreatorService.resizeEvent();
       this.commonsService.toggleSpinner();
     });
   }
