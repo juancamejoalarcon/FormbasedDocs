@@ -1,6 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StepModelService } from './step-model2.service';
+import { StepModelService } from './step-model.service';
+import { OdfCreatorService } from './odf-creator.service';
+import { PlainTextCreatorService } from './plain-text-creator.service';
+import { StateService } from './state.service';
 
 describe('StepModelService', () => {
 
@@ -12,9 +15,16 @@ describe('StepModelService', () => {
   ];
 
   beforeEach(() => {
+    const spyOdfCreator = jasmine.createSpyObj('OdfCreatorService', ['buildDocument']);
+    const spyPlainTextCreator = jasmine.createSpyObj('PlainTextCreatorService', ['buildDocument']);
 
     TestBed.configureTestingModule({
-      providers: [StepModelService]
+      providers: [
+        StepModelService,
+        StateService,
+        { provide: OdfCreatorService, useValue: spyOdfCreator },
+        { provide: PlainTextCreatorService, useValue: spyPlainTextCreator }
+      ]
     });
 
     service = TestBed.get(StepModelService);
