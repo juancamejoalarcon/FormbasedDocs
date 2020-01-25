@@ -108,9 +108,7 @@ export class StepsService {
         step.value = value;
         // 2. Clean possible previously added steps, so we don't repeat them
         const cache = JSON.parse(JSON.stringify(this.steps));
-        while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.identifier)) {
-          this.steps.splice((index + 1), 1);
-        }
+        this.cleanPreviouslyAddedSteps(index, step.identifier);
         // 3. Loop through the texts that will be inserted
         step.content.forEach((content, contentIndex) => {
           content.modifiedReplacements = [];
@@ -192,6 +190,12 @@ export class StepsService {
     }
   }
 
+  cleanPreviouslyAddedSteps(index: number, identifierOrWordToReplace: string) {
+    while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(identifierOrWordToReplace)) {
+      this.steps.splice((index + 1), 1);
+    }
+  };
+
   onInputRadioBSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
@@ -218,9 +222,7 @@ export class StepsService {
   onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
     const buildSelectedRadio = (step: any, index: number, radio: any, ) => {
       // 3. Clean possible previously added steps, so we don't repeat them
-      while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(step.wordToReplace)) {
-        this.steps.splice((index + 1), 1);
-      }
+      this.cleanPreviouslyAddedSteps(index, step.wordToReplace);
       // 2. Add steps
       let replacement = radio.replacementOriginal;
       radio.extraReplacements.forEach((extraReplacement) => { extraReplacement.replacement = extraReplacement.replacementOriginal; });
