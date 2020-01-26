@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "formbaseddocs",
+		"name": "automatikdocs",
 		"_postman_id": "5e223aca-e4f3-0f24-6359-3988cdc237d6",
 		"description": "Collection for testing the Conduit API\n\nhttps://github.com/gothinkster/realworld",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"

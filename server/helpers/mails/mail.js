@@ -7,8 +7,8 @@ const smtp = {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: 'formbaseddocs@formbaseddocs.com', // generated ethereal user
-        pass: 'ycgvjiggefsdmkwb' // generated ethereal password
+        user: 'automatikdocs@automatikdocs.com', // generated ethereal user
+        pass: 'ripaduprrmrzxyyi' // generated ethereal password
     }
 };
 
@@ -38,10 +38,10 @@ const emailSender =  {
     
                 // send mail with defined transport object
                 let info = transporter.sendMail({
-                    from: '<formbaseddocs@formbaseddocs.com>', // sender address
-                    to: `${email}, formbaseddocs@formbaseddocs.com`, // list of receivers
-                    subject: `Formbaseddocs - ${formName}`, // Subject line
-                    text: `Formbaseddocs - ${formName}`, // plain text body
+                    from: '<automatikdocs@automatikdocs.com>', // sender address
+                    to: `${email}, automatikdocs@automatikdocs.com`, // list of receivers
+                    subject: `Automatik Docs - ${formName}`, // Subject line
+                    text: `Automatik Docs - ${formName}`, // plain text body
                     html: mailStrings.invoice(transactionId, today, formName, amount),
                     attachments: [
                     {
@@ -63,13 +63,25 @@ const emailSender =  {
     forgotPassword: (email, user, token) => {
         let transporter = nodemailer.createTransport(smtp);
 
+        const isProduction = process.env.NODE_ENV === 'production',
+        isDevelopment = process.env.NODE_ENV === 'development',
+        isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
+        let host;
+        if (isLocal) {
+            host = 'http://localhost:4200';
+        } else if (isDevelopment) {
+            host = 'http://dev.formbaseddocs.com';
+        } else if (isProduction) {
+            host = 'http://automatikdocs.com';
+        }
+
         // send mail with defined transport object
         let info = transporter.sendMail({
-            from: '<formbaseddocs@formbaseddocs.com>', // sender address
-            to: `${email}, formbaseddocs@formbaseddocs.com`, // list of receivers
-            subject: `Formbaseddocs - Forgot password`, // Subject line
-            text: `Formbaseddocs - Forgot password`, // plain text body
-            html: mailStrings.resetPassword(token, 'http://localhost:4200/auth/recover-password?token=' + token),
+            from: '<automatikdocs@automatikdocs.com>', // sender address
+            to: `${email}, automatikdocs@automatikdocs.com`, // list of receivers
+            subject: `Automatik Docs - Forgot password`, // Subject line
+            text: `Automatik Docs - Forgot password`, // plain text body
+            html: mailStrings.resetPassword(token, host + '/auth/recover-password?token=' + token),
         });
 
         console.log('Message sent: %s', info.messageId);

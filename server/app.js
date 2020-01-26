@@ -13,7 +13,7 @@ const http = require('http'),
 const secret = require('./config').secret;
 
 const isProduction = process.env.NODE_ENV === 'production',
-      isDevelopment = process.env.NODE_ENV === 'development';
+      isDevelopment = process.env.NODE_ENV === 'development',
       isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
       
 
