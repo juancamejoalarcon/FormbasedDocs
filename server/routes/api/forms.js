@@ -8,6 +8,14 @@ const auth = require('../auth');
 const url = require('url');
 const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
 const fs = require('fs');
+const AWS = require('aws-sdk');
+
+AWS.config.update({
+  secretAccessKey: process.env.AWS_SECRET_ACCESS,
+  accessKeyId: process.env.AWS_KEY_ID,
+  region: 'eu-west-3'
+});
+const s3 = new AWS.S3();
 
 // Preload form objects on routes with ':form'
 router.param('form', function(req, res, next, slug) {
@@ -33,16 +41,31 @@ router.get('/:form', auth.optional, function(req, res, next) {
       const user = results[0];
       // Increments the views if receives view: true
       if (req.query.view) { req.form.updateViewCount() };
-
       if (req.form.documentType === 'office') {
-        const odtFile = fs.readFileSync(`./tmp/odts/${req.form.slug}.odt`, { encoding: 'base64' });
-        req.form.text = 'data:application/vnd.oasis.opendocument.text;base64,' + odtFile; 
-      }
 
-      if (req.form.type === 'Filled') {
-        return res.json({form: req.form.toJSONForFill(user)});
+        s3.getObject({
+          Bucket: process.env.AWS_BUCKET,
+          Key: req.form.slug
+        }, function(err, data) {
+          // Handle any error and exit
+          if (err) {
+            console.log('ERROR', err);
+            return res.status(422).json({errors: {err: err}});
+          }
+          const text = 'data:' + data.ContentType + ';' + data.ContentEncoding + ',' + data.Body.toString('base64');
+          req.form.text = text;
+          if (req.form.type === 'Filled') {
+            return res.json({form: req.form.toJSONForFill(user)});
+          } else {
+            return res.json({form: req.form.toJSONFor(user)});
+          }
+        });
       } else {
-        return res.json({form: req.form.toJSONFor(user)});
+        if (req.form.type === 'Filled') {
+          return res.json({form: req.form.toJSONForFill(user)});
+        } else {
+          return res.json({form: req.form.toJSONFor(user)});
+        }
       }
     }).catch(next);
   });
@@ -64,16 +87,21 @@ router.post('/create', auth.required, function(req, res, next) {
         if (form.documentType === 'office') {
           const name = form.slug;
           let odt = officeText;
-          odt = odt.replace('data:application/vnd.oasis.opendocument.text;base64,', '');
-          let odtPathName = `./tmp/odts/${name}.odt`;
-          fs.writeFile(odtPathName, odt, 'base64', function(err) {
-            if(err) {
-                console.log(err);
-                return res.json(err);
-            }
-            form.text = '';
-            return res.json({form: form.toJSONFor(user)});
-          });
+          const buf = new Buffer((odt.replace('data:application/vnd.oasis.opendocument.text;base64,', '')), 'base64');
+          s3.putObject({
+            Bucket: process.env.AWS_BUCKET,
+            Body: buf,
+            Key: name,
+            ContentEncoding: 'base64',
+            ContentType: `application/vnd.oasis.opendocument.text`
+          }).promise().then(response => {
+              console.log(`AWS SAVED! - `, response);
+              form.text = '';
+              return res.json({form: form.toJSONFor(user)});
+          }).catch(err => {
+              console.log('failed:', err);
+              return res.status(422).json({errors: {err: err}});
+          })
         } else {
           return res.json({form: form.toJSONFor(user)});
         }
@@ -155,15 +183,22 @@ router.put('/:form', auth.required, function(req, res, next) {
           if (form.documentType === 'office') {
             const name = req.body.form.slug;
             let odt = req.body.form.text;
-            odt = odt.replace('data:application/vnd.oasis.opendocument.text;base64,', '');
-            let odtPathName = `./tmp/odts/${name}.odt`;
-            fs.writeFile(odtPathName, odt, 'base64', function(err) {
-              if(err) {
-                  console.log(err);
-                  return res.json(err);
-              }
-              return res.json({form: form.toJSONFor(user)});
-            });
+            const buf = new Buffer((odt.replace('data:application/vnd.oasis.opendocument.text;base64,', '')), 'base64');
+            s3.putObject({
+              Bucket: process.env.AWS_BUCKET,
+              Body: buf,
+              Key: name,
+              ContentEncoding: 'base64',
+              ContentType: `application/vnd.oasis.opendocument.text`
+            }).promise().then(response => {
+                console.log(`AWS SAVED! - `, response);
+                form.text = '';
+                return res.json({form: form.toJSONFor(user)});
+            }).catch(err => {
+                console.log('failed:', err);
+                return res.status(422).json({errors: {err: err}});
+            })
+
           } else {
             return res.json({form: form.toJSONFor(user)});
           }
@@ -183,7 +218,15 @@ router.delete('/:form', auth.required, function(req, res, next) {
         if(req.form.author._id.toString() === req.payload.id.toString()){
           return req.form.remove().then(function(){
             if (req.form.documentType === 'office') {
-              fs.unlink(`./tmp/odts/${req.form.slug}.odt`, () => {
+              s3.deleteObject({
+                Bucket: process.env.AWS_BUCKET,
+                Key: req.form.slug
+              }, function(err, data) {
+                if (err) {
+                  console.log(err, err.stack);
+                } else {
+                  console.log(data);
+                }
                 return res.sendStatus(204);
               });
             } else {
