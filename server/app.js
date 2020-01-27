@@ -61,7 +61,17 @@ if (isLocal) {
   process.env.BT_PAYPAL_PRIVATE_KEY='access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
   // Other path
   process.env.SOFFICE_PATH='/Applications/LibreOffice.app/Contents/MacOS/soffice';
+
+  process.env.AWS_SECRET_ACCESS='beM/dSbKQCO/l8LEseY+eLPauLn4PDGe9Jd001gm';
+  process.env.AWS_KEY_ID='AKIAJL2ELB6XHO4FQOKQ';
+  process.env.AWS_BUCKET='automatikdocs-dev-assets';
+
 }
+
+// automatikdocs-dev-assets
+// region=eu-west-3
+// Access Key ID: AKIAJUFQ2F2WRK6KT7MQ
+// Secret Access Key: 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
 
 require('./models/User');
 require('./models/Form');

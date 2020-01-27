@@ -8,6 +8,15 @@ const auth = require('../auth');
 const crypto = require('crypto');
 const emailSender = require('../../helpers/mails/mail');
 const fs = require('fs');
+// const upload = require('../../helpers/file-upload');
+// const singleUpload = upload.single('image');
+const AWS = require('aws-sdk')
+AWS.config.update({
+    secretAccessKey: process.env.AWS_SECRET_ACCESS,
+    accessKeyId: process.env.AWS_KEY_ID,
+    region: 'eu-west-3'
+});
+const s3 = new AWS.S3()
 
 router.get('/', auth.required, function(req, res, next){
   User.findById(req.payload.id).then(function(user){
@@ -115,36 +124,55 @@ router.put('/', auth.required, function(req, res, next){
     /*********SAVE IMAGE ***********/
     /******************************/
     if(typeof req.body.user.image !== 'undefined'){
-
+      
       let userImage = req.body.user.image;
-      let imageType;
-      ['jpeg', 'png', 'jpg', 'gif'].forEach((type) => {
-        // Delete current saved image
-        const path = `./tmp/images/${user.id}.${type}`;
-        if (fs.existsSync(path)) {
-          fs.unlink(path, (err) => {
-            if (err) {
-                return res.json(err);
-            }
+    //   let imageType;
+    //   ['jpeg', 'png', 'jpg', 'gif'].forEach((type) => {
+    //     // Delete current saved image
+    //     const path = `./tmp/images/${user.id}.${type}`;
+    //     if (fs.existsSync(path)) {
+    //       fs.unlink(path, (err) => {
+    //         if (err) {
+    //             return res.json(err);
+    //         }
 
-          });
-        }
-        if (userImage.substring(0, 40).includes(type)) {
-          imageType = type;
-        }
-      });
-      const regex = new RegExp(`data:image/${imageType};base64,`);
-      const base64Data = userImage.replace(regex, "");
-      let pathName = `./tmp/images/${user.id}.${imageType}`;
-      fs.writeFile(pathName, base64Data, 'base64', function(err) {
-        if(err) {
-            console.log(err);
-            return res.json(err);
-        }
-        return user.save().then(function(){
-          return res.json({user: user.toAuthJSON()});
-        }).catch(next);
-      });
+    //       });
+    //     }
+    //     if (userImage.substring(0, 40).includes(type)) {
+    //       imageType = type;
+    //     }
+    //   });
+    //   const regex = new RegExp(`data:image/${imageType};base64,`);
+    //   const base64Data = userImage.replace(regex, "");
+    //   let pathName = `./tmp/images/${user.id}.${imageType}`;
+    //   fs.writeFile(pathName, base64Data, 'base64', function(err) {
+    //     if(err) {
+    //         console.log(err);
+    //         return res.json(err);
+    //     }
+    //     return user.save().then(function(){
+    //       return res.json({user: user.toAuthJSON()});
+    //     }).catch(next);
+    //   });
+    s3.putObject({
+      Bucket: process.env.AWS_BUCKET,
+      Body: userImage,
+      Key: 'mishuevos'
+    })
+      .promise()
+      .then(response => {
+        console.log(`done! - `, response)
+        console.log(
+          `The URL is ${s3.getSignedUrl('getObject', { Bucket: BUCKET, Key: imageRemoteName })}`
+        )
+      })
+      .catch(err => {
+        console.log('failed:', err)
+      })
+    return user.save().then(function(){
+      return res.json({user: user.toAuthJSON()});
+    }).catch(next);
+
     } else {
       return user.save().then(function(){
         return res.json({user: user.toAuthJSON()});
