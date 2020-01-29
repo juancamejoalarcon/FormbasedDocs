@@ -194,7 +194,7 @@ export class StepsService {
     while (this.steps[index + 1] && this.steps[index + 1].wordToReplace.includes(identifierOrWordToReplace)) {
       this.steps.splice((index + 1), 1);
     }
-  };
+  }
 
   onInputRadioBSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
     // 1. Find the step

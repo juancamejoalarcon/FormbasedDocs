@@ -4,10 +4,10 @@ const imageUri = require('./imageUri');
 const steps = require('./steps');
 const information = require('./information');
 
-const contrato_compraventa_vehiculo = {
-    id: 'contrato-compraventa-vehiculo',
-    title: 'Contrato de compraventa de vehículo usado entre particulares',
-    topLabelTitle: 'Compraventa de vehículo usado entre particulares',
+const contrato_arrendamiento_habitacion = {
+    id: 'contrato-arrendamiento-habitacion',
+    title: 'Contrato de arrendamiento de habitación',
+    topLabelTitle: 'Contrato de arrendamiento de habitación',
     amount: 20,
     image: imageUri,
     uri: uri,
@@ -16,4 +16,4 @@ const contrato_compraventa_vehiculo = {
     information: information
 };
 
-module.exports = contrato_compraventa_vehiculo;
+module.exports = contrato_arrendamiento_habitacion;
