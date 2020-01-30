@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { CommonsService, ConvertService } from '../../../../core';
 import * as AutomatikDocsApi from '../../../../../assets/js/wodotexteditor/localfileeditor.js';
 @Injectable()
@@ -189,7 +189,7 @@ export class DocCreatorService {
       // Find paragrah
       const elementContainingWord = this.findword(content.wordToReplace);
       // Case where we just have the word, and nothing more
-      if (elementContainingWord.textContent === content.wordToReplace) {
+      if (elementContainingWord.textContent === content.wordToReplace ) {
         // Reversed copy of the array so we inject elements in order
         const newarray = content.modifiedReplacements.slice().reverse();
 
@@ -231,6 +231,29 @@ export class DocCreatorService {
 
           });
         });
+        // Case where we have a single textNode that contains inside the wordToTReplace
+      } else if (elementContainingWord.textContent.includes(content.wordToReplace) && !elementContainingWord.childElementCount) {
+        const newarray = content.modifiedReplacements.slice().reverse();
+        const regexp = new RegExp(step.wordToReplace, 'g');
+
+        // newarray.forEach((modifiedReplacement: any, index: number) => {
+        //   let exactElementContainingWord: any;
+        //   const regexp = new RegExp(step.wordToReplace, 'g');
+
+        //   if (index !== content.modifiedReplacements.length - 1) {
+        //     console.log('Sí')
+        //   } else {
+        //     console.log('No');
+        //   }
+        // });
+        const textContent = elementContainingWord.textContent;
+        const firstHalfString = textContent.slice(0, textContent.indexOf(content.wordToReplace))
+        const secondHalfString = textContent.slice(textContent.indexOf(content.wordToReplace), textContent.length);
+        let secondHalfStringWithoutWordtoReplace = secondHalfString.replace(regexp, '');
+        newarray.forEach((modifiedReplacement: any, index: number) => {
+          secondHalfStringWithoutWordtoReplace = modifiedReplacement + secondHalfStringWithoutWordtoReplace;
+        });
+        elementContainingWord.textContent = firstHalfString + secondHalfStringWithoutWordtoReplace;
       }
     });
   }

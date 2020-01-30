@@ -252,6 +252,12 @@ export class StepsService {
                   });
               });
           }
+          if (subStep.type === 'iForEach') {
+            subStep.content.forEach((content) => {
+              content.wordToReplace = subStep.wordToReplace;
+              content.identifier = subStep.wordToReplace;;
+            });
+          }
           if (subStep.type !== 'iRadioC') {
               this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
           } else {
