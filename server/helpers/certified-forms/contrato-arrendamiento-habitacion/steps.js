@@ -1489,7 +1489,31 @@ const steps = [
                           radioId: 'id-dec-12_opA_1_opB_2_opA',
                           identifier: 'id-dec-12_opA_1_opB_2_opA',
                           checked: true,
-                          subSteps: []
+                          subSteps: [
+                            {
+                              question: 'Importe mensual (en euros) de estos gastos generales de comunidad:',
+                              placeholder: 'Ej. Escriba un número',
+                              wordToReplace: 'id-dec-12_opA_1_opB_2_opA_1',
+                              identifier: 'id-dec-12_opA_1_opB_2_opA_1',
+                              type: 'iNumber',
+                              replacement: '',
+                              indications: {
+                                areIndications: false,
+                                indicationsType: '',
+                                // tslint:disable-next-line:max-line-length
+                                value: ''
+                              },
+                              rules: [
+                                {
+                                  condition: false,
+                                  rulename: 'extraReplacementToCharacter',
+                                  identifier: 'iddec12opA1opB2opA1-precioAletras',
+                                  wordToReplace: 'iddec12opA1opB2opA1-precioAletras',
+                                  replacement: ''
+                                }
+                              ],
+                            },
+                          ]
                         },
                         {
                           label: 'están incluidos en el importe del alquiler',
@@ -1504,6 +1528,70 @@ const steps = [
                         }
                       ],
                     },
+                  ]
+                }
+              ],
+            },
+            {
+              type: 'iRadioC',
+              question: '¿Quién asumirá los gastos extraordinarios (connocidos comúnmente como derramas) de la comunidad de la que forma parte la vivienda?:',
+              identifier: 'id-dec-12_opA_2',
+              wordToReplace: 'id-dec-12_opA_2',
+              defaultRadioId: 'id-dec-12_opA_2_opA',
+              indications: {
+                areIndications: true,
+                indicationsType: 'outsideText',
+                // tslint:disable-next-line:max-line-length
+                value: 'Los gastos extraordinarios no se contemplan en los Presupuestos Anuales y se utilizan para la realización de algún tipo de obra o reforma de elementos comunes.<br>Para recaudar los fondos se suele convocar una Junta Extraordinaria, en la que se comunicará a todos los propietarios el problema y se buscará la mejor solución para su arreglo. También se decide aquí la forma de pago, que puede ser con cargo al dinero ahorrado por la Comunidad, con la aprobación de una derrama o con una subida proporcional en la cuota de la comunidad.'
+              },
+              replacement: '',
+              extraReplacements: [
+              ],
+              radios: [
+                {
+                  label: 'por el arrendador (propietario)',
+                  // tslint:disable-next-line:max-line-length
+                  replacementOriginal: 'de la PARTE ARRENDADORA en su totalidad.',
+                  // tslint:disable-next-line:max-line-length
+                  replacement: 'de la PARTE ARRENDADORA en su totalidad.',
+                  extraReplacements: [],
+                  radioId: 'id-dec-12_opA_2_opA',
+                  identifier: 'id-dec-12_opA_2_opA',
+                  checked: true,
+                  subSteps: []
+                },
+                {
+                  label: 'los dos, el arrendatario (inquilino) y  el arrendador (propietario), conjuntamente',
+                  replacementOriginal: 'de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec12opA2opB1-precioAletras por ciento (id-dec-12_opA_2_opB_1 %) de los mismos.',
+                  replacement: 'de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec12opA2opB1-precioAletras por ciento (id-dec-12_opA_2_opB_1 %) de los mismos.',
+                  extraReplacements: [],
+                  radioId: 'id-dec-12_opA_2_opB',
+                  identifier: 'id-dec-12_opA_2_opB',
+                  checked: false,
+                  subSteps: [
+                    {
+                      question: '¿Que porcentaje de estos gastos extraordinarios (o también conocidos como derramas) deberá pagar el arrendatario (inquilino)?:',
+                      placeholder: 'Ej. Escriba un número mayor que 100',
+                      wordToReplace: 'id-dec-12_opA_2_opB_1',
+                      identifier: 'id-dec-12_opA_2_opB_1',
+                      type: 'iNumber',
+                      replacement: '',
+                      indications: {
+                        areIndications: true,
+                        indicationsType: 'insideText',
+                        // tslint:disable-next-line:max-line-length
+                        value: 'La cantidad debe ser proporcional a la parte de la vivienda que será ocupada por el arrendatario (inquilino).'
+                      },
+                      rules: [
+                        {
+                          condition: false,
+                          rulename: 'extraReplacementToCharacter',
+                          identifier: 'iddec12opA2opB1-precioAletras',
+                          wordToReplace: 'iddec12opA2opB1-precioAletras',
+                          replacement: ''
+                        }
+                      ],
+                    }
                   ]
                 }
               ],
@@ -1546,6 +1634,137 @@ const steps = [
           checked: true,
           subSteps: []
         },
+      ],
+    },
+    {
+      question: 'Superficie útil de la habitación que se va a alquilar en metros cuadrados:',
+      placeholder: 'Ej. 30',
+      wordToReplace: 'id-dec-13',
+      identifier: 'id-dec-13',
+      type: 'iNumber',
+      replacement: '',
+      indications: {
+        areIndications: true,
+        indicationsType: 'insideText',
+        // tslint:disable-next-line:max-line-length
+        value: 'Indique en metros cuadrados la superficie de la habitación.'
+      },
+      rules: [
+      ],
+    },
+    {
+      question: 'Superficie útil de la habitación que se va a alquilar en metros cuadrados:',
+      placeholder: 'Ej. 30',
+      wordToReplace: 'id-dec-13',
+      identifier: 'id-dec-13',
+      type: 'iNumber',
+      replacement: '',
+      indications: {
+        areIndications: true,
+        indicationsType: 'insideText',
+        // tslint:disable-next-line:max-line-length
+        value: 'Indique en metros cuadrados la superficie de la habitación.'
+      },
+      rules: [
+      ],
+    },
+    {
+      type: 'iText',
+      subtype: 'textarea',
+      identifier: 'id-dec-14',
+      wordToReplace: 'id-dec-14',
+      replacement: '',
+      question: 'Haga una descripción de la habitación que se va a alquilar  que permita identificarla y ubicarla en la vivienda:',
+      indications: {
+        areIndications: false,
+        indicationsType: '',
+        value: ''
+      },
+      placeholder: 'Ej. habitación que tiene la letra B en la puerta y que se encuentra ubicada frente del baño',
+      mandatory: true,
+      isFocused: false
+    },
+    {
+      type: 'iRadioC',
+      question: '¿La habitación se alquila amueblada de manera que el arrendatario (inquilino) pueda hacer uso de la misma desde su entrada en la vivienda (por ejemplo, que tenga una cama, un armario y una mesa)?',
+      identifier: 'id-dec-15',
+      wordToReplace: 'id-dec-15',
+      defaultRadioId: 'id-dec-15_opA',
+      indications: {
+        areIndications: false,
+        indicationsType: '',
+        // tslint:disable-next-line:max-line-length
+        value: ''
+      },
+      replacement: '',
+      extraReplacements: [
+      ],
+      radios: [
+        {
+          label: 'Sí',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'id-dec-15_opA_1',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'id-dec-15_opA_1',
+          extraReplacements: [],
+          radioId: 'id-dec-15_opA',
+          identifier: 'id-dec-15_opA',
+          checked: true,
+          subSteps: [
+            {
+              type: 'iRadioC',
+              question: 'Los muebles de la habitación se encuentran descritos en:',
+              identifier: 'id-dec-15_opA_1',
+              wordToReplace: 'id-dec-15_opA_1',
+              defaultRadioId: 'id-dec-15_opA_1_opA',
+              indications: {
+                areIndications: false,
+                indicationsType: '',
+                // tslint:disable-next-line:max-line-length
+                value: ''
+              },
+              replacement: '',
+              extraReplacements: [
+              ],
+              radios: [
+                // {
+                //   label: 'Sí',
+                //   // tslint:disable-next-line:max-line-length
+                //   replacementOriginal: 'id-dec-15_opA_1',
+                //   // tslint:disable-next-line:max-line-length
+                //   replacement: 'id-dec-15_opA_1',
+                //   extraReplacements: [],
+                //   radioId: 'id-dec-15_opA',
+                //   identifier: 'id-dec-15_opA',
+                //   checked: true,
+                //   subSteps: []
+                // },
+                // {
+                //   label: 'No',
+                //   replacementOriginal: '',
+                //   replacement: '',
+                //   extraReplacements: [],
+                //   radioId: 'id-dec-15_opB',
+                //   identifier: 'id-dec-15_opB',
+                //   checked: false,
+                //   subSteps: [
+                //   ]
+                // }
+              ],
+            },
+          ]
+        },
+        {
+          label: 'No',
+          replacementOriginal: '',
+          replacement: '',
+          extraReplacements: [],
+          radioId: 'id-dec-15_opB',
+          identifier: 'id-dec-15_opB',
+          checked: false,
+          subSteps: [
+          ]
+        }
       ],
     },
     {
