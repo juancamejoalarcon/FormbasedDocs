@@ -1352,6 +1352,26 @@ const steps = [
       defaultRadioId: 'id-dec-12_opA',
       replacement: '',
       extraReplacements: [
+        {
+          identifier: 'iddec12-extra-1',
+          wordToReplace: 'iddec12-extra-1',
+        },
+        {
+          identifier: 'iddec12-extra-2',
+          wordToReplace: 'iddec12-extra-2',
+        },
+        {
+          identifier: 'iddec12-extra-3',
+          wordToReplace: 'iddec12-extra-3',
+        },
+        {
+          identifier: 'iddec12-extra-4',
+          wordToReplace: 'iddec12-extra-4',
+        },
+        {
+          identifier: 'iddec12-extra-5',
+          wordToReplace: 'iddec12-extra-5',
+        }
       ],
       radios: [
         {
@@ -1360,14 +1380,29 @@ const steps = [
           replacement: 'Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1 <br> Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo de la PARTE ARRENDADORA en su totalidad. cargo id-dec-12_opA_2',
           extraReplacements: [
             {
-              identifier: 'id-dec-12_opA_extra-1',
+              identifier: 'iddec12-extra-1',
               replacement: 'las normas de la Comunidad o ',
               replacementOriginal: 'las normas de la Comunidad o '
             },
             {
-              identifier: 'id-dec-12_opA_extra-2',
-              replacement: 'las normas de la Comunidad o ',
-              replacementOriginal: 'las normas de la Comunidad o '
+              identifier: 'iddec12-extra-2',
+              replacement: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la PARTE ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
+              replacementOriginal: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la PARTE ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. '
+            },
+            {
+              identifier: 'iddec12-extra-3',
+              replacement: 'de la Comunidad y normas de',
+              replacementOriginal: 'de la Comunidad y normas de'
+            },
+            {
+              identifier: 'iddec12-extra-4',
+              replacement: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
+              replacementOriginal: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.'
+            },
+            {
+              identifier: 'iddec12-extra-5',
+              replacement: 'o de la correspondiente prórroga o prórrogas',
+              replacementOriginal: 'o de la correspondiente prórroga o prórrogas'
             }
           ],
           radioId: 'id-dec-12_opA',
@@ -1400,27 +1435,11 @@ const steps = [
                   radioId: 'id-dec-12_opA_1_opA',
                   identifier: 'id-dec-12_opA_1_opA',
                   checked: true,
-                  subSteps: [
-                    // {
-                    //   question: 'Municipio y/o nombre del centro de ITV en el que el vehículo pasó su última inspección:',
-                    //   placeholder: 'Ej. Vallecas - OCA ITV, S.A.',
-                    //   wordToReplace: 'id-dec-17_opA_1',
-                    //   identifier: 'id-dec-17_opA_1',
-                    //   type: 'iText',
-                    //   replacement: '',
-                    // },
-                    // {
-                    //   question: 'Fecha en la que el vehículo pasó la última ITV:',
-                    //   wordToReplace: 'id-dec-17_opA_2',
-                    //   identifier: 'id-dec-17_opA_2',
-                    //   type: 'iDate',
-                    //   replacement: '',
-                    // }
-                  ]
+                  subSteps: []
                 },
                 {
                   label: 'los dos, el arrendatario y  el arrendador, conjuntamente',
-                  replacementOriginal: 'entre ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un id-dec-12-precioAletras por ciento ()',
+                  replacementOriginal: 'entre ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec12opA1opB1-precioAletras por ciento (id-dec-12_opA_1_opB_1 %) de los mismos id-dec-12_opA_1_opB_2',
                   replacement: '',
                   extraReplacements: [],
                   radioId: 'id-dec-12_opA_1_opB',
@@ -1428,12 +1447,62 @@ const steps = [
                   checked: false,
                   subSteps: [
                     {
-                      question: 'Municipio y/o nombre del centro de ITV en el que el vehículo pasó su última inspección:',
-                      placeholder: 'Ej. Vallecas - OCA ITV, S.A.',
-                      wordToReplace: 'id-dec-17_opA_1',
-                      identifier: 'id-dec-17_opA_1',
-                      type: 'iText',
+                      question: 'Que porcentaje de estos gastos generales u ordinarios (cuotas) deberá pagar el arrendatario (inquilino)',
+                      placeholder: 'Ej. Escriba un número mayor que 100',
+                      wordToReplace: 'id-dec-12_opA_1_opB_1',
+                      identifier: 'id-dec-12_opA_1_opB_1',
+                      type: 'iNumber',
                       replacement: '',
+                      indications: {
+                        areIndications: true,
+                        indicationsType: 'insideText',
+                        // tslint:disable-next-line:max-line-length
+                        value: 'La cantidad debe ser proporcional a la parte de la vivienda que será ocupada por el arrendatario (inquilino).'
+                      },
+                      rules: [
+                        {
+                          condition: false,
+                          rulename: 'extraReplacementToCharacter',
+                          identifier: 'iddec12opA1opB1-precioAletras',
+                          wordToReplace: 'iddec12opA1opB1-precioAletras',
+                          replacement: ''
+                        }
+                      ],
+                    },
+                    {
+                      type: 'iRadioC',
+                      question: 'Estos gastos generales u ordinarios (cuotas)',
+                      identifier: 'id-dec-12_opA_1_opB_2',
+                      wordToReplace: 'id-dec-12_opA_1_opB_2',
+                      defaultRadioId: 'id-dec-12_opA_1_opB_2_opA',
+                      replacement: '',
+                      extraReplacements: [
+                      ],
+                      radios: [
+                        {
+                          label: 'no están incluídos en el alquiler, debe pagarlos el arrendatario a parte',
+                          // tslint:disable-next-line:max-line-length
+                          replacementOriginal: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1.precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales',
+                          // tslint:disable-next-line:max-line-length
+                          replacement: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1.precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales',
+                          extraReplacements: [],
+                          radioId: 'id-dec-12_opA_1_opB_2_opA',
+                          identifier: 'id-dec-12_opA_1_opB_2_opA',
+                          checked: true,
+                          subSteps: []
+                        },
+                        {
+                          label: 'están incluidos en el importe del alquiler',
+                          replacementOriginal: 'El importe de los gastos de Comunidad está incluido dentro de la renta. Siendo que la parte ARRENDATARIA no tiene que abonarlos por separado a la parte ARRENDADORA, y ésta no está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA, si bien estos gastos están previstos dentro de la renta. ',
+                          replacement: '',
+                          extraReplacements: [],
+                          radioId: 'id-dec-12_opA_1_opB_2_opB',
+                          identifier: 'id-dec-12_opA_1_opB_2_opB',
+                          checked: false,
+                          subSteps: [
+                          ]
+                        }
+                      ],
                     },
                   ]
                 }
@@ -1447,7 +1516,27 @@ const steps = [
           replacement: '',
           extraReplacements: [
             {
-              identifier: 'id-dec-12_1',
+              identifier: 'iddec12-extra-1',
+              replacement: '',
+              replacementOriginal: ''
+            },
+            {
+              identifier: 'iddec12-extra-2',
+              replacement: '',
+              replacementOriginal: ''
+            },
+            {
+              identifier: 'iddec12-extra-3',
+              replacement: '',
+              replacementOriginal: ''
+            },
+            {
+              identifier: 'iddec12-extra-4',
+              replacement: '',
+              replacementOriginal: ''
+            },
+            {
+              identifier: 'iddec12-extra-5',
               replacement: '',
               replacementOriginal: ''
             }
