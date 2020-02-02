@@ -70,7 +70,7 @@
 
                <app-i-radio-b [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
-               *ngIf="this.steps[this.currentStep]?.type === 'iRadioB'"></app-i-radio-b>
+               *ngIf="this.steps[this.currentStep]?.type === 'iRadioB' && this.steps[this.currentStep]?.subType !== 'select'"></app-i-radio-b>
 
                <app-i-radio-c [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
@@ -78,7 +78,8 @@
 
                <app-i-select [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"
-               *ngIf="this.steps[this.currentStep]?.type === 'iRadioC' && this.steps[this.currentStep]?.subType === 'select'"></app-i-select>
+               *ngIf="this.steps[this.currentStep]?.type === 'iRadioC' && this.steps[this.currentStep]?.subType === 'select' || 
+               this.steps[this.currentStep]?.type === 'iRadioB' && this.steps[this.currentStep]?.subType === 'select'"></app-i-select>
 
                <app-i-checkbox [step]="this.steps[this.currentStep]" 
                (emitIndication)="showIndication()"

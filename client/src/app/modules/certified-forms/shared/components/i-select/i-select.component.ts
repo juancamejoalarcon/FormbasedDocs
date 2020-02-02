@@ -30,7 +30,11 @@ export class ISelectComponent implements OnInit {
   }
 
   onInputSelectChanged(e: any) {
-    this.stepModelService.onInputRadioCSelected(e.target.value, this.step.wordToReplace);
+    if (this.step.type === 'iRadioC') {
+      this.stepModelService.onInputRadioCSelected(e.target.value, this.step.wordToReplace);
+    } else if (this.step.type === 'iRadioB') {
+      this.stepModelService.onInputRadioBSelected(e.target.value, this.step.wordToReplace);
+    }
   }
 
   showIndication() {

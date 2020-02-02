@@ -1338,322 +1338,315 @@ const steps = [
     //     append: '.',
     //   }
     // },
-    {
-      type: 'iRadioC',
-      question: '¿La vivienda forma parte de una Comunidad de Propietarios?',
-      identifier: 'id-dec-12',
-      wordToReplace: 'id-dec-12',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'Por ejemplo, cuando vivimos en un bloque de pisos formamos parte de una Comunidad de Propietarios. Con ella nos referimos al conjunto de propietarios que si bien tienen la propiedad exclusiva de una vivienda o local, también son copropietarios  en otra serie de elementos que son comunes a todos los integrantes,  (jardines, terrazas, escaleras, pasillos, etc). En ese caso, el arrendatario o inquilino deberá respetar las normas que la Comunidad imponga y, en su caso, pagar parte de las cuotas de la misma.'
-      },
-      defaultRadioId: 'id-dec-12_opA',
-      replacement: '',
-      extraReplacements: [
-        {
-          identifier: 'iddec12-extra-1',
-          wordToReplace: 'iddec12-extra-1',
-          insideId: 'opA'
-        },
-        {
-          identifier: 'iddec12-extra-2',
-          wordToReplace: 'iddec12-extra-2',
-          insideId: 'opB'
-        },
-        {
-          identifier: 'iddec12-extra-3',
-          wordToReplace: 'iddec12-extra-3',
-          insideId: 'opC'
-        },
-        {
-          identifier: 'iddec12-extra-4',
-          wordToReplace: 'iddec12-extra-4',
-          insideId: 'opD'
-        },
-        {
-          identifier: 'iddec12-extra-5',
-          wordToReplace: 'iddec12-extra-5',
-          insideId: 'opE'
-        }
-      ],
-      radios: [
-        {
-          label: 'Sí',
-          replacementOriginal: 'Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1 <br> Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo de la PARTE ARRENDADORA en su totalidad. cargo id-dec-12_opA_2',
-          replacement: 'Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1 <br> Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo de la PARTE ARRENDADORA en su totalidad. cargo id-dec-12_opA_2',
-          extraReplacements: [
-            {
-              identifier: 'iddec12-extra-1',
-              replacement: 'las normas de la Comunidad o ',
-              replacementOriginal: 'las normas de la Comunidad o ',
-              insideId: 'opA'
-            },
-            {
-              identifier: 'iddec12-extra-2',
-              replacement: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la PARTE ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
-              replacementOriginal: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la PARTE ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
-              insideId: 'opB'
-            },
-            {
-              identifier: 'iddec12-extra-3',
-              replacement: 'LA COMUNIDAD Y NORMAS DE',
-              replacementOriginal: 'LA COMUNIDAD Y NORMAS DE',
-              insideId: 'opC'
-            },
-            {
-              identifier: 'iddec12-extra-4',
-              replacement: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
-              replacementOriginal: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
-              insideId: 'opD'
-            },
-            {
-              identifier: 'iddec12-extra-5',
-              replacement: 'o de la correspondiente prórroga o prórrogas',
-              replacementOriginal: 'o de la correspondiente prórroga o prórrogas',
-              insideId: 'opE'
-            }
-          ],
-          radioId: 'id-dec-12_opA',
-          identifier: 'id-dec-12_opA',
-          checked: false,
-          indications: {
-            areIndications: true,
-            indicationsType: 'outsideText',
-            // tslint:disable-next-line:max-line-length
-            value: 'Los gastos generales u ordinarios Son aquellos necesarios y previsibles para el buen sostenimiento del inmueble. Derivan de la conservación, el mantenimiento y las reparaciones ordinarias.Estos gastos se contemplan en los Presupuestos Anuales y se aprueban en la Junta Ordinaria. Para costearlos se utilizan las cuotas mensuales de los propietarios. Entre estos encontramos:<br>1. Los gastos de mantenimiento, conservación y reparación de los servicios más habituales en las comunidades: Limpieza de la comunidad, consumo de agua, gastos bancarios, mantenimiento de ascensor, antena y DDD, calefacción central, luz del portal, garaje y escaleras, portería y conserje, piscina, jardinería, etc. <br>2. Gastos de mantenimiento, conservación y reparación de elementos comunes como tejados, canales de agua, tuberías, caldera. <br>3. Obras para la conservación y accesibilidad necesarias para el mantenimiento del edificio y de sus servicios. <br>4. Fondo de reserva que se fija para la aprobación del Presupuesto de la Comunidad y que debe superar el 5% del último presupuesto ordinario. Este fondo se utiliza para cubrir obras de conservación y reparación de la finca o realizar una derrama extraordinaria por accidentes. <br>5. Gastos municipales como la tasa de recogida de basura o el vado o paso de carruajes.'
-          },
-          subSteps: [
-            {
-              type: 'iRadioC',
-              question: '¿Quién asumirá los gastos generales u ordinarios (cuotas) de la comunidad de la que forma parte la vivienda?:',
-              identifier: 'id-dec-12_opA_1',
-              wordToReplace: 'id-dec-12_opA_1',
-              defaultRadioId: 'id-dec-12_opA_1_opA',
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'el arrendador (propietario)',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'de la PARTE ARRENDADORA',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'de la PARTE ARRENDADORA',
-                  extraReplacements: [],
-                  radioId: 'id-dec-12_opA_1_opA',
-                  identifier: 'id-dec-12_opA_1_opA',
-                  checked: true,
-                  subSteps: []
-                },
-                {
-                  label: 'los dos, el arrendatario y  el arrendador, conjuntamente',
-                  replacementOriginal: 'entre ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec12opA1opB1-precioAletras por ciento (id-dec-12_opA_1_opB_1 %) de los mismos id-dec-12_opA_1_opB_2',
-                  replacement: '',
-                  extraReplacements: [],
-                  radioId: 'id-dec-12_opA_1_opB',
-                  identifier: 'id-dec-12_opA_1_opB',
-                  checked: false,
-                  subSteps: [
-                    {
-                      question: 'Que porcentaje de estos gastos generales u ordinarios (cuotas) deberá pagar el arrendatario (inquilino)',
-                      placeholder: 'Ej. Escriba un número mayor que 100',
-                      wordToReplace: 'id-dec-12_opA_1_opB_1',
-                      identifier: 'id-dec-12_opA_1_opB_1',
-                      type: 'iNumber',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'La cantidad debe ser proporcional a la parte de la vivienda que será ocupada por el arrendatario (inquilino).'
-                      },
-                      rules: [
-                        {
-                          condition: false,
-                          rulename: 'extraReplacementToCharacter',
-                          identifier: 'iddec12opA1opB1-precioAletras',
-                          wordToReplace: 'iddec12opA1opB1-precioAletras',
-                          replacement: ''
-                        }
-                      ],
-                    },
-                    {
-                      type: 'iRadioC',
-                      question: 'Estos gastos generales u ordinarios (cuotas)',
-                      identifier: 'id-dec-12_opA_1_opB_2',
-                      wordToReplace: 'id-dec-12_opA_1_opB_2',
-                      defaultRadioId: 'id-dec-12_opA_1_opB_2_opA',
-                      replacement: '',
-                      extraReplacements: [
-                      ],
-                      radios: [
-                        {
-                          label: 'no están incluídos en el alquiler, debe pagarlos el arrendatario a parte',
-                          // tslint:disable-next-line:max-line-length
-                          replacementOriginal: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1-precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales',
-                          // tslint:disable-next-line:max-line-length
-                          replacement: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1-precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales',
-                          extraReplacements: [],
-                          radioId: 'id-dec-12_opA_1_opB_2_opA',
-                          identifier: 'id-dec-12_opA_1_opB_2_opA',
-                          checked: true,
-                          subSteps: [
-                            {
-                              question: 'Importe mensual (en euros) de estos gastos generales de comunidad:',
-                              placeholder: 'Ej. Escriba un número',
-                              wordToReplace: 'id-dec-12_opA_1_opB_2_opA_1',
-                              identifier: 'id-dec-12_opA_1_opB_2_opA_1',
-                              type: 'iNumber',
-                              replacement: '',
-                                extraReplacements: [],
-                              indications: {
-                                areIndications: false,
-                                indicationsType: '',
-                                // tslint:disable-next-line:max-line-length
-                                value: ''
-                              },
-                              rules: [
-                                {
-                                  condition: false,
-                                  rulename: 'extraReplacementToCharacter',
-                                  identifier: 'iddec12opA1opB2opA1-precioAletras',
-                                  wordToReplace: 'iddec12opA1opB2opA1-precioAletras',
-                                  replacement: ''
-                                }
-                              ],
-                            },
-                          ]
-                        },
-                        {
-                          label: 'están incluidos en el importe del alquiler',
-                          replacementOriginal: 'El importe de los gastos de Comunidad está incluido dentro de la renta. Siendo que la parte ARRENDATARIA no tiene que abonarlos por separado a la parte ARRENDADORA, y ésta no está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA, si bien estos gastos están previstos dentro de la renta. ',
-                          replacement: '',
-                          extraReplacements: [],
-                          radioId: 'id-dec-12_opA_1_opB_2_opB',
-                          identifier: 'id-dec-12_opA_1_opB_2_opB',
-                          checked: false,
-                          subSteps: [
-                          ]
-                        }
-                      ],
-                    },
-                  ]
-                }
-              ],
-            },
-            {
-              type: 'iRadioC',
-              question: '¿Quién asumirá los gastos extraordinarios (connocidos comúnmente como derramas) de la comunidad de la que forma parte la vivienda?:',
-              identifier: 'id-dec-12_opA_2',
-              wordToReplace: 'id-dec-12_opA_2',
-              defaultRadioId: 'id-dec-12_opA_2_opA',
-              indications: {
-                areIndications: true,
-                indicationsType: 'outsideText',
-                // tslint:disable-next-line:max-line-length
-                value: 'Los gastos extraordinarios no se contemplan en los Presupuestos Anuales y se utilizan para la realización de algún tipo de obra o reforma de elementos comunes.<br>Para recaudar los fondos se suele convocar una Junta Extraordinaria, en la que se comunicará a todos los propietarios el problema y se buscará la mejor solución para su arreglo. También se decide aquí la forma de pago, que puede ser con cargo al dinero ahorrado por la Comunidad, con la aprobación de una derrama o con una subida proporcional en la cuota de la comunidad.'
-              },
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'por el arrendador (propietario)',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'de la PARTE ARRENDADORA en su totalidad.',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'de la PARTE ARRENDADORA en su totalidad.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-12_opA_2_opA',
-                  identifier: 'id-dec-12_opA_2_opA',
-                  checked: true,
-                  subSteps: []
-                },
-                {
-                  label: 'los dos, el arrendatario (inquilino) y  el arrendador (propietario), conjuntamente',
-                  replacementOriginal: 'de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec12opA2opB1-precioAletras por ciento (id-dec-12_opA_2_opB_1 %) de los mismos.',
-                  replacement: 'de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec12opA2opB1-precioAletras por ciento (id-dec-12_opA_2_opB_1 %) de los mismos.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-12_opA_2_opB',
-                  identifier: 'id-dec-12_opA_2_opB',
-                  checked: false,
-                  subSteps: [
-                    {
-                      question: '¿Que porcentaje de estos gastos extraordinarios (o también conocidos como derramas) deberá pagar el arrendatario (inquilino)?:',
-                      placeholder: 'Ej. Escriba un número mayor que 100',
-                      wordToReplace: 'id-dec-12_opA_2_opB_1',
-                      identifier: 'id-dec-12_opA_2_opB_1',
-                      type: 'iNumber',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'La cantidad debe ser proporcional a la parte de la vivienda que será ocupada por el arrendatario (inquilino).'
-                      },
-                      rules: [
-                        {
-                          condition: false,
-                          rulename: 'extraReplacementToCharacter',
-                          identifier: 'iddec12opA2opB1-precioAletras',
-                          wordToReplace: 'iddec12opA2opB1-precioAletras',
-                          replacement: ''
-                        }
-                      ],
-                    }
-                  ]
-                }
-              ],
-            },
-          ]
-        },
-        {
-          label: 'No',
-          replacementOriginal: '',
-          replacement: '',
-          extraReplacements: [
-            {
-              identifier: 'iddec12-extra-1',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opA'
-            },
-            {
-              identifier: 'iddec12-extra-2',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opB'
-            },
-            {
-              identifier: 'iddec12-extra-3',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opC'
-            },
-            {
-              identifier: 'iddec12-extra-4',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opD'
-            },
-            {
-              identifier: 'iddec12-extra-5',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opE'
-            }
-          ],
-          radioId: 'id-dec-12_opB',
-          identifier: 'id-dec-12_opB',
-          checked: true,
-          subSteps: []
-        },
-      ],
-    },
+    // {
+    //   type: 'iRadioC',
+    //   question: '¿La vivienda forma parte de una Comunidad de Propietarios?',
+    //   identifier: 'id-dec-12',
+    //   wordToReplace: 'id-dec-12',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: 'Por ejemplo, cuando vivimos en un bloque de pisos formamos parte de una Comunidad de Propietarios. Con ella nos referimos al conjunto de propietarios que si bien tienen la propiedad exclusiva de una vivienda o local, también son copropietarios  en otra serie de elementos que son comunes a todos los integrantes,  (jardines, terrazas, escaleras, pasillos, etc). En ese caso, el arrendatario o inquilino deberá respetar las normas que la Comunidad imponga y, en su caso, pagar parte de las cuotas de la misma.'
+    //   },
+    //   defaultRadioId: 'id-dec-12_opA',
+    //   replacement: '',
+    //   extraReplacements: [
+    //     {
+    //       identifier: 'iddec12-extra-1',
+    //       wordToReplace: 'iddec12-extra-1',
+    //       insideId: 'opA'
+    //     },
+    //     {
+    //       identifier: 'iddec12-extra-2',
+    //       wordToReplace: 'iddec12-extra-2',
+    //       insideId: 'opB'
+    //     },
+    //     {
+    //       identifier: 'iddec12-extra-3',
+    //       wordToReplace: 'iddec12-extra-3',
+    //       insideId: 'opC'
+    //     },
+    //     {
+    //       identifier: 'iddec12-extra-4',
+    //       wordToReplace: 'iddec12-extra-4',
+    //       insideId: 'opD'
+    //     },
+    //     {
+    //       identifier: 'iddec12-extra-5',
+    //       wordToReplace: 'iddec12-extra-5',
+    //       insideId: 'opE'
+    //     }
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       replacementOriginal: 'Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1<br> <br> Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo id-dec-12_opA_2',
+    //       replacement: 'Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1<br> <br> Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo id-dec-12_opA_2',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec12-extra-1',
+    //           replacement: 'las normas de la Comunidad o ',
+    //           replacementOriginal: 'las normas de la Comunidad o ',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec12-extra-2',
+    //           replacement: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la PARTE ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
+    //           replacementOriginal: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la PARTE ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec12-extra-3',
+    //           replacement: 'LA COMUNIDAD Y NORMAS DE',
+    //           replacementOriginal: 'LA COMUNIDAD Y NORMAS DE',
+    //           insideId: 'opC'
+    //         },
+    //         {
+    //           identifier: 'iddec12-extra-4',
+    //           replacement: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
+    //           replacementOriginal: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
+    //           insideId: 'opD'
+    //         },
+    //         {
+    //           identifier: 'iddec12-extra-5',
+    //           replacement: 'o de la correspondiente prórroga o prórrogas',
+    //           replacementOriginal: 'o de la correspondiente prórroga o prórrogas',
+    //           insideId: 'opE'
+    //         }
+    //       ],
+    //       radioId: 'id-dec-12_opA',
+    //       identifier: 'id-dec-12_opA',
+    //       checked: false,
+    //       indications: {
+    //         areIndications: true,
+    //         indicationsType: 'outsideText',
+    //         // tslint:disable-next-line:max-line-length
+    //         value: 'Los gastos generales u ordinarios Son aquellos necesarios y previsibles para el buen sostenimiento del inmueble. Derivan de la conservación, el mantenimiento y las reparaciones ordinarias.Estos gastos se contemplan en los Presupuestos Anuales y se aprueban en la Junta Ordinaria. Para costearlos se utilizan las cuotas mensuales de los propietarios. Entre estos encontramos:<br>1. Los gastos de mantenimiento, conservación y reparación de los servicios más habituales en las comunidades: Limpieza de la comunidad, consumo de agua, gastos bancarios, mantenimiento de ascensor, antena y DDD, calefacción central, luz del portal, garaje y escaleras, portería y conserje, piscina, jardinería, etc. <br>2. Gastos de mantenimiento, conservación y reparación de elementos comunes como tejados, canales de agua, tuberías, caldera. <br>3. Obras para la conservación y accesibilidad necesarias para el mantenimiento del edificio y de sus servicios. <br>4. Fondo de reserva que se fija para la aprobación del Presupuesto de la Comunidad y que debe superar el 5% del último presupuesto ordinario. Este fondo se utiliza para cubrir obras de conservación y reparación de la finca o realizar una derrama extraordinaria por accidentes. <br>5. Gastos municipales como la tasa de recogida de basura o el vado o paso de carruajes.'
+    //       },
+    //       subSteps: [
+    //         {
+    //           type: 'iRadioC',
+    //           question: '¿Quién asumirá los gastos generales u ordinarios (cuotas) de la comunidad de la que forma parte la vivienda?:',
+    //           identifier: 'id-dec-12_opA_1',
+    //           wordToReplace: 'id-dec-12_opA_1',
+    //           defaultRadioId: 'id-dec-12_opA_1_opA',
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'el arrendador (propietario)',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'la PARTE ARRENDADORA.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'la PARTE ARRENDADORA.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-12_opA_1_opA',
+    //               identifier: 'id-dec-12_opA_1_opA',
+    //               checked: true,
+    //               subSteps: []
+    //             },
+    //             {
+    //               label: 'los dos, el arrendatario y  el arrendador, conjuntamente',
+    //               replacementOriginal: 'ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un id-dec-12_opA_1_opB_1 % de los mismos id-dec-12_opA_1_opB_2',
+    //               replacement: '',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-12_opA_1_opB',
+    //               identifier: 'id-dec-12_opA_1_opB',
+    //               checked: false,
+    //               subSteps: [
+    //                 {
+    //                   question: 'Que porcentaje de estos gastos generales u ordinarios (cuotas) deberá pagar el arrendatario (inquilino)',
+    //                   placeholder: 'Ej. Escriba un número menor que 100',
+    //                   wordToReplace: 'id-dec-12_opA_1_opB_1',
+    //                   identifier: 'id-dec-12_opA_1_opB_1',
+    //                   type: 'iNumber',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'insideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'La cantidad debe ser proporcional a la parte de la vivienda que será ocupada por el arrendatario (inquilino).'
+    //                   },
+    //                   rules: [
+    //                   ],
+    //                 },
+    //                 {
+    //                   type: 'iRadioC',
+    //                   question: 'Estos gastos generales u ordinarios (cuotas)',
+    //                   identifier: 'id-dec-12_opA_1_opB_2',
+    //                   wordToReplace: 'id-dec-12_opA_1_opB_2',
+    //                   defaultRadioId: 'id-dec-12_opA_1_opB_2_opA',
+    //                   replacement: '',
+    //                   extraReplacements: [
+    //                   ],
+    //                   radios: [
+    //                     {
+    //                       label: 'no están incluídos en el alquiler, debe pagarlos el arrendatario a parte',
+    //                       // tslint:disable-next-line:max-line-length
+    //                       replacementOriginal: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1-precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales.',
+    //                       // tslint:disable-next-line:max-line-length
+    //                       replacement: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1-precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales.',
+    //                       extraReplacements: [],
+    //                       radioId: 'id-dec-12_opA_1_opB_2_opA',
+    //                       identifier: 'id-dec-12_opA_1_opB_2_opA',
+    //                       checked: true,
+    //                       subSteps: [
+    //                         {
+    //                           question: 'Importe mensual (en euros) de estos gastos generales de comunidad:',
+    //                           placeholder: 'Ej. Escriba un número',
+    //                           wordToReplace: 'id-dec-12_opA_1_opB_2_opA_1',
+    //                           identifier: 'id-dec-12_opA_1_opB_2_opA_1',
+    //                           type: 'iNumber',
+    //                           replacement: '',
+    //                             extraReplacements: [],
+    //                           indications: {
+    //                             areIndications: false,
+    //                             indicationsType: '',
+    //                             // tslint:disable-next-line:max-line-length
+    //                             value: ''
+    //                           },
+    //                           rules: [
+    //                             {
+    //                               condition: false,
+    //                               rulename: 'extraReplacementToCharacter',
+    //                               identifier: 'iddec12opA1opB2opA1-precioAletras',
+    //                               wordToReplace: 'iddec12opA1opB2opA1-precioAletras',
+    //                               replacement: ''
+    //                             }
+    //                           ],
+    //                         },
+    //                       ]
+    //                     },
+    //                     {
+    //                       label: 'están incluidos en el importe del alquiler',
+    //                       replacementOriginal: 'El importe de los gastos de Comunidad está incluido dentro de la renta. Siendo que la parte ARRENDATARIA no tiene que abonarlos por separado a la parte ARRENDADORA, y ésta no está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA, si bien estos gastos están previstos dentro de la renta. ',
+    //                       replacement: '',
+    //                       extraReplacements: [],
+    //                       radioId: 'id-dec-12_opA_1_opB_2_opB',
+    //                       identifier: 'id-dec-12_opA_1_opB_2_opB',
+    //                       checked: false,
+    //                       subSteps: [
+    //                       ]
+    //                     }
+    //                   ],
+    //                 },
+    //               ]
+    //             }
+    //           ],
+    //         },
+    //         {
+    //           type: 'iRadioC',
+    //           question: '¿Quién asumirá los gastos extraordinarios (connocidos comúnmente como derramas) de la comunidad de la que forma parte la vivienda?:',
+    //           identifier: 'id-dec-12_opA_2',
+    //           wordToReplace: 'id-dec-12_opA_2',
+    //           defaultRadioId: 'id-dec-12_opA_2_opA',
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: 'Los gastos extraordinarios no se contemplan en los Presupuestos Anuales y se utilizan para la realización de algún tipo de obra o reforma de elementos comunes.<br>Para recaudar los fondos se suele convocar una Junta Extraordinaria, en la que se comunicará a todos los propietarios el problema y se buscará la mejor solución para su arreglo. También se decide aquí la forma de pago, que puede ser con cargo al dinero ahorrado por la Comunidad, con la aprobación de una derrama o con una subida proporcional en la cuota de la comunidad.'
+    //           },
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'por el arrendador (propietario)',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'de la PARTE ARRENDADORA en su totalidad.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'de la PARTE ARRENDADORA en su totalidad.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-12_opA_2_opA',
+    //               identifier: 'id-dec-12_opA_2_opA',
+    //               checked: true,
+    //               subSteps: []
+    //             },
+    //             {
+    //               label: 'los dos, el arrendatario (inquilino) y  el arrendador (propietario), conjuntamente',
+    //               replacementOriginal: 'de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec12opA2opB1-precioAletras por ciento (id-dec-12_opA_2_opB_1 %) de los mismos.',
+    //               replacement: 'de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec12opA2opB1-precioAletras por ciento (id-dec-12_opA_2_opB_1 %) de los mismos.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-12_opA_2_opB',
+    //               identifier: 'id-dec-12_opA_2_opB',
+    //               checked: false,
+    //               subSteps: [
+    //                 {
+    //                   question: '¿Que porcentaje de estos gastos extraordinarios (o también conocidos como derramas) deberá pagar el arrendatario (inquilino)?:',
+    //                   placeholder: 'Ej. Escriba un número menor que 100',
+    //                   wordToReplace: 'id-dec-12_opA_2_opB_1',
+    //                   identifier: 'id-dec-12_opA_2_opB_1',
+    //                   type: 'iNumber',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'insideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'La cantidad debe ser proporcional a la parte de la vivienda que será ocupada por el arrendatario (inquilino).'
+    //                   },
+    //                   rules: [
+    //                     {
+    //                       condition: false,
+    //                       rulename: 'extraReplacementToCharacter',
+    //                       identifier: 'iddec12opA2opB1-precioAletras',
+    //                       wordToReplace: 'iddec12opA2opB1-precioAletras',
+    //                       replacement: ''
+    //                     }
+    //                   ],
+    //                 }
+    //               ]
+    //             }
+    //           ],
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'No',
+    //       replacementOriginal: '',
+    //       replacement: '',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec12-extra-1',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec12-extra-2',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec12-extra-3',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opC'
+    //         },
+    //         {
+    //           identifier: 'iddec12-extra-4',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opD'
+    //         },
+    //         {
+    //           identifier: 'iddec12-extra-5',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opE'
+    //         }
+    //       ],
+    //       radioId: 'id-dec-12_opB',
+    //       identifier: 'id-dec-12_opB',
+    //       checked: true,
+    //       subSteps: []
+    //     },
+    //   ],
+    // },
     // {
     //   question: 'Superficie útil de la habitación que se va a alquilar en metros cuadrados:',
     //   placeholder: 'Ej. 30',
@@ -1701,6 +1694,11 @@ const steps = [
     //   },
     //   replacement: '',
     //   extraReplacements: [
+    //     {
+    //       identifier: 'iddec15-extra-1',
+    //       wordToReplace: 'iddec15-extra-1',
+    //       insideId: 'opA'
+    //     },
     //   ],
     //   radios: [
     //     {
@@ -1709,7 +1707,14 @@ const steps = [
     //       replacementOriginal: 'id-dec-15_opA_1',
     //       // tslint:disable-next-line:max-line-length
     //       replacement: 'id-dec-15_opA_1',
-    //       extraReplacements: [],
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec15-extra-1',
+    //           replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+    //           replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+    //           insideId: 'opA'
+    //         },
+    //       ],
     //       radioId: 'id-dec-15_opA',
     //       identifier: 'id-dec-15_opA',
     //       checked: true,
@@ -1728,40 +1733,83 @@ const steps = [
     //           },
     //           replacement: '',
     //           extraReplacements: [
+    //             {
+    //               identifier: 'iddec15opA1-extra-1',
+    //               wordToReplace: 'iddec15opA1-extra-1',
+    //               insideId: 'opA'
+    //             },
     //           ],
     //           radios: [
-    //             // {
-    //             //   label: 'Sí',
-    //             //   // tslint:disable-next-line:max-line-length
-    //             //   replacementOriginal: 'id-dec-15_opA_1',
-    //             //   // tslint:disable-next-line:max-line-length
-    //             //   replacement: 'id-dec-15_opA_1',
-    //             //   extraReplacements: [],
-    //             //   radioId: 'id-dec-15_opA',
-    //             //   identifier: 'id-dec-15_opA',
-    //             //   checked: true,
-    //             //   subSteps: []
-    //             // },
-    //             // {
-    //             //   label: 'No',
-    //             //   replacementOriginal: '',
-    //             //   replacement: '',
-    //             //   extraReplacements: [],
-    //             //   radioId: 'id-dec-15_opB',
-    //             //   identifier: 'id-dec-15_opB',
-    //             //   checked: false,
-    //             //   subSteps: [
-    //             //   ]
-    //             // }
+    //             {
+    //               label: 'este contrato',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'está amueblada con el siguiente mobiliario, enseres y objetos:<br> id-dec-15_opA_1_opA_1',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'está amueblada con el siguiente mobiliario, enseres y objetos:<br> id-dec-15_opA_1_opA_1',
+    //               extraReplacements: [
+    //                 {
+    //                   identifier: 'iddec15opA1-extra-1',
+    //                   replacement: 'Expositivo II del presente Contrato',
+    //                   replacementOriginal: 'Expositivo II del presente Contrato',
+    //                   insideId: 'opA'
+    //                 },
+    //               ],
+    //               radioId: 'id-dec-15_opA_1_opA',
+    //               identifier: 'id-dec-15_opA_1_opA',
+    //               checked: true,
+    //               subSteps: [
+    //                 {
+    //                   type: 'iText',
+    //                   subtype: 'textarea',
+    //                   identifier: 'id-dec-15_opA_1_opA_1',
+    //                   wordToReplace: 'id-dec-15_opA_1_opA_1',
+    //                   replacement: '',
+    //                   question: 'Descripción detallada de los muebles de la habitación:',
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     value: ''
+    //                   },
+    //                   placeholder: 'P. ej. Una cama doble marca IXX modelo XX, un colchón marca XXX modelo XXX, ...',
+    //                   mandatory: true,
+    //                   isFocused: false
+    //                 },
+    //               ]
+    //             },
+    //             {
+    //               label: 'en otro documento anexo (o adjunto) a este contrato',
+    //               replacementOriginal: 'se encuentra amueblada con el mobiliario, enseres y objetos detallados en el Anexo II de inventario de bienes muebles, junto con el resto del mobiliario existente en las zonas comunes de la Vivienda.',
+    //               replacement: 'se encuentra amueblada con el mobiliario, enseres y objetos detallados en el Anexo II de inventario de bienes muebles, junto con el resto del mobiliario existente en las zonas comunes de la Vivienda.',
+    //               extraReplacements: [
+    //                 {
+    //                   identifier: 'iddec15opA1-extra-1',
+    //                   replacement: 'Anexo de inventario de bienes muebles incorporado al presente Contrato,',
+    //                   replacementOriginal: 'Anexo de inventario de bienes muebles incorporado al presente Contrato,',
+    //                   insideId: 'opA'
+    //                 },
+    //               ],
+    //               radioId: 'id-dec-15_opA_1_opB',
+    //               identifier: 'id-dec-15_opA_1_opB',
+    //               checked: false,
+    //               subSteps: [
+    //               ]
+    //             }
     //           ],
     //         },
     //       ]
     //     },
     //     {
     //       label: 'No',
-    //       replacementOriginal: '',
-    //       replacement: '',
-    //       extraReplacements: [],
+    //       replacementOriginal: 'no se encuentra amueblada.',
+    //       replacement: 'no se encuentra amueblada.',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec15-extra-1',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opA'
+    //         }
+    //       ],
     //       radioId: 'id-dec-15_opB',
     //       identifier: 'id-dec-15_opB',
     //       checked: false,
@@ -1770,6 +1818,487 @@ const steps = [
     //     }
     //   ],
     // },
+    // {
+    //   type: 'iRadioB',
+    //   question: 'Para acceder a la habitación esta tiene:',
+    //   identifier: 'id-dec-16',
+    //   wordToReplace: 'id-dec-16',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     value: 'Seleccione aquí la opción que corresponda a la seguridad con la que cuenta la habitación objeto de este contrato de arrendamiento: puerta con llave o cerradura privada, caja de seguridad con clave secreta o llave privada, ambas o ninguna.',
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //     {
+    //       identifier: 'iddec16-extra-1',
+    //       wordToReplace: 'iddec16-extra-1',
+    //       insideId: 'opA'
+    //     },
+    //     {
+    //       identifier: 'iddec16-extra-2',
+    //       wordToReplace: 'iddec16-extra-2',
+    //       insideId: 'opAB'
+    //     },
+    //     {
+    //       identifier: 'iddec16-extra-3',
+    //       wordToReplace: 'iddec16-extra-3',
+    //       insideId: 'opAC'
+    //     }
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'puerta con llave',
+    //       replacementOriginal: 'con la entrega de las llaves de acceso a la misma y a la Vivienda',
+    //       replacement: 'con la entrega de las llaves de acceso a la misma y a la Vivienda',
+    //       radioId: 'id-dec-16_opA',
+    //       identifier: 'id-dec-16_opA',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec16-extra-1',
+    //           replacement: 'con la entrega de las llaves de acceso a la misma y a la Vivienda',
+    //           replacementOriginal: 'con la entrega de las llaves de acceso a la misma y a la Vivienda',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec16-extra-2',
+    //           replacement: 'La parte arrendadora  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada. La parte arrendadora tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+    //           replacementOriginal: 'La parte arrendadora  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada. La parte arrendadora tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec16-extra-3',
+    //           replacement: 'las llaves de acceso a la Habitación y a la Vivienda',
+    //           replacementOriginal: 'las llaves de acceso a la Habitación y a la Vivienda',
+    //           insideId: 'opC'
+    //         }
+    //       ],
+    //       checked: true,
+    //     },
+    //     {
+    //       label: 'caja de seguridad con clave secreta o llave',
+    //       replacementOriginal: 'con la entrega de las llaves de acceso a la Vivienda',
+    //       replacement: 'con la entrega de las llaves de acceso a la Vivienda',
+    //       radioId: 'id-dec-16_opB',
+    //       identifier: 'id-dec-16_opB',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec16-extra-1',
+    //           replacement: 'con la entrega de las llaves de acceso a la Vivienda',
+    //           replacementOriginal: 'con la entrega de las llaves de acceso a la Vivienda',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec16-extra-2',
+    //           replacement: 'La parte arrendadora  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con caja de seguridad con clave secreta o cerradura privada. La parte arrendadora tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+    //           replacementOriginal: 'La parte arrendadora  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con caja de seguridad con clave secreta o cerradura privada. La parte arrendadora tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec16-extra-3',
+    //           replacement: 'las llaves de acceso a la Vivienda, y poner a su disposición la totalidad de la Habitación',
+    //           replacementOriginal: 'las llaves de acceso a la Vivienda, y poner a su disposición la totalidad de la Habitación',
+    //           insideId: 'opC'
+    //         }
+    //       ],
+    //       checked: false,
+    //     },
+    //     {
+    //       label: 'puerta con llave y caja de seguridad con clave secreta o llave',
+    //       replacementOriginal: 'con la entrega de las llaves de acceso a la misma y a la Vivienda',
+    //       replacement: 'con la entrega de las llaves de acceso a la misma y a la Vivienda',
+    //       radioId: 'id-dec-16_opC',
+    //       identifier: 'id-dec-16_opC',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec16-extra-1',
+    //           replacement: 'con la entrega de las llaves de acceso a la misma y a la Vivienda',
+    //           replacementOriginal: 'con la entrega de las llaves de acceso a la misma y a la Vivienda',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec16-extra-2',
+    //           replacement: 'La parte arrendadora  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada y caja de seguridad con clave secreta o cerradura privada. La parte arrendadora tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+    //           replacementOriginal: 'La parte arrendadora  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada y caja de seguridad con clave secreta o cerradura privada. La parte arrendadora tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec16-extra-3',
+    //           replacement: 'las llaves de acceso a la Habitación y a la Vivienda',
+    //           replacementOriginal: 'las llaves de acceso a la Habitación y a la Vivienda',
+    //           insideId: 'opC'
+    //         }
+    //       ],
+    //       checked: false,
+    //     },
+    //     {
+    //       label: 'ninguna de las anteriores',
+    //       replacementOriginal: 'con la entrega de las llaves de acceso a la Vivienda',
+    //       replacement: 'con la entrega de las llaves de acceso a la Vivienda',
+    //       radioId: 'id-dec-16_opD',
+    //       identifier: 'id-dec-16_opD',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec16-extra-1',
+    //           replacement: 'con la entrega de las llaves de acceso a la Vivienda',
+    //           replacementOriginal: 'con la entrega de las llaves de acceso a la Vivienda',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec16-extra-2',
+    //           replacement: 'La parte arrendadora no se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+    //           replacementOriginal: 'La parte arrendadora no se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec16-extra-3',
+    //           replacement: 'las llaves de acceso a la Vivienda, y poner a su disposición la totalidad de la Habitación',
+    //           replacementOriginal: 'las llaves de acceso a la Vivienda, y poner a su disposición la totalidad de la Habitación',
+    //           insideId: 'opC'
+    //         }
+    //       ],
+    //       checked: false,
+    //     }
+    //   ]
+    // },
+    {
+      type: 'iRadioC',
+      question: 'Uso que se le va a dar a la vivienda:',
+      identifier: 'id-dec-17',
+      wordToReplace: 'id-dec-17',
+      defaultRadioId: 'id-dec-17_opA',
+      indications: {
+        areIndications: false,
+        indicationsType: '',
+        // tslint:disable-next-line:max-line-length
+        value: ''
+      },
+      replacement: '',
+      extraReplacements: [
+        // {
+        //   identifier: 'iddec15-extra-1',
+        //   wordToReplace: 'iddec15-extra-1',
+        //   insideId: 'opA'
+        // },
+      ],
+      radios: [
+        {
+          label: 'vivienda habitual o residencia permanente',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'Que la PARTE ARRENDATARIA necesita una habitación en vivienda compartida, que cumplirá las funciones de vivienda habitual.',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'Que la PARTE ARRENDATARIA necesita una habitación en vivienda compartida, que cumplirá las funciones de vivienda habitual.',
+          extraReplacements: [
+            // {
+            //   identifier: 'iddec15-extra-1',
+            //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+            //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+            //   insideId: 'opA'
+            // },
+          ],
+          radioId: 'id-dec-17_opA',
+          identifier: 'id-dec-17_opA',
+          checked: true,
+          subSteps: [
+
+          ]
+        },
+        {
+          label: 'uso turístico (vacaciones)',
+          replacementOriginal: 'Que la PARTE ARRENDATARIA hará uso de una habitación como vivienda temporal por motivos de vacaciones, turismo u ocio. id-dec-17_opB_1',
+          replacement: 'Que la PARTE ARRENDATARIA hará uso de una habitación como vivienda temporal por motivos de vacaciones, turismo u ocio. id-dec-17_opB_1',
+          extraReplacements: [
+          ],
+          radioId: 'id-dec-17_opB',
+          identifier: 'id-dec-17_opB',
+          checked: false,
+          subSteps: [
+            {
+              type: 'iRadioC',
+              question: '¿El arrendador está inscrito en el Registro de Turismo de la Comunidad Autónoma o entidad equivalente?:',
+              identifier: 'id-dec-17_opB_1',
+              wordToReplace: 'id-dec-17_opB_1',
+              defaultRadioId: 'id-dec-17_opB_1_opA',
+              indications: {
+                areIndications: true,
+                indicationsType: 'outsideText',
+                // tslint:disable-next-line:max-line-length
+                value: 'Además de la norma común, que se ha señalado, Código Civil, la regulación de los alquileres de uso turístico, se han ido regulando por las normas que se han implementado por las distintas Comunidades Autónomas, que regulan los arrendamiento de aquellos pisos, apartamentos o casas que, amueblados y equipados en condiciones de uso inmediato, se comercializan y promocionan en canales de oferta turística, y que deben ofrecer una serie de servicios.<br>La mayoría de las Comunidades Autónomas han optado por la presentación de la declaración responsable como autorización inicial de funcionamiento de esta actividad (Madrid, Valencia, Andalucía o Aragón), no así en Cataluña, en la que las propietarias y propietarios deben presentar una comunicación previa al Ayuntamiento competente.'
+              },
+              replacement: '',
+              extraReplacements: [
+              ],
+              radios: [
+                {
+                  label: 'Sí',
+                  // tslint:disable-next-line:max-line-length
+                  replacementOriginal: 'A través del presente contrato se pone en conocimiento de la PARTE ARRENDATARIA que, de acuerdo con la normativa autonómica, la vivienda se encuentra inscrita en el Registro de Turismo o en la entidad correspondiente de la Comunidad Autónoma: id-dec-17_opB_1_opA_1, cuyo Código de Inscripción es: id-dec-17_opB_1_opA_2',
+                  // tslint:disable-next-line:max-line-length
+                  replacement: 'A través del presente contrato se pone en conocimiento de la PARTE ARRENDATARIA que, de acuerdo con la normativa autonómica, la vivienda se encuentra inscrita en el Registro de Turismo o en la entidad correspondiente de la Comunidad Autónoma: id-dec-17_opB_1_opA_1, cuyo Código de Inscripción es: id-dec-17_opB_1_opA_2',
+                  extraReplacements: [
+                  ],
+                  radioId: 'id-dec-17_opB_1_opA',
+                  identifier: 'id-dec-17_opB_1_opA',
+                  checked: true,
+                  subSteps: [
+                    {
+                      type: 'iRadioB',
+                      subType: 'select',
+                      question: 'Registro en el que está inscrito:',
+                      identifier: 'id-dec-17_opB_1_opA_1',
+                      wordToReplace: 'id-dec-17_opB_1_opA_1',
+                      defaultRadioId: 'id-dec-17_opB_1_opA_1_opA',
+                      indications: {
+                        areIndications: false,
+                        indicationsType: '',
+                        // tslint:disable-next-line:max-line-length
+                        value: '',
+                      },
+                      replacement: '',
+                      extraReplacements: [],
+                      radios: [
+                        {
+                          label: 'Andalucía',
+                          replacementOriginal: 'Andalucía',
+                          replacement: 'Andalucía',
+                          radioId: 'id-dec-17_opB_1_opA_1_opA',
+                          identifier: 'id-dec-17_opB_1_opA_1_opA',
+                          extraReplacements: [],
+                          checked: true,
+                        },
+                        {
+                          label: 'Aragón',
+                          replacementOriginal: 'Aragón',
+                          replacement: 'Aragón',
+                          radioId: 'id-dec-17_opB_1_opA_1_opB',
+                          identifier: 'id-dec-17_opB_1_opA_1_opB',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Principado de Asturias',
+                          replacementOriginal: 'Principado de Asturias',
+                          replacement: 'Principado de Asturias',
+                          radioId: 'id-dec-17_opB_1_opA_1_opC',
+                          identifier: 'id-dec-17_opB_1_opA_1_opC',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Islas Baleares',
+                          replacementOriginal: 'Islas Baleares',
+                          replacement: 'Islas Baleares',
+                          radioId: 'id-dec-17_opB_1_opA_1_opD',
+                          identifier: 'id-dec-17_opB_1_opA_1_opD',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Canarias',
+                          replacementOriginal: 'Canarias',
+                          replacement: 'Canarias',
+                          radioId: 'id-dec-17_opB_1_opA_1_opE',
+                          identifier: 'id-dec-17_opB_1_opA_1_opE',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Cantabria',
+                          replacementOriginal: 'Cantabria',
+                          replacement: 'Cantabria',
+                          radioId: 'id-dec-17_opB_1_opA_1_opF',
+                          identifier: 'id-dec-17_opB_1_opA_1_opF',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Castilla y León',
+                          replacementOriginal: 'Castilla y León',
+                          replacement: 'Castilla y León',
+                          radioId: 'id-dec-17_opB_1_opA_1_opG',
+                          identifier: 'id-dec-17_opB_1_opA_1_opG',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Cataluña',
+                          replacementOriginal: 'Cataluña',
+                          replacement: 'Cataluña',
+                          radioId: 'id-dec-17_opB_1_opA_1_opH',
+                          identifier: 'id-dec-17_opB_1_opA_1_opH',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Comunidad Valenciana',
+                          replacementOriginal: 'Comunidad Valenciana',
+                          replacement: 'Comunidad Valenciana',
+                          radioId: 'id-dec-17_opB_1_opA_1_opI',
+                          identifier: 'id-dec-17_opB_1_opA_1_opI',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Galicia',
+                          replacementOriginal: 'Galicia',
+                          replacement: 'Galicia',
+                          radioId: 'id-dec-17_opB_1_opA_1_opJ',
+                          identifier: 'id-dec-17_opB_1_opA_1_opJ',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'La Rioja',
+                          replacementOriginal: 'La Rioja',
+                          replacement: 'La Rioja',
+                          radioId: 'id-dec-17_opB_1_opA_1_opK',
+                          identifier: 'id-dec-17_opB_1_opA_1_opK',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Comunidad de Madrid',
+                          replacementOriginal: 'Comunidad de Madrid',
+                          replacement: 'Comunidad de Madrid',
+                          radioId: 'id-dec-17_opB_1_opA_1_opL',
+                          identifier: 'id-dec-17_opB_1_opA_1_opL',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Murcia',
+                          replacementOriginal: 'Murcia',
+                          replacement: 'Murcia',
+                          radioId: 'id-dec-17_opB_1_opA_1_opM',
+                          identifier: 'id-dec-17_opB_1_opA_1_opM',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Comunidad Foral de Navarra',
+                          replacementOriginal: 'Comunidad Foral de Navarra',
+                          replacement: 'Comunidad Foral de Navarra',
+                          radioId: 'id-dec-17_opB_1_opA_1_opN',
+                          identifier: 'id-dec-17_opB_1_opA_1_opN',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'País Vasco',
+                          replacementOriginal: 'País Vasco',
+                          replacement: 'País Vasco',
+                          radioId: 'id-dec-17_opB_1_opA_1_opO',
+                          identifier: 'id-dec-17_opB_1_opA_1_opO',
+                          extraReplacements: [],
+                          checked: false,
+                        }
+                      ]
+                    },
+                    {
+                      type: 'iText',
+                      identifier: 'id-dec-17_opB_1_opA_2',
+                      wordToReplace: 'id-dec-17_opB_1_opA_2',
+                      replacement: '',
+                      question: 'Número de inscripción en el Registro de Turismo o entidad autonómica equivalente:',
+                      indications: {
+                        areIndications: false,
+                        indicationsType: '',
+                        value: ''
+                      },
+                      placeholder: '',
+                      mandatory: false,
+                      isFocused: false
+                    },
+                  ]
+                },
+                {
+                  label: 'No',
+                  replacementOriginal: '',
+                  replacement: '',
+                  extraReplacements: [
+                  ],
+                  radioId: 'id-dec-17_opB_1_opB',
+                  identifier: 'id-dec-17_opB_1_opB',
+                  checked: false,
+                  subSteps: [
+                  ]
+                }
+              ],
+            },
+          ]
+        },
+        {
+          label: 'residencia temporal distinto al vacacional (ej. por motivos laborales)',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
+          extraReplacements: [
+            // {
+            //   identifier: 'iddec15-extra-1',
+            //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+            //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+            //   insideId: 'opA'
+            // },
+          ],
+          radioId: 'id-dec-17_opC_1',
+          identifier: 'id-dec-17_opC_1',
+          checked: true,
+          subSteps: [
+            {
+              type: 'iText',
+              identifier: 'id-dec-17_opC_1',
+              wordToReplace: 'id-dec-17_opC_1',
+              replacement: '',
+              question: 'Motivo del uso temporal de la habitación:',
+              indications: {
+                areIndications: false,
+                indicationsType: '',
+                value: ''
+              },
+              placeholder: 'P Ej. estudios, traslado laboral',
+              mandatory: true,
+              isFocused: false
+            }
+          ]
+        },
+        {
+          label: 'otro uso',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
+          extraReplacements: [
+            // {
+            //   identifier: 'iddec15-extra-1',
+            //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+            //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+            //   insideId: 'opA'
+            // },
+          ],
+          radioId: 'id-dec-17_opD_1',
+          identifier: 'id-dec-17_opD_1',
+          checked: true,
+          subSteps: [
+            {
+              type: 'iText',
+              identifier: 'id-dec-17_opD_1',
+              wordToReplace: 'id-dec-17_opD_1',
+              replacement: '',
+              question: 'Uso que se le dará a la habitación:',
+              indications: {
+                areIndications: false,
+                indicationsType: '',
+                value: ''
+              },
+              placeholder: 'P. ej. traslado a la localidad donde está la habitación por motivos laborales 15 días cada mes',
+              mandatory: true,
+              isFocused: false
+            }
+          ]
+        },
+      ],
+    },
     {
         type: 'end',
         identifier: 'end',

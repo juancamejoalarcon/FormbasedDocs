@@ -206,6 +206,9 @@ export class StepsService {
           if (radio.radioId === radioSelectedId) {
             step.replacement = radio.replacementOriginal;
             radio.checked = true;
+            step.extraReplacements.forEach((extraReplacement, i) => {
+              extraReplacement.replacement = radio.extraReplacements[i].replacement;
+            });
           } else {
             radio.checked = false;
           }
