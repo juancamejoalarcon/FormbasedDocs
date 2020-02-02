@@ -232,20 +232,9 @@ export class DocCreatorService {
           });
         });
         // Case where we have a single textNode that contains inside the wordToTReplace
-      } else if (elementContainingWord.textContent.includes(content.wordToReplace) && !elementContainingWord.childElementCount) {
+      } else if (elementContainingWord.textContent.includes(content.wordToReplace) && (elementContainingWord.childElementCount <= 1)) {
         const newarray = content.modifiedReplacements.slice().reverse();
         const regexp = new RegExp(step.wordToReplace, 'g');
-
-        // newarray.forEach((modifiedReplacement: any, index: number) => {
-        //   let exactElementContainingWord: any;
-        //   const regexp = new RegExp(step.wordToReplace, 'g');
-
-        //   if (index !== content.modifiedReplacements.length - 1) {
-        //     console.log('Sí')
-        //   } else {
-        //     console.log('No');
-        //   }
-        // });
         const textContent = elementContainingWord.textContent;
         const firstHalfString = textContent.slice(0, textContent.indexOf(content.wordToReplace))
         const secondHalfString = textContent.slice(textContent.indexOf(content.wordToReplace), textContent.length);
@@ -253,7 +242,7 @@ export class DocCreatorService {
         newarray.forEach((modifiedReplacement: any, index: number) => {
           secondHalfStringWithoutWordtoReplace = modifiedReplacement + secondHalfStringWithoutWordtoReplace;
         });
-        elementContainingWord.textContent = firstHalfString + secondHalfStringWithoutWordtoReplace;
+        elementContainingWord.innerHTML =  `<span>${firstHalfString + secondHalfStringWithoutWordtoReplace}</span>`;
       }
     });
   }
@@ -287,10 +276,25 @@ export class DocCreatorService {
     });
 
     elementContainingWord = this.findExactContainingElement(step.wordToReplace, elementContainingWord);
-    while (elementContainingWord.firstElementChild) {
+    while (elementContainingWord.firstElementChild !== null && !this.allElementsAreBr(elementContainingWord)) {
         elementContainingWord = elementContainingWord.firstElementChild;
       }
     elementContainingWord.innerHTML = elementContainingWord.innerHTML.replace(regexp, replacement);
+  }
+
+  // // Case where all children elements are br
+  allElementsAreBr(elementContainingWord: HTMLElement) {
+    let allElementsAreBr = true;
+    const children: HTMLCollection = elementContainingWord.children;
+    for (let i: number; i < children.length; i++) {
+      if (children[i].tagName !== 'BR') {
+        allElementsAreBr = false;
+      }
+    }
+    if (!children.length) {
+      allElementsAreBr = false;
+    }
+    return allElementsAreBr;
   }
 
   buildForCheckbox(step: any) {

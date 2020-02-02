@@ -72,10 +72,9 @@ fdescribe('StepService', () => {
     expect(service.getStepsModel()).toEqual(stepsAfterRadioC);
   });
 
-  it('<SETINITIALSTATE> should modify the steps as expected', () => {
-    service.init(stepsBeforeSetInitialState);
-    service.setInitialState();
-    expect(service.getStepsModel()).toEqual(stepsAfterSetInitialState);
-  });
-  
+  // it('<SETINITIALSTATE> should modify the steps as expected', () => {
+  //   service.init(stepsBeforeSetInitialState);
+  //   service.setInitialState();
+  //   expect(service.getStepsModel()).toEqual(stepsAfterSetInitialState);
+  // });
 });

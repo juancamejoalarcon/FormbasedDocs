@@ -7,35 +7,35 @@ const steps = [
       a cambio del pago de una renta`,
       isCurrentStep: true
     },
-    {
-      type: 'iText',
-      identifier: 'id-unid-1',
-      wordToReplace: 'id-unid-1',
-      replacement: '',
-      question: 'Lugar (ciudad o población) donde se realiza y firma el contrato:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Indique aquí la localidad de celebración y firma del contrato.'
-      },
-      placeholder: 'P. ej. Albacete',
-      mandatory: true,
-      isFocused: false
-    },
-    {
-      type: 'iDate',
-      identifier: 'id-unid-2',
-      wordToReplace: 'id-unid-2',
-      replacement: '',
-      question: 'Fecha en la que se firma el contrato:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Fecha en la que se firma el contrato',
-      },
-      mandatory: true,
-      isFocused: false
-    },
+    // {
+    //   type: 'iText',
+    //   identifier: 'id-unid-1',
+    //   wordToReplace: 'id-unid-1',
+    //   replacement: '',
+    //   question: 'Lugar (ciudad o población) donde se realiza y firma el contrato:',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     value: 'Indique aquí la localidad de celebración y firma del contrato.'
+    //   },
+    //   placeholder: 'P. ej. Albacete',
+    //   mandatory: true,
+    //   isFocused: false
+    // },
+    // {
+    //   type: 'iDate',
+    //   identifier: 'id-unid-2',
+    //   wordToReplace: 'id-unid-2',
+    //   replacement: '',
+    //   question: 'Fecha en la que se firma el contrato:',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     value: 'Fecha en la que se firma el contrato',
+    //   },
+    //   mandatory: true,
+    //   isFocused: false
+    // },
     // {
     //   type: 'iForEach',
     //   value: 1,
@@ -494,7 +494,7 @@ const steps = [
     //                     {
     //                       identifier: 'id-unid-3_1_opB_5',
     //                       wordToReplace: 'id-unid-3_1_opB_5',
-    //                       replacementOriginal: 'id-unid-3_1_opB_5_1, mayor de edad, con domicilio en id-unid-3_1_opB_5_2, id-unid-3_1_opB_5_3 núm. id-unid-3_1_opB_5_4, y en calidad de id-unid-3_1_opB_5_5',
+    //                       replacementOriginal: 'id-unid-3_1_opB_5_1, mayor de edad, con domicilio en id-unid-3_1_opB_5_2, id-unid-3_1_opB_5_3 núm. id-unid-3_1_opB_5_4, y en calidad de id-unid-3_1_opB_5_5<br>',
     //                       replacement: '',
     //                       extraReplacements: [],
     //                       modifiedReplacements: [],
@@ -1220,124 +1220,124 @@ const steps = [
     //     // {}
     //   ]
     // },
-    {
-      type: 'iText',
-      identifier: 'id-unid-5',
-      wordToReplace: 'id-unid-5',
-      replacement: '',
-      question: 'Dirección completa de la vivienda:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) '
-      },
-      placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
-      mandatory: true,
-      isFocused: false
-    },
-    {
-      question: 'Superficie útil de la vivienda en metros cuadrados:',
-      placeholder: 'P. ej: 150',
-      wordToReplace: 'id-unid-6',
-      identifier: 'id-unid-6',
-      type: 'iNumber',
-      replacement: '',
-      extraReplacements: [],
-      rules: [],
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        value: 'La superficie útil (o metros útiles de una vivienda) es la superficie que se puede pisar dentro de la casa. En este concepto entra todo el interior de una vivienda (incluidos los armarios), pero quedarían excluidas todas las partes que aún estando dentro de la casa no son útiles, como los tabiques, pilares y demás elementos estructurales. La información de la superficie útil proporciona una idea del espacio del que dispondrá para vivir.'
-      },
-    },
-    {
-      question: 'Indique el número de habitaciones que tiene la vivienda incluyendo la habitación que se alquila:',
-      placeholder: 'P. ej: 2',
-      wordToReplace: 'id-unid-7',
-      identifier: 'id-unid-7',
-      type: 'iNumber',
-      replacement: '',
-      extraReplacements: [],
-      rules: [
-        {
-          condition: false,
-          rulename: 'extraReplacementToCharacter',
-          identifier: 'idunid7-precioAletras',
-          wordToReplace: 'idunid7-precioAletras',
-          replacement: ''
-        }
-      ],
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Para poder realizar el contrato de habitación, la vivienda tiene que tener un mínimo de 2 habitaciones, en caso contrario, es decir que la vivienda solo tuviese una habitación, se tendría que celebrar un contrato de arrendamiento de vivienda.'
-      },
-    },
-    {
-      type: 'iText',
-      subtype: 'textarea',
-      identifier: 'id-unid-8',
-      wordToReplace: 'id-unid-8',
-      replacement: '',
-      question: 'Haga una descripción detallada de los componentes de la vivienda, sin contar con las habitaciones que se alquilan',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Haga un descripción de las zonas comunes de la vivienda, es decir de las partes, espacios, anexos, depedencias, exluyendo las habitaciones.'
-      },
-      placeholder: 'P. ej. Una cocina, un salón, dos baños, un garaje, un jardín de 10 m2...',
-      mandatory: true,
-      isFocused: false
-    },
-    {
-      type: 'iText',
-      identifier: 'id-unid-9',
-      wordToReplace: 'id-unid-9',
-      replacement: '',
-      question: 'Lugar y, en su caso, número del Registro de la propiedad en el que está inscrita la vivienda:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Localidad y número del Registro de la propiedad en el que está inscrita la vivienda.'
-      },
-      placeholder: 'P. ej. Madrid Nº 34',
-      mandatory: true,
-      isFocused: false,
-    },
-    {
-      type: 'iText',
-      identifier: 'id-dec-10',
-      wordToReplace: 'id-dec-10',
-      replacement: '',
-      question: 'Datos registrales de la vivienda:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Los datos registrales es el número de finca que se asigna en el registro de la propiedad correspondiente en el momento de ser inscrita por primera vez y los datos de la cita registral que le corresponden, es decir, el número de tomo, libro y folio en los que consta la inscripción.'
-      },
-      placeholder: 'P. ej. Tomo 1 Libro 377 Folio 204 Finca 2',
-      mandatory: true,
-      isFocused: false
-    },
-    {
-      type: 'iText',
-      identifier: 'id-dec-11',
-      wordToReplace: 'id-dec-11',
-      replacement: '',
-      question: 'Referencia catastral de la vivienda:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        value: 'La referencia catastral es el identificador oficial y obligatorio de los bienes inmuebles. Consiste en un código alfanumérico que es asignado por el Catastro de manera que todo inmueble debe tener una única referencia catastral que permita situarlo inequívocamente en la cartografía catastral. Si no desea indicar la referencia catastral, deje este espacio en blanco.'
-      },
-      placeholder: 'P. ej: 9872023 VH5797S 0001 WX',
-      mandatory: false,
-      isFocused: false,
-      isEmpty: {
-        prepend: 'Su referencia catastral es: ',
-        append: '',
-      }
-    },
+    // {
+    //   type: 'iText',
+    //   identifier: 'id-unid-5',
+    //   wordToReplace: 'id-unid-5',
+    //   replacement: '',
+    //   question: 'Dirección completa de la vivienda:',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) '
+    //   },
+    //   placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
+    //   mandatory: true,
+    //   isFocused: false
+    // },
+    // {
+    //   question: 'Superficie útil de la vivienda en metros cuadrados:',
+    //   placeholder: 'P. ej: 150',
+    //   wordToReplace: 'id-unid-6',
+    //   identifier: 'id-unid-6',
+    //   type: 'iNumber',
+    //   replacement: '',
+    //   extraReplacements: [],
+    //   rules: [],
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     value: 'La superficie útil (o metros útiles de una vivienda) es la superficie que se puede pisar dentro de la casa. En este concepto entra todo el interior de una vivienda (incluidos los armarios), pero quedarían excluidas todas las partes que aún estando dentro de la casa no son útiles, como los tabiques, pilares y demás elementos estructurales. La información de la superficie útil proporciona una idea del espacio del que dispondrá para vivir.'
+    //   },
+    // },
+    // {
+    //   question: 'Indique el número de habitaciones que tiene la vivienda incluyendo la habitación que se alquila:',
+    //   placeholder: 'P. ej: 2',
+    //   wordToReplace: 'id-unid-7',
+    //   identifier: 'id-unid-7',
+    //   type: 'iNumber',
+    //   replacement: '',
+    //   extraReplacements: [],
+    //   rules: [
+    //     {
+    //       condition: false,
+    //       rulename: 'extraReplacementToCharacter',
+    //       identifier: 'idunid7-precioAletras',
+    //       wordToReplace: 'idunid7-precioAletras',
+    //       replacement: ''
+    //     }
+    //   ],
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     value: 'Para poder realizar el contrato de habitación, la vivienda tiene que tener un mínimo de 2 habitaciones, en caso contrario, es decir que la vivienda solo tuviese una habitación, se tendría que celebrar un contrato de arrendamiento de vivienda.'
+    //   },
+    // },
+    // {
+    //   type: 'iText',
+    //   subtype: 'textarea',
+    //   identifier: 'id-unid-8',
+    //   wordToReplace: 'id-unid-8',
+    //   replacement: '',
+    //   question: 'Haga una descripción detallada de los componentes de la vivienda, sin contar con las habitaciones que se alquilan',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     value: 'Haga un descripción de las zonas comunes de la vivienda, es decir de las partes, espacios, anexos, depedencias, exluyendo las habitaciones.'
+    //   },
+    //   placeholder: 'P. ej. Una cocina, un salón, dos baños, un garaje, un jardín de 10 m2...',
+    //   mandatory: true,
+    //   isFocused: false
+    // },
+    // {
+    //   type: 'iText',
+    //   identifier: 'id-unid-9',
+    //   wordToReplace: 'id-unid-9',
+    //   replacement: '',
+    //   question: 'Lugar y, en su caso, número del Registro de la propiedad en el que está inscrita la vivienda:',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     value: 'Localidad y número del Registro de la propiedad en el que está inscrita la vivienda.'
+    //   },
+    //   placeholder: 'P. ej. Madrid Nº 34',
+    //   mandatory: true,
+    //   isFocused: false,
+    // },
+    // {
+    //   type: 'iText',
+    //   identifier: 'id-dec-10',
+    //   wordToReplace: 'id-dec-10',
+    //   replacement: '',
+    //   question: 'Datos registrales de la vivienda:',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     value: 'Los datos registrales es el número de finca que se asigna en el registro de la propiedad correspondiente en el momento de ser inscrita por primera vez y los datos de la cita registral que le corresponden, es decir, el número de tomo, libro y folio en los que consta la inscripción.'
+    //   },
+    //   placeholder: 'P. ej. Tomo 1 Libro 377 Folio 204 Finca 2',
+    //   mandatory: true,
+    //   isFocused: false
+    // },
+    // {
+    //   type: 'iText',
+    //   identifier: 'id-dec-11',
+    //   wordToReplace: 'id-dec-11',
+    //   replacement: '',
+    //   question: 'Referencia catastral de la vivienda:',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     value: 'La referencia catastral es el identificador oficial y obligatorio de los bienes inmuebles. Consiste en un código alfanumérico que es asignado por el Catastro de manera que todo inmueble debe tener una única referencia catastral que permita situarlo inequívocamente en la cartografía catastral. Si no desea indicar la referencia catastral, deje este espacio en blanco.'
+    //   },
+    //   placeholder: 'P. ej: 9872023 VH5797S 0001 WX',
+    //   mandatory: false,
+    //   isFocused: false,
+    //   isEmpty: {
+    //     prepend: 'Su referencia catastral es: ',
+    //     append: '.',
+    //   }
+    // },
     {
       type: 'iRadioC',
       question: '¿La vivienda forma parte de una Comunidad de Propietarios?',
@@ -1355,22 +1355,27 @@ const steps = [
         {
           identifier: 'iddec12-extra-1',
           wordToReplace: 'iddec12-extra-1',
+          insideId: 'opA'
         },
         {
           identifier: 'iddec12-extra-2',
           wordToReplace: 'iddec12-extra-2',
+          insideId: 'opB'
         },
         {
           identifier: 'iddec12-extra-3',
           wordToReplace: 'iddec12-extra-3',
+          insideId: 'opC'
         },
         {
           identifier: 'iddec12-extra-4',
           wordToReplace: 'iddec12-extra-4',
+          insideId: 'opD'
         },
         {
           identifier: 'iddec12-extra-5',
           wordToReplace: 'iddec12-extra-5',
+          insideId: 'opE'
         }
       ],
       radios: [
@@ -1382,27 +1387,32 @@ const steps = [
             {
               identifier: 'iddec12-extra-1',
               replacement: 'las normas de la Comunidad o ',
-              replacementOriginal: 'las normas de la Comunidad o '
+              replacementOriginal: 'las normas de la Comunidad o ',
+              insideId: 'opA'
             },
             {
               identifier: 'iddec12-extra-2',
               replacement: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la PARTE ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
-              replacementOriginal: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la PARTE ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. '
+              replacementOriginal: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la PARTE ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
+              insideId: 'opB'
             },
             {
               identifier: 'iddec12-extra-3',
-              replacement: 'de la Comunidad y normas de',
-              replacementOriginal: 'de la Comunidad y normas de'
+              replacement: 'LA COMUNIDAD Y NORMAS DE',
+              replacementOriginal: 'LA COMUNIDAD Y NORMAS DE',
+              insideId: 'opC'
             },
             {
               identifier: 'iddec12-extra-4',
               replacement: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
-              replacementOriginal: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.'
+              replacementOriginal: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
+              insideId: 'opD'
             },
             {
               identifier: 'iddec12-extra-5',
               replacement: 'o de la correspondiente prórroga o prórrogas',
-              replacementOriginal: 'o de la correspondiente prórroga o prórrogas'
+              replacementOriginal: 'o de la correspondiente prórroga o prórrogas',
+              insideId: 'opE'
             }
           ],
           radioId: 'id-dec-12_opA',
@@ -1453,6 +1463,7 @@ const steps = [
                       identifier: 'id-dec-12_opA_1_opB_1',
                       type: 'iNumber',
                       replacement: '',
+                      extraReplacements: [],
                       indications: {
                         areIndications: true,
                         indicationsType: 'insideText',
@@ -1482,9 +1493,9 @@ const steps = [
                         {
                           label: 'no están incluídos en el alquiler, debe pagarlos el arrendatario a parte',
                           // tslint:disable-next-line:max-line-length
-                          replacementOriginal: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1.precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales',
+                          replacementOriginal: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1-precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales',
                           // tslint:disable-next-line:max-line-length
-                          replacement: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1.precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales',
+                          replacement: 'El importe de los gastos de Comunidad no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, que a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA.  Los gastos ordinarios de Comunidad para la Vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1-precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales',
                           extraReplacements: [],
                           radioId: 'id-dec-12_opA_1_opB_2_opA',
                           identifier: 'id-dec-12_opA_1_opB_2_opA',
@@ -1497,6 +1508,7 @@ const steps = [
                               identifier: 'id-dec-12_opA_1_opB_2_opA_1',
                               type: 'iNumber',
                               replacement: '',
+                                extraReplacements: [],
                               indications: {
                                 areIndications: false,
                                 indicationsType: '',
@@ -1576,6 +1588,7 @@ const steps = [
                       identifier: 'id-dec-12_opA_2_opB_1',
                       type: 'iNumber',
                       replacement: '',
+                      extraReplacements: [],
                       indications: {
                         areIndications: true,
                         indicationsType: 'insideText',
@@ -1606,27 +1619,32 @@ const steps = [
             {
               identifier: 'iddec12-extra-1',
               replacement: '',
-              replacementOriginal: ''
+              replacementOriginal: '',
+              insideId: 'opA'
             },
             {
               identifier: 'iddec12-extra-2',
               replacement: '',
-              replacementOriginal: ''
+              replacementOriginal: '',
+              insideId: 'opB'
             },
             {
               identifier: 'iddec12-extra-3',
               replacement: '',
-              replacementOriginal: ''
+              replacementOriginal: '',
+              insideId: 'opC'
             },
             {
               identifier: 'iddec12-extra-4',
               replacement: '',
-              replacementOriginal: ''
+              replacementOriginal: '',
+              insideId: 'opD'
             },
             {
               identifier: 'iddec12-extra-5',
               replacement: '',
-              replacementOriginal: ''
+              replacementOriginal: '',
+              insideId: 'opE'
             }
           ],
           radioId: 'id-dec-12_opB',
@@ -1636,137 +1654,122 @@ const steps = [
         },
       ],
     },
-    {
-      question: 'Superficie útil de la habitación que se va a alquilar en metros cuadrados:',
-      placeholder: 'Ej. 30',
-      wordToReplace: 'id-dec-13',
-      identifier: 'id-dec-13',
-      type: 'iNumber',
-      replacement: '',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'Indique en metros cuadrados la superficie de la habitación.'
-      },
-      rules: [
-      ],
-    },
-    {
-      question: 'Superficie útil de la habitación que se va a alquilar en metros cuadrados:',
-      placeholder: 'Ej. 30',
-      wordToReplace: 'id-dec-13',
-      identifier: 'id-dec-13',
-      type: 'iNumber',
-      replacement: '',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'Indique en metros cuadrados la superficie de la habitación.'
-      },
-      rules: [
-      ],
-    },
-    {
-      type: 'iText',
-      subtype: 'textarea',
-      identifier: 'id-dec-14',
-      wordToReplace: 'id-dec-14',
-      replacement: '',
-      question: 'Haga una descripción de la habitación que se va a alquilar  que permita identificarla y ubicarla en la vivienda:',
-      indications: {
-        areIndications: false,
-        indicationsType: '',
-        value: ''
-      },
-      placeholder: 'Ej. habitación que tiene la letra B en la puerta y que se encuentra ubicada frente del baño',
-      mandatory: true,
-      isFocused: false
-    },
-    {
-      type: 'iRadioC',
-      question: '¿La habitación se alquila amueblada de manera que el arrendatario (inquilino) pueda hacer uso de la misma desde su entrada en la vivienda (por ejemplo, que tenga una cama, un armario y una mesa)?',
-      identifier: 'id-dec-15',
-      wordToReplace: 'id-dec-15',
-      defaultRadioId: 'id-dec-15_opA',
-      indications: {
-        areIndications: false,
-        indicationsType: '',
-        // tslint:disable-next-line:max-line-length
-        value: ''
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'Sí',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'id-dec-15_opA_1',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'id-dec-15_opA_1',
-          extraReplacements: [],
-          radioId: 'id-dec-15_opA',
-          identifier: 'id-dec-15_opA',
-          checked: true,
-          subSteps: [
-            {
-              type: 'iRadioC',
-              question: 'Los muebles de la habitación se encuentran descritos en:',
-              identifier: 'id-dec-15_opA_1',
-              wordToReplace: 'id-dec-15_opA_1',
-              defaultRadioId: 'id-dec-15_opA_1_opA',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                // {
-                //   label: 'Sí',
-                //   // tslint:disable-next-line:max-line-length
-                //   replacementOriginal: 'id-dec-15_opA_1',
-                //   // tslint:disable-next-line:max-line-length
-                //   replacement: 'id-dec-15_opA_1',
-                //   extraReplacements: [],
-                //   radioId: 'id-dec-15_opA',
-                //   identifier: 'id-dec-15_opA',
-                //   checked: true,
-                //   subSteps: []
-                // },
-                // {
-                //   label: 'No',
-                //   replacementOriginal: '',
-                //   replacement: '',
-                //   extraReplacements: [],
-                //   radioId: 'id-dec-15_opB',
-                //   identifier: 'id-dec-15_opB',
-                //   checked: false,
-                //   subSteps: [
-                //   ]
-                // }
-              ],
-            },
-          ]
-        },
-        {
-          label: 'No',
-          replacementOriginal: '',
-          replacement: '',
-          extraReplacements: [],
-          radioId: 'id-dec-15_opB',
-          identifier: 'id-dec-15_opB',
-          checked: false,
-          subSteps: [
-          ]
-        }
-      ],
-    },
+    // {
+    //   question: 'Superficie útil de la habitación que se va a alquilar en metros cuadrados:',
+    //   placeholder: 'Ej. 30',
+    //   wordToReplace: 'id-dec-13',
+    //   identifier: 'id-dec-13',
+    //   type: 'iNumber',
+    //   replacement: '',
+    //   extraReplacements: [],
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: 'Indique en metros cuadrados la superficie de la habitación.'
+    //   },
+    //   rules: [
+    //   ],
+    // },
+    // {
+    //   type: 'iText',
+    //   subtype: 'textarea',
+    //   identifier: 'id-dec-14',
+    //   wordToReplace: 'id-dec-14',
+    //   replacement: '',
+    //   question: 'Haga una descripción de la habitación que se va a alquilar  que permita identificarla y ubicarla en la vivienda:',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: ''
+    //   },
+    //   placeholder: 'Ej. habitación que tiene la letra B en la puerta y que se encuentra ubicada frente del baño',
+    //   mandatory: true,
+    //   isFocused: false
+    // },
+    // {
+    //   type: 'iRadioC',
+    //   question: '¿La habitación se alquila amueblada de manera que el arrendatario (inquilino) pueda hacer uso de la misma desde su entrada en la vivienda (por ejemplo, que tenga una cama, un armario y una mesa)?',
+    //   identifier: 'id-dec-15',
+    //   wordToReplace: 'id-dec-15',
+    //   defaultRadioId: 'id-dec-15_opA',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: ''
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'id-dec-15_opA_1',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'id-dec-15_opA_1',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-15_opA',
+    //       identifier: 'id-dec-15_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iRadioC',
+    //           question: 'Los muebles de la habitación se encuentran descritos en:',
+    //           identifier: 'id-dec-15_opA_1',
+    //           wordToReplace: 'id-dec-15_opA_1',
+    //           defaultRadioId: 'id-dec-15_opA_1_opA',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             // {
+    //             //   label: 'Sí',
+    //             //   // tslint:disable-next-line:max-line-length
+    //             //   replacementOriginal: 'id-dec-15_opA_1',
+    //             //   // tslint:disable-next-line:max-line-length
+    //             //   replacement: 'id-dec-15_opA_1',
+    //             //   extraReplacements: [],
+    //             //   radioId: 'id-dec-15_opA',
+    //             //   identifier: 'id-dec-15_opA',
+    //             //   checked: true,
+    //             //   subSteps: []
+    //             // },
+    //             // {
+    //             //   label: 'No',
+    //             //   replacementOriginal: '',
+    //             //   replacement: '',
+    //             //   extraReplacements: [],
+    //             //   radioId: 'id-dec-15_opB',
+    //             //   identifier: 'id-dec-15_opB',
+    //             //   checked: false,
+    //             //   subSteps: [
+    //             //   ]
+    //             // }
+    //           ],
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'No',
+    //       replacementOriginal: '',
+    //       replacement: '',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-15_opB',
+    //       identifier: 'id-dec-15_opB',
+    //       checked: false,
+    //       subSteps: [
+    //       ]
+    //     }
+    //   ],
+    // },
     {
         type: 'end',
         identifier: 'end',
