@@ -1975,11 +1975,31 @@ const steps = [
     //   },
     //   replacement: '',
     //   extraReplacements: [
-    //     // {
-    //     //   identifier: 'iddec15-extra-1',
-    //     //   wordToReplace: 'iddec15-extra-1',
-    //     //   insideId: 'opA'
-    //     // },
+    //     {
+    //       identifier: 'iddec17-extra-1',
+    //       wordToReplace: 'iddec17-extra-1',
+    //       insideId: 'opA'
+    //     },
+    //     {
+    //       identifier: 'iddec17-extra-2',
+    //       wordToReplace: 'iddec17-extra-2',
+    //       insideId: 'opB'
+    //     },
+    //     {
+    //       identifier: 'iddec17-extra-3',
+    //       wordToReplace: 'iddec17-extra-3',
+    //       insideId: 'opC'
+    //     },
+    //     {
+    //       identifier: 'iddec17-extra-5',
+    //       wordToReplace: 'iddec17-extra-5',
+    //       insideId: 'opE'
+    //     },
+    //     {
+    //       identifier: 'iddec17-extra-6',
+    //       wordToReplace: 'iddec17-extra-6',
+    //       insideId: 'opF'
+    //     },
     //   ],
     //   radios: [
     //     {
@@ -1989,12 +2009,36 @@ const steps = [
     //       // tslint:disable-next-line:max-line-length
     //       replacement: 'Que la PARTE ARRENDATARIA necesita una habitación en vivienda compartida, que cumplirá las funciones de vivienda habitual.',
     //       extraReplacements: [
-    //         // {
-    //         //   identifier: 'iddec15-extra-1',
-    //         //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-    //         //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-    //         //   insideId: 'opA'
-    //         // },
+    //         {
+    //           identifier: 'iddec17-extra-1',
+    //           replacement: 'La habitación arrendada se destinará a residencia habitual y permanente de la parte ARRENDATARIA. Dicho uso será exclusivo, excluyéndose expresamente otros usos. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que no tiene arrendada ninguna otra vivienda o habitación destinada al mismo fin, es decir, arrendada en concepto de vivienda habitual.',
+    //           replacementOriginal: 'La habitación arrendada se destinará a residencia habitual y permanente de la parte ARRENDATARIA. Dicho uso será exclusivo, excluyéndose expresamente otros usos. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que no tiene arrendada ninguna otra vivienda o habitación destinada al mismo fin, es decir, arrendada en concepto de vivienda habitual.',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-2',
+    //           replacement: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+    //           replacementOriginal: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-3',
+    //           replacement: 'El tiempo de vigencia del presente contrato de arrendamiento será de: id-dec-20, contados desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido iddec25-extra-1 id-dec-23',
+    //           replacementOriginal: 'El tiempo de vigencia del presente contrato de arrendamiento será de: id-dec-20, contados desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido iddec25-extra-1 id-dec-23',
+    //           insideId: 'opC'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-5',
+    //           replacement: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
+    //           replacementOriginal: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
+    //           insideId: 'opE'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-6',
+    //           replacement: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
+    //           replacementOriginal: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
+    //           insideId: 'opF'
+    //         },
     //       ],
     //       radioId: 'id-dec-17_opA',
     //       identifier: 'id-dec-17_opA',
@@ -2008,6 +2052,36 @@ const steps = [
     //       replacementOriginal: 'Que la PARTE ARRENDATARIA hará uso de una habitación como vivienda temporal por motivos de vacaciones, turismo u ocio. id-dec-17_opB_1',
     //       replacement: 'Que la PARTE ARRENDATARIA hará uso de una habitación como vivienda temporal por motivos de vacaciones, turismo u ocio. id-dec-17_opB_1',
     //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec17-extra-1',
+    //           replacement: 'La habitación arrendada será la vivienda temporal de la parte ARRENDATARIA. Dicho uso será por motivos de vacaciones, ocio, o , turismo. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que la habitación arrendada no constituye su residencia habitual sino que cumple un uso de segunda residencia.',
+    //           replacementOriginal: 'La habitación arrendada será la vivienda temporal de la parte ARRENDATARIA. Dicho uso será por motivos de vacaciones, ocio, o , turismo. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que la habitación arrendada no constituye su residencia habitual sino que cumple un uso de segunda residencia.',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-2',
+    //           replacement: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+    //           replacementOriginal: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-3',
+    //           replacement: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido iddec25-extra-1 id-dec-23',
+    //           replacementOriginal: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido iddec25-extra-1 id-dec-23',
+    //           insideId: 'opC'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-5',
+    //           replacement: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO',
+    //           replacementOriginal: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO',
+    //           insideId: 'opE'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-6',
+    //           replacement: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público.',
+    //           replacementOriginal: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público.',
+    //           insideId: 'opF'
+    //         }
     //       ],
     //       radioId: 'id-dec-17_opB',
     //       identifier: 'id-dec-17_opB',
@@ -2234,16 +2308,40 @@ const steps = [
     //       // tslint:disable-next-line:max-line-length
     //       replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
     //       extraReplacements: [
-    //         // {
-    //         //   identifier: 'iddec15-extra-1',
-    //         //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-    //         //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-    //         //   insideId: 'opA'
-    //         // },
+    //         {
+    //           identifier: 'iddec17-extra-1',
+    //           replacement: 'La habitación arrendada será la vivienda temporal de la parte ARRENDATARIA. Dicho uso será por motivos de: id-dec-17_opC_1. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que la habitación arrendada no constituye su residencia habitual sino que cumple un uso de segunda residencia.',
+    //           replacementOriginal: 'La habitación arrendada será la vivienda temporal de la parte ARRENDATARIA. Dicho uso será por motivos de: id-dec-17_opC_1. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que la habitación arrendada no constituye su residencia habitual sino que cumple un uso de segunda residencia.',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-2',
+    //           replacement: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+    //           replacementOriginal: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-3',
+    //           replacement: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido iddec25-extra-1 id-dec-23',
+    //           replacementOriginal: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido iddec25-extra-1 id-dec-23',
+    //           insideId: 'opC'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-5',
+    //           replacement: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
+    //           replacementOriginal: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
+    //           insideId: 'opE'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-6',
+    //           replacement: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
+    //           replacementOriginal: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
+    //           insideId: 'opF'
+    //         }
     //       ],
     //       radioId: 'id-dec-17_opC_1',
     //       identifier: 'id-dec-17_opC_1',
-    //       checked: true,
+    //       checked: false,
     //       subSteps: [
     //         {
     //           type: 'iText',
@@ -2269,16 +2367,40 @@ const steps = [
     //       // tslint:disable-next-line:max-line-length
     //       replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
     //       extraReplacements: [
-    //         // {
-    //         //   identifier: 'iddec15-extra-1',
-    //         //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-    //         //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-    //         //   insideId: 'opA'
-    //         // },
+    //         {
+    //           identifier: 'iddec17-extra-1',
+    //           replacement: 'La habitación arrendada será destinada de manera exclusiva al siguiente uso: id-dec-17_opD_1.',
+    //           replacementOriginal: 'La habitación arrendada será destinada de manera exclusiva al siguiente uso: id-dec-17_opD_1.',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-2',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-3',
+    //           replacement: 'El arrendamiento se pacta por el plazo de: id-dec-20, a contar desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido iddec25-extra-1 id-dec-23',
+    //           replacementOriginal: 'El arrendamiento se pacta por el plazo de: id-dec-20, a contar desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido iddec25-extra-1 id-dec-23',
+    //           insideId: 'opC'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-5',
+    //           replacement: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
+    //           replacementOriginal: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
+    //           insideId: 'opE'
+    //         },
+    //         {
+    //           identifier: 'iddec17-extra-6',
+    //           replacement: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
+    //           replacementOriginal: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
+    //           insideId: 'opF'
+    //         }
     //       ],
     //       radioId: 'id-dec-17_opD_1',
     //       identifier: 'id-dec-17_opD_1',
-    //       checked: true,
+    //       checked: false,
     //       subSteps: [
     //         {
     //           type: 'iText',
@@ -2299,23 +2421,274 @@ const steps = [
     //     },
     //   ],
     // },
+    // {
+    //   question: 'Existe alguna zona de la vivienda que el arrendatario (inquilino) de la habitación no podrá usar. Tenga en cuenta que ni la cocina, un baño y el salón pueden ser excluídos de uso. Además, tenga en cuenta que no es necesario incluir el resto de las habitaciones ya que esto se contempla en el contrato:',
+    //   wordToReplace: 'id-unid-18',
+    //   identifier: 'id-unid-18',
+    //   placeholder: 'P. ej: El arrendatario no podrá usar el trastero ya que este es de uso personal del arrendador.',
+    //   type: 'iText',
+    //   replacement: '',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: '',
+    //   },
+    //   isEmpty: {
+    //     prepend: 'ni las siguientes zonas de la misma:<br>',
+    //     append: '',
+    //   }
+    // },
+    // {
+    //   type: 'iRadioB',
+    //   question: 'Durante el tiempo que dure este contrato de alquiler, vivirá el arrendador (propietario), en la misma vivienda donde se alquila la habitación de este contrato',
+    //   identifier: 'id-dec-19',
+    //   wordToReplace: 'id-dec-19',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: '',
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //     {
+    //       identifier: 'iddec19-extra-1',
+    //       wordToReplace: 'iddec19-extra-1',
+    //       insideId: 'opA'
+    //     }
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       replacementOriginal: 'uso y',
+    //       replacement: 'uso y',
+    //       radioId: 'id-dec-19_opA',
+    //       identifier: 'id-dec-19_opA',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec19-extra-1',
+    //           replacement: 'Manifiesta la parte ARRENDADORA que la vivienda también será su domicilio habitual, y por lo tanto, tendrá derecho al uso de la misma en las mismas condiciones que el ARRENDATARIO, exceptuando la habitación objeto de arrendamiento, que será de uso exclusivo de la parte Arrendataria. ',
+    //           replacementOriginal: 'Manifiesta la parte ARRENDADORA que la vivienda también será su domicilio habitual, y por lo tanto, tendrá derecho al uso de la misma en las mismas condiciones que el ARRENDATARIO, exceptuando la habitación objeto de arrendamiento, que será de uso exclusivo de la parte Arrendataria. ',
+    //           insideId: 'opA'
+    //         }
+    //       ],
+    //       checked: true,
+    //     },
+    //     {
+    //       label: 'No',
+    //       replacementOriginal: '',
+    //       replacement: '',
+    //       radioId: 'id-dec-19_opB',
+    //       identifier: 'id-dec-19_opB',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec19-extra-1',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opA'
+    //         },
+    //       ],
+    //       checked: false,
+    //     },
+    //   ]
+    // },
+    // {
+    //   question: 'Indique la duración del contrato de alquiler',
+    //   wordToReplace: 'id-dec-20',
+    //   identifier: 'id-dec-20',
+    //   placeholder: 'P. ej: 15 dias, 6 meses, 1 año,..',
+    //   type: 'iText',
+    //   replacement: '',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'insideText',
+    //     value: 'Desde la fecha de inicio del contrato de alquiler.',
+    //   }
+    // },
+    // {
+    //   question: 'Fecha de comienzo del alquiler de la habitación:',
+    //   wordToReplace: 'id-dec-21',
+    //   identifier: 'id-dec-21',
+    //   placeholder: '',
+    //   type: 'iDate',
+    //   replacement: '',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: '',
+    //   }
+    // },
+    // {
+    //   question: 'Hora de comienzo del alquiler',
+    //   wordToReplace: 'id-dec-22',
+    //   identifier: 'id-dec-22',
+    //   placeholder: 'P. ej: 09.00; 12.30',
+    //   type: 'iText',
+    //   replacement: '',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: '',
+    //   },
+    //   isEmpty: {
+    //     prepend: ', a las ',
+    //     append: ' horas',
+    //   }
+    // },
+    // {
+    //   question: 'Fecha de finalización del alquiler:',
+    //   wordToReplace: 'id-dec-23',
+    //   identifier: 'id-dec-23',
+    //   placeholder: '',
+    //   type: 'iDate',
+    //   replacement: '',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: '',
+    //   },
+    //   isEmpty: {
+    //     prepend: ', el día ',
+    //     append: 'id-dec-24.',
+    //   }
+    // },
+    // {
+    //   question: 'Hora de finalización del alquiler:',
+    //   wordToReplace: 'id-dec-24',
+    //   identifier: 'id-dec-24',
+    //   placeholder: 'P. ej: 09.00; 12.30',
+    //   type: 'iText',
+    //   replacement: '',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: '',
+    //   },
+    //   isEmpty: {
+    //     prepend: ', a las ',
+    //     append: ' horas',
+    //   }
+    // },
+
     {
-      question: 'Existe alguna zona de la vivienda que el arrendatario (inquilino) de la habitación no podrá usar. Tenga en cuenta que ni la cocina, un baño y el salón pueden ser excluídos de uso. Además, tenga en cuenta que no es necesario incluir el resto de las habitaciones ya que esto se contempla en el contrato:',
-      wordToReplace: 'id-unid-18',
-      identifier: 'id-unid-18',
-      placeholder: 'P. ej: El arrendatario no podrá usar el trastero ya que este es de uso personal del arrendador.',
-      type: 'iText',
-      replacement: '',
+      type: 'iRadioC',
+      question: '¿Al finalizar el contrato podrá este prorrogarse por períodos de prórroga sucesivos?',
+      identifier: 'id-dec-25',
+      wordToReplace: 'id-dec-25',
+      defaultRadioId: 'id-dec-25_opA',
       indications: {
-        areIndications: false,
-        indicationsType: '',
-        value: '',
+        areIndications: true,
+        indicationsType: 'outsideText',
+        // tslint:disable-next-line:max-line-length
+        value: 'Una vez finalizado el contrato este puede terminar definitvamente o extenderse, según hayan acordado las partes.'
       },
-      isEmpty: {
-        prepend: 'ni las siguientes zonas de la misma:<br>',
-        append: '',
-      }
+      replacement: '',
+      extraReplacements: [
+        {
+          identifier: 'iddec25-extra-1',
+          wordToReplace: 'iddec25-extra-1',
+          insideId: 'opA'
+        },
+        {
+          identifier: 'iddec25-extra-2',
+          wordToReplace: 'iddec25-extra-2',
+          insideId: 'opB'
+        },
+        {
+          identifier: 'iddec25-extra-3',
+          wordToReplace: 'iddec25-extra-3',
+          insideId: 'opC'
+        },
+      ],
+      radios: [
+        {
+          label: 'Sí',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'En caso de que llegare el último día del Contrato, si ninguna de las Partes hubiese notificado a la otra como mínimo con id-dec-25_opA_2 de antelación, su voluntad de no renovar el presente Contrato, se entenderá que este entra en períodos sucesivos de prórroga automática. Estos períodos de prórroga serán de: id-dec-25_opA_1, id-dec-25_opA_3 En cualquiera de sus prorrogas, si alguna de las partes quisiera finalizar el contrato, podrá avisar a través de los medios previstos, como mínimo con id-dec-25_opA_2 de  antelación a la fecha de terminación de cualquiera de las prórrogas, su voluntad de no renovarlo.',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'Que la PARTE ARRENDATARIA necesita una habitación en vivienda compartida, que cumplirá las funciones de vivienda habitual.',
+          extraReplacements: [
+            {
+              identifier: 'iddec17-extra-1',
+              replacement: 'La habitación arrendada se destinará a residencia habitual y permanente de la parte ARRENDATARIA. Dicho uso será exclusivo, excluyéndose expresamente otros usos. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que no tiene arrendada ninguna otra vivienda o habitación destinada al mismo fin, es decir, arrendada en concepto de vivienda habitual.',
+              replacementOriginal: 'La habitación arrendada se destinará a residencia habitual y permanente de la parte ARRENDATARIA. Dicho uso será exclusivo, excluyéndose expresamente otros usos. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que no tiene arrendada ninguna otra vivienda o habitación destinada al mismo fin, es decir, arrendada en concepto de vivienda habitual.',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddec17-extra-2',
+              replacement: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+              replacementOriginal: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+              insideId: 'opB'
+            },
+          ],
+          radioId: 'id-dec-17_opA',
+          identifier: 'id-dec-17_opA',
+          checked: true,
+          subSteps: [
+
+          ]
+        },
+        {
+          label: 'otro uso',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
+          extraReplacements: [
+            {
+              identifier: 'iddec17-extra-1',
+              replacement: 'La habitación arrendada será destinada de manera exclusiva al siguiente uso: id-dec-17_opD_1.',
+              replacementOriginal: 'La habitación arrendada será destinada de manera exclusiva al siguiente uso: id-dec-17_opD_1.',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddec17-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddec17-extra-3',
+              replacement: 'El arrendamiento se pacta por el plazo de: id-dec-20, a contar desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido, por expiración del tiempo pactado para su vigencia id-dec-25 id-dec-23',
+              replacementOriginal: '',
+              insideId: 'opC'
+            },
+            {
+              identifier: 'iddec17-extra-5',
+              replacement: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
+              replacementOriginal: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
+              insideId: 'opE'
+            },
+            {
+              identifier: 'iddec17-extra-6',
+              replacement: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
+              replacementOriginal: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
+              insideId: 'opF'
+            }
+          ],
+          radioId: 'id-dec-17_opD_1',
+          identifier: 'id-dec-17_opD_1',
+          checked: false,
+          subSteps: [
+            {
+              type: 'iText',
+              identifier: 'id-dec-17_opD_1',
+              wordToReplace: 'id-dec-17_opD_1',
+              replacement: '',
+              question: 'Uso que se le dará a la habitación:',
+              indications: {
+                areIndications: false,
+                indicationsType: '',
+                value: ''
+              },
+              placeholder: 'P. ej. traslado a la localidad donde está la habitación por motivos laborales 15 días cada mes',
+              mandatory: true,
+              isFocused: false
+            }
+          ]
+        },
+      ],
     },
+
     {
         type: 'end',
         identifier: 'end',
