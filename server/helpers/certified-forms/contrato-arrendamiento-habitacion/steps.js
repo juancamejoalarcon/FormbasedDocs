@@ -1961,343 +1961,360 @@ const steps = [
     //     }
     //   ]
     // },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'Uso que se le va a dar a la vivienda:',
+    //   identifier: 'id-dec-17',
+    //   wordToReplace: 'id-dec-17',
+    //   defaultRadioId: 'id-dec-17_opA',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: ''
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //     // {
+    //     //   identifier: 'iddec15-extra-1',
+    //     //   wordToReplace: 'iddec15-extra-1',
+    //     //   insideId: 'opA'
+    //     // },
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'vivienda habitual o residencia permanente',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Que la PARTE ARRENDATARIA necesita una habitación en vivienda compartida, que cumplirá las funciones de vivienda habitual.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Que la PARTE ARRENDATARIA necesita una habitación en vivienda compartida, que cumplirá las funciones de vivienda habitual.',
+    //       extraReplacements: [
+    //         // {
+    //         //   identifier: 'iddec15-extra-1',
+    //         //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+    //         //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+    //         //   insideId: 'opA'
+    //         // },
+    //       ],
+    //       radioId: 'id-dec-17_opA',
+    //       identifier: 'id-dec-17_opA',
+    //       checked: true,
+    //       subSteps: [
+
+    //       ]
+    //     },
+    //     {
+    //       label: 'uso turístico (vacaciones)',
+    //       replacementOriginal: 'Que la PARTE ARRENDATARIA hará uso de una habitación como vivienda temporal por motivos de vacaciones, turismo u ocio. id-dec-17_opB_1',
+    //       replacement: 'Que la PARTE ARRENDATARIA hará uso de una habitación como vivienda temporal por motivos de vacaciones, turismo u ocio. id-dec-17_opB_1',
+    //       extraReplacements: [
+    //       ],
+    //       radioId: 'id-dec-17_opB',
+    //       identifier: 'id-dec-17_opB',
+    //       checked: false,
+    //       subSteps: [
+    //         {
+    //           type: 'iRadioC',
+    //           question: '¿El arrendador está inscrito en el Registro de Turismo de la Comunidad Autónoma o entidad equivalente?:',
+    //           identifier: 'id-dec-17_opB_1',
+    //           wordToReplace: 'id-dec-17_opB_1',
+    //           defaultRadioId: 'id-dec-17_opB_1_opA',
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: 'Además de la norma común, que se ha señalado, Código Civil, la regulación de los alquileres de uso turístico, se han ido regulando por las normas que se han implementado por las distintas Comunidades Autónomas, que regulan los arrendamiento de aquellos pisos, apartamentos o casas que, amueblados y equipados en condiciones de uso inmediato, se comercializan y promocionan en canales de oferta turística, y que deben ofrecer una serie de servicios.<br>La mayoría de las Comunidades Autónomas han optado por la presentación de la declaración responsable como autorización inicial de funcionamiento de esta actividad (Madrid, Valencia, Andalucía o Aragón), no así en Cataluña, en la que las propietarias y propietarios deben presentar una comunicación previa al Ayuntamiento competente.'
+    //           },
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'Sí',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'A través del presente contrato se pone en conocimiento de la PARTE ARRENDATARIA que, de acuerdo con la normativa autonómica, la vivienda se encuentra inscrita en el Registro de Turismo o en la entidad correspondiente de la Comunidad Autónoma: id-dec-17_opB_1_opA_1, cuyo Código de Inscripción es: id-dec-17_opB_1_opA_2',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'A través del presente contrato se pone en conocimiento de la PARTE ARRENDATARIA que, de acuerdo con la normativa autonómica, la vivienda se encuentra inscrita en el Registro de Turismo o en la entidad correspondiente de la Comunidad Autónoma: id-dec-17_opB_1_opA_1, cuyo Código de Inscripción es: id-dec-17_opB_1_opA_2',
+    //               extraReplacements: [
+    //               ],
+    //               radioId: 'id-dec-17_opB_1_opA',
+    //               identifier: 'id-dec-17_opB_1_opA',
+    //               checked: true,
+    //               subSteps: [
+    //                 {
+    //                   type: 'iRadioB',
+    //                   subType: 'select',
+    //                   question: 'Registro en el que está inscrito:',
+    //                   identifier: 'id-dec-17_opB_1_opA_1',
+    //                   wordToReplace: 'id-dec-17_opB_1_opA_1',
+    //                   defaultRadioId: 'id-dec-17_opB_1_opA_1_opA',
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: '',
+    //                   },
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   radios: [
+    //                     {
+    //                       label: 'Andalucía',
+    //                       replacementOriginal: 'Andalucía',
+    //                       replacement: 'Andalucía',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opA',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opA',
+    //                       extraReplacements: [],
+    //                       checked: true,
+    //                     },
+    //                     {
+    //                       label: 'Aragón',
+    //                       replacementOriginal: 'Aragón',
+    //                       replacement: 'Aragón',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opB',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opB',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Principado de Asturias',
+    //                       replacementOriginal: 'Principado de Asturias',
+    //                       replacement: 'Principado de Asturias',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opC',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opC',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Islas Baleares',
+    //                       replacementOriginal: 'Islas Baleares',
+    //                       replacement: 'Islas Baleares',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opD',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opD',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Canarias',
+    //                       replacementOriginal: 'Canarias',
+    //                       replacement: 'Canarias',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opE',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opE',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Cantabria',
+    //                       replacementOriginal: 'Cantabria',
+    //                       replacement: 'Cantabria',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opF',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opF',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Castilla y León',
+    //                       replacementOriginal: 'Castilla y León',
+    //                       replacement: 'Castilla y León',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opG',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opG',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Cataluña',
+    //                       replacementOriginal: 'Cataluña',
+    //                       replacement: 'Cataluña',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opH',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opH',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Comunidad Valenciana',
+    //                       replacementOriginal: 'Comunidad Valenciana',
+    //                       replacement: 'Comunidad Valenciana',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opI',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opI',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Galicia',
+    //                       replacementOriginal: 'Galicia',
+    //                       replacement: 'Galicia',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opJ',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opJ',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'La Rioja',
+    //                       replacementOriginal: 'La Rioja',
+    //                       replacement: 'La Rioja',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opK',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opK',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Comunidad de Madrid',
+    //                       replacementOriginal: 'Comunidad de Madrid',
+    //                       replacement: 'Comunidad de Madrid',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opL',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opL',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Murcia',
+    //                       replacementOriginal: 'Murcia',
+    //                       replacement: 'Murcia',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opM',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opM',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Comunidad Foral de Navarra',
+    //                       replacementOriginal: 'Comunidad Foral de Navarra',
+    //                       replacement: 'Comunidad Foral de Navarra',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opN',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opN',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'País Vasco',
+    //                       replacementOriginal: 'País Vasco',
+    //                       replacement: 'País Vasco',
+    //                       radioId: 'id-dec-17_opB_1_opA_1_opO',
+    //                       identifier: 'id-dec-17_opB_1_opA_1_opO',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     }
+    //                   ]
+    //                 },
+    //                 {
+    //                   type: 'iText',
+    //                   identifier: 'id-dec-17_opB_1_opA_2',
+    //                   wordToReplace: 'id-dec-17_opB_1_opA_2',
+    //                   replacement: '',
+    //                   question: 'Número de inscripción en el Registro de Turismo o entidad autonómica equivalente:',
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     value: ''
+    //                   },
+    //                   placeholder: '',
+    //                   mandatory: false,
+    //                   isFocused: false
+    //                 },
+    //               ]
+    //             },
+    //             {
+    //               label: 'No',
+    //               replacementOriginal: '',
+    //               replacement: '',
+    //               extraReplacements: [
+    //               ],
+    //               radioId: 'id-dec-17_opB_1_opB',
+    //               identifier: 'id-dec-17_opB_1_opB',
+    //               checked: false,
+    //               subSteps: [
+    //               ]
+    //             }
+    //           ],
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'residencia temporal distinto al vacacional (ej. por motivos laborales)',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
+    //       extraReplacements: [
+    //         // {
+    //         //   identifier: 'iddec15-extra-1',
+    //         //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+    //         //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+    //         //   insideId: 'opA'
+    //         // },
+    //       ],
+    //       radioId: 'id-dec-17_opC_1',
+    //       identifier: 'id-dec-17_opC_1',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iText',
+    //           identifier: 'id-dec-17_opC_1',
+    //           wordToReplace: 'id-dec-17_opC_1',
+    //           replacement: '',
+    //           question: 'Motivo del uso temporal de la habitación:',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: ''
+    //           },
+    //           placeholder: 'P Ej. estudios, traslado laboral',
+    //           mandatory: true,
+    //           isFocused: false
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       label: 'otro uso',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
+    //       extraReplacements: [
+    //         // {
+    //         //   identifier: 'iddec15-extra-1',
+    //         //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+    //         //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+    //         //   insideId: 'opA'
+    //         // },
+    //       ],
+    //       radioId: 'id-dec-17_opD_1',
+    //       identifier: 'id-dec-17_opD_1',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iText',
+    //           identifier: 'id-dec-17_opD_1',
+    //           wordToReplace: 'id-dec-17_opD_1',
+    //           replacement: '',
+    //           question: 'Uso que se le dará a la habitación:',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: ''
+    //           },
+    //           placeholder: 'P. ej. traslado a la localidad donde está la habitación por motivos laborales 15 días cada mes',
+    //           mandatory: true,
+    //           isFocused: false
+    //         }
+    //       ]
+    //     },
+    //   ],
+    // },
     {
-      type: 'iRadioC',
-      question: 'Uso que se le va a dar a la vivienda:',
-      identifier: 'id-dec-17',
-      wordToReplace: 'id-dec-17',
-      defaultRadioId: 'id-dec-17_opA',
+      question: 'Existe alguna zona de la vivienda que el arrendatario (inquilino) de la habitación no podrá usar. Tenga en cuenta que ni la cocina, un baño y el salón pueden ser excluídos de uso. Además, tenga en cuenta que no es necesario incluir el resto de las habitaciones ya que esto se contempla en el contrato:',
+      wordToReplace: 'id-unid-18',
+      identifier: 'id-unid-18',
+      placeholder: 'P. ej: El arrendatario no podrá usar el trastero ya que este es de uso personal del arrendador.',
+      type: 'iText',
+      replacement: '',
       indications: {
         areIndications: false,
         indicationsType: '',
-        // tslint:disable-next-line:max-line-length
-        value: ''
+        value: '',
       },
-      replacement: '',
-      extraReplacements: [
-        // {
-        //   identifier: 'iddec15-extra-1',
-        //   wordToReplace: 'iddec15-extra-1',
-        //   insideId: 'opA'
-        // },
-      ],
-      radios: [
-        {
-          label: 'vivienda habitual o residencia permanente',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Que la PARTE ARRENDATARIA necesita una habitación en vivienda compartida, que cumplirá las funciones de vivienda habitual.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'Que la PARTE ARRENDATARIA necesita una habitación en vivienda compartida, que cumplirá las funciones de vivienda habitual.',
-          extraReplacements: [
-            // {
-            //   identifier: 'iddec15-extra-1',
-            //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-            //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-            //   insideId: 'opA'
-            // },
-          ],
-          radioId: 'id-dec-17_opA',
-          identifier: 'id-dec-17_opA',
-          checked: true,
-          subSteps: [
-
-          ]
-        },
-        {
-          label: 'uso turístico (vacaciones)',
-          replacementOriginal: 'Que la PARTE ARRENDATARIA hará uso de una habitación como vivienda temporal por motivos de vacaciones, turismo u ocio. id-dec-17_opB_1',
-          replacement: 'Que la PARTE ARRENDATARIA hará uso de una habitación como vivienda temporal por motivos de vacaciones, turismo u ocio. id-dec-17_opB_1',
-          extraReplacements: [
-          ],
-          radioId: 'id-dec-17_opB',
-          identifier: 'id-dec-17_opB',
-          checked: false,
-          subSteps: [
-            {
-              type: 'iRadioC',
-              question: '¿El arrendador está inscrito en el Registro de Turismo de la Comunidad Autónoma o entidad equivalente?:',
-              identifier: 'id-dec-17_opB_1',
-              wordToReplace: 'id-dec-17_opB_1',
-              defaultRadioId: 'id-dec-17_opB_1_opA',
-              indications: {
-                areIndications: true,
-                indicationsType: 'outsideText',
-                // tslint:disable-next-line:max-line-length
-                value: 'Además de la norma común, que se ha señalado, Código Civil, la regulación de los alquileres de uso turístico, se han ido regulando por las normas que se han implementado por las distintas Comunidades Autónomas, que regulan los arrendamiento de aquellos pisos, apartamentos o casas que, amueblados y equipados en condiciones de uso inmediato, se comercializan y promocionan en canales de oferta turística, y que deben ofrecer una serie de servicios.<br>La mayoría de las Comunidades Autónomas han optado por la presentación de la declaración responsable como autorización inicial de funcionamiento de esta actividad (Madrid, Valencia, Andalucía o Aragón), no así en Cataluña, en la que las propietarias y propietarios deben presentar una comunicación previa al Ayuntamiento competente.'
-              },
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'Sí',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'A través del presente contrato se pone en conocimiento de la PARTE ARRENDATARIA que, de acuerdo con la normativa autonómica, la vivienda se encuentra inscrita en el Registro de Turismo o en la entidad correspondiente de la Comunidad Autónoma: id-dec-17_opB_1_opA_1, cuyo Código de Inscripción es: id-dec-17_opB_1_opA_2',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'A través del presente contrato se pone en conocimiento de la PARTE ARRENDATARIA que, de acuerdo con la normativa autonómica, la vivienda se encuentra inscrita en el Registro de Turismo o en la entidad correspondiente de la Comunidad Autónoma: id-dec-17_opB_1_opA_1, cuyo Código de Inscripción es: id-dec-17_opB_1_opA_2',
-                  extraReplacements: [
-                  ],
-                  radioId: 'id-dec-17_opB_1_opA',
-                  identifier: 'id-dec-17_opB_1_opA',
-                  checked: true,
-                  subSteps: [
-                    {
-                      type: 'iRadioB',
-                      subType: 'select',
-                      question: 'Registro en el que está inscrito:',
-                      identifier: 'id-dec-17_opB_1_opA_1',
-                      wordToReplace: 'id-dec-17_opB_1_opA_1',
-                      defaultRadioId: 'id-dec-17_opB_1_opA_1_opA',
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: '',
-                      },
-                      replacement: '',
-                      extraReplacements: [],
-                      radios: [
-                        {
-                          label: 'Andalucía',
-                          replacementOriginal: 'Andalucía',
-                          replacement: 'Andalucía',
-                          radioId: 'id-dec-17_opB_1_opA_1_opA',
-                          identifier: 'id-dec-17_opB_1_opA_1_opA',
-                          extraReplacements: [],
-                          checked: true,
-                        },
-                        {
-                          label: 'Aragón',
-                          replacementOriginal: 'Aragón',
-                          replacement: 'Aragón',
-                          radioId: 'id-dec-17_opB_1_opA_1_opB',
-                          identifier: 'id-dec-17_opB_1_opA_1_opB',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Principado de Asturias',
-                          replacementOriginal: 'Principado de Asturias',
-                          replacement: 'Principado de Asturias',
-                          radioId: 'id-dec-17_opB_1_opA_1_opC',
-                          identifier: 'id-dec-17_opB_1_opA_1_opC',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Islas Baleares',
-                          replacementOriginal: 'Islas Baleares',
-                          replacement: 'Islas Baleares',
-                          radioId: 'id-dec-17_opB_1_opA_1_opD',
-                          identifier: 'id-dec-17_opB_1_opA_1_opD',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Canarias',
-                          replacementOriginal: 'Canarias',
-                          replacement: 'Canarias',
-                          radioId: 'id-dec-17_opB_1_opA_1_opE',
-                          identifier: 'id-dec-17_opB_1_opA_1_opE',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Cantabria',
-                          replacementOriginal: 'Cantabria',
-                          replacement: 'Cantabria',
-                          radioId: 'id-dec-17_opB_1_opA_1_opF',
-                          identifier: 'id-dec-17_opB_1_opA_1_opF',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Castilla y León',
-                          replacementOriginal: 'Castilla y León',
-                          replacement: 'Castilla y León',
-                          radioId: 'id-dec-17_opB_1_opA_1_opG',
-                          identifier: 'id-dec-17_opB_1_opA_1_opG',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Cataluña',
-                          replacementOriginal: 'Cataluña',
-                          replacement: 'Cataluña',
-                          radioId: 'id-dec-17_opB_1_opA_1_opH',
-                          identifier: 'id-dec-17_opB_1_opA_1_opH',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Comunidad Valenciana',
-                          replacementOriginal: 'Comunidad Valenciana',
-                          replacement: 'Comunidad Valenciana',
-                          radioId: 'id-dec-17_opB_1_opA_1_opI',
-                          identifier: 'id-dec-17_opB_1_opA_1_opI',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Galicia',
-                          replacementOriginal: 'Galicia',
-                          replacement: 'Galicia',
-                          radioId: 'id-dec-17_opB_1_opA_1_opJ',
-                          identifier: 'id-dec-17_opB_1_opA_1_opJ',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'La Rioja',
-                          replacementOriginal: 'La Rioja',
-                          replacement: 'La Rioja',
-                          radioId: 'id-dec-17_opB_1_opA_1_opK',
-                          identifier: 'id-dec-17_opB_1_opA_1_opK',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Comunidad de Madrid',
-                          replacementOriginal: 'Comunidad de Madrid',
-                          replacement: 'Comunidad de Madrid',
-                          radioId: 'id-dec-17_opB_1_opA_1_opL',
-                          identifier: 'id-dec-17_opB_1_opA_1_opL',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Murcia',
-                          replacementOriginal: 'Murcia',
-                          replacement: 'Murcia',
-                          radioId: 'id-dec-17_opB_1_opA_1_opM',
-                          identifier: 'id-dec-17_opB_1_opA_1_opM',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Comunidad Foral de Navarra',
-                          replacementOriginal: 'Comunidad Foral de Navarra',
-                          replacement: 'Comunidad Foral de Navarra',
-                          radioId: 'id-dec-17_opB_1_opA_1_opN',
-                          identifier: 'id-dec-17_opB_1_opA_1_opN',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'País Vasco',
-                          replacementOriginal: 'País Vasco',
-                          replacement: 'País Vasco',
-                          radioId: 'id-dec-17_opB_1_opA_1_opO',
-                          identifier: 'id-dec-17_opB_1_opA_1_opO',
-                          extraReplacements: [],
-                          checked: false,
-                        }
-                      ]
-                    },
-                    {
-                      type: 'iText',
-                      identifier: 'id-dec-17_opB_1_opA_2',
-                      wordToReplace: 'id-dec-17_opB_1_opA_2',
-                      replacement: '',
-                      question: 'Número de inscripción en el Registro de Turismo o entidad autonómica equivalente:',
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        value: ''
-                      },
-                      placeholder: '',
-                      mandatory: false,
-                      isFocused: false
-                    },
-                  ]
-                },
-                {
-                  label: 'No',
-                  replacementOriginal: '',
-                  replacement: '',
-                  extraReplacements: [
-                  ],
-                  radioId: 'id-dec-17_opB_1_opB',
-                  identifier: 'id-dec-17_opB_1_opB',
-                  checked: false,
-                  subSteps: [
-                  ]
-                }
-              ],
-            },
-          ]
-        },
-        {
-          label: 'residencia temporal distinto al vacacional (ej. por motivos laborales)',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
-          extraReplacements: [
-            // {
-            //   identifier: 'iddec15-extra-1',
-            //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-            //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-            //   insideId: 'opA'
-            // },
-          ],
-          radioId: 'id-dec-17_opC_1',
-          identifier: 'id-dec-17_opC_1',
-          checked: true,
-          subSteps: [
-            {
-              type: 'iText',
-              identifier: 'id-dec-17_opC_1',
-              wordToReplace: 'id-dec-17_opC_1',
-              replacement: '',
-              question: 'Motivo del uso temporal de la habitación:',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                value: ''
-              },
-              placeholder: 'P Ej. estudios, traslado laboral',
-              mandatory: true,
-              isFocused: false
-            }
-          ]
-        },
-        {
-          label: 'otro uso',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
-          extraReplacements: [
-            // {
-            //   identifier: 'iddec15-extra-1',
-            //   replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-            //   replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-            //   insideId: 'opA'
-            // },
-          ],
-          radioId: 'id-dec-17_opD_1',
-          identifier: 'id-dec-17_opD_1',
-          checked: true,
-          subSteps: [
-            {
-              type: 'iText',
-              identifier: 'id-dec-17_opD_1',
-              wordToReplace: 'id-dec-17_opD_1',
-              replacement: '',
-              question: 'Uso que se le dará a la habitación:',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                value: ''
-              },
-              placeholder: 'P. ej. traslado a la localidad donde está la habitación por motivos laborales 15 días cada mes',
-              mandatory: true,
-              isFocused: false
-            }
-          ]
-        },
-      ],
+      isEmpty: {
+        prepend: 'ni las siguientes zonas de la misma:<br>',
+        append: '',
+      }
     },
     {
         type: 'end',
