@@ -1404,8 +1404,8 @@ const steps = [
     //         },
     //         {
     //           identifier: 'iddec12-extra-4',
-    //           replacement: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
-    //           replacementOriginal: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato id-dec-25. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
+    //           replacement: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato iddec25-extra-3. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
+    //           replacementOriginal: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la PARTE ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato iddec25-extra-3. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
     //           insideId: 'opD'
     //         },
     //         {
@@ -2568,127 +2568,865 @@ const steps = [
     //     append: ' horas',
     //   }
     // },
+    // {
+    //   type: 'iRadioC',
+    //   question: '¿Al finalizar el contrato podrá este prorrogarse por períodos de prórroga sucesivos?',
+    //   identifier: 'id-dec-25',
+    //   wordToReplace: 'id-dec-25',
+    //   defaultRadioId: 'id-dec-25_opA',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: 'Una vez finalizado el contrato este puede terminar definitvamente o extenderse, según hayan acordado las partes.'
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //     {
+    //       identifier: 'iddec25-extra-1',
+    //       wordToReplace: 'iddec25-extra-1',
+    //       insideId: 'opA'
+    //     },
+    //     {
+    //       identifier: 'iddec25-extra-2',
+    //       wordToReplace: 'iddec25-extra-2',
+    //       insideId: 'opB'
+    //     },
+    //     {
+    //       identifier: 'iddec25-extra-3',
+    //       wordToReplace: 'iddec25-extra-3',
+    //       insideId: 'opC'
+    //     },
+    //     {
+    //       identifier: 'iddec25-extra-4',
+    //       wordToReplace: 'iddec25-extra-4',
+    //       insideId: 'opD'
+    //     },
+    //     {
+    //       identifier: 'iddec25-extra-5',
+    //       wordToReplace: 'iddec25-extra-5',
+    //       insideId: 'opE'
+    //     },
+    //     {
+    //       identifier: 'iddec25-extra-6',
+    //       wordToReplace: 'iddec25-extra-6',
+    //       insideId: 'opF'
+    //     },
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'En caso de que llegare el último día del Contrato, si ninguna de las Partes hubiese notificado a la otra como mínimo con id-dec-25_opA_2 de antelación, su voluntad de no renovar el presente Contrato, se entenderá que este entra en períodos sucesivos de prórroga automática. Estos períodos de prórroga serán de: id-dec-25_opA_1 id-dec-25_opA_3. En cualquiera de sus prorrogas, si alguna de las partes quisiera finalizar el contrato, podrá avisar a través de los medios previstos, como mínimo con id-dec-25_opA_2 de antelación a la fecha de terminación de cualquiera de las prórrogas, su voluntad de no renovarlo.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'En caso de que llegare el último día del Contrato, si ninguna de las Partes hubiese notificado a la otra como mínimo con id-dec-25_opA_2 de antelación, su voluntad de no renovar el presente Contrato, se entenderá que este entra en períodos sucesivos de prórroga automática. Estos períodos de prórroga serán de: id-dec-25_opA_1 id-dec-25_opA_3. En cualquiera de sus prorrogas, si alguna de las partes quisiera finalizar el contrato, podrá avisar a través de los medios previstos, como mínimo con id-dec-25_opA_2 de antelación a la fecha de terminación de cualquiera de las prórrogas, su voluntad de no renovarlo.',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec25-extra-1',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-2',
+    //           replacement: 'o de sus prórrogas',
+    //           replacementOriginal: 'o de sus prórrogas',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-3',
+    //           replacement: 'y de sus prórrogas',
+    //           replacementOriginal: 'y de sus prórrogas',
+    //           insideId: 'opC'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-4',
+    //           replacement: 'y de sus prórrogas',
+    //           replacementOriginal: 'y de sus prórrogas',
+    //           insideId: 'opD'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-5',
+    //           replacement: 'o de la correspondiente prórroga o prórrogas',
+    //           replacementOriginal: 'o de la correspondiente prórroga o prórrogas',
+    //           insideId: 'opE'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-6',
+    //           replacement: 'o prórroga',
+    //           replacementOriginal: 'o prórroga',
+    //           insideId: 'opF'
+    //         }
+    //       ],
+    //       radioId: 'id-dec-25_opA',
+    //       identifier: 'id-dec-25_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iText',
+    //           identifier: 'id-dec-25_opA_1',
+    //           wordToReplace: 'id-dec-25_opA_1',
+    //           replacement: '',
+    //           question: 'Duración de los períodos de prórroga:',
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'insideText',
+    //             value: 'Indique aquí la duración de los períodos de prórroga que entrarán en vigor automáticamente transcurrido el plazo de duración del alquiler'
+    //           },
+    //           placeholder: 'P. ej. 15 días; 6 meses; 1 año',
+    //           mandatory: true,
+    //           isFocused: false
+    //         },
+    //         {
+    //           type: 'iText',
+    //           identifier: 'id-dec-25_opA_2',
+    //           wordToReplace: 'id-dec-25_opA_2',
+    //           replacement: '',
+    //           question: '¿Con cuánto tiempo de antelación deberán avisarse el arrendador (propietario) y el arrendatario (inquilino) si cuando finalice el contrato, alguno de ellos decide que no quiere que el contrato se prorrogue?',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: ''
+    //           },
+    //           placeholder: 'P. ej. 2 días; 1 semana; 30 días',
+    //           mandatory: true,
+    //           isFocused: false
+    //         },
+    //         {
+    //           type: 'iRadioC',
+    //           question: 'Las prórrogas del contrato:',
+    //           identifier: 'id-dec-25_opA_3',
+    //           wordToReplace: 'id-dec-25_opA_3',
+    //           defaultRadioId: 'id-dec-25_opA_3_opA',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'solo podrán hacerse hasta un máximo de tiempo determinado (ej. máximo 6 meses, 5 años)',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'y se prolongarán de forma sucesiva hasta alcanzar: id-dec-25_opA_3_opA_1. Alcanzado este límite, el Contrato terminará de forma automática, es decir, sin necesidad de requerimiento alguno.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'y se prolongarán de forma sucesiva hasta alcanzar: id-dec-25_opA_3_opA_1. Alcanzado este límite, el Contrato terminará de forma automática, es decir, sin necesidad de requerimiento alguno.',
+    //               extraReplacements: [
+    //               ],
+    //               radioId: 'id-dec-25_opA_3_opA',
+    //               identifier: 'id-dec-25_opA_3_opA',
+    //               checked: true,
+    //               subSteps: [
+    //                 {
+    //                   type: 'iText',
+    //                   identifier: 'id-dec-25_opA_3_opA_1',
+    //                   wordToReplace: 'id-dec-25_opA_3_opA_1',
+    //                   replacement: '',
+    //                   question: 'Máximo de tiempo por el que podrán aplicarse las prórrogas del contrato:',
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'insideText',
+    //                     value: 'Una vez alcanzado este tiempo máximo, el contrato de arrendamiento de habitación finalizará automáticamente.'
+    //                   },
+    //                   placeholder: 'P. ej. 6 meses; 5 año ',
+    //                   mandatory: true,
+    //                   isFocused: false
+    //                 },
+    //               ]
+    //             },
+    //             {
+    //               label: 'No',
+    //               replacementOriginal: '',
+    //               replacement: '',
+    //               extraReplacements: [
 
+    //               ],
+    //               radioId: 'id-dec-25_opA_3_opB',
+    //               identifier: 'id-dec-25_opA_3_opB',
+    //               checked: false,
+    //               subSteps: [
+    //               ]
+    //             }
+    //           ],
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'No',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Es contrato no quedará sujeto a otras prórrogas adicionales, pero llegado el momento de vencimiento del contrato, las partes podrán pactar lo que a su derecho convenga.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Es contrato no quedará sujeto a otras prórrogas adicionales, pero llegado el momento de vencimiento del contrato, las partes podrán pactar lo que a su derecho convenga.',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec25-extra-1',
+    //           replacement: 'de forma automática sin necesidad de requerimiento alguno',
+    //           replacementOriginal: 'de forma automática sin necesidad de requerimiento alguno',
+    //           insideId: 'opA'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-2',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opB'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-3',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opC'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-4',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opD'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-5',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opE'
+    //         },
+    //         {
+    //           identifier: 'iddec25-extra-6',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opF'
+    //         }
+    //       ],
+    //       radioId: 'id-dec-25_opB',
+    //       identifier: 'id-dec-25_opB',
+    //       checked: false,
+    //       subSteps: [
+    //       ]
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'Tanto el arrendador (propietario) como el arrendatario (inquilino) podrán finalizar el contrato de manera anticipada sin pagar indemnización o multa',
+    //   identifier: 'id-dec-26',
+    //   wordToReplace: 'id-dec-26',
+    //   defaultRadioId: 'id-dec-26_opA',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: 'Si el desistimiento está previsto en el contrato, las partes no deberán pagar a la otra una indemnización o una multa por darlo por finalizado anticipadamente. En cambio, si este desistimiento no está previsto o se realiza sin respetar las condiciones previstas en el contrato, las partes deberán pagar a la otra una indemnización o multa por dar por finalizado el contrato de forma anticipada.'
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Cualquiera de las partes podrán desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 su deseo de finalizar el contrato. Este desistimiento no generará ningún tipo de indemnización o penalización. <br>En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Cualquiera de las partes podrán desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 su deseo de finalizar el contrato. Este desistimiento no generará ningún tipo de indemnización o penalización. <br>En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
+    //       extraReplacements: [
+    //       ],
+    //       radioId: 'id-dec-26_opA',
+    //       identifier: 'id-dec-26_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iText',
+    //           identifier: 'id-dec-26_opA_1',
+    //           wordToReplace: 'id-dec-26_opA_1',
+    //           replacement: '',
+    //           question: '¿Con cuánto tiempo se deberá avisar por alguna de las partes de la intención de desistir del contrato a la otra parte?',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: ''
+    //           },
+    //           placeholder: 'P. ej. 15 días; 6 meses; 1 año',
+    //           mandatory: true,
+    //           isFocused: false
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       label: 'Sí, una vez que haya pasado un período mínimo desde que se inició el alquiler',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Una vez haya transcurrido un tiempo de: id-dec-26_opB_1, cualquiera de las partes podrá desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de.: id-dec-26_opB_2. Este desistimiento no generará ningún tipo de indemnización o penalización.<br> En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opB_2 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Una vez haya transcurrido un tiempo de: id-dec-26_opB_1, cualquiera de las partes podrá desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de.: id-dec-26_opB_2. Este desistimiento no generará ningún tipo de indemnización o penalización.<br> En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opB_2 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
+    //       extraReplacements: [
+    //       ],
+    //       radioId: 'id-dec-26_opB',
+    //       identifier: 'id-dec-26_opB',
+    //       checked: false,
+    //       subSteps: [
+    //         {
+    //           type: 'iText',
+    //           identifier: 'id-dec-26_opB_1',
+    //           wordToReplace: 'id-dec-26_opB_1',
+    //           replacement: '',
+    //           question: 'Período mínimo desde que se inicia el alquiler que debe haber pasado para que las partes puedan pedir a la otra el desistimiento del contrato de alquiler',
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             value: 'Tenga en cuenta que el periodo mínimo debe ser acorde a la duración del contrato, así si este dura 3 meses, el período mínimo de desistimiento podría ser 1 mes'
+    //           },
+    //           placeholder: 'P. ej. 15 días; 6 meses; 1 año',
+    //           mandatory: true,
+    //           isFocused: false
+    //         },
+    //         {
+    //           type: 'iText',
+    //           identifier: 'id-dec-26_opB_2',
+    //           wordToReplace: 'id-dec-26_opB_2',
+    //           replacement: '',
+    //           question: '¿Con cuánto tiempo se deberá avisar por alguna de las partes de la intención de desistir del contrato a la otra parte?',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: ''
+    //           },
+    //           placeholder: 'P. ej. 15 días; 6 meses; 1 año',
+    //           mandatory: true,
+    //           isFocused: false
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       label: 'No',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'El desistimiento unilateral del contrato por alguna de las partes antes de su finalización conllevará el pago a la otra parte de indemnización correspondiente al iddec26opC1-precioAletras por ciento ({{id-dec-26_opC_1}} %) de la renta total del arrendamiento que faltase por abonar hasta la finalización del contrato. id-dec-26_opC_2',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'El desistimiento unilateral del contrato por alguna de las partes antes de su finalización conllevará el pago a la otra parte de indemnización correspondiente al iddec26opC1-precioAletras por ciento ({{id-dec-26_opC_1}} %) de la renta total del arrendamiento que faltase por abonar hasta la finalización del contrato. id-dec-26_opC_2',
+    //       extraReplacements: [
+    //       ],
+    //       radioId: 'id-dec-26_opC',
+    //       identifier: 'id-dec-26_opC',
+    //       checked: false,
+    //       subSteps: [
+    //         {
+    //           type: 'iNumber',
+    //           identifier: 'id-dec-26_opC_1',
+    //           wordToReplace: 'id-dec-26_opC_1',
+    //           replacement: '',
+    //           question: 'Multa a pagar por la parte que pida a la otra la finalización anticipada del contrato, en porcentaje sobre el valor total de la renta):',
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             value: 'Esta multa debe ser expresada en porcentaje sobre el valor de la renta total del alquiler que quede por pagar. Por ejemplo, si en este contrato se establece una renta o alquiler de 200 euros al mes, y una de las partes pide a la otra la finalización del contrato 2 meses antes de la fecha prevista, la renta total del alquiler que queda por pagar es igual a 400 euros. Así, si en esta pregunta se indica una multa del 50%, la parte que pida la finalización anticipada del contrato deberá pagar a la otra una multa igual a 200 euros.'
+    //           },
+    //           placeholder: 'P. ej. Numero menor que 100',
+    //           mandatory: true,
+    //           isFocused: false,
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementToCharacter',
+    //               identifier: 'iddec26opC1-precioAletras',
+    //               wordToReplace: 'iddec26opC1-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ],
+    //         },
+    //         {
+    //           type: 'iText',
+    //           identifier: 'id-dec-26_opC_2',
+    //           wordToReplace: 'id-dec-26_opC_2',
+    //           replacement: '',
+    //           question: '¿Con cuánto tiempo se deberá avisar por alguna de las partes de la intención de desistir del contrato a la otra parte?',
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             value: 'Si no se respeta este plazo de preaviso, la parte que desista del contrato deberá pagar a la otra una indemnización por daños y perjuicios, además de la multa indicada en la pregunta anterior.'
+    //           },
+    //           placeholder: 'P. ej. 15 días; 6 meses; 1 año',
+    //           mandatory: true,
+    //           isFocused: false,
+    //           isEmpty: {
+    //             prepend: 'En caso de desistimiento del contrato por cualquiera de las partes incumpliendo el preaviso pactado de: ',
+    //             append: 'de antelación, conllevará el pago de una indemnización por los daños y perjuicios generados.',
+    //           }
+    //         }
+    //       ]
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'El precio del alquiler se establece:',
+    //   identifier: 'id-dec-27',
+    //   wordToReplace: 'id-dec-27',
+    //   defaultRadioId: 'id-dec-27_opA',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: ''
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'de forma periódica (día, mes, ...)',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Las Partes han acordado que la renta será de iddec27opA2-precioAletras euros (id-dec-27_opA_2 €) por cada período siguiente: id-dec-27_opA_1. La obligación de la PARTE ARRENDATARIA de pagar dicha renta nace a partir del momento de la firma del presente Contrato. <br> id-dec-28 <br> id-dec-27_opA_3 <br> Las partes acuerdan que el pago de la renta será id-dec-29 <br> En impago de la renta por la parte arrendataria será causa de resolución del contrato. En ese caso, la parte arrendataria deberá restituir en perfecto estado la habitación arrendada a la parte arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Las Partes han acordado que la renta será de iddec27opA2-precioAletras (id-dec-27_opA_2 €) por cada período siguiente: id-dec-27_opA_1. La obligación de la PARTE ARRENDATARIA de pagar dicha renta nace a partir del momento de la firma del presente Contrato. <br> id-dec-28 <br> id-dec-27_opA_3 <br> Las partes acuerdan que el pago de la renta será id-dec-29 <br> En impago de la renta por la parte arrendataria será causa de resolución del contrato. En ese caso, la parte arrendataria deberá restituir en perfecto estado la habitación arrendada a la parte arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
+    //       extraReplacements: [
+    //       ],
+    //       radioId: 'id-dec-27_opA',
+    //       identifier: 'id-dec-27_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iText',
+    //           identifier: 'id-dec-27_opA_1',
+    //           wordToReplace: 'id-dec-27_opA_1',
+    //           replacement: '',
+    //           question: '¿Con que periodicidad se establece el contrato?',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: ''
+    //           },
+    //           placeholder: 'P. ej. por día, por mes, por año, por semestre, por hora',
+    //           mandatory: true,
+    //           isFocused: false
+    //         },
+    //         {
+    //           type: 'iNumber',
+    //           identifier: 'id-dec-27_opA_2',
+    //           wordToReplace: 'id-dec-27_opA_2',
+    //           replacement: '',
+    //           question: 'Importe que se paga por la periodicidad escogida (por día, por mes,...)',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: ''
+    //           },
+    //           placeholder: 'Escriba un número',
+    //           mandatory: true,
+    //           isFocused: false,
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementToCharacter',
+    //               identifier: 'iddec27opA2-precioAletras',
+    //               wordToReplace: 'iddec27opA2-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ],
+    //         },
+    //         {
+    //           type: 'iRadioC',
+    //           question: '¿Quién asumirá los gastos generales u ordinarios (cuotas) de la comunidad de la que forma parte la vivienda?:',
+    //           identifier: 'id-dec-27_opA_3',
+    //           wordToReplace: 'id-dec-27_opA_3',
+    //           defaultRadioId: 'id-dec-27_opA_3_opA',
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'cada mes, dentro de los primeros 7 días del mes',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'El pago de la Renta fijada se abonará por meses anticipados entre los cinco (5) primeros días de cada mes.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'El pago de la Renta fijada se abonará por meses anticipados entre los cinco (5) primeros días de cada mes.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-27_opA_3_opA',
+    //               identifier: 'id-dec-27_opA_3_opA',
+    //               checked: true,
+    //               subSteps: []
+    //             },
+    //             {
+    //               label: 'de otra manera',
+    //               replacementOriginal: 'El pago de la renta se realizará de la siguiente manera: <br> id-dec-27_opA_3_opB_1',
+    //               replacement: '',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-27_opA_3_opB',
+    //               identifier: 'id-dec-27_opA_3_opB',
+    //               checked: false,
+    //               subSteps: [
+    //                 {
+    //                   question: 'Manera en la que se efectua el pago:',
+    //                   placeholder: 'Ej. durante los primeros 15 días del mes, cada 6 meses...',
+    //                   wordToReplace: 'id-dec-27_opA_3_opB_1',
+    //                   identifier: 'id-dec-27_opA_3_opB_1',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: ''
+    //                   },
+    //                   rules: [
+    //                   ],
+    //                 }
+    //               ]
+    //             }
+    //           ],
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'por un importe total fijo, para toda la duración del alquiler',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'La renta total pactada por las Partes es de iddec27opB1-precioAletras euros (id-dec-27_opB_1 €). La obligación de la PARTE ARRENDATARIA de pagar dicha renta nace a partir del momento de la firma del presente Contrato. <br> id-dec-28 <br> id-dec-27_opB_2',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'La renta total pactada por las Partes es de iddec27opB1-precioAletras euros (id-dec-27_opB_1 €). La obligación de la PARTE ARRENDATARIA de pagar dicha renta nace a partir del momento de la firma del presente Contrato. <br> id-dec-28 <br> id-dec-27_opB_2',
+    //       extraReplacements: [
+    //       ],
+    //       radioId: 'id-dec-27_opB',
+    //       identifier: 'id-dec-27_opB',
+    //       checked: false,
+    //       subSteps: [
+    //         {
+    //           type: 'iNumber',
+    //           identifier: 'id-dec-27_opB_1',
+    //           wordToReplace: 'id-dec-27_opB_1',
+    //           replacement: '',
+    //           question: 'Importe total del alquiler:',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: ''
+    //           },
+    //           placeholder: 'Escriba un número',
+    //           mandatory: true,
+    //           isFocused: false,
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementToCharacter',
+    //               identifier: 'iddec27opB1-precioAletras',
+    //               wordToReplace: 'iddec27opB1-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ]
+    //         },
+    //         {
+    //           type: 'iRadioC',
+    //           question: 'En qué momento se va a realizar el pago del alquiler',
+    //           identifier: 'id-dec-27_opB_2',
+    //           wordToReplace: 'id-dec-27_opB_2',
+    //           defaultRadioId: 'id-dec-27_opB_2_opA',
+    //           replacement: '',
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             value: 'Seleccione aquí la opción que corresponda al momento en el que se realiza o realizará el pago del importe del alquiler establecido en la pregunta anterior: en su totalidad al momento de firmar el contrato; en su totalidad en una fecha posterior; una parte al firmar el contrato y otra en una fecha posterior; una parte al inicio del contrato de arrendamiento y otra en una fecha posterior; o de otra manera (por ejemplo, en varios pagos periódicos).'
+    //           },
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'al firmar el contrato',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'El pago de la renta se realiza de forma completa al momento de firmar el presente Contrato, recibiendo la PARTE ARRENDADORA en este acto su importe a su entera satisfacción, y constituyendo el presente documento la más formal y fiel carta de pago.<br> El pago se realizará id-dec-29',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'El pago de la renta se realiza de forma completa al momento de firmar el presente Contrato, recibiendo la PARTE ARRENDADORA en este acto su importe a su entera satisfacción, y constituyendo el presente documento la más formal y fiel carta de pago.<br> El pago se realizará id-dec-29',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-27_opB_2_opA',
+    //               identifier: 'id-dec-27_opB_2_opA',
+    //               checked: true,
+    //               subSteps: []
+    //             },
+    //             {
+    //               label: 'toda la cantidad en una fecha posterior escogida',
+    //               replacementOriginal: 'El pago de la renta se realizará de forma completa a más tardar el día id-dec-27_opB_2_opB_1. <br> El pago se realizará id-dec-29 <br> En impago de la renta por la parte arrendataria será causa de resolución del contrato. En ese caso, la parte arrendataria deberá restituir en perfecto estado la habitación arrendada a la parte arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
+    //               replacement: '',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-27_opB_2_opB',
+    //               identifier: 'id-dec-27_opB_2_opB',
+    //               checked: false,
+    //               subSteps: [
+    //                 {
+    //                   question: 'Fecha en la que se realizará el pago del alquiler:',
+    //                   placeholder: '',
+    //                   wordToReplace: 'id-dec-27_opB_2_opB_1',
+    //                   identifier: 'id-dec-27_opB_2_opB_1',
+    //                   type: 'iDate',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: ''
+    //                   },
+    //                   rules: [
+    //                   ],
+    //                 }
+    //               ]
+    //             },
+    //             {
+    //               label: 'una parte al firmar el contrato y otra en una fecha posterior escogida',
+    //               replacementOriginal: 'El pago de la renta se realiza de forma parcial al momento de firmar el presente Contrato, recibiendo en este acto la PARTE ARRENDADORA el importe de iddec27opB2opC-precioAletras euros (id-dec-27_opB_2_opC_1 €), de lo cual este documento constituye la más formal y fiel carta de pago. El resto de la renta será pagado por la PARTE ARRENDATARIA a más tardar el día id-dec-27_opB_2_opC_2. <br> El pago se realizará id-dec-29 <br> En impago de la renta por la parte arrendataria será causa de resolución del contrato. En ese caso, la parte arrendataria deberá restituir en perfecto estado la habitación arrendada a la parte arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
+    //               replacement: 'El pago de la renta se realiza de forma parcial al momento de firmar el presente Contrato, recibiendo en este acto la PARTE ARRENDADORA el importe de iddec27opB2opC-precioAletras euros (id-dec-27_opB_2_opC_1 €), de lo cual este documento constituye la más formal y fiel carta de pago. El resto de la renta será pagado por la PARTE ARRENDATARIA a más tardar el día id-dec-27_opB_2_opC_2. <br> El pago se realizará id-dec-29 <br> En impago de la renta por la parte arrendataria será causa de resolución del contrato. En ese caso, la parte arrendataria deberá restituir en perfecto estado la habitación arrendada a la parte arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-27_opB_2_opC',
+    //               identifier: 'id-dec-27_opB_2_opC',
+    //               checked: false,
+    //               subSteps: [
+    //                 {
+    //                   type: 'iNumber',
+    //                   identifier: 'id-dec-27_opB_2_opC_1',
+    //                   wordToReplace: 'id-dec-27_opB_2_opC_1',
+    //                   replacement: '',
+    //                   question: 'Importe (en euros) de la parte  que el arrendatario (inquilino) paga al firmar este contrato:',
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     value: ''
+    //                   },
+    //                   placeholder: 'Escriba un número',
+    //                   mandatory: true,
+    //                   isFocused: false,
+    //                   rules: [
+    //                     {
+    //                       condition: false,
+    //                       rulename: 'extraReplacementToCharacter',
+    //                       identifier: 'iddec27opB2opC1-precioAletras',
+    //                       wordToReplace: 'iddec27opB2opC1-precioAletras',
+    //                       replacement: ''
+    //                     }
+    //                   ]
+    //                 },
+    //                 {
+    //                   question: 'Fecha en la que se realizará el pago de la parte del alquiler que quede por pagar:',
+    //                   placeholder: '',
+    //                   wordToReplace: 'id-dec-27_opB_2_opC_2',
+    //                   identifier: 'id-dec-27_opB_2_opC_2',
+    //                   type: 'iDate',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: ''
+    //                   },
+    //                   rules: [
+    //                   ],
+    //                 }
+    //               ]
+    //             },
+    //             {
+    //               label: 'una parte al comienzo del alquiler y otra en una fecha posterior',
+    //               replacementOriginal: 'El pago de la renta se realizará de forma fraccionada, abonando el importe de iddec27opB2opD1.precioAletras (id-dec-27_opB_2_opD_1 €) en el momento de la puesta a disposición de la Habitación a la PARTE ARRENDATARIA para su uso y disfrute. El resto de la renta será pagado por la PARTE ARRENDATARIA a más tardar el día id-dec-27_opB_2_opD_2. <br> El pago se realizará id-dec-29 <br> En impago de la renta por la parte arrendataria será causa de resolución del contrato. En ese caso, la parte arrendataria deberá restituir en perfecto estado la habitación arrendada a la parte arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
+    //               replacement: 'El pago de la renta se realizará de forma fraccionada, abonando el importe de iddec27opB2opD1.precioAletras (id-dec-27_opB_2_opD_1 €) en el momento de la puesta a disposición de la Habitación a la PARTE ARRENDATARIA para su uso y disfrute. El resto de la renta será pagado por la PARTE ARRENDATARIA a más tardar el día id-dec-27_opB_2_opD_2. <br> El pago se realizará id-dec-29 <br> En impago de la renta por la parte arrendataria será causa de resolución del contrato. En ese caso, la parte arrendataria deberá restituir en perfecto estado la habitación arrendada a la parte arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-27_opB_2_opD',
+    //               identifier: 'id-dec-27_opB_2_opD',
+    //               checked: false,
+    //               subSteps: [
+    //                 {
+    //                   type: 'iNumber',
+    //                   identifier: 'id-dec-27_opB_2_opD_1',
+    //                   wordToReplace: 'id-dec-27_opB_2_opD_1',
+    //                   replacement: '',
+    //                   question: 'Importe (en euros) de la parte del alquiler que el arrendatario (inquilino) pagará al comienzo del alquiler:',
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     value: ''
+    //                   },
+    //                   placeholder: 'Escriba un número',
+    //                   mandatory: true,
+    //                   isFocused: false,
+    //                   rules: [
+    //                     {
+    //                       condition: false,
+    //                       rulename: 'extraReplacementToCharacter',
+    //                       identifier: 'iddec27opB2opD1-precioAletras',
+    //                       wordToReplace: 'iddec27opB2opD1-precioAletras',
+    //                       replacement: ''
+    //                     }
+    //                   ]
+    //                 },
+    //                 {
+    //                   question: 'Fecha en la que se realizará el pago de la parte del alquiler que quede por pagar:',
+    //                   placeholder: '',
+    //                   wordToReplace: 'id-dec-27_opB_2_opD_2',
+    //                   identifier: 'id-dec-27_opB_2_opD_2',
+    //                   type: 'iDate',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: ''
+    //                   },
+    //                   rules: [
+    //                   ],
+    //                 }
+    //               ]
+    //             },
+    //             {
+    //               label: 'de otra manera',
+    //               replacementOriginal: 'El pago de la renta se realizará de la siguiente manera: id-dec-27_opB_2_opE_1. <br> El pago se realizará id-dec-29 <br> En impago de la renta por la parte arrendataria será causa de resolución del contrato. En ese caso, la parte arrendataria deberá restituir en perfecto estado la habitación arrendada a la parte arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
+    //               replacement: 'El pago de la renta se realizará de la siguiente manera: id-dec-27_opB_2_opE_1. <br> El pago se realizará id-dec-29 <br> En impago de la renta por la parte arrendataria será causa de resolución del contrato. En ese caso, la parte arrendataria deberá restituir en perfecto estado la habitación arrendada a la parte arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-27_opB_2_opE',
+    //               identifier: 'id-dec-27_opB_2_opE',
+    //               checked: false,
+    //               subSteps: [
+    //                 {
+    //                   type: 'iText',
+    //                   identifier: 'id-dec-27_opB_2_opE_1',
+    //                   wordToReplace: 'id-dec-27_opB_2_opE_1',
+    //                   replacement: '',
+    //                   question: 'Manera en que se realizará el pago del alquiler:',
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     value: ''
+    //                   },
+    //                   placeholder: '',
+    //                   mandatory: true,
+    //                   isFocused: false,
+    //                   rules: [
+    //                   ]
+    //                 }
+    //               ]
+    //             }
+    //           ],
+    //         },
+    //       ]
+    //     }
+    //   ],
+    // },
+    // {
+    //   type: 'iRadioB',
+    //   question: '¿El precio del alquiler incluye IVA u otro impuesto similar?',
+    //   identifier: 'id-dec-28',
+    //   wordToReplace: 'id-dec-28',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: '',
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       replacementOriginal: 'El precio pactado de renta incluye el IVA (Impuesto sobre el Valor Añadido). Para los casos en que el contrato fuera suscrito en las Islas Canarias, o en Ceuta y Melilla, se entenderá que la renta incluye Impuesto General Indirecto Canario y/o al Impuesto sobre la Producción, los Servicios y la Importación.',
+    //       replacement: 'El precio pactado de renta incluye el IVA (Impuesto sobre el Valor Añadido). Para los casos en que el contrato fuera suscrito en las Islas Canarias, o en Ceuta y Melilla, se entenderá que la renta incluye Impuesto General Indirecto Canario y/o al Impuesto sobre la Producción, los Servicios y la Importación.',
+    //       radioId: 'id-dec-28_opA',
+    //       identifier: 'id-dec-28_opA',
+    //       extraReplacements: [
+
+    //       ],
+    //       checked: true,
+    //     },
+    //     {
+    //       label: 'No',
+    //       replacementOriginal: 'Al precio pactado de renta habrá que añadirle el porcentaje correspondiente al IVA (Impuesto sobre el Valor Añadido), que corresponderá abonar a la parte ARRENDATARIA. Para los casos en que el contrato fuera suscrito en las Islas Canarias, o en Ceuta y Melilla, se entenderá que al precio de renta se verá incrementado por el porcentaje correspondiente Impuesto General Indirecto Canario y/o al Impuesto sobre la Producción, los Servicios y la Importación impuesto por la legislación vigente.',
+    //       replacement: 'Al precio pactado de renta habrá que añadirle el porcentaje correspondiente al IVA (Impuesto sobre el Valor Añadido), que corresponderá abonar a la parte ARRENDATARIA. Para los casos en que el contrato fuera suscrito en las Islas Canarias, o en Ceuta y Melilla, se entenderá que al precio de renta se verá incrementado por el porcentaje correspondiente Impuesto General Indirecto Canario y/o al Impuesto sobre la Producción, los Servicios y la Importación impuesto por la legislación vigente.',
+    //       radioId: 'id-dec-28_opB',
+    //       identifier: 'id-dec-28_opB',
+    //       extraReplacements: [
+    //       ],
+    //       checked: false,
+    //     }
+    //   ]
+    // },
     {
       type: 'iRadioC',
-      question: '¿Al finalizar el contrato podrá este prorrogarse por períodos de prórroga sucesivos?',
-      identifier: 'id-dec-25',
-      wordToReplace: 'id-dec-25',
-      defaultRadioId: 'id-dec-25_opA',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'Una vez finalizado el contrato este puede terminar definitvamente o extenderse, según hayan acordado las partes.'
-      },
+      question: 'Forma de pago del alquiler:',
+      identifier: 'id-dec-29',
+      wordToReplace: 'id-dec-29',
+      defaultRadioId: 'id-dec-29_opA',
       replacement: '',
       extraReplacements: [
-        {
-          identifier: 'iddec25-extra-1',
-          wordToReplace: 'iddec25-extra-1',
-          insideId: 'opA'
-        },
-        {
-          identifier: 'iddec25-extra-2',
-          wordToReplace: 'iddec25-extra-2',
-          insideId: 'opB'
-        },
-        {
-          identifier: 'iddec25-extra-3',
-          wordToReplace: 'iddec25-extra-3',
-          insideId: 'opC'
-        },
       ],
       radios: [
         {
-          label: 'Sí',
+          label: 'Ingreso o transferencia bancaria:',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'En caso de que llegare el último día del Contrato, si ninguna de las Partes hubiese notificado a la otra como mínimo con id-dec-25_opA_2 de antelación, su voluntad de no renovar el presente Contrato, se entenderá que este entra en períodos sucesivos de prórroga automática. Estos períodos de prórroga serán de: id-dec-25_opA_1, id-dec-25_opA_3 En cualquiera de sus prorrogas, si alguna de las partes quisiera finalizar el contrato, podrá avisar a través de los medios previstos, como mínimo con id-dec-25_opA_2 de  antelación a la fecha de terminación de cualquiera de las prórrogas, su voluntad de no renovarlo.',
+          replacementOriginal: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1 y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'Que la PARTE ARRENDATARIA necesita una habitación en vivienda compartida, que cumplirá las funciones de vivienda habitual.',
-          extraReplacements: [
-            {
-              identifier: 'iddec17-extra-1',
-              replacement: 'La habitación arrendada se destinará a residencia habitual y permanente de la parte ARRENDATARIA. Dicho uso será exclusivo, excluyéndose expresamente otros usos. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que no tiene arrendada ninguna otra vivienda o habitación destinada al mismo fin, es decir, arrendada en concepto de vivienda habitual.',
-              replacementOriginal: 'La habitación arrendada se destinará a residencia habitual y permanente de la parte ARRENDATARIA. Dicho uso será exclusivo, excluyéndose expresamente otros usos. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que no tiene arrendada ninguna otra vivienda o habitación destinada al mismo fin, es decir, arrendada en concepto de vivienda habitual.',
-              insideId: 'opA'
-            },
-            {
-              identifier: 'iddec17-extra-2',
-              replacement: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
-              replacementOriginal: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
-              insideId: 'opB'
-            },
-          ],
-          radioId: 'id-dec-17_opA',
-          identifier: 'id-dec-17_opA',
+          replacement: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1 y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          extraReplacements: [],
+          radioId: 'id-dec-29_opA',
+          identifier: 'id-dec-29_opA',
           checked: true,
           subSteps: [
-
-          ]
-        },
-        {
-          label: 'otro uso',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
-          extraReplacements: [
             {
-              identifier: 'iddec17-extra-1',
-              replacement: 'La habitación arrendada será destinada de manera exclusiva al siguiente uso: id-dec-17_opD_1.',
-              replacementOriginal: 'La habitación arrendada será destinada de manera exclusiva al siguiente uso: id-dec-17_opD_1.',
-              insideId: 'opA'
-            },
-            {
-              identifier: 'iddec17-extra-2',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opB'
-            },
-            {
-              identifier: 'iddec17-extra-3',
-              replacement: 'El arrendamiento se pacta por el plazo de: id-dec-20, a contar desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguido, por expiración del tiempo pactado para su vigencia id-dec-25 id-dec-23',
-              replacementOriginal: '',
-              insideId: 'opC'
-            },
-            {
-              identifier: 'iddec17-extra-5',
-              replacement: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
-              replacementOriginal: 'DECIMOSEXTA.- ELEVACIÓN A PÚBLICO Y REGISTRO DE LA PROPIEDAD',
-              insideId: 'opE'
-            },
-            {
-              identifier: 'iddec17-extra-6',
-              replacement: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
-              replacementOriginal: 'Cualquiera de las partes podrá elevar a documento público el presente contrato, así como inscribirlo en el Registro de la Propiedad en el que se encuentre inscrita la vivienda, sin necesidad de autorización de la otra parte. Los gastos generados deberán ser asumidos por la parte interesada. Se repartirían dichos gastos a partes iguales siempre que ambas partes estuvieren interesadas en elevar el contrato a documento público y proceder a su posterior inscripción en el Registro de la Propiedad.',
-              insideId: 'opF'
-            }
-          ],
-          radioId: 'id-dec-17_opD_1',
-          identifier: 'id-dec-17_opD_1',
-          checked: false,
-          subSteps: [
-            {
+              question: 'Nombre del banco de la cuenta donde se realiza el pago del alquiler:',
+              placeholder: 'Ej. BBVA',
+              wordToReplace: 'id-dec-29_opA_1',
+              identifier: 'id-dec-29_opA_1',
               type: 'iText',
-              identifier: 'id-dec-17_opD_1',
-              wordToReplace: 'id-dec-17_opD_1',
               replacement: '',
-              question: 'Uso que se le dará a la habitación:',
+              extraReplacements: [],
               indications: {
                 areIndications: false,
                 indicationsType: '',
+                // tslint:disable-next-line:max-line-length
                 value: ''
               },
-              placeholder: 'P. ej. traslado a la localidad donde está la habitación por motivos laborales 15 días cada mes',
-              mandatory: true,
-              isFocused: false
-            }
+              rules: [],
+            },
+            {
+              question: 'Número IBAN de dicha cuenta:',
+              placeholder: 'P. Ej. ES8020809557151558683884',
+              wordToReplace: 'id-dec-29_opA_2',
+              identifier: 'id-dec-29_opA_2',
+              type: 'iText',
+              replacement: '',
+              extraReplacements: [],
+              indications: {
+                areIndications: false,
+                indicationsType: '',
+                // tslint:disable-next-line:max-line-length
+                value: ''
+              },
+              rules: [],
+            },
+            {
+              question: 'Nombre completo o denominación social del titular de la cuenta:',
+              placeholder: 'P. Ej. Antonio Alarcón Marrero',
+              wordToReplace: 'id-dec-29_opA_3',
+              identifier: 'id-dec-29_opA_3',
+              type: 'iText',
+              replacement: '',
+              extraReplacements: [],
+              indications: {
+                areIndications: false,
+                indicationsType: '',
+                // tslint:disable-next-line:max-line-length
+                value: ''
+              },
+              rules: [],
+            },
+          ]
+        },
+        {
+          label: 'En efectivo',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          extraReplacements: [],
+          radioId: 'id-dec-29_opB',
+          identifier: 'id-dec-29_opB',
+          checked: true,
+          subSteps: [
           ]
         },
       ],
     },
-
     {
         type: 'end',
         identifier: 'end',
