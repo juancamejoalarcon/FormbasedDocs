@@ -3341,90 +3341,1034 @@ const steps = [
     //     }
     //   ]
     // },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'Forma de pago del alquiler:',
+    //   identifier: 'id-dec-29',
+    //   wordToReplace: 'id-dec-29',
+    //   defaultRadioId: 'id-dec-29_opA',
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Ingreso o transferencia bancaria:',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1 y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1 y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-29_opA',
+    //       identifier: 'id-dec-29_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Nombre del banco de la cuenta donde se realiza el pago del alquiler:',
+    //           placeholder: 'Ej. BBVA',
+    //           wordToReplace: 'id-dec-29_opA_1',
+    //           identifier: 'id-dec-29_opA_1',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [],
+    //         },
+    //         {
+    //           question: 'Número IBAN de dicha cuenta:',
+    //           placeholder: 'P. Ej. ES8020809557151558683884',
+    //           wordToReplace: 'id-dec-29_opA_2',
+    //           identifier: 'id-dec-29_opA_2',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [],
+    //         },
+    //         {
+    //           question: 'Nombre completo o denominación social del titular de la cuenta:',
+    //           placeholder: 'P. Ej. Antonio Alarcón Marrero',
+    //           wordToReplace: 'id-dec-29_opA_3',
+    //           identifier: 'id-dec-29_opA_3',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [],
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'En efectivo',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-29_opB',
+    //       identifier: 'id-dec-29_opB',
+    //       checked: true,
+    //       subSteps: [
+    //       ]
+    //     },
+    //     {
+    //       label: 'otro',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'El pago se realizará mediante: id-dec-29_opC_1. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'El pago se realizará mediante: id-dec-29_opC_1. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-29_opC',
+    //       identifier: 'id-dec-29_opC',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Especifique el método de pago del alquiler',
+    //           placeholder: 'P. Ej. en bitcoin, mitad en efectivo',
+    //           wordToReplace: 'id-dec-29_opC_1',
+    //           identifier: 'id-dec-29_opC_1',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [],
+    //         },
+    //       ]
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'iRadioC',
+    //   question: ' ¿Se establece una cláusula que recoja actualización de la renta (cláusula que permite aumentar el valor del alquiler periódicamente)?:',
+    //   identifier: 'id-dec-new30',
+    //   wordToReplace: 'id-dec-new30',
+    //   defaultRadioId: 'id-dec-new30_opA',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: 'Las cláusulas de actualización de la renta del alquiler de vivienda están establecidas en el artículo 18 de la Ley de Arrendamientos Urbanos. Hay libertad de pactos entre las partes para determinar la forma de actualizar el arriendo. Hay muchas posibilidades: aumentarla un tanto por ciento, acordar la renta cada año, no aumentarla durante los dos primeros años, etcétera.'
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí:',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Las partes acuerdan que la renta será objeto de revisión, y será revisada cada: id-dec-new30_opA_1. id-dec-new30_opA_2. El cobro de la renta cuyo precio se haya actualizado será exigible en la cuota, o preiodicidad correspondiente tras la notificación expresa y por escrito de dicha actualización. El retraso o impago de la nueva renta no supondrá la renuncia a la misma.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Las partes acuerdan que la renta será objeto de revisión, y será revisada cada: id-dec-new30_opA_1. id-dec-new30_opA_2. El cobro de la renta cuyo precio se haya actualizado será exigible en la cuota, o preiodicidad correspondiente tras la notificación expresa y por escrito de dicha actualización. El retraso o impago de la nueva renta no supondrá la renuncia a la misma.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-new30_opA',
+    //       identifier: 'id-dec-new30_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Frecuencia con la que se podrá aumentar o revisar el precio del alquiler:',
+    //           placeholder: 'Ej. anualmente, semestralmente',
+    //           wordToReplace: 'id-dec-new30_opA_1',
+    //           identifier: 'id-dec-new30_opA_1',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [],
+    //         },
+    //         {
+    //           type: 'iRadioC',
+    //           question: '¿En función de que medidor el alquiler podrá ser aumentado?',
+    //           identifier: 'id-dec-new30_opA_2',
+    //           wordToReplace: 'id-dec-new30_opA_2',
+    //           defaultRadioId: 'id-dec-new30_opA_2_opA',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'en función del Índice de Garantía de Competitividad',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada por el Índice General Nacional del Sistema de Precios al Consumo (IPC). Esta actualización se efectuará de forma automática, comunicando previamente por parte del arrendador a la arrendataria la cantidad diferencial. Cuando la tasa de variación de este índice se sitúe por debajo de 0 por ciento, se tomará éste valor (0) como referencia.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada por el Índice General Nacional del Sistema de Precios al Consumo (IPC). Esta actualización se efectuará de forma automática, comunicando previamente por parte del arrendador a la arrendataria la cantidad diferencial. Cuando la tasa de variación de este índice se sitúe por debajo de 0 por ciento, se tomará éste valor (0) como referencia.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-new30_opA_2_opA',
+    //               identifier: 'id-dec-new30_opA_2_opA',
+    //               checked: true,
+    //               subSteps: [
+    //               ]
+    //             },
+    //             {
+    //               label: 'en función de un índice acordado por las partes como por ejemplo, el IPC',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'Este incremento se realizará por referencia al siguiente índice: id-dec-new30_opA_2_opB_1. Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada por el Índice elegido. Cuando la tasa de variación de este índice se sitúe por debajo de 0 por ciento, se tomará éste valor (0) como referencia.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'Este incremento se realizará por referencia al siguiente índice: id-dec-new30_opA_2_opB_1. Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada por el Índice elegido. Cuando la tasa de variación de este índice se sitúe por debajo de 0 por ciento, se tomará éste valor (0) como referencia.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-new30_opA_2_opB',
+    //               identifier: 'id-dec-new30_opA_2_opB',
+    //               checked: true,
+    //               subSteps: [
+    //                 {
+    //                   question: 'Denominación del índice acordado por las partes para aumentar el valor del alquiler:',
+    //                   placeholder: 'Ej. IPC',
+    //                   wordToReplace: 'id-dec-new30_opA_2_opB_1',
+    //                   identifier: 'id-dec-new30_opA_2_opB_1',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'outsideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'Si lo desea, indique aquí el nombre o denominación del índice que las partes prevén en el contrato de alquiler para actualizar la renta; es decir para revisar el valor o precio del alquiler de la habitación objeto de este contrato con la periodicidad o frecuencia que ha sido determinada.<br> Si no desea prever un índice, en el contrato se establecerá la actualización de la renta por referencia al Índice de Garantía de Competitividad (IGC) fijado por el Instituto Nacional de Estadística.'
+    //                   },
+    //                   rules: [],
+    //                 }
+    //               ]
+    //             },
+    //             {
+    //               label: 'aplicando un porcentaje establcido por las partes',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'Este incremento será de un iddecnew30opA2opC1-precioAletras por ciento (id-dec-new30_opA_2_opC_1 %). Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'Este incremento será de un iddecnew30opA2opC1-precioAletras por ciento (id-dec-new30_opA_2_opC_1 %). Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-new30_opA_2_opC',
+    //               identifier: 'id-dec-new30_opA_2_opC',
+    //               checked: true,
+    //               subSteps: [
+    //                 {
+    //                   question: 'Porcentaje de aumento del valor del alquiler acordado por las partes',
+    //                   placeholder: 'Escriba un número menor que 100',
+    //                   wordToReplace: 'id-dec-new30_opA_2_opC_1',
+    //                   identifier: 'id-dec-new30_opA_2_opC_1',
+    //                   type: 'iNumber',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'outsideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'Si lo desea, indique aquí el nombre o denominación del índice que las partes prevén en el contrato de alquiler para actualizar la renta; es decir para revisar el valor o precio del alquiler de la habitación objeto de este contrato con la periodicidad o frecuencia que ha sido determinada.<br> Si no desea prever un índice, en el contrato se establecerá la actualización de la renta por referencia al Índice de Garantía de Competitividad (IGC) fijado por el Instituto Nacional de Estadística.'
+    //                   },
+    //                   rules: [
+    //                     {
+    //                       condition: false,
+    //                       rulename: 'extraReplacementToCharacter',
+    //                       identifier: 'iddecnew30opA2opC1-precioAletras',
+    //                       wordToReplace: 'iddecnew30opA2opC1-precioAletras',
+    //                       replacement: ''
+    //                     }
+    //                   ],
+    //                 }
+    //               ]
+    //             }
+    //           ],
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'No',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: '',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: '',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-new30_opB',
+    //       identifier: 'id-dec-new30_opB',
+    //       checked: true,
+    //       subSteps: [
+    //       ]
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'Además del precio del alquiler de la habitación, ¿el arrendatiario (inquilino) pagará gastos para la limpieza de la misma y de la vivienda?',
+    //   identifier: 'id-dec-30',
+    //   wordToReplace: 'id-dec-30',
+    //   defaultRadioId: 'id-dec-30_opA',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: ''
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí:',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'El importe de los gastos de limpieza de habitación y zonas comunes no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos. id-dec-30_opA_1 Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, ésta, a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA. id_dec_30_opA_2',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'El importe de los gastos de limpieza de habitación y zonas comunes no está incluido dentro en la renta. Siendo que la parte ARRENDATARIA tendrá que abonarlos. id-dec-30_opA_1 Siendo que la parte ARRENDATARIA tendrá que abonarlos por separado a la parte ARRENDADORA, ésta, a su vez está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA. id_dec_30_opA_2',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-30_opA',
+    //       identifier: 'id-dec-30_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iRadioC',
+    //           question: 'Con que periodicidad se pagarán estos gastos de limpieza:',
+    //           identifier: 'id-dec-30_opA_1',
+    //           wordToReplace: 'id-dec-30_opA_1',
+    //           defaultRadioId: 'id-dec-30_opA_1',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'por  día, por mes, por año,...',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'Estos gastos de limpieza ascenderán a iddec30opA1opA2-precioAletras (id-dec-30_opA_1_opA_2 €) por cada período siguiente: id-dec-30_opA_1_opA_1.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'Estos gastos de limpieza ascenderán a iddec30opA1opA2-precioAletras (id-dec-30_opA_1_opA_2 €) por cada período siguiente: id-dec-30_opA_1_opA_1.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-30_opA_1_opA',
+    //               identifier: 'id-dec-30_opA_1_opA',
+    //               checked: true,
+    //               subSteps: [
+    //                 {
+    //                   question: 'Periodicidad con la que se establecen los gastos de limpieza:',
+    //                   placeholder: 'Ej. por día, por mes, por año, por semestre, por hora ',
+    //                   wordToReplace: 'id-dec-30_opA_1_opA_1',
+    //                   identifier: 'id-dec-30_opA_1_opA_1',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: ''
+    //                   },
+    //                   rules: [],
+    //                 },
+    //                 {
+    //                   question: 'Importe periódico que se pagará por los gastos de limpieza por la periodicidad descrita en la pregunta anterior (por día, por mes,...)',
+    //                   placeholder: 'Escriba un número',
+    //                   wordToReplace: 'id-dec-30_opA_1_opA_2',
+    //                   identifier: 'id-dec-30_opA_1_opA_2',
+    //                   type: 'iNumber',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'insideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'Este importe es aquel que se establece y expresa en el contrato por día, semana, mes, año u otra periodicidad, según lo indicado en la pregunta anterior.'
+    //                   },
+    //                   rules: [
+    //                     {
+    //                       condition: false,
+    //                       rulename: 'extraReplacementToCharacter',
+    //                       identifier: 'iddec30opA1opA2-precioAletras',
+    //                       wordToReplace: 'iddec30opA1opA2-precioAletras',
+    //                       replacement: ''
+    //                     }
+    //                   ],
+    //                 }
+    //               ]
+    //             },
+    //             {
+    //               label: 'de una sólo vez se pagará el importe total de los gastos de limpieza para toda la duración del contrato',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'Estos gastos de limpieza ascenderán a iddec30opA1opB1-precioAletras (id-dec-30_opA_1_opB_1 €) la duración total del Contrato de arrendamiento.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'Estos gastos de limpieza ascenderán a iddec30opA1opB1-precioAletras (id-dec-30_opA_1_opB_1 €) la duración total del Contrato de arrendamiento.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-30_opA_1_opB',
+    //               identifier: 'id-dec-30_opA_1_opB',
+    //               checked: true,
+    //               subSteps: [
+    //                 {
+    //                   question: 'Importe en euros del pago total que se hará por los gastos de limpieza para toda la duración del alquiler:',
+    //                   placeholder: 'Escriba un número',
+    //                   wordToReplace: 'id-dec-30_opA_1_opB_1',
+    //                   identifier: 'id-dec-30_opA_1_opB_1',
+    //                   type: 'iNumber',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: ''
+    //                   },
+    //                   rules: [
+    //                     {
+    //                       condition: false,
+    //                       rulename: 'extraReplacementToCharacter',
+    //                       identifier: 'iddec30opA1opB1-precioAletras',
+    //                       wordToReplace: 'iddec30opA1opB1-precioAletras',
+    //                       replacement: ''
+    //                     }
+    //                   ],
+    //                 }
+    //               ]
+    //             },
+    //             {
+    //               label: 'aplicando un porcentaje establcido por las partes',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'Este incremento será de un iddecnew30opA2opC1-precioAletras por ciento (id-dec-new30_opA_2_opC_1 %). Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'Este incremento será de un iddecnew30opA2opC1-precioAletras por ciento (id-dec-new30_opA_2_opC_1 %). Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-new30_opA_2_opC',
+    //               identifier: 'id-dec-new30_opA_2_opC',
+    //               checked: true,
+    //               subSteps: [
+    //                 {
+    //                   question: 'Porcentaje de aumento del valor del alquiler acordado por las partes',
+    //                   placeholder: 'Escriba un número menor que 100',
+    //                   wordToReplace: 'id-dec-new30_opA_2_opC_1',
+    //                   identifier: 'id-dec-new30_opA_2_opC_1',
+    //                   type: 'iNumber',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'outsideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'Si lo desea, indique aquí el nombre o denominación del índice que las partes prevén en el contrato de alquiler para actualizar la renta; es decir para revisar el valor o precio del alquiler de la habitación objeto de este contrato con la periodicidad o frecuencia que ha sido determinada.<br> Si no desea prever un índice, en el contrato se establecerá la actualización de la renta por referencia al Índice de Garantía de Competitividad (IGC) fijado por el Instituto Nacional de Estadística.'
+    //                   },
+    //                   rules: [
+    //                     {
+    //                       condition: false,
+    //                       rulename: 'extraReplacementToCharacter',
+    //                       identifier: 'iddecnew30opA2opC1-precioAletras',
+    //                       wordToReplace: 'iddecnew30opA2opC1-precioAletras',
+    //                       replacement: ''
+    //                     }
+    //                   ],
+    //                 }
+    //               ]
+    //             }
+    //           ],
+    //         },
+    //         {
+    //           question: 'Si lo desea haga una descripción del servicio de limpieza por el cual se cobran dichos gastos:',
+    //           subType: 'textarea',
+    //           placeholder: 'Ej. Cada semana acudirá una persona contratada para limpiar la vivienda...',
+    //           wordToReplace: 'id-dec-30_opA_2',
+    //           identifier: 'id-dec-30_opA_2',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [],
+    //           isEmpty: {
+    //             prepend: 'Las Partes acuerdan que dicho pago retribuirá el siguiente servicio de limpieza:<br>',
+    //             append: '',
+    //           }
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'No',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: '',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: '',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-30_opB',
+    //       identifier: 'id-dec-30_opB',
+    //       checked: true,
+    //       subSteps: [
+    //       ]
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'iText',
+    //   identifier: 'id-dec-31',
+    //   wordToReplace: 'id-dec-31',
+    //   replacement: '',
+    //   question: 'Si lo desea, indique aquí que servicios han sido contratados por el arrendador (propietario) y pueden ser utilizados por el arrendatario (inquilino)',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     value: 'Tenga en cuenta que los servicios de luz, agua y gas deben haber sido contratados en todos los casos por el arrendador, y quién realizará el pago de los mismos es establecido en la siguiente pregunta'
+    //   },
+    //   placeholder: 'P. ej: teléfono, internet, Netflix,...',
+    //   mandatory: false,
+    //   isFocused: false,
+    //   isEmpty: {
+    //     prepend: 'La parte ARRENDADORA, también se hará responsable de contratar los siguientes servicios: ',
+    //     append: '',
+    //   }
+    // },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'El pago de los gastos que se generen por usar la habitación, como, por ejemplo, el agua, el gas, internet,... será asumido por:',
+    //   identifier: 'id-dec-32',
+    //   wordToReplace: 'id-dec-32',
+    //   defaultRadioId: 'id-dec-32_opA',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: ''
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'el arrendatario (inquilino)',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'La gestión y realización de diferentes contratos de servicios  y suministro que desee contratar para su uso individual de la parte Arrendataria correrán a su cargo.<br> id-dec-32_opA_1',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'La gestión y realización de diferentes contratos de servicios  y suministro que desee contratar para su uso individual de la parte Arrendataria correrán a su cargo.<br> id-dec-32_opA_1',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-32_opA',
+    //       identifier: 'id-dec-32_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iRadioC',
+    //           question: 'Estos gastos de uso de la habitación:',
+    //           identifier: 'id-dec-32_opA_1',
+    //           wordToReplace: 'id-dec-32_opA_1',
+    //           defaultRadioId: 'id-dec-32_opA_1',
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: 'Seleccione la opción que corresponda al abono de los gastos de los servicios que se generen como consecuencia del uso de la habitación por el arrendatario durante la vigencia del contrato de arrendamiento; es decir, de los suministros de electricidad, agua, gas, internet o teléfono.'
+    //           },
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'no está incluídos en el precio del alquiler',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'El método de atribución a la PARTE ARRENDATARIA será el prorrateo de los gastos totales de la Vivienda entre el número de habitaciones de la misma que se encuentren ocupadas durante el período facturado.<br>Los servicios y suministros que la parte ARRENDATARIA desee contratar para su uso individual deberán ser autorizados por la parte ARRENDADORA, serán abonados por la parte ARRENDADORA, así como los gastos derivados de su conservación y mantenimiento. La parte ARRENDADORA quedará obligada a entregar recibo a la parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA proceda a su abono, si bien estos gastos nos están previstos dentro de la renta.<br> id-dec-32_opA_1_opA_1 id-dec-32_opA_1_opA_2',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'El método de atribución a la PARTE ARRENDATARIA será el prorrateo de los gastos totales de la Vivienda entre el número de habitaciones de la misma que se encuentren ocupadas durante el período facturado.<br>Los servicios y suministros que la parte ARRENDATARIA desee contratar para su uso individual deberán ser autorizados por la parte ARRENDADORA, serán abonados por la parte ARRENDADORA, así como los gastos derivados de su conservación y mantenimiento. La parte ARRENDADORA quedará obligada a entregar recibo a la parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA proceda a su abono, si bien estos gastos nos están previstos dentro de la renta.<br> id-dec-32_opA_1_opA_1 id-dec-32_opA_1_opA_2',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-32_opA_1_opA',
+    //               identifier: 'id-dec-32_opA_1_opA',
+    //               checked: true,
+    //               subSteps: [
+    //                 {
+    //                   question: 'Importe mínimo (en euros) que el arrendatario deberá pagar mensualmente por los gastos derivados del uso de la habitación:',
+    //                   placeholder: 'Escriba un número',
+    //                   wordToReplace: 'id-dec-32_opA_1_opA_1',
+    //                   identifier: 'id-dec-32_opA_1_opA_1',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'insideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'Esto supone que aunque el importe que proporcionalmente le corresponda del total de los gastos de la vivienda (teniendo en cuenta el número de habitaciones ocupadas) sea inferior, el arrendatario deberá pagar este importe.'
+    //                   },
+    //                   rules: [],
+    //                   isEmpty: {
+    //                     prepend: 'La PARTE ARRENDATARIA no pagará en ningún caso menos de ',
+    //                     append: ' euros mensuales',
+    //                   }
+    //                 },
+    //                 {
+    //                   question: 'Importe máximo (en euros que el arrendatario deberá pagar mensualmente por los gastos derivados del uso de la habitación:',
+    //                   placeholder: 'Escriba un número',
+    //                   wordToReplace: 'id-dec-32_opA_1_opA_2',
+    //                   identifier: 'id-dec-32_opA_1_opA_2',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                   extraReplacements: [],
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'insideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'Esto supone que aunque el importe que proporcionalmente le corresponda del total de los gastos de la vivienda (teniendo en cuenta el número de habitaciones ocupadas) sea superior, el arrendatario solo deberá pagar este importe.'
+    //                   },
+    //                   rules: [],
+    //                   isEmpty: {
+    //                     prepend: 'La PARTE ARRENDATARIA no pagará en ningún caso más de ',
+    //                     append: ' euros mensuales',
+    //                   }
+    //                 }
+    //               ]
+    //             },
+    //             {
+    //               label: 'están incluidos precio alquiler',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacementOriginal: 'El importe de estos gastos está incluido dentro de la renta. Siendo que la parte ARRENDATARIA no tiene que abonarlos por separado. La parte ARRENDADORA no está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA, si bien estos gastos están previstos dentro de la renta.',
+    //               // tslint:disable-next-line:max-line-length
+    //               replacement: 'El importe de estos gastos está incluido dentro de la renta. Siendo que la parte ARRENDATARIA no tiene que abonarlos por separado. La parte ARRENDADORA no está obligada a entregar recibo al parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA, si bien estos gastos están previstos dentro de la renta.',
+    //               extraReplacements: [],
+    //               radioId: 'id-dec-32_opA_1_opB',
+    //               identifier: 'id-dec-32_opA_1_opB',
+    //               checked: true,
+    //               subSteps: [
+    //               ]
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           question: 'Si lo desea haga una descripción del servicio de limpieza por el cual se cobran dichos gastos:',
+    //           subType: 'textarea',
+    //           placeholder: 'Ej. Cada semana acudirá una persona contratada para limpiar la vivienda...',
+    //           wordToReplace: 'id-dec-30_opA_2',
+    //           identifier: 'id-dec-30_opA_2',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [],
+    //           isEmpty: {
+    //             prepend: 'Las Partes acuerdan que dicho pago retribuirá el siguiente servicio de limpieza:<br>',
+    //             append: '',
+    //           }
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'el arrendador (propietario)',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Los servicios y suministros que la parte ARRENDATARIA desee contratar para su uso individual deberán ser autorizados por la parte ARRENDADORA, y serán abonados por la parte ARRENDADORA id-dec-32_opB_1',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Los servicios y suministros que la parte ARRENDATARIA desee contratar para su uso individual deberán ser autorizados por la parte ARRENDADORA, y serán abonados por la parte ARRENDADORA id-dec-32_opB_1',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-32_opB',
+    //       identifier: 'id-dec-32_opB',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Importe máximo (en euros) que el arrendador pagará mensualmente por estos gastos de uso de la habitación:',
+    //           placeholder: 'Escriba un número',
+    //           wordToReplace: 'id-dec-32_opB_1',
+    //           identifier: 'id-dec-32_opB_1',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: 'Esto supone que aunque el importe que proporcionalmente le corresponda a la habitación del total de los gastos de la vivienda (teniendo en cuenta el número de habitaciones ocupadas) sea superior, el arrendador solo se compromete a pagar este importe. La diferencia deberá ser pagada por el arrendatario.'
+    //           },
+    //           rules: [],
+    //           isEmpty: {
+    //             prepend: 'No obstante, las Partes acuerdan que la PARTE ARRENDADORA solo asumirá los gastos que correspondan a la Habitación de acuerdo al prorrateo de los gastos totales de la Vivienda entre el número de habitaciones de la misma que se encuentren ocupadas durante el período facturado hasta un máximo de ',
+    //             append: ' euros mensuales',
+    //           }
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'los dos, el arrendatario y el arrendado',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'El pago de todos los servicios y suministros individualizados será por cuenta y a cargo de ambas Partes, siendo divididos de la siguiente manera:<br> id-dec-32_opC_1',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'El pago de todos los servicios y suministros individualizados será por cuenta y a cargo de ambas Partes, siendo divididos de la siguiente manera:<br> id-dec-32_opC_1',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-32_opC',
+    //       identifier: 'id-dec-32_opC',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Describa como se van a dividir estos gastos entre el arrendador (propietario) y el arrendatario (inquilino):',
+    //           subType: 'textarea',
+    //           placeholder: 'P. ej: El arrendador (propietario) se encargará del pago mensual de internet. El arrendatario (inquilino)...',
+    //           wordToReplace: 'id-dec-32_opC_1',
+    //           identifier: 'id-dec-32_opC_1',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: []
+    //         },
+    //       ]
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'El Impuesto sobre Bienes Inmuebles (IBI) de la vivienda lo pagará:',
+    //   identifier: 'id-dec-33',
+    //   wordToReplace: 'id-dec-33',
+    //   defaultRadioId: 'id-dec-33_opA',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: 'Cuando eres el propietario de una vivienda, local o plaza de garaje, debes tener en cuenta que existen una serie de impuestos asociados que estás obligado a pagar. El Impuesto de Bienes Inmuebles (IBI) es uno de ellos. <br> El IBI es un impuesto de los llamados directos que grava la titularidad de los derechos reales sobre cualquier bien inmueble localizado en el municipio que recauda el tributo. Lo cobran los ayuntamientos y forma parte de las tasas municipales.'
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'el arrendatario (inquilino)',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'de la PARTE ARRENDADORA en su totalidad.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'de la PARTE ARRENDADORA en su totalidad.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-33_opA',
+    //       identifier: 'id-dec-33_opA',
+    //       checked: true,
+    //       subSteps: [
+    //       ]
+    //     },
+    //     {
+    //       label: 'el arrendatario (inquilino) y el arrendador (propietario)',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec33opB1-precioAletras por ciento (id-dec-33_opB_1 %) del mismo. A este efecto, se hace saber a la PARTE ARRENDATARIA que el último importe anual conocido para el IBI fue de iddec33opB2-precioAletras (id-dec-33_opB_2 €).',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'de ambas Partes. En concreto, a la PARTE ARRENDATARIA le corresponderá abonar un iddec33opB1-precioAletras por ciento (id-dec-33_opB_1 %) del mismo. A este efecto, se hace saber a la PARTE ARRENDATARIA que el último importe anual conocido para el IBI fue de iddec33opB2-precioAletras (id-dec-33_opB_2 €).',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-33_opB',
+    //       identifier: 'id-dec-33_opB',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Porcentaje del IBI que deberá pagar el arrendatario (inquilino):',
+    //           placeholder: 'Escriba un número menor que 100',
+    //           wordToReplace: 'id-dec-33_opB_1',
+    //           identifier: 'id-dec-33_opB_1',
+    //           type: 'iNumber',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: 'Esta cantidad debe guardar una cierta proporción con el área de la vivienda que será ocupada por el arrendatario.'
+    //           },
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementToCharacter',
+    //               identifier: 'iddec33opB1-precioAletras',
+    //               wordToReplace: 'iddec33opB1-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ],
+    //         },
+    //         {
+    //           question: 'Último importe anual conocido (en euros) del IBI de la vivienda:',
+    //           placeholder: 'Escriba un número',
+    //           wordToReplace: 'id-dec-33_opB_2',
+    //           identifier: 'id-dec-33_opB_2',
+    //           type: 'iNumber',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementToCharacter',
+    //               identifier: 'iddec33opB2-precioAletras',
+    //               wordToReplace: 'iddec33opB2-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ],
+    //         }
+    //       ]
+    //     }
+    //   ],
+    // },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'En caso de que el arrendatario (inquilino), incumpla alguna de las obligaciones que se derivan de este contrato, como por ejemplo, no pagar el alquiler, ¿se establece alguna fianza o depósto de garantía? (esta será devuelta al finalizar el contrato si no se ha hecho ningún incumplimiento de obligaciones)',
+    //   identifier: 'id-dec-34',
+    //   wordToReplace: 'id-dec-34',
+    //   defaultRadioId: 'id-dec-34_opA',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: ''
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Las partes acuerdan un importe de iddec34opA1-precioAletras euros (id-dec-34_opA_1 €) en concepto de fianza, que la parte arrendataria entrega en este acto a la parte arrendadora. Sirva el presente documento la más formal y fiel carta de pago que en derecho corresponda. <br> Una vez la parte ARRENDADORA haya comprobado que la habitación y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la habitación o en el resto de la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Las partes acuerdan un importe de iddec34opA1-precioAletras euros (id-dec-34_opA_1 €) en concepto de fianza, que la parte arrendataria entrega en este acto a la parte arrendadora. Sirva el presente documento la más formal y fiel carta de pago que en derecho corresponda. <br> Una vez la parte ARRENDADORA haya comprobado que la habitación y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la habitación o en el resto de la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-34_opA',
+    //       identifier: 'id-dec-34_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Indique la cantidad en euros de dicho depósito o garantía:',
+    //           placeholder: 'Escriba un número',
+    //           wordToReplace: 'id-dec-34_opB_1',
+    //           identifier: 'id-dec-34_opB_1',
+    //           type: 'iNumber',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementToCharacter',
+    //               identifier: 'iddec34opA1-precioAletras',
+    //               wordToReplace: 'iddec34opA1-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ],
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'No',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'No se establece ninguna mención expresa a la fianza.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'No se establece ninguna mención expresa a la fianza.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-34_opB',
+    //       identifier: 'id-dec-34_opB',
+    //       checked: true,
+    //       subSteps: [
+    //       ]
+    //     }
+    //   ],
+    // },
     {
       type: 'iRadioC',
-      question: 'Forma de pago del alquiler:',
-      identifier: 'id-dec-29',
-      wordToReplace: 'id-dec-29',
-      defaultRadioId: 'id-dec-29_opA',
+      question: 'En caso de que el arrendatario (inquilino), incumpla alguna de las obligaciones que se derivan de este contrato, como por ejemplo, no pagar el alquiler, se incluye  a uno o varios avales o fiadores solidarios:',
+      identifier: 'id-dec-35',
+      wordToReplace: 'id-dec-35',
+      defaultRadioId: 'id-dec-35_opB',
+      indications: {
+        areIndications: true,
+        indicationsType: 'outsideText',
+        // tslint:disable-next-line:max-line-length
+        value: 'En los contratos de alquiler de vivienda o de uso distinto de vivienda, además del arrendatario, que, como tal, tiene la obligación de pagar la renta y los demás conceptos pactados en el contrato de arrendamiento, puede haber uno o varios avaladores o fiadores que asumen todas o alguna de las obligaciones del inquilino: pago de suministros, de tributos, sólo la renta, daños y desperfectos. La constitución de aval o fianza puede realizarse cuando se formaliza el contrato de alquiler o posteriormente.'
+      },
       replacement: '',
       extraReplacements: [
       ],
       radios: [
         {
-          label: 'Ingreso o transferencia bancaria:',
+          label: 'Sí',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1 y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacementOriginal: 'Sin perjuicio de lo convenido en las estipulaciones precedentes, garantiza el total y exacto cumplimiento de todas y cada una de las obligaciones contraídas por el arrendatario, <br>id-dec-35_opA_1<br>, en calidad de fiadora de la parte arrendataria, convirtiéndose en suyas las obligaciones de ésta a los efectos previstos en el Código Civil.Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1 y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacement: 'Sin perjuicio de lo convenido en las estipulaciones precedentes, garantiza el total y exacto cumplimiento de todas y cada una de las obligaciones contraídas por el arrendatario, <br>id-dec-35_opA_1<br>, en calidad de fiadora de la parte arrendataria, convirtiéndose en suyas las obligaciones de ésta a los efectos previstos en el Código Civil.Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil.',
           extraReplacements: [],
-          radioId: 'id-dec-29_opA',
-          identifier: 'id-dec-29_opA',
+          radioId: 'id-dec-35_opA',
+          identifier: 'id-dec-35_opA',
           checked: true,
           subSteps: [
             {
-              question: 'Nombre del banco de la cuenta donde se realiza el pago del alquiler:',
-              placeholder: 'Ej. BBVA',
-              wordToReplace: 'id-dec-29_opA_1',
-              identifier: 'id-dec-29_opA_1',
-              type: 'iText',
+              type: 'iForEach',
+              value: 1,
+              min: 1,
+              max: 10,
               replacement: '',
-              extraReplacements: [],
+              // identifier: 'id-dec-35_opA_1',
+              wordToReplace: 'id-dec-35_opA_1',
+              question: 'Número de fiadores solidarios',
               indications: {
                 areIndications: false,
                 indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
+                value: '',
               },
-              rules: [],
-            },
-            {
-              question: 'Número IBAN de dicha cuenta:',
-              placeholder: 'P. Ej. ES8020809557151558683884',
-              wordToReplace: 'id-dec-29_opA_2',
-              identifier: 'id-dec-29_opA_2',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [],
-            },
-            {
-              question: 'Nombre completo o denominación social del titular de la cuenta:',
-              placeholder: 'P. Ej. Antonio Alarcón Marrero',
-              wordToReplace: 'id-dec-29_opA_3',
-              identifier: 'id-dec-29_opA_3',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [],
-            },
+              content: [
+                {
+                  identifier: 'id-unid-3_1_opB_5',
+                  wordToReplace: 'id-unid-3_1_opB_5',
+                  replacementOriginal: 'id-unid-3_1_opB_5_1, mayor de edad, con domicilio en id-unid-3_1_opB_5_2, id-unid-3_1_opB_5_3 núm. id-unid-3_1_opB_5_4, y en calidad de id-unid-3_1_opB_5_5<br>',
+                  replacement: '',
+                  extraReplacements: [],
+                  modifiedReplacements: [],
+                  modifiedExtraReplacements: [],
+                  subSteps: [
+                    {
+                      question: 'Nombre completo, incluyendo apellidos, del representante de la persona jurídica:',
+                      wordToReplace: 'id-unid-3_1_opB_5_1',
+                      identifier: 'id-unid-3_1_opB_5_1',
+                      type: 'iText',
+                      placeholder: 'P. ej. Margarita García Pérez',
+                      replacement: '',
+                      indications: {
+                        areIndications: true,
+                        indicationsType: 'insideText',
+                        // tslint:disable-next-line:max-line-length
+                        value: 'Nombre completo, incluyendo apellidos, del representante de la persona jurídica',
+                      },
+                    },
+                    {
+                      question: 'Domicilio completo del representante de la persona jurídica:',
+                      wordToReplace: 'id-unid-3_1_opB_5_2',
+                      identifier: 'id-unid-3_1_opB_5_2',
+                      type: 'iText',
+                      placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
+                      replacement: '',
+                      indications: {
+                        areIndications: true,
+                        indicationsType: 'outsideText',
+                        // tslint:disable-next-line:max-line-length
+                        value: 'Domicilio, incluyendo el tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país del representante de la persona jurídica',
+                      },
+                    },
+                    {
+                      type: 'iRadioB',
+                      // tslint:disable-next-line:max-line-length
+                      question: 'Documento de identidad del representante de la persona jurídica:',
+                      identifier: 'id-unid-3_1_opB_5_3',
+                      wordToReplace: 'id-unid-3_1_opB_5_3',
+                      indications: {
+                        areIndications: true,
+                        indicationsType: 'outsideText',
+                        // tslint:disable-next-line:max-line-length
+                        value: 'Seleccione el tipo de documento de identidad del representante de la persona jurídica.',
+                      },
+                      replacement: '',
+                      radios: [
+                        {
+                          label: 'DNI',
+                          replacementOriginal: 'DNI',
+                          replacement: '',
+                          radioId: 'id-unid-3_1_opB_5_3_opA',
+                          identifier: 'id-unid-3_1_opB_5_3_opA',
+                          extraReplacements: [],
+                          checked: true,
+                        },
+                        {
+                          label: 'NIE',
+                          replacementOriginal: 'NIE',
+                          replacement: '',
+                          radioId: 'id-unid-3_1_opB_5_3_opB',
+                          identifier: 'id-unid-3_1_opB_5_3_opB',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Pasaporte',
+                          replacementOriginal: 'Pasaporte',
+                          replacement: '',
+                          radioId: 'id-unid-3_1_opB_5_3_opC',
+                          identifier: 'id-unid-3_1_opB_5_3_opC',
+                          extraReplacements: [],
+                          checked: false,
+                        }
+                      ]
+                    },
+                    {
+                      question: 'Número del documento de identificación personal seleccionado:',
+                      wordToReplace: 'id-unid-3_1_opB_5_4',
+                      identifier: 'id-unid-3_1_opB_5_4',
+                      placeholder: 'P. ej: 42888457',
+                      type: 'iText',
+                      replacement: '',
+                      indications: {
+                        areIndications: true,
+                        indicationsType: 'insideText',
+                        value: 'Escriba el número que corresponde con el documento de identificación personal seleccionado en la pregunta anterior',
+                      },
+                    },
+                    {
+                      question: 'Función del representante de la persona jurídica:',
+                      wordToReplace: 'id-unid-3_1_opB_5_5',
+                      identifier: 'id-unid-3_1_opB_5_5',
+                      type: 'iText',
+                      placeholder: 'P. ej. administradora única',
+                      replacement: '',
+                      indications: {
+                        areIndications: true,
+                        indicationsType: 'insideText',
+                        // tslint:disable-next-line:max-line-length
+                        value: 'Indique aquí en qué calidad o función el único representante, persona física, firma el contrato  en nombre y representación de la persona jurídica.',
+                      },
+                    },
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
-          label: 'En efectivo',
+          label: 'No',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacementOriginal: '',
           // tslint:disable-next-line:max-line-length
-          replacement: 'pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacement: '',
           extraReplacements: [],
-          radioId: 'id-dec-29_opB',
-          identifier: 'id-dec-29_opB',
+          radioId: 'id-dec-35_opB',
+          identifier: 'id-dec-35_opB',
           checked: true,
           subSteps: [
           ]
-        },
+        }
       ],
     },
     {
