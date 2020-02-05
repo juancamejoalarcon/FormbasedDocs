@@ -4201,176 +4201,284 @@ const steps = [
     //     }
     //   ],
     // },
-    {
-      type: 'iRadioC',
-      question: 'En caso de que el arrendatario (inquilino), incumpla alguna de las obligaciones que se derivan de este contrato, como por ejemplo, no pagar el alquiler, se incluye  a uno o varios avales o fiadores solidarios:',
-      identifier: 'id-dec-35',
-      wordToReplace: 'id-dec-35',
-      defaultRadioId: 'id-dec-35_opB',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'En los contratos de alquiler de vivienda o de uso distinto de vivienda, además del arrendatario, que, como tal, tiene la obligación de pagar la renta y los demás conceptos pactados en el contrato de arrendamiento, puede haber uno o varios avaladores o fiadores que asumen todas o alguna de las obligaciones del inquilino: pago de suministros, de tributos, sólo la renta, daños y desperfectos. La constitución de aval o fianza puede realizarse cuando se formaliza el contrato de alquiler o posteriormente.'
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'Sí',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Sin perjuicio de lo convenido en las estipulaciones precedentes, garantiza el total y exacto cumplimiento de todas y cada una de las obligaciones contraídas por el arrendatario, <br>id-dec-35_opA_1<br>, en calidad de fiadora de la parte arrendataria, convirtiéndose en suyas las obligaciones de ésta a los efectos previstos en el Código Civil.Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'Sin perjuicio de lo convenido en las estipulaciones precedentes, garantiza el total y exacto cumplimiento de todas y cada una de las obligaciones contraídas por el arrendatario, <br>id-dec-35_opA_1<br>, en calidad de fiadora de la parte arrendataria, convirtiéndose en suyas las obligaciones de ésta a los efectos previstos en el Código Civil.Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil.',
-          extraReplacements: [],
-          radioId: 'id-dec-35_opA',
-          identifier: 'id-dec-35_opA',
-          checked: true,
-          subSteps: [
-            {
-              type: 'iForEach',
-              value: 1,
-              min: 1,
-              max: 10,
-              replacement: '',
-              // identifier: 'id-dec-35_opA_1',
-              wordToReplace: 'id-dec-35_opA_1',
-              question: 'Número de fiadores solidarios',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                value: '',
-              },
-              content: [
-                {
-                  identifier: 'id-unid-3_1_opB_5',
-                  wordToReplace: 'id-unid-3_1_opB_5',
-                  replacementOriginal: 'id-unid-3_1_opB_5_1, mayor de edad, con domicilio en id-unid-3_1_opB_5_2, id-unid-3_1_opB_5_3 núm. id-unid-3_1_opB_5_4, y en calidad de id-unid-3_1_opB_5_5<br>',
-                  replacement: '',
-                  extraReplacements: [],
-                  modifiedReplacements: [],
-                  modifiedExtraReplacements: [],
-                  subSteps: [
-                    {
-                      question: 'Nombre completo, incluyendo apellidos, del representante de la persona jurídica:',
-                      wordToReplace: 'id-unid-3_1_opB_5_1',
-                      identifier: 'id-unid-3_1_opB_5_1',
-                      type: 'iText',
-                      placeholder: 'P. ej. Margarita García Pérez',
-                      replacement: '',
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Nombre completo, incluyendo apellidos, del representante de la persona jurídica',
-                      },
-                    },
-                    {
-                      question: 'Domicilio completo del representante de la persona jurídica:',
-                      wordToReplace: 'id-unid-3_1_opB_5_2',
-                      identifier: 'id-unid-3_1_opB_5_2',
-                      type: 'iText',
-                      placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
-                      replacement: '',
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'outsideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Domicilio, incluyendo el tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país del representante de la persona jurídica',
-                      },
-                    },
-                    {
-                      type: 'iRadioB',
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Documento de identidad del representante de la persona jurídica:',
-                      identifier: 'id-unid-3_1_opB_5_3',
-                      wordToReplace: 'id-unid-3_1_opB_5_3',
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'outsideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Seleccione el tipo de documento de identidad del representante de la persona jurídica.',
-                      },
-                      replacement: '',
-                      radios: [
-                        {
-                          label: 'DNI',
-                          replacementOriginal: 'DNI',
-                          replacement: '',
-                          radioId: 'id-unid-3_1_opB_5_3_opA',
-                          identifier: 'id-unid-3_1_opB_5_3_opA',
-                          extraReplacements: [],
-                          checked: true,
-                        },
-                        {
-                          label: 'NIE',
-                          replacementOriginal: 'NIE',
-                          replacement: '',
-                          radioId: 'id-unid-3_1_opB_5_3_opB',
-                          identifier: 'id-unid-3_1_opB_5_3_opB',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Pasaporte',
-                          replacementOriginal: 'Pasaporte',
-                          replacement: '',
-                          radioId: 'id-unid-3_1_opB_5_3_opC',
-                          identifier: 'id-unid-3_1_opB_5_3_opC',
-                          extraReplacements: [],
-                          checked: false,
-                        }
-                      ]
-                    },
-                    {
-                      question: 'Número del documento de identificación personal seleccionado:',
-                      wordToReplace: 'id-unid-3_1_opB_5_4',
-                      identifier: 'id-unid-3_1_opB_5_4',
-                      placeholder: 'P. ej: 42888457',
-                      type: 'iText',
-                      replacement: '',
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        value: 'Escriba el número que corresponde con el documento de identificación personal seleccionado en la pregunta anterior',
-                      },
-                    },
-                    {
-                      question: 'Función del representante de la persona jurídica:',
-                      wordToReplace: 'id-unid-3_1_opB_5_5',
-                      identifier: 'id-unid-3_1_opB_5_5',
-                      type: 'iText',
-                      placeholder: 'P. ej. administradora única',
-                      replacement: '',
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Indique aquí en qué calidad o función el único representante, persona física, firma el contrato  en nombre y representación de la persona jurídica.',
-                      },
-                    },
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: 'No',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: '',
-          // tslint:disable-next-line:max-line-length
-          replacement: '',
-          extraReplacements: [],
-          radioId: 'id-dec-35_opB',
-          identifier: 'id-dec-35_opB',
-          checked: true,
-          subSteps: [
-          ]
-        }
-      ],
-    },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'En caso de que el arrendatario (inquilino), incumpla alguna de las obligaciones que se derivan de este contrato, como por ejemplo, no pagar el alquiler, se incluye  a uno o varios avales o fiadores solidarios:',
+    //   identifier: 'id-dec-35',
+    //   wordToReplace: 'id-dec-35',
+    //   defaultRadioId: 'id-dec-35_opB',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: 'En los contratos de alquiler de vivienda o de uso distinto de vivienda, además del arrendatario, que, como tal, tiene la obligación de pagar la renta y los demás conceptos pactados en el contrato de arrendamiento, puede haber uno o varios avaladores o fiadores que asumen todas o alguna de las obligaciones del inquilino: pago de suministros, de tributos, sólo la renta, daños y desperfectos. La constitución de aval o fianza puede realizarse cuando se formaliza el contrato de alquiler o posteriormente.'
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'Sin perjuicio de lo convenido en las estipulaciones precedentes, garantiza el total y exacto cumplimiento de todas y cada una de las obligaciones contraídas por el arrendatario, <br>id-dec-35_opA_1<br>, en calidad de fiadora de la parte arrendataria, convirtiéndose en suyas las obligaciones de ésta a los efectos previstos en el Código Civil.Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'Sin perjuicio de lo convenido en las estipulaciones precedentes, garantiza el total y exacto cumplimiento de todas y cada una de las obligaciones contraídas por el arrendatario, <br>id-dec-35_opA_1<br>, en calidad de fiadora de la parte arrendataria, convirtiéndose en suyas las obligaciones de ésta a los efectos previstos en el Código Civil.Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-35_opA',
+    //       identifier: 'id-dec-35_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iForEach',
+    //           value: 1,
+    //           min: 1,
+    //           max: 10,
+    //           replacement: '',
+    //           // identifier: 'id-dec-35_opA_1',
+    //           wordToReplace: 'id-dec-35_opA_1',
+    //           question: 'Número de fiadores solidarios',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: '',
+    //           },
+    //           content: [
+    //             {
+    //               identifier: 'id-dec-35_opA_1',
+    //               wordToReplace: 'id-dec-35_opA_1',
+    //               replacementOriginal: 'id-dec-35_opA_1_1, con id-dec-35_opA_1_2 núm. id-dec-35_opA_1_3 y domicilio en id-dec-35_opA_1_4',
+    //               replacement: '',
+    //               extraReplacements: [],
+    //               modifiedReplacements: [],
+    //               modifiedExtraReplacements: [],
+    //               subSteps: [
+    //                 {
+    //                   question: 'Nombre completo o denominación social del fiador solidario:',
+    //                   wordToReplace: 'id-dec-35_opA_1_1',
+    //                   identifier: 'id-dec-35_opA_1_1',
+    //                   type: 'iText',
+    //                   placeholder: 'P. ej. Antonio, Pérez Alarcón, Banco Santander, S.A',
+    //                   replacement: '',
+    //                   indications: {
+    //                     areIndications: false,
+    //                     indicationsType: '',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: '',
+    //                   },
+    //                 },
+    //                 {
+    //                   type: 'iRadioB',
+    //                   // tslint:disable-next-line:max-line-length
+    //                   question: 'Tipo de documento de identificación del fiador solidario:',
+    //                   identifier: 'id-dec-35_opA_1_2',
+    //                   wordToReplace: 'id-dec-35_opA_1_2',
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'outsideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'Escoja el tipo de documento que identificará personalmente al primer o único fiador solidario. Si se trata de una persona física, si esta persona cuenta con DNI/NIF escoja siempre esta opción, y reserve las opciones de NIE o Pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo. Si se trata de una persona jurídica, seleccione la opción NIF/CIF.',
+    //                   },
+    //                   replacement: '',
+    //                   radios: [
+    //                     {
+    //                       label: 'DNI',
+    //                       replacementOriginal: 'DNI',
+    //                       replacement: '',
+    //                       radioId: 'id-dec-35_opA_1_2_opA',
+    //                       identifier: 'id-dec-35_opA_1_2_opA',
+    //                       extraReplacements: [],
+    //                       checked: true,
+    //                     },
+    //                     {
+    //                       label: 'NIE',
+    //                       replacementOriginal: 'NIE',
+    //                       replacement: '',
+    //                       radioId: 'id-dec-35_opA_1_2_opB',
+    //                       identifier: 'id-dec-35_opA_1_2_opB',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'Pasaporte',
+    //                       replacementOriginal: 'Pasaporte',
+    //                       replacement: '',
+    //                       radioId: 'id-dec-35_opA_1_2_opC',
+    //                       identifier: 'id-dec-35_opA_1_2_opC',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     },
+    //                     {
+    //                       label: 'NIF',
+    //                       replacementOriginal: 'NIF',
+    //                       replacement: '',
+    //                       radioId: 'id-dec-35_opA_1_2_opD',
+    //                       identifier: 'id-dec-35_opA_1_2_opD',
+    //                       extraReplacements: [],
+    //                       checked: false,
+    //                     }
+    //                   ]
+    //                 },
+    //                 {
+    //                   question: 'Número del documento seleccionado en la pregunta anterior:',
+    //                   wordToReplace: 'id-dec-35_opA_1_3',
+    //                   identifier: 'id-dec-35_opA_1_3',
+    //                   placeholder: 'P. ej: 83558071Z',
+    //                   type: 'iText',
+    //                   replacement: '',
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'insideText',
+    //                     value: 'Introduzca aquí el número correspondiente al documento de identificación personal escogido en la pregunta anterior para el primer o único fiador solidario.',
+    //                   },
+    //                 },
+    //                 {
+    //                   question: 'Dirección del lugar donde reside el fiador solidario:',
+    //                   wordToReplace: 'id-dec-35_opA_1_4',
+    //                   identifier: 'id-dec-35_opA_1_4',
+    //                   type: 'iText',
+    //                   placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
+    //                   replacement: '',
+    //                   indications: {
+    //                     areIndications: true,
+    //                     indicationsType: 'insideText',
+    //                     // tslint:disable-next-line:max-line-length
+    //                     value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) del lugar de residencia',
+    //                   },
+    //                 },
+    //               ]
+    //             }
+    //           ]
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       label: 'No',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: '',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: '',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-35_opB',
+    //       identifier: 'id-dec-35_opB',
+    //       checked: true,
+    //       subSteps: [
+    //       ]
+    //     }
+    //   ],
+    // },
+    // {
+    //   type: 'iRadioB',
+    //   question: '¿Se establecen unas normas de convivenvia de la vivienda que deberán ser respetadas por el inquilino y que se adjuntarán en una documento anexo a este contrato?',
+    //   identifier: 'id-dec-36',
+    //   wordToReplace: 'id-dec-36',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     value: 'Para garantizar una correcta convivencia entre personas que, en muchos casos, no se conocen y tienen diferentes formas de convivir se pueden estipular en el contrato unas Normas de Convivencia para hacer más fácil la estancia. Todos los inquilinos tienen la obligación de cumplirlas y en el caso de no hacerlo puede ser motivo de expulsión del piso.',
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //     {
+    //       identifier: 'iddec36-extra-1',
+    //       wordToReplace: 'iddec36-extra-1',
+    //       insideId: 'opA'
+    //     }
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       replacementOriginal: '(así como en el documento relativo a dichas normas que se adjunta como Anexo al presente Contrato)',
+    //       replacement: '(así como en el documento relativo a dichas normas que se adjunta como Anexo al presente Contrato)',
+    //       radioId: 'id-dec-36_opA',
+    //       identifier: 'id-dec-36_opA',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec36-extra-1',
+    //           replacement: '(así como a su documento Anexo al que se hace referencia en la estipulación novena)',
+    //           replacementOriginal: '(así como a su documento Anexo al que se hace referencia en la estipulación novena)',
+    //           insideId: 'opA'
+    //         }
+    //       ],
+    //       checked: true,
+    //     },
+    //     {
+    //       label: 'No',
+    //       replacementOriginal: '',
+    //       replacement: '',
+    //       radioId: 'id-dec-36_opA',
+    //       identifier: 'id-dec-36_opA',
+    //       extraReplacements: [
+    //         {
+    //           identifier: 'iddec36-extra-1',
+    //           replacement: '',
+    //           replacementOriginal: '',
+    //           insideId: 'opA'
+    //         }
+    //       ],
+    //       checked: false,
+    //     },
+    //   ]
+    // },
+    // {
+    //   type: 'iText',
+    //   subType: 'textarea',
+    //   identifier: 'id-dec-37',
+    //   wordToReplace: 'id-dec-37',
+    //   replacement: '',
+    //   question: 'Si lo desea establezca unas normas acerca de la limpieza de las zonas comunes de la vivienda que deberá respetar el arrendatario (inquilino):',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: ''
+    //   },
+    //   placeholder: 'P. ej: La PARTE ARRENDATARIA se compromete a limpiar las zoas comunes de la Vivienda (baño, salón y cocina) cada dos semanas,...',
+    //   mandatory: false,
+    //   isFocused: false,
+    //   isEmpty: {
+    //     prepend: 'En cuanto a la limpieza de zonas comunes, la parte Arrendataria se compromete a:<br>',
+    //     append: '.',
+    //   }
+    // },
+    // {
+    //   type: 'iText',
+    //   subType: 'textarea',
+    //   identifier: 'id-dec-38',
+    //   wordToReplace: 'id-dec-38',
+    //   replacement: '',
+    //   question: 'Si lo desea establezca unas normas acerca de la basura de la vivienda que deberá respetar el arrendatario (inquilino):',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: ''
+    //   },
+    //   placeholder: 'P. ej: La basura se divide en tres cubos...',
+    //   mandatory: false,
+    //   isFocused: false,
+    //   isEmpty: {
+    //     prepend: 'En cuanto a la basura generada en la vivienda, la parte Arrendataria se compromete a:<br>',
+    //     append: '.',
+    //   }
+    // },
+    // {
+    //   type: 'iText',
+    //   subType: 'textarea',
+    //   identifier: 'id-dec-39',
+    //   wordToReplace: 'id-dec-39',
+    //   replacement: '',
+    //   question: 'Si lo desea establezca unas normas acerca de zonas comunes de la vivienda que deberá respetar el arrendatario (inquilino):',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: ''
+    //   },
+    //   placeholder: 'P. ej: El baño junto a la habitación interior queda restringido su uso al propietario,...',
+    //   mandatory: false,
+    //   isFocused: false,
+    //   isEmpty: {
+    //     prepend: 'En cuanto al uso de zonas de comunes, la parte Arrendataria se compromete a respetar el siguiente horario:<br>',
+    //     append: '.',
+    //   }
+    // },
     {
         type: 'end',
         identifier: 'end',
