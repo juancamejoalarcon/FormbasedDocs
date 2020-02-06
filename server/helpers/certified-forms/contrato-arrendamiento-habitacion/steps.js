@@ -4479,6 +4479,511 @@ const steps = [
     //     append: '.',
     //   }
     // },
+    // {
+    //   type: 'iRadioB',
+    //   question: '¿Queda prohibido meter o tener mascotas en la vivienda?',
+    //   identifier: 'id-dec-40',
+    //   wordToReplace: 'id-dec-40',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: '',
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       replacementOriginal: 'Queda expresamente prohibido el acceso y estancia de animales domésticos o no domésticos en la habitación objeto de arrendamiento,y en el resto de la vivienda.',
+    //       replacement: 'Queda expresamente prohibido el acceso y estancia de animales domésticos o no domésticos en la habitación objeto de arrendamiento,y en el resto de la vivienda.',
+    //       radioId: 'id-dec-40_opA',
+    //       identifier: 'id-dec-40_opA',
+    //       extraReplacements: [
+    //       ],
+    //       checked: true,
+    //     },
+    //     {
+    //       label: 'No',
+    //       replacementOriginal: '',
+    //       replacement: '',
+    //       radioId: 'id-dec-40_opB',
+    //       identifier: 'id-dec-40_opB',
+    //       extraReplacements: [
+    //       ],
+    //       checked: false,
+    //     },
+    //   ]
+    // },
+    // {
+    //   type: 'iRadioB',
+    //   question: '¿Queda prohibido fumar en las zonas comunes de la vivienda?',
+    //   identifier: 'id-dec-41',
+    //   wordToReplace: 'id-dec-41',
+    //   indications: {
+    //     areIndications: false,
+    //     indicationsType: '',
+    //     value: '',
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'Sí',
+    //       replacementOriginal: 'Dado que es una vivienda de no fumadores, queda prohibido fumar en las zonas comunes de la vivienda, y para el caso de que la parte ARRENDATARIA fumase en la habitación arrendada, se compromete a mantenerla correctamente ventilada, de manera que los olores y humos generados no afecten de manera directa ni indirecta al resto de inquilinos.',
+    //       replacement: 'Dado que es una vivienda de no fumadores, queda prohibido fumar en las zonas comunes de la vivienda, y para el caso de que la parte ARRENDATARIA fumase en la habitación arrendada, se compromete a mantenerla correctamente ventilada, de manera que los olores y humos generados no afecten de manera directa ni indirecta al resto de inquilinos.',
+    //       radioId: 'id-dec-41_opA',
+    //       identifier: 'id-dec-41_opA',
+    //       extraReplacements: [
+    //       ],
+    //       checked: true,
+    //     },
+    //     {
+    //       label: 'No',
+    //       replacementOriginal: '',
+    //       replacement: '',
+    //       radioId: 'id-dec-41_opB',
+    //       identifier: 'id-dec-41_opB',
+    //       extraReplacements: [
+    //       ],
+    //       checked: false,
+    //     },
+    //   ]
+    // },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'La vivienda o habitación',
+    //   identifier: 'id-dec-42',
+    //   wordToReplace: 'id-dec-42',
+    //   defaultRadioId: 'id-dec-42_opA',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: 'Seleccione aquí la opción que corresponda al nivel de aseguramiento o al seguro que tendrá el alquiler de la habitación y la vivienda en la que esta se encuentra durante el período de duración del alquiler. <br>Si ya cuenta con un seguro (por ejemplo, un seguro de alquiler para propietarios) y el arrendador y el arrendatario no desean pactar la contratación de otro seguro (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la primera opción. <br>Si ya cuenta con un seguro (por ejemplo, un seguro de alquiler para propietarios), pero el arrendador y el arrendatario desean pactar la contratación de otro seguro (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la segunda opción. <br>Si no cuenta aún con un seguro, pero el arrendador y el arrendatario desean pactar la contratación de uno (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la tercera opción. <br>Por último, si no cuenta aún con un seguro y el arrendador y el arrendatario no desean pactar su contratación, seleccione la cuarta opción.'
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'cuenta con un seguro y no se desea pactar la contratación de otro',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'La PARTE ARRENDADORA tiene contratado un seguro de: id-dec-42_opA_1 en la compañía aseguradora: id-dec-42_opA_2 id-dec-42_opA_3.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'La PARTE ARRENDADORA tiene contratado un seguro de: id-dec-42_opA_1 en la compañía aseguradora: id-dec-42_opA_2 id-dec-42_opA_3.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-42_opA',
+    //       identifier: 'id-dec-42_opA',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Tipo de seguro que tiene el alquiler de la habitación y/o la vivienda ',
+    //           placeholder: 'P. ej: Seguro alquiler propietario',
+    //           wordToReplace: 'id-dec-42_opA_1',
+    //           identifier: 'id-dec-42_opA_1',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //           ],
+    //         },
+    //         {
+    //           question: 'Nombre de la compañía aseguradora en la que está contratado dicho seguro:',
+    //           placeholder: 'P. ej: Axa',
+    //           wordToReplace: 'id-dec-42_opA_2',
+    //           identifier: 'id-dec-42_opA_2',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //           ],
+    //         },
+    //         {
+    //           question: 'Número de póliza',
+    //           placeholder: '',
+    //           wordToReplace: 'id-dec-42_opA_3',
+    //           identifier: 'id-dec-42_opA_3',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //           ],
+    //           isEmpty: {
+    //             prepend: ', y cuyo número de póliza es el siguiente:',
+    //             append: '',
+    //           }
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'cuenta con un seguro, pero se desea pactar la contratación de otro',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'La PARTE ARRENDADORA tiene contratado un seguro de: id-dec-42_opB_1 en la compañía aseguradora: id-dec-42_opB_2 id-dec-42_opB_3. <br>No obstante, la PARTE id-dec-42_opB_4 se compromete a contratar de un seguro de la siguiente clase: id-dec-42_opB_5. Este seguro tendrá como beneficiaria a la PARTE ARRENDADORA, y tener una cobertura mínima igual a iddec42opB6-precioAletras euros (id-dec-42_opB_6 €). Este seguro se mantendrá durante toda la vigencia del presente Contrato .',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'La PARTE ARRENDADORA tiene contratado un seguro de: id-dec-42_opA_1 en la compañía aseguradora: id-dec-42_opA_2 id-dec-42_opA_3.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-42_opB',
+    //       identifier: 'id-dec-42_opB',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Tipo de seguro que tiene el alquiler de la habitación y/o la vivienda ',
+    //           placeholder: 'P. ej: Seguro alquiler propietario',
+    //           wordToReplace: 'id-dec-42_opB_1',
+    //           identifier: 'id-dec-42_opB_1',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //           ],
+    //         },
+    //         {
+    //           question: 'Nombre de la compañía aseguradora en la que está contratado dicho seguro:',
+    //           placeholder: 'P. ej: Axa',
+    //           wordToReplace: 'id-dec-42_opB_2',
+    //           identifier: 'id-dec-42_opB_2',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //           ],
+    //         },
+    //         {
+    //           question: 'Número de póliza',
+    //           placeholder: '',
+    //           wordToReplace: 'id-dec-42_opB_3',
+    //           identifier: 'id-dec-42_opB_3',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //           ],
+    //           isEmpty: {
+    //             prepend: ', y cuyo número de póliza es el siguiente:',
+    //             append: '',
+    //           }
+    //         },
+    //         {
+    //           type: 'iRadioB',
+    //           question: '¿Quién contratará el seguro que se ha pactado?',
+    //           identifier: 'id-dec-42_opB_4',
+    //           wordToReplace: 'id-dec-42_opB_4',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: '',
+    //           },
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'Sí',
+    //               replacementOriginal: 'ARRENDATARIA',
+    //               replacement: 'ARRENDATARIA',
+    //               radioId: 'id-dec-42_opB_4_opA',
+    //               identifier: 'id-dec-42_opB_4_opA',
+    //               extraReplacements: [
+    //               ],
+    //               checked: true,
+    //             },
+    //             {
+    //               label: 'No',
+    //               replacementOriginal: 'ARRENDADORA',
+    //               replacement: 'ARRENDADORA',
+    //               radioId: 'id-dec-42_opB_4_opB',
+    //               identifier: 'id-dec-42_opB_4_opB',
+    //               extraReplacements: [
+    //               ],
+    //               checked: false,
+    //             },
+    //           ]
+    //         },
+    //         {
+    //           question: 'Tipo de seguro que se desea contratar:',
+    //           placeholder: 'P. ej: Seguro de responsabilidad Civil',
+    //           wordToReplace: 'id-dec-42_opB_5',
+    //           identifier: 'id-dec-42_opB_5',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //           ],
+    //         },
+    //         {
+    //           question: 'Cobertura mínima (en euros) que deberá tener dicho seguro (suma hasta la cual la aseguradora deberá hacerse cargo de los daños en la habitación alquilada y/o en la vivienda y/o de los incumplimientos del contrato de alquiler):',
+    //           placeholder: 'Escriba un número',
+    //           wordToReplace: 'id-dec-42_opB_6',
+    //           identifier: 'id-dec-42_opB_6',
+    //           type: 'iNumber',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementToCharacter',
+    //               identifier: 'iddec42opB6-precioAletras',
+    //               wordToReplace: 'iddec42opB6-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ],
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             value: 'La cobertura es la suma hasta la cual la compañía aseguradora deberá hacerse cargo de las consecuencias que se deriven de un siniestro (o incidente) en relación con el riesgo asegurado. El riesgo asegurado dependerá del tipo de seguro contratado; puede tratarse, por ejemplo, de daños ocasionados en la habitación alquilada o en la vivienda, de incumplimientos del contrato de arrendamiento (ej. impago de la renta), etc.'
+    //           },
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'no cuenta con seguro, pero se desea pactar su contratación',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'La PARTE id-dec-42_opC_1 se compromete a la contratación de un seguro de la siguiente clase: id-dec-42_opC_2. Este seguro deberá indicar como beneficiaria a la PARTE ARRENDADORA, tener una cobertura mínima igual a iddec42opC3-precioAletras (id-dec-42_opC_3 €), y ser mantenido durante toda la vigencia del presente Contrato.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'La PARTE id-dec-42_opC_1 se compromete a la contratación de un seguro de la siguiente clase: id-dec-42_opC_2. Este seguro deberá indicar como beneficiaria a la PARTE ARRENDADORA, tener una cobertura mínima igual a iddec42opC3-precioAletras (id-dec-42_opC_3 €), y ser mantenido durante toda la vigencia del presente Contrato.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-42_opC',
+    //       identifier: 'id-dec-42_opC',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           type: 'iRadioB',
+    //           question: '¿Quién contratará el seguro que se ha pactado?',
+    //           identifier: 'id-dec-42_opC_1',
+    //           wordToReplace: 'id-dec-42_opC_1',
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             value: '',
+    //           },
+    //           replacement: '',
+    //           extraReplacements: [
+    //           ],
+    //           radios: [
+    //             {
+    //               label: 'Sí',
+    //               replacementOriginal: 'ARRENDATARIA',
+    //               replacement: 'ARRENDATARIA',
+    //               radioId: 'id-dec-42_opC_1_opA',
+    //               identifier: 'id-dec-42_opC_1_opA',
+    //               extraReplacements: [
+    //               ],
+    //               checked: true,
+    //             },
+    //             {
+    //               label: 'No',
+    //               replacementOriginal: 'ARRENDADORA',
+    //               replacement: 'ARRENDADORA',
+    //               radioId: 'id-dec-42_opC_1_opB',
+    //               identifier: 'id-dec-42_opC_1_opB',
+    //               extraReplacements: [
+    //               ],
+    //               checked: false,
+    //             },
+    //           ]
+    //         },
+    //         {
+    //           question: 'Tipo de seguro que se desea contratar:',
+    //           placeholder: 'P. ej: Seguro de responsabilidad Civil',
+    //           wordToReplace: 'id-dec-42_opC_2',
+    //           identifier: 'id-dec-42_opC_2',
+    //           type: 'iText',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //           ],
+    //         },
+    //         {
+    //           question: 'Cobertura mínima (en euros) que deberá tener dicho seguro (suma hasta la cual la aseguradora deberá hacerse cargo de los daños en la habitación alquilada y/o en la vivienda y/o de los incumplimientos del contrato de alquiler):',
+    //           placeholder: 'Escriba un número',
+    //           wordToReplace: 'id-dec-42_opC_3',
+    //           identifier: 'id-dec-42_opC_3',
+    //           type: 'iNumber',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementToCharacter',
+    //               identifier: 'iddec42opC3-precioAletras',
+    //               wordToReplace: 'iddec42opC3-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ],
+    //           indications: {
+    //             areIndications: true,
+    //             indicationsType: 'outsideText',
+    //             value: 'La cobertura es la suma hasta la cual la compañía aseguradora deberá hacerse cargo de las consecuencias que se deriven de un siniestro (o incidente) en relación con el riesgo asegurado. El riesgo asegurado dependerá del tipo de seguro contratado; puede tratarse, por ejemplo, de daños ocasionados en la habitación alquilada o en la vivienda, de incumplimientos del contrato de arrendamiento (ej. impago de la renta), etc.'
+    //           },
+    //         },
+    //       ]
+    //     },
+    //     {
+    //       label: 'no cuenta con un seguro ni se desea pactar su contratación',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'No se cuenta con seguro ni se desea pactar la contratación de ninguno.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'No se cuenta con seguro ni se desea pactar la contratación de ninguno.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-42_opD',
+    //       identifier: 'id-dec-42_opD',
+    //       checked: true,
+    //       subSteps: [
+    //       ]
+    //     }
+    //   ],
+    // },
+    // {
+    //   type: 'iRadioB',
+    //   question: '(Derecho de adquisición preferente) En caso de que el arrendador decida vender la vivienda en la que se encuentra la habitación durante el alquiler:',
+    //   identifier: 'id-dec-43',
+    //   wordToReplace: 'id-dec-43',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     value: 'El derecho de compra o adquisición preferente, según la ley 29/1994, de 24 de noviembre, sobre arrendamientos urbanos es el derecho que tiene el arrendatario de adquirir la propiedad con preferencia, en el caso de que el arrendador ponga en venta dicho inmueble. Así lo recoge el artículo 25 de  esta normativa, en el que se señala que el arrendatario tendrá las mismas condiciones que el arrendador haya acordado con un posible comprador. En este sentido, con el derecho de compra preferente, el arrendatario dispone de 30 días naturales para ejercitar el derecho de tanteo desde que el propietario le notifique la decisión de venta. Con ello, se podrá determinar y llegar a un acuerdo sobre precio y el resto de condiciones inherentes a la transmisión de la propiedad inmobiliaria. Del mismo modo, el arrendatario también dispone del derecho de retracto, en relación al precio y a todas las condiciones de compraventa. En el contrato de arrendamiento de habitación, usualmente las partes acuerdan que el inquilino no contará con derecho de adquisición preferente (seleccionando la opción "el arrendatario no podrá adquirirla con prioridad frente a otros posibles compradores"). Sin embargo, se puede establecer que el arrendatario tiene derecho a adquirir la vivienda con preferencia si el arrendador decide venderla',
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'el arrendatario no podrá adquirirla con prioridad frente a otros posibles compradores (no tendrá derecho de adquisición preferente o tanteo y retracto)',
+    //       replacementOriginal: 'La parte arrendataria renuncia expresamente al derecho de adquisición preferente, tanteo, o retracto, sobre la habitación arrendada y sobre la vivienda, en caso de que la parte arrendadora decidiera enajenar el inmueble. La parte arrendadora pondrá en conocimiento de la parte arrendataria con antelación suficiente su intención de vender el inmueble.',
+    //       replacement: 'La parte arrendataria renuncia expresamente al derecho de adquisición preferente, tanteo, o retracto, sobre la habitación arrendada y sobre la vivienda, en caso de que la parte arrendadora decidiera enajenar el inmueble. La parte arrendadora pondrá en conocimiento de la parte arrendataria con antelación suficiente su intención de vender el inmueble.',
+    //       radioId: 'id-dec-43_opA',
+    //       identifier: 'id-dec-43_opA',
+    //       extraReplacements: [
+    //       ],
+    //       checked: true,
+    //     },
+    //     {
+    //       label: 'el arrendatario podrá adquirirla con prioridad frente a otros posibles compradores (tendrá derecho de adquisición preferente o tanteo y retracto)',
+    //       replacementOriginal: 'La parte arrendataria tendrá derecho de adquisición preferente, tanteo, o retracto, sobre la habitación arrendada y sobre la vivienda, en caso de que la parte arrendadora decidiera enajenar el inmueble. Todo ello de acuerdo con lo dispuesto en los artículos 25 y siguientes de la Ley de Arrendamientos Urbanos que se encuentre vigente en el momento de formalización del presente contrato.',
+    //       replacement: 'La parte arrendataria tendrá derecho de adquisición preferente, tanteo, o retracto, sobre la habitación arrendada y sobre la vivienda, en caso de que la parte arrendadora decidiera enajenar el inmueble. Todo ello de acuerdo con lo dispuesto en los artículos 25 y siguientes de la Ley de Arrendamientos Urbanos que se encuentre vigente en el momento de formalización del presente contrato.',
+    //       radioId: 'id-dec-43_opB',
+    //       identifier: 'id-dec-43_opB',
+    //       extraReplacements: [
+    //       ],
+    //       checked: false,
+    //     },
+    //   ]
+    // },
+    {
+      type: 'iRadioC',
+      question: '(Subarrendamiento) El arrendatario (inquilino):',
+      identifier: 'id-dec-44',
+      wordToReplace: 'id-dec-44',
+      defaultRadioId: 'id-dec-44_opA',
+      indications: {
+        areIndications: true,
+        indicationsType: 'outsideText',
+        // tslint:disable-next-line:max-line-length
+        value: 'El subarriendo (ceder la habitación a cambio de un precio) de habitaciones es legal, pero siempre con el previo consentimiento del arrendador. En el caso de los subarriendos consentidos, el propio arrendatario deberá hacer un contrato con cada subarrendatario que vaya a ocupar las habitaciones de la vivienda, especificando las zonas alquiladas y las normas de convivencia de la casa.  El subarriendo tendrá la misma duración que el contrato de arrendamiento inicial suscrito entre propietario y arrendatario.'
+      },
+      replacement: '',
+      extraReplacements: [
+      ],
+      radios: [
+        {
+          label: 'no podrá subarrendar (ceder la habitación a cambio de un precio) la habitación alquilada ni ceder este contrato (sustituirse por otro arrendatario)',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'Queda prohibido la cesión de la habitación o su subarriendo ya sea total o parcial.',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'Queda prohibido la cesión de la habitación o su subarriendo ya sea total o parcial.',
+          extraReplacements: [],
+          radioId: 'id-dec-44_opA',
+          identifier: 'id-dec-44_opA',
+          checked: true,
+          subSteps: []
+        },
+        {
+          label: 'podrá subarrendar la habitación alquilada y ceder este contrato',
+          replacementOriginal: 'La parte arrendataria se compromete a poner en conocimiento de la parte arrendadora esta situación, junto con el acuerdo o contrato correspondiente con, al menos, iddec44opB1-precioAletras (id-dec-44_opB_1) días de antelación a la formalización del acuerdo de subarriendo o cesión, de forma expresa y por escrito. <br>En caso de cesión, el cesionario se subrogará en la posición de la PARTE ARRENDATARIA frente a la PARTE ARRENDADORA. <br>En caso de subarriendo, la PARTE ARRENDATARIA continuará siendo responsable del cumplimiento del Contrato para con la PARTE ARRENDADORA, y se deberán respetar una serie de condiciones: <br>a) El subarriendo, respetando el objeto de este Contrato, será de la Habitación. <br>b) El subarriendo no podrá tener en ningún caso una duración superior a la duración de este Contrato de arrendamiento.',
+          replacement: 'La parte arrendataria se compromete a poner en conocimiento de la parte arrendadora esta situación, junto con el acuerdo o contrato correspondiente con, al menos, iddec44opB1-precioAletras (id-dec-44_opB_1) días de antelación a la formalización del acuerdo de subarriendo o cesión, de forma expresa y por escrito. <br>En caso de cesión, el cesionario se subrogará en la posición de la PARTE ARRENDATARIA frente a la PARTE ARRENDADORA. <br>En caso de subarriendo, la PARTE ARRENDATARIA continuará siendo responsable del cumplimiento del Contrato para con la PARTE ARRENDADORA, y se deberán respetar una serie de condiciones: <br>a) El subarriendo, respetando el objeto de este Contrato, será de la Habitación. <br>b) El subarriendo no podrá tener en ningún caso una duración superior a la duración de este Contrato de arrendamiento.',
+          extraReplacements: [],
+          radioId: 'id-dec-44_opB',
+          identifier: 'id-dec-44_opB',
+          checked: false,
+          subSteps: [
+            {
+              question: '¿Que porcentaje de estos gastos extraordinarios (o también conocidos como derramas) deberá pagar el arrendatario (inquilino)?:',
+              placeholder: 'Ej. Escriba un número menor que 100',
+              wordToReplace: 'id-dec-12_opA_2_opB_1',
+              identifier: 'id-dec-12_opA_2_opB_1',
+              type: 'iNumber',
+              replacement: '',
+              extraReplacements: [],
+              indications: {
+                areIndications: true,
+                indicationsType: 'insideText',
+                // tslint:disable-next-line:max-line-length
+                value: 'La cantidad debe ser proporcional a la parte de la vivienda que será ocupada por el arrendatario (inquilino).'
+              },
+              rules: [
+                {
+                  condition: false,
+                  rulename: 'extraReplacementToCharacter',
+                  identifier: 'iddec12opA2opB1-precioAletras',
+                  wordToReplace: 'iddec12opA2opB1-precioAletras',
+                  replacement: ''
+                }
+              ],
+            }
+          ]
+        }
+      ],
+    },
     {
         type: 'end',
         identifier: 'end',
