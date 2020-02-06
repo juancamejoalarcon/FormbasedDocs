@@ -196,19 +196,21 @@ export class StepsService {
     }
   }
 
-  onInputRadioBSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
+  onInputRadioBSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true, avoidFocus: boolean = false) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.wordToReplace === wordToReplace) {
-        step.isFocused = true;
+        step.isFocused = avoidFocus ? false : true;
         // 2. Find radio selected
         step.radios.forEach((radio) => {
           if (radio.radioId === radioSelectedId) {
             step.replacement = radio.replacementOriginal;
             radio.checked = true;
-            step.extraReplacements.forEach((extraReplacement, i) => {
-              extraReplacement.replacement = radio.extraReplacements[i].replacement;
-            });
+            if (step.extraReplacements) {
+              step.extraReplacements.forEach((extraReplacement, i) => {
+                extraReplacement.replacement = radio.extraReplacements[i].replacement;
+              });
+            }
           } else {
             radio.checked = false;
           }
@@ -225,6 +227,7 @@ export class StepsService {
   onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
     const refreshForEachInputs = [];
     const refreshNormalInputs = [];
+    const refreshRadioBInputs = [];
     const buildSelectedRadio = (step: any, index: number, radio: any, ) => {
       // 3. Clean possible previously added steps, so we don't repeat them
       this.cleanPreviouslyAddedSteps(index, step.wordToReplace);
@@ -283,6 +286,10 @@ export class StepsService {
               refreshNormalInputs.push(subStep);
             }
           }
+
+          if (subStep.type === 'iRadioB') {
+            refreshRadioBInputs.push(subStep);
+          }
           this.steps.splice(((index + 1) + subStepIndex ), 0, subStep);
       });
       radio.replacement = replacement;
@@ -336,11 +343,19 @@ export class StepsService {
         step.isFocused = false;
       }
     });
+
     refreshForEachInputs.forEach((forEachInput) => {
       this.buildForEach(forEachInput.value, forEachInput.wordToReplace, false);
     });
     refreshNormalInputs.forEach((input) => {
       this.input(input.replacement, input.wordToReplace, false);
+    });
+    refreshRadioBInputs.forEach((step) => {
+      step.radios.forEach((radio) => {
+        if (radio.checked) {
+          this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
+        }
+      });
     });
     if (buildDocumentAfter) {
       this.buildDocument();
