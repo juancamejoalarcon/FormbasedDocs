@@ -200,6 +200,14 @@ export class DocCreatorService {
           if (index !== content.modifiedReplacements.length - 1) {
             const elementContainingWordClone = elementContainingWord.cloneNode(true);
             elementContainingWord.parentNode.insertBefore(elementContainingWordClone, elementContainingWord.nextSibling);
+            // add focused if you are adding or removing 
+            if (step.forEachFocused) {
+              const newSpan = document.createElement('span');
+              newSpan.classList.add('highlight-disapear', 'focused');
+              elementContainingWordClone.childNodes.forEach((child: any) => { newSpan.appendChild(child) });
+              while (elementContainingWordClone.firstChild) { elementContainingWordClone.removeChild(elementContainingWordClone.firstChild); };
+              elementContainingWordClone.appendChild(newSpan);
+            }
             exactElementContainingWord = elementContainingWordClone;
           } else {
             exactElementContainingWord = elementContainingWord;
@@ -245,6 +253,7 @@ export class DocCreatorService {
         elementContainingWord.innerHTML =  `<span>${firstHalfString + secondHalfStringWithoutWordtoReplace}</span>`;
       }
     });
+    step.forEachFocused = false;
   }
 
   buildForRadioC(step: any) {
@@ -253,7 +262,7 @@ export class DocCreatorService {
     let replacement: string;
     step.radios.forEach((radio) => {
       if (radio.checked) {
-        if (step.isFocused) {
+        if (step.isFocused || step.radioCfocused) {
           replacement = `<span class="highlight-disapear focused">${radio.replacement}</span>`;
         } else {
           replacement = radio.replacement;
@@ -280,6 +289,7 @@ export class DocCreatorService {
         elementContainingWord = elementContainingWord.firstElementChild;
       }
     elementContainingWord.innerHTML = elementContainingWord.innerHTML.replace(regexp, replacement);
+    step.radioCfocused = false;
   }
 
   // // Case where all children elements are br

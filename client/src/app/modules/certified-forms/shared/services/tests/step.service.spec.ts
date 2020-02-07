@@ -16,7 +16,7 @@ fdescribe('StepService', () => {
   let service: StepsService;
 
   beforeEach(() => {
-    const spyCommonsService = jasmine.createSpyObj('CommonsService', ['numeroALetras']);
+    const spyCommonsService = jasmine.createSpyObj('CommonsService', ['precioALetras']);
     const spyDocCreatorService = jasmine.createSpyObj('DocCreatorService', ['buildDocument']);
 
     TestBed.configureTestingModule({

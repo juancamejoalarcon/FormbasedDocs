@@ -5,6 +5,7 @@ import { DocCreatorService } from './doc-creator.service';
 @Injectable()
 export class StepsService {
   public steps: Array<any>;
+  public cacheSteps: Array<any>;
 
   constructor(
     private documentCreatorService: DocCreatorService,
@@ -13,6 +14,7 @@ export class StepsService {
 
   init(steps: Array<Object>) {
     this.steps = steps;
+    this.cacheSteps = JSON.parse(JSON.stringify(this.steps));
   }
 
   setInitialState() {
@@ -88,7 +90,7 @@ export class StepsService {
           })
           step.extraReplacements.push({
             wordToReplace: rule.wordToReplace,
-            replacement: this.commonsService.numeroALetras(step.replacement, {
+            replacement: this.commonsService.precioALetras(step.replacement, {
               plural: 'euros',
               singular: 'euro',
               centPlural: 'centavos',
@@ -96,18 +98,38 @@ export class StepsService {
             })
           });
         }
+        if (rule.rulename === 'extraReplacementAletras') {
+          step.extraReplacements.forEach((extraReplacement: any, index: number) => {
+            if (extraReplacement.wordToReplace === rule.wordToReplace) {
+              step.extraReplacements.splice(index, 1);
+            }
+          })
+          step.extraReplacements.push({
+            wordToReplace: rule.wordToReplace,
+            replacement: this.commonsService.numeroALetras(step.replacement)
+          });
+        }
       });
     }
   }
 
-  buildForEach(value: string, wordToReplace: string, buildDocumentAfter: boolean = true) {
+  buildForEach(
+    value: string,
+    wordToReplace: string,
+    buildDocumentAfter: boolean = true,
+    forEachFocused: boolean = false,
+    saveCache: boolean = false) {
+    if (saveCache) {
+      this.cacheSteps = JSON.parse(JSON.stringify(this.steps));
+    }
     const refreshRadioCSteps = [];
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.wordToReplace === wordToReplace) {
+        step.forEachFocused = forEachFocused;
         step.value = value;
+        
         // 2. Clean possible previously added steps, so we don't repeat them
-        const cache = JSON.parse(JSON.stringify(this.steps));
         this.cleanPreviouslyAddedSteps(index, step.identifier);
         // 3. Loop through the texts that will be inserted
         step.content.forEach((content, contentIndex) => {
@@ -144,7 +166,7 @@ export class StepsService {
               });
               // Deep copy
               let copySubStep = JSON.parse(JSON.stringify(subStep));
-              cache.forEach((cachedStep) => {
+              this.cacheSteps.forEach((cachedStep) => {
                 if (cachedStep.wordToReplace == newIndentifier) {
                   copySubStep = JSON.parse(JSON.stringify(cachedStep));
                   copySubStep.cached = true;
@@ -152,6 +174,7 @@ export class StepsService {
               });
               copySubStep.identifier = newIndentifier;
               copySubStep.wordToReplace = newIndentifier;
+              copySubStep.question = copySubStep.question.replace('->(index)', i + 1);
 
               this.steps.splice(
                 ((index + 1) +
@@ -172,6 +195,16 @@ export class StepsService {
           content.modifiedExtraReplacements.push(modifiedExtraReplacements);
           // 5. Insert text in the office document
         });
+      }
+    });
+    // Force retrieve values from cache
+    this.steps.forEach((step, index) => {
+      if (step.type === 'iText' || step.type === 'iNumber' || step.type === 'iDate') {
+        this.cacheSteps.forEach((cacheStep) => {
+          if (step.identifier === cacheStep.identifier) {
+            step.replacement = cacheStep.replacement;
+          }
+        })
       }
     });
     if (buildDocumentAfter) {
@@ -224,7 +257,7 @@ export class StepsService {
     }
   }
 
-  onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true) {
+  onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true, radioCfocused: boolean = false) {
     const refreshForEachInputs = [];
     const refreshNormalInputs = [];
     const refreshRadioBInputs = [];
@@ -267,6 +300,7 @@ export class StepsService {
               content.subSteps.forEach((contentSubstep) => {
                 contentSubstep.wordToReplace = contentSubstep.wordToReplace.replace(regexp, subStep.wordToReplace);
                 contentSubstep.identifier = contentSubstep.identifier.replace(regexp, subStep.wordToReplace);
+
               });
               content.wordToReplace = subStep.wordToReplace;
               content.identifier = subStep.wordToReplace;
@@ -339,6 +373,7 @@ export class StepsService {
 
       if (step.wordToReplace === wordToReplace) {
         step.isFocused = true;
+        step.radioCfocused = radioCfocused;
       } else {
         step.isFocused = false;
       }
