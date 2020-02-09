@@ -349,12 +349,20 @@ export class DocCreatorService {
           if (step.isEmpty) {
             if (step.replacement !== '') {
               if (step.isEmpty.prepend) {
-                replacement = step.replacement.replace(step.isEmpty.prepend, '');
-                replacement = step.isEmpty.prepend + step.replacement;
+                if (replacement.slice(0, step.isEmpty.prepend.length) === step.isEmpty.prepend) {
+                  replacement = replacement.slice(step.isEmpty.prepend.length, replacement.length);
+                }
+                replacement = step.isEmpty.prepend + replacement;
               }
               if (step.isEmpty.append) {
-                replacement = step.replacement.replace(step.isEmpty.append, '');
-                replacement = step.replacement + step.isEmpty.append;
+                if (replacement.slice(-step.isEmpty.append.length) === step.isEmpty.append) {
+                  replacement = replacement.slice(0, -step.isEmpty.prepend.length);
+                }
+                replacement = replacement + step.isEmpty.append;
+              }
+            } else {
+              if (step.isEmpty.defaultValue) {
+                replacement = step.isEmpty.defaultValue;
               }
             }
           }

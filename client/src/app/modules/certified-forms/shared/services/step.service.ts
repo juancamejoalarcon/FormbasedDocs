@@ -33,6 +33,13 @@ export class StepsService {
           case 'iForEach':
               this.buildForEach(step.value, step.wordToReplace, false);
             break;
+          case 'iRadioB':
+              step.radios.forEach((radio) => {
+                if (radio.checked) {
+                  this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
+                }
+              });
+            break;
           case 'iRadioC':
             let noneIsChecked = true;
               step.radios.forEach((radio: any) => {
@@ -80,12 +87,12 @@ export class StepsService {
   }
 
   rulesForInumber(step: any, index: number) {
-    if (step.rules.length) {
+    if (step.rules && step.rules.length) {
       step.rules.forEach((rule: any) => {
-        if (rule.rulename === 'extraReplacementToCharacter') {
-          step.extraReplacements.forEach((extraReplacement: any, index: number) => {
+        if (rule.rulename === 'extraReplacementToCharacter' && step.extraReplacements) {
+          step.extraReplacements.forEach((extraReplacement: any, i: number) => {
             if (extraReplacement.wordToReplace === rule.wordToReplace) {
-              step.extraReplacements.splice(index, 1);
+              step.extraReplacements.splice(i, 1);
             }
           })
           step.extraReplacements.push({
@@ -98,10 +105,10 @@ export class StepsService {
             })
           });
         }
-        if (rule.rulename === 'extraReplacementAletras') {
-          step.extraReplacements.forEach((extraReplacement: any, index: number) => {
+        if (rule.rulename === 'extraReplacementAletras' && step.extraReplacements) {
+          step.extraReplacements.forEach((extraReplacement: any, i: number) => {
             if (extraReplacement.wordToReplace === rule.wordToReplace) {
-              step.extraReplacements.splice(index, 1);
+              step.extraReplacements.splice(i, 1);
             }
           })
           step.extraReplacements.push({
@@ -122,6 +129,7 @@ export class StepsService {
     if (saveCache) {
       this.cacheSteps = JSON.parse(JSON.stringify(this.steps));
     }
+    const refreshRadioBSteps = [];
     const refreshRadioCSteps = [];
     // 1. Find the step
     this.steps.forEach((step, index) => {
@@ -185,6 +193,11 @@ export class StepsService {
                 ), 0, copySubStep);
 
                 // refresh radioC inside forEach
+                if (copySubStep.type === 'iRadioB') {
+                  refreshRadioBSteps.push(copySubStep);
+                }
+
+                // refresh radioC inside forEach
                 if (copySubStep.type === 'iRadioC') {
                   refreshRadioCSteps.push(copySubStep);
                 }
@@ -197,6 +210,15 @@ export class StepsService {
         });
       }
     });
+
+    refreshRadioBSteps.forEach((step) => {
+      step.radios.forEach((radio) => {
+        if (radio.checked) {
+          this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
+        }
+      });
+    });
+
     // Force retrieve values from cache
     this.steps.forEach((step, index) => {
       if (step.type === 'iText' || step.type === 'iNumber' || step.type === 'iDate') {
@@ -204,9 +226,20 @@ export class StepsService {
           if (step.identifier === cacheStep.identifier) {
             step.replacement = cacheStep.replacement;
           }
-        })
+        });
+      } else if (step.type === 'iRadioB') {
+        this.cacheSteps.forEach((cacheStep) => {
+          if (step.identifier === cacheStep.identifier) {
+            cacheStep.radios.forEach((radio) => {
+              if (radio.checked) {
+                this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
+              }
+            });
+          }
+        });
       }
     });
+
     if (buildDocumentAfter) {
       refreshRadioCSteps.forEach((step) => {
         if (step.cached) {
@@ -261,6 +294,7 @@ export class StepsService {
     const refreshForEachInputs = [];
     const refreshNormalInputs = [];
     const refreshRadioBInputs = [];
+    const refreshRadioCInputs = [];
     const buildSelectedRadio = (step: any, index: number, radio: any, ) => {
       // 3. Clean possible previously added steps, so we don't repeat them
       this.cleanPreviouslyAddedSteps(index, step.wordToReplace);
@@ -270,7 +304,8 @@ export class StepsService {
       radio.subSteps.forEach((subStep, subStepIndex) => {
           // Make step unique modifying identifier
           subStep.wordToReplace = step.identifier + subStep.identifier;
-          replacement = replacement.replace(subStep.identifier, subStep.wordToReplace);
+          const regexp = new RegExp(subStep.identifier, 'g');
+          replacement = replacement.replace(regexp, subStep.wordToReplace);
 
           radio.extraReplacements.forEach( (extraReplacement) => {
               extraReplacement.replacement = extraReplacement.replacement.replace(subStep.identifier, subStep.wordToReplace);
@@ -285,21 +320,23 @@ export class StepsService {
               subStep.radios.forEach((radioC: any) => {
                   radioC.subSteps.forEach((radioCsubstep: any) => {
                       const newIndentifier = subStep.wordToReplace + radioCsubstep.identifier;
-                      radioC.replacementOriginal = radioC.replacementOriginal.replace(radioCsubstep.identifier, newIndentifier);
+                      const regexp3 = new RegExp(radioCsubstep.identifier, 'g');
+                      radioC.replacementOriginal = radioC.replacementOriginal.replace(regexp3, newIndentifier);
                       radioCsubstep.wordToReplace = newIndentifier;
                       // Mirar si se puede quitar esto
                       radioCsubstep.identifier = newIndentifier;
                       radioCsubstep.inherited = true;
                   });
               });
+              refreshRadioCInputs.push(subStep);
           }
           if (subStep.type === 'iForEach') {
             subStep.content.forEach((content) => {
-              const regexp = new RegExp(content.wordToReplace, 'g');
-              content.replacementOriginal = content.replacementOriginal.replace(regexp, subStep.wordToReplace);
+              const regexp2 = new RegExp(content.wordToReplace, 'g');
+              content.replacementOriginal = content.replacementOriginal.replace(regexp2, subStep.wordToReplace);
               content.subSteps.forEach((contentSubstep) => {
-                contentSubstep.wordToReplace = contentSubstep.wordToReplace.replace(regexp, subStep.wordToReplace);
-                contentSubstep.identifier = contentSubstep.identifier.replace(regexp, subStep.wordToReplace);
+                contentSubstep.wordToReplace = contentSubstep.wordToReplace.replace(regexp2, subStep.wordToReplace);
+                contentSubstep.identifier = contentSubstep.identifier.replace(regexp2, subStep.wordToReplace);
 
               });
               content.wordToReplace = subStep.wordToReplace;
@@ -313,7 +350,8 @@ export class StepsService {
               if (rule.rulename === 'extraReplacementToCharacter') {
                 const newRuleIdentifier = 'i' + Math.random().toString(36).substring(7) + rule.identifier;
                 rule.wordToReplace = newRuleIdentifier;
-                replacement = replacement.replace(rule.identifier, newRuleIdentifier);
+                const regexp4 = new RegExp(rule.identifier, 'g');
+                replacement = replacement.replace(regexp4, newRuleIdentifier);
               }
             });
             if (subStep.rules.length) {
@@ -350,24 +388,24 @@ export class StepsService {
           }
           });
         } else {
-          let noneIsChecked = true;
-          step.radios.forEach((radio) => {
-            if (radio.checked) {
-              noneIsChecked = false;
-              buildSelectedRadio(step, index, radio);
-            } else {
-              radio.checked = false;
-            }
-          });
-          if (noneIsChecked) {
-            step.radios.forEach((radio) => {
-              if (radio.radioId === step.defaultRadioId) {
-                buildSelectedRadio(step, index, radio);
-              } else {
-                radio.checked = false;
-              }
-            });
-          }
+          // let noneIsChecked = true;
+          // step.radios.forEach((radio) => {
+          //   if (radio.checked) {
+          //     noneIsChecked = false;
+          //     buildSelectedRadio(step, index, radio);
+          //   } else {
+          //     radio.checked = false;
+          //   }
+          // });
+          // if (noneIsChecked) {
+          //   step.radios.forEach((radio) => {
+          //     if (radio.radioId === step.defaultRadioId) {
+          //       buildSelectedRadio(step, index, radio);
+          //     } else {
+          //       radio.checked = false;
+          //     }
+          //   });
+          // }
         }
       }
 
@@ -382,6 +420,13 @@ export class StepsService {
     refreshForEachInputs.forEach((forEachInput) => {
       this.buildForEach(forEachInput.value, forEachInput.wordToReplace, false);
     });
+    refreshRadioCInputs.forEach((step) => {
+      step.radios.forEach((radio) => {
+        if (radio.checked) {
+          this.onInputRadioCSelected(radio.radioId, step.wordToReplace, false);
+        }
+      });
+    });
     refreshNormalInputs.forEach((input) => {
       this.input(input.replacement, input.wordToReplace, false);
     });
@@ -392,6 +437,7 @@ export class StepsService {
         }
       });
     });
+
     if (buildDocumentAfter) {
       this.buildDocument();
     }
