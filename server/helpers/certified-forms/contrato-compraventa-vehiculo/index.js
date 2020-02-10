@@ -13,7 +13,8 @@ const contrato_compraventa_vehiculo = {
     uri: uri,
     paidUri: paidUri,
     steps: steps,
-    information: information
+    information: information,
+    debounceTime: 0
 };
 
 module.exports = contrato_compraventa_vehiculo;

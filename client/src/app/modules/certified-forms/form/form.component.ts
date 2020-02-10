@@ -70,6 +70,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
               this.form.amount = certifiedForm.amount;
               this.form.topLabelTitle = certifiedForm.topLabelTitle;
               this.form.information = certifiedForm.information;
+              this.form.debounceTime = certifiedForm.debounceTime;
               this.setInitiaState();
             } else if (data.transactionNotFound) {
               this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
@@ -95,6 +96,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.form.image = certifiedForm.image;
                 this.form.topLabelTitle = certifiedForm.topLabelTitle;
                 this.form.information = certifiedForm.information;
+                this.form.debounceTime = certifiedForm.debounceTime;
                 this.setInitiaState();
               } );
           }
@@ -115,6 +117,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setInitiaState() {
     this.stepModelService.init(this.form.fields);
+    this.stepModelService.setDebounceTime(this.form.debounceTime);
     this.sharedService.setForm(this.form);
     this.form.fields.forEach((step: any, index) => {
       if (step.isCurrentStep) {

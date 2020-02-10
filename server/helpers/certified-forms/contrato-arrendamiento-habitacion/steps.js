@@ -2033,8 +2033,8 @@ const steps = [
             },
             {
               identifier: 'iddec17-extra-3',
-              replacement: 'El tiempo de vigencia del presente contrato de arrendamiento será de: id-dec-20, contados desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
-              replacementOriginal: 'El tiempo de vigencia del presente contrato de arrendamiento será de: id-dec-20, contados desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
+              replacement: 'El tiempo de vigencia del presente contrato de arrendamiento será de: id-dec-20, contados desde el día id-dec-21id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
+              replacementOriginal: 'El tiempo de vigencia del presente contrato de arrendamiento será de: id-dec-20, contados desde el día id-dec-21id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
               insideId: 'opC'
             },
             {
@@ -2075,8 +2075,8 @@ const steps = [
             },
             {
               identifier: 'iddec17-extra-3',
-              replacement: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
-              replacementOriginal: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
+              replacement: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
+              replacementOriginal: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
               insideId: 'opC'
             },
             {
@@ -2331,8 +2331,8 @@ const steps = [
             },
             {
               identifier: 'iddec17-extra-3',
-              replacement: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
-              replacementOriginal: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
+              replacement: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
+              replacementOriginal: 'El arrendamiento se pacta por la temporada de: id-dec-20, teniendo su comienzo el día id-dec-21id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
               insideId: 'opC'
             },
             {
@@ -2390,8 +2390,8 @@ const steps = [
             },
             {
               identifier: 'iddec17-extra-3',
-              replacement: 'El arrendamiento se pacta por el plazo de: id-dec-20, a contar desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
-              replacementOriginal: 'El arrendamiento se pacta por el plazo de: id-dec-20, a contar desde el día id-dec-21 id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
+              replacement: 'El arrendamiento se pacta por el plazo de: id-dec-20, a contar desde el día id-dec-21id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
+              replacementOriginal: 'El arrendamiento se pacta por el plazo de: id-dec-20, a contar desde el día id-dec-21id-dec-22. Por lo que el contrato quedará extinguidoiddec25-extra-1 id-dec-23',
               insideId: 'opC'
             },
             {
@@ -2443,7 +2443,7 @@ const steps = [
         value: '',
       },
       isEmpty: {
-        prepend: 'ni las siguientes zonas de la misma:<br>',
+        prepend: 'ni las siguientes zonas de la misma: ',
         append: '',
       }
     },
@@ -2468,8 +2468,8 @@ const steps = [
       radios: [
         {
           label: 'Sí',
-          replacementOriginal: 'uso y',
-          replacement: 'uso y',
+          replacementOriginal: 'USO Y',
+          replacement: 'USO Y',
           radioId: 'id-dec-19_opA',
           identifier: 'id-dec-19_opA',
           extraReplacements: [
@@ -2889,9 +2889,9 @@ const steps = [
         {
           label: 'No',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'El desistimiento unilateral del contrato por alguna de las partes antes de su finalización conllevará el pago a la otra parte de indemnización correspondiente al iddec26opC1-precioAletras por ciento ({{id-dec-26_opC_1}} %) de la renta total del arrendamiento que faltase por abonar hasta la finalización del contrato. id-dec-26_opC_2',
+          replacementOriginal: 'El desistimiento unilateral del contrato por alguna de las partes antes de su finalización conllevará el pago a la otra parte de indemnización correspondiente al iddec26opC1-precioAletras por ciento (id-dec-26_opC_1 %) de la renta total del arrendamiento que faltase por abonar hasta la finalización del contrato. id-dec-26_opC_2',
           // tslint:disable-next-line:max-line-length
-          replacement: 'El desistimiento unilateral del contrato por alguna de las partes antes de su finalización conllevará el pago a la otra parte de indemnización correspondiente al iddec26opC1-precioAletras por ciento ({{id-dec-26_opC_1}} %) de la renta total del arrendamiento que faltase por abonar hasta la finalización del contrato. id-dec-26_opC_2',
+          replacement: 'El desistimiento unilateral del contrato por alguna de las partes antes de su finalización conllevará el pago a la otra parte de indemnización correspondiente al iddec26opC1-precioAletras por ciento (id-dec-26_opC_1 %) de la renta total del arrendamiento que faltase por abonar hasta la finalización del contrato. id-dec-26_opC_2',
           extraReplacements: [
           ],
           radioId: 'id-dec-26_opC',
@@ -2912,6 +2912,8 @@ const steps = [
               placeholder: 'P. ej. Numero menor que 100',
               mandatory: true,
               isFocused: false,
+              extraReplacements: [
+              ],
               rules: [
                 {
                   condition: false,
@@ -2938,7 +2940,7 @@ const steps = [
               isFocused: false,
               isEmpty: {
                 prepend: 'En caso de desistimiento del contrato por cualquiera de las partes incumpliendo el preaviso pactado de: ',
-                append: 'de antelación, conllevará el pago de una indemnización por los daños y perjuicios generados.',
+                append: ' de antelación, conllevará el pago de una indemnización por los daños y perjuicios generados.',
               }
             }
           ]
@@ -3411,9 +3413,9 @@ const steps = [
         {
           label: 'En efectivo',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacementOriginal: 'mediante pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacement: 'mediante pago en efectivo. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           extraReplacements: [],
           radioId: 'id-dec-29_opB',
           identifier: 'id-dec-29_opB',
@@ -3424,9 +3426,9 @@ const steps = [
         {
           label: 'otro',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'El pago se realizará mediante: id-dec-29_opC_1. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacementOriginal: 'mediante: id-dec-29_opC_1. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'El pago se realizará mediante: id-dec-29_opC_1. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacement: 'mediante: id-dec-29_opC_1. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           extraReplacements: [],
           radioId: 'id-dec-29_opC',
           identifier: 'id-dec-29_opC',

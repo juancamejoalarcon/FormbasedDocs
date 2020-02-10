@@ -10,11 +10,11 @@
               <div class="form-creator__fields-area__field__middle">
                   <span class="form-creator__fields-area__field__middle__question">{{step.question}}</span>
                   <input type="text" [value]="step.replacement" #input
-                  (keyup)="onInput(input.value, step.wordToReplace)"
+                  (keyup)="onInput($event)"
                   [placeholder]="step.placeholder ? step.placeholder : ''"
                   [ngStyle]="{'borderBottom': inputInvalid ? '3px solid red' : ''}" *ngIf="step.subtype !== 'textarea'">
                   <textarea [value]="step.replacement" #input 
-                  (keyup)="onInput(input.value, step.wordToReplace)"
+                  (keyup)="onInput($event, step.wordToReplace)"
                   [placeholder]="step.placeholder ? step.placeholder : ''"
                   [ngStyle]="{'borderBottom': inputInvalid ? '3px solid red' : ''}" 
                   cols="30" rows="6" *ngIf="step.subtype === 'textarea'"></textarea>

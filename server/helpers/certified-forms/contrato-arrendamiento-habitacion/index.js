@@ -13,7 +13,8 @@ const contrato_arrendamiento_habitacion = {
     uri: uri,
     paidUri: paidUri,
     steps: steps,
-    information: information
+    information: information,
+    debounceTime: 400
 };
 
 module.exports = contrato_arrendamiento_habitacion;

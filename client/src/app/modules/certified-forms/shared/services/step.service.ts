@@ -6,6 +6,7 @@ import { DocCreatorService } from './doc-creator.service';
 export class StepsService {
   public steps: Array<any>;
   public cacheSteps: Array<any>;
+  public debounceTime: number;
 
   constructor(
     private documentCreatorService: DocCreatorService,
@@ -15,6 +16,14 @@ export class StepsService {
   init(steps: Array<Object>) {
     this.steps = steps;
     this.cacheSteps = JSON.parse(JSON.stringify(this.steps));
+  }
+
+  setDebounceTime(debounceTime: number) {
+    this.debounceTime = debounceTime;
+  }
+
+  getDebounceTime() {
+    return this.debounceTime;
   }
 
   setInitialState() {

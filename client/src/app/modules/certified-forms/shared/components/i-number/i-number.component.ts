@@ -8,6 +8,8 @@ import {
   ElementRef
 } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 import {
   DocCreatorService,
@@ -24,6 +26,7 @@ export class INumberComponent implements OnInit {
   @Input() step: any;
   @Input() inputInvalid: any;
   @Output() emitIndication: EventEmitter<any> = new EventEmitter();
+  private subject: Subject<string> = new Subject();
 
   constructor(
     private stepModelService: StepsService,
@@ -32,10 +35,15 @@ export class INumberComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.subject.pipe(
+      debounceTime(this.stepModelService.getDebounceTime())
+    ).subscribe(searchTextValue => {
+      this.stepModelService.input(searchTextValue, this.step.wordToReplace);
+    });
   }
 
-  onInputNumberChanged(input: any) {
-
+  onInputNumberChanged(e: any) {
+    let input = e.srcElement.value
     if (isNaN(input)) {
       this.toastr.error('Number not valid', 'Must be a number', {
         positionClass: 'toast-bottom-right',
@@ -51,7 +59,7 @@ export class INumberComponent implements OnInit {
       if (input.includes('.')) {
         input = input.replace('.', '');
       }
-      this.stepModelService.input(input, this.step.wordToReplace);
+      this.subject.next(input);
     }
   }
 
