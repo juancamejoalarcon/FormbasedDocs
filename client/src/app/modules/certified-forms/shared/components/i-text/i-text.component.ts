@@ -33,7 +33,7 @@ export class ITextComponent implements OnInit {
 
   ngOnInit() {
     this.subject.pipe(
-      debounceTime(this.stepModelService.getDebounceTime())
+      debounceTime(0)
     ).subscribe(searchTextValue => {
       this.stepModelService.input(searchTextValue, this.step.wordToReplace);
     });

@@ -176,6 +176,7 @@ export class StepsService {
                 modifiedExtraReplacement.replacement =
                 modifiedExtraReplacement.replacement.replace(subStepExtraReplacement.identifier, newIndentifier2);
                 subStepExtraReplacement.wordToReplace = newIndentifier2;
+                subStepExtraReplacement.identifier = newIndentifier2;
                 // modifiedExtraReplacements[indexOfExtraReplace].push({
                 //   wordToReplace: step.identifier + extraReplacement.identifier + i.toString() + subStepIndex.toString(),
                 //   identifier: extraReplacement.identifier
@@ -208,6 +209,17 @@ export class StepsService {
 
                 // refresh radioC inside forEach
                 if (copySubStep.type === 'iRadioC') {
+                  // Give new ids to substeps
+                  copySubStep.radios.forEach((radioC: any) => {
+                      radioC.subSteps.forEach((radioCsubstep: any) => {
+                          const newId = newIndentifier + radioCsubstep.identifier;
+                          const regexp3 = new RegExp(radioCsubstep.identifier, 'g');
+                          radioC.replacementOriginal = radioC.replacementOriginal.replace(regexp3, newId);
+                          radioCsubstep.wordToReplace = newId;
+                          // Mirar si se puede quitar esto
+                          radioCsubstep.identifier = newId;
+                      });
+                  });
                   refreshRadioCSteps.push(copySubStep);
                 }
 
