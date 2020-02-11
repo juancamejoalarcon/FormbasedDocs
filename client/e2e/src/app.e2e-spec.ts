@@ -1,14 +1,30 @@
 import { AppPage } from './app.po';
+import { by, element } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('contrato de arrendamiento de habitacion', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to automatikdocs!');
+  it('should set the title properly', () => {
+    page.navigateToCertifiedForm('contrato-arrendamiento-habitacion');
+    expect(page.getFormTitle().isPresent()).toBe(true);
+    expect(page.getFormTitle().getText()).toBe('Contrato de arrendamiento de habitación');
   });
+
+  // it('should set the first question', () => {
+  //   page.startForm();
+  //   page.sleep(500);
+
+  //   expect(
+  //     element(by.css('.form-creator__fields-area__field__middle__question')).getText()
+  //   ).toBe('Lugar (ciudad o población) donde se realiza y firma el contrato:');
+
+  // });
+
+
+
+
 });
