@@ -7,11 +7,8 @@ import {
 } from '@angular/core';
 
 import {
-  DocCreatorService,
   StepsService
 } from '../../services';
-import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
 
 
 
@@ -24,19 +21,12 @@ export class ITextComponent implements OnInit {
   @Input() step: any;
   @Input() inputInvalid: any;
   @Output() emitIndication: EventEmitter<any> = new EventEmitter();
-  private subject: Subject<string> = new Subject();
 
   constructor(
-    private stepModelService: StepsService,
-    private documentCreatorService: DocCreatorService,
+    private stepModelService: StepsService
   ) { }
 
   ngOnInit() {
-    this.subject.pipe(
-      debounceTime(this.stepModelService.getDebounceTime())
-    ).subscribe(searchTextValue => {
-      this.stepModelService.input(searchTextValue, this.step.wordToReplace);
-    });
   }
 
   showIndication() {
@@ -44,7 +34,7 @@ export class ITextComponent implements OnInit {
   }
 
   onInput(e: any) {
-    this.subject.next(e.srcElement.value);
+    this.stepModelService.input(e.srcElement.value, this.step.wordToReplace, true, true);
   }
 
 }

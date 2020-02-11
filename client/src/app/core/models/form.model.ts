@@ -33,5 +33,4 @@ export class Form {
   topLabelTitle: string;
   steps: any;
   information: string;
-  debounceTime: any
 }

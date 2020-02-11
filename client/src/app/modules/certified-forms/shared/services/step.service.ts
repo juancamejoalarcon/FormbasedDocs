@@ -6,7 +6,6 @@ import { DocCreatorService } from './doc-creator.service';
 export class StepsService {
   public steps: Array<any>;
   public cacheSteps: Array<any>;
-  public debounceTime: number;
 
   constructor(
     private documentCreatorService: DocCreatorService,
@@ -18,66 +17,93 @@ export class StepsService {
     this.cacheSteps = JSON.parse(JSON.stringify(this.steps));
   }
 
-  setDebounceTime(debounceTime: number) {
-    this.debounceTime = debounceTime;
-  }
-
-  getDebounceTime() {
-    return this.debounceTime;
+  refreshCache() {
+    this.cacheSteps = JSON.parse(JSON.stringify(this.steps));
   }
 
   setInitialState() {
-    const buildSteps = () => {
-      this.steps.forEach((step) => {
-        switch (step.type) {
-          case 'iText':
-              this.input(step.replacement, step.wordToReplace, false);
+    if (!this.steps[0].inited) {
+      const buildSteps = () => {
+        this.steps.forEach((step) => {
+  
+          switch (step.type) {
+            case 'start':
+              step.inited = true;
             break;
-          case 'iNumber':
-              this.input(step.replacement, step.wordToReplace, false);
-            break;
-          case 'iDate':
-              this.input(step.replacement, step.wordToReplace, false);
-            break;
-          case 'iForEach':
-              this.buildForEach(step.value, step.wordToReplace, false);
-            break;
-          case 'iRadioB':
-              step.radios.forEach((radio) => {
-                if (radio.checked) {
-                  this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
+            case 'iText':
+                this.input(step.replacement, step.wordToReplace, false);
+              break;
+            case 'iNumber':
+                this.input(step.replacement, step.wordToReplace, false);
+              break;
+            case 'iDate':
+                this.input(step.replacement, step.wordToReplace, false);
+              break;
+            case 'iForEach':
+                this.buildForEach(step.value, step.wordToReplace, false);
+              break;
+            case 'iRadioB':
+                step.radios.forEach((radio) => {
+                  if (radio.checked) {
+                    this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
+                  }
+                });
+              break;
+            case 'iRadioC':
+              let noneIsChecked = true;
+                step.radios.forEach((radio: any) => {
+                  if (radio.checked) {
+                    noneIsChecked = false;
+                    this.onInputRadioCSelected(radio.radioId, step.wordToReplace, false);
+                  }
+                });
+                if (noneIsChecked) {
+                  this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
                 }
-              });
-            break;
-          case 'iRadioC':
-            let noneIsChecked = true;
-              step.radios.forEach((radio: any) => {
-                if (radio.checked) {
-                  noneIsChecked = false;
-                  this.onInputRadioCSelected(radio.radioId, step.wordToReplace, false);
-                }
-              });
-              if (noneIsChecked) {
-                this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
-              }
-            break;
-          default:
-            break;
-        }
-      });
-    };
-    // We need to check the level of depth
-    buildSteps();
-    buildSteps();
-    buildSteps();
+              break;
+            default:
+              break;
+          }
+        });
+      };
+      // We need to check the level of depth
+      buildSteps();
+      buildSteps();
+      buildSteps();
+    }
     this.buildDocument(false);
   }
 
-  buildDocument(scrollToElement: boolean = true) {
-    this.documentCreatorService.buildDocument(this.steps, scrollToElement);
+  buildDocument(scrollToElement: boolean = true, buildJustReplacements: boolean = false, checkCache: boolean = false) {
+    if (checkCache) {
+      this.checkCache();
+    }
+    this.documentCreatorService.buildDocument(this.steps, scrollToElement, buildJustReplacements);
   }
 
-  input(replacement: string, wordToReplace: string, buildDocumentAfter: boolean = true) {
+  checkCache() {
+    this.steps.forEach((step, index) => {
+      if (step.type === 'iText' || step.type === 'iNumber' || step.type === 'iDate') {
+        this.cacheSteps.forEach((cacheStep) => {
+          if (step.wordToReplace === cacheStep.wordToReplace) {
+            step.replacement = cacheStep.replacement;
+          }
+        });
+      } else if (step.type === 'iRadioB') {
+        this.cacheSteps.forEach((cacheStep) => {
+          if (step.wordToReplace === cacheStep.wordToReplace) {
+            cacheStep.radios.forEach((radio) => {
+              if (radio.checked) {
+                this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+
+  input(replacement: string, wordToReplace: string, buildDocumentAfter: boolean = true, buildJustReplacements: boolean = false) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.wordToReplace === wordToReplace) {
@@ -91,7 +117,7 @@ export class StepsService {
       }
     });
     if (buildDocumentAfter) {
-      this.buildDocument();
+      this.buildDocument(true, buildJustReplacements);
     }
   }
 
@@ -134,10 +160,8 @@ export class StepsService {
     wordToReplace: string,
     buildDocumentAfter: boolean = true,
     forEachFocused: boolean = false,
-    saveCache: boolean = false) {
-    if (saveCache) {
-      this.cacheSteps = JSON.parse(JSON.stringify(this.steps));
-    }
+    checkCache: boolean = false) {
+
     const refreshRadioBSteps = [];
     const refreshRadioCSteps = [];
     // 1. Find the step
@@ -240,26 +264,6 @@ export class StepsService {
       });
     });
 
-    // Force retrieve values from cache
-    this.steps.forEach((step, index) => {
-      if (step.type === 'iText' || step.type === 'iNumber' || step.type === 'iDate') {
-        this.cacheSteps.forEach((cacheStep) => {
-          if (step.identifier === cacheStep.identifier) {
-            step.replacement = cacheStep.replacement;
-          }
-        });
-      } else if (step.type === 'iRadioB') {
-        this.cacheSteps.forEach((cacheStep) => {
-          if (step.identifier === cacheStep.identifier) {
-            cacheStep.radios.forEach((radio) => {
-              if (radio.checked) {
-                this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
-              }
-            });
-          }
-        });
-      }
-    });
 
     if (buildDocumentAfter) {
       refreshRadioCSteps.forEach((step) => {
@@ -273,7 +277,7 @@ export class StepsService {
           this.onInputRadioCSelected(step.defaultRadioId, step.wordToReplace, false);
         }
       });
-      this.buildDocument();
+      this.buildDocument(true, false, checkCache);
     }
   }
 
@@ -311,7 +315,7 @@ export class StepsService {
     }
   }
 
-  onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true, radioCfocused: boolean = false) {
+  onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true, radioCfocused: boolean = false, checkCache: boolean = false) {
     const refreshForEachInputs = [];
     const refreshNormalInputs = [];
     const refreshRadioBInputs = [];
@@ -408,25 +412,6 @@ export class StepsService {
             radio.checked = false;
           }
           });
-        } else {
-          // let noneIsChecked = true;
-          // step.radios.forEach((radio) => {
-          //   if (radio.checked) {
-          //     noneIsChecked = false;
-          //     buildSelectedRadio(step, index, radio);
-          //   } else {
-          //     radio.checked = false;
-          //   }
-          // });
-          // if (noneIsChecked) {
-          //   step.radios.forEach((radio) => {
-          //     if (radio.radioId === step.defaultRadioId) {
-          //       buildSelectedRadio(step, index, radio);
-          //     } else {
-          //       radio.checked = false;
-          //     }
-          //   });
-          // }
         }
       }
 
@@ -439,7 +424,7 @@ export class StepsService {
     });
 
     refreshForEachInputs.forEach((forEachInput) => {
-      this.buildForEach(forEachInput.value, forEachInput.wordToReplace, false);
+      this.buildForEach(forEachInput.value, forEachInput.wordToReplace, false, true);
     });
     refreshRadioCInputs.forEach((step) => {
       step.radios.forEach((radio) => {
@@ -460,7 +445,7 @@ export class StepsService {
     });
 
     if (buildDocumentAfter) {
-      this.buildDocument();
+      this.buildDocument(true, false, checkCache);
     }
   }
 

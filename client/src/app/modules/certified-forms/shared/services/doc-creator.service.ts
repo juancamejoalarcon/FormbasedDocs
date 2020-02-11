@@ -6,6 +6,7 @@ export class DocCreatorService {
 
   public originalDocumentBodyClone: any;
   public currentDocumentBodyClone: any;
+  public documentBodyCloneJustForReplacements: any;
   public resizeEvent: any;
   public scrollToelement = false;
 
@@ -84,10 +85,18 @@ export class DocCreatorService {
     AutomatikDocsApi.documentToFitScreen();
   }
 
-  buildDocument(steps: any, scrollToElement: boolean) {
+  buildDocument(steps: any, scrollToElement: boolean, buildJustReplacements: boolean = false) {
     this.currentDocumentBodyClone = this.originalDocumentBodyClone.cloneNode(true);
-    // 1.- Change doc structure
-    this.structuralChanges(steps);
+    if (buildJustReplacements) {
+      this.currentDocumentBodyClone = this.documentBodyCloneJustForReplacements.cloneNode(true);
+      this.currentDocumentBodyClone.querySelectorAll('.highlight-disapear').forEach((element) => {
+        element.classList.remove('highlight-disapear');
+        element.classList.remove('focused');
+      });
+    } else {
+      // 1.- Change doc structure
+      this.structuralChanges(steps);
+    }
     // 2.- Change values
     this.replacements(steps);
 
@@ -182,6 +191,7 @@ export class DocCreatorService {
         this.buildForEach(step);
       }
     });
+    this.documentBodyCloneJustForReplacements = this.currentDocumentBodyClone.cloneNode(true);
   }
 
   buildForEach(step: any) {

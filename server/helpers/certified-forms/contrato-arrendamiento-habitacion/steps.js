@@ -1585,7 +1585,7 @@ const steps = [
                   checked: false,
                   subSteps: [
                     {
-                      question: '¿Que porcentaje de estos gastos extraordinarios (o también conocidos como derramas) deberá pagar el arrendatario (inquilino)?:',
+                      question: '¿Qué porcentaje de estos gastos extraordinarios (o también conocidos como derramas) deberá pagar el arrendatario (inquilino)?:',
                       placeholder: 'Ej. Escriba un número menor que 100',
                       wordToReplace: 'id-dec-12_opA_2_opB_1',
                       identifier: 'id-dec-12_opA_2_opB_1',
@@ -1601,7 +1601,7 @@ const steps = [
                       rules: [
                         {
                           condition: false,
-                          rulename: 'extraReplacementToCharacter',
+                          rulename: 'extraReplacementAletras',
                           identifier: 'iddec12opA2opB1-precioAletras',
                           wordToReplace: 'iddec12opA2opB1-precioAletras',
                           replacement: ''

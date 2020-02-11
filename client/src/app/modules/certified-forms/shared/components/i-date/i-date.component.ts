@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 
 import {
-  DocCreatorService,
   StepsService
 } from '../../services';
 
@@ -22,8 +21,7 @@ export class IDateComponent implements OnInit {
   @Output() emitIndication: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    private stepModelService: StepsService,
-    private documentCreatorService: DocCreatorService,
+    private stepModelService: StepsService
   ) { }
 
   ngOnInit() {
@@ -34,7 +32,7 @@ export class IDateComponent implements OnInit {
   }
 
   onInput(value: any, wordToReplace: any) {
-    this.stepModelService.input(value, wordToReplace);
+    this.stepModelService.input(value, wordToReplace, true, true);
   }
 
 }

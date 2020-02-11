@@ -34,6 +34,7 @@ export class IForEachComponent implements OnInit {
   }
 
   onInput(value: any, wordToReplace: any) {
+    this.stepModelService.refreshCache();
     this.stepModelService.buildForEach(value, wordToReplace, true, true, true);
   }
 

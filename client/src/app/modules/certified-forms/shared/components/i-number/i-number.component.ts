@@ -8,11 +8,8 @@ import {
   ElementRef
 } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
 
 import {
-  DocCreatorService,
   StepsService
 } from '../../services';
 
@@ -26,25 +23,18 @@ export class INumberComponent implements OnInit {
   @Input() step: any;
   @Input() inputInvalid: any;
   @Output() emitIndication: EventEmitter<any> = new EventEmitter();
-  private subject: Subject<string> = new Subject();
 
   constructor(
     private stepModelService: StepsService,
-    private documentCreatorService: DocCreatorService,
     private toastr: ToastrService,
   ) { }
 
   ngOnInit() {
-    this.subject.pipe(
-      debounceTime(this.stepModelService.getDebounceTime())
-    ).subscribe(searchTextValue => {
-      this.stepModelService.input(searchTextValue, this.step.wordToReplace);
-    });
   }
 
   onInputNumberChanged(e: any) {
-    let input = e.srcElement.value
-    if (isNaN(input)) {
+    let newValue = e.srcElement.value
+    if (isNaN(newValue)) {
       this.toastr.error('Number not valid', 'Must be a number', {
         positionClass: 'toast-bottom-right',
         progressBar: true,
@@ -53,13 +43,13 @@ export class INumberComponent implements OnInit {
       this.input.nativeElement.style.borderBottom = '3px solid red';
     } else {
       this.input.nativeElement.style.borderBottom = '';
-      if (input.includes(',')) {
-        input = input.replace(',', '');
+      if (newValue.includes(',')) {
+        newValue = newValue.replace(',', '');
       }
-      if (input.includes('.')) {
-        input = input.replace('.', '');
+      if (newValue.includes('.')) {
+        newValue = newValue.replace('.', '');
       }
-      this.subject.next(input);
+      this.stepModelService.input(newValue, this.step.wordToReplace, true, true);
     }
   }
 

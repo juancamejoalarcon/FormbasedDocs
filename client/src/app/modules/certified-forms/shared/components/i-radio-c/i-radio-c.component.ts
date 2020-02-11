@@ -33,4 +33,9 @@ export class IRadioCComponent implements OnInit {
     this.emitIndication.emit();
   }
 
+  onRadioCchanged(radioId, wordToReplace) {
+    this.stepModelService.refreshCache();
+    this.stepModelService.onInputRadioCSelected(radioId, wordToReplace, true, true, true)
+  }
+
 }
