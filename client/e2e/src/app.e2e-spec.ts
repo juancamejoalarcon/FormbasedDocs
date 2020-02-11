@@ -10,8 +10,9 @@ describe('contrato de arrendamiento de habitacion', () => {
 
   it('should set the title properly', () => {
     page.navigateToCertifiedForm('contrato-arrendamiento-habitacion');
-    expect(page.getFormTitle().isPresent()).toBe(true);
-    expect(page.getFormTitle().getText()).toBe('Contrato de arrendamiento de habitación');
+    setTimeout(() => {
+      expect(page.getFormTitle().getText()).toBe('Contrato de arrendamiento de habitación');
+    }, 3000);
   });
 
   // it('should set the first question', () => {

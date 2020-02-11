@@ -15,7 +15,6 @@ export class AppPage {
 
   startForm() {
     element(by.css('.button-filled--start-form')).click();
-    this.sleep(500);
     element(by.css('.modal__content__modal-bottom--privacy')).click();
   }
 
