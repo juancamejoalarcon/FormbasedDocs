@@ -12,12 +12,12 @@
                   <input type="text" [value]="step.replacement" #input
                   (keyup)="onInput($event)"
                   [placeholder]="step.placeholder ? step.placeholder : ''"
-                  [ngStyle]="{'borderBottom': inputInvalid ? '3px solid red' : ''}" *ngIf="step.subtype !== 'textarea'">
+                  [ngStyle]="{'borderBottom': inputInvalid ? '3px solid red' : ''}" *ngIf="step.subType !== 'textarea'">
                   <textarea [value]="step.replacement" #input 
                   (keyup)="onInput($event, step.wordToReplace)"
                   [placeholder]="step.placeholder ? step.placeholder : ''"
                   [ngStyle]="{'borderBottom': inputInvalid ? '3px solid red' : ''}" 
-                  cols="30" rows="6" *ngIf="step.subtype === 'textarea'"></textarea>
+                  cols="30" rows="6" *ngIf="step.subType === 'textarea'"></textarea>
               </div>
               <div class="form-creator__fields-area__field__bottom">
                   <span class="form-creator__fields-area__field__bottom__mandatory-label" *ngIf="step.mandatory">

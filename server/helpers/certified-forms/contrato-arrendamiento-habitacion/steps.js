@@ -63,6 +63,8 @@ const steps = [
             {
               type: 'iRadioC',
               question: 'La persona arrendadora ->(index) (propietaria) es:',
+              questionOriginal: 'La persona arrendadora ->(index) (propietaria) es:',
+              hasIndex: true,
               identifier: 'id-unid-3_1',
               wordToReplace: 'id-unid-3_1',
               indications: {
@@ -94,7 +96,7 @@ const steps = [
                           areIndications: true,
                           indicationsType: 'outsideText',
                           // tslint:disable-next-line:max-line-length
-                          value: 'La persona puede concluir y firmar el contrato en nombre y representación propios o representado por otra persona. En caso de ser representado por otra persona, estamos hablando de un representante legal (como es el caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). Un representante voluntario precisa de autorización mediante documento público o privado. Si el contrato se concluye en nombre y representación propios, será persona que firma el contrato quien asuma las obligaciones. Por el contrario, si es mediante representante, es esta otra persona quien firma el contrato; sin embargo, es la persona a la que representa quien asumirá las obligaciones derivadas de este contrato. Si desea más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a>',
+                          value: 'La persona puede concluir y firmar el contrato en nombre y representación propios o representado por otra persona. En caso de ser representado por otra persona, estamos hablando de un representante legal (como es el caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). Un representante voluntario precisa de autorización mediante documento público o privado. Si el contrato se concluye en nombre y representación propios, esta misma persona firmará el contrato y asumirá las obligaciones. Por el contrario, si es mediante representante, es esta otra persona quien firma el contrato; sin embargo, es la persona a la que representa quien asumirá las obligaciones derivadas de este contrato. Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank"><strong>Poder de representación</strong></a>',
                         },
                         defaultRadioId: 'id-unid-3_1_opA_1_opA',
                         replacement: '',
@@ -303,7 +305,7 @@ const steps = [
                                   areIndications: true,
                                   indicationsType: 'outsideText',
                                   // tslint:disable-next-line:max-line-length
-                                  value: 'Nombre completo, incluyendo los apellidos, de la persona física que firma este contrato en nombre y representación de este arrendador. El contrato puede ser firmado por un representante legal o voluntario. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a>',
+                                  value: 'Nombre completo, incluyendo los apellidos, de la persona física que firma este contrato en nombre y representación de este arrendador. El contrato puede ser firmado por un representante legal o voluntario. Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank"><strong>Poder de representación</strong></a>',
                                 },
                               },
                               {
@@ -402,9 +404,9 @@ const steps = [
                 {
                   label: 'Persona jurídica',
                   // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'id-unid-3_1_opB_5 actuando en nombre y representación de: id-unid-3_1_opB_1, con domicilio en id-unid-3_1_opB_new1  C.I.F/N.I.F número id-unid-3_1_opB_2, e inscrita en: id-unid-3_1_opB_3  con la siguiente información: id-unid-3_1_opB_4.',
+                  replacementOriginal: 'id-unid-3_1_opB_5 actuando en nombre y representación de: id-unid-3_1_opB_1, con domicilio en id-unid-3_1_opB_new1,  C.I.F/N.I.F número id-unid-3_1_opB_2, e inscrita en: id-unid-3_1_opB_3  con la siguiente información: id-unid-3_1_opB_4.',
                   // tslint:disable-next-line:max-line-length
-                  replacement: 'id-unid-3_1_opB_5 actuando en nombre y representación de: id-unid-3_1_opB_1, con domicilio en id-unid-3_1_opB_new1  C.I.F/N.I.F número id-unid-3_1_opB_2, e inscrita en: id-unid-3_1_opB_3  con la siguiente información: id-unid-3_1_opB_4.',
+                  replacement: 'id-unid-3_1_opB_5 actuando en nombre y representación de: id-unid-3_1_opB_1, con domicilio en id-unid-3_1_opB_new1,  C.I.F/N.I.F número id-unid-3_1_opB_2, e inscrita en: id-unid-3_1_opB_3  con la siguiente información: id-unid-3_1_opB_4.',
                   extraReplacements: [],
                   radioId: 'id-unid-3_1_opB',
                   identifier: 'id-unid-3_1_opB',
@@ -425,7 +427,7 @@ const steps = [
                       },
                     },
                     {
-                      question: 'Domicilio social completo esta persona jurídica arrendadora (propietaria):',
+                      question: 'Domicilio social completo de la persona jurídica arrendadora (propietaria):',
                       wordToReplace: 'id-unid-3_1_opB_new1',
                       identifier: 'id-unid-3_1_opB_new1',
                       type: 'iText',
@@ -433,9 +435,9 @@ const steps = [
                       replacement: '',
                       indications: {
                         areIndications: true,
-                        indicationsType: 'outsideText',
+                        indicationsType: 'insideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) del lugar de residencia',
+                        value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) del domicilio social',
                       },
                     },
                     {
@@ -449,7 +451,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Se trata del número de identificación fiscal para empresas y sociedades, personas físicas o cualquier tipo de entidad que desarrolle actividad de naturaleza mercantil y que, además, sea sujeto de obligaciones burocráticas, como el hecho de emitir o percibir facturas. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">NIF empresarial</a>.',
+                        value: 'Se trata del número de identificación fiscal para empresas y sociedades, personas físicas o cualquier tipo de entidad que desarrolle actividad de naturaleza mercantil y que, además, sea sujeto de obligaciones burocráticas, como el hecho de emitir o percibir facturas. Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank"><strong>NIF empresarial</strong></a>.',
                       },
                     },
                     {
@@ -463,7 +465,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a>',
+                        value: 'Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank"><strong>Datos registrales</strong></a>',
                       },
                     },
                     {
@@ -477,7 +479,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a>',
+                        value: 'Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank"><strong>Datos registrales</strong></a>',
                       },
                     },
                     {
@@ -511,6 +513,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej. Margarita García Pérez',
                               replacement: '',
+                              mandatory: true,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -525,6 +528,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
                               replacement: '',
+                              mandatory: true,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'outsideText',
@@ -583,6 +587,7 @@ const steps = [
                               placeholder: 'P. ej: 42888457',
                               type: 'iText',
                               replacement: '',
+                              mandatory: true,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -596,6 +601,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej. administradora única',
                               replacement: '',
+                              mandatory: true,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -622,7 +628,7 @@ const steps = [
       identifier: 'id-unidnew-3',
       placeholder: 'P. ej: ejemplo@email.com',
       type: 'iText',
-      subtype: 'textarea',
+      subType: 'textarea',
       replacement: '',
       indications: {
         areIndications: true,
@@ -630,7 +636,7 @@ const steps = [
         value: 'Si lo desea, señale en este espacio la dirección o direcciones de correo electrónico de los propietarios. Esto puede facilitar y hacer más fluidas las comunicaciones entre las partes.  Si no desea indicar la dirección o direcciones de correo electrónico, deje este espacio en blanco.',
       },
       isEmpty: {
-        prepend: 'La parte ARRENDADORA:<br>',
+        prepend: 'La parte ARRENDATARIA podrá comunicarse con la parte ARRENDADORA a través de:<br>',
         append: '',
       }
     },
@@ -661,6 +667,8 @@ const steps = [
             {
               type: 'iRadioC',
               question: 'La persona arrendataria ->(index) (inquilino) es:',
+              questionOriginal: 'La persona arrendataria ->(index) (inquilino) es:',
+              hasIndex: true,
               identifier: 'id-unid-4_1',
               wordToReplace: 'id-unid-4_1',
               indications: {
@@ -692,7 +700,7 @@ const steps = [
                           areIndications: true,
                           indicationsType: 'outsideText',
                           // tslint:disable-next-line:max-line-length
-                          value: 'La persona puede concluir y firmar el contrato en nombre y representación propios o representado por otra persona. En caso de ser representado por otra persona, estamos hablando de un representante legal (como es el caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). Un representante voluntario precisa de autorización mediante documento público o privado. Si el contrato se concluye en nombre y representación propios, será persona que firma el contrato quien asuma las obligaciones. Por el contrario, si es mediante representante, es esta otra persona quien firma el contrato; sin embargo, es la persona a la que representa quien asumirá las obligaciones derivadas de este contrato. Si desea más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a>',
+                          value: 'La persona puede concluir y firmar el contrato en nombre y representación propios o representado por otra persona. En caso de ser representado por otra persona, estamos hablando de un representante legal (como es el caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). Un representante voluntario precisa de autorización mediante documento público o privado. Si el contrato se concluye en nombre y representación propios, esta misma persona firmará el contrato y asumirá las obligaciones. Por el contrario, si es mediante representante, es esta otra persona quien firma el contrato; sin embargo, es la persona a la que representa quien asumirá las obligaciones derivadas de este contrato. Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank"><strong>Poder de representación</strong></a>',
                         },
                         defaultRadioId: 'id-unid-4_1_opA_1_opA',
                         replacement: '',
@@ -900,7 +908,7 @@ const steps = [
                                   areIndications: true,
                                   indicationsType: 'outsideText',
                                   // tslint:disable-next-line:max-line-length
-                                  value: 'Nombre completo, incluyendo los apellidos, de la persona física que firma este contrato en nombre y representación de este arrendatario. El contrato puede ser firmado por un representante legal o voluntario. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a>',
+                                  value: 'Nombre completo, incluyendo los apellidos, de la persona física que firma este contrato en nombre y representación de este arrendatario. El contrato puede ser firmado por un representante legal o voluntario. Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank"><strong>Poder de representación</strong></a>',
                                 },
                               },
                               {
@@ -999,9 +1007,9 @@ const steps = [
                 {
                   label: 'Persona jurídica',
                   // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'id-unid-4_1_opB_5 actuando en nombre y representación de: id-unid-4_1_opB_1, con domicilio en id-unid-4_1_opB_new1  C.I.F/N.I.F número id-unid-4_1_opB_2, e inscrita en: id-unid-4_1_opB_3  con la siguiente información: id-unid-4_1_opB_4.',
+                  replacementOriginal: 'id-unid-4_1_opB_5 actuando en nombre y representación de: id-unid-4_1_opB_1, con domicilio en id-unid-4_1_opB_new1,  C.I.F/N.I.F número id-unid-4_1_opB_2, e inscrita en: id-unid-4_1_opB_3  con la siguiente información: id-unid-4_1_opB_4.',
                   // tslint:disable-next-line:max-line-length
-                  replacement: 'id-unid-4_1_opB_5 actuando en nombre y representación de: id-unid-4_1_opB_1, con domicilio en id-unid-4_1_opB_new1  C.I.F/N.I.F número id-unid-4_1_opB_2, e inscrita en: id-unid-4_1_opB_3  con la siguiente información: id-unid-4_1_opB_4.',
+                  replacement: 'id-unid-4_1_opB_5 actuando en nombre y representación de: id-unid-4_1_opB_1, con domicilio en id-unid-4_1_opB_new1,  C.I.F/N.I.F número id-unid-4_1_opB_2, e inscrita en: id-unid-4_1_opB_3  con la siguiente información: id-unid-4_1_opB_4.',
                   extraReplacements: [],
                   radioId: 'id-unid-4_1_opB',
                   identifier: 'id-unid-4_1_opB',
@@ -1022,7 +1030,7 @@ const steps = [
                       },
                     },
                     {
-                      question: 'Domicilio social completo esta persona jurídica arrendataria (inquilino):',
+                      question: 'Domicilio social completo de la persona jurídica arrendataria (inquilino):',
                       wordToReplace: 'id-unid-4_1_opB_new1',
                       identifier: 'id-unid-4_1_opB_new1',
                       type: 'iText',
@@ -1030,9 +1038,9 @@ const steps = [
                       replacement: '',
                       indications: {
                         areIndications: true,
-                        indicationsType: 'outsideText',
+                        indicationsType: 'insideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) del lugar de residencia',
+                        value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) del domicilio',
                       },
                     },
                     {
@@ -1046,7 +1054,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Se trata del número de identificación fiscal para empresas y sociedades, personas físicas o cualquier tipo de entidad que desarrolle actividad de naturaleza mercantil y que, además, sea sujeto de obligaciones burocráticas, como el hecho de emitir o percibir facturas. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">NIF empresarial</a>.',
+                        value: 'Se trata del número de identificación fiscal para empresas y sociedades, personas físicas o cualquier tipo de entidad que desarrolle actividad de naturaleza mercantil y que, además, sea sujeto de obligaciones burocráticas, como el hecho de emitir o percibir facturas. Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank"><strong>NIF empresarial</strong></a>.',
                       },
                     },
                     {
@@ -1060,7 +1068,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a>',
+                        value: 'Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank"><strong>Datos registrales</strong></a>',
                       },
                     },
                     {
@@ -1074,7 +1082,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a>',
+                        value: 'Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si desea más información sobre esta figura consulte el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank"><strong>Datos registrales</strong></a>',
                       },
                     },
                     {
@@ -1108,6 +1116,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej. Margarita García Pérez',
                               replacement: '',
+                              mandatory: true,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -1122,6 +1131,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
                               replacement: '',
+                              mandatory: true,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'outsideText',
@@ -1179,6 +1189,7 @@ const steps = [
                               identifier: 'id-unid-4_1_opB_5_4',
                               placeholder: 'P. ej: 42888457',
                               type: 'iText',
+                              mandatory: true,
                               replacement: '',
                               indications: {
                                 areIndications: true,
@@ -1193,6 +1204,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej. administradora única',
                               replacement: '',
+                              mandatory: true,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -1226,7 +1238,7 @@ const steps = [
         value: 'Si lo desea, señale en este espacio la dirección o direcciones de correo electrónico de los inquilinos. Esto puede facilitar y hacer más fluidas las comunicaciones entre las partes.  Si no desea indicar la dirección o direcciones de correo electrónico, deje este espacio en blanco.',
       },
       isEmpty: {
-        prepend: 'La parte ARRENDADORA:<br>',
+        prepend: 'La parte ARRENDADORA podrá comunicarse con la parte ARRENDATARIA a través de:<br>',
         append: '',
       }
     },
@@ -1285,7 +1297,7 @@ const steps = [
     },
     {
       type: 'iText',
-      subtype: 'textarea',
+      subType: 'textarea',
       identifier: 'id-unid-8',
       wordToReplace: 'id-unid-8',
       replacement: '',
@@ -1381,18 +1393,13 @@ const steps = [
           identifier: 'iddec12-extra-4',
           wordToReplace: 'iddec12-extra-4',
           insideId: 'opD'
-        },
-        {
-          identifier: 'iddec12-extra-5',
-          wordToReplace: 'iddec12-extra-5',
-          insideId: 'opE'
         }
       ],
       radios: [
         {
           label: 'Sí',
-          replacementOriginal: 'Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1<br> <br> Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo id-dec-12_opA_2',
-          replacement: 'Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1<br> <br> Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo id-dec-12_opA_2',
+          replacementOriginal: '<br><br>Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1<br> <br> Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo id-dec-12_opA_2',
+          replacement: '<br><br>Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1<br> <br> Los gastos extraordinarios de Comunidad que correspondan a la Vivienda serán por cuenta y a cargo id-dec-12_opA_2',
           extraReplacements: [
             {
               identifier: 'iddec12-extra-1',
@@ -1402,8 +1409,8 @@ const steps = [
             },
             {
               identifier: 'iddec12-extra-2',
-              replacement: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la parte ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
-              replacementOriginal: 'Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la parte ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
+              replacement: '<br><br>Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la parte ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
+              replacementOriginal: '<br><br>Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la parte ARRENDATARIA, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
               insideId: 'opB'
             },
             {
@@ -1414,15 +1421,9 @@ const steps = [
             },
             {
               identifier: 'iddec12-extra-4',
-              replacement: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la parte ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
-              replacementOriginal: 'Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la parte ARRENDATARIA se obliga a cumplir en todo momento, y durante toda la vigencia del Contrato. Contravenir los buenos usos de vecindad, los contenidos en los estatutos de la Comunidad y policía urbana, así como el molestar a vecinos con ruidos, fiestas, música, etc., siempre que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
+              replacement: '<br><br>Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la parte ARRENDATARIA se obliga durante toda la vigencia del Contrato a: no contravenir los buenos usos de vecindad, cumplir las normas contenidas en los estatutos de la Comunidad y de la policía urbana, así como evitar molestar a vecinos con ruidos, fiestas, música, etc., que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
+              replacementOriginal: '<br><br>Estando ubicada la Vivienda en un inmueble organizado en una Comunidad de Propietarios, la parte ARRENDATARIA se obliga durante toda la vigencia del Contrato a: no contravenir los buenos usos de vecindad, cumplir las normas contenidas en los estatutos de la Comunidad y de la policía urbana, así como evitar molestar a vecinos con ruidos, fiestas, música, etc., que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
               insideId: 'opD'
-            },
-            {
-              identifier: 'iddec12-extra-5',
-              replacement: 'o de la correspondiente prórroga o prórrogas',
-              replacementOriginal: 'o de la correspondiente prórroga o prórrogas',
-              insideId: 'opE'
             }
           ],
           radioId: 'id-dec-12_opA',
@@ -1437,7 +1438,7 @@ const steps = [
           subSteps: [
             {
               type: 'iRadioC',
-              question: '¿Quién asumirá los gastos generales u ordinarios (cuotas) de la comunidad de la que forma parte la vivienda?:',
+              question: '¿Quién asumirá los gastos generales u ordinarios (cuotas) de la comunidad de la que forma parte la vivienda?',
               identifier: 'id-dec-12_opA_1',
               wordToReplace: 'id-dec-12_opA_1',
               defaultRadioId: 'id-dec-12_opA_1_opA',
@@ -1549,7 +1550,7 @@ const steps = [
             },
             {
               type: 'iRadioC',
-              question: '¿Quién asumirá los gastos extraordinarios (connocidos comúnmente como derramas) de la comunidad de la que forma parte la vivienda?:',
+              question: '¿Quién asumirá los gastos extraordinarios (connocidos comúnmente como derramas) de la comunidad de la que forma parte la vivienda?',
               identifier: 'id-dec-12_opA_2',
               wordToReplace: 'id-dec-12_opA_2',
               defaultRadioId: 'id-dec-12_opA_2_opA',
@@ -1557,7 +1558,7 @@ const steps = [
                 areIndications: true,
                 indicationsType: 'outsideText',
                 // tslint:disable-next-line:max-line-length
-                value: 'Los gastos extraordinarios no se contemplan en los Presupuestos Anuales y se utilizan para la realización de algún tipo de obra o reforma de elementos comunes.<br>Para recaudar los fondos se suele convocar una Junta Extraordinaria, en la que se comunicará a todos los propietarios el problema y se buscará la mejor solución para su arreglo. También se decide aquí la forma de pago, que puede ser con cargo al dinero ahorrado por la Comunidad, con la aprobación de una derrama o con una subida proporcional en la cuota de la comunidad.'
+                value: 'Los gastos extraordinarios no se contemplan en los Presupuestos Anuales y se utilizan para la realización de algún tipo de obra o reforma de elementos comunes.<br><br>Para recaudar los fondos se suele convocar una Junta Extraordinaria, en la que se comunicará a todos los propietarios el problema y se buscará la mejor solución para su arreglo. También se decide aquí la forma de pago, que puede ser con cargo al dinero ahorrado por la Comunidad, con la aprobación de una derrama o con una subida proporcional en la cuota de la comunidad.'
               },
               replacement: '',
               extraReplacements: [
@@ -1585,7 +1586,7 @@ const steps = [
                   checked: false,
                   subSteps: [
                     {
-                      question: '¿Qué porcentaje de estos gastos extraordinarios (o también conocidos como derramas) deberá pagar el arrendatario (inquilino)?:',
+                      question: '¿Qué porcentaje de estos gastos extraordinarios (o también conocidos como derramas) deberá pagar el arrendatario (inquilino)?',
                       placeholder: 'Ej. Escriba un número menor que 100',
                       wordToReplace: 'id-dec-12_opA_2_opB_1',
                       identifier: 'id-dec-12_opA_2_opB_1',
@@ -1642,12 +1643,6 @@ const steps = [
               replacement: '',
               replacementOriginal: '',
               insideId: 'opD'
-            },
-            {
-              identifier: 'iddec12-extra-5',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opE'
             }
           ],
           radioId: 'id-dec-12_opB',
@@ -1676,7 +1671,7 @@ const steps = [
     },
     {
       type: 'iText',
-      subtype: 'textarea',
+      subType: 'textarea',
       identifier: 'id-dec-14',
       wordToReplace: 'id-dec-14',
       replacement: '',
@@ -1720,8 +1715,8 @@ const steps = [
           extraReplacements: [
             {
               identifier: 'iddec15-extra-1',
-              replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
-              replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con los siguientes iddec15opA1-extra-1',
+              replacement: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con iddec15opA1-extra-1',
+              replacementOriginal: 'incluyendo el mobiliario y los enseres que se encuentran en su interior comprobando que se corresponde con iddec15opA1-extra-1',
               insideId: 'opA'
             },
           ],
@@ -1753,14 +1748,14 @@ const steps = [
                 {
                   label: 'este contrato',
                   // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'está amueblada con el siguiente mobiliario, enseres y objetos:<br> id-dec-15_opA_1_opA_1',
+                  replacementOriginal: 'está amueblada con el siguiente mobiliario, enseres y objetos: id-dec-15_opA_1_opA_1',
                   // tslint:disable-next-line:max-line-length
-                  replacement: 'está amueblada con el siguiente mobiliario, enseres y objetos:<br> id-dec-15_opA_1_opA_1',
+                  replacement: 'está amueblada con el siguiente mobiliario, enseres y objetos: id-dec-15_opA_1_opA_1',
                   extraReplacements: [
                     {
                       identifier: 'iddec15opA1-extra-1',
-                      replacement: 'Expositivo II del presente Contrato',
-                      replacementOriginal: 'Expositivo II del presente Contrato',
+                      replacement: 'lo establecido en el Expositivo II del presente Contrato',
+                      replacementOriginal: 'lo establecido en el Expositivo II del presente Contrato',
                       insideId: 'opA'
                     },
                   ],
@@ -1770,7 +1765,7 @@ const steps = [
                   subSteps: [
                     {
                       type: 'iText',
-                      subtype: 'textarea',
+                      subType: 'textarea',
                       identifier: 'id-dec-15_opA_1_opA_1',
                       wordToReplace: 'id-dec-15_opA_1_opA_1',
                       replacement: '',
@@ -1793,8 +1788,8 @@ const steps = [
                   extraReplacements: [
                     {
                       identifier: 'iddec15opA1-extra-1',
-                      replacement: 'Anexo de inventario de bienes muebles incorporado al presente Contrato,',
-                      replacementOriginal: 'Anexo de inventario de bienes muebles incorporado al presente Contrato,',
+                      replacement: 'lo establecido en el Anexo de inventario de bienes muebles incorporado al presente Contrato,',
+                      replacementOriginal: 'lo establecido en el Anexo de inventario de bienes muebles incorporado al presente Contrato,',
                       insideId: 'opA'
                     },
                   ],
@@ -2027,8 +2022,8 @@ const steps = [
             },
             {
               identifier: 'iddec17-extra-2',
-              replacement: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
-              replacementOriginal: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+              replacement: '<br><br>La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+              replacementOriginal: '<br><br>La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
               insideId: 'opB'
             },
             {
@@ -2063,14 +2058,14 @@ const steps = [
           extraReplacements: [
             {
               identifier: 'iddec17-extra-1',
-              replacement: 'La habitación arrendada será la vivienda temporal de la parte ARRENDATARIA. Dicho uso será por motivos de vacaciones, ocio, o , turismo. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que la habitación arrendada no constituye su residencia habitual sino que cumple un uso de segunda residencia.',
-              replacementOriginal: 'La habitación arrendada será la vivienda temporal de la parte ARRENDATARIA. Dicho uso será por motivos de vacaciones, ocio, o , turismo. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que la habitación arrendada no constituye su residencia habitual sino que cumple un uso de segunda residencia.',
+              replacement: 'La habitación arrendada será la vivienda temporal de la parte ARRENDATARIA. Dicho uso será por motivos de vacaciones, ocio, o turismo. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que la habitación arrendada no constituye su residencia habitual sino que cumple un uso de segunda residencia.',
+              replacementOriginal: 'La habitación arrendada será la vivienda temporal de la parte ARRENDATARIA. Dicho uso será por motivos de vacaciones, ocio, o turismo. Y, por ello, la parte ARRENDATARIA, deja constancia, a través del presente documento, que la habitación arrendada no constituye su residencia habitual sino que cumple un uso de segunda residencia.',
               insideId: 'opA'
             },
             {
               identifier: 'iddec17-extra-2',
-              replacement: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
-              replacementOriginal: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+              replacement: '<br><br>La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+              replacementOriginal: '<br><br>La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
               insideId: 'opB'
             },
             {
@@ -2098,7 +2093,7 @@ const steps = [
           subSteps: [
             {
               type: 'iRadioC',
-              question: '¿El arrendador está inscrito en el Registro de Turismo de la Comunidad Autónoma o entidad equivalente?:',
+              question: '¿El arrendador está inscrito en el Registro de Turismo de la Comunidad Autónoma o entidad equivalente?',
               identifier: 'id-dec-17_opB_1',
               wordToReplace: 'id-dec-17_opB_1',
               defaultRadioId: 'id-dec-17_opB_1_opA',
@@ -2106,7 +2101,7 @@ const steps = [
                 areIndications: true,
                 indicationsType: 'outsideText',
                 // tslint:disable-next-line:max-line-length
-                value: 'Además de la norma común, que se ha señalado, Código Civil, la regulación de los alquileres de uso turístico, se han ido regulando por las normas que se han implementado por las distintas Comunidades Autónomas, que regulan los arrendamiento de aquellos pisos, apartamentos o casas que, amueblados y equipados en condiciones de uso inmediato, se comercializan y promocionan en canales de oferta turística, y que deben ofrecer una serie de servicios.<br>La mayoría de las Comunidades Autónomas han optado por la presentación de la declaración responsable como autorización inicial de funcionamiento de esta actividad (Madrid, Valencia, Andalucía o Aragón), no así en Cataluña, en la que las propietarias y propietarios deben presentar una comunicación previa al Ayuntamiento competente.'
+                value: 'Además de la norma común, la regulación de los alquileres de uso turístico, se han ido regulando por las normas que se han implementado por las distintas Comunidades Autónomas, que regulan los arrendamiento de aquellos pisos, apartamentos o casas que, amueblados y equipados en condiciones de uso inmediato, se comercializan y promocionan en canales de oferta turística, y que deben ofrecer una serie de servicios.<br>La mayoría de las Comunidades Autónomas han optado por la presentación de la declaración responsable como autorización inicial de funcionamiento de esta actividad (Madrid, Valencia, Andalucía o Aragón), no así en Cataluña, en la que las propietarias y propietarios deben presentar una comunicación previa al Ayuntamiento competente.'
               },
               replacement: '',
               extraReplacements: [
@@ -2126,7 +2121,7 @@ const steps = [
                   subSteps: [
                     {
                       type: 'iRadioB',
-                      subtype: 'select',
+                      subType: 'select',
                       question: 'Registro en el que está inscrito:',
                       identifier: 'id-dec-17_opB_1_opA_1',
                       wordToReplace: 'id-dec-17_opB_1_opA_1',
@@ -2313,9 +2308,9 @@ const steps = [
         {
           label: 'residencia temporal distinto al vacacional (ej. por motivos laborales)',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
+          replacementOriginal: 'Que los motivos por los que la parte ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
+          replacement: 'Que los motivos por los que la parte ARRENDATARIA necesita una habitación la como vivienda temporal son: id-dec-17_opC_1.',
           extraReplacements: [
             {
               identifier: 'iddec17-extra-1',
@@ -2325,8 +2320,8 @@ const steps = [
             },
             {
               identifier: 'iddec17-extra-2',
-              replacement: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
-              replacementOriginal: 'La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+              replacement: '<br><br>La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
+              replacementOriginal: '<br><br>La Habitación y las zonas comunes de la Vivienda estarán siempre en condiciones de habitabilidad.',
               insideId: 'opB'
             },
             {
@@ -2372,9 +2367,9 @@ const steps = [
         {
           label: 'otro uso',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
+          replacementOriginal: 'Que los motivos por los que la parte ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'Que los motivos por los que la ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
+          replacement: 'Que los motivos por los que la parte ARRENDATARIA necesita una habitación  son: id-dec-17_opD_1.',
           extraReplacements: [
             {
               identifier: 'iddec17-extra-1',
@@ -2443,7 +2438,7 @@ const steps = [
         value: '',
       },
       isEmpty: {
-        prepend: 'ni las siguientes zonas de la misma: ',
+        prepend: ' ni las siguientes zonas de la misma: ',
         append: '',
       }
     },
@@ -2736,7 +2731,7 @@ const steps = [
                   ]
                 },
                 {
-                  label: 'No',
+                  label: 'podrán hacerse indefinidamente',
                   replacementOriginal: '',
                   replacement: '',
                   extraReplacements: [
@@ -2760,8 +2755,8 @@ const steps = [
           extraReplacements: [
             {
               identifier: 'iddec25-extra-1',
-              replacement: 'de forma automática sin necesidad de requerimiento alguno',
-              replacementOriginal: 'de forma automática sin necesidad de requerimiento alguno',
+              replacement: ' de forma automática sin necesidad de requerimiento alguno',
+              replacementOriginal: ' de forma automática sin necesidad de requerimiento alguno',
               insideId: 'opA'
             },
             {
@@ -2816,9 +2811,9 @@ const steps = [
         {
           label: 'Sí',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Cualquiera de las partes podrán desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 su deseo de finalizar el contrato. Este desistimiento no generará ningún tipo de indemnización o penalización. <br>En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
+          replacementOriginal: 'Cualquiera de las partes podrán desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 su deseo de finalizar el contrato. Este desistimiento no generará ningún tipo de indemnización o penalización. <br><br>En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
           // tslint:disable-next-line:max-line-length
-          replacement: 'Cualquiera de las partes podrán desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 su deseo de finalizar el contrato. Este desistimiento no generará ningún tipo de indemnización o penalización. <br>En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
+          replacement: 'Cualquiera de las partes podrán desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 su deseo de finalizar el contrato. Este desistimiento no generará ningún tipo de indemnización o penalización. <br><br>En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opA_1 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
           extraReplacements: [
           ],
           radioId: 'id-dec-26_opA',
@@ -2845,9 +2840,9 @@ const steps = [
         {
           label: 'Sí, una vez que haya pasado un período mínimo desde que se inició el alquiler',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Una vez haya transcurrido un tiempo de: id-dec-26_opB_1, cualquiera de las partes podrá desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de.: id-dec-26_opB_2. Este desistimiento no generará ningún tipo de indemnización o penalización.<br> En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opB_2 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
+          replacementOriginal: 'Una vez haya transcurrido un tiempo de: id-dec-26_opB_1, cualquiera de las partes podrá desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opB_2. Este desistimiento no generará ningún tipo de indemnización o penalización.<br> En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opB_2 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
           // tslint:disable-next-line:max-line-length
-          replacement: 'Una vez haya transcurrido un tiempo de: id-dec-26_opB_1, cualquiera de las partes podrá desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de.: id-dec-26_opB_2. Este desistimiento no generará ningún tipo de indemnización o penalización.<br> En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opB_2 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
+          replacement: 'Una vez haya transcurrido un tiempo de: id-dec-26_opB_1, cualquiera de las partes podrá desistir anticipadamente del contrato, en cualquier momento antes de su finalización. En ese caso, la parte que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opB_2. Este desistimiento no generará ningún tipo de indemnización o penalización.<br> En el caso de que se resolviera el contrato de forma unilateral por la parte ARRENDATARIA, ésta deberá abonar a la parte ARRENDADORA todos aquellos gastos generados y no abonados hasta el momento de finalización del contrato. En ese caso, la parte ARRENDATARIA que desee desistir del contrato deberá notificar de forma expresa y escrita, con una antelación mínima de: id-dec-26_opB_2 si bien, en caso de incumplimiento este desistimiento podría generar algún tipo de indemnización o penalización',
           extraReplacements: [
           ],
           radioId: 'id-dec-26_opB',
@@ -2917,7 +2912,7 @@ const steps = [
               rules: [
                 {
                   condition: false,
-                  rulename: 'extraReplacementToCharacter',
+                  rulename: 'extraReplacementAletras',
                   identifier: 'iddec26opC1-precioAletras',
                   wordToReplace: 'iddec26opC1-precioAletras',
                   replacement: ''
@@ -3742,7 +3737,7 @@ const steps = [
             },
             {
               question: 'Si lo desea haga una descripción del servicio de limpieza por el cual se cobran dichos gastos:',
-              subtype: 'textarea',
+              subType: 'textarea',
               placeholder: 'Ej. Cada semana acudirá una persona contratada para limpiar la vivienda...',
               wordToReplace: 'id-dec-30_opA_2',
               identifier: 'id-dec-30_opA_2',
@@ -3956,7 +3951,7 @@ const steps = [
           subSteps: [
             {
               question: 'Describa como se van a dividir estos gastos entre el arrendador (propietario) y el arrendatario (inquilino):',
-              subtype: 'textarea',
+              subType: 'textarea',
               placeholder: 'P. ej: El arrendador (propietario) se encargará del pago mensual de internet. El arrendatario (inquilino)...',
               wordToReplace: 'id-dec-32_opC_1',
               identifier: 'id-dec-32_opC_1',
@@ -4356,7 +4351,7 @@ const steps = [
     },
     {
       type: 'iText',
-      subtype: 'textarea',
+      subType: 'textarea',
       identifier: 'id-dec-37',
       wordToReplace: 'id-dec-37',
       replacement: '',
@@ -4376,7 +4371,7 @@ const steps = [
     },
     {
       type: 'iText',
-      subtype: 'textarea',
+      subType: 'textarea',
       identifier: 'id-dec-38',
       wordToReplace: 'id-dec-38',
       replacement: '',
@@ -4396,7 +4391,7 @@ const steps = [
     },
     {
       type: 'iText',
-      subtype: 'textarea',
+      subType: 'textarea',
       identifier: 'id-dec-39',
       wordToReplace: 'id-dec-39',
       replacement: '',
