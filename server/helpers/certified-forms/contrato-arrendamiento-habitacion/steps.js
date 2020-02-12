@@ -3499,7 +3499,7 @@ const steps = [
             },
             {
               type: 'iRadioC',
-              question: '¿En función de que medidor el alquiler podrá ser aumentado?',
+              question: '¿En función de qué medidor el alquiler podrá ser aumentado?',
               identifier: 'id-dec-new30_opA_2',
               wordToReplace: 'id-dec-new30_opA_2',
               defaultRadioId: 'id-dec-new30_opA_2_opA',
@@ -3527,7 +3527,7 @@ const steps = [
                   ]
                 },
                 {
-                  label: 'en función de un índice acordado por las partes como por ejemplo, el IPC',
+                  label: 'en función de un índice acordado por las partes como, por ejemplo, el IPC',
                   // tslint:disable-next-line:max-line-length
                   replacementOriginal: 'Este incremento se realizará por referencia al siguiente índice: id-dec-new30_opA_2_opB_1. Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada por el Índice elegido. Cuando la tasa de variación de este índice se sitúe por debajo de 0 por ciento, se tomará éste valor (0) como referencia',
                   // tslint:disable-next-line:max-line-length
