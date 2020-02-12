@@ -19,7 +19,7 @@ const steps = [
         value: 'Indique aquí la localidad de celebración y firma del contrato.'
       },
       placeholder: 'P. ej. Albacete',
-      mandatory: true,
+      mandatory: false,
       isFocused: false
     },
     {
@@ -33,7 +33,7 @@ const steps = [
         indicationsType: 'insideText',
         value: 'Fecha en la que se firma el contrato',
       },
-      mandatory: true,
+      mandatory: false,
       isFocused: false
     },
     {
@@ -513,7 +513,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej. Margarita García Pérez',
                               replacement: '',
-                              mandatory: true,
+                              mandatory: false,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -528,7 +528,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
                               replacement: '',
-                              mandatory: true,
+                              mandatory: false,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'outsideText',
@@ -587,7 +587,7 @@ const steps = [
                               placeholder: 'P. ej: 42888457',
                               type: 'iText',
                               replacement: '',
-                              mandatory: true,
+                              mandatory: false,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -601,7 +601,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej. administradora única',
                               replacement: '',
-                              mandatory: true,
+                              mandatory: false,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -1116,7 +1116,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej. Margarita García Pérez',
                               replacement: '',
-                              mandatory: true,
+                              mandatory: false,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -1131,7 +1131,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
                               replacement: '',
-                              mandatory: true,
+                              mandatory: false,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'outsideText',
@@ -1189,7 +1189,7 @@ const steps = [
                               identifier: 'id-unid-4_1_opB_5_4',
                               placeholder: 'P. ej: 42888457',
                               type: 'iText',
-                              mandatory: true,
+                              mandatory: false,
                               replacement: '',
                               indications: {
                                 areIndications: true,
@@ -1204,7 +1204,7 @@ const steps = [
                               type: 'iText',
                               placeholder: 'P. ej. administradora única',
                               replacement: '',
-                              mandatory: true,
+                              mandatory: false,
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
@@ -1254,7 +1254,7 @@ const steps = [
         value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) '
       },
       placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
-      mandatory: true,
+      mandatory: false,
       isFocused: false
     },
     {
@@ -1308,7 +1308,7 @@ const steps = [
         value: 'Haga un descripción de las zonas comunes de la vivienda, es decir de las partes, espacios, anexos, depedencias, exluyendo las habitaciones.'
       },
       placeholder: 'P. ej. Una cocina, un salón, dos baños, un garaje, un jardín de 10 m2...',
-      mandatory: true,
+      mandatory: false,
       isFocused: false
     },
     {
@@ -1323,7 +1323,7 @@ const steps = [
         value: 'Localidad y número del Registro de la propiedad en el que está inscrita la vivienda.'
       },
       placeholder: 'P. ej. Madrid Nº 34',
-      mandatory: true,
+      mandatory: false,
       isFocused: false,
     },
     {
@@ -1338,7 +1338,7 @@ const steps = [
         value: 'Los datos registrales es el número de finca que se asigna en el registro de la propiedad correspondiente en el momento de ser inscrita por primera vez y los datos de la cita registral que le corresponden, es decir, el número de tomo, libro y folio en los que consta la inscripción.'
       },
       placeholder: 'P. ej. Tomo 1 Libro 377 Folio 204 Finca 2',
-      mandatory: true,
+      mandatory: false,
       isFocused: false
     },
     {
@@ -1682,7 +1682,7 @@ const steps = [
         value: ''
       },
       placeholder: 'Ej. habitación que tiene la letra B en la puerta y que se encuentra ubicada frente del baño',
-      mandatory: true,
+      mandatory: false,
       isFocused: false
     },
     {
@@ -1776,7 +1776,7 @@ const steps = [
                         value: ''
                       },
                       placeholder: 'P. ej. Una cama doble marca IXX modelo XX, un colchón marca XXX modelo XXX, ...',
-                      mandatory: true,
+                      mandatory: false,
                       isFocused: false
                     },
                   ]
@@ -2359,7 +2359,7 @@ const steps = [
                 value: ''
               },
               placeholder: 'P Ej. estudios, traslado laboral',
-              mandatory: true,
+              mandatory: false,
               isFocused: false
             }
           ]
@@ -2418,7 +2418,7 @@ const steps = [
                 value: ''
               },
               placeholder: 'P. ej. traslado a la localidad donde está la habitación por motivos laborales 15 días cada mes',
-              mandatory: true,
+              mandatory: false,
               isFocused: false
             }
           ]
@@ -2667,7 +2667,7 @@ const steps = [
                 value: 'Indique aquí la duración de los períodos de prórroga que entrarán en vigor automáticamente transcurrido el plazo de duración del alquiler'
               },
               placeholder: 'P. ej. 15 días; 6 meses; 1 año',
-              mandatory: true,
+              mandatory: false,
               isFocused: false
             },
             {
@@ -2682,7 +2682,7 @@ const steps = [
                 value: ''
               },
               placeholder: 'P. ej. 2 días; 1 semana; 30 días',
-              mandatory: true,
+              mandatory: false,
               isFocused: false
             },
             {
@@ -2725,7 +2725,7 @@ const steps = [
                         value: 'Una vez alcanzado este tiempo máximo, el contrato de arrendamiento de habitación finalizará automáticamente.'
                       },
                       placeholder: 'P. ej. 6 meses; 5 año ',
-                      mandatory: true,
+                      mandatory: false,
                       isFocused: false
                     },
                   ]
@@ -2832,7 +2832,7 @@ const steps = [
                 value: ''
               },
               placeholder: 'P. ej. 15 días; 6 meses; 1 año',
-              mandatory: true,
+              mandatory: false,
               isFocused: false
             }
           ]
@@ -2861,7 +2861,7 @@ const steps = [
                 value: 'Tenga en cuenta que el periodo mínimo debe ser acorde a la duración del contrato, así si este dura 3 meses, el período mínimo de desistimiento podría ser 1 mes'
               },
               placeholder: 'P. ej. 15 días; 6 meses; 1 año',
-              mandatory: true,
+              mandatory: false,
               isFocused: false
             },
             {
@@ -2876,7 +2876,7 @@ const steps = [
                 value: ''
               },
               placeholder: 'P. ej. 15 días; 6 meses; 1 año',
-              mandatory: true,
+              mandatory: false,
               isFocused: false
             }
           ]
@@ -2905,7 +2905,7 @@ const steps = [
                 value: 'Esta multa debe ser expresada en porcentaje sobre el valor de la renta total del alquiler que quede por pagar. Por ejemplo, si en este contrato se establece una renta o alquiler de 200 euros al mes, y una de las partes pide a la otra la finalización del contrato 2 meses antes de la fecha prevista, la renta total del alquiler que queda por pagar es igual a 400 euros. Así, si en esta pregunta se indica una multa del 50%, la parte que pida la finalización anticipada del contrato deberá pagar a la otra una multa igual a 200 euros.'
               },
               placeholder: 'P. ej. Numero menor que 100',
-              mandatory: true,
+              mandatory: false,
               isFocused: false,
               extraReplacements: [
               ],
@@ -2931,7 +2931,7 @@ const steps = [
                 value: 'Si no se respeta este plazo de preaviso, la parte que desista del contrato deberá pagar a la otra una indemnización por daños y perjuicios, además de la multa indicada en la pregunta anterior.'
               },
               placeholder: 'P. ej. 15 días; 6 meses; 1 año',
-              mandatory: true,
+              mandatory: false,
               isFocused: false,
               isEmpty: {
                 prepend: 'En caso de desistimiento del contrato por cualquiera de las partes incumpliendo el preaviso pactado de: ',
@@ -2982,7 +2982,7 @@ const steps = [
                 value: ''
               },
               placeholder: 'P. ej. por día, por mes, por año, por semestre, por hora',
-              mandatory: true,
+              mandatory: false,
               isFocused: false
             },
             {
@@ -2997,7 +2997,7 @@ const steps = [
                 value: ''
               },
               placeholder: 'Escriba un número',
-              mandatory: true,
+              mandatory: false,
               isFocused: false,
               extraReplacements: [
               ],
@@ -3089,7 +3089,7 @@ const steps = [
                 value: ''
               },
               placeholder: 'Escriba un número',
-              mandatory: true,
+              mandatory: false,
               isFocused: false,
               extraReplacements: [],
               rules: [
@@ -3178,7 +3178,7 @@ const steps = [
                         value: ''
                       },
                       placeholder: 'Escriba un número',
-                      mandatory: true,
+                      mandatory: false,
                       isFocused: false,
                       extraReplacements: [],
                       rules: [
@@ -3231,7 +3231,7 @@ const steps = [
                         value: ''
                       },
                       placeholder: 'Escriba un número',
-                      mandatory: true,
+                      mandatory: false,
                       isFocused: false,
                       extraReplacements: [],
                       rules: [
@@ -3284,7 +3284,7 @@ const steps = [
                         value: ''
                       },
                       placeholder: '',
-                      mandatory: true,
+                      mandatory: false,
                       isFocused: false,
                       rules: [
                       ]
@@ -3838,9 +3838,9 @@ const steps = [
                 {
                   label: 'no está incluídos en el precio del alquiler',
                   // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'El método de atribución a la PARTE ARRENDATARIA será el prorrateo de los gastos totales de la Vivienda entre el número de habitaciones de la misma que se encuentren ocupadas durante el período facturado. Los servicios y suministros que la parte ARRENDATARIA desee contratar para su uso individual deberán ser autorizados por la parte ARRENDADORA. La parte ARRENDADORA quedará obligada a entregar recibo a la parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA proceda a su abono, si bien estos gastos nos están previstos dentro de la renta. id-dec-32_opA_1_opA_1 id-dec-32_opA_1_opA_2',
+                  replacementOriginal: 'El método de atribución a la PARTE ARRENDATARIA será el prorrateo de los gastos totales de la Vivienda entre el número de habitaciones de la misma que se encuentren ocupadas durante el período facturado. Los servicios y suministros que la parte ARRENDATARIA desee contratar para su uso individual deberán ser autorizados por la parte ARRENDADORA. La parte ARRENDADORA quedará obligada a entregar recibo a la parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA proceda a su abono, si bien estos gastos no están previstos dentro de la renta. id-dec-32_opA_1_opA_1 id-dec-32_opA_1_opA_2',
                   // tslint:disable-next-line:max-line-length
-                  replacement: 'El método de atribución a la PARTE ARRENDATARIA será el prorrateo de los gastos totales de la Vivienda entre el número de habitaciones de la misma que se encuentren ocupadas durante el período facturado. Los servicios y suministros que la parte ARRENDATARIA desee contratar para su uso individual deberán ser autorizados por la parte ARRENDADORA. La parte ARRENDADORA quedará obligada a entregar recibo a la parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA proceda a su abono, si bien estos gastos nos están previstos dentro de la renta. id-dec-32_opA_1_opA_1 id-dec-32_opA_1_opA_2',
+                  replacement: 'El método de atribución a la PARTE ARRENDATARIA será el prorrateo de los gastos totales de la Vivienda entre el número de habitaciones de la misma que se encuentren ocupadas durante el período facturado. Los servicios y suministros que la parte ARRENDATARIA desee contratar para su uso individual deberán ser autorizados por la parte ARRENDADORA. La parte ARRENDADORA quedará obligada a entregar recibo a la parte ARRENDATARIA en el que se especifique los diferentes conceptos que componen los pagos efectuados para que la parte ARRENDATARIA proceda a su abono, si bien estos gastos no están previstos dentro de la renta. id-dec-32_opA_1_opA_1 id-dec-32_opA_1_opA_2',
                   extraReplacements: [],
                   radioId: 'id-dec-32_opA_1_opA',
                   identifier: 'id-dec-32_opA_1_opA',
@@ -4064,7 +4064,7 @@ const steps = [
     },
     {
       type: 'iRadioC',
-      question: 'En caso de que el arrendatario (inquilino), incumpla alguna de las obligaciones que se derivan de este contrato, como por ejemplo, no pagar el alquiler, ¿se establece alguna fianza o depósto de garantía? (esta será devuelta al finalizar el contrato si no se ha hecho ningún incumplimiento de obligaciones)',
+      question: 'En caso de que el arrendatario (inquilino), incumpla alguna de las obligaciones que se derivan de este contrato, como, por ejemplo, no pagar el alquiler, ¿se establece alguna fianza o depósito de garantía? (esta será devuelta al finalizar el contrato si no se ha hecho ningún incumplimiento de obligaciones)',
       identifier: 'id-dec-34',
       wordToReplace: 'id-dec-34',
       defaultRadioId: 'id-dec-34_opA',
@@ -4205,7 +4205,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Escoja el tipo de documento que identificará personalmente al primer o único fiador solidario. Si se trata de una persona física, si esta persona cuenta con DNI/NIF escoja siempre esta opción, y reserve las opciones de NIE o Pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo. Si se trata de una persona jurídica, seleccione la opción NIF/CIF.',
+                        value: 'Escoja el tipo de documento que identificará personalmente al fiador solidario. Si se trata de una persona física, si esta persona cuenta con DNI/NIF escoja siempre esta opción, y reserve las opciones de NIE o Pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo. Si se trata de una persona jurídica, seleccione la opción NIF/CIF.',
                       },
                       replacement: '',
                       extraReplacements: [],
@@ -4317,8 +4317,8 @@ const steps = [
       radios: [
         {
           label: 'Sí',
-          replacementOriginal: '(tanto las que se recojan en este Contrato, así como en el documento relativo a dichas normas que se adjunta como Anexo)',
-          replacement: '(tanto las que se recojan en este Contrato, así como en el documento relativo a dichas normas que se adjunta como Anexo)',
+          replacementOriginal: ' (tanto las que se recojan en este Contrato, así como en el documento relativo a dichas normas que se adjunta como Anexo)',
+          replacement: ' (tanto las que se recojan en este Contrato, así como en el documento relativo a dichas normas que se adjunta como Anexo)',
           radioId: 'id-dec-36_opA',
           identifier: 'id-dec-36_opA',
           extraReplacements: [
@@ -4365,7 +4365,7 @@ const steps = [
       mandatory: false,
       isFocused: false,
       isEmpty: {
-        prepend: '<br><br>En cuanto a la limpieza de zonas comunes, la parte ARRENDATARIA se compromete a lo siguiente:<br>',
+        prepend: '<br><br>En cuanto a la limpieza de zonas comunes, la parte ARRENDATARIA se compromete a lo siguiente:',
         append: '.',
       }
     },
@@ -4385,7 +4385,7 @@ const steps = [
       mandatory: false,
       isFocused: false,
       isEmpty: {
-        prepend: '<br><br>En cuanto a la basura generada en la vivienda, se establece lo siguiente, y que la parte ARRENDATARIA deberá cumplir:<br>',
+        prepend: '<br><br>En cuanto a la basura generada en la vivienda, se establece lo siguiente, y que la parte ARRENDATARIA deberá cumplir:',
         append: '.',
       }
     },
@@ -4405,7 +4405,7 @@ const steps = [
       mandatory: false,
       isFocused: false,
       isEmpty: {
-        prepend: '<br><br>En cuanto al uso de zonas de comunes, la parte ARRENDATARIA se compromete a respetar el siguiente horario:<br>',
+        prepend: '<br><br>En cuanto al uso de zonas de comunes, la parte ARRENDATARIA se compromete a respetar el siguiente horario:',
         append: '.',
       }
     },
