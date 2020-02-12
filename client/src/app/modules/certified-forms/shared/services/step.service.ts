@@ -216,7 +216,14 @@ export class StepsService {
               });
               copySubStep.identifier = newIndentifier;
               copySubStep.wordToReplace = newIndentifier;
-              copySubStep.question = copySubStep.question.replace('->(index)', i + 1);
+
+              if (copySubStep.hasIndex) {
+                if (parseInt(value) === 1) {
+                  copySubStep.question = copySubStep.questionOriginal.replace('->(index)', '');
+                } else {
+                  copySubStep.question = copySubStep.questionOriginal.replace('->(index)', i + 1);
+                }
+              }
 
               this.steps.splice(
                 ((index + 1) +
