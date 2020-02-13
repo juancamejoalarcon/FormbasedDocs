@@ -500,7 +500,7 @@ const steps = [
                         {
                           identifier: 'id-unid-3_1_opB_5',
                           wordToReplace: 'id-unid-3_1_opB_5',
-                          replacementOriginal: '- id-unid-3_1_opB_5_1, mayor de edad, con domicilio en id-unid-3_1_opB_5_2, id-unid-3_1_opB_5_3 núm. id-unid-3_1_opB_5_4, y en calidad de id-unid-3_1_opB_5_5<br>',
+                          replacementOriginal: '- id-unid-3_1_opB_5_1, mayor de edad, con domicilio en id-unid-3_1_opB_5_2, id-unid-3_1_opB_5_3 núm. id-unid-3_1_opB_5_4, y en calidad de id-unid-3_1_opB_5_5<br><br>',
                           replacement: '',
                           extraReplacements: [],
                           modifiedReplacements: [],
@@ -1103,7 +1103,7 @@ const steps = [
                         {
                           identifier: 'id-unid-4_1_opB_5',
                           wordToReplace: 'id-unid-4_1_opB_5',
-                          replacementOriginal: '- id-unid-4_1_opB_5_1, mayor de edad, con domicilio en id-unid-4_1_opB_5_2, id-unid-4_1_opB_5_3 núm. id-unid-4_1_opB_5_4, y en calidad de id-unid-4_1_opB_5_5<br>',
+                          replacementOriginal: '- id-unid-4_1_opB_5_1, mayor de edad, con domicilio en id-unid-4_1_opB_5_2, id-unid-4_1_opB_5_3 núm. id-unid-4_1_opB_5_4, y en calidad de id-unid-4_1_opB_5_5<br><br>',
                           replacement: '',
                           extraReplacements: [],
                           modifiedReplacements: [],
@@ -1231,6 +1231,7 @@ const steps = [
       identifier: 'id-unidnew-4',
       placeholder: 'P. ej: ejemplo@email.com',
       type: 'iText',
+      subType: 'textarea',
       replacement: '',
       indications: {
         areIndications: true,

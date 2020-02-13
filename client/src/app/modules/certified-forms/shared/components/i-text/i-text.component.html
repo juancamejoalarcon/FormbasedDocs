@@ -14,7 +14,7 @@
                   [placeholder]="step.placeholder ? step.placeholder : ''"
                   [ngStyle]="{'borderBottom': inputInvalid ? '3px solid red' : ''}" *ngIf="step.subType !== 'textarea'">
                   <textarea [value]="step.replacement" #input 
-                  (keyup)="onInput($event, step.wordToReplace)"
+                  (keyup)="onInput($event)" (click)="onInput($event)"
                   [placeholder]="step.placeholder ? step.placeholder : ''"
                   [ngStyle]="{'borderBottom': inputInvalid ? '3px solid red' : ''}" 
                   cols="30" rows="6" *ngIf="step.subType === 'textarea'"></textarea>
