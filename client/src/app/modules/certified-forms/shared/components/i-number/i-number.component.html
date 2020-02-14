@@ -9,7 +9,8 @@
               </div>
               <div class="form-creator__fields-area__field__middle">
                   <span class="form-creator__fields-area__field__middle__question">{{step.question}}</span>
-                  <input type="text" #input (keyup)="onInputNumberChanged($event)" [value]="step.replacement"
+                  <input type="text" #input (keyup)="onInputNumberChanged($event)" (click)="onInputNumberChanged($event)"
+                  [value]="step.replacement"
                   [placeholder]="step.placeholder ? step.placeholder : ''"
                   [ngStyle]="{'borderBottom': inputInvalid ? '3px solid red' : ''}">
               </div>
