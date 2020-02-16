@@ -152,7 +152,7 @@ export class CheckoutComponent implements OnInit {
             this.commonsService.toggleSpinner();
             this.moveStep('next');
             this.onPaymentCompleted(data.transaction.transactionId);
-            this.toastr.success('Payment completed', 'Payment success', {
+            this.toastr.success('Pago completado', 'Finalizado', {
               positionClass: 'toast-bottom-right',
               progressBar: true,
               progressAnimation: 'decreasing'
@@ -293,7 +293,7 @@ export class CheckoutComponent implements OnInit {
                     this.commonsService.toggleSpinner();
                     this.moveStep('next');
                     this.onPaymentCompleted(result.transaction.transactionId);
-                    this.toastr.success('Payment completed', 'Payment success', {
+                    this.toastr.success('Pago completado', 'Finalizado', {
                       positionClass: 'toast-bottom-right',
                       progressBar: true,
                       progressAnimation: 'decreasing'

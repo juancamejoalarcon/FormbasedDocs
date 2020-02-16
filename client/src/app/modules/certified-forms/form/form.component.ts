@@ -131,9 +131,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.documentCreatorService.resizeDocumentContainer();
       this.stepModelService.buildDocument(false);
-      if (!window.sessionStorage['Contrato de Arras Penitenciales']) {
-        this.stepModelService.setInitialState();
-      }
+      this.stepModelService.setInitialState();
       this.documentCreatorService.resizeEvent();
       this.commonsService.toggleSpinner();
     });
@@ -225,13 +223,8 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
     this.form.uri = certifiedForm.uri;
     this.form.fields = JSON.parse(certifiedForm.fields);
     this.setInitiaState();
-    this.documentCreatorService.saveUri().then((uri: string) => {
-      this.checkoutService.sendMail(certifiedForm.transactionId, uri).subscribe((data: any) => {
-        console.log(data);
-      });
-    });
     this.commonsService.toggleSpinner();
-
+    this.sendEmail(certifiedForm.transactionId);
   }
 
   previewDocumentButton(setDocumentVisible: boolean) {
@@ -258,6 +251,16 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   downloadPdf() {
     this.documentCreatorService.downloadPdf(this.form.id, this.form.uri);
+  }
+
+  sendEmail(transactionId) {
+    setTimeout(() => {
+      this.documentCreatorService.saveUri().then((uri: string) => {
+        this.checkoutService.sendMail(transactionId, uri).subscribe((data: any) => {
+          console.log(data);
+        });
+      });
+    }, 1000);
   }
 
 }

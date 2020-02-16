@@ -203,9 +203,9 @@ const steps = [
                           {
                             label: 'por medio de un representante (legal o voluntario)',
                             // tslint:disable-next-line:max-line-length
-                            replacementOriginal: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con domicilio en id-unid-3_1_opA_1_opB_9, id-unid-3_1_opA_1_opB_6 número: id-unid-3_1_opA_1_opB_7, en calidad de id-unid-3_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, y actuando, en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
+                            replacementOriginal: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con domicilio en id-unid-3_1_opA_1_opB_9, id-unid-3_1_opA_1_opB_6 número: id-unid-3_1_opA_1_opB_7, en calidad de id-unid-3_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y actuando en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
                             // tslint:disable-next-line:max-line-length
-                            replacement: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con domicilio en id-unid-3_1_opA_1_opB_9, id-unid-3_1_opA_1_opB_6 número: id-unid-3_1_opA_1_opB_7, en calidad de id-unid-3_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, y actuando, en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
+                            replacement: 'id-unid-3_1_opA_1_opB_5, mayor de edad, con domicilio en id-unid-3_1_opA_1_opB_9, id-unid-3_1_opA_1_opB_6 número: id-unid-3_1_opA_1_opB_7, en calidad de id-unid-3_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y actuando en nombre y representación de id-unid-3_1_opA_1_opB_1, con domicilio en id-unid-3_1_opA_1_opB_2 y id-unid-3_1_opA_1_opB_3 número id-unid-3_1_opA_1_opB_4.',
                             extraReplacements: [],
                             radioId: 'id-unid-3_1_opA_1_opB',
                             identifier: 'id-unid-3_1_opA_1_opB',
@@ -500,7 +500,7 @@ const steps = [
                         {
                           identifier: 'id-unid-3_1_opB_5',
                           wordToReplace: 'id-unid-3_1_opB_5',
-                          replacementOriginal: '- id-unid-3_1_opB_5_1, mayor de edad, con domicilio en id-unid-3_1_opB_5_2, id-unid-3_1_opB_5_3 núm. id-unid-3_1_opB_5_4, y en calidad de id-unid-3_1_opB_5_5<br><br>',
+                          replacementOriginal: ' id-unid-3_1_opB_5_1, mayor de edad, con domicilio en id-unid-3_1_opB_5_2, id-unid-3_1_opB_5_3 núm. id-unid-3_1_opB_5_4, y en calidad de id-unid-3_1_opB_5_5; <br> <br>',
                           replacement: '',
                           extraReplacements: [],
                           modifiedReplacements: [],
@@ -636,7 +636,7 @@ const steps = [
         value: 'Si lo desea, señale en este espacio la dirección o direcciones de correo electrónico de los propietarios. Esto puede facilitar y hacer más fluidas las comunicaciones entre las partes.  Si no desea indicar la dirección o direcciones de correo electrónico, deje este espacio en blanco.',
       },
       isEmpty: {
-        prepend: 'La parte ARRENDATARIA podrá comunicarse con la parte ARRENDADORA a través de:<br>',
+        prepend: 'La parte ARRENDATARIA podrá comunicarse con la parte ARRENDADORA a través de: <br>',
         append: '',
       }
     },
@@ -806,9 +806,9 @@ const steps = [
                           {
                             label: 'por medio de un representante (legal o voluntario)',
                             // tslint:disable-next-line:max-line-length
-                            replacementOriginal: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con domicilio en id-unid-4_1_opA_1_opB_9, id-unid-4_1_opA_1_opB_6 número: id-unid-4_1_opA_1_opB_7, en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, y actuando, en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
+                            replacementOriginal: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con domicilio en id-unid-4_1_opA_1_opB_9, id-unid-4_1_opA_1_opB_6 número: id-unid-4_1_opA_1_opB_7, en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y actuando en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
                             // tslint:disable-next-line:max-line-length
-                            replacement: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con domicilio en id-unid-4_1_opA_1_opB_9, id-unid-4_1_opA_1_opB_6 número: id-unid-4_1_opA_1_opB_7, en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, y actuando, en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
+                            replacement: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con domicilio en id-unid-4_1_opA_1_opB_9, id-unid-4_1_opA_1_opB_6 número: id-unid-4_1_opA_1_opB_7, en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y actuando en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
                             extraReplacements: [],
                             radioId: 'id-unid-4_1_opA_1_opB',
                             identifier: 'id-unid-4_1_opA_1_opB',
@@ -1103,7 +1103,7 @@ const steps = [
                         {
                           identifier: 'id-unid-4_1_opB_5',
                           wordToReplace: 'id-unid-4_1_opB_5',
-                          replacementOriginal: '- id-unid-4_1_opB_5_1, mayor de edad, con domicilio en id-unid-4_1_opB_5_2, id-unid-4_1_opB_5_3 núm. id-unid-4_1_opB_5_4, y en calidad de id-unid-4_1_opB_5_5<br><br>',
+                          replacementOriginal: ' id-unid-4_1_opB_5_1, mayor de edad, con domicilio en id-unid-4_1_opB_5_2, id-unid-4_1_opB_5_3 núm. id-unid-4_1_opB_5_4, y en calidad de id-unid-4_1_opB_5_5; <br> <br>',
                           replacement: '',
                           extraReplacements: [],
                           modifiedReplacements: [],
@@ -1239,7 +1239,7 @@ const steps = [
         value: 'Si lo desea, señale en este espacio la dirección o direcciones de correo electrónico de los inquilinos. Esto puede facilitar y hacer más fluidas las comunicaciones entre las partes.  Si no desea indicar la dirección o direcciones de correo electrónico, deje este espacio en blanco.',
       },
       isEmpty: {
-        prepend: 'La parte ARRENDADORA podrá comunicarse con la parte ARRENDATARIA a través de:<br>',
+        prepend: 'La parte ARRENDADORA podrá comunicarse con la parte ARRENDATARIA a través de: <br>',
         append: '',
       }
     },
@@ -1868,8 +1868,8 @@ const steps = [
             },
             {
               identifier: 'iddec16-extra-2',
-              replacement: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
-              replacementOriginal: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+              replacement: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos enchufados a la red eléctrica de la vivienda.',
+              replacementOriginal: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos enchufados a la red eléctrica de la vivienda.',
               insideId: 'opB'
             },
             {
@@ -1896,8 +1896,8 @@ const steps = [
             },
             {
               identifier: 'iddec16-extra-2',
-              replacement: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con caja de seguridad con clave secreta o cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
-              replacementOriginal: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con caja de seguridad con clave secreta o cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+              replacement: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con caja de seguridad con clave secreta o cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos enchufados a la red eléctrica de la vivienda.',
+              replacementOriginal: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con caja de seguridad con clave secreta o cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos enchufados a la red eléctrica de la vivienda.',
               insideId: 'opB'
             },
             {
@@ -1924,8 +1924,8 @@ const steps = [
             },
             {
               identifier: 'iddec16-extra-2',
-              replacement: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada y caja de seguridad con clave secreta o cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
-              replacementOriginal: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada y caja de seguridad con clave secreta o cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+              replacement: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada y caja de seguridad con clave secreta o cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos enchufados a la red eléctrica de la vivienda.',
+              replacementOriginal: 'La parte ARRENDADORA  no se hace responsable de pérdidas o hurtos en las habitaciones, o en la vivienda. A tal efecto, todas las habitaciones cuentan con cerradura privada y caja de seguridad con clave secreta o cerradura privada. La parte ARRENDADORA tampoco se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos enchufados a la red eléctrica de la vivienda.',
               insideId: 'opB'
             },
             {
@@ -1952,8 +1952,8 @@ const steps = [
             },
             {
               identifier: 'iddec16-extra-2',
-              replacement: 'La parte ARRENDADORA no se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
-              replacementOriginal: 'La parte ARRENDADORA no se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos en chufados a la red eléctrica de la vivienda.',
+              replacement: 'La parte ARRENDADORA no se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos enchufados a la red eléctrica de la vivienda.',
+              replacementOriginal: 'La parte ARRENDADORA no se hace responsables de los posibles daños que pudieran surgir en los dispositivos electrónicos enchufados a la red eléctrica de la vivienda.',
               insideId: 'opB'
             },
             {
@@ -2617,9 +2617,9 @@ const steps = [
         {
           label: 'Sí',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'En caso de que llegare el último día del Contrato, si ninguna de las Partes hubiese notificado a la otra como mínimo con id-dec-25_opA_2 de antelación, su voluntad de no renovar el presente Contrato, se entenderá que este entra en períodos sucesivos de prórroga automática. Estos períodos de prórroga serán de: id-dec-25_opA_1id-dec-25_opA_3. En cualquiera de sus prorrogas, si alguna de las partes quisiera finalizar el contrato, podrá avisar a través de los medios previstos, como mínimo con id-dec-25_opA_2 de antelación a la fecha de terminación de cualquiera de las prórrogas, su voluntad de no renovarlo.',
+          replacementOriginal: 'En caso de que llegare el último día del Contrato, si ninguna de las Partes hubiese notificado a la otra como mínimo con id-dec-25_opA_2 de antelación, su voluntad de no renovar el presente Contrato, se entenderá que este entra en períodos sucesivos de prórroga automática. Estos períodos de prórroga serán de: id-dec-25_opA_1,id-dec-25_opA_3. En cualquiera de sus prorrogas, si alguna de las partes quisiera finalizar el contrato, podrá avisar a través de los medios previstos, como mínimo con id-dec-25_opA_2 de antelación a la fecha de terminación de cualquiera de las prórrogas, su voluntad de no renovarlo.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'En caso de que llegare el último día del Contrato, si ninguna de las Partes hubiese notificado a la otra como mínimo con id-dec-25_opA_2 de antelación, su voluntad de no renovar el presente Contrato, se entenderá que este entra en períodos sucesivos de prórroga automática. Estos períodos de prórroga serán de: id-dec-25_opA_1id-dec-25_opA_3. En cualquiera de sus prorrogas, si alguna de las partes quisiera finalizar el contrato, podrá avisar a través de los medios previstos, como mínimo con id-dec-25_opA_2 de antelación a la fecha de terminación de cualquiera de las prórrogas, su voluntad de no renovarlo.',
+          replacement: 'En caso de que llegare el último día del Contrato, si ninguna de las Partes hubiese notificado a la otra como mínimo con id-dec-25_opA_2 de antelación, su voluntad de no renovar el presente Contrato, se entenderá que este entra en períodos sucesivos de prórroga automática. Estos períodos de prórroga serán de: id-dec-25_opA_1,id-dec-25_opA_3. En cualquiera de sus prorrogas, si alguna de las partes quisiera finalizar el contrato, podrá avisar a través de los medios previstos, como mínimo con id-dec-25_opA_2 de antelación a la fecha de terminación de cualquiera de las prórrogas, su voluntad de no renovarlo.',
           extraReplacements: [
             {
               identifier: 'iddec25-extra-1',
@@ -3036,7 +3036,7 @@ const steps = [
                 },
                 {
                   label: 'de otra manera',
-                  replacementOriginal: 'El pago de la renta se realizará de la siguiente manera: id-dec-27_opA_3_opB_1',
+                  replacementOriginal: 'El pago de la renta se realizará de la siguiente manera: id-dec-27_opA_3_opB_1.',
                   replacement: '',
                   extraReplacements: [],
                   radioId: 'id-dec-27_opA_3_opB',
@@ -3348,9 +3348,9 @@ const steps = [
         {
           label: 'Ingreso o transferencia bancaria:',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1 y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacementOriginal: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1, y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1 y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacement: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1, y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la parte ARRENDADORA entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           extraReplacements: [],
           radioId: 'id-dec-29_opA',
           identifier: 'id-dec-29_opA',
@@ -3754,7 +3754,7 @@ const steps = [
               rules: [],
               isEmpty: {
                 prepend: 'Las Partes acuerdan que dicho pago retribuirá el siguiente servicio de limpieza: ',
-                append: '',
+                append: '.',
               }
             },
           ]
@@ -4082,9 +4082,9 @@ const steps = [
         {
           label: 'Sí',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Las partes acuerdan un importe de iddec34opA1-precioAletras (id-dec-34_opA_1 €) en concepto de fianza, que la parte ARRENDATARIA entrega en este acto a la parte ARRENDADORA. Sirva el presente documento la más formal y fiel carta de pago que en derecho corresponda. <br><br> Una vez la parte ARRENDADORA haya comprobado que la habitación y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte ARRENDATARIA. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la habitación o en el resto de la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados.',
+          replacementOriginal: 'Las partes acuerdan un importe de iddec34opA1-precioAletras (id-dec-34_opA_1 €) en concepto de fianza, que la parte ARRENDATARIA entrega en este acto a la parte ARRENDADORA. Sirva el presente documento la más formal y fiel carta de pago que en derecho corresponda. <br><br> Una vez la parte ARRENDADORA haya comprobado que la habitación y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte ARRENDATARIA. En el caso de que existieran deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la habitación o en el resto de la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'Las partes acuerdan un importe de iddec34opA1-precioAletras (id-dec-34_opA_1 €) en concepto de fianza, que la parte ARRENDATARIA entrega en este acto a la parte ARRENDADORA. Sirva el presente documento la más formal y fiel carta de pago que en derecho corresponda. <br><br> Una vez la parte ARRENDADORA haya comprobado que la habitación y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte ARRENDATARIA. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la habitación o en el resto de la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados.',
+          replacement: 'Las partes acuerdan un importe de iddec34opA1-precioAletras (id-dec-34_opA_1 €) en concepto de fianza, que la parte ARRENDATARIA entrega en este acto a la parte ARRENDADORA. Sirva el presente documento la más formal y fiel carta de pago que en derecho corresponda. <br><br> Una vez la parte ARRENDADORA haya comprobado que la habitación y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte ARRENDATARIA. En el caso de que existieran deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la habitación o en el resto de la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados.',
           extraReplacements: [],
           radioId: 'id-dec-34_opA',
           identifier: 'id-dec-34_opA',
@@ -4150,7 +4150,7 @@ const steps = [
         {
           label: 'Sí',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Sin perjuicio de lo convenido en las estipulaciones precedentes, garantiza el total y exacto cumplimiento de todas y cada una de las obligaciones contraídas por el arrendatario:id-dec-35_opA_1 en calidad de fiadora de la parte ARRENDATARIA, convirtiéndose en suyas las obligaciones de ésta a los efectos previstos en el Código Civil.Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil.',
+          replacementOriginal: 'Sin perjuicio de lo convenido en las estipulaciones precedentes, garantiza el total y exacto cumplimiento de todas y cada una de las obligaciones contraídas por el arrendatario:id-dec-35_opA_1 en calidad de fiadora de la parte ARRENDATARIA, convirtiéndose en suyas las obligaciones de ésta a los efectos previstos en el Código Civil. Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil.',
           // tslint:disable-next-line:max-line-length
           replacement: '',
           extraReplacements: [],
@@ -4366,7 +4366,7 @@ const steps = [
       mandatory: false,
       isFocused: false,
       isEmpty: {
-        prepend: '<br><br>En cuanto a la limpieza de zonas comunes, la parte ARRENDATARIA se compromete a lo siguiente:',
+        prepend: '<br><br>En cuanto a la limpieza de zonas comunes, la parte ARRENDATARIA se compromete a lo siguiente: ',
         append: '.',
       }
     },
@@ -4386,7 +4386,7 @@ const steps = [
       mandatory: false,
       isFocused: false,
       isEmpty: {
-        prepend: '<br><br>En cuanto a la basura generada en la vivienda, se establece lo siguiente, y que la parte ARRENDATARIA deberá cumplir:',
+        prepend: '<br><br>En cuanto a la basura generada en la vivienda, se establece lo siguiente, y que la parte ARRENDATARIA deberá cumplir: ',
         append: '.',
       }
     },
@@ -4406,7 +4406,7 @@ const steps = [
       mandatory: false,
       isFocused: false,
       isEmpty: {
-        prepend: '<br><br>En cuanto al uso de zonas de comunes, la parte ARRENDATARIA se compromete a respetar el siguiente horario:',
+        prepend: '<br><br>En cuanto al uso de zonas de comunes, la parte ARRENDATARIA se compromete a respetar el siguiente horario: ',
         append: '.',
       }
     },
@@ -4492,7 +4492,7 @@ const steps = [
         areIndications: true,
         indicationsType: 'outsideText',
         // tslint:disable-next-line:max-line-length
-        value: 'Seleccione aquí la opción que corresponda al nivel de aseguramiento o al seguro que tendrá el alquiler de la habitación y la vivienda en la que esta se encuentra durante el período de duración del alquiler. <br>Si ya cuenta con un seguro (por ejemplo, un seguro de alquiler para propietarios) y el arrendador y el arrendatario no desean pactar la contratación de otro seguro (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la primera opción. <br>Si ya cuenta con un seguro (por ejemplo, un seguro de alquiler para propietarios), pero el arrendador y el arrendatario desean pactar la contratación de otro seguro (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la segunda opción. <br>Si no cuenta aún con un seguro, pero el arrendador y el arrendatario desean pactar la contratación de uno (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la tercera opción. <br>Por último, si no cuenta aún con un seguro y el arrendador y el arrendatario no desean pactar su contratación, seleccione la cuarta opción.'
+        value: 'Seleccione aquí la opción que corresponda al nivel de aseguramiento o al seguro que tendrá el alquiler de la habitación y la vivienda en la que esta se encuentra durante el período de duración del alquiler. <br><br>Si ya cuenta con un seguro (por ejemplo, un seguro de alquiler para propietarios) y el arrendador y el arrendatario no desean pactar la contratación de otro seguro (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la primera opción. <br><br>Si ya cuenta con un seguro (por ejemplo, un seguro de alquiler para propietarios), pero el arrendador y el arrendatario desean pactar la contratación de otro seguro (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la segunda opción. <br><br>Si no cuenta aún con un seguro, pero el arrendador y el arrendatario desean pactar la contratación de uno (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la tercera opción. <br><br>Por último, si no cuenta aún con un seguro y el arrendador y el arrendatario no desean pactar su contratación, seleccione la cuarta opción.<br><br>'
       },
       replacement: '',
       extraReplacements: [
@@ -4501,9 +4501,9 @@ const steps = [
         {
           label: 'cuenta con un seguro y no se desea pactar la contratación de otro',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'La parte ARRENDADORA tiene contratado un seguro de: id-dec-42_opA_1 en la compañía aseguradora: id-dec-42_opA_2 id-dec-42_opA_3.',
+          replacementOriginal: 'La parte ARRENDADORA tiene contratado un seguro de: id-dec-42_opA_1, en la compañía aseguradora: id-dec-42_opA_2id-dec-42_opA_3.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'La parte ARRENDADORA tiene contratado un seguro de: id-dec-42_opA_1 en la compañía aseguradora: id-dec-42_opA_2 id-dec-42_opA_3.',
+          replacement: 'La parte ARRENDADORA tiene contratado un seguro de: id-dec-42_opA_1, en la compañía aseguradora: id-dec-42_opA_2id-dec-42_opA_3.',
           extraReplacements: [],
           radioId: 'id-dec-42_opA',
           identifier: 'id-dec-42_opA',
@@ -4560,7 +4560,7 @@ const steps = [
               rules: [
               ],
               isEmpty: {
-                prepend: ', y cuyo número de póliza es el siguiente:',
+                prepend: ', y cuyo número de póliza es el siguiente: ',
                 append: '',
               }
             },
@@ -4569,9 +4569,9 @@ const steps = [
         {
           label: 'cuenta con un seguro, pero se desea pactar la contratación de otro',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'La parte ARRENDADORA tiene contratado un seguro de: id-dec-42_opB_1 en la compañía aseguradora: id-dec-42_opB_2 id-dec-42_opB_3. <br><br>No obstante, la PARTE id-dec-42_opB_4 se compromete a contratar de un seguro de la siguiente clase: id-dec-42_opB_5. Este seguro tendrá como beneficiaria a la parte ARRENDADORA, y tener una cobertura mínima igual a iddec42opB6-precioAletras (id-dec-42_opB_6 €). Este seguro se mantendrá durante toda la vigencia del presente Contrato .',
+          replacementOriginal: 'La parte ARRENDADORA tiene contratado un seguro de: id-dec-42_opB_1, en la compañía aseguradora: id-dec-42_opB_2id-dec-42_opB_3. <br><br>No obstante, la PARTE id-dec-42_opB_4 se compromete a contratar un seguro de la siguiente clase: id-dec-42_opB_5. Este seguro tendrá como beneficiaria a la parte ARRENDADORA, y tener una cobertura mínima igual a iddec42opB6-precioAletras (id-dec-42_opB_6 €). Este seguro se mantendrá durante toda la vigencia del presente Contrato .',
           // tslint:disable-next-line:max-line-length
-          replacement: 'La parte ARRENDADORA tiene contratado un seguro de: id-dec-42_opB_1 en la compañía aseguradora: id-dec-42_opB_2 id-dec-42_opB_3. <br><br>No obstante, la PARTE id-dec-42_opB_4 se compromete a contratar de un seguro de la siguiente clase: id-dec-42_opB_5. Este seguro tendrá como beneficiaria a la parte ARRENDADORA, y tener una cobertura mínima igual a iddec42opB6-precioAletras (id-dec-42_opB_6 €). Este seguro se mantendrá durante toda la vigencia del presente Contrato .',
+          replacement: 'La parte ARRENDADORA tiene contratado un seguro de: id-dec-42_opB_1, en la compañía aseguradora: id-dec-42_opB_2id-dec-42_opB_3. <br><br>No obstante, la PARTE id-dec-42_opB_4 se compromete a contratar un seguro de la siguiente clase: id-dec-42_opB_5. Este seguro tendrá como beneficiaria a la parte ARRENDADORA, y tener una cobertura mínima igual a iddec42opB6-precioAletras (id-dec-42_opB_6 €). Este seguro se mantendrá durante toda la vigencia del presente Contrato .',
           extraReplacements: [],
           radioId: 'id-dec-42_opB',
           identifier: 'id-dec-42_opB',
@@ -4628,7 +4628,7 @@ const steps = [
               rules: [
               ],
               isEmpty: {
-                prepend: ', y cuyo número de póliza es el siguiente:',
+                prepend: ', y cuyo número de póliza es el siguiente: ',
                 append: '',
               }
             },
