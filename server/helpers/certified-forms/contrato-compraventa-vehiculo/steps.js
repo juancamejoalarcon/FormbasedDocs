@@ -47,7 +47,7 @@ const steps = [
       indications: {
         areIndications: true,
         indicationsType: 'outsideText',
-        value: 'Indique el número de personas que son propietarias del vehículo',
+        value: 'Indique el número de personas que son propietarias del vehículo.',
       },
       content: [
         {
@@ -68,7 +68,7 @@ const steps = [
                 areIndications: true,
                 indicationsType: 'outsideText',
                 // tslint:disable-next-line:max-line-length
-                value: 'Elija la personalidad jurídica de este vendedor. Se entiende por persona física a es una persona natural (un individuo), hablamos de persona jurídica para referirnos a una institución o ente, por ejemplo, una empresa o una asociación, entre otros.',
+                value: 'Elija la personalidad jurídica de este vendedor. Se entiende por persona física a una persona natural (un individuo), hablamos de persona jurídica para referirnos a una institución o ente, por ejemplo, una empresa o una asociación, entre otros.',
               },
               defaultRadioId: 'id-unid-3_1_opA',
               replacement: '',
@@ -93,7 +93,7 @@ const steps = [
                           areIndications: true,
                           indicationsType: 'outsideText',
                           // tslint:disable-next-line:max-line-length
-                          value: 'El vendedor puede concluir y firmar el contrato en nombre y representación propios o representado por otra persona. En caso de ser representado por otra persona, estamos hablando de un representante legal (como es el caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). Un representante voluntario precisa de autorización mediante documento público o privado. Si el contrato se concluye en nombre y representación propios, será persona que firma el contrato quien asuma las obligaciones del vendedor. Por el contrario, si es mediante representante, es esta otra persona quien firma el contrato; sin embargo, es el vendedor quien asumirá las obligaciones derivadas de este contrato. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a>',
+                          value: 'El vendedor puede concluir y firmar el contrato en nombre y representación propios o representado por otra persona. En caso de ser representado por otra persona, estamos hablando de un representante legal (como es el caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). Un representante voluntario precisa de autorización mediante documento público o privado. Si el contrato se concluye en nombre y representación propios, será persona que firma el contrato quien asuma las obligaciones del vendedor. Por el contrario, si es mediante representante, es esta otra persona quien firma el contrato; sin embargo, es el vendedor quien asumirá las obligaciones derivadas de este contrato. Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a></strong>',
                         },
                         defaultRadioId: 'id-unid-3_1_opA_1_opA',
                         replacement: '',
@@ -237,7 +237,7 @@ const steps = [
                                 type: 'iRadioB',
                                 question: 'Tipo de documento de identificación de este vendedor',
                                 identifier: 'id-unid-3_1_opA_1_opB_3',
-                                wordToReplace: '3_1_opA_1_opB_3',
+                                wordToReplace: 'id-unid-3_1_opA_1_opB_3',
                                 indications: {
                                   areIndications: true,
                                   indicationsType: 'insideText',
@@ -299,7 +299,7 @@ const steps = [
                                   areIndications: true,
                                   indicationsType: 'outsideText',
                                   // tslint:disable-next-line:max-line-length
-                                  value: 'Nombre completo, incluyendo los apellidos, de la persona física que firma este contrato en nombre y representación de este vendedor. El contrato puede ser firmado por un representante legal o voluntario. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a>',
+                                  value: 'Nombre completo, incluyendo los apellidos, de la persona física que firma este contrato en nombre y representación de este vendedor. El contrato puede ser firmado por un representante legal o voluntario. Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a></strong>',
                                 },
                               },
                               {
@@ -415,7 +415,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Se trata del número de identificación fiscal para empresas y sociedades, personas físicas o cualquier tipo de entidad que desarrolle actividad de naturaleza mercantil y que, además, sea sujeto de obligaciones burocráticas, como el hecho de emitir o percibir facturas. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">NIF empresarial</a>.',
+                        value: 'Se trata del número de identificación fiscal para empresas y sociedades, personas físicas o cualquier tipo de entidad que desarrolle actividad de naturaleza mercantil y que, además, sea sujeto de obligaciones burocráticas, como el hecho de emitir o percibir facturas. Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">NIF empresarial</a></strong>.',
                       },
                     },
                     {
@@ -429,7 +429,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a>',
+                        value: 'Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a></strong>',
                       },
                     },
                     {
@@ -443,7 +443,7 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a>',
+                        value: 'Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a></strong>',
                       },
                     },
                     {
@@ -517,7 +517,7 @@ const steps = [
                       ]
                     },
                     {
-                      question: 'Número del documento seleccionado en la pregunta anterior de identificación personal seleccionado:',
+                      question: 'Número del documento seleccionado en la pregunta anterior:',
                       wordToReplace: 'id-unid-3_1_opB_8',
                       identifier: 'id-unid-3_1_opB_8',
                       type: 'iText',
@@ -572,7 +572,7 @@ const steps = [
                 areIndications: true,
                 indicationsType: 'outsideText',
                 // tslint:disable-next-line:max-line-length
-                value: 'Elija la personalidad jurídica de este comprador. Se entiende por persona física a es una persona natural (un individuo), hablamos de persona jurídica para referirnos a una institución o ente, por ejemplo, una empresa o una asociación, entre otros.',
+                value: 'Elija la personalidad jurídica de este comprador. Se entiende por persona física a una persona natural (un individuo), hablamos de persona jurídica para referirnos a una institución o ente, por ejemplo, una empresa o una asociación, entre otros.',
               },
               defaultRadioId: 'id-unid-4_1_opA',
               replacement: '',
@@ -597,7 +597,7 @@ const steps = [
                           areIndications: true,
                           indicationsType: 'outsideText',
                           // tslint:disable-next-line:max-line-length
-                          value: 'El vendedor puede concluir y firmar el contrato en nombre y representación propios o representado por otra persona. En caso de ser representado por otra persona, estamos hablando de un representante legal (como es el caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). Un representante voluntario precisa de autorización mediante documento público o privado. Si el contrato se concluye en nombre y representación propios, será persona que firma el contrato quien asuma las obligaciones del vendedor. Por el contrario, si es mediante representante, es esta otra persona quien firma el contrato; sin embargo, es el vendedor quien asumirá las obligaciones derivadas de este contrato. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a>',
+                          value: 'El vendedor puede concluir y firmar el contrato en nombre y representación propios o representado por otra persona. En caso de ser representado por otra persona, estamos hablando de un representante legal (como es el caso de los menores e incapacitados) o un representante voluntario (por ejemplo, apoderado). Un representante voluntario precisa de autorización mediante documento público o privado. Si el contrato se concluye en nombre y representación propios, será persona que firma el contrato quien asuma las obligaciones del vendedor. Por el contrario, si es mediante representante, es esta otra persona quien firma el contrato; sin embargo, es el vendedor quien asumirá las obligaciones derivadas de este contrato. Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a></strong>',
                         },
                         defaultRadioId: 'id-unid-4_1_opA_1_opA',
                         replacement: '',
@@ -613,7 +613,7 @@ const steps = [
                             // tslint:disable-next-line:max-line-length
                             replacement: 'id-unid-4_1_opA_1_opA_1, mayor de edad, con domicilio en id-unid-4_1_opA_1_opA_2, con id-unid-4_1_opA_1_opA_3 número id-unid-4_1_opA_1_opA_4, y en su propio nombre y representación.',
                             extraReplacements: [],
-                            checked: false,
+                            checked: true,
                             subSteps: [
                             {
                               question: 'Nombre completo de este comprador, incluyendo los apellidos:',
@@ -632,14 +632,14 @@ const steps = [
                               question: 'Dirección del lugar donde reside este comprador:',
                               wordToReplace: 'id-unid-4_1_opA_1_opA_2',
                               identifier: 'id-unid-4_1_opA_1_opA_2',
+                              placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
                               type: 'iText',
                               replacement: '',
-                              placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'insideText',
                                 // tslint:disable-next-line:max-line-length
-                                value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) del lugar de residencia de este comprador.',
+                                value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) del lugar de residencia del comprador.',
                               },
                             },
                             {
@@ -650,6 +650,7 @@ const steps = [
                               indications: {
                                 areIndications: true,
                                 indicationsType: 'outsideText',
+                                // tslint:disable-next-line:max-line-length
                                 value: 'Seleccione el tipo de documento de identificación de este comprador.',
                               },
                               replacement: '',
@@ -701,9 +702,9 @@ const steps = [
                           {
                             label: 'por medio de un representante (legal o voluntario)',
                             // tslint:disable-next-line:max-line-length
-                            replacementOriginal: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con id-unid-4_1_opA_1_opB_6: id-unid-4_1_opA_1_opB_7, quien actúa en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
+                            replacementOriginal: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con id-unid-4_1_opA_1_opB_6: id-unid-4_1_opA_1_opB_7, en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, actuando en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
                             // tslint:disable-next-line:max-line-length
-                            replacement: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con id-unid-4_1_opA_1_opB_6: id-unid-4_1_opA_1_opB_7, quien actúa en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, por tanto, en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
+                            replacement: 'id-unid-4_1_opA_1_opB_5, mayor de edad, con id-unid-4_1_opA_1_opB_6: id-unid-4_1_opA_1_opB_7, en calidad de id-unid-4_1_opA_1_opB_8, acreditado según escritura pública y/o autorización pertinente y, actuando en nombre y representación de id-unid-4_1_opA_1_opB_1, con domicilio en id-unid-4_1_opA_1_opB_2 y id-unid-4_1_opA_1_opB_3 número id-unid-4_1_opA_1_opB_4.',
                             extraReplacements: [],
                             radioId: 'id-unid-4_1_opA_1_opB',
                             identifier: 'id-unid-4_1_opA_1_opB',
@@ -734,7 +735,7 @@ const steps = [
                                   indicationsType: 'insideText',
                                   // tslint:disable-next-line:max-line-length
                                   value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) del lugar de residencia de este comprador.',
-                                }
+                                },
                               },
                               {
                                 type: 'iRadioB',
@@ -743,8 +744,7 @@ const steps = [
                                 wordToReplace: 'id-unid-4_1_opA_1_opB_3',
                                 indications: {
                                   areIndications: true,
-                                  indicationsType: 'outsideText',
-                                  // tslint:disable-next-line:max-line-length
+                                  indicationsType: 'insideText',
                                   value: 'Seleccione el tipo de documento de identificación de este comprador.',
                                 },
                                 replacement: '',
@@ -788,9 +788,8 @@ const steps = [
                                 indications: {
                                   areIndications: true,
                                   indicationsType: 'insideText',
-                                  // tslint:disable-next-line:max-line-length
                                   value: 'Introduzca el número que corresponde con el documento seleccionado en la pregunta anterior',
-                                }
+                                },
                               },
                               {
                                 // tslint:disable-next-line:max-line-length
@@ -804,13 +803,13 @@ const steps = [
                                   areIndications: true,
                                   indicationsType: 'outsideText',
                                   // tslint:disable-next-line:max-line-length
-                                  value: 'Nombre completo, incluyendo los apellidos, de la persona física que firma este contrato en nombre y representación de este comprador. El contrato puede ser firmado por un representante legal o voluntario. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a>',
-                                }
+                                  value: 'Nombre completo, incluyendo los apellidos, de la persona física que firma este contrato en nombre y representación de este comprador. El contrato puede ser firmado por un representante legal o voluntario. Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">Poder de representación</a></strong>',
+                                },
                               },
                               {
                                 type: 'iRadioB',
                                 // tslint:disable-next-line:max-line-length
-                                question: 'Documento de identificación personal de la persona que firma este contrato en nombre y representación del comprador:',
+                                question: 'Documento de identificación de la persona que firma el contrato en nombre y representación de este comprador:',
                                 identifier: 'id-unid-4_1_opA_1_opB_6',
                                 wordToReplace: 'id-unid-4_1_opA_1_opB_6',
                                 indications: {
@@ -860,16 +859,15 @@ const steps = [
                                 indications: {
                                   areIndications: true,
                                   indicationsType: 'insideText',
-                                  // tslint:disable-next-line:max-line-length
                                   value: 'Introduzca el número que corresponde con el documento seleccionado en la pregunta anterior',
-                                }
+                                },
                               },
                               {
                                 // tslint:disable-next-line:max-line-length
                                 question: 'Calidad o concepto en el que esta persona firma este contrato en nombre y representación de este comprador:',
                                 wordToReplace: 'id-unid-4_1_opA_1_opB_8',
-                                identifier: 'id-unid-4_1_opA_1_opB_8',
                                 placeholder: 'P. ej. apoderado',
+                                identifier: 'id-unid-4_1_opA_1_opB_8',
                                 type: 'iText',
                                 replacement: '',
                                 indications: {
@@ -877,7 +875,7 @@ const steps = [
                                   indicationsType: 'insideText',
                                   // tslint:disable-next-line:max-line-length
                                   value: 'Escriba la calidad o concepto en el que esta persona firma el contrato en nombre y representación de este comprador.',
-                                }
+                                },
                               },
                             ]
                           },
@@ -897,18 +895,18 @@ const steps = [
                   checked: false,
                   subSteps: [
                     {
-                      question: 'Nombre completo de la persona jurídica que va a comprar el vehículo:',
+                      question: 'Nombre de la persona jurídica que va a comprar el vehículo:',
                       wordToReplace: 'id-unid-4_1_opB_1',
                       identifier: 'id-unid-4_1_opB_1',
                       type: 'iText',
-                      replacement: '',
                       placeholder: 'P. ej. Banco Santander, S.A.',
+                      replacement: '',
                       indications: {
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
                         value: 'Si no conoce el nombre, mediante el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc), puede soliticar la información.',
-                      }
+                      },
                     },
                     {
                       question: 'NIF (Número de Identificación Fiscal) completo de la persona jurídica:',
@@ -921,79 +919,77 @@ const steps = [
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Se trata del número de identificación fiscal para empresas y sociedades, personas físicas o cualquier tipo de entidad que desarrolle actividad de naturaleza mercantil y que, además, sea sujeto de obligaciones burocráticas, como el hecho de emitir o percibir facturas. Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">NIF empresarial</a>.',
-                      }
+                        value: 'Se trata del número de identificación fiscal para empresas y sociedades, personas físicas o cualquier tipo de entidad que desarrolle actividad de naturaleza mercantil y que, además, sea sujeto de obligaciones burocráticas, como el hecho de emitir o percibir facturas. Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://guiasjuridicas.wolterskluwer.es/Content/Documento.aspx?params=H4sIAAAAAAAEAMtMSbF1jTAAAUNjMyNjtbLUouLM_DxbIwMDCwNzAwuQQGZapUt-ckhlQaptWmJOcSoAzXFkZjUAAAA=WKE" target="_blank">NIF empresarial</a></strong>.',
+                      },
                     },
                     {
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Tipo de registro y lugar donde está inscrita esta persona jurídica:',
+                      question: 'Tipo de registro y lugar donde está inscrita la persona jurídica:',
                       wordToReplace: 'id-unid-4_1_opB_3',
                       identifier: 'id-unid-4_1_opB_3',
-                      placeholder: 'Registro Mercantil de Sevilla',
                       type: 'iText',
+                      placeholder: 'P. ej. Registro Mercantil de Madrid',
                       replacement: '',
                       indications: {
                         areIndications: true,
                         indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a>',
-                      }
+                        value: 'Puede solicitar dicha información en el registro correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a></strong>',
+                      },
                     },
                     {
                       question: 'Datos registrales de la persona jurídica:',
                       wordToReplace: 'id-unid-4_1_opB_4',
                       identifier: 'id-unid-4_1_opB_4',
-                      placeholder: 'P. ej. Tomo 123, folio 10, hoja SE-1234',
                       type: 'iText',
+                      placeholder: 'P. ej. Tomo 123, folio 10, hoja SE-1234',
                       replacement: '',
                       indications: {
                         areIndications: true,
-                        indicationsType: 'insideText',
+                        indicationsType: 'outsideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si quieres más información sobre esta figura consulta el siguiente enlace: <a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a>',
-                      }
+                        value: 'Puede solicitar dicha información a través del registro público correspondiente (Registro Mercantil, Registro de Fundaciones, etc). Si desea más información sobre esta figura consulte el siguiente enlace: <strong><a href="https://registropropiedad.derecho.com/q/que-son-los-datos-registrales.html" target="_blank">Datos registrales</a></strong>',
+                      },
                     },
                     {
                       question: 'Nombre completo, incluyendo apellidos, del representante de la persona jurídica:',
                       wordToReplace: 'id-unid-4_1_opB_5',
                       identifier: 'id-unid-4_1_opB_5',
-                      placeholder: 'P. ej. Margarita García Pérez',
                       type: 'iText',
+                      placeholder: 'P. ej. Margarita García Pérez',
                       replacement: '',
                       indications: {
                         areIndications: true,
                         indicationsType: 'insideText',
                         // tslint:disable-next-line:max-line-length
                         value: 'Nombre completo, incluyendo apellidos, del representante de la persona jurídica',
-                      }
+                      },
                     },
                     {
                       question: 'Domicilio completo del representante de la persona jurídica:',
                       wordToReplace: 'id-unid-4_1_opB_6',
                       identifier: 'id-unid-4_1_opB_6',
-                      placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
                       type: 'iText',
+                      placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
                       replacement: '',
                       indications: {
                         areIndications: true,
                         indicationsType: 'insideText',
                         // tslint:disable-next-line:max-line-length
                         value: 'Domicilio, incluyendo el tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país del representante de la persona jurídica',
-                      }
+                      },
                     },
                     {
                       type: 'iRadioB',
-                      // tslint:disable-next-line:max-line-length
                       question: 'Documento de identidad del representante de la persona jurídica:',
                       identifier: 'id-unid-4_1_opB_7',
                       wordToReplace: 'id-unid-4_1_opB_7',
-                      replacement: '',
                       indications: {
                         areIndications: true,
-                        indicationsType: 'outsideText',
+                        indicationsType: 'insideText',
                         // tslint:disable-next-line:max-line-length
-                        value: 'Seleccione el tipo documento de identidad del representante de la persona jurídica.',
+                        value: 'Seleccione el tipo de documento de identidad del representante de la persona jurídica.',
                       },
+                      replacement: '',
                       radios: [
                         {
                           label: 'DNI',
@@ -1025,7 +1021,7 @@ const steps = [
                       ]
                     },
                     {
-                      question: 'Número del documento seleccionado en la pregunta anterior de identificación personal seleccionado:',
+                      question: 'Número del documento seleccionado en la pregunta anterior:',
                       wordToReplace: 'id-unid-4_1_opB_8',
                       identifier: 'id-unid-4_1_opB_8',
                       type: 'iText',
@@ -1036,7 +1032,7 @@ const steps = [
                         indicationsType: 'insideText',
                         // tslint:disable-next-line:max-line-length
                         value: 'Escriba el número que corresponde con el documento de identificación personal seleccionado en la pregunta anterior',
-                      }
+                      },
                     },
                   ]
                 },
@@ -1406,7 +1402,7 @@ const steps = [
         areIndications: true,
         indicationsType: 'outsideText',
         // tslint:disable-next-line:max-line-length
-        value: 'Escriba el número de serie y bastidor (o simplemente conocido como nº de bastidor) del vehículo que se desea vender. Si desea más información sobre el número de bastidor y como encontrarlo puede consultar el siguiente enlace: <a href="https://www.autopista.es/noticias-motor/articulo/numero-bastidor-coche-significado" target="_blank">Número de bastidor</a>'
+        value: 'Escriba el número de serie y bastidor (o simplemente conocido como nº de bastidor) del vehículo que se desea vender. Si desea más información sobre el número de bastidor y como encontrarlo puede consultar el siguiente enlace: <strong><a href="https://www.autopista.es/noticias-motor/articulo/numero-bastidor-coche-significado" target="_blank">Número de bastidor</a></strong>'
       },
       mandatory: true,
       isFocused: false
@@ -1591,7 +1587,7 @@ const steps = [
         areIndications: true,
         indicationsType: 'outsideText',
         // tslint:disable-next-line:max-line-length
-        value: 'Si tiene dudas sobre cómo describir el estado del vehículo consulte este <a href="https://www.autocasion.com/actualidad/reportajes/como-describir-el-estado-de-un-coche-usado" target="_blank">enlace</a>'
+        value: 'Si tiene dudas sobre cómo describir el estado del vehículo consulte este <strong><a href="https://www.autocasion.com/actualidad/reportajes/como-describir-el-estado-de-un-coche-usado" target="_blank">enlace</a></strong>'
       },
       defaultRadioId: 'id-dec-16_opA',
       replacement: '',
@@ -1951,7 +1947,7 @@ const steps = [
     {
       type: 'iRadioC',
       // tslint:disable-next-line:max-line-length
-      question: 'además del permiso de circulación, la ficha técnica, y el recibo del impuesto de circulación del año anterior, el comprador recibió otro documento/accesorio relativo al vehículo que se desea vender?',
+      question: 'Además del permiso de circulación, la ficha técnica, y el recibo del impuesto de circulación del año anterior, ¿el comprador recibió otro documento/accesorio relativo al vehículo que se desea vender?',
       identifier: 'id-dec-24',
       wordToReplace: 'id-dec-24',
       defaultRadioId: 'id-dec-24_opA',

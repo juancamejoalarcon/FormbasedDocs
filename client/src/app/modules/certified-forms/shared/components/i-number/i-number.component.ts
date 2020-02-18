@@ -35,7 +35,7 @@ export class INumberComponent implements OnInit {
   onInputNumberChanged(e: any) {
     let newValue = e.srcElement.value
     if (isNaN(newValue)) {
-      this.toastr.error('Number not valid', 'Must be a number', {
+      this.toastr.error('Número no válido', 'Debe ser un número', {
         positionClass: 'toast-bottom-right',
         progressBar: true,
         progressAnimation: 'decreasing'

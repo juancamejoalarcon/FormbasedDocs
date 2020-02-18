@@ -129,19 +129,19 @@
     [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'cart' ? 0 : 1 }"
     [style.display]="this.steps[this.currentStep].type === 'cart' ? 'none' : 'block'"
     [disabled]="this.steps[this.currentStep].type === 'cart'"
-    *ngIf="this.steps[this.currentStep].type !== 'finish'">Back</button>
+    *ngIf="this.steps[this.currentStep].type !== 'finish'">Anterior</button>
 
     <button class="btn back-btn" (click)="this.exitModal.emit();" 
-    *ngIf="this.steps[this.currentStep].type === 'cart'">Back</button>
+    *ngIf="this.steps[this.currentStep].type === 'cart'">Anterior</button>
 
     <button class="btn back-btn" (click)="this.exitModal.emit();" 
-    *ngIf="this.steps[this.currentStep].type === 'finish'">Back</button>
+    *ngIf="this.steps[this.currentStep].type === 'finish'">Anterior</button>
     
     <button class="btn next-btn" (click)="moveStep('next')"
     [ngStyle]="{'opacity': this.steps[this.currentStep].type === 'finish' ? 0 : 1 }"
     [disabled]="this.steps[this.currentStep].type === 'finish'"
     *ngIf="this.steps[this.currentStep].type !== 'payment'"
-    >Next Step</button>
+    >Siguiente</button>
 
     <button class="btn next-btn secondaryC-background-color" (click)="onSubmit()"
     *ngIf="this.steps[this.currentStep].type === 'payment' && this.paymentMethod === 'card'">
