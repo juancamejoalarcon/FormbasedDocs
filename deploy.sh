@@ -27,9 +27,9 @@ check_if_current_branch_correct() {
         expectedBranch='dev'
     # PRODUCTION
     elif [ "$environment" = 'prod' ]; then 
-        expectedBranch = 'master'
+        expectedBranch='master'
     fi
-
+    echo -e $expectedBranch
     currentBranch=$(git rev-parse --abbrev-ref HEAD)
     if [[ ${currentBranch} == $expectedBranch ]]; then
         return 1
@@ -81,7 +81,7 @@ END
 
 environment=$1
 
-DEVELOPMENT
+# DEVELOPMENT
 if [ "$environment" = 'dev' ]; then 
     echo -e "####### START DEPLOY IN DEVELOPMENT ########"
     if check_if_current_branch_correct 'dev' == 0; then
