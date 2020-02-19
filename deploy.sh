@@ -24,7 +24,7 @@ NCbg='\e[49m' # No Color
 # SWITCH TO DEV BRANCH
 check_if_current_branch_correct() {
     currentBranch=$(git rev-parse --abbrev-ref HEAD)
-    if [[ ${currentBranch} == $1 ]]; then
+    if [[ ${currentBranch} == 'master' ]]; then
         return 1
      else
         return 0
