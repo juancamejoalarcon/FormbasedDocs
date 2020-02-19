@@ -5,7 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   ListErrorsComponent,
   LikesButtonComponent,
-  LoadingSpinnerComponent
+  LoadingSpinnerComponent,
+  PrivacyPolicyComponent
 } from './components';
 import { ShowAuthedDirective } from './show-authed.directive';
 import { QuillModule } from 'ngx-quill';
@@ -62,7 +63,8 @@ import {
     CommentComponent,
     CommentResponseComponent,
     IndicationsComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    PrivacyPolicyComponent
   ],
   exports: [
     CommonModule,
@@ -79,7 +81,8 @@ import {
     InputRadioCComponent,
     NewRadioCComponent,
     CommentsComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    PrivacyPolicyComponent
   ],
   entryComponents: [
     InputTextComponent,

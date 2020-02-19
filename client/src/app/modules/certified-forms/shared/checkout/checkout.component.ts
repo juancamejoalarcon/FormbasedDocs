@@ -92,7 +92,7 @@ export class CheckoutComponent implements OnInit {
     if (step.type === 'login') {
       if (this.email === '') {
         this.emailInput.nativeElement.style.borderBottom = '3px solid red';
-        this.toastr.error('Email cannot be empty', 'Email is empty', {
+        this.toastr.error('Email no puede estar vacío', 'Email vacío', {
           positionClass: 'toast-bottom-right',
           progressBar: true,
           progressAnimation: 'decreasing'

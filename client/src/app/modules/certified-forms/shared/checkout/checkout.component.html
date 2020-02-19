@@ -18,7 +18,7 @@
                     <div class="checkout-panel__body__invoice__text__description">
                         <ul>
                             <li>Descarga inmediata en formatos Word y PDF</li>
-                            <li>3.060 personas ya han comprado este documento</li>
+                            <li>Una vez comprado podrás retroceder, modificar el formulario y descargar de nuevo</li>
                         </ul>
                     </div>
                     <div class="checkout-panel__body__invoice__text__total">
@@ -40,9 +40,9 @@
             <div class="checkout-panel__body__email__container">
                 <h1 class="checkout-panel__body__email__container__title">Dirección de correo para recibir el documento</h1>
                 <label for="email"></label>
-                <input type="email" name="email" id="name" placeholder="E-MAIL" [(ngModel)]="email" #emailInput>
+                <input type="email" name="email" id="name" placeholder="Email" [(ngModel)]="email" #emailInput>
                 <label class="checkout-panel__body__email__container__message" *appShowAuthed="false">
-                    ¿Tienes cuenta? <a href="javascript:void(0)" (click)="goToAuth();">Logeate</a>
+                    ¿Tienes cuenta? <a href="javascript:void(0)" (click)="goToAuth();">Inicia sesión</a>
                 </label>
                 <br *appShowAuthed="true">
                 <div class="checkout-panel__body__email__container__message">
