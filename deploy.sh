@@ -24,14 +24,14 @@ NCbg='\e[49m' # No Color
 # SWITCH TO DEV BRANCH
 check_if_current_branch_correct() {
     if [ "$environment" = 'dev' ]; then 
-        expectedBranch = 'dev'
+        expectedBranch='dev'
     # PRODUCTION
     elif [ "$environment" = 'prod' ]; then 
         expectedBranch = 'master'
     fi
 
     currentBranch=$(git rev-parse --abbrev-ref HEAD)
-    if [[ ${currentBranch} == expectedBranch ]]; then
+    if [[ ${currentBranch} == $expectedBranch ]]; then
         return 1
      else
         return 0
