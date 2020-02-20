@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url: 'https://automatikdocs.herokuapp.com'
+  api_url: 'http://wwww.automatikdocs.com'
 };
