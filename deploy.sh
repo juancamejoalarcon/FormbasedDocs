@@ -76,7 +76,8 @@ END
     popd
     git add .
     git commit -m "Build for deploy"
-    git subtree push --prefix server heroku master
+    # git subtree push -f --prefix server heroku master
+    git push heroku `git subtree split --prefix server`:master --force
 }
 
 environment=$1
@@ -90,7 +91,7 @@ if [ "$environment" = 'dev' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
-            heroku git:remote -a formbaseddocs
+            heroku git:remote -a formbaseddocs-dev
             build_and_deploy ${environment}
         fi
     fi
