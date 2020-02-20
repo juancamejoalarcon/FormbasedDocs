@@ -26,6 +26,7 @@ export class SearchComponent implements OnInit {
   public limit: number = 10;
   public currentPage: number = 1;
   public noMoreForms: boolean = false;
+  public userFormsTabsActive: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -97,7 +98,7 @@ export class SearchComponent implements OnInit {
   }
 
   @HostListener('window:scroll', []) onScroll(): void {
-    if (!this.loadingQuery && this.noMoreForms === false) {
+    if (!this.loadingQuery && !this.noMoreForms && this.userFormsTabsActive) {
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         this.moreForms();
       }
@@ -140,6 +141,7 @@ export class SearchComponent implements OnInit {
   }
 
   setUrl(userForms: boolean) {
+    this.userFormsTabsActive = userForms;
     if (userForms) {
       this.location.replaceState('/search/user-forms');
     } else {
