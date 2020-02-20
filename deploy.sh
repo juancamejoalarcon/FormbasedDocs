@@ -90,6 +90,7 @@ if [ "$environment" = 'dev' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
+            heroku git:remote -a formbaseddocs
             build_and_deploy ${environment}
         fi
     fi
@@ -103,6 +104,7 @@ elif [ "$environment" = 'prod' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
+            heroku git:remote -a automatikdocs
             build_and_deploy ${environment}
         fi
     fi
