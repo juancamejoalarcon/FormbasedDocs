@@ -51,7 +51,7 @@ export class CommentsComponent implements OnInit {
           comment => {
             this.comments.unshift(comment);
             this.isSubmitting = false;
-            this.toastr.success('Comment added', '', {
+            this.toastr.success('Comentario añadido', '', {
                 positionClass: 'toast-bottom-right',
                 progressBar: true,
                 progressAnimation: 'decreasing'

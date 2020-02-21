@@ -113,7 +113,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
     .save(this.form)
     .subscribe(
       form => {
-        this.toastr.success('Has been created', form.title, {
+        this.toastr.success('Ha sido creado', form.title, {
           positionClass: 'toast-bottom-right',
           progressBar: true,
           progressAnimation: 'decreasing'
