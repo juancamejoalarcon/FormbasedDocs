@@ -40,6 +40,7 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
       if (this.commonsService.isObjectEmpty(form)) {
       } else {
         this.form = form;
+        document.title = 'Automatik Docs | ' + form.topLabelTitle;
         this.currentStep = form.currentStep;
       }
     });
@@ -58,9 +59,9 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-
     this.saveInSessionStorage();
     window.removeEventListener('unload', this.saveInSessionStorage);
+    document.title = 'Automatik Docs';
   }
 
   topMenuNav(e: any) {
@@ -82,7 +83,7 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
         },
         err => {
           console.log(err);
-          this.toastr.error('An error has occured please try again', 'Error', {
+          this.toastr.error('Un error ha ocurrido. Inténtalo de nuevo', 'Error', {
             positionClass: 'toast-bottom-right',
             progressBar: true,
             progressAnimation: 'decreasing'
