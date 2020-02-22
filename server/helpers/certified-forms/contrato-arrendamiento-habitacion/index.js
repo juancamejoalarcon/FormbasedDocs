@@ -14,7 +14,7 @@ const contrato_arrendamiento_habitacion = {
     paidUri: paidUri,
     steps: steps,
     information: information,
-    debounceTime: 400
+    updated: '01 Febrero 2020'
 };
 
 module.exports = contrato_arrendamiento_habitacion;

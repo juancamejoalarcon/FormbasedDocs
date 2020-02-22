@@ -14,7 +14,7 @@ const contrato_compraventa_vehiculo = {
     paidUri: paidUri,
     steps: steps,
     information: information,
-    debounceTime: 0
+    updated: '10 Febrero 2020'
 };
 
 module.exports = contrato_compraventa_vehiculo;

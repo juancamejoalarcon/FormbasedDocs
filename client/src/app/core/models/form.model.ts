@@ -33,4 +33,5 @@ export class Form {
   topLabelTitle: string;
   steps: any;
   information: string;
+  updated: string;
 }

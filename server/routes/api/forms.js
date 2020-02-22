@@ -293,7 +293,7 @@ router.get('/certified-forms/:type', auth.optional, function(req, res, next) {
         uri: form.uri,
         steps: form.steps,
         information: form.information.replace(/\n/ig, ''),
-        debounceTime: form.debounceTime
+        updated: form.updated
       };
     }
   });
@@ -322,7 +322,9 @@ router.get('/paid-certified-forms/:transactionId', auth.optional, function(req, 
           amount: form.amount,
           // image: form.image,
           uri: form.paidUri,
-          fields: transaction.steps
+          fields: transaction.steps,
+          information: form.information.replace(/\n/ig, ''),
+          updated: form.updated
         };
       }
     });
