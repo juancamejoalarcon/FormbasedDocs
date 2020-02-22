@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-guide',
   templateUrl: './guide.component.html'
 })
-export class GuideComponent implements OnInit {
+export class GuideComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
   ngOnInit() {
+    document.title = 'Automatik Docs | Guía';
+  }
+
+  ngOnDestroy() {
+    document.title = 'Automatik Docs';
   }
 
   topMenuNav(e: any) {
