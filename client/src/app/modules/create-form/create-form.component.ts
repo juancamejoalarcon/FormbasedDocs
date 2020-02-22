@@ -351,7 +351,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     .subscribe(
       form => {
         if (!this.updatingForm) {
-          this.toastMessage('success', 'Has been created', form.title);
+          this.toastMessage('success', 'Ha sido creado', form.title);
           this.router.navigateByUrl('/create-form/edit/' + form.slug);
         } else {
           this.toastMessage('success', 'Has been updated', form.title);
