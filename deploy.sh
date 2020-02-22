@@ -104,6 +104,8 @@ if [ "$environment" = 'dev' ]; then
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
             if check_node_version == 0; then
+                echo -e "${RED}Error:${NC} Current Node version is not correct"
+            else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
                 heroku git:remote -a formbaseddocs-dev
                 build_and_deploy ${environment}
@@ -121,6 +123,8 @@ elif [ "$environment" = 'prod' ]; then
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
             if check_node_version == 0; then
+                echo -e "${RED}Error:${NC} Current Node version is not correct"
+            else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
                 heroku git:remote -a automatikdocs
                 build_and_deploy ${environment}
