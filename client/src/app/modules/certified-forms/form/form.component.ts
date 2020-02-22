@@ -64,6 +64,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
             if (data.certifiedForm) {
               const certifiedForm = data.certifiedForm;
               this.form.fields = JSON.parse(certifiedForm.fields);
+              this.steps = this.form.fields;
               this.form.title = certifiedForm.title;
               this.form.uri = certifiedForm.uri;
               this.form.id = routeParams.id;
