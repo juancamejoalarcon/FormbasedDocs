@@ -55,7 +55,6 @@ are_uncommited_changes() {
 
 # BUILD AND DEPLOY
 build_and_deploy() {
-    nvm use v13.1.0
     # Build angular project
     pushd ./client
     if [ "$environment" = 'dev' ]; then
