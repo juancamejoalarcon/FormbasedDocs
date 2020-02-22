@@ -81,6 +81,17 @@ END
     git push heroku `git subtree split --prefix server`:master --force
 }
 
+check_node_version() {
+
+    currentNodeVersion=$(node -v)
+    if [[ ${currentNodeVersion} == 'v13.1.0' ]]; then
+        return 1
+     else
+        return 0
+    fi
+    # echo -e "${GREEN}Success:${NC} On $1 branch"
+}
+
 environment=$1
 
 # DEVELOPMENT
@@ -92,8 +103,13 @@ if [ "$environment" = 'dev' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
-            heroku git:remote -a formbaseddocs-dev
-            build_and_deploy ${environment}
+            if check_node_version == 0; then
+                echo -e "${RED}Error:${NC} Current Node version is not correct"
+            else
+                echo -e "${GREEN}Success:${NC} Current Node version correct"
+                heroku git:remote -a formbaseddocs-dev
+                build_and_deploy ${environment}
+            fi
         fi
     fi
 
@@ -106,8 +122,13 @@ elif [ "$environment" = 'prod' ]; then
         echo -e "${GREEN}Success:${NC} Correct branch"
         if are_uncommited_changes == 0; then
             echo -e "${GREEN}Success:${NC} Changes are commited"
-            heroku git:remote -a automatikdocs
-            build_and_deploy ${environment}
+            if check_node_version == 0; then
+                echo -e "${RED}Error:${NC} Current Node version is not correct"
+            else
+                echo -e "${GREEN}Success:${NC} Current Node version correct"
+                heroku git:remote -a automatikdocs
+                build_and_deploy ${environment}
+            fi
         fi
     fi
 fi
