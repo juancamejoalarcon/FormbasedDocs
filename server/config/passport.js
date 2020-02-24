@@ -9,7 +9,7 @@ passport.use(new LocalStrategy({
 }, function(email, password, done) {
   User.findOne({$or: [{ email: email }, { username: email }]}).then(function(user){
     if(!user || !user.validPassword(password)){
-      return done(null, false, {errors: {'username/email or password': 'is invalid'}});
+      return done(null, false, {errors: {'Nombre de usuario/email o contraseña': 'no es válido'}});
     }
 
     return done(null, user);

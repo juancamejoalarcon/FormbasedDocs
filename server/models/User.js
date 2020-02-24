@@ -6,8 +6,8 @@ const secret = require('../config').secret;
 const fs = require('fs');
 
 const UserSchema = new mongoose.Schema({
-  username: {type: String, unique: true, required: [true, "can't be blank"], match: [/^[A-zÀ-ÿ0-9 ]+$/, 'is invalid'], index: true},
-  email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
+  username: {type: String, unique: true, required: [true, "no puede estar en blanco"], match: [/^[A-zÀ-ÿ0-9 ]+$/, 'no es válido'], index: true},
+  email: {type: String, lowercase: true, unique: true, required: [true, "no puede estar en blanco"], match: [/\S+@\S+\.\S+/, 'no es válido'], index: true},
   nameAndSurname: String,
   description: String,
   dateOfBirth: Date,
@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
   usePushEach: true
 });
 
-UserSchema.plugin(uniqueValidator, {message: 'is already taken.'});
+UserSchema.plugin(uniqueValidator, {message: 'ya ha sido elegido.'});
 
 UserSchema.methods.validPassword = function(password) {
   const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
