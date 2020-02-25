@@ -2882,98 +2882,99 @@ const steps = [
     //     },
     //   ],
     // },
-    {
-      type: 'iRadioC',
-      question: 'El Impuesto sobre Bienes Inmuebles (IBI) de la vivienda lo pagará:',
-      identifier: 'id-dec-33',
-      wordToReplace: 'id-dec-33',
-      defaultRadioId: 'id-dec-33_opA',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'Cuando eres el propietario de una vivienda, local o plaza de garaje, debes tener en cuenta que existen una serie de impuestos asociados que estás obligado a pagar. El Impuesto de Bienes Inmuebles (IBI) es uno de ellos. <br> El IBI es un impuesto de los llamados directos que grava la titularidad de los derechos reales sobre cualquier bien inmueble localizado en el municipio que recauda el tributo. Lo cobran los ayuntamientos y forma parte de las tasas municipales.'
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'el arrendatario (inquilino)',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'de la parte ARRENDADORA en su totalidad.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'de la parte ARRENDADORA en su totalidad.',
-          extraReplacements: [],
-          radioId: 'id-dec-33_opA',
-          identifier: 'id-dec-33_opA',
-          checked: true,
-          subSteps: [
-          ]
-        },
-        {
-          label: 'el arrendatario (inquilino) y el arrendador (propietario)',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'de ambas Partes. En concreto, a la parte ARRENDATARIA le corresponderá abonar un iddec33opB1-precioAletras por ciento (id-dec-33_opB_1 %) del mismo. A este efecto, se hace saber a la parte ARRENDATARIA que el último importe anual conocido para el IBI fue de iddec33opB2-precioAletras (id-dec-33_opB_2 €).',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'de ambas Partes. En concreto, a la parte ARRENDATARIA le corresponderá abonar un iddec33opB1-precioAletras por ciento (id-dec-33_opB_1 %) del mismo. A este efecto, se hace saber a la parte ARRENDATARIA que el último importe anual conocido para el IBI fue de iddec33opB2-precioAletras (id-dec-33_opB_2 €).',
-          extraReplacements: [],
-          radioId: 'id-dec-33_opB',
-          identifier: 'id-dec-33_opB',
-          checked: true,
-          subSteps: [
-            {
-              question: 'Porcentaje del IBI que deberá pagar el arrendatario (inquilino):',
-              placeholder: 'Escriba un número menor que 100',
-              wordToReplace: 'id-dec-33_opB_1',
-              identifier: 'id-dec-33_opB_1',
-              type: 'iNumber',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementAletras',
-                  identifier: 'iddec33opB1-precioAletras',
-                  wordToReplace: 'iddec33opB1-precioAletras',
-                  replacement: ''
-                }
-              ],
-            },
-            {
-              question: 'Último importe anual conocido (en euros) del IBI de la vivienda:',
-              placeholder: 'Escriba un número',
-              wordToReplace: 'id-dec-33_opB_2',
-              identifier: 'id-dec-33_opB_2',
-              type: 'iNumber',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementToCharacter',
-                  identifier: 'iddec33opB2-precioAletras',
-                  wordToReplace: 'iddec33opB2-precioAletras',
-                  replacement: ''
-                }
-              ],
-            }
-          ]
-        }
-      ],
-    },
+    // {
+    //   type: 'iRadioC',
+    //   question: 'El Impuesto sobre Bienes Inmuebles (IBI) de la vivienda lo pagará:',
+    //   identifier: 'id-dec-33',
+    //   wordToReplace: 'id-dec-33',
+    //   defaultRadioId: 'id-dec-33_opA',
+    //   indications: {
+    //     areIndications: true,
+    //     indicationsType: 'outsideText',
+    //     // tslint:disable-next-line:max-line-length
+    //     value: 'Cuando eres el propietario de una vivienda, local o plaza de garaje, debes tener en cuenta que existen una serie de impuestos asociados que estás obligado a pagar. El Impuesto de Bienes Inmuebles (IBI) es uno de ellos. <br> El IBI es un impuesto de los llamados directos que grava la titularidad de los derechos reales sobre cualquier bien inmueble localizado en el municipio que recauda el tributo. Lo cobran los ayuntamientos y forma parte de las tasas municipales.'
+    //   },
+    //   replacement: '',
+    //   extraReplacements: [
+    //   ],
+    //   radios: [
+    //     {
+    //       label: 'el arrendatario (inquilino)',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'de la parte ARRENDADORA en su totalidad.',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'de la parte ARRENDADORA en su totalidad.',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-33_opA',
+    //       identifier: 'id-dec-33_opA',
+    //       checked: true,
+    //       subSteps: [
+    //       ]
+    //     },
+    //     {
+    //       label: 'el arrendatario (inquilino) y el arrendador (propietario)',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacementOriginal: 'de ambas Partes. En concreto, a la parte ARRENDATARIA le corresponderá abonar un iddec33opB1-precioAletras por ciento (id-dec-33_opB_1 %) del mismo. A este efecto, se hace saber a la parte ARRENDATARIA que el último importe anual conocido para el IBI fue de iddec33opB2-precioAletras (id-dec-33_opB_2 €).',
+    //       // tslint:disable-next-line:max-line-length
+    //       replacement: 'de ambas Partes. En concreto, a la parte ARRENDATARIA le corresponderá abonar un iddec33opB1-precioAletras por ciento (id-dec-33_opB_1 %) del mismo. A este efecto, se hace saber a la parte ARRENDATARIA que el último importe anual conocido para el IBI fue de iddec33opB2-precioAletras (id-dec-33_opB_2 €).',
+    //       extraReplacements: [],
+    //       radioId: 'id-dec-33_opB',
+    //       identifier: 'id-dec-33_opB',
+    //       checked: true,
+    //       subSteps: [
+    //         {
+    //           question: 'Porcentaje del IBI que deberá pagar el arrendatario (inquilino):',
+    //           placeholder: 'Escriba un número menor que 100',
+    //           wordToReplace: 'id-dec-33_opB_1',
+    //           identifier: 'id-dec-33_opB_1',
+    //           type: 'iNumber',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementAletras',
+    //               identifier: 'iddec33opB1-precioAletras',
+    //               wordToReplace: 'iddec33opB1-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ],
+    //         },
+    //         {
+    //           question: 'Último importe anual conocido (en euros) del IBI de la vivienda:',
+    //           placeholder: 'Escriba un número',
+    //           wordToReplace: 'id-dec-33_opB_2',
+    //           identifier: 'id-dec-33_opB_2',
+    //           type: 'iNumber',
+    //           replacement: '',
+    //           extraReplacements: [],
+    //           indications: {
+    //             areIndications: false,
+    //             indicationsType: '',
+    //             // tslint:disable-next-line:max-line-length
+    //             value: ''
+    //           },
+    //           rules: [
+    //             {
+    //               condition: false,
+    //               rulename: 'extraReplacementToCharacter',
+    //               identifier: 'iddec33opB2-precioAletras',
+    //               wordToReplace: 'iddec33opB2-precioAletras',
+    //               replacement: ''
+    //             }
+    //           ],
+    //         }
+    //       ]
+    //     }
+    //   ],
+    // },
+    
     {
         type: 'end',
         identifier: 'end',
