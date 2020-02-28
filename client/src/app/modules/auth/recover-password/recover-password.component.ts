@@ -69,13 +69,13 @@ export class RecoverPasswordComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         if (data.passwordRestored) {
-          this.commonsService.toastMessage('success', 'Try to log in', 'Password restored');
+          this.commonsService.toastMessage('success', 'Try to log in', 'Contraseña restaurada');
           this.router.navigate(['/auth/login']);
         } else if (data.noToken) {
           this.router.navigate(['/auth/recover-password']);
-          this.commonsService.toastMessage('error', 'Token expired or does not exist', 'Token error');
+          this.commonsService.toastMessage('error', 'El token expiró o no existe', 'Token error');
         } else {
-          this.commonsService.toastMessage('error', 'Error', 'Something went wrong');
+          this.commonsService.toastMessage('error', 'Error', 'Ha ocurrido un error');
         }
       });
     }

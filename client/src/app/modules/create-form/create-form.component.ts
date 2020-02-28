@@ -354,12 +354,12 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           this.toastMessage('success', 'Ha sido creado', form.title);
           this.router.navigateByUrl('/create-form/edit/' + form.slug);
         } else {
-          this.toastMessage('success', 'Has been updated', form.title);
+          this.toastMessage('success', 'Actualizado', form.title);
         }
         this.isSubmitting = false;
       },
       err => {
-        this.toastMessage('error', err.errors.message, 'Something went wrong');
+        this.toastMessage('error', err.errors.message, 'Ha ocurrido un error');
         this.isSubmitting = false;
       }
     );
@@ -375,7 +375,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.formService.destroy(this.form.slug)
         .subscribe(
           success => {
-            this.toastMessage('success', 'Has been deleted', this.form.title);
+            this.toastMessage('success', 'Eliminado', this.form.title);
             this.router.navigateByUrl('/');
           }
         );
