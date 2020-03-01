@@ -2209,6 +2209,15 @@ const steps = [
                           checked: false,
                         },
                         {
+                          label: 'Casilla La Mancha',
+                          replacementOriginal: 'Casilla La Mancha',
+                          replacement: 'Cataluña',
+                          radioId: 'id-dec-17_opB_1_opA_1_opZ',
+                          identifier: 'id-dec-17_opB_1_opA_1_opZ',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
                           label: 'Comunidad Valenciana',
                           replacementOriginal: 'Comunidad Valenciana',
                           replacement: 'Comunidad Valenciana',
@@ -2268,6 +2277,15 @@ const steps = [
                           replacement: 'País Vasco',
                           radioId: 'id-dec-17_opB_1_opA_1_opO',
                           identifier: 'id-dec-17_opB_1_opA_1_opO',
+                          extraReplacements: [],
+                          checked: false,
+                        },
+                        {
+                          label: 'Extremadura',
+                          replacementOriginal: 'Extremadura',
+                          replacement: 'Extremadura',
+                          radioId: 'id-dec-17_opB_1_opA_1_opY',
+                          identifier: 'id-dec-17_opB_1_opA_1_opY',
                           extraReplacements: [],
                           checked: false,
                         }

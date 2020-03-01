@@ -1,11 +1,11 @@
 const steps = [
     {
       type: 'start',
-      title: 'Contrato de arrendamiento de vivienda',
-      description: `El contrato de arrendamiento de vivienda es aquel por el cual una persona, 
-      denominada arrendatario, se compromete a pagar un precio a otra, denominada arrendador, 
+      title: 'Contrato de arrendamiento de vivienda para uso turístico o vacacional',
+      description: `El contrato de arrendamiento de vivienda para uso turístico o vacacional
+      es aquel por el cual una persona, denominada arrendatario, se compromete a pagar un precio a otra, denominada arrendador, 
       y ésta, a cambio, a proporcionar a la primera el uso de una edificación habitable cuyo destino primordial 
-      sea satisfacer las necesidades de vivienda del arrendatario.`,
+      sea satisfacer las necesidades de vivienda del arrendatario que le dará un uso vacacional, de ocio, turismo o similares`,
       isCurrentStep: true
     },
     {
@@ -1245,6 +1245,531 @@ const steps = [
       }
     },
     {
+      type: 'iRadioB',
+      subType: 'select',
+      question: 'Registro en el que está inscrito:',
+      identifier: 'id-dec-new5',
+      wordToReplace: 'id-dec-new5',
+      defaultRadioId: 'id-dec-new5_opA',
+      indications: {
+        areIndications: true,
+        indicationsType: 'outsideText',
+        // tslint:disable-next-line:max-line-length
+        value: 'Además de la norma común, la regulación de los alquileres de uso turístico, se han ido regulando por las normas que se han implementado por las distintas Comunidades Autónomas, que regulan los arrendamiento de aquellos pisos, apartamentos o casas que, amueblados y equipados en condiciones de uso inmediato, se comercializan y promocionan en canales de oferta turística, y que deben ofrecer una serie de servicios.<br>La mayoría de las Comunidades Autónomas han optado por la presentación de la declaración responsable como autorización inicial de funcionamiento de esta actividad (Madrid, Valencia, Andalucía o Aragón), no así en Cataluña, en la que las propietarias y propietarios deben presentar una comunicación previa al Ayuntamiento competente.',
+      },
+      replacement: '',
+      extraReplacements: [
+        {
+          identifier: 'iddecnew5-extra-1',
+          wordToReplace: 'iddecnew5-extra-1',
+          insideId: 'opA'
+        },
+        {
+          identifier: 'iddecnew5-extra-2',
+          wordToReplace: 'iddecnew5-extra-2',
+          insideId: 'opB'
+        },
+        {
+          identifier: 'iddecnew5-extra-3',
+          wordToReplace: 'iddecnew5-extra-3',
+          insideId: 'opC'
+        },
+      ],
+      radios: [
+        {
+          label: 'Andalucía',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en en el Registro de Turismo de Andalucía (RTA), conforme al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en en el Registro de Turismo de Andalucía (RTA), conforme al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opA',
+          identifier: 'id-dec-new5_opA',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos y de modificación del Decreto 194/2010, de 20 de abril, de establecimientos de apartamentos turísticos.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos y de modificación del Decreto 194/2010, de 20 de abril, de establecimientos de apartamentos turísticos.',
+              insideId: 'opC'
+            },
+          ],
+          checked: true,
+        },
+        {
+          label: 'Aragón',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en en el Registro de Turismo de Aragón, conforme al Decreto 80/2015, de 5 de mayo, por el que se aprueba el Reglamento de las viviendas de uso turístico en Aragón, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en en el Registro de Turismo de Aragón, conforme al Decreto 80/2015, de 5 de mayo, por el que se aprueba el Reglamento de las viviendas de uso turístico en Aragón, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opB',
+          identifier: 'id-dec-new5_opB',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 80/2015, de 5 de mayo, por el que se aprueba el Reglamento de las viviendas de uso turístico en Aragón.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 80/2015, de 5 de mayo, por el que se aprueba el Reglamento de las viviendas de uso turístico en Aragón.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Principado de Asturias',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro Empresas y Actividades Turísticas del Principado de Asturias, conforme Decreto 48/2016, de 10 de agosto, de viviendas vacacionales y viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro Empresas y Actividades Turísticas del Principado de Asturias, conforme Decreto 48/2016, de 10 de agosto, de viviendas vacacionales y viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opC',
+          identifier: 'id-dec-new5_opC',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 48/2016, de 10 de agosto, de viviendas vacacionales y viviendas de uso turístico.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 48/2016, de 10 de agosto, de viviendas vacacionales y viviendas de uso turístico.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Islas Baleares',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro general de empresas, actividades y establecimientos turísticos de las Islas Baleares, conforme la Ley 6/2017, de 31 de julio, de modificación de la Ley 8/2012, de 19 de julio, de turismo de las Illes Balears, relativa a la comercialización de estancias turísticas en viviendas, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro general de empresas, actividades y establecimientos turísticos de las Islas Baleares, conforme la Ley 6/2017, de 31 de julio, de modificación de la Ley 8/2012, de 19 de julio, de turismo de las Illes Balears, relativa a la comercialización de estancias turísticas en viviendas, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opD',
+          identifier: 'id-dec-new5_opD',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, a la Ley 8/2012, de 19 de julio del turismo de las Illes Balears, y a la Ley 6/2017, de 31 de julio, de modificación de la Ley 8/2012, de 19 de julio, del turismo de las Illes Balears, relativa a la comercialización de estancias turísticas en viviendas.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, a la Ley 8/2012, de 19 de julio del turismo de las Illes Balears, y a la Ley 6/2017, de 31 de julio, de modificación de la Ley 8/2012, de 19 de julio, del turismo de las Illes Balears, relativa a la comercialización de estancias turísticas en viviendas.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Canarias',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General Turístico de la Comunidad autónoma de Canarias, conforme al Decreto 113/2015, de 22 de mayo, por el que se aprueba el Reglamento de las viviendas vacacionales de la Comunidad Autónoma de Canarias, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General Turístico de la Comunidad autónoma de Canarias, conforme al Decreto 113/2015, de 22 de mayo, por el que se aprueba el Reglamento de las viviendas vacacionales de la Comunidad Autónoma de Canarias, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opE',
+          identifier: 'id-dec-new5_opE',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 113/2015, de 22 de mayo, por el que se aprueba el Reglamento de las viviendas vacacionales de la Comunidad Autónoma de Canarias.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 113/2015, de 22 de mayo, por el que se aprueba el Reglamento de las viviendas vacacionales de la Comunidad Autónoma de Canarias.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Cantabria',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas Turísticas de Cantabria, conforme al Decreto 19/2014, de 13 de marzo, por el que se modifica el Decreto 82/2010, de 25 de noviembre, por el que se regulan los establecimientos de alojamiento turístico extrahotelero en el ámbito de la Comunidad Autónoma de Cantabria, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas Turísticas de Cantabria, conforme al Decreto 19/2014, de 13 de marzo, por el que se modifica el Decreto 82/2010, de 25 de noviembre, por el que se regulan los establecimientos de alojamiento turístico extrahotelero en el ámbito de la Comunidad Autónoma de Cantabria, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opF',
+          identifier: 'id-dec-new5_opF',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
+              replacementOriginal: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '-	la falta de pago del importe de la fianza;',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente a la Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente a la Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Castilla y León',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Castilla y León, conforme al Decreto 3/2017, de 16 de febrero, por el que se regulan los establecimientos de alojamiento en la modalidad de vivienda de uso turístico en la Comunidad de Castilla y León, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Castilla y León, conforme al Decreto 3/2017, de 16 de febrero, por el que se regulan los establecimientos de alojamiento en la modalidad de vivienda de uso turístico en la Comunidad de Castilla y León, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-17_opB_1_opA_1_opG',
+          identifier: 'id-dec-17_opB_1_opA_1_opG',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 3/2017, de 16 de febrero, por el que se regulan los establecimientos de alojamiento en la modalidad de vivienda de uso turístico en la Comunidad de Castilla y León.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 3/2017, de 16 de febrero, por el que se regulan los establecimientos de alojamiento en la modalidad de vivienda de uso turístico en la Comunidad de Castilla y León.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Casilla La Mancha',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de Casilla La Mancha, conforme al Decreto 36/2018, de 29 de mayo, por el que se establece la ordenación de los apartamentos turísticos y las viviendas de uso turístico en Castilla-La Mancha, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de Casilla La Mancha, conforme al Decreto 36/2018, de 29 de mayo, por el que se establece la ordenación de los apartamentos turísticos y las viviendas de uso turístico en Castilla-La Mancha, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-17_opB_1_opA_1_opZ',
+          identifier: 'id-dec-17_opB_1_opA_1_opZ',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 36/2018, de 29 de mayo, por el que se establece la ordenación de los apartamentos turísticos y las viviendas de uso turístico en Castilla-La Mancha.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 36/2018, de 29 de mayo, por el que se establece la ordenación de los apartamentos turísticos y las viviendas de uso turístico en Castilla-La Mancha.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Cataluña',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Cataluña, conforme al Decreto 159/2012, de 20 de noviembre, de establecimientos de alojamiento turístico y de viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Cataluña, conforme al Decreto 159/2012, de 20 de noviembre, de establecimientos de alojamiento turístico y de viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-17_opB_1_opA_1_opH',
+          identifier: 'id-dec-17_opB_1_opA_1_opH',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 159/2012, de 20 de noviembre, de establecimientos de alojamiento turístico y de viviendas de uso turístico.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 159/2012, de 20 de noviembre, de establecimientos de alojamiento turístico y de viviendas de uso turístico.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Comunidad Valenciana',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas, Establecimientos y Profesiones Turísticas de la Comunitat Valenciana, conforme al Decreto 92/2009, de 3 de julio, del Consell, por el que aprueba el reglamento regulador de las viviendas turísticas denominadas apartamentos, villas, chalés, bungalows y similares, y de las empresas gestoras, personas jurídicas o físicas, dedicadas a la cesión de su uso y disfrute, en el ámbito territorial de la Comunitat Valenciana, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas, Establecimientos y Profesiones Turísticas de la Comunitat Valenciana, conforme al Decreto 92/2009, de 3 de julio, del Consell, por el que aprueba el reglamento regulador de las viviendas turísticas denominadas apartamentos, villas, chalés, bungalows y similares, y de las empresas gestoras, personas jurídicas o físicas, dedicadas a la cesión de su uso y disfrute, en el ámbito territorial de la Comunitat Valenciana, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opI',
+          identifier: 'id-dec-new5_opI',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, a la Ley 15/2018, 7 de junio, de turismo, ocio y hospitalidad de la Comunitat Valenciana, y al Decreto 92/2009, de 3 de julio, del Consell, por el que aprueba el reglamento regulador de las viviendas turísticas denominadas apartamentos, villas, chalés, bungalows y similares, y de las empresas gestoras, personas jurídicas o físicas, dedicadas a la cesión de su uso y disfrute, en el ámbito territorial de la Comunitat Valenciana.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, a la Ley 15/2018, 7 de junio, de turismo, ocio y hospitalidad de la Comunitat Valenciana, y al Decreto 92/2009, de 3 de julio, del Consell, por el que aprueba el reglamento regulador de las viviendas turísticas denominadas apartamentos, villas, chalés, bungalows y similares, y de las empresas gestoras, personas jurídicas o físicas, dedicadas a la cesión de su uso y disfrute, en el ámbito territorial de la Comunitat Valenciana.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Extremadura',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas y Actividades Turísticas de Extremadura, conforme a la Ley 6/2018, de 12 de julio, de modificación de la Ley 2/2011, de 31 de enero, de desarrollo y modernización de turismo de Extremadura, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas y Actividades Turísticas de Extremadura, conforme a la Ley 6/2018, de 12 de julio, de modificación de la Ley 2/2011, de 31 de enero, de desarrollo y modernización de turismo de Extremadura, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opY',
+          identifier: 'id-dec-new5_opY',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
+              replacementOriginal: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '-	la falta de pago del importe de la fianza;',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente a la Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente a la Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Galicia',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas (REAT) de Galicia, conforme al Decreto 12/2017, de 26 de enero, por el que se establece la ordenación de apartamentos turísticos, viviendas turísticas y viviendas de uso turístico en la Comunidad Autónoma de Galicia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas (REAT) de Galicia, conforme al Decreto 12/2017, de 26 de enero, por el que se establece la ordenación de apartamentos turísticos, viviendas turísticas y viviendas de uso turístico en la Comunidad Autónoma de Galicia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opJ',
+          identifier: 'id-dec-new5_opJ',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 12/2017, de 26 de enero, por el que se establece la ordenación de apartamentos turísticos, viviendas turísticas y viviendas de uso turístico en la Comunidad Autónoma de Galicia.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 12/2017, de 26 de enero, por el que se establece la ordenación de apartamentos turísticos, viviendas turísticas y viviendas de uso turístico en la Comunidad Autónoma de Galicia.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'La Rioja',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de proveedores de servicios turísticos de La Rioja, conforme al Decreto 40/2018, de 23 de noviembre, por el que se modifica el Decreto 10/2017, de 17 de marzo, por el que se aprueba el Reglamento General de Turismo de La Rioja en desarrollo de la Ley 2/2001, de 31 de mayo, de Turismo de La Rioja, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de proveedores de servicios turísticos de La Rioja, conforme al Decreto 40/2018, de 23 de noviembre, por el que se modifica el Decreto 10/2017, de 17 de marzo, por el que se aprueba el Reglamento General de Turismo de La Rioja en desarrollo de la Ley 2/2001, de 31 de mayo, de Turismo de La Rioja, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opK',
+          identifier: 'id-dec-new5_opK',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 40/2018, de 23 de noviembre, por el que se modifica el Decreto 10/2017, de 17 de marzo, por el que se aprueba el Reglamento General de Turismo de La Rioja en desarrollo de la Ley 2/2001, de 31 de mayo, de Turismo de La Rioja.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 40/2018, de 23 de noviembre, por el que se modifica el Decreto 10/2017, de 17 de marzo, por el que se aprueba el Reglamento General de Turismo de La Rioja en desarrollo de la Ley 2/2001, de 31 de mayo, de Turismo de La Rioja.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Comunidad de Madrid',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad de Madrid, conforme al Decreto 79/2014, de 10 de julio, del Consejo de Gobierno, por el que se regulan los apartamentos turísticos y las viviendas de uso turístico de la Comunidad de Madrid, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad de Madrid, conforme al Decreto 79/2014, de 10 de julio, del Consejo de Gobierno, por el que se regulan los apartamentos turísticos y las viviendas de uso turístico de la Comunidad de Madrid, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opL',
+          identifier: 'id-dec-new5_opL',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 79/2014, de 10 de julio, del Consejo de Gobierno, por el que se regulan los apartamentos turísticos y las viviendas de uso turístico de la Comunidad de Madrid.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 79/2014, de 10 de julio, del Consejo de Gobierno, por el que se regulan los apartamentos turísticos y las viviendas de uso turístico de la Comunidad de Madrid.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Murcia',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad Autónoma de Murcia, conforme al Decreto n.º 256/2019, de 10 de octubre, por el que se regulan las viviendas de uso turístico en la Región de Murcia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad Autónoma de Murcia, conforme al Decreto n.º 256/2019, de 10 de octubre, por el que se regulan las viviendas de uso turístico en la Región de Murcia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opM',
+          identifier: 'id-dec-new5_opM',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto n.º 256/2019, de 10 de octubre, por el que se regulan las viviendas de uso turístico en la Región de Murcia.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto n.º 256/2019, de 10 de octubre, por el que se regulan las viviendas de uso turístico en la Región de Murcia.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'Comunidad Foral de Navarra',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Navarra, conforme al Decreto Foral 230/2011, de 16 de octubre, por el que se aprueba el Reglamento de Ordenación de los Apartamentos Turísticos en la Comunidad Foral de Navarra, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Navarra, conforme al Decreto Foral 230/2011, de 16 de octubre, por el que se aprueba el Reglamento de Ordenación de los Apartamentos Turísticos en la Comunidad Foral de Navarra, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opN',
+          identifier: 'id-dec-new5_opN',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
+              replacementOriginal: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '-	la falta de pago del importe de la fianza;',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente a la Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente a la Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        },
+        {
+          label: 'País Vasco',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas de Euskadi, conforme al Decreto 101/2018, de 3 de julio, de viviendas y habitaciones de viviendas particulares para uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas de Euskadi, conforme al Decreto 101/2018, de 3 de julio, de viviendas y habitaciones de viviendas particulares para uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          radioId: 'id-dec-new5_opO',
+          identifier: 'id-dec-new5_opO',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew5-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+            {
+              identifier: 'iddecnew5-extra-2',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opB'
+            },
+            {
+              identifier: 'iddecnew5-extra-3',
+              replacement: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 101/2018, de 3 de julio, de viviendas y habitaciones de viviendas particulares para uso turístico.',
+              replacementOriginal: 'Todo litigio relativo, especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de este Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española. Particularmente, a las normas establecidas en el presente Contrato, y supletoriamente al Código Civil, y al Decreto 101/2018, de 3 de julio, de viviendas y habitaciones de viviendas particulares para uso turístico.',
+              insideId: 'opC'
+            },
+          ],
+          checked: false,
+        }
+      ]
+    },
+    {
+      type: 'iText',
+      identifier: 'id-dec-randomnew5',
+      wordToReplace: 'id-dec-randomnew5',
+      replacement: '',
+      question: 'Número de inscripción en el Registro de Turismo o entidad autonómica equivalente:',
+      indications: {
+        areIndications: false,
+        indicationsType: '',
+        value: ''
+      },
+      placeholder: '',
+      mandatory: false,
+      isFocused: false
+    },
+    {
       type: 'iText',
       identifier: 'id-unid-5',
       wordToReplace: 'id-unid-5',
@@ -1291,55 +1816,6 @@ const steps = [
       isFocused: false
     },
     {
-      type: 'iText',
-      identifier: 'id-unid-9',
-      wordToReplace: 'id-unid-9',
-      replacement: '',
-      question: 'Lugar y, en su caso, número del Registro de la propiedad en el que está inscrita la vivienda:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Localidad y número del Registro de la propiedad en el que está inscrita la vivienda.'
-      },
-      placeholder: 'P. ej. Madrid Nº 34',
-      mandatory: false,
-      isFocused: false,
-    },
-    {
-      type: 'iText',
-      identifier: 'id-dec-10',
-      wordToReplace: 'id-dec-10',
-      replacement: '',
-      question: 'Datos registrales de la vivienda:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'insideText',
-        value: 'Los datos registrales es el número de finca que se asigna en el registro de la propiedad correspondiente en el momento de ser inscrita por primera vez y los datos de la cita registral que le corresponden, es decir, el número de tomo, libro y folio en los que consta la inscripción.'
-      },
-      placeholder: 'P. ej. Tomo 1 Libro 377 Folio 204 Finca 2',
-      mandatory: false,
-      isFocused: false
-    },
-    {
-      type: 'iText',
-      identifier: 'id-dec-11',
-      wordToReplace: 'id-dec-11',
-      replacement: '',
-      question: 'Referencia catastral de la vivienda:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        value: 'La referencia catastral es el identificador oficial y obligatorio de los bienes inmuebles. Consiste en un código alfanumérico que es asignado por el Catastro de manera que todo inmueble debe tener una única referencia catastral que permita situarlo inequívocamente en la cartografía catastral. Si no desea indicar la referencia catastral, deje este espacio en blanco.'
-      },
-      placeholder: 'P. ej: 9872023 VH5797S 0001 WX',
-      mandatory: false,
-      isFocused: false,
-      isEmpty: {
-        prepend: 'Su referencia catastral es: ',
-        append: '.',
-      }
-    },
-    {
       type: 'iRadioB',
       question: '¿Desea incluir de forma anexa al contrato fotografías recientes del estado actual de la vivienda?',
       identifier: 'id-dec-new11',
@@ -1377,437 +1853,9 @@ const steps = [
       ]
     },
     {
-      type: 'iRadioC',
-      question: '¿la vivienda forma parte de una Comunidad de Propietarios?',
-      identifier: 'id-dec-12',
-      wordToReplace: 'id-dec-12',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'Por ejemplo, cuando vivimos en un bloque de pisos formamos parte de una Comunidad de Propietarios. Con ella nos referimos al conjunto de propietarios que si bien tienen la propiedad exclusiva de una vivienda o local, también son copropietarios  en otra serie de elementos que son comunes a todos los integrantes,  (jardines, terrazas, escaleras, pasillos, etc). En ese caso, el arrendatario o inquilino deberá respetar las normas que la Comunidad imponga y, en su caso, pagar parte de las cuotas de la misma.'
-      },
-      defaultRadioId: 'id-dec-12_opA',
-      replacement: '',
-      extraReplacements: [
-        {
-          identifier: 'iddec12-extra-1',
-          wordToReplace: 'iddec12-extra-1',
-          insideId: 'opA'
-        },
-        {
-          identifier: 'iddec12-extra-2',
-          wordToReplace: 'iddec12-extra-2',
-          insideId: 'opB'
-        },
-        {
-          identifier: 'iddec12-extra-3',
-          wordToReplace: 'iddec12-extra-3',
-          insideId: 'opC'
-        },
-        {
-          identifier: 'iddec12-extra-4',
-          wordToReplace: 'iddec12-extra-4',
-          insideId: 'opD'
-        }
-      ],
-      radios: [
-        {
-          label: 'Sí',
-          replacementOriginal: '<br><br>Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1<br> <br> Los gastos extraordinarios de Comunidad que correspondan a la vivienda serán por cuenta y a cargo id-dec-12_opA_2',
-          replacement: '<br><br>Todos los gastos de Comunidad correrán a cargo de id-dec-12_opA_1<br> <br> Los gastos extraordinarios de Comunidad que correspondan a la vivienda serán por cuenta y a cargo id-dec-12_opA_2',
-          extraReplacements: [
-            {
-              identifier: 'iddec12-extra-1',
-              replacement: 'las normas de la Comunidad o ',
-              replacementOriginal: 'las normas de la Comunidad o ',
-              insideId: 'opA'
-            },
-            {
-              identifier: 'iddec12-extra-2',
-              replacement: '<br><br>Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la Parte Arrendataria, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
-              replacementOriginal: '<br><br>Igualmente está obligada a requerir a la Comunidad de Propietarios, a instancias de la Parte Arrendataria, para la realización de las obras de reparación o adecuación que puedan necesitar los elementos comunes. ',
-              insideId: 'opB'
-            },
-            {
-              identifier: 'iddec12-extra-3',
-              replacement: 'LA COMUNIDAD Y NORMAS DE',
-              replacementOriginal: 'LA COMUNIDAD Y NORMAS DE',
-              insideId: 'opC'
-            },
-            {
-              identifier: 'iddec12-extra-4',
-              replacement: 'Estando ubicada la vivienda en un inmueble organizado en una Comunidad de Propietarios, la Parte Arrendataria se obliga durante toda la vigencia del Contrato a: no contravenir los buenos usos de vecindad, cumplir las normas contenidas en los estatutos de la Comunidad y de la policía urbana, así como evitar molestar a vecinos con ruidos, fiestas, música, etc., que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
-              replacementOriginal: 'Estando ubicada la vivienda en un inmueble organizado en una Comunidad de Propietarios, la Parte Arrendataria se obliga durante toda la vigencia del Contrato a: no contravenir los buenos usos de vecindad, cumplir las normas contenidas en los estatutos de la Comunidad y de la policía urbana, así como evitar molestar a vecinos con ruidos, fiestas, música, etc., que contravengan las Ordenanzas Municipales. El incumplimiento de esta obligación dará lugar a la resolución del presente Contrato.',
-              insideId: 'opD'
-            }
-          ],
-          radioId: 'id-dec-12_opA',
-          identifier: 'id-dec-12_opA',
-          checked: false,
-          indications: {
-            areIndications: true,
-            indicationsType: 'outsideText',
-            // tslint:disable-next-line:max-line-length
-            value: 'Los gastos generales u ordinarios Son aquellos necesarios y previsibles para el buen sostenimiento del inmueble. Derivan de la conservación, el mantenimiento y las reparaciones ordinarias.Estos gastos se contemplan en los Presupuestos Anuales y se aprueban en la Junta Ordinaria. Para costearlos se utilizan las cuotas mensuales de los propietarios. Entre estos encontramos:<br>1. Los gastos de mantenimiento, conservación y reparación de los servicios más habituales en las comunidades: Limpieza de la comunidad, consumo de agua, gastos bancarios, mantenimiento de ascensor, antena y DDD, calefacción central, luz del portal, garaje y escaleras, portería y conserje, piscina, jardinería, etc. <br>2. Gastos de mantenimiento, conservación y reparación de elementos comunes como tejados, canales de agua, tuberías, caldera. <br>3. Obras para la conservación y accesibilidad necesarias para el mantenimiento del edificio y de sus servicios. <br>4. Fondo de reserva que se fija para la aprobación del Presupuesto de la Comunidad y que debe superar el 5% del último presupuesto ordinario. Este fondo se utiliza para cubrir obras de conservación y reparación de la finca o realizar una derrama extraordinaria por accidentes. <br>5. Gastos municipales como la tasa de recogida de basura o el vado o paso de carruajes.'
-          },
-          subSteps: [
-            {
-              type: 'iRadioC',
-              question: '¿Quién asumirá los gastos generales u ordinarios (cuotas) de la comunidad de la que forma parte la vivienda?',
-              identifier: 'id-dec-12_opA_1',
-              wordToReplace: 'id-dec-12_opA_1',
-              defaultRadioId: 'id-dec-12_opA_1_opA',
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'el arrendador (propietario)',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'la Parte Arrendadora.',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'la Parte Arrendadora.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-12_opA_1_opA',
-                  identifier: 'id-dec-12_opA_1_opA',
-                  checked: true,
-                  subSteps: []
-                },
-                {
-                  label: 'los dos, el arrendatario y  el arrendador, conjuntamente',
-                  replacementOriginal: 'ambas Partes. En concreto, a la Parte Arrendataria le corresponderá abonar un id-dec-12_opA_1_opB_1 % de los mismos id-dec-12_opA_1_opB_2',
-                  replacement: '',
-                  extraReplacements: [],
-                  radioId: 'id-dec-12_opA_1_opB',
-                  identifier: 'id-dec-12_opA_1_opB',
-                  checked: false,
-                  subSteps: [
-                    {
-                      question: 'Que porcentaje de estos gastos generales u ordinarios (cuotas) deberá pagar el arrendatario (inquilino)',
-                      placeholder: 'Ej. Escriba un número menor que 100',
-                      wordToReplace: 'id-dec-12_opA_1_opB_1',
-                      identifier: 'id-dec-12_opA_1_opB_1',
-                      type: 'iNumber',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: ''
-                      },
-                      rules: [
-                      ],
-                    },
-                    {
-                      type: 'iRadioC',
-                      question: 'Estos gastos generales u ordinarios (cuotas)',
-                      identifier: 'id-dec-12_opA_1_opB_2',
-                      wordToReplace: 'id-dec-12_opA_1_opB_2',
-                      defaultRadioId: 'id-dec-12_opA_1_opB_2_opA',
-                      replacement: '',
-                      extraReplacements: [
-                      ],
-                      radios: [
-                        {
-                          label: 'no están incluídos en el alquiler, debe pagarlos el arrendatario a parte',
-                          // tslint:disable-next-line:max-line-length
-                          replacementOriginal: 'El importe de los gastos de Comunidad no está incluido en la renta. Siendo que la Parte Arrendataria tendrá que abonarlos por separado a la Parte Arrendadora, que a su vez está obligada a entregar recibo a la Parte Arrendataria en el que se especifiquen los diferentes conceptos que componen los pagos efectuados por la Parte Arrendataria.  Los gastos ordinarios de Comunidad para la vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1-precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales.',
-                          // tslint:disable-next-line:max-line-length
-                          replacement: 'El importe de los gastos de Comunidad no está incluido en la renta. Siendo que la Parte Arrendataria tendrá que abonarlos por separado a la Parte Arrendadora, que a su vez está obligada a entregar recibo a la Parte Arrendataria en el que se especifiquen los diferentes conceptos que componen los pagos efectuados por la Parte Arrendataria.  Los gastos ordinarios de Comunidad para la vivienda actualmente ascienden a la cantidad de iddec12opA1opB2opA1-precioAletras ( id-dec-12_opA_1_opB_2_opA_1 €) mensuales.',
-                          extraReplacements: [],
-                          radioId: 'id-dec-12_opA_1_opB_2_opA',
-                          identifier: 'id-dec-12_opA_1_opB_2_opA',
-                          checked: true,
-                          subSteps: [
-                            {
-                              question: 'Importe mensual (en euros) de estos gastos generales de comunidad:',
-                              placeholder: 'Ej. Escriba un número',
-                              wordToReplace: 'id-dec-12_opA_1_opB_2_opA_1',
-                              identifier: 'id-dec-12_opA_1_opB_2_opA_1',
-                              type: 'iNumber',
-                              replacement: '',
-                                extraReplacements: [],
-                              indications: {
-                                areIndications: false,
-                                indicationsType: '',
-                                // tslint:disable-next-line:max-line-length
-                                value: ''
-                              },
-                              rules: [
-                                {
-                                  condition: false,
-                                  rulename: 'extraReplacementToCharacter',
-                                  identifier: 'iddec12opA1opB2opA1-precioAletras',
-                                  wordToReplace: 'iddec12opA1opB2opA1-precioAletras',
-                                  replacement: ''
-                                }
-                              ],
-                            },
-                          ]
-                        },
-                        {
-                          label: 'están incluidos en el importe del alquiler',
-                          replacementOriginal: 'El importe de los gastos de Comunidad está incluido dentro de la renta. Siendo que la Parte Arrendataria no tiene que abonarlos por separado a la Parte Arrendadora, y ésta no está obligada a entregar recibo a la Parte Arrendataria en el que se especifiquen los diferentes conceptos que componen los pagos efectuados por la Parte Arrendataria, si bien estos gastos están previstos dentro de la renta. ',
-                          replacement: '',
-                          extraReplacements: [],
-                          radioId: 'id-dec-12_opA_1_opB_2_opB',
-                          identifier: 'id-dec-12_opA_1_opB_2_opB',
-                          checked: false,
-                          subSteps: [
-                          ]
-                        }
-                      ],
-                    },
-                  ]
-                }
-              ],
-            },
-            {
-              type: 'iRadioC',
-              question: '¿Quién asumirá los gastos extraordinarios (connocidos comúnmente como derramas) de la comunidad de la que forma parte la vivienda?',
-              identifier: 'id-dec-12_opA_2',
-              wordToReplace: 'id-dec-12_opA_2',
-              defaultRadioId: 'id-dec-12_opA_2_opA',
-              indications: {
-                areIndications: true,
-                indicationsType: 'outsideText',
-                // tslint:disable-next-line:max-line-length
-                value: 'Los gastos extraordinarios no se contemplan en los Presupuestos Anuales y se utilizan para la realización de algún tipo de obra o reforma de elementos comunes.<br><br>Para recaudar los fondos se suele convocar una Junta Extraordinaria, en la que se comunicará a todos los propietarios el problema y se buscará la mejor solución para su arreglo. También se decide aquí la forma de pago, que puede ser con cargo al dinero ahorrado por la Comunidad, con la aprobación de una derrama o con una subida proporcional en la cuota de la comunidad.'
-              },
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'por el arrendador (propietario)',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'de la Parte Arrendadora en su totalidad.',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'de la Parte Arrendadora en su totalidad.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-12_opA_2_opA',
-                  identifier: 'id-dec-12_opA_2_opA',
-                  checked: true,
-                  subSteps: []
-                },
-                {
-                  label: 'los dos, el arrendatario (inquilino) y  el arrendador (propietario), conjuntamente',
-                  replacementOriginal: 'de ambas Partes. En concreto, a la Parte Arrendataria le corresponderá abonar un iddec12opA2opB1-precioAletras por ciento (id-dec-12_opA_2_opB_1 %) de los mismos.',
-                  replacement: 'de ambas Partes. En concreto, a la Parte Arrendataria le corresponderá abonar un iddec12opA2opB1-precioAletras por ciento (id-dec-12_opA_2_opB_1 %) de los mismos.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-12_opA_2_opB',
-                  identifier: 'id-dec-12_opA_2_opB',
-                  checked: false,
-                  subSteps: [
-                    {
-                      question: '¿Qué porcentaje de estos gastos extraordinarios (o también conocidos como derramas) deberá pagar el arrendatario (inquilino)?',
-                      placeholder: 'Ej. Escriba un número menor que 100',
-                      wordToReplace: 'id-dec-12_opA_2_opB_1',
-                      identifier: 'id-dec-12_opA_2_opB_1',
-                      type: 'iNumber',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: ''
-                      },
-                      rules: [
-                        {
-                          condition: false,
-                          rulename: 'extraReplacementAletras',
-                          identifier: 'iddec12opA2opB1-precioAletras',
-                          wordToReplace: 'iddec12opA2opB1-precioAletras',
-                          replacement: ''
-                        }
-                      ],
-                    }
-                  ]
-                }
-              ],
-            },
-          ]
-        },
-        {
-          label: 'No',
-          replacementOriginal: '',
-          replacement: '',
-          extraReplacements: [
-            {
-              identifier: 'iddec12-extra-1',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opA'
-            },
-            {
-              identifier: 'iddec12-extra-2',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opB'
-            },
-            {
-              identifier: 'iddec12-extra-3',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opC'
-            },
-            {
-              identifier: 'iddec12-extra-4',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opD'
-            }
-          ],
-          radioId: 'id-dec-12_opB',
-          identifier: 'id-dec-12_opB',
-          checked: true,
-          subSteps: []
-        },
-      ],
-    },
-    {
-      type: 'iRadioC',
-      question: '¿la vivienda se alquila amueblada de manera que el arrendatario (inquilino) pueda hacer uso de la misma desde su entrada?',
-      identifier: 'id-dec-15',
-      wordToReplace: 'id-dec-15',
-      defaultRadioId: 'id-dec-15_opA',
-      indications: {
-        areIndications: false,
-        indicationsType: '',
-        // tslint:disable-next-line:max-line-length
-        value: ''
-      },
-      replacement: '',
-      extraReplacements: [
-        {
-          identifier: 'iddec15-extra-1',
-          wordToReplace: 'iddec15-extra-1',
-          insideId: 'opA'
-        },
-      ],
-      radios: [
-        {
-          label: 'Sí',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'id-dec-15_opA_1',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'id-dec-15_opA_1',
-          extraReplacements: [
-            {
-              identifier: 'iddec15-extra-1',
-              replacement: 'y su mobiliario',
-              replacementOriginal: 'y su mobiliario',
-              insideId: 'opA'
-            },
-          ],
-          radioId: 'id-dec-15_opA',
-          identifier: 'id-dec-15_opA',
-          checked: true,
-          subSteps: [
-            {
-              type: 'iRadioC',
-              question: 'Los muebles de la vivienda se encuentran descritos en:',
-              identifier: 'id-dec-15_opA_1',
-              wordToReplace: 'id-dec-15_opA_1',
-              defaultRadioId: 'id-dec-15_opA_1_opA',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              replacement: '',
-              extraReplacements: [
-
-              ],
-              radios: [
-                {
-                  label: 'este contrato',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'está amueblada con el siguiente mobiliario, enseres y objetos: id-dec-15_opA_1_opA_1',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'está amueblada con el siguiente mobiliario, enseres y objetos: id-dec-15_opA_1_opA_1',
-                  extraReplacements: [
-
-                  ],
-                  radioId: 'id-dec-15_opA_1_opA',
-                  identifier: 'id-dec-15_opA_1_opA',
-                  checked: true,
-                  subSteps: [
-                    {
-                      type: 'iText',
-                      subType: 'textarea',
-                      identifier: 'id-dec-15_opA_1_opA_1',
-                      wordToReplace: 'id-dec-15_opA_1_opA_1',
-                      replacement: '',
-                      question: 'Descripción detallada de los muebles de la vivienda:',
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        value: ''
-                      },
-                      placeholder: 'P. ej. Una cama doble marca IXX modelo XX, un colchón marca XXX modelo XXX, ...',
-                      mandatory: false,
-                      isFocused: false
-                    },
-                  ]
-                },
-                {
-                  label: 'en otro documento anexo (o adjunto) a este contrato',
-                  replacementOriginal: 'se cede en arrendamiento con el mobiliario que se detalla en el inventario, Anexo I, del presente contrato de arrendamiento de vivienda.',
-                  replacement: 'se cede en arrendamiento con el mobiliario que se detalla en el inventario, Anexo I, del presente contrato de arrendamiento de vivienda.',
-                  extraReplacements: [
-                  ],
-                  radioId: 'id-dec-15_opA_1_opB',
-                  identifier: 'id-dec-15_opA_1_opB',
-                  checked: false,
-                  subSteps: [
-                  ]
-                }
-              ],
-            },
-          ]
-        },
-        {
-          label: 'No',
-          replacementOriginal: 'no se encuentra amueblada.',
-          replacement: 'no se encuentra amueblada.',
-          extraReplacements: [
-            {
-              identifier: 'iddec15-extra-1',
-              replacement: '',
-              replacementOriginal: '',
-              insideId: 'opA'
-            }
-          ],
-          radioId: 'id-dec-15_opB',
-          identifier: 'id-dec-15_opB',
-          checked: false,
-          subSteps: [
-          ]
-        }
-      ],
-    },
-    {
-      question: 'Indique la duración del contrato de alquiler',
+      question: 'Fecha de comienzo del alquiler de la habitación:',
       wordToReplace: 'id-dec-20',
       identifier: 'id-dec-20',
-      placeholder: 'P. ej: 15 dias, 6 meses, 1 año,..',
-      type: 'iText',
-      replacement: '',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        value: 'Arrendador y arrendatario pueden pactar libremente los años que estará en vigor, sin embargo, en caso de que la duración sea inferior a los cinco años, o siete si el propietario es persona jurídica, el contrato se extenderá hasta estos cinco o siete si el arrendatario así lo desea, es decir, se prorrogará obligatoriamente por plazos anuales hasta alcanzar la duración mínima exigida',
-      }
-    },
-    {
-      question: 'Fecha de comienzo del alquiler y en el que el arrrendatario (inquilino) podrá hacer uso de la misma (no tiene que ser la misma en la que se firma el contrato, se puede firmar el contrato y entrar a la vivienda más adelante):',
-      wordToReplace: 'id-dec-21',
-      identifier: 'id-dec-21',
       placeholder: '',
       type: 'iDate',
       replacement: '',
@@ -1818,396 +1866,87 @@ const steps = [
       }
     },
     {
-      type: 'iRadioB',
-      question: 'Una vez hayan pasados 6 meses desde el incio del alquiler, ¿desea establecer una cláusula por la cual el inquilino deba indemnizar al propietario si abandonase el piso de forma anticipada?',
-      identifier: 'id-dec-22',
+      question: 'Hora de comienzo del alquiler',
+      wordToReplace: 'id-dec-21',
+      identifier: 'id-dec-21',
+      placeholder: 'P. ej: 09.00; 12.30',
+      type: 'iText',
+      replacement: '',
+      indications: {
+        areIndications: false,
+        indicationsType: '',
+        value: '',
+      }
+    },
+    {
+      question: 'Fecha de finalización del alquiler:',
       wordToReplace: 'id-dec-22',
+      identifier: 'id-dec-22',
+      placeholder: '',
+      type: 'iDate',
+      replacement: '',
       indications: {
         areIndications: false,
         indicationsType: '',
         value: '',
       },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'Sí',
-          replacementOriginal: 'En virtud del artículo 11 de la Ley de Arrendamientos Urbanos (LAU), la Parte Arrendataria podrá desistir del contrato, una vez que hayan transcurrido al menos seis meses de arrendamiento. Para el supuesto de que antes de finalizar el plazo estipulado en el contrato, es decir, 1 año, el arrendatario desistiera del mismo, deberá avisar al arrendador con una antelación mínima de treinta días, y le indemnizará con una cantidad equivalente a una mensualidad de la renta en vigor.',
-          replacement: 'En virtud del artículo 11 de la Ley de Arrendamientos Urbanos (LAU), la Parte Arrendataria podrá desistir del contrato, una vez que hayan transcurrido al menos seis meses de arrendamiento. Para el supuesto de que antes de finalizar el plazo estipulado en el contrato, es decir, 1 año, el arrendatario desistiera del mismo, deberá avisar al arrendador con una antelación mínima de treinta días, y le indemnizará con una cantidad equivalente a una mensualidad de la renta en vigor.',
-          radioId: 'id-dec-22_opA',
-          identifier: 'id-dec-22_opA',
-          extraReplacements: [
-
-          ],
-          checked: true,
-        },
-        {
-          label: 'No',
-          replacementOriginal: 'En virtud del artículo 11 de la Ley de Arrendamientos Urbanos (LAU), la Parte Arrendataria podrá desistir del contrato, una vez que hayan transcurrido al menos seis meses de arrendamiento. Para el supuesto de que antes de finalizar el plazo estipulado en el contrato, es decir, 1 año, el arrendatario desistiera del mismo, deberá avisar al arrendador con una antelación mínima de treinta días, y no tendrá que indemnizar a la Parte Arrendadora con ninguna cantidad.',
-          replacement: 'En virtud del artículo 11 de la Ley de Arrendamientos Urbanos (LAU), la Parte Arrendataria podrá desistir del contrato, una vez que hayan transcurrido al menos seis meses de arrendamiento. Para el supuesto de que antes de finalizar el plazo estipulado en el contrato, es decir, 1 año, el arrendatario desistiera del mismo, deberá avisar al arrendador con una antelación mínima de treinta días, y no tendrá que indemnizar a la Parte Arrendadora con ninguna cantidad.',
-          radioId: 'id-dec-22_opB',
-          identifier: 'id-dec-22_opB',
-          extraReplacements: [
-          ],
-          checked: false,
-        }
-      ]
     },
     {
-      type: 'iRadioC',
-      question: 'El precio del alquiler se establece:',
-      identifier: 'id-dec-27',
-      wordToReplace: 'id-dec-27',
-      defaultRadioId: 'id-dec-27_opA',
+      question: 'Hora de finalización del alquiler:',
+      wordToReplace: 'id-dec-23',
+      identifier: 'id-dec-23',
+      placeholder: 'P. ej: 09.00; 12.30',
+      type: 'iText',
+      replacement: '',
       indications: {
         areIndications: false,
         indicationsType: '',
-        // tslint:disable-next-line:max-line-length
+        value: '',
+      }
+    },
+    {
+      type: 'iNumber',
+      identifier: 'id-dec-27',
+      wordToReplace: 'id-dec-27',
+      replacement: '',
+      question: 'Precio total del alquiler',
+      indications: {
+        areIndications: false,
+        indicationsType: '',
         value: ''
       },
-      replacement: '',
+      placeholder: 'Escriba un número',
+      mandatory: false,
+      isFocused: false,
       extraReplacements: [
       ],
-      radios: [
+      rules: [
         {
-          label: 'de forma periódica (día, mes, ...)',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Las Partes han acordado que la renta será de iddec27opA2-precioAletras (id-dec-27_opA_2 €) por cada período siguiente: id-dec-27_opA_1. La obligación de la Parte Arrendataria de pagar dicha renta nace a partir del momento de la firma del presente Contrato. <br><br> id-dec-28 <br><br> id-dec-27_opA_3 <br><br> Las partes acuerdan que el pago de la renta será id-dec-29 <br><br> El impago de la renta por la Parte Arrendataria será causa de resolución del contrato. En ese caso, la Parte Arrendataria deberá restituir en perfecto estado la vivienda arrendada a la Parte Arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'Las Partes han acordado que la renta será de iddec27opA2-precioAletras (id-dec-27_opA_2 €) por cada período siguiente: id-dec-27_opA_1. La obligación de la Parte Arrendataria de pagar dicha renta nace a partir del momento de la firma del presente Contrato. <br> id-dec-28 <br> id-dec-27_opA_3 <br> Las partes acuerdan que el pago de la renta será id-dec-29 <br><br> El impago de la renta por la Parte Arrendataria será causa de resolución del contrato. En ese caso, la Parte Arrendataria deberá restituir en perfecto estado la vivienda arrendada a la Parte Arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
-          extraReplacements: [
-          ],
-          radioId: 'id-dec-27_opA',
-          identifier: 'id-dec-27_opA',
-          checked: true,
-          subSteps: [
-            {
-              type: 'iText',
-              identifier: 'id-dec-27_opA_1',
-              wordToReplace: 'id-dec-27_opA_1',
-              replacement: '',
-              question: '¿Con que periodicidad se establece el contrato?',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                value: ''
-              },
-              placeholder: 'P. ej. por día, por mes, por año, por semestre, por hora',
-              mandatory: false,
-              isFocused: false
-            },
-            {
-              type: 'iNumber',
-              identifier: 'id-dec-27_opA_2',
-              wordToReplace: 'id-dec-27_opA_2',
-              replacement: '',
-              question: 'Importe que se paga por la periodicidad escogida (por día, por mes,...)',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                value: ''
-              },
-              placeholder: 'Escriba un número',
-              mandatory: false,
-              isFocused: false,
-              extraReplacements: [
-              ],
-              rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementToCharacter',
-                  identifier: 'iddec27opA2-precioAletras',
-                  wordToReplace: 'iddec27opA2-precioAletras',
-                  replacement: ''
-                }
-              ],
-            },
-            {
-              type: 'iRadioC',
-              question: 'El pago del alquiler se realizará:',
-              identifier: 'id-dec-27_opA_3',
-              wordToReplace: 'id-dec-27_opA_3',
-              defaultRadioId: 'id-dec-27_opA_3_opA',
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'cada mes, dentro de los primeros 5 días del mes',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'El pago de la Renta fijada se abonará por meses anticipados entre los cinco (5) primeros días de cada mes.',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'El pago de la Renta fijada se abonará por meses anticipados entre los cinco (5) primeros días de cada mes.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-27_opA_3_opA',
-                  identifier: 'id-dec-27_opA_3_opA',
-                  checked: true,
-                  subSteps: []
-                },
-                {
-                  label: 'de otra manera',
-                  replacementOriginal: 'El pago de la renta se realizará de la siguiente manera: id-dec-27_opA_3_opB_1.',
-                  replacement: '',
-                  extraReplacements: [],
-                  radioId: 'id-dec-27_opA_3_opB',
-                  identifier: 'id-dec-27_opA_3_opB',
-                  checked: false,
-                  subSteps: [
-                    {
-                      question: 'Manera en la que se efectua el pago:',
-                      placeholder: 'Ej. durante los primeros 15 días del mes, cada 6 meses...',
-                      wordToReplace: 'id-dec-27_opA_3_opB_1',
-                      identifier: 'id-dec-27_opA_3_opB_1',
-                      type: 'iText',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: ''
-                      },
-                      rules: [
-                      ],
-                    }
-                  ]
-                }
-              ],
-            },
-          ]
-        },
-        {
-          label: 'por un importe total fijo, para toda la duración del alquiler',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'La renta total pactada por las Partes es de iddec27opB1-precioAletras (id-dec-27_opB_1 €). La obligación de la Parte Arrendataria de pagar dicha renta nace a partir del momento de la firma del presente Contrato. <br><br> id-dec-28 <br><br> id-dec-27_opB_2',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'La renta total pactada por las Partes es de iddec27opB1-precioAletras (id-dec-27_opB_1 €). La obligación de la Parte Arrendataria de pagar dicha renta nace a partir del momento de la firma del presente Contrato. <br> id-dec-28 <br> id-dec-27_opB_2',
-          extraReplacements: [
-          ],
-          radioId: 'id-dec-27_opB',
-          identifier: 'id-dec-27_opB',
-          checked: false,
-          subSteps: [
-            {
-              type: 'iNumber',
-              identifier: 'id-dec-27_opB_1',
-              wordToReplace: 'id-dec-27_opB_1',
-              replacement: '',
-              question: 'Importe total del alquiler:',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                value: ''
-              },
-              placeholder: 'Escriba un número',
-              mandatory: false,
-              isFocused: false,
-              extraReplacements: [],
-              rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementToCharacter',
-                  identifier: 'iddec27opB1-precioAletras',
-                  wordToReplace: 'iddec27opB1-precioAletras',
-                  replacement: ''
-                }
-              ]
-            },
-            {
-              type: 'iRadioC',
-              question: '¿En qué momento se va a realizar el pago del alquiler?',
-              identifier: 'id-dec-27_opB_2',
-              wordToReplace: 'id-dec-27_opB_2',
-              defaultRadioId: 'id-dec-27_opB_2_opA',
-              replacement: '',
-              indications: {
-                areIndications: true,
-                indicationsType: 'outsideText',
-                value: 'Seleccione aquí la opción que corresponda al momento en el que se realiza o realizará el pago del importe del alquiler establecido en la pregunta anterior: en su totalidad al momento de firmar el contrato; en su totalidad en una fecha posterior; una parte al firmar el contrato y otra en una fecha posterior; una parte al inicio del contrato de arrendamiento y otra en una fecha posterior; o de otra manera (por ejemplo, en varios pagos periódicos).'
-              },
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'al firmar el contrato',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'El pago de la renta se realiza de forma completa al momento de firmar el presente Contrato, recibiendo la Parte Arrendadora en este acto su importe a su entera satisfacción, y constituyendo el presente documento la más formal y fiel carta de pago.<br><br> El pago se realizará id-dec-29',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'El pago de la renta se realiza de forma completa al momento de firmar el presente Contrato, recibiendo la Parte Arrendadora en este acto su importe a su entera satisfacción, y constituyendo el presente documento la más formal y fiel carta de pago.<br> El pago se realizará id-dec-29',
-                  extraReplacements: [],
-                  radioId: 'id-dec-27_opB_2_opA',
-                  identifier: 'id-dec-27_opB_2_opA',
-                  checked: true,
-                  subSteps: []
-                },
-                {
-                  label: 'toda la cantidad en una fecha posterior escogida',
-                  replacementOriginal: 'El pago de la renta se realizará de forma completa a más tardar el día id-dec-27_opB_2_opB_1. <br><br> El pago se realizará id-dec-29. <br><br> El impago de la renta por la Parte Arrendataria será causa de resolución del contrato. En ese caso, la Parte Arrendataria deberá restituir en perfecto estado la vivienda arrendada a la Parte Arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
-                  replacement: '',
-                  extraReplacements: [],
-                  radioId: 'id-dec-27_opB_2_opB',
-                  identifier: 'id-dec-27_opB_2_opB',
-                  checked: false,
-                  subSteps: [
-                    {
-                      question: 'Fecha en la que se realizará el pago del alquiler:',
-                      placeholder: '',
-                      wordToReplace: 'id-dec-27_opB_2_opB_1',
-                      identifier: 'id-dec-27_opB_2_opB_1',
-                      type: 'iDate',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: ''
-                      },
-                      rules: [
-                      ],
-                    }
-                  ]
-                },
-                {
-                  label: 'una parte al firmar el contrato y otra en una fecha posterior escogida',
-                  replacementOriginal: 'El pago de la renta se realiza de forma parcial al momento de firmar el presente Contrato, recibiendo en este acto la Parte Arrendadora el importe de iddec27opB2opC1-precioAletras (id-dec-27_opB_2_opC_1 €), de lo cual este documento constituye la más formal y fiel carta de pago. El resto de la renta será pagado por la Parte Arrendataria a más tardar el día id-dec-27_opB_2_opC_2. <br><br> El pago se realizará id-dec-29 <br><br> El impago de la renta por la Parte Arrendataria será causa de resolución del contrato. En ese caso, la Parte Arrendataria deberá restituir en perfecto estado la vivienda arrendada a la Parte Arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
-                  replacement: 'El pago de la renta se realiza de forma parcial al momento de firmar el presente Contrato, recibiendo en este acto la Parte Arrendadora el importe de iddec27opB2opC1-precioAletras (id-dec-27_opB_2_opC_1 €), de lo cual este documento constituye la más formal y fiel carta de pago. El resto de la renta será pagado por la Parte Arrendataria a más tardar el día id-dec-27_opB_2_opC_2. <br>br> El pago se realizará id-dec-29 <br><br> El impago de la renta por la Parte Arrendataria será causa de resolución del contrato. En ese caso, la Parte Arrendataria deberá restituir en perfecto estado la vivienda arrendada a la Parte Arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-27_opB_2_opC',
-                  identifier: 'id-dec-27_opB_2_opC',
-                  checked: false,
-                  subSteps: [
-                    {
-                      type: 'iNumber',
-                      identifier: 'id-dec-27_opB_2_opC_1',
-                      wordToReplace: 'id-dec-27_opB_2_opC_1',
-                      replacement: '',
-                      question: 'Importe (en euros) de la parte  que el arrendatario (inquilino) paga al firmar este contrato:',
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        value: ''
-                      },
-                      placeholder: 'Escriba un número',
-                      mandatory: false,
-                      isFocused: false,
-                      extraReplacements: [],
-                      rules: [
-                        {
-                          condition: false,
-                          rulename: 'extraReplacementToCharacter',
-                          identifier: 'iddec27opB2opC1-precioAletras',
-                          wordToReplace: 'iddec27opB2opC1-precioAletras',
-                          replacement: ''
-                        }
-                      ]
-                    },
-                    {
-                      question: 'Fecha en la que se realizará el pago de la parte del alquiler que quede por pagar:',
-                      placeholder: '',
-                      wordToReplace: 'id-dec-27_opB_2_opC_2',
-                      identifier: 'id-dec-27_opB_2_opC_2',
-                      type: 'iDate',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: ''
-                      },
-                      rules: [
-                      ],
-                    }
-                  ]
-                },
-                {
-                  label: 'una parte al comienzo del alquiler y otra en una fecha posterior',
-                  replacementOriginal: 'El pago de la renta se realizará de forma fraccionada, abonando el importe de iddec27opB2opD1-precioAletras (id-dec-27_opB_2_opD_1 €) en el momento de la puesta a disposición de la vivienda a la Parte Arrendataria para su uso y disfrute. El resto de la renta será pagado por la Parte Arrendataria a más tardar el día id-dec-27_opB_2_opD_2. <br><br> El pago se realizará id-dec-29 <br><br> El impago de la renta por la Parte Arrendataria será causa de resolución del contrato. En ese caso, la Parte Arrendataria deberá restituir en perfecto estado la vivienda arrendada a la Parte Arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
-                  replacement: 'El pago de la renta se realizará de forma fraccionada, abonando el importe de iddec27opB2opD1-precioAletras (id-dec-27_opB_2_opD_1 €) en el momento de la puesta a disposición de la vivienda a la Parte Arrendataria para su uso y disfrute. El resto de la renta será pagado por la Parte Arrendataria a más tardar el día id-dec-27_opB_2_opD_2. <br><br> El pago se realizará id-dec-29 <br><br> El impago de la renta por la Parte Arrendataria será causa de resolución del contrato. En ese caso, la Parte Arrendataria deberá restituir en perfecto estado la vivienda arrendada a la Parte Arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-27_opB_2_opD',
-                  identifier: 'id-dec-27_opB_2_opD',
-                  checked: false,
-                  subSteps: [
-                    {
-                      type: 'iNumber',
-                      identifier: 'id-dec-27_opB_2_opD_1',
-                      wordToReplace: 'id-dec-27_opB_2_opD_1',
-                      replacement: '',
-                      question: 'Importe (en euros) de la parte del alquiler que el arrendatario (inquilino) pagará al comienzo del alquiler:',
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        value: ''
-                      },
-                      placeholder: 'Escriba un número',
-                      mandatory: false,
-                      isFocused: false,
-                      extraReplacements: [],
-                      rules: [
-                        {
-                          condition: false,
-                          rulename: 'extraReplacementToCharacter',
-                          identifier: 'iddec27opB2opD1-precioAletras',
-                          wordToReplace: 'iddec27opB2opD1-precioAletras',
-                          replacement: ''
-                        }
-                      ]
-                    },
-                    {
-                      question: 'Fecha en la que se realizará el pago de la parte del alquiler que quede por pagar:',
-                      placeholder: '',
-                      wordToReplace: 'id-dec-27_opB_2_opD_2',
-                      identifier: 'id-dec-27_opB_2_opD_2',
-                      type: 'iDate',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: ''
-                      },
-                      rules: [
-                      ],
-                    }
-                  ]
-                },
-                {
-                  label: 'de otra manera',
-                  replacementOriginal: 'El pago de la renta se realizará de la siguiente manera: id-dec-27_opB_2_opE_1. <br><br> El pago se realizará id-dec-29 <br><br> El impago de la renta por la Parte Arrendataria será causa de resolución del contrato. En ese caso, la Parte Arrendataria deberá restituir en perfecto estado la vivienda arrendada a la Parte Arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
-                  replacement: 'El pago de la renta se realizará de la siguiente manera: id-dec-27_opB_2_opE_1. <br> El pago se realizará id-dec-29 <br> El impago de la renta por la Parte Arrendataria será causa de resolución del contrato. En ese caso, la Parte Arrendataria deberá restituir en perfecto estado la vivienda arrendada a la Parte Arrendadora, y asumir todos aquellos gastos derivados del incumplimiento del contrato, más los intereses legales generados a raíz de la demora en el pago de las cantidades adeudadas.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-27_opB_2_opE',
-                  identifier: 'id-dec-27_opB_2_opE',
-                  checked: false,
-                  subSteps: [
-                    {
-                      type: 'iText',
-                      identifier: 'id-dec-27_opB_2_opE_1',
-                      wordToReplace: 'id-dec-27_opB_2_opE_1',
-                      replacement: '',
-                      question: 'Manera en que se realizará el pago del alquiler:',
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        value: ''
-                      },
-                      placeholder: '',
-                      mandatory: false,
-                      isFocused: false,
-                      rules: [
-                      ]
-                    }
-                  ]
-                }
-              ],
-            },
-          ]
+          condition: false,
+          rulename: 'extraReplacementToCharacter',
+          identifier: 'iddec27-precioAletras',
+          wordToReplace: 'iddec27-precioAletras',
+          replacement: ''
         }
       ],
+    },
+    {
+      question: 'Espicifique de forma detallada la descripción del precio que se cobra por periodo',
+      wordToReplace: 'id-dec-new27',
+      identifier: 'id-dec-new27',
+      placeholder: 'Ej. 40 euros por día, por 5 días.',
+      type: 'iText',
+      subType: 'textarea',
+      replacement: '',
+      indications: {
+        areIndications: false,
+        indicationsType: '',
+        value: '',
+      },
+      isEmpty: {
+        prepend: ' (',
+        append: ')',
+      }
     },
     {
       type: 'iRadioB',
@@ -2363,157 +2102,6 @@ const steps = [
     },
     {
       type: 'iRadioC',
-      question: ' ¿Se establece una cláusula que recoja actualización de la renta (cláusula que permite aumentar el valor del alquiler periódicamente)?',
-      identifier: 'id-dec-new30',
-      wordToReplace: 'id-dec-new30',
-      defaultRadioId: 'id-dec-new30_opA',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'La ley establece la libertad de pacto entre las partes a la hora de la actualización de la renta del alquiler. Así, en la fecha que se cumpla cada año de vigencia del contrato, en los términos pactados por arrendador y arrendatario, dejando el IPC General como referencia para la revisión cuando no exista pacto expreso al respecto. En este último supuesto, el contrato se actualizará aplicando a la renta correspondiente a la anualidad anterior la variación porcentual experimentada por IPC durante los doce meses inmediatamente anteriores a la fecha de cada actualización, tomando como mes de referencia para la primera actualización y en las sucesivas el último índice publicado en la fecha de celebración del contrato.'
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'Sí:',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: '<br><br>Las partes acuerdan que la renta será objeto de revisión, a partir del primer año de contrato, y será revisada: id-dec-new30_opA_1. id-dec-new30_opA_2. El cobro de la renta cuyo precio se haya actualizado será exigible en la cuota, o preiodicidad correspondiente tras la notificación expresa y por escrito de dicha actualización. El retraso o impago de la nueva renta no supondrá la renuncia a la misma.',
-          // tslint:disable-next-line:max-line-length
-          replacement: '<br><br>Las partes acuerdan que la renta será objeto de revisión, y será revisada: id-dec-new30_opA_1. id-dec-new30_opA_2. El cobro de la renta cuyo precio se haya actualizado será exigible en la cuota, o preiodicidad correspondiente tras la notificación expresa y por escrito de dicha actualización. El retraso o impago de la nueva renta no supondrá la renuncia a la misma.',
-          extraReplacements: [],
-          radioId: 'id-dec-new30_opA',
-          identifier: 'id-dec-new30_opA',
-          checked: true,
-          subSteps: [
-            {
-              question: 'Frecuencia con la que se podrá aumentar o revisar el precio del alquiler:',
-              placeholder: 'Ej. anualmente, semestralmente',
-              wordToReplace: 'id-dec-new30_opA_1',
-              identifier: 'id-dec-new30_opA_1',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [],
-            },
-            {
-              type: 'iRadioC',
-              question: '¿En función de qué medidor el alquiler podrá ser aumentado?',
-              identifier: 'id-dec-new30_opA_2',
-              wordToReplace: 'id-dec-new30_opA_2',
-              defaultRadioId: 'id-dec-new30_opA_2_opA',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'en función del Índice de Garantía de Competitividad',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada por el Índice General Nacional del Sistema de Precios al Consumo (IPC). Esta actualización se efectuará de forma automática, comunicando previamente por parte del arrendador a la arrendataria la cantidad diferencial. Cuando la tasa de variación de este índice se sitúe por debajo de 0 por ciento, se tomará éste valor (0) como referencia',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada por el Índice General Nacional del Sistema de Precios al Consumo (IPC). Esta actualización se efectuará de forma automática, comunicando previamente por parte del arrendador a la arrendataria la cantidad diferencial. Cuando la tasa de variación de este índice se sitúe por debajo de 0 por ciento, se tomará éste valor (0) como referencia',
-                  extraReplacements: [],
-                  radioId: 'id-dec-new30_opA_2_opA',
-                  identifier: 'id-dec-new30_opA_2_opA',
-                  checked: true,
-                  subSteps: [
-                  ]
-                },
-                {
-                  label: 'en función de un índice acordado por las partes como, por ejemplo, el IPC',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'Este incremento se realizará por referencia al siguiente índice: id-dec-new30_opA_2_opB_1. Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada por el Índice elegido. Cuando la tasa de variación de este índice se sitúe por debajo de 0 por ciento, se tomará éste valor (0) como referencia',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'Este incremento se realizará por referencia al siguiente índice: id-dec-new30_opA_2_opB_1. Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada por el Índice elegido. Cuando la tasa de variación de este índice se sitúe por debajo de 0 por ciento, se tomará éste valor (0) como referencia',
-                  extraReplacements: [],
-                  radioId: 'id-dec-new30_opA_2_opB',
-                  identifier: 'id-dec-new30_opA_2_opB',
-                  checked: true,
-                  subSteps: [
-                    {
-                      question: 'Denominación del índice acordado por las partes para aumentar el valor del alquiler:',
-                      placeholder: 'Ej. IPC',
-                      wordToReplace: 'id-dec-new30_opA_2_opB_1',
-                      identifier: 'id-dec-new30_opA_2_opB_1',
-                      type: 'iText',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'outsideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Si lo desea, indique aquí el nombre o denominación del índice que las partes prevén en el contrato de alquiler para actualizar la renta; es decir para revisar el valor o precio del alquiler de la vivienda objeto de este contrato con la periodicidad o frecuencia que ha sido determinada.<br> Si no desea prever un índice, en el contrato se establecerá la actualización de la renta por referencia al Índice de Garantía de Competitividad (IGC) fijado por el Instituto Nacional de Estadística.'
-                      },
-                      rules: [],
-                    }
-                  ]
-                },
-                {
-                  label: 'aplicando un porcentaje establcido por las partes',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'Este incremento será de un iddecnew30opA2opC1-precioAletras por ciento (id-dec-new30_opA_2_opC_1 %). Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'Este incremento será de un iddecnew30opA2opC1-precioAletras por ciento (id-dec-new30_opA_2_opC_1 %). Las expresadas revisiones que las partes convienen se harán acumuladamente aplicando a la renta correspondiente la variación porcentual experimentada',
-                  extraReplacements: [],
-                  radioId: 'id-dec-new30_opA_2_opC',
-                  identifier: 'id-dec-new30_opA_2_opC',
-                  checked: true,
-                  subSteps: [
-                    {
-                      question: 'Porcentaje de aumento del valor del alquiler acordado por las partes',
-                      placeholder: 'Escriba un número menor que 100',
-                      wordToReplace: 'id-dec-new30_opA_2_opC_1',
-                      identifier: 'id-dec-new30_opA_2_opC_1',
-                      type: 'iNumber',
-                      replacement: '',
-                      extraReplacements: [],
-                      rules: [
-                        {
-                          condition: false,
-                          rulename: 'extraReplacementAletras',
-                          identifier: 'iddecnew30opA2opC1-precioAletras',
-                          wordToReplace: 'iddecnew30opA2opC1-precioAletras',
-                          replacement: ''
-                        }
-                      ],
-                    }
-                  ]
-                }
-              ],
-            },
-          ]
-        },
-        {
-          label: 'No',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: '',
-          // tslint:disable-next-line:max-line-length
-          replacement: '',
-          extraReplacements: [],
-          radioId: 'id-dec-new30_opB',
-          identifier: 'id-dec-new30_opB',
-          checked: true,
-          subSteps: [
-          ]
-        },
-      ],
-    },
-    {
-      type: 'iRadioC',
       question: 'Además del precio del alquiler de la vivienda, ¿el arrendatario (inquilino) pagará gastos para la limpieza de la misma?',
       identifier: 'id-dec-30',
       wordToReplace: 'id-dec-30',
@@ -2531,129 +2119,20 @@ const steps = [
         {
           label: 'Sí:',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: '<br><br>El importe de los gastos de limpieza de vivienda y zonas comunes no está incluido dentro en la renta, siendo que la Parte Arrendataria tendrá que abonarlos. id-dec-30_opA_1 Siendo que la Parte Arrendataria tendrá que abonarlos por separado a la Parte Arrendadora, ésta, a su vez está obligada a entregar recibo a la Parte Arrendataria en el que se especifiquen los diferentes conceptos que componen los pagos efectuados por la Parte Arrendataria. id-dec-30_opA_2',
+          replacementOriginal: 'La renta se verá incrementada en iddec30opA1-precioAletras (id-dec-30_opA_1 €) en concepto de gastos de limpieza de La Vivienda.',
           // tslint:disable-next-line:max-line-length
-          replacement: '<br><br>El importe de los gastos de limpieza de vivienda y zonas comunes no está incluido dentro en la renta, siendo que la Parte Arrendataria tendrá que abonarlos. id-dec-30_opA_1 Siendo que la Parte Arrendataria tendrá que abonarlos por separado a la Parte Arrendadora, ésta, a su vez está obligada a entregar recibo a la Parte Arrendataria en el que se especifiquen los diferentes conceptos que componen los pagos efectuados por la Parte Arrendataria. id-dec-30_opA_2',
+          replacement: 'La renta se verá incrementada en iddec30opA1-precioAletras (id-dec-30_opA_1 €) en concepto de gastos de limpieza de La Vivienda.',
           extraReplacements: [],
           radioId: 'id-dec-30_opA',
           identifier: 'id-dec-30_opA',
           checked: true,
           subSteps: [
             {
-              type: 'iRadioC',
-              question: 'Con que periodicidad se pagarán estos gastos de limpieza:',
-              identifier: 'id-dec-30_opA_1',
+              question: 'Importe en euros del pago total que se hará por los gastos de limpieza para toda la duración del alquiler:',
+              placeholder: 'Escriba un número',
               wordToReplace: 'id-dec-30_opA_1',
-              defaultRadioId: 'id-dec-30_opA_1',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'por  día, por mes, por año,...',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'Estos gastos de limpieza ascenderán a iddec30opA1opA2-precioAletras (id-dec-30_opA_1_opA_2 €) por cada período siguiente: id-dec-30_opA_1_opA_1.',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'Estos gastos de limpieza ascenderán a iddec30opA1opA2-precioAletras (id-dec-30_opA_1_opA_2 €) por cada período siguiente: id-dec-30_opA_1_opA_1.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-30_opA_1_opA',
-                  identifier: 'id-dec-30_opA_1_opA',
-                  checked: true,
-                  subSteps: [
-                    {
-                      question: 'Periodicidad con la que se establecen los gastos de limpieza:',
-                      placeholder: 'Ej. por día, por mes, por año, por semestre, por hora ',
-                      wordToReplace: 'id-dec-30_opA_1_opA_1',
-                      identifier: 'id-dec-30_opA_1_opA_1',
-                      type: 'iText',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: ''
-                      },
-                      rules: [],
-                    },
-                    {
-                      question: 'Importe periódico que se pagará por los gastos de limpieza por la periodicidad descrita en la pregunta anterior (por día, por mes,...)',
-                      placeholder: 'Escriba un número',
-                      wordToReplace: 'id-dec-30_opA_1_opA_2',
-                      identifier: 'id-dec-30_opA_1_opA_2',
-                      type: 'iNumber',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Este importe es aquel que se establece y expresa en el contrato por día, semana, mes, año u otra periodicidad, según lo indicado en la pregunta anterior.'
-                      },
-                      rules: [
-                        {
-                          condition: false,
-                          rulename: 'extraReplacementToCharacter',
-                          identifier: 'iddec30opA1opA2-precioAletras',
-                          wordToReplace: 'iddec30opA1opA2-precioAletras',
-                          replacement: ''
-                        }
-                      ],
-                    }
-                  ]
-                },
-                {
-                  label: 'de una sólo vez se pagará el importe total de los gastos de limpieza para toda la duración del contrato',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'Estos gastos de limpieza ascenderán a iddec30opA1opB1-precioAletras (id-dec-30_opA_1_opB_1 €) para la duración total del contrato de arrendamiento.',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'Estos gastos de limpieza ascenderán a iddec30opA1opB1-precioAletras (id-dec-30_opA_1_opB_1 €) para la duración total del contrato de arrendamiento.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-30_opA_1_opB',
-                  identifier: 'id-dec-30_opA_1_opB',
-                  checked: true,
-                  subSteps: [
-                    {
-                      question: 'Importe en euros del pago total que se hará por los gastos de limpieza para toda la duración del alquiler:',
-                      placeholder: 'Escriba un número',
-                      wordToReplace: 'id-dec-30_opA_1_opB_1',
-                      identifier: 'id-dec-30_opA_1_opB_1',
-                      type: 'iNumber',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: ''
-                      },
-                      rules: [
-                        {
-                          condition: false,
-                          rulename: 'extraReplacementToCharacter',
-                          identifier: 'iddec30opA1opB1-precioAletras',
-                          wordToReplace: 'iddec30opA1opB1-precioAletras',
-                          replacement: ''
-                        }
-                      ],
-                    }
-                  ]
-                }
-              ],
-            },
-            {
-              question: 'Si lo desea haga una descripción del servicio de limpieza por el cual se cobran dichos gastos:',
-              subType: 'textarea',
-              placeholder: 'Ej. Cada semana acudirá una persona contratada para limpiar la vivienda...',
-              wordToReplace: 'id-dec-30_opA_2',
-              identifier: 'id-dec-30_opA_2',
-              type: 'iText',
+              identifier: 'id-dec-30_opA_1',
+              type: 'iNumber',
               replacement: '',
               extraReplacements: [],
               indications: {
@@ -2662,11 +2141,15 @@ const steps = [
                 // tslint:disable-next-line:max-line-length
                 value: ''
               },
-              rules: [],
-              isEmpty: {
-                prepend: 'Las Partes acuerdan que dicho pago retribuirá el siguiente servicio de limpieza: ',
-                append: '.',
-              }
+              rules: [
+                {
+                  condition: false,
+                  rulename: 'extraReplacementToCharacter',
+                  identifier: 'iddec30opA1-precioAletras',
+                  wordToReplace: 'iddec30opA1-precioAletras',
+                  replacement: ''
+                }
+              ],
             },
           ]
         },
@@ -2686,30 +2169,11 @@ const steps = [
       ],
     },
     {
-      type: 'iText',
-      identifier: 'id-dec-31',
-      wordToReplace: 'id-dec-31',
-      replacement: '',
-      question: 'Si lo desea, indique aquí los servicios que han sido contratados por el arrendador (propietario) y pueden ser utilizados por el arrendatario (inquilino)',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        value: 'Tenga en cuenta que los servicios de luz, agua y gas deben haber sido contratados en todos los casos por el arrendador, y quién realizará el pago de los mismos es establecido en la siguiente pregunta'
-      },
-      placeholder: 'P. ej: teléfono, internet, Netflix,...',
-      mandatory: false,
-      isFocused: false,
-      isEmpty: {
-        prepend: 'La Parte Arrendadora, también se hará responsable de contratar los siguientes servicios: ',
-        append: '.',
-      }
-    },
-    {
       type: 'iRadioC',
-      question: 'El pago de los gastos que se generen por usar la vivienda, como, por ejemplo, el agua, el gas, internet,... será asumido por:',
-      identifier: 'id-dec-32',
-      wordToReplace: 'id-dec-32',
-      defaultRadioId: 'id-dec-32_opA',
+      question: 'Cuándo se deberá realizar el pago del precio del alquiler?',
+      identifier: 'id-dec-new30',
+      wordToReplace: 'id-dec-new30',
+      defaultRadioId: 'id-dec-new30_opA',
       indications: {
         areIndications: false,
         indicationsType: '',
@@ -2718,494 +2182,111 @@ const steps = [
       },
       replacement: '',
       extraReplacements: [
+        {
+          identifier: 'iddecnew30-extra-1',
+          wordToReplace: 'iddecnew30-extra-1',
+          insideId: 'opA'
+        },
       ],
       radios: [
         {
-          label: 'el arrendatario (inquilino)',
+          label: 'al entrar a la vivienda',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Igualmente, el pago de todos los servicios y suministros individualizados será por cuenta y a cargo de la Parte Arrendataria.<br><br> id-dec-32_opA_1',
+          replacementOriginal: 'Al momento del inicio del presente Contrato de arrendamiento, es decir, al momento de la entrada o llegada a La Vivienda de la PARTE ARRENDATARIA para su uso y disfrute.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'Igualmente, el pago de todos los servicios y suministros individualizados será por cuenta y a cargo de la Parte Arrendataria.<br><br> id-dec-32_opA_1',
-          extraReplacements: [],
-          radioId: 'id-dec-32_opA',
-          identifier: 'id-dec-32_opA',
-          checked: true,
-          subSteps: [
+          replacement: 'Al momento del inicio del presente Contrato de arrendamiento, es decir, al momento de la entrada o llegada a La Vivienda de la PARTE ARRENDATARIA para su uso y disfrute.',
+          extraReplacements: [
             {
-              type: 'iRadioC',
-              question: 'Estos gastos de uso de la vivienda:',
-              identifier: 'id-dec-32_opA_1',
-              wordToReplace: 'id-dec-32_opA_1',
-              defaultRadioId: 'id-dec-32_opA_1',
-              indications: {
-                areIndications: true,
-                indicationsType: 'outsideText',
-                // tslint:disable-next-line:max-line-length
-                value: 'Seleccione la opción que corresponda al abono de los gastos de los servicios que se generen como consecuencia del uso de la vivienda por el arrendatario durante la vigencia del contrato de arrendamiento; es decir, de los suministros de electricidad, agua, gas, internet o teléfono.'
-              },
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'no está incluídos en el precio del alquiler',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'La Parte Arrendataria se compromete al abono de estos gastos, conociendo y aceptando que el importe de los mismos no ha sido tomado en consideración al fijar el importe de la renta. Dichos gastos los pagará la Parte Arrendataria a la Parte Arrendadora en la misma forma prevista para la renta. La Parte Arrendadora entregará el recibo correspondiente por este concepto a la Parte Arrendataria después del pago. id-dec-32_opA_1_opA_1 id-dec-32_opA_1_opA_2',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'La Parte Arrendataria se compromete al abono de estos gastos, conociendo y aceptando que el importe de los mismos no ha sido tomado en consideración al fijar el importe de la renta. Dichos gastos los pagará la Parte Arrendataria a la Parte Arrendadora en la misma forma prevista para la renta. La Parte Arrendadora entregará el recibo correspondiente por este concepto a la Parte Arrendataria después del pago. id-dec-32_opA_1_opA_1 id-dec-32_opA_1_opA_2',
-                  extraReplacements: [],
-                  radioId: 'id-dec-32_opA_1_opA',
-                  identifier: 'id-dec-32_opA_1_opA',
-                  checked: true,
-                  subSteps: [
-                    {
-                      question: 'Importe mínimo (en euros) que el arrendatario deberá pagar mensualmente por los gastos derivados del uso de la vivienda:',
-                      placeholder: 'Escriba un número',
-                      wordToReplace: 'id-dec-32_opA_1_opA_1',
-                      identifier: 'id-dec-32_opA_1_opA_1',
-                      type: 'iText',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Esto supone que aunque el importe que le corresponda del total de los gastos de la vivienda sea inferior, el arrendatario deberá pagar este importe.'
-                      },
-                      rules: [],
-                      isEmpty: {
-                        prepend: '<br><br>La Parte Arrendataria no pagará en ningún caso menos de ',
-                        append: ' euros mensuales.',
-                      }
-                    },
-                    {
-                      question: 'Importe máximo (en euros que el arrendatario deberá pagar mensualmente por los gastos derivados del uso de la vivienda:',
-                      placeholder: 'Escriba un número',
-                      wordToReplace: 'id-dec-32_opA_1_opA_2',
-                      identifier: 'id-dec-32_opA_1_opA_2',
-                      type: 'iText',
-                      replacement: '',
-                      extraReplacements: [],
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Esto supone que aunque el importe que le corresponda del total de los gastos de la vivienda sea superior, el arrendatario solo deberá pagar este importe.'
-                      },
-                      rules: [],
-                      isEmpty: {
-                        prepend: '<br><br>La Parte Arrendataria no pagará en ningún caso más de ',
-                        append: ' euros mensuales.',
-                      }
-                    }
-                  ]
-                },
-                {
-                  label: 'están incluidos precio alquiler',
-                  // tslint:disable-next-line:max-line-length
-                  replacementOriginal: 'El importe de estos gastos está incluido dentro de la renta. Siendo que la Parte Arrendataria no tiene que abonarlos por separado, la Parte Arrendadora no está obligada a entregar recibo a la Parte Arrendataria en el que se especifiquen los diferentes conceptos que componen los pagos efectuados.',
-                  // tslint:disable-next-line:max-line-length
-                  replacement: 'El importe de estos gastos está incluido dentro de la renta. Siendo que la Parte Arrendataria no tiene que abonarlos por separado, la Parte Arrendadora no está obligada a entregar recibo a la Parte Arrendataria en el que se especifiquen los diferentes conceptos que componen los pagos efectuados.',
-                  extraReplacements: [],
-                  radioId: 'id-dec-32_opA_1_opB',
-                  identifier: 'id-dec-32_opA_1_opB',
-                  checked: true,
-                  subSteps: [
-                  ]
-                },
-              ],
-            }
-          ]
-        },
-        {
-          label: 'el arrendador (propietario)',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Los servicios y suministros que la Parte Arrendataria desee contratar para su uso individual deberán ser autorizados por la Parte Arrendadora, y serán abonados por la Parte Arrendadora id-dec-32_opB_1',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'Los servicios y suministros que la Parte Arrendataria desee contratar para su uso individual deberán ser autorizados por la Parte Arrendadora, y serán abonados por la Parte Arrendadora id-dec-32_opB_1',
-          extraReplacements: [],
-          radioId: 'id-dec-32_opB',
-          identifier: 'id-dec-32_opB',
-          checked: true,
-          subSteps: [
-            {
-              question: 'Importe máximo (en euros) que el arrendador pagará mensualmente por estos gastos de uso de la vivienda:',
-              placeholder: 'Escriba un número',
-              wordToReplace: 'id-dec-32_opB_1',
-              identifier: 'id-dec-32_opB_1',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: true,
-                indicationsType: 'outsideText',
-                // tslint:disable-next-line:max-line-length
-                value: 'Esto supone que aunque el importe que proporcionalmente le corresponda de los gastos de la vivienda sea superior, el arrendador solo se compromete a pagar este importe. La diferencia deberá ser pagada por el arrendatario.'
-              },
-              rules: [],
-              isEmpty: {
-                prepend: 'No obstante, las Partes acuerdan que la Parte Arrendadora solo asumirá los gastos totales de la vivienda hasta un máximo de ',
-                append: ' euros mensuales',
-              }
+              identifier: 'iddecnew30-extra-1',
+              replacement: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              replacementOriginal: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              insideId: 'opA'
             },
+          ],
+          radioId: 'id-dec-new30_opA',
+          identifier: 'id-dec-new30_opA',
+          checked: true,
+          subSteps: [
           ]
         },
         {
-          label: 'los dos, el arrendatario y el arrendado',
+          label: 'cuando termine la duración del contrato',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'El pago de todos los servicios y suministros individualizados será por cuenta y a cargo de ambas Partes, siendo divididos de la siguiente manera:<br><br> id-dec-32_opC_1',
+          replacementOriginal: 'Una vez haya finalizado el periodo completo de arrendamiento acordado en el presente Contrato.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'El pago de todos los servicios y suministros individualizados será por cuenta y a cargo de ambas Partes, siendo divididos de la siguiente manera:<br><br> id-dec-32_opC_1',
-          extraReplacements: [],
-          radioId: 'id-dec-32_opC',
-          identifier: 'id-dec-32_opC',
-          checked: true,
+          replacement: 'Una vez haya finalizado el periodo completo de arrendamiento acordado en el presente Contrato.',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew30-extra-1',
+              replacement: '',
+              replacementOriginal: '',
+              insideId: 'opA'
+            },
+          ],
+          radioId: 'id-dec-new30_opB',
+          identifier: 'id-dec-new30_opB',
+          checked: false,
+          subSteps: [
+          ]
+        },
+        {
+          label: 'al hacer la reserva, antes de entrar al piso',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'Una vez la PARTE ARRENDATARIA ha realizado la reserva de La Vivienda, y antes de su entrada/llegada a La Vivienda para su uso y disfrute.',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'Una vez la PARTE ARRENDATARIA ha realizado la reserva de La Vivienda, y antes de su entrada/llegada a La Vivienda para su uso y disfrute.',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew30-extra-1',
+              replacement: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              replacementOriginal: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              insideId: 'opA'
+            },
+          ],
+          radioId: 'id-dec-new30_opC',
+          identifier: 'id-dec-mew30_opC',
+          checked: false,
+          subSteps: [
+          ]
+        },
+        {
+          label: 'otro momento',
+          // tslint:disable-next-line:max-line-length
+          replacementOriginal: 'id-dec-new30_opD_1',
+          // tslint:disable-next-line:max-line-length
+          replacement: 'id-dec-new30_opD_1',
+          extraReplacements: [
+            {
+              identifier: 'iddecnew30-extra-1',
+              replacement: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              replacementOriginal: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              insideId: 'opA'
+            },
+          ],
+          radioId: 'id-dec-new30_opD',
+          identifier: 'id-dec-new30_opD',
+          checked: false,
           subSteps: [
             {
-              question: 'Describa como se van a dividir estos gastos entre el arrendador (propietario) y el arrendatario (inquilino):',
+              question: 'Describa a continuación en qué momento el inquilino deberá hacer el pago de la renta:',
+              placeholder: 'P. Ej. La PARTE ARRENDATARIA efectuará el pago de la renta por semanas. El primer día de cada semana de arrendamiento.',
+              wordToReplace: 'id-dec-new30_opD_1',
+              identifier: 'id-dec-new30_opD_1',
+              type: 'iText',
               subType: 'textarea',
-              placeholder: 'P. ej: El arrendador (propietario) se encargará del pago mensual de internet. El arrendatario (inquilino)...',
-              wordToReplace: 'id-dec-32_opC_1',
-              identifier: 'id-dec-32_opC_1',
-              type: 'iText',
               replacement: '',
               extraReplacements: [],
               indications: {
-                areIndications: false,
-                indicationsType: '',
+                areIndications: true,
+                indicationsType: 'outsideText',
                 // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: []
-            },
-          ]
-        },
-      ],
-    },
-    {
-      type: 'iRadioC',
-      question: 'El Impuesto sobre Bienes Inmuebles (IBI) de la vivienda lo pagará:',
-      identifier: 'id-dec-33',
-      wordToReplace: 'id-dec-33',
-      defaultRadioId: 'id-dec-33_opA',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'Cuando eres el propietario de una vivienda, local o plaza de garaje, debes tener en cuenta que existen una serie de impuestos asociados que estás obligado a pagar. El Impuesto de Bienes Inmuebles (IBI) es uno de ellos. <br> El IBI es un impuesto de los llamados directos que grava la titularidad de los derechos reales sobre cualquier bien inmueble localizado en el municipio que recauda el tributo. Lo cobran los ayuntamientos y forma parte de las tasas municipales.'
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'el arrendatario (inquilino)',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'de la Parte Arrendadora en su totalidad.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'de la Parte Arrendadora en su totalidad.',
-          extraReplacements: [],
-          radioId: 'id-dec-33_opA',
-          identifier: 'id-dec-33_opA',
-          checked: true,
-          subSteps: [
-          ]
-        },
-        {
-          label: 'el arrendatario (inquilino) y el arrendador (propietario)',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'de ambas Partes. En concreto, a la Parte Arrendataria le corresponderá abonar un iddec33opB1-precioAletras por ciento (id-dec-33_opB_1 %) del mismo. A este efecto, se hace saber a la Parte Arrendataria que el último importe anual conocido para el IBI fue de iddec33opB2-precioAletras (id-dec-33_opB_2 €).',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'de ambas Partes. En concreto, a la Parte Arrendataria le corresponderá abonar un iddec33opB1-precioAletras por ciento (id-dec-33_opB_1 %) del mismo. A este efecto, se hace saber a la Parte Arrendataria que el último importe anual conocido para el IBI fue de iddec33opB2-precioAletras (id-dec-33_opB_2 €).',
-          extraReplacements: [],
-          radioId: 'id-dec-33_opB',
-          identifier: 'id-dec-33_opB',
-          checked: true,
-          subSteps: [
-            {
-              question: 'Porcentaje del IBI que deberá pagar el arrendatario (inquilino):',
-              placeholder: 'Escriba un número menor que 100',
-              wordToReplace: 'id-dec-33_opB_1',
-              identifier: 'id-dec-33_opB_1',
-              type: 'iNumber',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
+                value: 'Al seleccionar la opción Otro, debe especificar ahora en qué momento deberá el inquilino abonar o pagar la renta por el periodo de alquiler que va a disfrutar la vivienda.'
               },
               rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementAletras',
-                  identifier: 'iddec33opB1-precioAletras',
-                  wordToReplace: 'iddec33opB1-precioAletras',
-                  replacement: ''
-                }
-              ],
-            },
-            {
-              question: 'Último importe anual conocido (en euros) del IBI de la vivienda:',
-              placeholder: 'Escriba un número',
-              wordToReplace: 'id-dec-33_opB_2',
-              identifier: 'id-dec-33_opB_2',
-              type: 'iNumber',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementToCharacter',
-                  identifier: 'iddec33opB2-precioAletras',
-                  wordToReplace: 'iddec33opB2-precioAletras',
-                  replacement: ''
-                }
-              ],
-            }
-          ]
-        }
-      ],
-    },
-    {
-      type: 'iRadioC',
-      question: 'En caso de que el arrendatario (inquilino), incumpla alguna de las obligaciones que se derivan de este contrato, como, por ejemplo, no pagar el alquiler, ¿se establece alguna fianza o depósito de garantía? (esta será devuelta al finalizar el contrato si no se ha hecho ningún incumplimiento de obligaciones)',
-      identifier: 'id-dec-34',
-      wordToReplace: 'id-dec-34',
-      defaultRadioId: 'id-dec-34_opA',
-      indications: {
-        areIndications: false,
-        indicationsType: '',
-        // tslint:disable-next-line:max-line-length
-        value: ''
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'Sí',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Las partes acuerdan un importe de iddec34opA1-precioAletras (id-dec-34_opA_1 €) en concepto de fianza, que la Parte Arrendataria entrega en este acto a la Parte Arrendadora. Sirva el presente documento la más formal y fiel carta de pago que en derecho corresponda. <br><br> Una vez la Parte Arrendadora haya comprobado que la  vivienda se encuentra en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la Parte Arrendataria. En el caso de que existieran deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'Las partes acuerdan un importe de iddec34opA1-precioAletras (id-dec-34_opA_1 €) en concepto de fianza, que la Parte Arrendataria entrega en este acto a la Parte Arrendadora. Sirva el presente documento la más formal y fiel carta de pago que en derecho corresponda. <br><br> Una vez la Parte Arrendadora haya comprobado que la  vivienda se encuentra en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la Parte Arrendataria. En el caso de que existieran deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados.',
-          extraReplacements: [],
-          radioId: 'id-dec-34_opA',
-          identifier: 'id-dec-34_opA',
-          checked: true,
-          subSteps: [
-            {
-              question: 'Indique la cantidad en euros de dicho depósito o garantía:',
-              placeholder: 'Escriba un número',
-              wordToReplace: 'id-dec-34_opA_1',
-              identifier: 'id-dec-34_opA_1',
-              type: 'iNumber',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementToCharacter',
-                  identifier: 'iddec34opA1-precioAletras',
-                  wordToReplace: 'iddec34opA1-precioAletras',
-                  replacement: ''
-                }
               ],
             },
           ]
         },
-        {
-          label: 'No',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'No se establece ninguna mención expresa a la fianza.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'No se establece ninguna mención expresa a la fianza.',
-          extraReplacements: [],
-          radioId: 'id-dec-34_opB',
-          identifier: 'id-dec-34_opB',
-          checked: true,
-          subSteps: [
-          ]
-        }
-      ],
-    },
-    {
-      type: 'iRadioC',
-      question: 'En caso de que el arrendatario (inquilino), incumpla alguna de las obligaciones que se derivan de este contrato, como por ejemplo, no pagar el alquiler, se incluye  a uno o varios avales o fiadores solidarios:',
-      identifier: 'id-dec-35',
-      wordToReplace: 'id-dec-35',
-      defaultRadioId: 'id-dec-35_opB',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'En los contratos de alquiler de vivienda o de uso distinto de vivienda, además del arrendatario, que, como tal, tiene la obligación de pagar la renta y los demás conceptos pactados en el contrato de arrendamiento, puede haber uno o varios avaladores o fiadores que asumen todas o alguna de las obligaciones del inquilino: pago de suministros, de tributos, sólo la renta, daños y desperfectos. La constitución de aval o fianza puede realizarse cuando se formaliza el contrato de alquiler o posteriormente.'
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'Sí',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Sin perjuicio de lo convenido en las estipulaciones precedentes, garantiza el total y exacto cumplimiento de todas y cada una de las obligaciones contraídas por el arrendatario:id-dec-35_opA_1 en calidad de fiadora de la Parte Arrendataria, convirtiéndose en suyas las obligaciones de ésta a los efectos previstos en el Código Civil. Asimismo, el FIADOR renuncia a los beneficios de orden y excusión y a lo dispuesto en el artículo 1851 del Código Civil.',
-          // tslint:disable-next-line:max-line-length
-          replacement: '',
-          extraReplacements: [],
-          radioId: 'id-dec-35_opA',
-          identifier: 'id-dec-35_opA',
-          checked: true,
-          subSteps: [
-            {
-              type: 'iForEach',
-              value: 1,
-              min: 1,
-              max: 10,
-              replacement: '',
-              identifier: 'id-dec-35_opA_1',
-              wordToReplace: 'id-dec-35_opA_1',
-              question: 'Número de fiadores solidarios',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                value: '',
-              },
-              content: [
-                {
-                  identifier: 'id-dec-35_opA_1',
-                  wordToReplace: 'id-dec-35_opA_1',
-                  replacementOriginal: ' id-dec-35_opA_1_1, con id-dec-35_opA_1_2 núm. id-dec-35_opA_1_3 y domicilio en id-dec-35_opA_1_4;',
-                  replacement: ' id-dec-35_opA_1_1, con id-dec-35_opA_1_2 núm. id-dec-35_opA_1_3 y domicilio en id-dec-35_opA_1_4;',
-                  extraReplacements: [],
-                  modifiedReplacements: [],
-                  modifiedExtraReplacements: [],
-                  subSteps: [
-                    {
-                      question: 'Nombre completo o denominación social del fiador solidario:',
-                      wordToReplace: 'id-dec-35_opA_1_1',
-                      identifier: 'id-dec-35_opA_1_1',
-                      type: 'iText',
-                      placeholder: 'P. ej. Antonio, Pérez Alarcón, Banco Santander, S.A',
-                      replacement: '',
-                      indications: {
-                        areIndications: false,
-                        indicationsType: '',
-                        // tslint:disable-next-line:max-line-length
-                        value: '',
-                      },
-                    },
-                    {
-                      type: 'iRadioB',
-                      // tslint:disable-next-line:max-line-length
-                      question: 'Tipo de documento de identificación del fiador solidario:',
-                      identifier: 'id-dec-35_opA_1_2',
-                      wordToReplace: 'id-dec-35_opA_1_2',
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'outsideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Escoja el tipo de documento que identificará personalmente al fiador solidario. Si se trata de una persona física, si esta persona cuenta con DNI/NIF escoja siempre esta opción, y reserve las opciones de NIE o Pasaporte solo para cuando aquel no exista o no se esté en posesión del mismo. Si se trata de una persona jurídica, seleccione la opción NIF/CIF.',
-                      },
-                      replacement: '',
-                      extraReplacements: [],
-                      radios: [
-                        {
-                          label: 'DNI',
-                          replacementOriginal: 'DNI',
-                          replacement: '',
-                          radioId: 'id-dec-35_opA_1_2_opA',
-                          identifier: 'id-dec-35_opA_1_2_opA',
-                          extraReplacements: [],
-                          checked: true,
-                        },
-                        {
-                          label: 'NIE',
-                          replacementOriginal: 'NIE',
-                          replacement: '',
-                          radioId: 'id-dec-35_opA_1_2_opB',
-                          identifier: 'id-dec-35_opA_1_2_opB',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'Pasaporte',
-                          replacementOriginal: 'Pasaporte',
-                          replacement: '',
-                          radioId: 'id-dec-35_opA_1_2_opC',
-                          identifier: 'id-dec-35_opA_1_2_opC',
-                          extraReplacements: [],
-                          checked: false,
-                        },
-                        {
-                          label: 'NIF',
-                          replacementOriginal: 'NIF',
-                          replacement: '',
-                          radioId: 'id-dec-35_opA_1_2_opD',
-                          identifier: 'id-dec-35_opA_1_2_opD',
-                          extraReplacements: [],
-                          checked: false,
-                        }
-                      ]
-                    },
-                    {
-                      question: 'Número del documento seleccionado en la pregunta anterior:',
-                      wordToReplace: 'id-dec-35_opA_1_3',
-                      identifier: 'id-dec-35_opA_1_3',
-                      placeholder: 'P. ej: 83558071Z',
-                      type: 'iText',
-                      replacement: '',
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        value: 'Introduzca aquí el número correspondiente al documento de identificación personal escogido en la pregunta anterior para el primer o único fiador solidario.',
-                      },
-                    },
-                    {
-                      question: 'Dirección del lugar donde reside el fiador solidario:',
-                      wordToReplace: 'id-dec-35_opA_1_4',
-                      identifier: 'id-dec-35_opA_1_4',
-                      type: 'iText',
-                      placeholder: 'P. ej: Paseo de las Yeserías 11, Escalera 2, 4.º B, 28005, Madrid, España',
-                      replacement: '',
-                      indications: {
-                        areIndications: true,
-                        indicationsType: 'insideText',
-                        // tslint:disable-next-line:max-line-length
-                        value: 'Dirección completa (tipo y nombre de la vía, número, piso, código postal, localidad, provincia y país) del lugar de residencia',
-                      },
-                    },
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: 'No',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: '',
-          // tslint:disable-next-line:max-line-length
-          replacement: '',
-          extraReplacements: [],
-          radioId: 'id-dec-35_opB',
-          identifier: 'id-dec-35_opB',
-          checked: true,
-          subSteps: [
-          ]
-        }
       ],
     },
     {
@@ -3245,468 +2326,14 @@ const steps = [
       ]
     },
     {
-      type: 'iRadioC',
-      question: 'la vivienda',
-      identifier: 'id-dec-42',
-      wordToReplace: 'id-dec-42',
-      defaultRadioId: 'id-dec-42_opA',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'Seleccione aquí la opción que corresponda al nivel de aseguramiento o al seguro que tendrá el alquiler de la vivienda en la que esta se encuentra durante el período de duración del alquiler. <br><br>Si ya cuenta con un seguro (por ejemplo, un seguro de alquiler para propietarios) y el arrendador y el arrendatario no desean pactar la contratación de otro seguro (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la primera opción. <br><br>Si ya cuenta con un seguro (por ejemplo, un seguro de alquiler para propietarios), pero el arrendador y el arrendatario desean pactar la contratación de otro seguro (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la segunda opción. <br><br>Si no cuenta aún con un seguro, pero el arrendador y el arrendatario desean pactar la contratación de uno (p. ej. una póliza de seguro de responsabilidad civil para el arrendatario), seleccione la tercera opción. <br><br>Por último, si no cuenta aún con un seguro y el arrendador y el arrendatario no desean pactar su contratación, seleccione la cuarta opción.<br><br>'
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'cuenta con un seguro y no se desea pactar la contratación de otro',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'La Parte Arrendadora tiene contratado un seguro de: id-dec-42_opA_1, en la compañía aseguradora: id-dec-42_opA_2id-dec-42_opA_3.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'La Parte Arrendadora tiene contratado un seguro de: id-dec-42_opA_1, en la compañía aseguradora: id-dec-42_opA_2id-dec-42_opA_3.',
-          extraReplacements: [],
-          radioId: 'id-dec-42_opA',
-          identifier: 'id-dec-42_opA',
-          checked: true,
-          subSteps: [
-            {
-              question: 'Tipo de seguro que tiene el alquiler de la vivienda ',
-              placeholder: 'P. ej: Seguro alquiler propietario',
-              wordToReplace: 'id-dec-42_opA_1',
-              identifier: 'id-dec-42_opA_1',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-              ],
-            },
-            {
-              question: 'Nombre de la compañía aseguradora en la que está contratado dicho seguro:',
-              placeholder: 'P. ej: Axa',
-              wordToReplace: 'id-dec-42_opA_2',
-              identifier: 'id-dec-42_opA_2',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-              ],
-            },
-            {
-              question: 'Número de póliza',
-              placeholder: '',
-              wordToReplace: 'id-dec-42_opA_3',
-              identifier: 'id-dec-42_opA_3',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-              ],
-              isEmpty: {
-                prepend: ', y cuyo número de póliza es el siguiente: ',
-                append: '',
-              }
-            },
-          ]
-        },
-        {
-          label: 'cuenta con un seguro, pero se desea pactar la contratación de otro',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'La Parte Arrendadora tiene contratado un seguro de: id-dec-42_opB_1, en la compañía aseguradora: id-dec-42_opB_2id-dec-42_opB_3. <br><br>No obstante, la PARTE id-dec-42_opB_4 se compromete a contratar un seguro de la siguiente clase: id-dec-42_opB_5. Este seguro tendrá como beneficiaria a la Parte Arrendadora, y tener una cobertura mínima igual a iddec42opB6-precioAletras (id-dec-42_opB_6 €). Este seguro se mantendrá durante toda la vigencia del presente Contrato .',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'La Parte Arrendadora tiene contratado un seguro de: id-dec-42_opB_1, en la compañía aseguradora: id-dec-42_opB_2id-dec-42_opB_3. <br><br>No obstante, la PARTE id-dec-42_opB_4 se compromete a contratar un seguro de la siguiente clase: id-dec-42_opB_5. Este seguro tendrá como beneficiaria a la Parte Arrendadora, y tener una cobertura mínima igual a iddec42opB6-precioAletras (id-dec-42_opB_6 €). Este seguro se mantendrá durante toda la vigencia del presente Contrato .',
-          extraReplacements: [],
-          radioId: 'id-dec-42_opB',
-          identifier: 'id-dec-42_opB',
-          checked: true,
-          subSteps: [
-            {
-              question: 'Tipo de seguro que tiene el alquiler de la vivienda ',
-              placeholder: 'P. ej: Seguro alquiler propietario',
-              wordToReplace: 'id-dec-42_opB_1',
-              identifier: 'id-dec-42_opB_1',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-              ],
-            },
-            {
-              question: 'Nombre de la compañía aseguradora en la que está contratado dicho seguro:',
-              placeholder: 'P. ej: Axa',
-              wordToReplace: 'id-dec-42_opB_2',
-              identifier: 'id-dec-42_opB_2',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-              ],
-            },
-            {
-              question: 'Número de póliza',
-              placeholder: '',
-              wordToReplace: 'id-dec-42_opB_3',
-              identifier: 'id-dec-42_opB_3',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-              ],
-              isEmpty: {
-                prepend: ', y cuyo número de póliza es el siguiente: ',
-                append: '',
-              }
-            },
-            {
-              type: 'iRadioB',
-              question: '¿Quién contratará el seguro que se ha pactado?',
-              identifier: 'id-dec-42_opB_4',
-              wordToReplace: 'id-dec-42_opB_4',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                value: '',
-              },
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'el arrendatario (inquilino)',
-                  replacementOriginal: 'ARRENDATARIA',
-                  replacement: 'ARRENDATARIA',
-                  radioId: 'id-dec-42_opB_4_opA',
-                  identifier: 'id-dec-42_opB_4_opA',
-                  extraReplacements: [
-                  ],
-                  checked: true,
-                },
-                {
-                  label: 'el arrendador (propietario)',
-                  replacementOriginal: 'ARRENDADORA',
-                  replacement: 'ARRENDADORA',
-                  radioId: 'id-dec-42_opB_4_opB',
-                  identifier: 'id-dec-42_opB_4_opB',
-                  extraReplacements: [
-                  ],
-                  checked: false,
-                },
-              ]
-            },
-            {
-              question: 'Tipo de seguro que se desea contratar:',
-              placeholder: 'P. ej: Seguro de responsabilidad Civil',
-              wordToReplace: 'id-dec-42_opB_5',
-              identifier: 'id-dec-42_opB_5',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-              ],
-            },
-            {
-              question: 'Cobertura mínima (en euros) que deberá tener dicho seguro (suma hasta la cual la aseguradora deberá hacerse cargo de los daños en la vivienda y/o de los incumplimientos del contrato de alquiler):',
-              placeholder: 'Escriba un número',
-              wordToReplace: 'id-dec-42_opB_6',
-              identifier: 'id-dec-42_opB_6',
-              type: 'iNumber',
-              replacement: '',
-              extraReplacements: [],
-              rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementToCharacter',
-                  identifier: 'iddec42opB6-precioAletras',
-                  wordToReplace: 'iddec42opB6-precioAletras',
-                  replacement: ''
-                }
-              ],
-              indications: {
-                areIndications: true,
-                indicationsType: 'outsideText',
-                value: 'La cobertura es la suma hasta la cual la compañía aseguradora deberá hacerse cargo de las consecuencias que se deriven de un siniestro (o incidente) en relación con el riesgo asegurado. El riesgo asegurado dependerá del tipo de seguro contratado; puede tratarse, por ejemplo, de daños ocasionados en la vivienda, de incumplimientos del contrato de arrendamiento (ej. impago de la renta), etc.'
-              },
-            },
-          ]
-        },
-        {
-          label: 'no cuenta con seguro, pero se desea pactar su contratación',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'La PARTE id-dec-42_opC_1 se compromete a la contratación de un seguro de la siguiente clase: id-dec-42_opC_2. Este seguro deberá indicar como beneficiaria a la Parte Arrendadora, tener una cobertura mínima igual a iddec42opC3-precioAletras (id-dec-42_opC_3 €), y ser mantenido durante toda la vigencia del presente Contrato.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'La PARTE id-dec-42_opC_1 se compromete a la contratación de un seguro de la siguiente clase: id-dec-42_opC_2. Este seguro deberá indicar como beneficiaria a la Parte Arrendadora, tener una cobertura mínima igual a iddec42opC3-precioAletras (id-dec-42_opC_3 €), y ser mantenido durante toda la vigencia del presente Contrato.',
-          extraReplacements: [],
-          radioId: 'id-dec-42_opC',
-          identifier: 'id-dec-42_opC',
-          checked: true,
-          subSteps: [
-            {
-              type: 'iRadioB',
-              question: '¿Quién contratará el seguro que se ha pactado?',
-              identifier: 'id-dec-42_opC_1',
-              wordToReplace: 'id-dec-42_opC_1',
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                value: '',
-              },
-              replacement: '',
-              extraReplacements: [
-              ],
-              radios: [
-                {
-                  label: 'el arrendatario (inquilino)',
-                  replacementOriginal: 'ARRENDATARIA',
-                  replacement: 'ARRENDATARIA',
-                  radioId: 'id-dec-42_opC_1_opA',
-                  identifier: 'id-dec-42_opC_1_opA',
-                  extraReplacements: [
-                  ],
-                  checked: true,
-                },
-                {
-                  label: 'el arrendador (propietario)',
-                  replacementOriginal: 'ARRENDADORA',
-                  replacement: 'ARRENDADORA',
-                  radioId: 'id-dec-42_opC_1_opB',
-                  identifier: 'id-dec-42_opC_1_opB',
-                  extraReplacements: [
-                  ],
-                  checked: false,
-                },
-              ]
-            },
-            {
-              question: 'Tipo de seguro que se desea contratar:',
-              placeholder: 'P. ej: Seguro de responsabilidad Civil',
-              wordToReplace: 'id-dec-42_opC_2',
-              identifier: 'id-dec-42_opC_2',
-              type: 'iText',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-              ],
-            },
-            {
-              question: 'Cobertura mínima (en euros) que deberá tener dicho seguro (suma hasta la cual la aseguradora deberá hacerse cargo de los daños en la vivienda y/o de los incumplimientos del contrato de alquiler):',
-              placeholder: 'Escriba un número',
-              wordToReplace: 'id-dec-42_opC_3',
-              identifier: 'id-dec-42_opC_3',
-              type: 'iNumber',
-              replacement: '',
-              extraReplacements: [],
-              rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementToCharacter',
-                  identifier: 'iddec42opC3-precioAletras',
-                  wordToReplace: 'iddec42opC3-precioAletras',
-                  replacement: ''
-                }
-              ],
-              indications: {
-                areIndications: true,
-                indicationsType: 'outsideText',
-                value: 'La cobertura es la suma hasta la cual la compañía aseguradora deberá hacerse cargo de las consecuencias que se deriven de un siniestro (o incidente) en relación con el riesgo asegurado. El riesgo asegurado dependerá del tipo de seguro contratado; puede tratarse, por ejemplo, de daños ocasionados en la vivienda, de incumplimientos del contrato de arrendamiento (ej. impago de la renta), etc.'
-              },
-            },
-          ]
-        },
-        {
-          label: 'no cuenta con un seguro ni se desea pactar su contratación',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'No se cuenta con seguro ni se desea pactar la contratación de ninguno.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'No se cuenta con seguro ni se desea pactar la contratación de ninguno.',
-          extraReplacements: [],
-          radioId: 'id-dec-42_opD',
-          identifier: 'id-dec-42_opD',
-          checked: true,
-          subSteps: [
-          ]
-        }
-      ],
-    },
-    {
       type: 'iRadioB',
-      question: '(Derecho de adquisición preferente) En caso de que el arrendador decida vender la vivienda  durante el alquiler:',
-      identifier: 'id-dec-43',
-      wordToReplace: 'id-dec-43',
+      question: '¿Queda prohibido fumar en la vivienda?',
+      identifier: 'id-dec-new40',
+      wordToReplace: 'id-dec-new40',
       indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        value: 'El derecho de compra o adquisición preferente, según la ley 29/1994, de 24 de noviembre, sobre arrendamientos urbanos es el derecho que tiene el arrendatario de adquirir la propiedad con preferencia, en el caso de que el arrendador ponga en venta dicho inmueble. Así lo recoge el artículo 25 de  esta normativa, en el que se señala que el arrendatario tendrá las mismas condiciones que el arrendador haya acordado con un posible comprador. En este sentido, con el derecho de compra preferente, el arrendatario dispone de 30 días naturales para ejercitar el derecho de tanteo desde que el propietario le notifique la decisión de venta. Con ello, se podrá determinar y llegar a un acuerdo sobre precio y el resto de condiciones inherentes a la transmisión de la propiedad inmobiliaria. Del mismo modo, el arrendatario también dispone del derecho de retracto, en relación al precio y a todas las condiciones de compraventa.',
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'el arrendatario no podrá adquirirla con prioridad frente a otros posibles compradores (no tendrá derecho de adquisición preferente o tanteo y retracto)',
-          replacementOriginal: 'La Parte Arrendataria renuncia expresamente al derecho de adquisición preferente, tanteo, o retracto, sobre la vivienda, en caso de que la Parte Arrendadora decidiera enajenar el inmueble. La Parte Arrendadora pondrá en conocimiento de la Parte Arrendataria con antelación suficiente su intención de vender el inmueble.',
-          replacement: 'La Parte Arrendataria renuncia expresamente al derecho de adquisición preferente, tanteo, o retracto, sobre la vivienda, en caso de que la Parte Arrendadora decidiera enajenar el inmueble. La Parte Arrendadora pondrá en conocimiento de la Parte Arrendataria con antelación suficiente su intención de vender el inmueble.',
-          radioId: 'id-dec-43_opA',
-          identifier: 'id-dec-43_opA',
-          extraReplacements: [
-          ],
-          checked: true,
-        },
-        {
-          label: 'el arrendatario podrá adquirirla con prioridad frente a otros posibles compradores (tendrá derecho de adquisición preferente o tanteo y retracto)',
-          replacementOriginal: 'La Parte Arrendataria tendrá derecho de adquisición preferente, tanteo, o retracto, sobre la vivienda, en caso de que la Parte Arrendadora decidiera enajenar el inmueble. Todo ello de acuerdo con lo dispuesto en los artículos 25 y siguientes de la Ley de Arrendamientos Urbanos que se encuentre vigente en el momento de formalización del presente contrato.',
-          replacement: 'La Parte Arrendataria tendrá derecho de adquisición preferente, tanteo, o retracto, sobre la vivienda, en caso de que la Parte Arrendadora decidiera enajenar el inmueble. Todo ello de acuerdo con lo dispuesto en los artículos 25 y siguientes de la Ley de Arrendamientos Urbanos que se encuentre vigente en el momento de formalización del presente contrato.',
-          radioId: 'id-dec-43_opB',
-          identifier: 'id-dec-43_opB',
-          extraReplacements: [
-          ],
-          checked: false,
-        },
-      ]
-    },
-    {
-      type: 'iRadioC',
-      question: '(Subarrendamiento) El arrendatario (inquilino):',
-      identifier: 'id-dec-44',
-      wordToReplace: 'id-dec-44',
-      defaultRadioId: 'id-dec-44_opA',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        // tslint:disable-next-line:max-line-length
-        value: 'El subarriendo es un contrato mediante el cual el arrendatario cede a un tercero denominado subarrendatario el uso como arrendatario de toda o parte de la vivienda que tiene arrendada. Coloquialmente se conoce como “realquiler”. A menos que se especifique y se pacte en el contrato de arrendamiento, el subarrendamiento de vivienda por parte del inquilino está prohibido. Solamente se permite si se cumplen una serie de requisitos. El subarrendamiento puede ser total o parcial. La Ley de Arrendamientos Urbanos solo permite el parcial. Normalmente consistiría en el alquiler de una o varias habitaciones. Debe realizarse con consentimiento expreso y por escrito del propietario, y debe otorgarse con carácter previo al subarriendo. Si se subarrienda sin permiso escrito del arrendador, éste puede instar la resolución del contrato. El precio del subarriendo no puede ser superior a la renta que paga el arrendatario. La Ley de Arrendamientos Urbanos solo permite el subarrendamiento parcial de la vivienda, no el total, siempre y cuando, se den los dos requisitos anteriores.'
-      },
-      replacement: '',
-      extraReplacements: [
-      ],
-      radios: [
-        {
-          label: 'no podrá subarrendar (ceder partes de la vivienda a cambio de un precio) la vivienda alquilada ni ceder este contrato (sustituirse por otro arrendatario)',
-          // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Queda prohibido la cesión de la vivienda o su subarriendo ya sea total o parcial.',
-          // tslint:disable-next-line:max-line-length
-          replacement: 'Queda prohibido la cesión de la vivienda o su subarriendo ya sea total o parcial.',
-          extraReplacements: [],
-          radioId: 'id-dec-44_opA',
-          identifier: 'id-dec-44_opA',
-          checked: true,
-          subSteps: []
-        },
-        {
-          label: 'podrá subarrendar la vivienda alquilada y ceder este contrato',
-          replacementOriginal: 'Queda permitido la cesión de la vivienda o su subarriendo ya sea total o parcial. La Parte Arrendataria se compromete a poner en conocimiento de la Parte Arrendadora esta situación, junto con el acuerdo o contrato correspondiente con, al menos, iddec44opB1-precioAletras (id-dec-44_opB_1) días de antelación a la formalización del acuerdo de subarriendo o cesión, de forma expresa y por escrito. <br><br>En caso de cesión, el cesionario se subrogará en la posición de la Parte Arrendataria frente a la Parte Arrendadora. <br><br>En caso de subarriendo, la Parte Arrendataria continuará siendo responsable del cumplimiento del Contrato para con la Parte Arrendadora, y se deberán respetar una serie de condiciones: <br><br>a) El subarriendo, respetando el objeto de este Contrato, será de la vivienda. <br><br>b) El subarriendo no podrá tener en ningún caso una duración superior a la duración de este contrato de arrendamiento.',
-          replacement: 'Queda permitido la cesión de la vivienda o su subarriendo ya sea total o parcial. La Parte Arrendataria se compromete a poner en conocimiento de la Parte Arrendadora esta situación, junto con el acuerdo o contrato correspondiente con, al menos, iddec44opB1-precioAletras (id-dec-44_opB_1) días de antelación a la formalización del acuerdo de subarriendo o cesión, de forma expresa y por escrito. <br><br>En caso de cesión, el cesionario se subrogará en la posición de la Parte Arrendataria frente a la Parte Arrendadora. <br><br>En caso de subarriendo, la Parte Arrendataria continuará siendo responsable del cumplimiento del Contrato para con la Parte Arrendadora, y se deberán respetar una serie de condiciones: <br><br>a) El subarriendo, respetando el objeto de este Contrato, será de la vivienda. <br><br>b) El subarriendo no podrá tener en ningún caso una duración superior a la duración de este contrato de arrendamiento.',
-          extraReplacements: [],
-          radioId: 'id-dec-44_opB',
-          identifier: 'id-dec-44_opB',
-          checked: false,
-          subSteps: [
-            {
-              question: '¿Con cuántos días de anticipación deberá informar el arrendatario (inquilino) al arrendador (propietario) de su intención de subarrendar la vivienda alquilada o de ceder este contrato?',
-              placeholder: 'Ej. Escriba un número',
-              wordToReplace: 'id-dec-44_opB_1',
-              identifier: 'id-dec-44_opB_1',
-              type: 'iNumber',
-              replacement: '',
-              extraReplacements: [],
-              indications: {
-                areIndications: false,
-                indicationsType: '',
-                // tslint:disable-next-line:max-line-length
-                value: ''
-              },
-              rules: [
-                {
-                  condition: false,
-                  rulename: 'extraReplacementAletras',
-                  identifier: 'iddec44opB1-precioAletras',
-                  wordToReplace: 'iddec44opB1-precioAletras',
-                  replacement: ''
-                }
-              ],
-            }
-          ]
-        }
-      ],
-    },
-    {
-      type: 'iNumber',
-      identifier: 'id-dec-45',
-      wordToReplace: 'id-dec-45',
-      replacement: '',
-      question: 'Si lo desea indique la cantidad (en euros) de la multa que deberá pagar el arrendatario (inquilino) por cada día que se retrase en la devolución de la vivienda una vez finalizado el contrato:',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        value: 'En caso de que no se deje en blanco esta pregunta, en el contrato se establecerá una multa equivalente a dos veces el importe de la renta diaria por cada día de retraso del arrendatario en la devolución de la vivienda alquilada.'
-      },
-      placeholder: 'Escriba un número',
-      mandatory: false,
-      isFocused: false,
-      isEmpty: {
-        prepend: 'la cantidad de ',
-        append: ' euros',
-        defaultValue: 'el doble de la renta diaria existente'
-      },
-      rules: []
-    },
-    {
-      type: 'iRadioB',
-      question: 'Si el inquilino cuando se haya alcanzado el plazo máximo de duración del alquiler falleciese, ¿se establece un pacto de derecho de subrogación (es decir, que familiares lo sustituyan y se conviertan en arrendatarios )?',
-      identifier: 'id-dec-46',
-      wordToReplace: 'id-dec-46',
-      indications: {
-        areIndications: true,
-        indicationsType: 'outsideText',
-        value: 'Cuando el inquilino fallece, existe la posibilidad de que otras personas con parentesco u otra relación con el difunto puedan subrogarse en el contrato de arrendamiento, es decir, sustituyan al fallecido y se conviertan ellos en arrendatarios. No obstante, este derecho puede limitarse cuando la duración inicial del contrato sea superior a cinco o siete años (según sea persona física o jurídica), siempre que el fallecimiento tenga lugar transcurridos los cinco o siete primeros años de duración del arrendamiento, o que el arrendamiento se extinga a los cinco o siete años cuando el fallecimiento se hubiera producido con anterioridad. No podrá pactarse esta renuncia al derecho de subrogación en caso de que las personas que puedan ejercitar tal derecho se encuentren en situación de especial vulnerabilidad y afecte a menores de edad, personas con discapacidad o personas mayores de 65 años.',
+        areIndications: false,
+        indicationsType: '',
+        value: '',
       },
       replacement: '',
       extraReplacements: [
@@ -3714,20 +2341,20 @@ const steps = [
       radios: [
         {
           label: 'Sí',
-          replacementOriginal: 'A través del presente contrato, las partes acuerdan que sí habrá lugar a la subrogación en caso de fallecimiento de la Parte Arrendataria.',
-          replacement: 'A través del presente contrato, las partes acuerdan que sí habrá lugar a la subrogación en caso de fallecimiento de la Parte Arrendataria.',
-          radioId: 'id-dec-46_opA',
-          identifier: 'id-dec-46_opA',
+          replacementOriginal: 'Queda prohibido fumar en la vivienda.',
+          replacement: 'Queda prohibido fumar en la vivienda.',
+          radioId: 'id-dec-new40_opA',
+          identifier: 'id-dec-new40_opA',
           extraReplacements: [
           ],
           checked: true,
         },
         {
           label: 'No',
-          replacementOriginal: 'A través del presente contrato que si la duración del contrato de arrendamiento fuera superior a cinco años, las partes acuerdan que no habrá lugar a la subrogación en caso de fallecimiento de la Parte Arrendataria.',
-          replacement: 'A través del presente contrato que si la duración del contrato de arrendamiento fuera superior a cinco años, las partes acuerdan que no habrá lugar a la subrogación en caso de fallecimiento de la Parte Arrendataria.',
-          radioId: 'id-dec-46_opB',
-          identifier: 'id-dec-46_opB',
+          replacementOriginal: '',
+          replacement: '',
+          radioId: 'id-dec-new40_opB',
+          identifier: 'id-dec-new40_opB',
           extraReplacements: [
           ],
           checked: false,
