@@ -1278,8 +1278,8 @@ const steps = [
       radios: [
         {
           label: 'Andalucía',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en en el Registro de Turismo de Andalucía (RTA), conforme al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en en el Registro de Turismo de Andalucía (RTA), conforme al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en en el Registro de Turismo de Andalucía (RTA), conforme al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en en el Registro de Turismo de Andalucía (RTA), conforme al Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opA',
           identifier: 'id-dec-new5_opA',
           extraReplacements: [
@@ -1306,8 +1306,8 @@ const steps = [
         },
         {
           label: 'Aragón',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en en el Registro de Turismo de Aragón, conforme al Decreto 80/2015, de 5 de mayo, por el que se aprueba el Reglamento de las viviendas de uso turístico en Aragón, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en en el Registro de Turismo de Aragón, conforme al Decreto 80/2015, de 5 de mayo, por el que se aprueba el Reglamento de las viviendas de uso turístico en Aragón, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en en el Registro de Turismo de Aragón, conforme al Decreto 80/2015, de 5 de mayo, por el que se aprueba el Reglamento de las viviendas de uso turístico en Aragón, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en en el Registro de Turismo de Aragón, conforme al Decreto 80/2015, de 5 de mayo, por el que se aprueba el Reglamento de las viviendas de uso turístico en Aragón, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opB',
           identifier: 'id-dec-new5_opB',
           extraReplacements: [
@@ -1334,8 +1334,8 @@ const steps = [
         },
         {
           label: 'Principado de Asturias',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro Empresas y Actividades Turísticas del Principado de Asturias, conforme Decreto 48/2016, de 10 de agosto, de viviendas vacacionales y viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro Empresas y Actividades Turísticas del Principado de Asturias, conforme Decreto 48/2016, de 10 de agosto, de viviendas vacacionales y viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro Empresas y Actividades Turísticas del Principado de Asturias, conforme Decreto 48/2016, de 10 de agosto, de viviendas vacacionales y viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro Empresas y Actividades Turísticas del Principado de Asturias, conforme Decreto 48/2016, de 10 de agosto, de viviendas vacacionales y viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opC',
           identifier: 'id-dec-new5_opC',
           extraReplacements: [
@@ -1362,8 +1362,8 @@ const steps = [
         },
         {
           label: 'Islas Baleares',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro general de empresas, actividades y establecimientos turísticos de las Islas Baleares, conforme la Ley 6/2017, de 31 de julio, de modificación de la Ley 8/2012, de 19 de julio, de turismo de las Illes Balears, relativa a la comercialización de estancias turísticas en viviendas, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro general de empresas, actividades y establecimientos turísticos de las Islas Baleares, conforme la Ley 6/2017, de 31 de julio, de modificación de la Ley 8/2012, de 19 de julio, de turismo de las Illes Balears, relativa a la comercialización de estancias turísticas en viviendas, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro general de empresas, actividades y establecimientos turísticos de las Islas Baleares, conforme la Ley 6/2017, de 31 de julio, de modificación de la Ley 8/2012, de 19 de julio, de turismo de las Illes Balears, relativa a la comercialización de estancias turísticas en viviendas, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro general de empresas, actividades y establecimientos turísticos de las Islas Baleares, conforme la Ley 6/2017, de 31 de julio, de modificación de la Ley 8/2012, de 19 de julio, de turismo de las Illes Balears, relativa a la comercialización de estancias turísticas en viviendas, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opD',
           identifier: 'id-dec-new5_opD',
           extraReplacements: [
@@ -1390,8 +1390,8 @@ const steps = [
         },
         {
           label: 'Canarias',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General Turístico de la Comunidad autónoma de Canarias, conforme al Decreto 113/2015, de 22 de mayo, por el que se aprueba el Reglamento de las viviendas vacacionales de la Comunidad Autónoma de Canarias, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General Turístico de la Comunidad autónoma de Canarias, conforme al Decreto 113/2015, de 22 de mayo, por el que se aprueba el Reglamento de las viviendas vacacionales de la Comunidad Autónoma de Canarias, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro General Turístico de la Comunidad autónoma de Canarias, conforme al Decreto 113/2015, de 22 de mayo, por el que se aprueba el Reglamento de las viviendas vacacionales de la Comunidad Autónoma de Canarias, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro General Turístico de la Comunidad autónoma de Canarias, conforme al Decreto 113/2015, de 22 de mayo, por el que se aprueba el Reglamento de las viviendas vacacionales de la Comunidad Autónoma de Canarias, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opE',
           identifier: 'id-dec-new5_opE',
           extraReplacements: [
@@ -1418,15 +1418,15 @@ const steps = [
         },
         {
           label: 'Cantabria',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas Turísticas de Cantabria, conforme al Decreto 19/2014, de 13 de marzo, por el que se modifica el Decreto 82/2010, de 25 de noviembre, por el que se regulan los establecimientos de alojamiento turístico extrahotelero en el ámbito de la Comunidad Autónoma de Cantabria, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas Turísticas de Cantabria, conforme al Decreto 19/2014, de 13 de marzo, por el que se modifica el Decreto 82/2010, de 25 de noviembre, por el que se regulan los establecimientos de alojamiento turístico extrahotelero en el ámbito de la Comunidad Autónoma de Cantabria, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro General de Empresas Turísticas de Cantabria, conforme al Decreto 19/2014, de 13 de marzo, por el que se modifica el Decreto 82/2010, de 25 de noviembre, por el que se regulan los establecimientos de alojamiento turístico extrahotelero en el ámbito de la Comunidad Autónoma de Cantabria, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro General de Empresas Turísticas de Cantabria, conforme al Decreto 19/2014, de 13 de marzo, por el que se modifica el Decreto 82/2010, de 25 de noviembre, por el que se regulan los establecimientos de alojamiento turístico extrahotelero en el ámbito de la Comunidad Autónoma de Cantabria, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opF',
           identifier: 'id-dec-new5_opF',
           extraReplacements: [
             {
               identifier: 'iddecnew5-extra-1',
-              replacement: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
-              replacementOriginal: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
+              replacement: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la Parte Arrendataria al momento de la reserva de la vivienda, y, en todo caso antes de su entrada o su llegada a la vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la Parte Arrendadora haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la Parte Arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la Parte Arrendadora podrá proceder a arrendar de nuevo la vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la Parte Arrendataria.',
+              replacementOriginal: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la Parte Arrendataria al momento de la reserva de la vivienda, y, en todo caso antes de su entrada o su llegada a la vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la Parte Arrendadora haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la Parte Arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la Parte Arrendadora podrá proceder a arrendar de nuevo la vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la Parte Arrendataria.',
               insideId: 'opA'
             },
             {
@@ -1446,8 +1446,8 @@ const steps = [
         },
         {
           label: 'Castilla y León',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Castilla y León, conforme al Decreto 3/2017, de 16 de febrero, por el que se regulan los establecimientos de alojamiento en la modalidad de vivienda de uso turístico en la Comunidad de Castilla y León, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Castilla y León, conforme al Decreto 3/2017, de 16 de febrero, por el que se regulan los establecimientos de alojamiento en la modalidad de vivienda de uso turístico en la Comunidad de Castilla y León, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Turismo de Castilla y León, conforme al Decreto 3/2017, de 16 de febrero, por el que se regulan los establecimientos de alojamiento en la modalidad de vivienda de uso turístico en la Comunidad de Castilla y León, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Turismo de Castilla y León, conforme al Decreto 3/2017, de 16 de febrero, por el que se regulan los establecimientos de alojamiento en la modalidad de vivienda de uso turístico en la Comunidad de Castilla y León, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-17_opB_1_opA_1_opG',
           identifier: 'id-dec-17_opB_1_opA_1_opG',
           extraReplacements: [
@@ -1474,8 +1474,8 @@ const steps = [
         },
         {
           label: 'Casilla La Mancha',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de Casilla La Mancha, conforme al Decreto 36/2018, de 29 de mayo, por el que se establece la ordenación de los apartamentos turísticos y las viviendas de uso turístico en Castilla-La Mancha, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de Casilla La Mancha, conforme al Decreto 36/2018, de 29 de mayo, por el que se establece la ordenación de los apartamentos turísticos y las viviendas de uso turístico en Castilla-La Mancha, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de Casilla La Mancha, conforme al Decreto 36/2018, de 29 de mayo, por el que se establece la ordenación de los apartamentos turísticos y las viviendas de uso turístico en Castilla-La Mancha, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de Casilla La Mancha, conforme al Decreto 36/2018, de 29 de mayo, por el que se establece la ordenación de los apartamentos turísticos y las viviendas de uso turístico en Castilla-La Mancha, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-17_opB_1_opA_1_opZ',
           identifier: 'id-dec-17_opB_1_opA_1_opZ',
           extraReplacements: [
@@ -1502,8 +1502,8 @@ const steps = [
         },
         {
           label: 'Cataluña',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Cataluña, conforme al Decreto 159/2012, de 20 de noviembre, de establecimientos de alojamiento turístico y de viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Cataluña, conforme al Decreto 159/2012, de 20 de noviembre, de establecimientos de alojamiento turístico y de viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Turismo de Cataluña, conforme al Decreto 159/2012, de 20 de noviembre, de establecimientos de alojamiento turístico y de viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Turismo de Cataluña, conforme al Decreto 159/2012, de 20 de noviembre, de establecimientos de alojamiento turístico y de viviendas de uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-17_opB_1_opA_1_opH',
           identifier: 'id-dec-17_opB_1_opA_1_opH',
           extraReplacements: [
@@ -1530,8 +1530,8 @@ const steps = [
         },
         {
           label: 'Comunidad Valenciana',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas, Establecimientos y Profesiones Turísticas de la Comunitat Valenciana, conforme al Decreto 92/2009, de 3 de julio, del Consell, por el que aprueba el reglamento regulador de las viviendas turísticas denominadas apartamentos, villas, chalés, bungalows y similares, y de las empresas gestoras, personas jurídicas o físicas, dedicadas a la cesión de su uso y disfrute, en el ámbito territorial de la Comunitat Valenciana, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas, Establecimientos y Profesiones Turísticas de la Comunitat Valenciana, conforme al Decreto 92/2009, de 3 de julio, del Consell, por el que aprueba el reglamento regulador de las viviendas turísticas denominadas apartamentos, villas, chalés, bungalows y similares, y de las empresas gestoras, personas jurídicas o físicas, dedicadas a la cesión de su uso y disfrute, en el ámbito territorial de la Comunitat Valenciana, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro General de Empresas, Establecimientos y Profesiones Turísticas de la Comunitat Valenciana, conforme al Decreto 92/2009, de 3 de julio, del Consell, por el que aprueba el reglamento regulador de las viviendas turísticas denominadas apartamentos, villas, chalés, bungalows y similares, y de las empresas gestoras, personas jurídicas o físicas, dedicadas a la cesión de su uso y disfrute, en el ámbito territorial de la Comunitat Valenciana, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro General de Empresas, Establecimientos y Profesiones Turísticas de la Comunitat Valenciana, conforme al Decreto 92/2009, de 3 de julio, del Consell, por el que aprueba el reglamento regulador de las viviendas turísticas denominadas apartamentos, villas, chalés, bungalows y similares, y de las empresas gestoras, personas jurídicas o físicas, dedicadas a la cesión de su uso y disfrute, en el ámbito territorial de la Comunitat Valenciana, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opI',
           identifier: 'id-dec-new5_opI',
           extraReplacements: [
@@ -1558,15 +1558,15 @@ const steps = [
         },
         {
           label: 'Extremadura',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas y Actividades Turísticas de Extremadura, conforme a la Ley 6/2018, de 12 de julio, de modificación de la Ley 2/2011, de 31 de enero, de desarrollo y modernización de turismo de Extremadura, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro General de Empresas y Actividades Turísticas de Extremadura, conforme a la Ley 6/2018, de 12 de julio, de modificación de la Ley 2/2011, de 31 de enero, de desarrollo y modernización de turismo de Extremadura, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro General de Empresas y Actividades Turísticas de Extremadura, conforme a la Ley 6/2018, de 12 de julio, de modificación de la Ley 2/2011, de 31 de enero, de desarrollo y modernización de turismo de Extremadura, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro General de Empresas y Actividades Turísticas de Extremadura, conforme a la Ley 6/2018, de 12 de julio, de modificación de la Ley 2/2011, de 31 de enero, de desarrollo y modernización de turismo de Extremadura, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opY',
           identifier: 'id-dec-new5_opY',
           extraReplacements: [
             {
               identifier: 'iddecnew5-extra-1',
-              replacement: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
-              replacementOriginal: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
+              replacement: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la Parte Arrendataria al momento de la reserva de la vivienda, y, en todo caso antes de su entrada o su llegada a la vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la Parte Arrendadora haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la Parte Arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la Parte Arrendadora podrá proceder a arrendar de nuevo la vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la Parte Arrendataria.',
+              replacementOriginal: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la Parte Arrendataria al momento de la reserva de la vivienda, y, en todo caso antes de su entrada o su llegada a la vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la Parte Arrendadora haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la Parte Arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la Parte Arrendadora podrá proceder a arrendar de nuevo la vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la Parte Arrendataria.',
               insideId: 'opA'
             },
             {
@@ -1586,8 +1586,8 @@ const steps = [
         },
         {
           label: 'Galicia',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas (REAT) de Galicia, conforme al Decreto 12/2017, de 26 de enero, por el que se establece la ordenación de apartamentos turísticos, viviendas turísticas y viviendas de uso turístico en la Comunidad Autónoma de Galicia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas (REAT) de Galicia, conforme al Decreto 12/2017, de 26 de enero, por el que se establece la ordenación de apartamentos turísticos, viviendas turísticas y viviendas de uso turístico en la Comunidad Autónoma de Galicia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas (REAT) de Galicia, conforme al Decreto 12/2017, de 26 de enero, por el que se establece la ordenación de apartamentos turísticos, viviendas turísticas y viviendas de uso turístico en la Comunidad Autónoma de Galicia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas (REAT) de Galicia, conforme al Decreto 12/2017, de 26 de enero, por el que se establece la ordenación de apartamentos turísticos, viviendas turísticas y viviendas de uso turístico en la Comunidad Autónoma de Galicia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opJ',
           identifier: 'id-dec-new5_opJ',
           extraReplacements: [
@@ -1614,8 +1614,8 @@ const steps = [
         },
         {
           label: 'La Rioja',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de proveedores de servicios turísticos de La Rioja, conforme al Decreto 40/2018, de 23 de noviembre, por el que se modifica el Decreto 10/2017, de 17 de marzo, por el que se aprueba el Reglamento General de Turismo de La Rioja en desarrollo de la Ley 2/2001, de 31 de mayo, de Turismo de La Rioja, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de proveedores de servicios turísticos de La Rioja, conforme al Decreto 40/2018, de 23 de noviembre, por el que se modifica el Decreto 10/2017, de 17 de marzo, por el que se aprueba el Reglamento General de Turismo de La Rioja en desarrollo de la Ley 2/2001, de 31 de mayo, de Turismo de La Rioja, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de proveedores de servicios turísticos de La Rioja, conforme al Decreto 40/2018, de 23 de noviembre, por el que se modifica el Decreto 10/2017, de 17 de marzo, por el que se aprueba el Reglamento General de Turismo de La Rioja en desarrollo de la Ley 2/2001, de 31 de mayo, de Turismo de La Rioja, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de proveedores de servicios turísticos de La Rioja, conforme al Decreto 40/2018, de 23 de noviembre, por el que se modifica el Decreto 10/2017, de 17 de marzo, por el que se aprueba el Reglamento General de Turismo de La Rioja en desarrollo de la Ley 2/2001, de 31 de mayo, de Turismo de La Rioja, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opK',
           identifier: 'id-dec-new5_opK',
           extraReplacements: [
@@ -1642,8 +1642,8 @@ const steps = [
         },
         {
           label: 'Comunidad de Madrid',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad de Madrid, conforme al Decreto 79/2014, de 10 de julio, del Consejo de Gobierno, por el que se regulan los apartamentos turísticos y las viviendas de uso turístico de la Comunidad de Madrid, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad de Madrid, conforme al Decreto 79/2014, de 10 de julio, del Consejo de Gobierno, por el que se regulan los apartamentos turísticos y las viviendas de uso turístico de la Comunidad de Madrid, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad de Madrid, conforme al Decreto 79/2014, de 10 de julio, del Consejo de Gobierno, por el que se regulan los apartamentos turísticos y las viviendas de uso turístico de la Comunidad de Madrid, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad de Madrid, conforme al Decreto 79/2014, de 10 de julio, del Consejo de Gobierno, por el que se regulan los apartamentos turísticos y las viviendas de uso turístico de la Comunidad de Madrid, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opL',
           identifier: 'id-dec-new5_opL',
           extraReplacements: [
@@ -1670,8 +1670,8 @@ const steps = [
         },
         {
           label: 'Murcia',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad Autónoma de Murcia, conforme al Decreto n.º 256/2019, de 10 de octubre, por el que se regulan las viviendas de uso turístico en la Región de Murcia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad Autónoma de Murcia, conforme al Decreto n.º 256/2019, de 10 de octubre, por el que se regulan las viviendas de uso turístico en la Región de Murcia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad Autónoma de Murcia, conforme al Decreto n.º 256/2019, de 10 de octubre, por el que se regulan las viviendas de uso turístico en la Región de Murcia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas Turísticas de la Comunidad Autónoma de Murcia, conforme al Decreto n.º 256/2019, de 10 de octubre, por el que se regulan las viviendas de uso turístico en la Región de Murcia, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opM',
           identifier: 'id-dec-new5_opM',
           extraReplacements: [
@@ -1698,15 +1698,15 @@ const steps = [
         },
         {
           label: 'Comunidad Foral de Navarra',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Navarra, conforme al Decreto Foral 230/2011, de 16 de octubre, por el que se aprueba el Reglamento de Ordenación de los Apartamentos Turísticos en la Comunidad Foral de Navarra, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Turismo de Navarra, conforme al Decreto Foral 230/2011, de 16 de octubre, por el que se aprueba el Reglamento de Ordenación de los Apartamentos Turísticos en la Comunidad Foral de Navarra, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Turismo de Navarra, conforme al Decreto Foral 230/2011, de 16 de octubre, por el que se aprueba el Reglamento de Ordenación de los Apartamentos Turísticos en la Comunidad Foral de Navarra, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Turismo de Navarra, conforme al Decreto Foral 230/2011, de 16 de octubre, por el que se aprueba el Reglamento de Ordenación de los Apartamentos Turísticos en la Comunidad Foral de Navarra, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opN',
           identifier: 'id-dec-new5_opN',
           extraReplacements: [
             {
               identifier: 'iddecnew5-extra-1',
-              replacement: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
-              replacementOriginal: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la PARTE ARRENDATARIA al momento de la reserva de la Vivienda, y, en todo caso antes de su entrada o su llegada a La Vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la parte ARRENDADORA haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la parte arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la PARTE ARRENDADORA podrá proceder a arrendar de nuevo La Vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la PARTE ARRENDATARIA.',
+              replacement: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la Parte Arrendataria al momento de la reserva de la vivienda, y, en todo caso antes de su entrada o su llegada a la vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la Parte Arrendadora haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la Parte Arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la Parte Arrendadora podrá proceder a arrendar de nuevo la vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la Parte Arrendataria.',
+              replacementOriginal: 'Las partes acuerdan que un importe de dos mensualidades será abonada por la Parte Arrendataria al momento de la reserva de la vivienda, y, en todo caso antes de su entrada o su llegada a la vivienda. El abono se realizará por el mismo medio a través del cual se realice el pago de la renta. Esta fianza servirá para garantizar el cumplimiento de sus obligaciones derivadas del presente Contrato. Una vez la Parte Arrendadora haya comprobado que la vivienda y el resto de la  vivienda se encuentran en perfecto estado y conservación, el importe correspondiente a la fianza será devuelto a la Parte Arrendataria. En el caso de que existiera deudas o cantidades pendientes de abono, o bien, se hubiere ocasionado desperfectos en la vivienda, así como en el mobiliario o los enseres de la misma, debido a su mal uso, será descontado de la fianza el importe correspondiente necesario para reparar los desperfectos ocasionados. Si la fianza no hubiese sido satisfecha en el tiempo y la forma previstos, se tendrá el Contrato por resuelto y la Parte Arrendadora podrá proceder a arrendar de nuevo la vivienda. Además, los montantes o cantidades que sí hubiesen sido satisfechos no serán devueltos a la Parte Arrendataria.',
               insideId: 'opA'
             },
             {
@@ -1726,8 +1726,8 @@ const steps = [
         },
         {
           label: 'País Vasco',
-          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas de Euskadi, conforme al Decreto 101/2018, de 3 de julio, de viviendas y habitaciones de viviendas particulares para uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
-          replacement: 'Mediante el presente contrato se pone en conocimiento de la parte arrendataria que la parte arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas de Euskadi, conforme al Decreto 101/2018, de 3 de julio, de viviendas y habitaciones de viviendas particulares para uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacementOriginal: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas de Euskadi, conforme al Decreto 101/2018, de 3 de julio, de viviendas y habitaciones de viviendas particulares para uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
+          replacement: 'Mediante el presente contrato se pone en conocimiento de la Parte Arrendataria que la Parte Arrendadora se encuentra inscrita en el Registro de Empresas y Actividades Turísticas de Euskadi, conforme al Decreto 101/2018, de 3 de julio, de viviendas y habitaciones de viviendas particulares para uso turístico, y que su Código de Inscripción es el siguiente: id-dec-randomnew5',
           radioId: 'id-dec-new5_opO',
           identifier: 'id-dec-new5_opO',
           extraReplacements: [
@@ -1998,9 +1998,9 @@ const steps = [
         {
           label: 'Ingreso o transferencia bancaria:',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1, y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la Parte Arrendadora entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacementOriginal: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1, y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la Parte Arrendadora entregará a la arrendataria la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1, y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la Parte Arrendadora entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacement: 'mediante ingreso o transferencia bancaria al siguiente número de cuenta (IBAN): id-dec-29_opA_2 de la entidad: id-dec-29_opA_1, y cuyo titular es: id-dec-29_opA_3. Sirva el comprobante de ingreso o transferencia como fiel carta del pago. En cualquier caso, la Parte Arrendadora entregará a la arrendataria la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           extraReplacements: [],
           radioId: 'id-dec-29_opA',
           identifier: 'id-dec-29_opA',
@@ -2059,9 +2059,9 @@ const steps = [
         {
           label: 'En efectivo',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'mediante pago en efectivo. En cualquier caso, la Parte Arrendadora entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacementOriginal: 'mediante pago en efectivo. En cualquier caso, la Parte Arrendadora entregará a la arrendataria la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'mediante pago en efectivo. En cualquier caso, la Parte Arrendadora entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacement: 'mediante pago en efectivo. En cualquier caso, la Parte Arrendadora entregará a la arrendataria la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           extraReplacements: [],
           radioId: 'id-dec-29_opB',
           identifier: 'id-dec-29_opB',
@@ -2072,9 +2072,9 @@ const steps = [
         {
           label: 'otro',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'mediante: id-dec-29_opC_1. En cualquier caso, la Parte Arrendadora entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacementOriginal: 'mediante: id-dec-29_opC_1. En cualquier caso, la Parte Arrendadora entregará a la arrendataria la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'mediante: id-dec-29_opC_1. En cualquier caso, la Parte Arrendadora entregará a la ARRENDATARIA la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
+          replacement: 'mediante: id-dec-29_opC_1. En cualquier caso, la Parte Arrendadora entregará a la arrendataria la factura correspondiente a la renta junto con el desglose de conceptos incluidos en ella.',
           extraReplacements: [],
           radioId: 'id-dec-29_opC',
           identifier: 'id-dec-29_opC',
@@ -2119,13 +2119,13 @@ const steps = [
         {
           label: 'Sí:',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'La renta se verá incrementada en iddec30opA1-precioAletras (id-dec-30_opA_1 €) en concepto de gastos de limpieza de La Vivienda.',
+          replacementOriginal: 'La renta se verá incrementada en iddec30opA1-precioAletras (id-dec-30_opA_1 €) en concepto de gastos de limpieza de la vivienda.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'La renta se verá incrementada en iddec30opA1-precioAletras (id-dec-30_opA_1 €) en concepto de gastos de limpieza de La Vivienda.',
+          replacement: 'La renta se verá incrementada en iddec30opA1-precioAletras (id-dec-30_opA_1 €) en concepto de gastos de limpieza de la vivienda.',
           extraReplacements: [],
           radioId: 'id-dec-30_opA',
           identifier: 'id-dec-30_opA',
-          checked: true,
+          checked: false,
           subSteps: [
             {
               question: 'Importe en euros del pago total que se hará por los gastos de limpieza para toda la duración del alquiler:',
@@ -2170,7 +2170,7 @@ const steps = [
     },
     {
       type: 'iRadioC',
-      question: 'Cuándo se deberá realizar el pago del precio del alquiler?',
+      question: '¿Cuándo se deberá realizar el pago del precio del alquiler?',
       identifier: 'id-dec-new30',
       wordToReplace: 'id-dec-new30',
       defaultRadioId: 'id-dec-new30_opA',
@@ -2192,14 +2192,14 @@ const steps = [
         {
           label: 'al entrar a la vivienda',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Al momento del inicio del presente Contrato de arrendamiento, es decir, al momento de la entrada o llegada a La Vivienda de la PARTE ARRENDATARIA para su uso y disfrute.',
+          replacementOriginal: 'Al momento del inicio del presente Contrato de arrendamiento, es decir, al momento de la entrada o llegada a la vivienda de la Parte Arrendataria para su uso y disfrute.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'Al momento del inicio del presente Contrato de arrendamiento, es decir, al momento de la entrada o llegada a La Vivienda de la PARTE ARRENDATARIA para su uso y disfrute.',
+          replacement: 'Al momento del inicio del presente Contrato de arrendamiento, es decir, al momento de la entrada o llegada a la vivienda de la Parte Arrendataria para su uso y disfrute.',
           extraReplacements: [
             {
               identifier: 'iddecnew30-extra-1',
-              replacement: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
-              replacementOriginal: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              replacement: 'Si transcurriesen 24 horas desde la llegada de la Parte Arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la Parte Arrendataria deberá abandonar la vivienda dejándola a disposición de la Parte Arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              replacementOriginal: 'Si transcurriesen 24 horas desde la llegada de la Parte Arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la Parte Arrendataria deberá abandonar la vivienda dejándola a disposición de la Parte Arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
               insideId: 'opA'
             },
           ],
@@ -2232,14 +2232,14 @@ const steps = [
         {
           label: 'al hacer la reserva, antes de entrar al piso',
           // tslint:disable-next-line:max-line-length
-          replacementOriginal: 'Una vez la PARTE ARRENDATARIA ha realizado la reserva de La Vivienda, y antes de su entrada/llegada a La Vivienda para su uso y disfrute.',
+          replacementOriginal: 'Una vez la Parte Arrendataria ha realizado la reserva de la vivienda, y antes de su entrada/llegada a la vivienda para su uso y disfrute.',
           // tslint:disable-next-line:max-line-length
-          replacement: 'Una vez la PARTE ARRENDATARIA ha realizado la reserva de La Vivienda, y antes de su entrada/llegada a La Vivienda para su uso y disfrute.',
+          replacement: 'Una vez la Parte Arrendataria ha realizado la reserva de la vivienda, y antes de su entrada/llegada a la vivienda para su uso y disfrute.',
           extraReplacements: [
             {
               identifier: 'iddecnew30-extra-1',
-              replacement: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
-              replacementOriginal: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              replacement: 'Si transcurriesen 24 horas desde la llegada de la Parte Arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la Parte Arrendataria deberá abandonar la vivienda dejándola a disposición de la Parte Arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              replacementOriginal: 'Si transcurriesen 24 horas desde la llegada de la Parte Arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la Parte Arrendataria deberá abandonar la vivienda dejándola a disposición de la Parte Arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
               insideId: 'opA'
             },
           ],
@@ -2258,8 +2258,8 @@ const steps = [
           extraReplacements: [
             {
               identifier: 'iddecnew30-extra-1',
-              replacement: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
-              replacementOriginal: 'Si transcurrieses 24 horas desde la llegada de la parte arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la parte arrendataria deberá abandonar la vivienda dejándola a disposición de la parte arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              replacement: 'Si transcurriesen 24 horas desde la llegada de la Parte Arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la Parte Arrendataria deberá abandonar la vivienda dejándola a disposición de la Parte Arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
+              replacementOriginal: 'Si transcurriesen 24 horas desde la llegada de la Parte Arrendataria a la vivienda, y ésta no hubiese realizado el pago acordado, tendrá lugar la resolución del presente contrato, y consecuentemente la Parte Arrendataria deberá abandonar la vivienda dejándola a disposición de la Parte Arrendadora. En cualquier caso aquellas cuantías abonadas hasta el momento, no serán devueltas.',
               insideId: 'opA'
             },
           ],
@@ -2269,7 +2269,7 @@ const steps = [
           subSteps: [
             {
               question: 'Describa a continuación en qué momento el inquilino deberá hacer el pago de la renta:',
-              placeholder: 'P. Ej. La PARTE ARRENDATARIA efectuará el pago de la renta por semanas. El primer día de cada semana de arrendamiento.',
+              placeholder: 'P. Ej. La Parte Arrendataria efectuará el pago de la renta por semanas. El primer día de cada semana de arrendamiento.',
               wordToReplace: 'id-dec-new30_opD_1',
               identifier: 'id-dec-new30_opD_1',
               type: 'iText',
@@ -2284,6 +2284,10 @@ const steps = [
               },
               rules: [
               ],
+              isEmpty: {
+                prepend: '',
+                append: '.',
+              }
             },
           ]
         },
@@ -2311,7 +2315,7 @@ const steps = [
           identifier: 'id-dec-40_opA',
           extraReplacements: [
           ],
-          checked: true,
+          checked: false,
         },
         {
           label: 'No',
@@ -2321,7 +2325,7 @@ const steps = [
           identifier: 'id-dec-40_opB',
           extraReplacements: [
           ],
-          checked: false,
+          checked: true,
         },
       ]
     },
