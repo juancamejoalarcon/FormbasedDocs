@@ -525,12 +525,21 @@ let steps = [
         value: 'abimorar-1000@yopmail.com mavissuwanne-0839@yopmail.com',
         pregunta: 'Dirección del lugar donde reside el arrendador...'
     },
-    {
+        {
+        type: 'select',
+        value: '5'
+    },
+        {
+        type: 'text',
+        value: '123123YCT',
+        pregunta: 'Número de inscripción en el Registro de...'
+    },
+        {
         type: 'text',
         value: 'Paseo de las Delicias 12, Escalera 5, 2.º B, 38296, Tenerife, España',
         pregunta: 'Dirección completa de la vivienda...'
     },
-    {
+        {
         type: 'number',
         value: '200',
         pregunta: 'Superficie útil de la vivienda en metros cuad...'
@@ -540,113 +549,44 @@ let steps = [
         value: 'Una cocina, un salón, un garaje y un jardín de 10m2',
         pregunta: 'Haga una descripción detallada de los componentes de la vivienda...'
     },
-    {
-        type: 'text',
-        value: 'Madrid N. 34',
-        pregunta: 'Lugar y, en su caso, número del Registro de la prop...'
-    },
-    {
-        type: 'text',
-        value: 'Tomo 1 Libro 377 Folio 204 Finca 2',
-        pregunta: 'Datos registrales de la vivie...'
-    },
-    {
-        type: 'text',
-        value: '9872023 VH5797S 0001 WX',
-        pregunta: 'Referencia catastral de la vivie...'
-    },
-    {
+        {
         type: 'radioB',
-        value: '2',
+        value: '1',
         pregunta: '¿Desea incluir de forma anexa al contrato ...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: '¿La vivienda forma parte de una Comunid...'
-    },
-    {
-        type: 'radioC',
-        value: '2',
-        pregunta: 'Quién asumirá los gastos generales u ordina...'
-    },
-    {
-        type: 'number',
-        value: '10',
-        pregunta: 'Que porcentaje de estos gastos generales u ordi...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: 'Estos gastos generales u ordinario...'
-    },
-    {
-        type: 'number',
-        value: '20',
-        pregunta: 'Importe mensual (en euros) de estos ga...'
-    },
-    {
-        type: 'radioC',
-        value: '2',
-        pregunta: '¿Quién asumirá los gastos extraordinarios...'
-    },
-    {
-        type: 'number',
-        value: '10',
-        pregunta: '¿Qué porcentaje de estos gastos extraordinario...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: '¿La habitación se alquila amueblada de manera que el arrendatario (inquilino) pueda hacer us...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: '¿La habitación se alquila amueblada de manera que el arrendatario (inquilino) pueda hacer us...'
-    },
-    {
-        type: 'textarea',
-        value: 'Una cama, una mesa de escritorio, una mesilla de noche y un armario',
-        pregunta: 'Descripción detallada de los muebles d...'
-    },
-    {
-        type: 'text',
-        value: 'dos años',
-        pregunta: 'Indique la duración del contrato...'
     },
     {
         type: 'date',
         value: '2020-02-15'
     },
     {
-        type: 'radioB',
-        value: '2',
-        pregunta: 'Una vez hayan pasados 6 meses desde el incio del alqu...'
+        type: 'text',
+        value: '9:00',
+        pregunta: 'Hora de comienzo del...'
     },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: 'El precio del alquiler se'
+        {
+        type: 'date',
+        value: '2020-04-15',
+        pregunta: 'Fecha de finalización...'
     },
     {
         type: 'text',
-        value: 'por mes',
-        pregunta: '¿Con que periodicidad...'
+        value: '12:00',
+        pregunta: 'Hora de finalización del...'
     },
     {
         type: 'number',
-        value: '500',
-        pregunta: 'Importe que se paga por la periodicidad...'
+        value: '200',
+        pregunta: 'precio total...'
     },
     {
-        type: 'radioC',
-        value: '1',
-        pregunta: 'El pago del alquiler se realiza'
+        type: 'textarea',
+        value: '40 euros por día, por 5 días',
+        pregunta: 'Espicifique de forma detallada la descripc...'
     },
     {
         type: 'radioB',
-        value: '1'
+        value: '1',
+        pregunta: '¿El precio del alquiler incluye IVA...'
     },
     {
         type: 'radioC',
@@ -671,191 +611,31 @@ let steps = [
     {
         type: 'radioC',
         value: '1',
-        pregunta: '¿Se establece una cláusula que recoja actualizaci'
-    },
-    {
-        type: 'text',
-        value: 'anualmente',
-        pregunta: 'Frecuencia con la que se podrá aumentar o revisar el pre...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: '¿Se establece una cláusula que recoja actualizaci'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: 'Además del precio del alquiler de la vivienda, ¿el arrendatiario (inquilino) pagar...'
-    },
-    {
-        type: 'radioC',
-        value: '2',
-        pregunta: 'Con que periodicidad se pagarán estos...'
+        pregunta: 'Además del precio del alquiler de la vivienda, '
     },
     {
         type: 'number',
-        value: '100',
-        pregunta: 'Importe en euros del pago total que se hará...'
+        value: '20',
+        pregunta: 'Importe en euros del pago total q...'
+    },
+    {
+        type: 'radioC',
+        value: '4',
+        pregunta: 'Además del precio del alquiler de la vivienda, '
     },
     {
         type: 'textarea',
-        value: 'Al finalizar la estancia una persona acudirá a limpiar la vivienda',
-        pregunta: 'Si lo desea haga una descripción del servicio de limpieza...'
-    },
-    {
-        type: 'text',
-        value: 'teléfono e internet',
-        pregunta: 'Si lo desea, indique aquí los servicios que han sido contratados por el arrendador...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: 'El pago de los gastos que se generen por usar la habitación, como, por ejemplo...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: 'Estos gastos de uso de la hab...'
-    },
-    {
-        type: 'text',
-        value: '50',
-        pregunta: 'Importe mínimo (en euros) que el arrendatario deberá...'
-    },
-    {
-        type: 'text',
-        value: '70',
-        pregunta: 'Importe máximo (en euros que ...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: 'El Impuesto sobre Bienes Inmueble...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: 'En caso de que el arrendatario (...'
-    },
-    {
-        type: 'number',
-        value: '500',
-        pregunta: 'Importe máximo (en euros que ...'
-    },
-    {
-        type: 'radioC',
-        value: '1',
-        pregunta: 'En caso de que el arrendatario (inquilino)...'
-    },
-    {
-        type: 'range',
-        value: '2'
-    },
-    {
-        type: 'text',
-        value: 'Juan Camejo Alarcón',
-        pregunta: 'Nombre completo o denominación s...'
+        value: 'asdfasdf',
+        pregunta: 'Describa a continuación en '
     },
     {
         type: 'radioB',
         value: '2',
-        pregunta: 'Tipo de documento de id...'
-    },
-    {
-        type: 'text',
-        value: 'X8394817R',
-        pregunta: 'Número del documento seleccionad...'
-    },
-    {
-        type: 'text',
-        value: 'Calle Canarias 7, Lanzarote, España',
-        pregunta: 'Dirección del lugar donde ...'
-    },
-    {
-        type: 'text',
-        value: 'Juan Camejo Alarcón',
-        pregunta: 'Nombre completo o denominación s...'
+        pregunta: 'Queda prohibido meter o...'
     },
     {
         type: 'radioB',
         value: '2',
-        pregunta: 'Tipo de documento de id...'
-    },
-    {
-        type: 'text',
-        value: 'X8394817R',
-        pregunta: 'Número del documento seleccionad...'
-    },
-    {
-        type: 'text',
-        value: 'Calle Canarias 7, Lanzarote, España',
-        pregunta: 'Dirección del lugar donde ...'
-    },
-    {
-        type: 'radioB',
-        value: '1',
-        pregunta: 'Queda prohibido meter o tener mascotas...'
-    },
-    {
-        type: 'radioC',
-        value: '2',
-        pregunta: 'La vivienda o habitació...'
-    },
-    {
-        type: 'text',
-        value: 'alquiler de propietarios',
-        pregunta: 'Tipo de seguro que tiene el alquiler de la hab...'
-    },
-    {
-        type: 'text',
-        value: 'Mapfre',
-        pregunta: 'Nombre de la compañía asegurad...'
-    },
-    {
-        type: 'text',
-        value: '123123QWE',
-        pregunta: 'Número de poliza...'
-    },
-    {
-        type: 'radioB',
-        value: '2',
-        pregunta: 'Queda prohibido meter o tener mascotas...'
-    },
-    {
-        type: 'text',
-        value: 'responsabilidad civil',
-        pregunta: 'Tipo de seguro que se desea...'
-    },
-    {
-        type: 'number',
-        value: '10000',
-        pregunta: 'Cobertura mínima (en euros) que deberá...'
-    },
-    {
-        type: 'radioB',
-        value: '2',
-        pregunta: '(Derecho de adquisición preferente) En caso de que el arrendador decida vender...'
-    },
-    {
-        type: 'radioC',
-        value: '2',
-        pregunta: '(Subarrendamiento) El ar...'
-    },
-    {
-        type: 'number',
-        value: '2',
-        pregunta: '¿Con cuántos días de anticipación deberá informar el arrendatario...'
-    },
-    {
-        type: 'number',
-        value: '',
-        pregunta: 'Si lo desea indique la cantidad (en euros) de la mul...',
-    },
-    {
-        type: 'radioB',
-        value: '2',
-        pregunta: '(Derecho de adquisición preferente) En caso de que el arrendador decida vender...',
-        finished: true
+        pregunta: 'Queda prohibido meter o...'
     },
 ];
