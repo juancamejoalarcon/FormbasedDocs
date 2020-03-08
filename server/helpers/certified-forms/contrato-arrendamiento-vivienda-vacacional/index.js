@@ -8,7 +8,7 @@ const contrato_arrendamiento_vivienda_vacacional = {
     id: 'contrato-arrendamiento-vivienda-vacacional',
     title: 'Contrato de arrendamiento de vivienda para uso turístico o vacacional',
     topLabelTitle: 'Arrendamiento de vivienda para uso turístico',
-    amount: 20,
+    amount: 9.95,
     image: imageUri,
     uri: uri,
     paidUri: paidUri,

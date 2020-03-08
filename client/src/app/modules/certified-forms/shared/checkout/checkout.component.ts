@@ -100,7 +100,7 @@ export class CheckoutComponent implements OnInit {
         return false;
       }
       if (!this.conditions.nativeElement.checked) {
-        this.toastr.error('You must accept buying conditions', 'Accept', {
+        this.toastr.error('Debe aceptar las condiciones de venta', 'Aceptar', {
           positionClass: 'toast-bottom-right',
           progressBar: true,
           progressAnimation: 'decreasing'
@@ -164,7 +164,7 @@ export class CheckoutComponent implements OnInit {
 
     }).catch((error) => {
       this.commonsService.toggleSpinner();
-      this.toastr.error('An error has occured please try again', 'Payment error', {
+      this.toastr.error('Ha ocurrido un error, inténtelo de nuevo', 'Error en el pago', {
         positionClass: 'toast-bottom-right',
         progressBar: true,
         progressAnimation: 'decreasing'
@@ -232,7 +232,7 @@ export class CheckoutComponent implements OnInit {
           fields: {
             number: {
               selector: '#' + this.idsOfFields[0],
-              placeholder: '1111 1111 1111 1111'
+              placeholder: '1234 5678 9101 1213'
             },
             cvv: {
               selector: '#' + this.idsOfFields[1],
@@ -240,7 +240,7 @@ export class CheckoutComponent implements OnInit {
             },
             expirationDate: {
               selector: '#' + this.idsOfFields[2],
-              placeholder: 'MM/YY'
+              placeholder: '02/20'
             }
           }
         }).then((hostedFieldsInstance) => {

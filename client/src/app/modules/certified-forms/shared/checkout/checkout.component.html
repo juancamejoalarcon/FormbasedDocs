@@ -23,7 +23,7 @@
                     </div>
                     <div class="checkout-panel__body__invoice__text__total">
                         <span class="checkout-panel__body__invoice__text__total__right">Total:</span>
-                        <span class="checkout-panel__body__invoice__text__total__left">19.90€</span>
+                        <span class="checkout-panel__body__invoice__text__total__left">{{form.amount}} €</span>
                     </div>
                     <div class="checkout-panel__body__invoice__text__more-info">
                         <span>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="checkout-panel__body__payment-method__method__radio-input">
                         <input id="card" type="radio" name="payment" value="card" (change)="onPaymentMethodSelected('card')" checked >
-                        with credit card
+                        con tarjeta
                     </div>
                 </label>
                 
@@ -75,32 +75,32 @@
                     </div>
                     <div class="checkout-panel__body__payment-method__method__radio-input">
                         <input id="paypal" type="radio" name="payment" value="paypal" (change)="onPaymentMethodSelected('paypal')">
-                        with PayPal
+                        con paypal
                     </div>
                 </label>
             </div>
             <form class="checkout-panel__body__input-fields" *ngIf="this.loadingPayment === false && this.paymentMethod === 'card'">
                 <div class="checkout-panel__body__input-fields__column-1">
-                    <label class="hosted-field--label" for="cardholder-name" name="cardholderName">Name</label>
+                    <label class="hosted-field--label" for="cardholder-name" name="cardholderName">Nombre</label>
                     <input type="text" id="cardholder" placeholder="P. ej: Juan Pérez Álvarez" class="name-custom-input" [(ngModel)]="cardholdersName" name="cardholderName"/>
                     <div class="checkout-panel__body__input-fields__small-inputs">
                         <div>
-                            <label for="expirationDate">Valid date</label>
+                            <label for="expirationDate">Fecha válida</label>
                             <div class="hosted-fields"  id="expirationDate"></div>
-                            <small class="secondary-color" hidden>Invalid Expiration date</small>
+                            <small class="secondary-color" hidden>Fecha de expiración inválida</small>
                         </div>
                         <div>
                             <label for="cvv">CVV / CVC *</label>
                             <div class="hosted-fields" id="cvv" name="cvv"></div>
-                            <small class="secondary-color" hidden>Invalid CVV</small>
+                            <small class="secondary-color" hidden>CVV Inválido</small>
                         </div>
                     </div>
                 </div>
                 <div class="checkout-panel__body__input-fields__column-2">
-                    <label for="number">Card Number</label>
+                    <label for="number">Número de la tarjeta</label>
                     <div class="hosted-fields" id="number"></div>
-                    <small class="secondary-color" hidden>Invalid Card Number</small>
-                    <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
+                    <small class="secondary-color" hidden>Número inválido</small>
+                    <span class="info">* El código CVV o CVC es un grupo de 3 o 4 números situado en el reverso de la tarjeta de crédito.</span>
                 </div>
             </form>
             <div id="paypal-button" style="height: 200px; margin-left: auto;margin-right:auto; display: flex;align-items: center;" 
@@ -111,7 +111,7 @@
             <h2>Transacción: {{transactionId}}</h2>
             <div class="checkout-panel__body__invoice__text__total">
                 <span class="checkout-panel__body__invoice__text__total__right total-success">{{form.title}}</span>
-                <span class="checkout-panel__body__invoice__text__total__left total-success">19.90 eur</span>
+                <span class="checkout-panel__body__invoice__text__total__left total-success">{{form.amount}} €</span>
             </div>
             <p class="checkout-panel__body__success__message">Recibirás un mensaje a <strong>{{this.email}}</strong> con tu factura así como los documentos. 
                 Durante los próximos 15 días podrás modificar el formulario de nuevo sin tener que pagar 
