@@ -8,7 +8,7 @@ const contrato_arrendamiento_vivienda = {
     id: 'contrato-arrendamiento-vivienda',
     title: 'Contrato de arrendamiento de vivienda',
     topLabelTitle: 'Contrato de arrendamiento de vivienda',
-    amount: 20,
+    amount: 9.95,
     image: imageUri,
     uri: uri,
     paidUri: paidUri,
