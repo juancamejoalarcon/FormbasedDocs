@@ -5,7 +5,6 @@ import {
   Form,
   FormService,
   CommonsService,
-  ComponentInjectorService,
   StepModelService,
   StateService,
   OdfCreatorService,
@@ -15,11 +14,6 @@ import { InputTextComponent,
   InputRadioAComponent,
   InputRadioBComponent
  } from './inputsSchema';
-import { ToastrService } from 'ngx-toastr';
-
-import * as Sortable from 'sortablejs';
-import * as screenfull from 'screenfull';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-form',
@@ -32,14 +26,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
   @ViewChild('inputsMenuDiv') inputsMenuDiv: ElementRef;
   @ViewChild('textPreviewDiv') textPreviewDiv: ElementRef;
-  // @ViewChild('addQuestionMenuDiv') addQuestionMenuDiv: ElementRef;
   @ViewChild('linkFormButton') linkFormButton: ElementRef;
   @ViewChild('linkInformationButton') linkInformationButton: ElementRef;
   @ViewChild('title') title: ElementRef;
   @ViewChild('description') description: ElementRef;
   @ViewChild('lightBox') lightBox: ElementRef;
-
-  // Nuevo
   @ViewChild('modalChooseDocument') modalChooseDocument: ElementRef;
   @ViewChild('addQuestionMenuModal') addQuestionMenuModal: ElementRef;
   @ViewChild('subMenu') subMenu: ElementRef;
@@ -50,12 +41,12 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     InputRadioAComponent,
     InputRadioBComponent
   ];
-  public quillText = '';
-  public customOptions: any;
-  public quillModules: any;
-  public textPreview: string;
-  public injectedComponents: Array<any> = [];
-  public isButtonDisabled: boolean = false;
+  quillText = '';
+  customOptions: any;
+  quillModules: any;
+  textPreview: string;
+  injectedComponents: Array<any> = [];
+  isButtonDisabled: boolean = false;
   form: Form = new Form();
   formGroup: FormGroup;
   tags = new FormControl();
@@ -66,8 +57,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   isDeleting = false;
   isNewForm = false;
   isFormValid = false;
-
-  // Nuevo
   documentType = 'office';
   currentStep = 0;
   documentBodyClone: any;
@@ -79,15 +68,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   currentGuide: string;
 
   constructor(
-    private componentInjectorService: ComponentInjectorService,
-    private elementRef: ElementRef,
-    private renderer: Renderer2,
     private formService: FormService,
     private commonsService: CommonsService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private toastr: ToastrService,
     private stepModelService: StepModelService,
     private stateService: StateService,
     private odfCreatorService: OdfCreatorService,
@@ -111,8 +96,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.route.data.subscribe(
       (data: {form: Form}) => {
         if (data.form) {
-          console.log(data.form);
-          // this.stepModelService.init(this.form.fields, );
           this.quillText = data.form.text;
           this.textPreview = data.form.text;
           this.form = data.form;
@@ -146,9 +129,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     window.removeEventListener('resize', (this.commonsService.resizeEditor as any));
   }
 
-  /***************/
-  /***NEW FORM****/
-  /***************/
   preview(checked: boolean) {
     if (checked) {
       this.stateService.setState('fill-form');
@@ -209,8 +189,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       if (window.innerWidth > 885) {
         if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
-          const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
-  
+          const newHeight = (window.innerHeight 
+            - (document.getElementsByTagName('nav')[0].clientHeight
+            + document.querySelector('.sub-menu').clientHeight)) + 'px';
+
           (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
         }
       }
@@ -256,25 +238,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.documentService.resizeEvent();
   }
 
-
-  /********************/
-  /****END NEW FORM****/
-  /********************/
-
   toastMessage(type: string, message1: string, message2: string) {
-    if (type === 'error') {
-      this.toastr.error(message1, message2, {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-    } else if (type === 'success') {
-      this.toastr.success(message1, message2, {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-    }
+    this.commonsService.toastMessage(type, message1, message2);
   }
 
   topMenuNav(e: any) {
@@ -385,14 +350,14 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   validate() {
     if (this.form.fields.length === 0) {
       this.linkFormButton.nativeElement.click();
-      this.toastMessage('error', 'There are no fields in the form', 'Form empty');
+      this.toastMessage('error', 'El formulario no tiene ningún campo', 'Formulario vacío');
       return false;
     }
     if (this.formGroup.controls.title.invalid) {
       this.isFormValid = false;
       this.title.nativeElement.classList.add('input-error');
       this.linkInformationButton.nativeElement.click();
-      this.toastMessage('error', 'Title is not valid', 'Form empty');
+      this.toastMessage('error', 'Título no válido', 'Form empty');
       return false;
     } else {
       this.title.nativeElement.classList.remove('input-error');
@@ -401,7 +366,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       this.isFormValid = false;
       this.description.nativeElement.classList.add('input-error');
       this.linkInformationButton.nativeElement.click();
-      this.toastMessage('error', 'Description is not valid', 'Form empty');
+      this.toastMessage('error', 'Descripción no válida', 'Formulario vacío');
       return false;
     } else {
       this.description.nativeElement.classList.remove('input-error');
