@@ -26,14 +26,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
   @ViewChild('inputsMenuDiv') inputsMenuDiv: ElementRef;
   @ViewChild('textPreviewDiv') textPreviewDiv: ElementRef;
-  @ViewChild('linkFormButton') linkFormButton: ElementRef;
-  @ViewChild('linkInformationButton') linkInformationButton: ElementRef;
   @ViewChild('title') title: ElementRef;
   @ViewChild('description') description: ElementRef;
   @ViewChild('lightBox') lightBox: ElementRef;
   @ViewChild('modalChooseDocument') modalChooseDocument: ElementRef;
   @ViewChild('addQuestionMenuModal') addQuestionMenuModal: ElementRef;
-  @ViewChild('subMenu') subMenu: ElementRef;
 
 
   public inputs: Array<any> = [
@@ -46,26 +43,24 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   quillModules: any;
   textPreview: string;
   injectedComponents: Array<any> = [];
-  isButtonDisabled: boolean = false;
   form: Form = new Form();
   formGroup: FormGroup;
   tags = new FormControl();
   fields: Array<any> = [];
   errors: Object = {};
-  isSubmitting: boolean = false;
-  updatingForm: boolean = false;
-  isDeleting = false;
-  isNewForm = false;
-  isFormValid = false;
   documentType = 'office';
   currentStep = 0;
   documentBodyClone: any;
-  isInPreviewMode = false;
   reader = new FileReader();
   documentService: any;
   state: string;
   plainTextSelected: boolean;
   currentGuide: string;
+  toggleTab: string;
+
+  // Booleans
+  isButtonDisabled = false; isSubmitting = false; updatingForm = false; isDeleting = false;
+  isNewForm = false; isFormValid = false; isInPreviewMode = false;
 
   constructor(
     private formService: FormService,
@@ -242,10 +237,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.commonsService.toastMessage(type, message1, message2);
   }
 
-  topMenuNav(e: any) {
-    this.commonsService.subMenuNav(e, this.subMenu.nativeElement);
-  }
-
   setAdditionalQuillButtons() {
     // Force check
     setTimeout( () => { this.documentService.setAdditionalQuillButtons(this.quill.nativeElement);}, 100);
@@ -335,8 +326,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   deleteForm() {
-    if (confirm('¿Seguro que deseas eliminar?')) {
-      this.isDeleting = true;
       this.formService.destroy(this.form.slug)
         .subscribe(
           success => {
@@ -344,19 +333,19 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             this.router.navigateByUrl('/');
           }
         );
-    }
+
   }
 
   validate() {
     if (this.form.fields.length === 0) {
-      this.linkFormButton.nativeElement.click();
+      this.toggleTab = 'linkFormButton';
       this.toastMessage('error', 'El formulario no tiene ningún campo', 'Formulario vacío');
       return false;
     }
     if (this.formGroup.controls.title.invalid) {
       this.isFormValid = false;
       this.title.nativeElement.classList.add('input-error');
-      this.linkInformationButton.nativeElement.click();
+      this.toggleTab = 'linkInformationButton';
       this.toastMessage('error', 'Título no válido', 'Form empty');
       return false;
     } else {
@@ -365,7 +354,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     if (this.formGroup.controls.description.invalid) {
       this.isFormValid = false;
       this.description.nativeElement.classList.add('input-error');
-      this.linkInformationButton.nativeElement.click();
+      this.toggleTab = 'linkInformationButton';
       this.toastMessage('error', 'Descripción no válida', 'Formulario vacío');
       return false;
     } else {

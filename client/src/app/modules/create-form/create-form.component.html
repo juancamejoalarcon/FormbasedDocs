@@ -1,32 +1,11 @@
-<div class="sub-menu">
-    <div class="sub-menu__container" #subMenu>
-        <div class="sub-menu__left-button">
-            <!-- <button routerLink="/guide" class="button-filled button-filled--sub-menu">Guide</button> -->
-            <button class="button-filled button-filled--sub-menu-fill-form icon icon-save-solid"
-            [disabled]="isSubmitting" (click)="submitForm()"></button>
-            <button class="button-filled button-filled--sub-menu-fill-form icon icon-trash-alt-regular"
-            *ngIf="updatingForm" [ngClass]="{disabled: isDeleting}" (click)="deleteForm()"></button>
-        </div>
-        <ul class="sub-menu__nav sub-menu__nav--form" (click)="topMenuNav($event)">
-            <li class="sub-menu__nav__button sub-menu__nav__button--current" data-toogle="form-creator" #linkFormButton>
-                Formulario
-            </li>
-            <li class="sub-menu__nav__button" data-toogle="information" #linkInformationButton>
-                Info
-            </li>
-            <li class="sub-menu__nav__button" data-toogle="comments" *ngIf="updatingForm">
-                Comentarios
-            </li>
-        </ul>
-        <div class="sub-menu__right-button">
-            <span class="sub-menu__right-button__label">Preview</span>
-            <label class="switch">
-                <input type="checkbox" (change)="preview(previewMode.checked);" #previewMode>
-                <span class="slider slider--round"></span>
-            </label>
-        </div>
-    </div>
-</div>
+<app-sub-menu 
+    [isSubmitting]="isSubmitting"
+    [updatingForm]="updatingForm"
+    [toggleTab]="toggleTab"
+    (deleteEvent)="deleteForm()"
+    (submitEvent)="submitForm()"
+    (previewEvent)="preview($event)"
+    ></app-sub-menu>
 <div class="form-creator" id="form-creator" #automatikDocDiv>
     <div class="form-creator__container">
         <div class="form-creator__fields-area" id="fields-area">

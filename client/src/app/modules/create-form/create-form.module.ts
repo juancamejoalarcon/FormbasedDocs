@@ -9,10 +9,11 @@ import { QuillModule } from 'ngx-quill';
 import { InputTextGuideComponent } from './inputs-guide-components/input-text-guide/input-text-guide.component';
 import { InputRadioAGuideComponent } from './inputs-guide-components/input-radio-a-guide/input-radio-a-guide.component';
 import { InputRadioBGuideComponent } from './inputs-guide-components/input-radio-b-guide/input-radio-b-guide.component';
+import { SubMenuComponent } from './components';
 
 
 @NgModule({
-  declarations: [CreateFormComponent, InputTextGuideComponent, InputRadioAGuideComponent, InputRadioBGuideComponent],
+  declarations: [CreateFormComponent, InputTextGuideComponent, InputRadioAGuideComponent, InputRadioBGuideComponent, SubMenuComponent],
   imports: [
     CommonModule,
     SharedModule,
