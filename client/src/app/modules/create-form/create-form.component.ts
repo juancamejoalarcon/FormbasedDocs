@@ -10,7 +10,8 @@ import {
   OdfCreatorService,
   PlainTextCreatorService
 } from '../../core';
-import { InputTextComponent,
+import {
+  InputTextComponent,
   InputRadioAComponent,
   InputRadioBComponent
  } from './inputsSchema';
@@ -22,7 +23,6 @@ import { InputTextComponent,
 export class CreateFormComponent implements OnInit, OnDestroy {
 
   @ViewChild('quill') quill: any;
-  @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
   @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
   @ViewChild('inputsMenuDiv') inputsMenuDiv: ElementRef;
   @ViewChild('textPreviewDiv') textPreviewDiv: ElementRef;
@@ -32,12 +32,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   @ViewChild('modalChooseDocument') modalChooseDocument: ElementRef;
   @ViewChild('addQuestionMenuModal') addQuestionMenuModal: ElementRef;
 
-
-  public inputs: Array<any> = [
-    InputTextComponent,
-    InputRadioAComponent,
-    InputRadioBComponent
-  ];
   quillText = '';
   customOptions: any;
   quillModules: any;
@@ -196,13 +190,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   setCurrentStep(stepNum: number) {
     this.currentStep = stepNum;
-    this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
-      if (this.currentStep === index) {
-        step.style.display = 'block';
-      } else {
-        step.style.display = 'none';
-      }
-    });
   }
 
   nextStepAfterValidate() {
@@ -219,9 +206,23 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     }
   }
 
-  injectComponent(component: Object) {
-    const copyObjectComponent = JSON.parse(JSON.stringify(component));
+  injectComponent(type: string) {
+    let copyObjectComponent: Object;
+    switch (type) {
+      case 'input-text':
+        copyObjectComponent = JSON.parse(JSON.stringify(InputTextComponent));
+        break;
+      case 'input-radio-a':
+        copyObjectComponent = JSON.parse(JSON.stringify(InputRadioAComponent));
+        break;
+      case 'input-radio-b':
+        copyObjectComponent = JSON.parse(JSON.stringify(InputRadioBComponent));
+        break;
+      default:
+    }
     this.stepModelService.addNewStep(copyObjectComponent);
+    this.toogleModal(this.addQuestionMenuModal.nativeElement);
+    this.setCurrentStep(this.form.fields.length - 1);
   }
 
   toogleModal(modal: ElementRef) {

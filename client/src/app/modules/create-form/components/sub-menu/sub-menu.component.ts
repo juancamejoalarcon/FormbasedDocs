@@ -1,4 +1,5 @@
-import { Component,
+import {
+  Component,
   OnInit,
   ViewChild,
   ElementRef,
@@ -21,8 +22,8 @@ export class SubMenuComponent implements OnInit {
   @ViewChild('linkInformationButton') linkInformationButton: ElementRef;
   @Input() isSubmitting: boolean;
   @Input() updatingForm: boolean;
-  @Output() deleteEvent = new EventEmitter<boolean>();
-  @Output() submitEvent = new EventEmitter<boolean>();
+  @Output() deleteEvent = new EventEmitter<any>();
+  @Output() submitEvent = new EventEmitter<any>();
   @Output() previewEvent = new EventEmitter<boolean>();
   isDeleting = false;
 
