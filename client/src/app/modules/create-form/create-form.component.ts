@@ -137,7 +137,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     });
     this.stepModelService.stepsEvent.subscribe((event: string) => {
       if (event === 'remove-step') {
-        this.setCurrentStep(this.currentStep - 1);
         this.form.fields = this.stepModelService.getStepsModel();
       }
     });

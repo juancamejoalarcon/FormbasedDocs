@@ -5,25 +5,47 @@ import {
   ElementRef,
   Output,
   Input,
-  EventEmitter
+  EventEmitter,
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
 
 @Component({
   selector: 'app-fields-area-middle',
   templateUrl: './fields-area-middle.component.html'
 })
-export class FieldsAreaMiddleComponent implements OnInit {
+export class FieldsAreaMiddleComponent implements OnInit, OnChanges {
 
   @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
   @Input() fields: Array<Object>;
+  step: number;
 
   constructor() { }
 
   ngOnInit() {
+    console.log('asdsdf');
+  }
+
+  ngOnChanges(changes: SimpleChanges)  {
+    for (const propName in changes) {
+      if (changes.hasOwnProperty(propName)) {
+        if (propName === 'fields') {
+          if (changes[propName].previousValue &&
+            changes[propName].previousValue.length > changes[propName].currentValue.length) {
+            this.setCurrentStep(this.step - 1);
+          }
+        }
+      }
+    }
   }
 
   @Input()
   set currentStep(stepNum: number) {
+    this.setCurrentStep(stepNum);
+  }
+
+  setCurrentStep(stepNum: number) {
+    this.step = stepNum;
     this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
       if (stepNum === index) {
         step.style.display = 'block';
