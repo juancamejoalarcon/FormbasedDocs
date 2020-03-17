@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CommonsService } from '../../../../core';
 import { DocCreatorService } from './doc-creator.service';
+import { Input } from '../../../../core';
 
 @Injectable()
 export class StepsService {
@@ -25,7 +26,6 @@ export class StepsService {
     if (!this.steps[0].inited) {
       const buildSteps = () => {
         this.steps.forEach((step) => {
-  
           switch (step.type) {
             case 'start':
               step.inited = true;
@@ -67,14 +67,18 @@ export class StepsService {
         });
       };
       // We need to check the level of depth
-      buildSteps();
-      buildSteps();
-      buildSteps();
+      for (let i = 0; i < 5; i++)  {
+        buildSteps();
+      }
     }
     this.buildDocument(false);
   }
 
-  buildDocument(scrollToElement: boolean = true, buildJustReplacements: boolean = false, checkCache: boolean = false) {
+  buildDocument(
+    scrollToElement: boolean = true,
+    buildJustReplacements: boolean = false,
+    checkCache: boolean = false
+  ) {
     if (checkCache) {
       this.checkCache();
     }
@@ -82,28 +86,41 @@ export class StepsService {
   }
 
   checkCache() {
-    this.steps.forEach((step, index) => {
-      if (step.type === 'iText' || step.type === 'iNumber' || step.type === 'iDate') {
+    this.steps.forEach((step) => {
+      if (this.checkIfIsOfType(['iText', 'iNumber', 'iDate', 'iRadioB'], step)) {
         this.cacheSteps.forEach((cacheStep) => {
           if (step.wordToReplace === cacheStep.wordToReplace) {
-            step.replacement = cacheStep.replacement;
-          }
-        });
-      } else if (step.type === 'iRadioB') {
-        this.cacheSteps.forEach((cacheStep) => {
-          if (step.wordToReplace === cacheStep.wordToReplace) {
-            cacheStep.radios.forEach((radio) => {
-              if (radio.checked) {
-                this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
-              }
-            });
+            if (step.type === 'iRadioB') {
+              cacheStep.radios.forEach((radio) => {
+                if (radio.checked) {
+                  this.onInputRadioBSelected(radio.radioId, step.wordToReplace, false, true);
+                }
+              });
+            } else {
+              step.replacement = cacheStep.replacement;
+            }
           }
         });
       }
     });
   }
 
-  input(replacement: string, wordToReplace: string, buildDocumentAfter: boolean = true, buildJustReplacements: boolean = false) {
+  checkIfIsOfType(types: string[], step: Input) {
+    types.forEach((type: string) => {
+      if (step.type === type) {
+        return true;
+      }
+    });
+    return false;
+  }
+
+
+
+  input(
+    replacement: string,
+    wordToReplace: string,
+    buildDocumentAfter: boolean = true,
+    buildJustReplacements: boolean = false) {
     // 1. Find the step
     this.steps.forEach((step, index) => {
       if (step.wordToReplace === wordToReplace) {
@@ -121,6 +138,10 @@ export class StepsService {
     }
   }
 
+  // findStep(steps) {
+
+  // }
+
   rulesForInumber(step: any, index: number) {
     if (step.rules && step.rules.length) {
       step.rules.forEach((rule: any) => {
@@ -129,7 +150,7 @@ export class StepsService {
             if (extraReplacement.wordToReplace === rule.wordToReplace) {
               step.extraReplacements.splice(i, 1);
             }
-          })
+          });
           step.extraReplacements.push({
             wordToReplace: rule.wordToReplace,
             replacement: this.commonsService.precioALetras(step.replacement, {
@@ -145,7 +166,7 @@ export class StepsService {
             if (extraReplacement.wordToReplace === rule.wordToReplace) {
               step.extraReplacements.splice(i, 1);
             }
-          })
+          });
           step.extraReplacements.push({
             wordToReplace: rule.wordToReplace,
             replacement: this.commonsService.numeroALetras(step.replacement)
@@ -322,7 +343,12 @@ export class StepsService {
     }
   }
 
-  onInputRadioCSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true, radioCfocused: boolean = false, checkCache: boolean = false) {
+  onInputRadioCSelected(
+    radioSelectedId: any,
+    wordToReplace: string,
+    buildDocumentAfter: boolean = true,
+    radioCfocused: boolean = false,
+    checkCache: boolean = false) {
     const refreshForEachInputs = [];
     const refreshNormalInputs = [];
     const refreshRadioBInputs = [];
