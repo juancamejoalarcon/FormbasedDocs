@@ -3,9 +3,7 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  Output,
   Input,
-  EventEmitter,
   OnChanges,
   SimpleChanges
 } from '@angular/core';

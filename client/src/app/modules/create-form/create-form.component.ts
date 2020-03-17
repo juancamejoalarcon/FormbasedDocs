@@ -242,8 +242,9 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     setTimeout( () => { this.documentService.setAdditionalQuillButtons(this.quill.nativeElement);}, 100);
   }
 
-  toggleLightbox(lightBox: ElementRef) {
-    this.commonsService.toggleLightbox(lightBox, false);
+  toggleLightbox(currentGuide: string) {
+    this.currentGuide = currentGuide;
+    this.commonsService.toggleLightbox(this.lightBox.nativeElement, false);
   }
 
   addTag() {

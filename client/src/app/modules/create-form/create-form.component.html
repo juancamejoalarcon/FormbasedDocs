@@ -25,19 +25,12 @@
                         [fields]="this.form.fields"
                     ></app-fields-area-middle>
                 </div>
-
-                <div class="form-creator__fields-area__bottom">
-                    <div class="pagination" *ngIf="this.form.fields.length">
-                        <span class="pagination__left-icon icon icon-chevron-left-solid" 
-                            *ngIf="this.form.fields.length >= 2 && currentStep !== 0" (click)="setCurrentStep(currentStep - 1)"></span>
-                        <ul>
-                            <li *ngFor="let field of this.form.fields; let i = index" 
-                            [ngClass]="{'current-page': currentStep === i }" (click)="setCurrentStep(i)">{{i + 1}}</li>
-                        </ul>
-                        <span class="pagination__right-icon icon icon-chevron-right-solid" 
-                            *ngIf="this.form.fields.length >= 2 && currentStep !== this.form.fields.length - 1" (click)="nextStepAfterValidate()"></span>
-                    </div>
-                </div>
+                <app-fields-area-bottom
+                [currentStep]="currentStep"
+                [fields]="this.form.fields"
+                (setStepEvent)="setCurrentStep($event)"
+                (nextStepEvent)="nextStepAfterValidate()"
+                ></app-fields-area-bottom>
             </div>
         </div>
         <div class="form-creator__text-area" id="text-area" 
@@ -198,45 +191,10 @@
 <div class="modal" #addQuestionMenuModal>
     <div class="modal__content modal__content--add-new-question">
         <div class="modal__content__modal-middle modal__content__modal-middle--add-new-question">
-            <div class="modal__content__modal-middle__container" style="margin: 0px">
-                <div class="modal__content__modal-middle__button-panel">
-                    <div class="modal__content__modal-middle__button-panel__container">
-                        <div class="modal__content__modal-middle__button-panel__row">
-                            <span class="modal__content__modal-middle__button-panel__row__label">
-                                Input text
-                                <sup class="icon icon-info-circle-solid" (click)="toggleLightbox(lightBox); currentGuide = 'input-text'"></sup>
-                            </span>
-                            <button class="button-filled button-filled--add-new-question"
-                            (click)="injectComponent('input-text');" >
-                                Añadir
-                                <span class="icon icon-plus-solid"></span>
-                            </button>
-                        </div>
-                        <div class="modal__content__modal-middle__button-panel__row">
-                            <span class="modal__content__modal-middle__button-panel__row__label">
-                                Input radio a
-                                <sup class="icon icon-info-circle-solid" (click)="toggleLightbox(lightBox); currentGuide = 'input-radio-a'"></sup>
-                            </span>
-                            <button class="button-filled button-filled--add-new-question"
-                            (click)="injectComponent('input-radio-a');">
-                                Añadir
-                                <span class="icon icon-plus-solid"></span>
-                            </button>
-                        </div>
-                        <div class="modal__content__modal-middle__button-panel__row">
-                            <span class="modal__content__modal-middle__button-panel__row__label">
-                                Input radio b
-                                <sup class="icon icon-info-circle-solid" (click)="toggleLightbox(lightBox); currentGuide = 'input-radio-b'"></sup>
-                            </span>
-                            <button class="button-filled button-filled--add-new-question"
-                            (click)="injectComponent('input-radio-b');">
-                                Añadir
-                                <span class="icon icon-plus-solid"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <app-add-question-menu
+                (toggleLightboxEvent)="toggleLightbox($event)"
+                (injectComponentEvent)="injectComponent($event)"
+                ></app-add-question-menu>
             <div class="modal__content__modal-bottom modal__content__modal-bottom--privacy">
                 <button class="button-filled" id="modal-button" (click)="toogleModal(addQuestionMenuModal)">
                     Cerrar

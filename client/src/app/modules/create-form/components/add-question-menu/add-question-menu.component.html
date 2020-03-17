@@ -1,0 +1,39 @@
+<div class="modal__content__modal-middle__container" style="margin: 0px">
+  <div class="modal__content__modal-middle__button-panel">
+      <div class="modal__content__modal-middle__button-panel__container">
+          <div class="modal__content__modal-middle__button-panel__row">
+              <span class="modal__content__modal-middle__button-panel__row__label">
+                  Input text
+                  <sup class="icon icon-info-circle-solid" (click)="toggleLightbox('input-text');"></sup>
+              </span>
+              <button class="button-filled button-filled--add-new-question"
+              (click)="injectComponent('input-text');" >
+                  Añadir
+                  <span class="icon icon-plus-solid"></span>
+              </button>
+          </div>
+          <div class="modal__content__modal-middle__button-panel__row">
+              <span class="modal__content__modal-middle__button-panel__row__label">
+                  Input radio a
+                  <sup class="icon icon-info-circle-solid" (click)="toggleLightbox('input-radio-a');"></sup>
+              </span>
+              <button class="button-filled button-filled--add-new-question"
+              (click)="injectComponent('input-radio-a');">
+                  Añadir
+                  <span class="icon icon-plus-solid"></span>
+              </button>
+          </div>
+          <div class="modal__content__modal-middle__button-panel__row">
+              <span class="modal__content__modal-middle__button-panel__row__label">
+                  Input radio b
+                  <sup class="icon icon-info-circle-solid" (click)="toggleLightbox('input-radio-b');"></sup>
+              </span>
+              <button class="button-filled button-filled--add-new-question"
+              (click)="injectComponent('input-radio-b');">
+                  Añadir
+                  <span class="icon icon-plus-solid"></span>
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
