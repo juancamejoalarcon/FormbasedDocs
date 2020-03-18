@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { CommonsService } from '../../../../core';
 import { DocCreatorService } from './doc-creator.service';
-import { Input } from '../../../../core';
+import {
+  Input,
+  InputText,
+  InputForEach
+} from '../../../../core';
 
 @Injectable()
 export class StepsService {
@@ -114,66 +118,81 @@ export class StepsService {
     return false;
   }
 
-
-
   input(
     replacement: string,
     wordToReplace: string,
     buildDocumentAfter: boolean = true,
     buildJustReplacements: boolean = false) {
-    // 1. Find the step
-    this.steps.forEach((step, index) => {
-      if (step.wordToReplace === wordToReplace) {
-        step.replacement = replacement;
-        step.isFocused = true;
-        if (step.type === 'iNumber') {
-          this.rulesForInumber(step, index);
-        }
-      } else {
-        step.isFocused = false;
-      }
-    });
+    const { step, index } = this.findStep(wordToReplace, true, 'wordToReplace');
+
+    step.replacement = replacement;
+    step.isFocused = true;
+    if (step.type === 'iNumber') {
+      this.rulesForInumber(step, index);
+    }
     if (buildDocumentAfter) {
       this.buildDocument(true, buildJustReplacements);
     }
   }
 
-  // findStep(steps) {
+  findStep(wordToReplace: string, setFocus: boolean, identifierToUse: string) {
+    let stepFound: Input;
+    let indexFound: number;
+    this.steps.forEach((step: Input, index: number) => {
+      if (step[identifierToUse] === wordToReplace) {
+        stepFound = step;
+        indexFound = index;
+      } else if (setFocus) {
+        step.isFocused = false;
+      }
+    });
 
-  // }
+    return {
+      step: stepFound,
+      index: indexFound,
+    };
+  }
 
   rulesForInumber(step: any, index: number) {
     if (step.rules && step.rules.length) {
       step.rules.forEach((rule: any) => {
         if (rule.rulename === 'extraReplacementToCharacter' && step.extraReplacements) {
-          step.extraReplacements.forEach((extraReplacement: any, i: number) => {
-            if (extraReplacement.wordToReplace === rule.wordToReplace) {
-              step.extraReplacements.splice(i, 1);
-            }
-          });
-          step.extraReplacements.push({
-            wordToReplace: rule.wordToReplace,
-            replacement: this.commonsService.precioALetras(step.replacement, {
-              plural: 'euros',
-              singular: 'euro',
-              centPlural: 'centavos',
-              centSingular: 'centavo'
-            })
-          });
+          this.extraReplacementToCharacter(step, rule);
         }
         if (rule.rulename === 'extraReplacementAletras' && step.extraReplacements) {
-          step.extraReplacements.forEach((extraReplacement: any, i: number) => {
-            if (extraReplacement.wordToReplace === rule.wordToReplace) {
-              step.extraReplacements.splice(i, 1);
-            }
-          });
-          step.extraReplacements.push({
-            wordToReplace: rule.wordToReplace,
-            replacement: this.commonsService.numeroALetras(step.replacement)
-          });
+          this.extraReplacementAletras(step, rule);
         }
       });
     }
+  }
+
+  extraReplacementToCharacter(step: Input, rule: any) {
+    step.extraReplacements.forEach((extraReplacement: any, i: number) => {
+      if (extraReplacement.wordToReplace === rule.wordToReplace) {
+        step.extraReplacements.splice(i, 1);
+      }
+    });
+    step.extraReplacements.push({
+      wordToReplace: rule.wordToReplace,
+      replacement: this.commonsService.precioALetras(step.replacement, {
+        plural: 'euros',
+        singular: 'euro',
+        centPlural: 'centavos',
+        centSingular: 'centavo'
+      })
+    });
+  }
+
+  extraReplacementAletras(step: Input, rule: any) {
+    step.extraReplacements.forEach((extraReplacement: any, i: number) => {
+      if (extraReplacement.wordToReplace === rule.wordToReplace) {
+        step.extraReplacements.splice(i, 1);
+      }
+    });
+    step.extraReplacements.push({
+      wordToReplace: rule.wordToReplace,
+      replacement: this.commonsService.numeroALetras(step.replacement)
+    });
   }
 
   buildForEach(
@@ -186,8 +205,7 @@ export class StepsService {
     const refreshRadioBSteps = [];
     const refreshRadioCSteps = [];
     // 1. Find the step
-    this.steps.forEach((step, index) => {
-      if (step.wordToReplace === wordToReplace) {
+    const { step, index } = this.findStep(wordToReplace, true, 'wordToReplace');
         step.forEachFocused = forEachFocused;
         step.value = value;
         
@@ -281,8 +299,7 @@ export class StepsService {
           content.modifiedExtraReplacements.push(modifiedExtraReplacements);
           // 5. Insert text in the office document
         });
-      }
-    });
+
 
     refreshRadioBSteps.forEach((step) => {
       step.radios.forEach((radio) => {
