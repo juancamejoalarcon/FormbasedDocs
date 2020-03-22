@@ -205,101 +205,99 @@ export class StepsService {
     const refreshRadioBSteps = [];
     const refreshRadioCSteps = [];
     // 1. Find the step
-    const { step, index } = this.findStep(wordToReplace, true, 'wordToReplace');
-        step.forEachFocused = forEachFocused;
-        step.value = value;
-        
-        // 2. Clean possible previously added steps, so we don't repeat them
-        this.cleanPreviouslyAddedSteps(index, step.identifier);
-        // 3. Loop through the texts that will be inserted
-        step.content.forEach((content, contentIndex) => {
-          content.modifiedReplacements = [];
-          content.modifiedExtraReplacements = [];
-          const modifiedExtraReplacements = [];
-          content.extraReplacements.forEach(() => {modifiedExtraReplacements.push([]); } );
-          // 4. Add steps
-          // tslint:disable-next-line:radix
-          for (let i = 0; i < parseInt(value); i++) {
-            let modifiedReplacement = content.replacementOriginal;
-            content.extraReplacements.forEach((extraReplacement: any, indexOfExtraReplace: number) => {
-              modifiedExtraReplacements[indexOfExtraReplace].push({
-                identifier: extraReplacement.identifier,
-                replacement: extraReplacement.replacementOriginal
-              });
-            });
-            content.subSteps.forEach((subStep: any, subStepIndex: any) => {
-              // 5. Modify subSteps identifiers and text with index of value loop iteration
-              const newIndentifier = step.identifier + subStep.identifier + i.toString() + subStepIndex.toString();
-              modifiedReplacement = modifiedReplacement.replace(subStep.identifier, newIndentifier);
-              content.extraReplacements.forEach((extraReplacement: any, indexOfExtraReplace: number) => {
-                const subStepExtraReplacement = subStep.extraReplacements[indexOfExtraReplace];
-                const modifiedExtraReplacement = modifiedExtraReplacements[indexOfExtraReplace][i];
-                modifiedExtraReplacement.wordToReplace = extraReplacement.identifier + i.toString() + subStepIndex.toString();
-                const newIndentifier2 = step.identifier + subStepExtraReplacement.identifier + i.toString() + subStepIndex.toString();
-                modifiedExtraReplacement.replacement =
-                modifiedExtraReplacement.replacement.replace(subStepExtraReplacement.identifier, newIndentifier2);
-                subStepExtraReplacement.wordToReplace = newIndentifier2;
-                subStepExtraReplacement.identifier = newIndentifier2;
-                // modifiedExtraReplacements[indexOfExtraReplace].push({
-                //   wordToReplace: step.identifier + extraReplacement.identifier + i.toString() + subStepIndex.toString(),
-                //   identifier: extraReplacement.identifier
-                // });
-              });
-              // Deep copy
-              let copySubStep = JSON.parse(JSON.stringify(subStep));
-              this.cacheSteps.forEach((cachedStep) => {
-                if (cachedStep.wordToReplace == newIndentifier) {
-                  copySubStep = JSON.parse(JSON.stringify(cachedStep));
-                  copySubStep.cached = true;
-                }
-              });
-              copySubStep.identifier = newIndentifier;
-              copySubStep.wordToReplace = newIndentifier;
-
-              if (copySubStep.hasIndex) {
-                if (parseInt(value) === 1) {
-                  copySubStep.question = copySubStep.questionOriginal.replace('->(index)', '');
-                } else {
-                  copySubStep.question = copySubStep.questionOriginal.replace('->(index)', i + 1);
-                }
-              }
-
-              this.steps.splice(
-                ((index + 1) +
-                (subStepIndex) +
-                (i * content.subSteps.length) +
-                // tslint:disable-next-line:radix
-                ((parseInt(value) * contentIndex) *  content.subSteps.length)
-                ), 0, copySubStep);
-
-                // refresh radioC inside forEach
-                if (copySubStep.type === 'iRadioB') {
-                  refreshRadioBSteps.push(copySubStep);
-                }
-
-                // refresh radioC inside forEach
-                if (copySubStep.type === 'iRadioC') {
-                  // Give new ids to substeps
-                  copySubStep.radios.forEach((radioC: any) => {
-                      radioC.subSteps.forEach((radioCsubstep: any) => {
-                          const newId = newIndentifier + radioCsubstep.identifier;
-                          const regexp3 = new RegExp(radioCsubstep.identifier, 'g');
-                          radioC.replacementOriginal = radioC.replacementOriginal.replace(regexp3, newId);
-                          radioCsubstep.wordToReplace = newId;
-                          // Mirar si se puede quitar esto
-                          radioCsubstep.identifier = newId;
-                      });
-                  });
-                  refreshRadioCSteps.push(copySubStep);
-                }
-
-            });
-            content.modifiedReplacements.push(modifiedReplacement);
-          }
-          content.modifiedExtraReplacements.push(modifiedExtraReplacements);
-          // 5. Insert text in the office document
+    const { step, index } = this.findStep(wordToReplace, false, 'wordToReplace');
+    step.forEachFocused = forEachFocused;
+    step.value = value;
+    // 2. Clean possible previously added steps, so we don't repeat them
+    this.cleanPreviouslyAddedSteps(index, step.identifier);
+    // 3. Loop through the texts that will be inserted
+    step.content.forEach((content, contentIndex) => {
+      content.modifiedReplacements = [];
+      content.modifiedExtraReplacements = [];
+      const modifiedExtraReplacements = [];
+      content.extraReplacements.forEach(() => {modifiedExtraReplacements.push([]); } );
+      // 4. Add steps
+      // tslint:disable-next-line:radix
+      for (let i = 0; i < parseInt(value); i++) {
+        let modifiedReplacement = content.replacementOriginal;
+        content.extraReplacements.forEach((extraReplacement: any, indexOfExtraReplace: number) => {
+          modifiedExtraReplacements[indexOfExtraReplace].push({
+            identifier: extraReplacement.identifier,
+            replacement: extraReplacement.replacementOriginal
+          });
         });
+        content.subSteps.forEach((subStep: any, subStepIndex: any) => {
+          // 5. Modify subSteps identifiers and text with index of value loop iteration
+          const newIndentifier = step.identifier + subStep.identifier + i.toString() + subStepIndex.toString();
+          modifiedReplacement = modifiedReplacement.replace(subStep.identifier, newIndentifier);
+          content.extraReplacements.forEach((extraReplacement: any, indexOfExtraReplace: number) => {
+            const subStepExtraReplacement = subStep.extraReplacements[indexOfExtraReplace];
+            const modifiedExtraReplacement = modifiedExtraReplacements[indexOfExtraReplace][i];
+            modifiedExtraReplacement.wordToReplace = extraReplacement.identifier + i.toString() + subStepIndex.toString();
+            const newIndentifier2 = step.identifier + subStepExtraReplacement.identifier + i.toString() + subStepIndex.toString();
+            modifiedExtraReplacement.replacement =
+            modifiedExtraReplacement.replacement.replace(subStepExtraReplacement.identifier, newIndentifier2);
+            subStepExtraReplacement.wordToReplace = newIndentifier2;
+            subStepExtraReplacement.identifier = newIndentifier2;
+            // modifiedExtraReplacements[indexOfExtraReplace].push({
+            //   wordToReplace: step.identifier + extraReplacement.identifier + i.toString() + subStepIndex.toString(),
+            //   identifier: extraReplacement.identifier
+            // });
+          });
+          // Deep copy
+          let copySubStep = JSON.parse(JSON.stringify(subStep));
+          this.cacheSteps.forEach((cachedStep) => {
+            if (cachedStep.wordToReplace == newIndentifier) {
+              copySubStep = JSON.parse(JSON.stringify(cachedStep));
+              copySubStep.cached = true;
+            }
+          });
+          copySubStep.identifier = newIndentifier;
+          copySubStep.wordToReplace = newIndentifier;
 
+          if (copySubStep.hasIndex) {
+            if (parseInt(value) === 1) {
+              copySubStep.question = copySubStep.questionOriginal.replace('->(index)', '');
+            } else {
+              copySubStep.question = copySubStep.questionOriginal.replace('->(index)', i + 1);
+            }
+          }
+
+          this.steps.splice(
+            ((index + 1) +
+            (subStepIndex) +
+            (i * content.subSteps.length) +
+            // tslint:disable-next-line:radix
+            ((parseInt(value) * contentIndex) *  content.subSteps.length)
+            ), 0, copySubStep);
+
+            // refresh radioC inside forEach
+            if (copySubStep.type === 'iRadioB') {
+              refreshRadioBSteps.push(copySubStep);
+            }
+
+            // refresh radioC inside forEach
+            if (copySubStep.type === 'iRadioC') {
+              // Give new ids to substeps
+              copySubStep.radios.forEach((radioC: any) => {
+                  radioC.subSteps.forEach((radioCsubstep: any) => {
+                      const newId = newIndentifier + radioCsubstep.identifier;
+                      const regexp3 = new RegExp(radioCsubstep.identifier, 'g');
+                      radioC.replacementOriginal = radioC.replacementOriginal.replace(regexp3, newId);
+                      radioCsubstep.wordToReplace = newId;
+                      // Mirar si se puede quitar esto
+                      radioCsubstep.identifier = newId;
+                  });
+              });
+              refreshRadioCSteps.push(copySubStep);
+            }
+
+        });
+        content.modifiedReplacements.push(modifiedReplacement);
+      }
+      content.modifiedExtraReplacements.push(modifiedExtraReplacements);
+      // 5. Insert text in the office document
+    });
 
     refreshRadioBSteps.forEach((step) => {
       step.radios.forEach((radio) => {
@@ -308,7 +306,6 @@ export class StepsService {
         }
       });
     });
-
 
     if (buildDocumentAfter) {
       refreshRadioCSteps.forEach((step) => {
@@ -334,25 +331,20 @@ export class StepsService {
 
   onInputRadioBSelected(radioSelectedId: any, wordToReplace: string, buildDocumentAfter: boolean = true, avoidFocus: boolean = false) {
     // 1. Find the step
-    this.steps.forEach((step, index) => {
-      if (step.wordToReplace === wordToReplace) {
-        step.isFocused = avoidFocus ? false : true;
-        // 2. Find radio selected
-        step.radios.forEach((radio) => {
-          if (radio.radioId === radioSelectedId) {
-            step.replacement = radio.replacementOriginal;
-            radio.checked = true;
-            if (step.extraReplacements) {
-              step.extraReplacements.forEach((extraReplacement, i) => {
-                extraReplacement.replacement = radio.extraReplacements[i].replacement;
-              });
-            }
-          } else {
-            radio.checked = false;
-          }
-        });
+    const { step, index } = this.findStep(wordToReplace, false, 'wordToReplace');
+    step.isFocused = avoidFocus ? false : true;
+    // 2. Find radio selected
+    step.radios.forEach((radio) => {
+      if (radio.radioId === radioSelectedId) {
+        step.replacement = radio.replacementOriginal;
+        radio.checked = true;
+        if (step.extraReplacements) {
+          step.extraReplacements.forEach((extraReplacement, i) => {
+            extraReplacement.replacement = radio.extraReplacements[i].replacement;
+          });
+        }
       } else {
-        step.isFocused = false;
+        radio.checked = false;
       }
     });
     if (buildDocumentAfter) {

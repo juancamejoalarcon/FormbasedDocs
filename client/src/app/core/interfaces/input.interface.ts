@@ -8,4 +8,5 @@ export interface Input  {
     content?: any[];
     forEachFocused?: boolean;
     value?: any;
+    radios?: any[];
 }
