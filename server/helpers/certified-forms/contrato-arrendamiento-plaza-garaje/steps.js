@@ -2061,6 +2061,78 @@ const steps = [
       ],
     },
     {
+      type: 'iRadioB',
+      question: '(Subarrendamiento) El arrendatario (inquilino):',
+      identifier: 'id-unid-9',
+      wordToReplace: 'id-unid-9',
+      indications: {
+        areIndications: true,
+        indicationsType: 'outsideText',
+        value: 'El subarriendo es un contrato mediante el cual el arrendatario cede a un tercero denominado subarrendatario el uso como arrendatario de toda o parte de la plaza de garaje que tiene arrendada.',
+      },
+      replacement: '',
+      extraReplacements: [
+      ],
+      radios: [
+        {
+          label: 'podrá subarrendar la plaza de garaje y ceder este contrato',
+          replacementOriginal: 'La parte ARRENDADORA autoriza expresamente a la ARRENDATARIA a ceder o subarrendar la plaza de garaje objeto de este contrato, en dicho caso la parte ARRENDADORA tendrá derecho a elevar la renta en un 10% sobre el precio de renta.',
+          replacement: 'La parte ARRENDADORA autoriza expresamente a la ARRENDATARIA a ceder o subarrendar la plaza de garaje objeto de este contrato, en dicho caso la parte ARRENDADORA tendrá derecho a elevar la renta en un 10% sobre el precio de renta.',
+          radioId: 'id-unid-9_opA',
+          identifier: 'id-unid-9_opA',
+          extraReplacements: [
+          ],
+          checked: true,
+        },
+        {
+          label: 'no podrá subarrendar (ceder la plaza a cambio de un precio) la plaza de garaje alquilada ni ceder este contrato (sustituirse por otro arrendatario)',
+          replacementOriginal: 'Queda prohibido la cesión de la plaza de garaje o su subarriendo ya sea total o parcial.',
+          replacement: 'Queda prohibido la cesión de la plaza de garaje o su subarriendo ya sea total o parcial.',
+          radioId: 'id-unid-9_opB',
+          identifier: 'id-unid-9_opB',
+          extraReplacements: [
+          ],
+          checked: false,
+        },
+      ]
+    },
+    {
+      type: 'iRadioB',
+      question: '(Derecho de adquisición preferente) En caso de que el arrendador decida vender la plaza de garaje  durante el alquiler:',
+      identifier: 'id-dec-10',
+      wordToReplace: 'id-dec-10',
+      indications: {
+        areIndications: true,
+        indicationsType: 'outsideText',
+        value: 'El derecho de compra o adquisición preferente, según la ley 29/1994, de 24 de noviembre, sobre arrendamientos urbanos es el derecho que tiene el arrendatario de adquirir la propiedad con preferencia, en el caso de que el arrendador ponga en venta dicho inmueble. Así lo recoge el artículo 25 de  esta normativa, en el que se señala que el arrendatario tendrá las mismas condiciones que el arrendador haya acordado con un posible comprador. En este sentido, con el derecho de compra preferente, el arrendatario dispone de 30 días naturales para ejercitar el derecho de tanteo desde que el propietario le notifique la decisión de venta. Con ello, se podrá determinar y llegar a un acuerdo sobre precio y el resto de condiciones inherentes a la transmisión de la propiedad inmobiliaria. Del mismo modo, el arrendatario también dispone del derecho de retracto, en relación al precio y a todas las condiciones de compraventa.',
+      },
+      replacement: '',
+      extraReplacements: [
+      ],
+      radios: [
+        {
+          label: 'el arrendatario podrá adquirirla con prioridad frente a otros posibles compradores (tendrá derecho de adquisición preferente o tanteo y retracto)',
+          replacementOriginal: 'Las partes reconocen el derecho de adquisición preferente o tanteo y retracto de la PARTE ARRENDATARIA sobre la plaza de garaje.',
+          replacement: 'Las partes reconocen el derecho de adquisición preferente o tanteo y retracto de la PARTE ARRENDATARIA sobre la plaza de garaje.',
+          radioId: 'id-dec-10_opA',
+          identifier: 'id-dec-10_opA',
+          extraReplacements: [
+          ],
+          checked: true,
+        },
+        {
+          label: 'el arrendatario no podrá adquirirla con prioridad frente a otros posibles compradores (no tendrá derecho de adquisición preferente o tanteo y retracto)',
+          replacementOriginal: 'Las Partes acuerdan que en caso de que la PARTE ARRENDADORA enajenare la plaza de garaje arrendada, la PARTE ARRENDATARIA no tendrá derecho de adquisición preferente o de tanteo y retracto sobre la misma. Por tanto, la PARTE ARRENDATARIA renuncia expresamente en este acto al derecho de adquisición preferente sobre la misma que la legislación aplicable pudiera atribuirle.',
+          replacement: 'Las Partes acuerdan que en caso de que la PARTE ARRENDADORA enajenare la plaza de garaje arrendada, la PARTE ARRENDATARIA no tendrá derecho de adquisición preferente o de tanteo y retracto sobre la misma. Por tanto, la PARTE ARRENDATARIA renuncia expresamente en este acto al derecho de adquisición preferente sobre la misma que la legislación aplicable pudiera atribuirle.',
+          radioId: 'id-dec-10_opB',
+          identifier: 'id-dec-10_opB',
+          extraReplacements: [
+          ],
+          checked: false,
+        },
+      ]
+    },
+    {
         type: 'end',
         identifier: 'end',
         wordToReplace: 'end',
