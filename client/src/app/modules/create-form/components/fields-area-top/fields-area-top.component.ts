@@ -12,7 +12,7 @@ import {
 })
 export class FieldsAreaTopComponent implements OnInit {
 
-  @Input() state: boolean;
+  @Input() state: string;
   @Output() previewDocumentEvent = new EventEmitter<any>();
   @Output() toogleModalEvent = new EventEmitter<any>();
 
