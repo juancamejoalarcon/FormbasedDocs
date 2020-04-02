@@ -4,7 +4,8 @@ import {
   ViewChild,
   ElementRef,
   LOCALE_ID,
-  Inject
+  Inject,
+  AfterViewInit
 } from '@angular/core';
 import {
   Router,
@@ -18,10 +19,10 @@ import {
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('navbar') navbar: ElementRef;
-  @ViewChild('footer') footer: ElementRef;
+  @ViewChild('navbar', {static: false}) navbar: ElementRef;
+  @ViewChild('footer', {static: false}) footer: ElementRef;
   public isAuth: boolean;
   public includedUrlsForNavbar: Array<string> = [
     '/auth/login',
@@ -61,8 +62,6 @@ export class AppComponent implements OnInit {
       }
     );
 
-    this.onPageLoad();
-
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (this.included(event['url'], this.includedUrlsForNavbar)) {
@@ -78,6 +77,10 @@ export class AppComponent implements OnInit {
         }
       }
     });
+  }
+
+  ngAfterViewInit() {
+    this.onPageLoad();
   }
 
   included(url: string, includedUrls: Array<string>) {

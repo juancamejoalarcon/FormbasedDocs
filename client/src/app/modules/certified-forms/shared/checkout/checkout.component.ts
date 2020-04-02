@@ -16,8 +16,8 @@ export class CheckoutComponent implements OnInit {
   @Output() exitModal: EventEmitter<any> = new EventEmitter();
   @Output() downloadPdfOutput: EventEmitter<any> = new EventEmitter();
   @Output() downloadWordOutput: EventEmitter<any> = new EventEmitter();
-  @ViewChild('emailInput') emailInput: ElementRef;
-  @ViewChild('conditions') conditions: ElementRef;
+  @ViewChild('emailInput', {static: false}) emailInput: ElementRef;
+  @ViewChild('conditions', {static: false}) conditions: ElementRef;
   public currentStep = 0;
   public email: string;
   public loadingPayment = true;

@@ -33,4 +33,8 @@ export class IRadioBComponent implements OnInit {
     this.emitIndication.emit();
   }
 
+  onInputSelected(radioId: any, wordToReplace: string) {
+    this.stepModelService.onInputRadioBSelected(radioId, wordToReplace);
+  }
+
 }

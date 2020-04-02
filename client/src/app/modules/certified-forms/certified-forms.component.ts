@@ -15,8 +15,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CertifiedFormsComponent implements OnInit, OnDestroy {
 
-  @ViewChild('subMenu') subMenu: ElementRef;
-  @ViewChild('loginModal') loginModal: ElementRef;
+  @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
+  @ViewChild('loginModal', {static: false}) loginModal: ElementRef;
 
   public form: Form = new Form();
   public originalForm: Form = new Form();

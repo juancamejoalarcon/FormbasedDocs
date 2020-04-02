@@ -5,7 +5,7 @@
             (click)="saveForm()" [hidden]="!this.currentStep"></button>
         </div>
         <ul class="sub-menu__nav sub-menu__nav--fill-form" style="justify-content: center;">
-            <li class="sub-menu__nav__button sub-menu__nav__button--without-hover">
+            <li class="sub-menu__nav__button sub-menu__nav__button--without-hover" *ngIf="this.form">
                 {{this.form.topLabelTitle}}
             </li>
         </ul>

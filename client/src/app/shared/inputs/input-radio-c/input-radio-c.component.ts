@@ -17,15 +17,15 @@ export class InputRadioCComponent implements OnInit, AfterViewInit {
 
   @Input() state: string;
   @Input() field: any;
-  @ViewChild('delete') delete: ElementRef;
-  @ViewChild('idForHiddenInputs') idForHiddenInputs: ElementRef;
-  @ViewChild('draggableText') draggableText: ElementRef;
-  @ViewChild('radios') radios: ElementRef;
-  @ViewChild('changeIdInput') changeIdInput: ElementRef;
-  @ViewChild('rightMenu') rightMenu: ElementRef;
-  @ViewChild('rightMenuButton') rightMenuButton: ElementRef;
-  @ViewChild('showModalButton') showModalButton: ElementRef;
-  @ViewChild('modal') modal: ElementRef;
+  @ViewChild('delete', {static: false}) delete: ElementRef;
+  @ViewChild('idForHiddenInputs', {static: false}) idForHiddenInputs: ElementRef;
+  @ViewChild('draggableText', {static: false}) draggableText: ElementRef;
+  @ViewChild('radios', {static: false}) radios: ElementRef;
+  @ViewChild('changeIdInput', {static: false}) changeIdInput: ElementRef;
+  @ViewChild('rightMenu', {static: false}) rightMenu: ElementRef;
+  @ViewChild('rightMenuButton', {static: false}) rightMenuButton: ElementRef;
+  @ViewChild('showModalButton', {static: false}) showModalButton: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
 
   public mandatory: boolean;
   public indications: string;
@@ -36,6 +36,8 @@ export class InputRadioCComponent implements OnInit, AfterViewInit {
   public indicationsIdentifier: string;
   public mandatoryIdentifier: string;
   public functionReference: any;
+  public radio: any;
+  public question: any;
 
   constructor(
     private commonsService: CommonsService,

@@ -17,9 +17,9 @@ import {
 })
 export class SubMenuComponent implements OnInit {
 
-  @ViewChild('subMenu') subMenu: ElementRef;
-  @ViewChild('linkFormButton') linkFormButton: ElementRef;
-  @ViewChild('linkInformationButton') linkInformationButton: ElementRef;
+  @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
+  @ViewChild('linkFormButton', {static: false}) linkFormButton: ElementRef;
+  @ViewChild('linkInformationButton', {static: false}) linkInformationButton: ElementRef;
   @Input() isSubmitting: boolean;
   @Input() updatingForm: boolean;
   @Output() deleteEvent = new EventEmitter<any>();

@@ -4546,8 +4546,7 @@ input[type=checkbox] {
 }
 
 .checkout-panel__body__progress-bar__step:nth-child(1):before {
-  content: 'Carro';
-  right: -10px;
+  content: 'Cart';
 }
 
 .checkout-panel__body__progress-bar__step:nth-child(2):before {
@@ -4556,8 +4555,8 @@ input[type=checkbox] {
 }
 
 .checkout-panel__body__progress-bar__step:nth-child(3):before {
-  right: -5px;
-  content: 'Pago';
+  right: -20px;
+  content: 'Payment';
 }
 
 @media only screen and (max-width: 380px) {
@@ -4568,7 +4567,7 @@ input[type=checkbox] {
 
 .checkout-panel__body__progress-bar__step:nth-child(4):before {
   right: 0;
-  content: 'Fin';
+  content: 'Finish';
 }
 
 .checkout-panel__body__progress-bar__step__active {
@@ -7301,7 +7300,7 @@ input[type=checkbox] {
 }
 
 .lawyer-forms__block {
-  margin: auto;
+  padding-left: 1rem;
   margin-top: 3rem;
   /* Tree copied from https://gist.github.com/dylancwood/7368914 */
 }

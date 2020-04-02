@@ -19,7 +19,7 @@ import {
 })
 export class INumberComponent implements OnInit {
 
-  @ViewChild('input') input: ElementRef;
+  @ViewChild('input', {static: false}) input: ElementRef;
   @Input() step: any;
   @Input() inputInvalid: any;
   @Output() emitIndication: EventEmitter<any> = new EventEmitter();

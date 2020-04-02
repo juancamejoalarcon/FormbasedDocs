@@ -16,8 +16,8 @@ export class NewRadioBComponent implements OnInit, OnDestroy {
   @Input() field: any;
   @Input() valueRadio: any;
   @Input() optionalValues: any;
-  @ViewChild('delete') delete: ElementRef;
-  @ViewChild('modal') modal: ElementRef;
+  @ViewChild('delete', {static: false}) delete: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
   public randomNumberForModal = 'i' + Math.random().toString(36).substring(7);
   public randomId: string;
 

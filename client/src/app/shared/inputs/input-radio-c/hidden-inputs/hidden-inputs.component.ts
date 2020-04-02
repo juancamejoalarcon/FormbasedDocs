@@ -12,10 +12,10 @@ import { CommonsService } from '../../../../core';
 })
 export class HiddenInputsComponent implements OnInit {
 
-  @ViewChild('divForMutationObserver') divForMutationObserver: ElementRef;
-  @ViewChild('radios') radios: ElementRef;
-  @ViewChild('dateDiv') dateDiv: ElementRef;
-  @ViewChild('modal') modal: ElementRef;
+  @ViewChild('divForMutationObserver', {static: false}) divForMutationObserver: ElementRef;
+  @ViewChild('radios', {static: false}) radios: ElementRef;
+  @ViewChild('dateDiv', {static: false}) dateDiv: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
   @Input() isInsideALoop: boolean;
   @Input() state: string;
   @Input() field: any;

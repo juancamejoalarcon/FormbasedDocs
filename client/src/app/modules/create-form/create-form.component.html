@@ -41,7 +41,7 @@
                 </div>
             </div>
             <!-- Plain text -->
-            <div id="expand-editor-button" class="d-none-flex" (click)="enableFullScreen('editor-preview')"
+            <div id="expand-editor-button" class="d-none-flex"
             *ngIf="this.documentType === 'plain'">
                 <span class="icon icon-expand-solid"></span>
             </div>
@@ -49,7 +49,7 @@
                 <quill-editor id="editor" (onContentChanged)="quillText = $event.html;" 
                             [ngModel]="quillText" [ngModelOptions]="{standalone: true}" 
                             [customOptions]="customOptions" [modules]="quillModules"
-                            (onEditorCreated)="setAdditionalQuillButtons($event)">
+                            (onEditorCreated)="setAdditionalQuillButtons()">
                 </quill-editor>
             </div>
             <!-- Result -->

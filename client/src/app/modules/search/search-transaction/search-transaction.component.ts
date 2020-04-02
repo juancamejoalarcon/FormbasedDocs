@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SearchTransactionComponent implements OnInit, OnDestroy {
 
-  @ViewChild('searchTransactionDiv') searchTransactionDiv: ElementRef;
-  @ViewChild('transactionIdInput') transactionIdInput: ElementRef;
+  @ViewChild('searchTransactionDiv', {static: true}) searchTransactionDiv: ElementRef;
+  @ViewChild('transactionIdInput', {static: false}) transactionIdInput: ElementRef;
   public transactionId: string;
 
   constructor(

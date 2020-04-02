@@ -6,10 +6,10 @@ import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Input, Output }
 })
 export class IndicationsComponent implements OnInit {
 
-  @ViewChild('indicationsDiv') indicationsDiv: ElementRef;
-  @ViewChild('tab1') tab1: ElementRef;
-  @ViewChild('tab2') tab2: ElementRef;
-  @ViewChild('normalText') normalText: ElementRef;
+  @ViewChild('indicationsDiv', {static: false}) indicationsDiv: ElementRef;
+  @ViewChild('tab1', {static: false}) tab1: ElementRef;
+  @ViewChild('tab2', {static: false}) tab2: ElementRef;
+  @ViewChild('normalText', {static: false}) normalText: ElementRef;
 
   @Input() indications: any;
   @Output() sendIndications = new EventEmitter<any>();

@@ -10,7 +10,7 @@ export class NewRadioAComponent implements OnInit, OnDestroy {
 
   @Input() field: any;
   @Input() optionalValues: any;
-  @ViewChild('delete') delete: ElementRef;
+  @ViewChild('delete', {static: false}) delete: ElementRef;
 
   public state: string;
   public randomName: string;

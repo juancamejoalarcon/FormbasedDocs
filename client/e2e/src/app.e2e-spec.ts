@@ -1,31 +1,23 @@
 import { AppPage } from './app.po';
-import { by, element } from 'protractor';
+import { browser, logging } from 'protractor';
 
-describe('contrato de arrendamiento de habitacion', () => {
+describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should set the title properly', () => {
-    page.navigateToCertifiedForm('contrato-arrendamiento-habitacion');
-    setTimeout(() => {
-      expect(page.getFormTitle().getText()).toBe('Contrato de arrendamiento de habitación');
-    }, 3000);
+  it('should display welcome message', () => {
+    page.navigateTo();
+    expect(page.getTitleText()).toEqual('automatikdocs app is running!');
   });
 
-  // it('should set the first question', () => {
-  //   page.startForm();
-  //   page.sleep(500);
-
-  //   expect(
-  //     element(by.css('.form-creator__fields-area__field__middle__question')).getText()
-  //   ).toBe('Lugar (ciudad o población) donde se realiza y firma el contrato:');
-
-  // });
-
-
-
-
+  afterEach(async () => {
+    // Assert that there are no errors emitted from the browser
+    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
+    expect(logs).not.toContain(jasmine.objectContaining({
+      level: logging.Level.SEVERE,
+    } as logging.Entry));
+  });
 });

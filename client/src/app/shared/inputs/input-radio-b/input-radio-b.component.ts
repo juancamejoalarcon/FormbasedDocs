@@ -27,16 +27,16 @@ import {  NewRadioBComponent } from './new-radio-b';
 export class InputRadioBComponent implements OnInit, OnDestroy {
 
   @Input() field: any;
-  @ViewChild('delete') delete: ElementRef;
-  @ViewChild('draggableText') draggableText: ElementRef;
-  @ViewChild('radios') radios: ElementRef;
-  @ViewChild('changeIdInput') changeIdInput: ElementRef;
-  @ViewChild('rightMenu') rightMenu: ElementRef;
-  @ViewChild('rightMenuButton') rightMenuButton: ElementRef;
-  @ViewChild('showModalButton') showModalButton: ElementRef;
-  @ViewChild('modal') modal: ElementRef;
-  @ViewChild('modalIndication') modalIndication: ElementRef;
-  @ViewChild('divWhereIsDeleteButton') divWhereIsDeleteButton: ElementRef;
+  @ViewChild('delete', {static: false}) delete: ElementRef;
+  @ViewChild('draggableText', {static: false}) draggableText: ElementRef;
+  @ViewChild('radios', {static: false}) radios: ElementRef;
+  @ViewChild('changeIdInput', {static: false}) changeIdInput: ElementRef;
+  @ViewChild('rightMenu', {static: false}) rightMenu: ElementRef;
+  @ViewChild('rightMenuButton', {static: false}) rightMenuButton: ElementRef;
+  @ViewChild('showModalButton', {static: false}) showModalButton: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
+  @ViewChild('modalIndication', {static: false}) modalIndication: ElementRef;
+  @ViewChild('divWhereIsDeleteButton', {static: true}) divWhereIsDeleteButton: ElementRef;
 
   public state: string;
   public documentType: string;
@@ -57,8 +57,6 @@ export class InputRadioBComponent implements OnInit, OnDestroy {
     private commonsService: CommonsService,
     private stepModelService: StepModelService,
     private stateService: StateService,
-    private componentInjectorService: ComponentInjectorService,
-    private inputCommonsService: InputCommonsService,
     private odfCreatorService: OdfCreatorService,
     private plainTextCreatorService: PlainTextCreatorService
   ) {}

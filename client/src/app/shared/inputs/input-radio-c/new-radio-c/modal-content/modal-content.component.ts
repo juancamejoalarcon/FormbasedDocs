@@ -6,7 +6,7 @@ import { InputRadioAComponent } from '../../../input-radio-a/input-radio-a.compo
 import { InputRadioBComponent } from '../../../input-radio-b/input-radio-b.component';
 import { InputRadioCComponent } from '../../../input-radio-c/input-radio-c.component';
 
-import * as Sortable from 'sortablejs';
+// import * as Sortable from 'sortablejs';
 
 @Component({
   selector: 'app-modal-content',
@@ -17,13 +17,13 @@ export class ModalContentComponent implements OnInit, AfterViewInit {
   @Input() idOfRadioParent: string;
   @Input() state: string;
   @Input() field: any;
-  @ViewChild('quill') quill: any;
-  @ViewChild('inputsMenuDiv') inputsMenuDiv: ElementRef;
-  @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
-  @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
-  @ViewChild('textPreviewDiv') textPreviewDiv: ElementRef;
-  @ViewChild('addQuestionMenuDiv') addQuestionMenuDiv: ElementRef;
-  @ViewChild('editorContainer') editorContainer: ElementRef;
+  @ViewChild('quill', {static: false}) quill: any;
+  @ViewChild('inputsMenuDiv', {static: false}) inputsMenuDiv: ElementRef;
+  @ViewChild('automatikDocDiv', {static: false}) automatikDocDiv: ElementRef;
+  @ViewChild('formAreaDiv', {static: false}) formAreaDiv: ElementRef;
+  @ViewChild('textPreviewDiv', {static: false}) textPreviewDiv: ElementRef;
+  @ViewChild('addQuestionMenuDiv', {static: false}) addQuestionMenuDiv: ElementRef;
+  @ViewChild('editorContainer', {static: false}) editorContainer: ElementRef;
 
   public inputs: Array<any> = [
     InputTextComponent,
@@ -64,7 +64,7 @@ export class ModalContentComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.setDivHeight();
-    this.enableSortablejs();
+    // this.enableSortablejs();
   }
 
   injectComponent(component: Object) {
@@ -299,17 +299,17 @@ export class ModalContentComponent implements OnInit, AfterViewInit {
     }
   }
 
-  enableSortablejs() {
-    const sortable = Sortable.create(this.formAreaDiv.nativeElement, {
-      handle: '.dragAndDropBotton',
-      scrollSensitivity: 200,
-      scroll: true,
-      ghostClass: 'ghost',
-      animation: 300,
-      fallbackTolerance: 40,
-      dragClass: 'sortable-drag'
-    });
-  }
+  // enableSortablejs() {
+  //   const sortable = Sortable.create(this.formAreaDiv.nativeElement, {
+  //     handle: '.dragAndDropBotton',
+  //     scrollSensitivity: 200,
+  //     scroll: true,
+  //     ghostClass: 'ghost',
+  //     animation: 300,
+  //     fallbackTolerance: 40,
+  //     dragClass: 'sortable-drag'
+  //   });
+  // }
 
   isNewAuthor () { return this.state === undefined; }
   isNewUser () { return this.state === 'newUser'; }

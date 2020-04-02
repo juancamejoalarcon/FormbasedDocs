@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MyFormsComponent implements OnInit {
 
-  @ViewChild('subMenu') subMenu: ElementRef;
+  @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
   public listConfig: FormListConfig = new FormListConfig();
   public loadingQuery = false;
   public results: Array<any> = [];

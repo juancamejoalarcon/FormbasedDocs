@@ -14,14 +14,13 @@ import {
 })
 export class FieldsAreaMiddleComponent implements OnInit, OnChanges {
 
-  @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
+  @ViewChild('formAreaDiv', {static: false}) formAreaDiv: ElementRef;
   @Input() fields: Array<Object>;
   step: number;
 
   constructor() { }
 
   ngOnInit() {
-    console.log('asdsdf');
   }
 
   ngOnChanges(changes: SimpleChanges)  {
@@ -44,13 +43,15 @@ export class FieldsAreaMiddleComponent implements OnInit, OnChanges {
 
   setCurrentStep(stepNum: number) {
     this.step = stepNum;
-    this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
-      if (stepNum === index) {
-        step.style.display = 'block';
-      } else {
-        step.style.display = 'none';
-      }
-    });
+    if (this.formAreaDiv) {
+      this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
+        if (stepNum === index) {
+          step.style.display = 'block';
+        } else {
+          step.style.display = 'none';
+        }
+      });
+    }
   }
 
 }

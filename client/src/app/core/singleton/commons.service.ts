@@ -222,7 +222,7 @@ export class CommonsService {
 
     enableFullScreen(id: string) {
         const el = document.getElementById(id);
-        if (screenfull && screenfull.enabled) {
+        if (screenfull && screenfull.isEnabled) {
           screenfull.request(el);
         }
     }

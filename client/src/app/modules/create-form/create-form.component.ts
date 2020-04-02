@@ -20,17 +20,17 @@ import {
   selector: 'app-create-form',
   templateUrl: './create-form.component.html'
 })
-export class CreateFormComponent implements OnInit, OnDestroy {
+export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild('quill') quill: any;
-  @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
-  @ViewChild('inputsMenuDiv') inputsMenuDiv: ElementRef;
-  @ViewChild('textPreviewDiv') textPreviewDiv: ElementRef;
-  @ViewChild('title') title: ElementRef;
-  @ViewChild('description') description: ElementRef;
-  @ViewChild('lightBox') lightBox: ElementRef;
-  @ViewChild('modalChooseDocument') modalChooseDocument: ElementRef;
-  @ViewChild('addQuestionMenuModal') addQuestionMenuModal: ElementRef;
+  @ViewChild('quill', {static: false}) quill: any;
+  @ViewChild('automatikDocDiv', {static: false}) automatikDocDiv: ElementRef;
+  @ViewChild('inputsMenuDiv', {static: false}) inputsMenuDiv: ElementRef;
+  @ViewChild('textPreviewDiv', {static: false}) textPreviewDiv: ElementRef;
+  @ViewChild('title', {static: false}) title: ElementRef;
+  @ViewChild('description', {static: false}) description: ElementRef;
+  @ViewChild('lightBox', {static: false}) lightBox: ElementRef;
+  @ViewChild('modalChooseDocument', {static: true}) modalChooseDocument: ElementRef;
+  @ViewChild('addQuestionMenuModal', {static: false}) addQuestionMenuModal: ElementRef;
 
   quillText = '';
   customOptions: any;
@@ -105,6 +105,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         }
       }
     );
+  }
+
+  ngAfterViewInit() {
+    
   }
 
   ngOnDestroy() {
@@ -230,7 +234,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   previewDocumentButton(setDocumentVisible: boolean) {
     this.commonsService.previewDocumentButton(setDocumentVisible);
-      this.documentService.resizeEvent();
+    this.documentService.resizeEvent();
   }
 
   toastMessage(type: string, message1: string, message2: string) {

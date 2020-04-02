@@ -15,8 +15,8 @@ import { Location } from '@angular/common';
 })
 export class SearchComponent implements OnInit {
 
-  @ViewChild('subMenu') subMenu: ElementRef;
-  @ViewChild('userFormsTab') userFormsTab: ElementRef;
+  @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
+  @ViewChild('userFormsTab', {static: false}) userFormsTab: ElementRef;
 
   public isAuthenticated: boolean;
   public currentUser: String;

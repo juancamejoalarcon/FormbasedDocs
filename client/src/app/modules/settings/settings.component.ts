@@ -10,14 +10,16 @@ import { User, UserService } from '../../core';
 })
 export class SettingsComponent implements OnInit {
 
-  @ViewChild('modal') modal: ElementRef;
-  @ViewChild('imageSrc') imageSrc: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
+  @ViewChild('imageSrc', {static: false}) imageSrc: ElementRef;
   user: User = new User();
   settingsForm: FormGroup;
   errors: Object = {};
   isSubmitting: boolean = false;
   modalStatus: string;
-  oldPass: string;
+  oldPass: any;
+  removeAccountPass: any;
+  newPass: any;
 
   constructor(
     private router: Router,

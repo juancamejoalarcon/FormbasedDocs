@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { Errors, UserService, CommonsService } from '../../core';
   selector: 'app-auth-page',
   templateUrl: './auth.component.html'
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, AfterViewInit {
 
   authType: String = '';
   title: String = '';
@@ -16,10 +16,10 @@ export class AuthComponent implements OnInit {
   isSubmitting = false;
   form: FormGroup;
   queryParams: object = {};
-  @ViewChild('modal') modal: ElementRef;
-  @ViewChild('modalMiddle') modalMiddle: ElementRef;
-  @ViewChild('closeModalButton') closeModalButton: ElementRef;
-  @ViewChild('privacyCheckbox') privacyCheckbox: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
+  @ViewChild('modalMiddle', {static: false}) modalMiddle: ElementRef;
+  @ViewChild('closeModalButton', {static: false}) closeModalButton: ElementRef;
+  @ViewChild('privacyCheckbox', {static: false}) privacyCheckbox: ElementRef;
 
 
   constructor(
@@ -57,6 +57,9 @@ export class AuthComponent implements OnInit {
       }
     });
 
+  }
+
+  ngAfterViewInit() {
     this.checkIfUserHasScrolledToBottom();
   }
 

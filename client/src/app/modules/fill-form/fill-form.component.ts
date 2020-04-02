@@ -19,14 +19,14 @@ import * as screenfull from 'screenfull';
 })
 export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
-  @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
-  @ViewChild('linkFormButton') linkFormButton: ElementRef;
-  @ViewChild('progressBar') progressBar: ElementRef;
-  @ViewChild('modal') modal: ElementRef;
-  @ViewChild('modalDownload') modalDownload: ElementRef;
+  @ViewChild('formAreaDiv', {static: false}) formAreaDiv: ElementRef;
+  @ViewChild('automatikDocDiv', {static: false}) automatikDocDiv: ElementRef;
+  @ViewChild('linkFormButton', {static: false}) linkFormButton: ElementRef;
+  @ViewChild('progressBar', {static: false}) progressBar: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
+  @ViewChild('modalDownload', {static: false}) modalDownload: ElementRef;
 
-  @ViewChild('subMenu') subMenu: ElementRef;
+  @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
 
   public state: string;
   public generatedText: any;

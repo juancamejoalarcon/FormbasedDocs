@@ -14,12 +14,13 @@ export class NewRadioCComponent implements OnInit {
   @Input() field: any;
   @Input() valueRadio: any;
   @Input() optionalValues: any;
-  @ViewChild('delete') delete: ElementRef;
-  @ViewChild('modalConditional') modalConditional: ElementRef;
-  @ViewChild('modalContent') modalContent: any;
+  @ViewChild('delete', {static: false}) delete: ElementRef;
+  @ViewChild('modalConditional', {static: false}) modalConditional: ElementRef;
+  @ViewChild('modalContent', {static: false}) modalContent: any;
   public randomName: string;
   public randomNumberForModal = 'i' + Math.random().toString(36).substring(7);
   public randomId: string;
+  public radio: any;
 
   constructor() { }
 
