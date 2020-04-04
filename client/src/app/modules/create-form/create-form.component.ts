@@ -101,7 +101,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         this.setInitialState();
         if (this.updatingForm) {
-          this.setDocument(this.form.documentType);
+            this.setDocument(this.form.documentType);
         }
       }
     );
@@ -112,14 +112,16 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.documentService) {
-      if (this.documentType === 'office') {
-        this.odfCreatorService.closeAndDestroyEditor();
+    if (this.commonsService.isBrowser()) {
+      if (this.documentService) {
+        if (this.documentType === 'office') {
+          this.odfCreatorService.closeAndDestroyEditor();
+        }
+      this.documentService.destroyResizeDocumentContainer();
       }
-    this.documentService.destroyResizeDocumentContainer();
+      this.commonsService.setFormCreatorPlayground(true);
+      window.removeEventListener('resize', (this.commonsService.resizeEditor as any));
     }
-    this.commonsService.setFormCreatorPlayground(true);
-    window.removeEventListener('resize', (this.commonsService.resizeEditor as any));
   }
 
   preview(checked: boolean) {
@@ -156,13 +158,15 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
     if (documentType === 'office') {
       this.setDivHeight();
       this.documentService = this.odfCreatorService;
-      this.documentService.init('create-form', this.updatingForm ? this.form.text : '', 'editorContainer').then( (data: any) => {
-        this.commonsService.setFormCreatorPlayground(false);
-        this.commonsService.resizeEditor(true);
-        window.addEventListener('resize', (this.commonsService.resizeEditor as any));
-        this.documentService.setDragAndDropForSetUp();
-        this.documentService.resizeDocumentContainer();
-      });
+      if (this.commonsService.isBrowser()) {
+        this.documentService.init('create-form', this.updatingForm ? this.form.text : '', 'editorContainer').then( (data: any) => {
+          this.commonsService.setFormCreatorPlayground(false);
+          this.commonsService.resizeEditor(true);
+          window.addEventListener('resize', (this.commonsService.resizeEditor as any));
+          this.documentService.setDragAndDropForSetUp();
+          this.documentService.resizeDocumentContainer();
+        });
+      }
     } else {
       this.documentService = this.plainTextCreatorService;
       this.quillModules = this.documentService.quillModules();

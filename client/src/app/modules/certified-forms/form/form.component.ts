@@ -55,6 +55,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    if (this.commonsService.isBrowser()) {
     this.commonsService.toggleSpinner();
     this.route.params.subscribe(routeParams => {
       this.route.queryParams.subscribe(params => {
@@ -104,6 +105,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       });
     });
+    }
   }
 
   ngAfterViewInit() {

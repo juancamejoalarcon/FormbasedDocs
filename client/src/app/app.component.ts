@@ -52,8 +52,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-
-    this.userService.populate();
+    if (!this.isAuth) {
+      this.userService.populate();
+    }
     this.userService.isAuthenticated.subscribe(
       (isAuthenticated) => {
         if (isAuthenticated) {

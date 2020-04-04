@@ -25,6 +25,10 @@ export class CommonsService {
       return isPlatformBrowser(this.platformId);
     }
 
+    isServer() {
+      return isPlatformServer(this.platformId);
+    }
+
     toggleModal(modal: any, closeWhenClickedOuside = true) {
         if (!modal.classList.contains('show-modal')) {
             modal.classList.toggle('show-modal');

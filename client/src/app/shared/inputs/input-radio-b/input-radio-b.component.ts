@@ -96,10 +96,12 @@ export class InputRadioBComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    let steps = this.stepModelService.getStepsModel();
-    steps = steps.filter(step => step !== this.step);
-    this.stepModelService.init(steps, this.documentType);
-    this.stepModelService.removeStep();
+    if (this.commonsService.isBrowser()) {
+      let steps = this.stepModelService.getStepsModel();
+      steps = steps.filter(step => step !== this.step);
+      this.stepModelService.init(steps, this.documentType);
+      this.stepModelService.removeStep();
+    }
   }
 
   createStep() {

@@ -45,8 +45,10 @@ export class OdfCreatorService {
   }
 
   closeAndDestroyEditor() {
-    AutomatikDocsApi.closeAndDestroyEditor();
-    window.removeEventListener('resize', this.resizeEvent);
+    if (this.commonsService.isBrowser()) {
+      AutomatikDocsApi.closeAndDestroyEditor();
+      window.removeEventListener('resize', this.resizeEvent);
+    }
   }
 
   createEditorFromURI(formType: string, idOfContainer: string, dataURI: string) {

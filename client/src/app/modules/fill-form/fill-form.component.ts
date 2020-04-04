@@ -59,28 +59,30 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    this.route.data.subscribe(
-      data => {
-        const form: Form = data.form;
-        this.form = form;
-        this.fields = form.fields;
-        this.generatedText = form.text;
-        if (form.type === 'Created') {
-          this.form.originalSlug = form.slug;
-          this.updatingForm = false;
-        } else {
-          this.updatingForm = true;
+    if (this.commonsService.isBrowser()) {
+      this.route.data.subscribe(
+        data => {
+          const form: Form = data.form;
+          this.form = form;
+          this.fields = form.fields;
+          this.generatedText = form.text;
+          if (form.type === 'Created') {
+            this.form.originalSlug = form.slug;
+            this.updatingForm = false;
+          } else {
+            this.updatingForm = true;
+          }
+          this.updateProgressBarPercentage();
+          this.setInitialState();
+          this.setDocument();
+          this.setDivHeight();
         }
-        this.updateProgressBarPercentage();
-        this.setInitialState();
-        this.setDocument();
-        this.setDivHeight();
-      }
-    );
-    this.formsService.get(this.form.originalSlug).subscribe(
-      originalForm => {
-        this.originalForm = originalForm;
-      } );
+      );
+      this.formsService.get(this.form.originalSlug).subscribe(
+        originalForm => {
+          this.originalForm = originalForm;
+        } );
+    }
   }
 
   ngAfterViewInit() {
@@ -90,12 +92,14 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy() {
-    if (this.form.documentType === 'office') {
-      this.odfCreatorService.closeAndDestroyEditor();
+    if (this.commonsService.isBrowser()) {
+      if (this.form.documentType === 'office') {
+        this.odfCreatorService.closeAndDestroyEditor();
+      }
+      this.documentService.destroyResizeDocumentContainer();
+      this.commonsService.setFormCreatorPlayground(true);
+      window.removeEventListener('resize', (this.commonsService.resizeEditor as any));
     }
-    this.documentService.destroyResizeDocumentContainer();
-    this.commonsService.setFormCreatorPlayground(true);
-    window.removeEventListener('resize', (this.commonsService.resizeEditor as any));
   }
 
   setInitialState() {

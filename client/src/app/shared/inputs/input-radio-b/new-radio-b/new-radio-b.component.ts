@@ -1,10 +1,16 @@
-import { Component,
-         OnInit,
-         ViewChild,
-         Input,
-         ElementRef, 
-         OnDestroy} from '@angular/core';
-import { StateService, StepModelService } from '../../../../core';
+import { 
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  ElementRef, 
+  OnDestroy
+} from '@angular/core';
+import { 
+  StateService,
+  StepModelService,
+  CommonsService
+} from '../../../../core';
 import { NewRadioB } from './new-radio-b.interface';
 
 @Component({
@@ -32,7 +38,8 @@ export class NewRadioBComponent implements OnInit, OnDestroy {
 
   constructor(
     private stateService: StateService,
-    private stepModelService: StepModelService
+    private stepModelService: StepModelService,
+    private commonsService: CommonsService
   ) { }
 
   ngOnInit() {
@@ -62,12 +69,14 @@ export class NewRadioBComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.stepModelService.getStepsModel().forEach((step: any) => {
-      if (step.identifier === this.identifier) {
-        const filterRadios = step.radios.filter((radio: NewRadioB) => radio !== this.radio);
-        step.radios = filterRadios;
-      }
-    });
+    if (this.commonsService.isBrowser()) {
+      this.stepModelService.getStepsModel().forEach((step: any) => {
+        if (step.identifier === this.identifier) {
+          const filterRadios = step.radios.filter((radio: NewRadioB) => radio !== this.radio);
+          step.radios = filterRadios;
+        }
+      });
+    }
   }
 
   pushNewRadio() {

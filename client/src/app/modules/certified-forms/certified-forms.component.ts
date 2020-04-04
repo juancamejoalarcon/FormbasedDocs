@@ -40,7 +40,7 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
       if (this.commonsService.isObjectEmpty(form)) {
       } else {
         this.form = form;
-        document.title = 'Automatik Docs | ' + form.topLabelTitle;
+        // document.title = 'Automatik Docs | ' + form.topLabelTitle;
         this.currentStep = form.currentStep;
       }
     });
@@ -54,8 +54,9 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
         }
       }
     );
-
-    window.addEventListener('unload', this.saveInSessionStorage.bind(this));
+      if (this.commonsService.isBrowser()) {
+        window.addEventListener('unload', this.saveInSessionStorage.bind(this));
+      }
   }
 
   ngOnDestroy() {
