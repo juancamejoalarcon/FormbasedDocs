@@ -1,4 +1,11 @@
-import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { 
+  Component,
+  OnInit,
+  HostListener,
+  ElementRef,
+  ViewChild,
+  AfterViewInit
+} from '@angular/core';
 import {
   FormListConfig,
   Form,
@@ -13,7 +20,7 @@ import { Location } from '@angular/common';
   selector: 'app-search',
   templateUrl: './search.component.html'
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, AfterViewInit {
 
   @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
   @ViewChild('userFormsTab', {static: false}) userFormsTab: ElementRef;
@@ -54,13 +61,16 @@ export class SearchComponent implements OnInit {
          });
       }
     );
+  }
 
+  ngAfterViewInit() {
     if (window.location.pathname === '/search/user-forms') {
       this.userFormsTab.nativeElement.click();
     } else {
       this.location.replaceState('/');
     }
   }
+
 
   setListTo() {
     // Takes all forms

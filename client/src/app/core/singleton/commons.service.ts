@@ -1,4 +1,12 @@
-import { Injectable } from '@angular/core';
+import { 
+  Injectable,
+  PLATFORM_ID,
+  Inject
+} from '@angular/core';
+import { 
+  isPlatformBrowser,
+  isPlatformServer
+} from '@angular/common';
 import * as AutomatikDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
 import * as screenfull from 'screenfull';
 import { ToastrService } from 'ngx-toastr';
@@ -9,8 +17,13 @@ export class CommonsService {
 
     public isDocumentVisible = false;
     constructor (
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        @Inject(PLATFORM_ID) private platformId: any,
     ) {}
+
+    isBrowser() {
+      return isPlatformBrowser(this.platformId);
+    }
 
     toggleModal(modal: any, closeWhenClickedOuside = true) {
         if (!modal.classList.contains('show-modal')) {
@@ -155,20 +168,27 @@ export class CommonsService {
       } else if (document.querySelector('app-certified-forms')) {
         formContainer = document.querySelector('app-certified-forms');
       }
-
-      navAndContent.style.display = onDestroyComponent ? '' : 'flex';
-      navAndContent.style.flexDirection = onDestroyComponent ? '' : 'column';
-      navAndContent.style.height = onDestroyComponent ? '' : '100vh';
-      navAndOthers.style.flex = onDestroyComponent ? '' : '0 1 auto';
-
-      formContainer.style.display = onDestroyComponent ? '' : 'flex';
-      formContainer.style.flexDirection = onDestroyComponent ? '' : 'column';
-      formContainer.style.height = onDestroyComponent ? '' : '100%';
-      formContainer.style.flex = onDestroyComponent ? '' : '1 1 auto';
-
-      subMenu.style.flex = onDestroyComponent ? '' : '0 1 auto';
-      formCreator.style.flex = onDestroyComponent ? '' : '1 1 auto';
-      formCreator.style.height = onDestroyComponent ? '' : 'auto';
+      if (navAndContent) {
+        navAndContent.style.display = onDestroyComponent ? '' : 'flex';
+        navAndContent.style.flexDirection = onDestroyComponent ? '' : 'column';
+        navAndContent.style.height = onDestroyComponent ? '' : '100vh';
+      }
+      if (navAndOthers) {
+        navAndOthers.style.flex = onDestroyComponent ? '' : '0 1 auto';
+      }
+      if (formContainer) {
+        formContainer.style.display = onDestroyComponent ? '' : 'flex';
+        formContainer.style.flexDirection = onDestroyComponent ? '' : 'column';
+        formContainer.style.height = onDestroyComponent ? '' : '100%';
+        formContainer.style.flex = onDestroyComponent ? '' : '1 1 auto';
+      }
+      if (subMenu) {
+        subMenu.style.flex = onDestroyComponent ? '' : '0 1 auto';
+      }
+      if (formCreator) {
+        formCreator.style.flex = onDestroyComponent ? '' : '1 1 auto';
+        formCreator.style.height = onDestroyComponent ? '' : 'auto';
+      }
     }
 
     resizeEditor(isLoaded: boolean = true) {
@@ -319,7 +339,9 @@ export class CommonsService {
     }
 
     toggleSpinner() {
+      if (document.getElementById('spinner')) {
         document.getElementById('spinner').classList.toggle('show-spinner');
+      }
     }
 
     validateEmail(email: string) {

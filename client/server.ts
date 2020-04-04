@@ -7,12 +7,55 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+import { Blob } from "blob-polyfill";
+
+
+// ssr DOM
+const domino = require('domino');
+const fs = require('fs');
+const path = require('path');
+
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
   const distFolder = join(process.cwd(), 'dist/automatikdocs/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
+
+  // FIX WINDOW
+  // index from browser build!
+  const template = fs.readFileSync(path.join('.', 'dist/automatikdocs/browser', 'index.html')).toString();
+  // for mock global window by domino
+  const win = domino.createWindow(template);
+  // mock
+  global['window'] = win;
+  global['atob'] = () => { 
+    return "Hello, world";
+  };
+  global['Blob'] = Blob;
+  global['FileReader'] = function FileReader() {};
+  global['URL'] = {
+    createObjectURL: () => {}
+  }
+  global['Wodo'] = {
+      createTextEditor: () => {},
+      getEditor: () => {}
+  };
+  // not implemented property and functions
+  Object.defineProperty(win.document.body.style, 'transform', {
+    value: () => {
+      return {
+        enumerable: true,
+        configurable: true,
+      };
+    },
+  });
+  // mock documnet
+  global['document'] = win.document;
+  // othres mock
+  global['CSS'] = null;
+  // global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
+  global['Prism'] = null;
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({

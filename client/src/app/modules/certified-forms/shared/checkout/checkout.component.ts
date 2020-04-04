@@ -112,12 +112,14 @@ export class CheckoutComponent implements OnInit {
   }
 
   goToAuth() {
-    window.sessionStorage[this.form.title] = JSON.stringify(this.form);
-    this.router.navigate(['/auth/login'], {
-      queryParams: {
-        formPath: this.router.url.substring(this.router.url.lastIndexOf('/') + 1)
-      }
-    });
+    if (window.sessionStorage) {
+      window.sessionStorage[this.form.title] = JSON.stringify(this.form);
+      this.router.navigate(['/auth/login'], {
+        queryParams: {
+          formPath: this.router.url.substring(this.router.url.lastIndexOf('/') + 1)
+        }
+      });
+    }
   }
 
   onSubmit() {

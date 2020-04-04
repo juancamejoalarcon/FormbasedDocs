@@ -277,15 +277,15 @@ function getEditor() {
     return Wodo.getEditor();
 }
 
-export { 
-    createEditor,
-    documentToFitScreen,
-    setCursorPositionForDragAndDrop,
-    closeDocument,
-    saveForPreview,
-    removeCursor,
-    getEditorSession,
-    getEditor,
-    closeAndDestroyEditor,
-    loadPreview
+module.exports = {
+    createEditor: createEditor,
+    documentToFitScreen: documentToFitScreen,
+    setCursorPositionForDragAndDrop: setCursorPositionForDragAndDrop,
+    closeDocument: closeDocument,
+    saveForPreview: saveForPreview,
+    removeCursor: removeCursor,
+    getEditorSession: getEditorSession,
+    getEditor: getEditor,
+    closeAndDestroyEditor: closeAndDestroyEditor,
+    loadPreview: loadPreview
 };

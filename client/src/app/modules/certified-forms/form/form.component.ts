@@ -80,7 +80,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
             }
           });
         } else {
-          if (window.sessionStorage[routeParams.id]) {
+          if (window.sessionStorage && window.sessionStorage[routeParams.id]) {
             this.form = JSON.parse(window.sessionStorage[routeParams.id]);
             this.steps = this.form.fields;
             this.formAlreadyPaid = this.form.alreadyPaid;

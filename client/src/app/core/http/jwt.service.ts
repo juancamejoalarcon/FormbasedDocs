@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 export class JwtService {
 
   getToken(): String {
-    if (window.localStorage['jwtToken'] !== undefined) {
+    if (this.localStorageExists()) {
       return window.localStorage['jwtToken'];
-    } else if (window.sessionStorage['jwtToken'] !== undefined) {
+    } else if (this.sessionStorageExists()) {
       return window.sessionStorage['jwtToken'];
     }
   }
@@ -21,7 +21,17 @@ export class JwtService {
   }
 
   destroyToken() {
-    window.localStorage.removeItem('jwtToken');
+    if (this.localStorageExists()) {
+      window.localStorage.removeItem('jwtToken');
+    }
+  }
+
+  localStorageExists() {
+    return window.localStorage !== undefined && window.localStorage['jwtToken'] !== undefined;
+  }
+
+  sessionStorageExists() {
+    return window.sessionStorage !== undefined && !window.sessionStorage['jwtToken'] !== undefined;
   }
 
 }

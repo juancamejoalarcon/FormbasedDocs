@@ -28,8 +28,10 @@ export class SearchTransactionComponent implements OnInit, OnDestroy {
   }
 
   resizeDiv() {
-    const menuHeight: number = document.querySelector('.nav').clientHeight;
-    this.searchTransactionDiv.nativeElement.style.height = (window.innerHeight - menuHeight) + 'px';
+    if (document.querySelector('.nav')) {
+      const menuHeight: number = document.querySelector('.nav').clientHeight;
+      this.searchTransactionDiv.nativeElement.style.height = (window.innerHeight - menuHeight) + 'px';
+    }
   }
 
   findTransaction() {
