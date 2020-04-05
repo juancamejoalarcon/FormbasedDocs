@@ -9,11 +9,11 @@ export class SilviaProfileComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    document.title = 'Automatik Docs | Silvia Camejo Alarcón';
+    // document.title = 'Automatik Docs | Silvia Camejo Alarcón';
   }
 
   ngOnDestroy() {
-    document.title = 'Automatik Docs';
+    // document.title = 'Automatik Docs';
   }
 
 }

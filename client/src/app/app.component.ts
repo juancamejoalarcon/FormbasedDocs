@@ -11,9 +11,9 @@ import {
   Router,
   NavigationEnd
 } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
 import {
-  UserService
+  UserService,
+  CommonsService
 } from './core';
 
 @Component({
@@ -48,10 +48,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     @Inject(LOCALE_ID) protected localeId: string,
     private userService: UserService,
     private router: Router,
-    private metaTagService: Meta
+    private commonsService: CommonsService
   ) {}
 
   ngOnInit() {
+    this.commonsService.addTags('search');
     if (!this.isAuth) {
       this.userService.populate();
     }
@@ -80,15 +81,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         }
       }
     });
-
-    this.metaTagService.addTags([
-      { name: 'keywords', content: 'Angular SEO Integration, Music CRUD, Angular Universal' },
-      { name: 'robots', content: 'index, follow' },
-      { name: 'author', content: 'Digamber Singh' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'date', content: '2019-10-31', scheme: 'YYYY-MM-DD' },
-      { charset: 'UTF-8' }
-    ]);
   }
 
   ngAfterViewInit() {

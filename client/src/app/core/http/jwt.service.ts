@@ -24,7 +24,8 @@ export class JwtService {
     //   return window.sessionStorage['jwtToken'];
     // }
     if (this.commonsService.isServer()) {
-      const rawCookies = !!this.req.headers['cookie'] ? this.req.headers['cookie'] : '';
+      const req = this.commonsService.getServerReq();
+      const rawCookies = !!req.headers['cookie'] ? req.headers['cookie'] : '';
       return this.getCookieValue('jwtToken', rawCookies);
     }
     

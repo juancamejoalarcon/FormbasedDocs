@@ -24,7 +24,8 @@ import {
   StateService,
   OdfCreatorService,
   PlainTextCreatorService,
-  CommonsService
+  CommonsService,
+  MetaService
 } from './singleton';
 
 @NgModule({
@@ -51,7 +52,8 @@ import {
     StateService,
     OdfCreatorService,
     PlainTextCreatorService,
-    CookieService
+    CookieService,
+    MetaService
   ],
   declarations: []
 })

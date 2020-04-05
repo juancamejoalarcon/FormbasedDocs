@@ -36,6 +36,7 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.commonsService.addTags('certifiedForms');
     this.sharedService.currentForm.subscribe((form) => {
       if (this.commonsService.isObjectEmpty(form)) {
       } else {
@@ -62,7 +63,7 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.saveInSessionStorage();
     window.removeEventListener('unload', this.saveInSessionStorage);
-    document.title = 'Automatik Docs';
+    // document.title = 'Automatik Docs';
   }
 
   topMenuNav(e: any) {

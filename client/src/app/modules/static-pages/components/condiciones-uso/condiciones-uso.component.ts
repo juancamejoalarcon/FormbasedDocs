@@ -9,11 +9,11 @@ export class CondicionesUsoComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    document.title = 'Automatik Docs | Condiciones de uso';
+    // document.title = 'Automatik Docs | Condiciones de uso';
   }
 
   ngOnDestroy() {
-    document.title = 'Automatik Docs';
+    // document.title = 'Automatik Docs';
   }
 
 }

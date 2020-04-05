@@ -1,15 +1,17 @@
 import { 
   Injectable,
   PLATFORM_ID,
-  Inject
+  Inject,
+  Optional
 } from '@angular/core';
 import { 
   isPlatformBrowser,
   isPlatformServer
 } from '@angular/common';
-import * as AutomatikDocsApi from '../../../assets/js/wodotexteditor/localfileeditor.js';
 import * as screenfull from 'screenfull';
 import { ToastrService } from 'ngx-toastr';
+import { MetaService } from './meta.service';
+import { REQUEST } from '@nguniversal/express-engine/tokens';
 
 
 @Injectable()
@@ -19,6 +21,8 @@ export class CommonsService {
     constructor (
         private toastr: ToastrService,
         @Inject(PLATFORM_ID) private platformId: any,
+        private metaService: MetaService,
+        @Optional() @Inject(REQUEST) private req: any
     ) {}
 
     isBrowser() {
@@ -27,6 +31,21 @@ export class CommonsService {
 
     isServer() {
       return isPlatformServer(this.platformId);
+    }
+
+    addTags(page: string) {
+      if (this.isServer()) {
+        const opt = {
+          req: this.getServerReq()
+        };
+        this.metaService.addTags(page, opt);
+      }
+    }
+
+    getServerReq() {
+      if (this.isServer()) {
+        return this.req;
+      }
     }
 
     toggleModal(modal: any, closeWhenClickedOuside = true) {
@@ -541,12 +560,6 @@ export class CommonsService {
         return finalAmount(num, currency);
       }
 
-
-    
-    
-    
-    
-  
     
     numeroALetras(num) {
         // Código basado en https://gist.github.com/alfchee/e563340276f89b22042a
