@@ -8,7 +8,8 @@ import {
   StepModelService,
   StateService,
   OdfCreatorService,
-  PlainTextCreatorService
+  PlainTextCreatorService,
+  UserService
 } from '../../core';
 import {
   InputTextComponent,
@@ -65,8 +66,8 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
     private stepModelService: StepModelService,
     private stateService: StateService,
     private odfCreatorService: OdfCreatorService,
-    private plainTextCreatorService: PlainTextCreatorService
-
+    private plainTextCreatorService: PlainTextCreatorService,
+    private userService: UserService
   ) {
     // use the FormBuilder to create a form group
     this.formGroup = this.fb.group({
@@ -80,28 +81,47 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    if (this.route.snapshot.data.initedInServer) {
+      // this.userService.populate();
+      this.userService.isAuthenticated.subscribe(
+        (isAuthenticated) => {
+          if (isAuthenticated) {
+            this.initialValue();
+          } else {
+            this.initialValue();
+          }
+        }
+      );
+    } else {
+      this.initialValue();
+    }
+  }
+
+  initialValue() {
     window['DOCUMENTOURL'] = false;
     // If there's a form prefetched, load it
     this.route.data.subscribe(
       (data: {form: Form}) => {
-        if (data.form) {
-          this.quillText = data.form.text;
-          this.textPreview = data.form.text;
-          this.form = data.form;
-          this.formGroup.patchValue(data.form);
-          // this.fields = this.form.fields;
-          this.form.documentType = data.form.documentType;
-          this.updatingForm = true;
-          setTimeout(() => {
-              this.setCurrentStep(this.form.currentStep);
-          }, 0);
-        } else {
-          this.updatingForm = false;
-          this.toogleModal(this.modalChooseDocument.nativeElement);
-        }
-        this.setInitialState();
-        if (this.updatingForm) {
-            this.setDocument(this.form.documentType);
+        if (this.commonsService.isBrowser() && this.userService.isAuth) {
+          if (data.form) {
+            this.quillText = data.form.text;
+            this.textPreview = data.form.text;
+            this.form = data.form;
+            this.formGroup.patchValue(data.form);
+            // this.fields = this.form.fields;
+            this.form.documentType = data.form.documentType;
+            this.updatingForm = true;
+            setTimeout(() => {
+                this.setCurrentStep(this.form.currentStep);
+            }, 0);
+          } else {
+            this.updatingForm = false;
+            this.toogleModal(this.modalChooseDocument.nativeElement);
+          }
+          this.setInitialState();
+          if (this.updatingForm) {
+              this.setDocument(this.form.documentType);
+          }
         }
       }
     );

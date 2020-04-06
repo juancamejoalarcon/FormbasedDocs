@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MyFormsComponent } from './my-forms.component';
-import { AuthGuard } from '../../core';
+import { AuthResolver } from '../../core';
 
 const routes: Routes = [
   {
     path: '',
     component: MyFormsComponent,
-    canActivate: [AuthGuard]
+    resolve: { initedInServer: AuthResolver }
   },
 ];
 

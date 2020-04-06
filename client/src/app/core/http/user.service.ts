@@ -16,6 +16,7 @@ export class UserService {
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
   public isAuth = false;
+  public appInited = false;
 
   constructor (
     private apiService: ApiService,
@@ -25,6 +26,7 @@ export class UserService {
   // Verify JWT in localstorage with server & load user's info.
   // This runs once on application startup.
   populate() {
+    this.appInited = true;
     if (!this.isAuth) {
       // If JWT detected, attempt to get & store user's info
       if (this.jwtService.getToken()) {

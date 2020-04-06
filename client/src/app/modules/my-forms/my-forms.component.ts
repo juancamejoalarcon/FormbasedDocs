@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { User, UserService, FormListConfig, Form, FormService, SearchService, CommonsService } from '../../core';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-my-forms',
@@ -31,10 +32,28 @@ export class MyFormsComponent implements OnInit {
     private searchService: SearchService,
     private formService: FormService,
     private toastr: ToastrService,
-    private commonsService: CommonsService
+    private commonsService: CommonsService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    if (this.route.snapshot.data.initedInServer) {
+      // this.userService.populate();
+      this.userService.isAuthenticated.subscribe(
+        (isAuthenticated) => {
+          if (isAuthenticated) {
+            this.initialValue();
+          } else {
+            this.initialValue();
+          }
+        }
+      );
+    } else {
+      this.initialValue();
+    }
+  }
+
+  initialValue() {
     this.user = this.userService.getCurrentUser();
     this.loadingQuery = true;
     this.listConfig.orderBy = 'Date';

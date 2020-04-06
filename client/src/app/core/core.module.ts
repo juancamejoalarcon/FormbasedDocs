@@ -25,7 +25,8 @@ import {
   OdfCreatorService,
   PlainTextCreatorService,
   CommonsService,
-  MetaService
+  MetaService,
+  AuthResolver
 } from './singleton';
 
 @NgModule({
@@ -53,7 +54,8 @@ import {
     OdfCreatorService,
     PlainTextCreatorService,
     CookieService,
-    MetaService
+    MetaService,
+    AuthResolver
   ],
   declarations: []
 })
