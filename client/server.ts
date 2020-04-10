@@ -19,12 +19,12 @@ const path = require('path');
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/automatikdocs/browser');
+  const distFolder = join(process.cwd(), '../server/public/automatikdocs/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // FIX WINDOW
   // index from browser build!
-  const template = fs.readFileSync(path.join('.', 'dist/automatikdocs/browser', 'index.html')).toString();
+  const template = fs.readFileSync(path.join('.', '../server/public/automatikdocs/browser', 'index.html')).toString();
   // for mock global window by domino
   const win = domino.createWindow(template);
   // mock

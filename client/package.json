@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run automatikdocs:serve-ssr",
-    "serve:ssr": "node dist/automatikdocs/server/main.js",
+    "serve:ssr": "node ../server/public/automatikdocs/server/main.js",
     "ssr:serve": "nodemon --watch src/ -e ts,html,scss --exec 'npm run build:ssr && npm run serve:ssr'",
     "build:ssr": "ng build --prod && ng run automatikdocs:server:production",
     "prerender": "ng run automatikdocs:prerender"
