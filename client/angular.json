@@ -94,6 +94,9 @@
             "browserTarget": "automatikdocs:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "automatikdocs:build:development"
+            },
             "production": {
               "browserTarget": "automatikdocs:build:production"
             }
@@ -142,6 +145,9 @@
             "devServerTarget": "automatikdocs:serve"
           },
           "configurations": {
+            "development": {
+              "devServerTarget": "automatikdocs:serve:development"
+            },
             "production": {
               "devServerTarget": "automatikdocs:serve:production"
             }
@@ -155,6 +161,17 @@
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
+            "development": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            },
             "production": {
               "outputHashing": "media",
               "fileReplacements": [
@@ -175,6 +192,10 @@
             "serverTarget": "automatikdocs:server"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "automatikdocs:build:development",
+              "serverTarget": "automatikdocs:server:development"
+            },
             "production": {
               "browserTarget": "automatikdocs:build:production",
               "serverTarget": "automatikdocs:server:production"
@@ -191,6 +212,7 @@
             ]
           },
           "configurations": {
+            "development": {},
             "production": {}
           }
         }

@@ -58,9 +58,9 @@ build_and_deploy() {
     # Build angular project
     pushd ./client
     if [ "$environment" = 'dev' ]; then
-        ng build --configuration='development'
+        npm run build:ssr:development
     elif [ "$environment" = 'prod' ]; then
-        ng build --configuration='production'
+        npm run build:ssr:production
     fi
     popd
     # Rewrite commands of Procfile
