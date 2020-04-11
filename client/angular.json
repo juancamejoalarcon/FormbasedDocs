@@ -30,6 +30,34 @@
             "scripts": []
           },
           "configurations": {
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
             "development": {
               "fileReplacements": [
                 {
@@ -94,6 +122,9 @@
             "browserTarget": "automatikdocs:build"
           },
           "configurations": {
+            "local": {
+              "browserTarget": "automatikdocs:build:local"
+            },
             "development": {
               "browserTarget": "automatikdocs:build:development"
             },
@@ -145,6 +176,9 @@
             "devServerTarget": "automatikdocs:serve"
           },
           "configurations": {
+            "local": {
+              "devServerTarget": "automatikdocs:serve:local"
+            },
             "development": {
               "devServerTarget": "automatikdocs:serve:development"
             },
@@ -161,6 +195,17 @@
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
+            "local": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            },
             "development": {
               "outputHashing": "media",
               "fileReplacements": [
@@ -192,6 +237,10 @@
             "serverTarget": "automatikdocs:server"
           },
           "configurations": {
+            "local": {
+              "browserTarget": "automatikdocs:build:local",
+              "serverTarget": "automatikdocs:server:local"
+            },
             "development": {
               "browserTarget": "automatikdocs:build:development",
               "serverTarget": "automatikdocs:server:development"
@@ -212,6 +261,7 @@
             ]
           },
           "configurations": {
+            "local": {},
             "development": {},
             "production": {}
           }

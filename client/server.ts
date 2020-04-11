@@ -7,7 +7,7 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
-import { Blob } from "blob-polyfill";
+import { Blob } from 'blob-polyfill';
 
 
 // ssr DOM
@@ -19,12 +19,12 @@ const path = require('path');
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
-  const distFolder = join(process.cwd(), '../server/public/automatikdocs/browser');
+  const distFolder = join(process.cwd(), './public/automatikdocs/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // FIX WINDOW
   // index from browser build!
-  const template = fs.readFileSync(path.join('.', '../server/public/automatikdocs/browser', 'index.html')).toString();
+  const template = fs.readFileSync(path.join('.', './public/automatikdocs/browser', 'index.html')).toString();
   // for mock global window by domino
   const win = domino.createWindow(template);
   // mock
@@ -36,7 +36,7 @@ export function app() {
   global['FileReader'] = function FileReader() {};
   global['URL'] = {
     createObjectURL: () => {}
-  }
+  };
   global['Wodo'] = {
       createTextEditor: () => {},
       getEditor: () => {}
@@ -68,14 +68,14 @@ export function app() {
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
-  server.get('*.*', express.static(distFolder, {
-    maxAge: '1y'
-  }));
+  // server.get('*.*', express.static(distFolder, {
+  //   maxAge: '1y'
+  // }));
 
   // All regular routes use the Universal engine
-  server.get('*', (req, res) => {
-    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
-  });
+  // server.get('*', (req, res) => {
+  //   res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+  // });
 
   return server;
 }

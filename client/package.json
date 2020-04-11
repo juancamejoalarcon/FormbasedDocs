@@ -13,6 +13,7 @@
     "ssr:serve": "nodemon --watch src/ -e ts,html,scss --exec 'npm run build:ssr && npm run serve:ssr'",
     "build:ssr": "ng build --prod && ng run automatikdocs:server:production",
     "build:ssr:development": "ng build --prod && ng run automatikdocs:server:development",
+    "build:ssr:local": "ng build --prod && ng run automatikdocs:server:local",
     "prerender": "ng run automatikdocs:prerender"
   },
   "private": true,
@@ -27,6 +28,7 @@
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/platform-server": "~9.1.0",
     "@angular/router": "~9.1.0",
+    "@gorniv/ngx-universal": "^2.2.2",
     "@nguniversal/express-engine": "^9.1.0",
     "domino": "^2.1.4",
     "express": "^4.15.2",

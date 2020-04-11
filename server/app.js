@@ -8,6 +8,7 @@ const http = require('http'),
     cors = require('cors'),
     passport = require('passport'),
     errorhandler = require('errorhandler'),
+    fs = require('fs')
     mongoose = require('mongoose');
 
 const secret = require('./config').secret;
@@ -15,9 +16,13 @@ const secret = require('./config').secret;
 const isProduction = process.env.NODE_ENV === 'production',
       isDevelopment = process.env.NODE_ENV === 'development',
       isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
-      
 
-const app = express();
+// Angular Universal Server
+const angularUniversalServer = require('./public/automatikdocs/server/main').app;
+console.log('------------------');
+console.log(angularUniversalServer);
+console.log('------------------');
+const app = angularUniversalServer();
 
 app.use(cors());
 // Normal express config defaults
@@ -25,9 +30,7 @@ app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(require('method-override')());
-app.use(express.static(__dirname + '/public'));
-
-
+app.use(express.static(__dirname + '/public/automatikdocs/browser'));
 
 
 app.use(session({
@@ -83,7 +86,10 @@ require('./config/passport');
 app.use(require('./routes'));
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/index.html'));
+  const originalFile = './public/automatikdocs/browser/index.original.html';
+  const normalFile = './public/automatikdocs/browser/index.html';
+  const indexHtml = fs.existsSync(originalFile) ? originalFile : normalFile;
+  res.sendFile(path.join(__dirname + indexHtml.substring(1)));
 });
 
 /// catch 404 and forward to error handler
@@ -121,6 +127,6 @@ app.use(function(err, req, res, next) {
 });
 
 // Start server...
-const server = app.listen( process.env.PORT || 3001, function(){
+const server = app.listen( process.env.PORT || 4000, function(){
   console.log('Listening on port ' + server.address().port);
 });
