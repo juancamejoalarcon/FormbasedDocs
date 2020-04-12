@@ -53,14 +53,30 @@ are_uncommited_changes() {
     fi
 }
 
+# SET URL ENDPOINT
+set_url() {
+ed ./src/environments/environment.prod.ts << END
+3i
+  api_url: '${url}'
+.
+w
+q
+END
+sed -i '' '4d' ./src/environments/environment.prod.ts
+}
+
 # BUILD AND DEPLOY
 build_and_deploy() {
     # Build angular project
     pushd ./client
     if [ "$environment" = 'dev' ]; then
-        npm run build:ssr:development
+        url='https://formbaseddocs-dev.herokuapp.com'
+        set_url
+        npm run build:ssr
     elif [ "$environment" = 'prod' ]; then
-        npm run build:ssr:production
+        url='https://www.automatikdocs.com'
+        set_url
+        npm run build:ssr
     fi
     popd
     # Rewrite commands of Procfile
