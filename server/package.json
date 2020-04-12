@@ -5,10 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./app.js",
-    "prod": "NODE_ENV='production' node ./app.js",
-    "dev": "NODE_ENV='development' node ./app.js",
+    "prod": "NODE_ENV='production' NODE_UNIVERSAL='active' node ./app.js",
+    "dev": "NODE_ENV='development' NODE_UNIVERSAL='active' node ./app.js",
     "local": "NODE_ENV='local' nodemon ./app.js",
     "local:windows": "SET NODE_ENV=local&& nodemon ./app.js",
+    "local:universal":"NODE_ENV='local' NODE_UNIVERSAL='active' nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
