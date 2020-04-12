@@ -9,7 +9,8 @@ const http = require('http'),
     passport = require('passport'),
     errorhandler = require('errorhandler'),
     fs = require('fs')
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    compression = require('compression');
 
 const secret = require('./config').secret;
 
@@ -31,7 +32,8 @@ if (universalMode) {
       secret: 'secret',
       resave: true,
       saveUninitialized: true
-    })
+    }),
+    compression()
   ];
 
   if (!isProduction) {
