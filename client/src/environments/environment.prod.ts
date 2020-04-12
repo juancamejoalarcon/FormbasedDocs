@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url: 'https://formbaseddocs-dev.herokuapp.com'
+  api_url: 'https://www.automatikdocs.com'
 };

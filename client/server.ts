@@ -79,6 +79,16 @@ export function run(param) {
     });
   }
 
+  if (process.env.NODE_ENV === 'development') {
+    server.get('/robots.txt', (req, res) => {
+      res.type('text/plain');
+      const file = `User-agent: *
+        Disallow: /auth
+        Disallow: /auth/login`;
+      res.send(file);
+  });
+  }
+
   const distFolder = join(process.cwd(), './public/automatikdocs/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
