@@ -55,9 +55,9 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
         }
       }
     );
-      if (this.commonsService.isBrowser()) {
-        window.addEventListener('unload', this.saveInSessionStorage.bind(this));
-      }
+    if (this.commonsService.isBrowser()) {
+      window.addEventListener('unload', this.saveInSessionStorage.bind(this));
+    }
   }
 
   ngOnDestroy() {

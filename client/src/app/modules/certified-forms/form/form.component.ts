@@ -130,6 +130,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       }
     });
+    window.addEventListener('documentCreated', this.toogleSpin.bind(this));
     this.documentCreatorService.init(this.form.uri).then( data => {
       this.commonsService.setFormCreatorPlayground(false);
       this.commonsService.resizeEditor(true);
@@ -138,12 +139,16 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       this.stepModelService.buildDocument(false);
       this.stepModelService.setInitialState();
       this.documentCreatorService.resizeEvent();
-      this.commonsService.toggleSpinner();
     });
   }
 
   toogleModal(modal: ElementRef) {
     this.commonsService.toggleModal(modal, true);
+  }
+
+  toogleSpin() {
+    this.commonsService.toggleSpinner();
+    window.removeEventListener('documentCreated', this.toogleSpin.bind(this));
   }
 
   moveStep(type: string) {
@@ -234,7 +239,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   previewDocumentButton(setDocumentVisible: boolean) {
     this.commonsService.previewDocumentButton(setDocumentVisible);
-      this.documentCreatorService.resizeEvent();
+    this.documentCreatorService.resizeEvent();
   }
 
   onExitPayment() {

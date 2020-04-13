@@ -215,6 +215,8 @@ function createEditor(formType, idOfContainer) {
             loadedFilename = docUrl;
             editor.openDocumentFromUrl(docUrl, startEditing);
         }
+
+        window.dispatchEvent(new CustomEvent("documentCreated", {}));
     }
 
     Wodo.createTextEditor(idOfContainer, editorOptions, onEditorCreated);
