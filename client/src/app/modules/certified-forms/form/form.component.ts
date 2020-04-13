@@ -108,12 +108,6 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     });
     }
-    if (this.commonsService.isServer()) {
-      this.metaService.createHeaderLinks([
-        '/assets/js/wodotexteditor/wodotexteditor/wodotexteditor.css',
-        '/assets/js/wodotexteditor/wodotexteditor/app/resources/app.css'
-      ]);
-    }
   }
 
   ngAfterViewInit() {

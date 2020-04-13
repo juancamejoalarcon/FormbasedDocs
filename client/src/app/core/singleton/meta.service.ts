@@ -21,11 +21,9 @@ export class MetaService {
       switch (page) {
           case 'search' || 'auth':
               this.createSearchTags();
-              this.createWodoTextEditorLinks();
               break;
           case 'certifiedForms':
               this.createCertifiedForms(opt);
-              this.createWodoTextEditorLinks();
               break;
 
           default:
@@ -66,14 +64,5 @@ export class MetaService {
     this.metaTagService.updateTag({name: 'keywords', content: extraKeywords});
     this.metaTagService.updateTag({name: 'description', content: description});
     return tags;
-  }
-
-  createHeaderLinks(links: string[]) {
-    links.forEach((link: string) => {
-      const linkElement: HTMLLinkElement = this.doc.createElement('link');
-      linkElement.setAttribute('rel', 'stylesheet');
-      linkElement.setAttribute('href', environment.api_url + link);
-      this.doc.head.appendChild(link);
-    });
   }
 }
