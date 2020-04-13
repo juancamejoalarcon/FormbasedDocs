@@ -11,7 +11,8 @@ import {
   CommonsService,
   FormService,
   CheckoutService,
-  Form
+  Form,
+  MetaService
 } from '../../../core';
 import {
   StepsService,
@@ -51,7 +52,8 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
     private formsService: FormService,
     private toastr: ToastrService,
     private checkoutService: CheckoutService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private metaService: MetaService
   ) { }
 
   ngOnInit() {
@@ -106,6 +108,12 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     });
     }
+    if (this.commonsService.isServer()) {
+      this.metaService.createHeaderLinks([
+        '/assets/js/wodotexteditor/wodotexteditor/wodotexteditor.css',
+        '/assets/js/wodotexteditor/wodotexteditor/app/resources/app.css'
+      ]);
+    }
   }
 
   ngAfterViewInit() {
@@ -130,7 +138,6 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       }
     });
-    window.addEventListener('documentCreated', this.toogleSpin.bind(this));
     this.documentCreatorService.init(this.form.uri).then( data => {
       this.commonsService.setFormCreatorPlayground(false);
       this.commonsService.resizeEditor(true);
@@ -139,16 +146,12 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       this.stepModelService.buildDocument(false);
       this.stepModelService.setInitialState();
       this.documentCreatorService.resizeEvent();
+      this.commonsService.toggleSpinner();
     });
   }
 
   toogleModal(modal: ElementRef) {
     this.commonsService.toggleModal(modal, true);
-  }
-
-  toogleSpin() {
-    this.commonsService.toggleSpinner();
-    window.removeEventListener('documentCreated', this.toogleSpin.bind(this));
   }
 
   moveStep(type: string) {

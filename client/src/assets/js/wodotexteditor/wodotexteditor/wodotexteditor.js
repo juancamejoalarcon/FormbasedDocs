@@ -865,17 +865,18 @@ window.Wodo = window.Wodo || (function () {
 
         // append two link and two script elements to the header
         link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = installationPath + "/app/resources/app.css";
-        link.type = "text/css";
-        link.async = false;
-        frag.appendChild(link);
-        link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = installationPath + "/wodotexteditor.css";
-        link.type = "text/css";
-        link.async = false;
-        frag.appendChild(link);
+        // COMENTADO Y AÑADIDO EN AUTOMATIK DOCS
+        // link.rel = "stylesheet";
+        // link.href = installationPath + "/app/resources/app.css";
+        // link.type = "text/css";
+        // link.async = false;
+        // frag.appendChild(link);
+        // link = document.createElement("link");
+        // link.rel = "stylesheet";
+        // link.href = installationPath + "/wodotexteditor.css";
+        // link.type = "text/css";
+        // link.async = false;
+        // frag.appendChild(link);
         script = document.createElement("script");
         script.src = installationPath + "/dojo-amalgamation.js";
         script["data-dojo-config"] = "async: true";
