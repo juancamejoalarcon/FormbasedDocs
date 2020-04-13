@@ -34,6 +34,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
   public currentPage: number = 1;
   public noMoreForms: boolean = false;
   public userFormsTabsActive: boolean = false;
+  public formsFirstLoad = false;
 
   constructor(
     private userService: UserService,
@@ -48,17 +49,12 @@ export class SearchComponent implements OnInit, AfterViewInit {
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
-          this.setListTo();
-          // Load the current user's data
-          this.userService.currentUser.subscribe(
-          (user: User) => {
-            this.currentUser = user.username;
-          });
-          this.searchService.search(this.listConfig)
-          .subscribe(forms => {
-             this.loadingQuery = false;
-             this.results = forms;
-         });
+        this.setListTo();
+        // Load the current user's data
+        this.userService.currentUser.subscribe(
+        (user: User) => {
+          this.currentUser = user.username;
+        });
       }
     );
   }
@@ -103,7 +99,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
         this.noMoreForms = true;
         this.setVisibilityOfFooter(false);
       }
-       this.loadingQuery = false;
+      this.loadingQuery = false;
    });
   }
 
@@ -122,6 +118,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
     this.results = [];
     this.noMoreForms = false;
     this.listConfig.query = inputSearch;
+    
     this.searchService.search(this.listConfig)
       .subscribe(forms => {
           this.loadingQuery = false;
@@ -151,6 +148,14 @@ export class SearchComponent implements OnInit, AfterViewInit {
   }
 
   setUrl(userForms: boolean) {
+    if (!this.formsFirstLoad) {
+      this.searchService.search(this.listConfig)
+      .subscribe(forms => {
+          this.loadingQuery = false;
+          this.results = forms;
+          this.formsFirstLoad = true;
+      });
+    }
     this.userFormsTabsActive = userForms;
     if (userForms) {
       this.location.replaceState('/search/user-forms');
