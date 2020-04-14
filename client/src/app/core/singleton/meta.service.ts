@@ -65,4 +65,13 @@ export class MetaService {
     this.metaTagService.updateTag({name: 'description', content: description});
     return tags;
   }
+
+  createHeaderLinks(links: string[]) {
+    links.forEach((link: string) => {
+      const linkElement: HTMLLinkElement = this.doc.createElement('link');
+      linkElement.setAttribute('rel', 'stylesheet');
+      linkElement.setAttribute('href', environment.api_url + link);
+      document.head.appendChild(linkElement);
+    });
+  }
 }
