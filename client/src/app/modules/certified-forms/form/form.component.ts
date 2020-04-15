@@ -27,7 +27,7 @@ import {
 export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('modal', {static: false}) modal: ElementRef;
-  @ViewChild('modalEnd', {static: false}) modalEnd: ElementRef;
+  @ViewChild('modalEnd', {static: true}) modalEnd: ElementRef;
   @ViewChild('modalDownload', {static: false}) modalDownload: ElementRef;
   @ViewChild('modalIndication', {static: false}) modalIndication: ElementRef;
   @ViewChild('input', {static: false}) input: ElementRef;
