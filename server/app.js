@@ -19,10 +19,10 @@ const isProduction = process.env.NODE_ENV === 'production',
   isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
 
 let universalMode = process.env.NODE_UNIVERSAL === 'active';
-const useArray = [];
+const initialUseArray = [];
 
 if (!isProduction) {
-  useArray.push(errorhandler());
+  initialUseArray.push(errorhandler());
 }
 if (isProduction) {
   mongoose.connect(process.env.MONGODB_URI);
@@ -59,7 +59,7 @@ if (isLocal) {
 
 if (universalMode) {
 
-  const useArray = useArray.concat([
+  const useArray = initialUseArray.concat([
     cors(),
     require('morgan')('dev'),
     bodyParser.urlencoded({
