@@ -3,7 +3,9 @@ import { UserService, CheckoutService, Form, CommonsService, FormService, Conver
 import { Router } from '@angular/router';
 import * as braintree from 'braintree-web';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from '../../../../../environments/environment';
 declare let paypal: any;
+declare let Stripe: any;
 
 @Component({
   selector: 'app-checkout',
@@ -16,8 +18,9 @@ export class CheckoutComponent implements OnInit {
   @Output() exitModal: EventEmitter<any> = new EventEmitter();
   @Output() downloadPdfOutput: EventEmitter<any> = new EventEmitter();
   @Output() downloadWordOutput: EventEmitter<any> = new EventEmitter();
-  @ViewChild('emailInput', {static: false}) emailInput: ElementRef;
-  @ViewChild('conditions', {static: false}) conditions: ElementRef;
+  @ViewChild('emailInput', { static: false }) emailInput: ElementRef;
+  @ViewChild('conditions', { static: false }) conditions: ElementRef;
+  @ViewChild('cardField', { static: false }) cardField: ElementRef;
   public currentStep = 0;
   public email: string;
   public loadingPayment = true;
@@ -26,8 +29,14 @@ export class CheckoutComponent implements OnInit {
   public cardholdersName: string;
   public transactionId: string;
   public conditionsChecked: any;
-  public idsOfFields: Array<string> = ['number', 'cvv', 'expirationDate'];
+  public idsOfFields: Array<string> = ['card-element', 'expirationDate', 'cvv'];
   public paymentMethod = 'card';
+  public stripe = Stripe(environment.stripe_key);
+  public clientSecret: string;
+  public cardNumber: any;
+  public cardExpiry: any;
+  public cardCvc: any;
+  public paypalButtonCreated = false;
   public steps = [
     {
       type: 'cart',
@@ -55,7 +64,7 @@ export class CheckoutComponent implements OnInit {
     private convertService: ConvertService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.userService.isAuthenticated.subscribe(
@@ -123,199 +132,127 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit() {
-    this.tokenizeUserDetails();
+    // this.tokenizeUserDetails();
+    this.payWithCard();
   }
 
   onPaymentMethodSelected(method: string) {
     this.paymentMethod = method;
-    this.paymentProcess();
+    if (this.paymentMethod === 'card') {
+      this.paymentProcess();
+    } else if (this.paymentMethod === 'paypal') {
+      this.createPaypalButton();
+    }
   }
 
   paymentProcess() {
     if (this.steps[this.currentStep].type === 'payment') {
       this.commonsService.toggleSpinner();
-      this.checkoutService.getToken(this.paymentMethod).subscribe((token: string) => {
-        this.loadingPayment = false;
-        this.clientToken = token;
-        this.createBraintreeUI(token);
-      });
-    } else {
-      this.loadingPayment = true;
-    }
-  }
-
-  tokenizeUserDetails() {
-    this.commonsService.toggleSpinner();
-    this.hostedFieldsInstance.tokenize({cardholderName: this.cardholdersName}).then((payload) => {
-      // submit payload.nonce to the server from here
-      this.checkoutService.pay(JSON.stringify(this.form.fields), this.email, payload.nonce, this.form.id, this.paymentMethod).subscribe(
-        data => {
-          if (data.transaction) {
-            this.commonsService.toggleSpinner();
-            this.moveStep('next');
-            this.onPaymentCompleted(data.transaction.transactionId);
-            this.toastr.success('Pago completado', 'Finalizado', {
-              positionClass: 'toast-bottom-right',
-              progressBar: true,
-              progressAnimation: 'decreasing'
-            });
-          } else {
-            this.commonsService.toggleSpinner();
-          }
-      });
-
-    }).catch((error) => {
-      this.commonsService.toggleSpinner();
-      this.toastr.error('Ha ocurrido un error, inténtelo de nuevo', 'Error en el pago', {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-      console.log(error);
-      if (error.code === 'HOSTED_FIELDS_FIELDS_INVALID') {
-        this.idsOfFields.forEach((id) =>  {
-          if (error.details.invalidFieldKeys.includes(id)) {
-            const el = document.getElementById(id);
-            el.classList.add('hosted-fields-invalid');
-            el.nextElementSibling['hidden'] = false;
-          } else {
-            const el = document.getElementById(id);
-            el.classList.remove('hosted-fields-invalid');
-            el.nextElementSibling['hidden'] = true;
-          }
-        });
-      } else if (error.code === 'HOSTED_FIELDS_FIELDS_EMPTY') {
-        this.idsOfFields.forEach((id) =>  {
-          const el = document.getElementById(id);
-          el.classList.add('hosted-fields-invalid');
-          el.nextElementSibling['hidden'] = false;
-        });
-      }
-    });
-  }
-
-  createBraintreeUI(TOKEN: any) {
-
-    if (this.paymentMethod === 'card') {
-      // CARD METHOD
-      braintree.client.create({
-        authorization: TOKEN
-      }).then((clientInstance) => {
-        braintree.hostedFields.create({
-          client: clientInstance,
-          styles: {
-            // Override styles for the hosted fields
-            input: {
-              'font-size': '16px',
-              'padding': '0.5rem 0.25rem 0.5rem',
-              'font-family': 'Lato',
-              'font-weight': '300',
-              color: 'rgba(46, 46, 46, 0.8)'
-            },
+      this.loadingPayment = false;
+      this.checkoutService.getToken(this.form.id).subscribe((token: any) => {
+        this.commonsService.toggleSpinner();
+        this.clientSecret = token.clientSecret;
+        const elements = this.stripe.elements();
+        const style = {
+          base: {
+            fontSize: '16px',
+            fontFamily: 'Lato',
+            fontWeight: '300',
+            color: 'rgba(46, 46, 46, 0.8)',
             '::placeholder': {
-              'transition': 'transition: 100ms linear',
-              'font-weight': '300',
-              'font-family': 'Lato',
+              transition: 'transition: 100ms linear',
+              fontWeight: '300',
+              fontFamily: 'Lato',
               color: '#4ECDC4'
             },
             ':focus': {
-              'border-color': '#77db77',
-              'border-bottom': '3px solid #77db77'
+              borderColor: '#77db77',
+              borderBottom: '3px solid #77db77'
             },
             'input:focus': {
               'border-color': '#77db77',
               'border-bottom': '3px solid #77db77'
             },
           },
-
-          // The hosted fields that we will be using
-          // NOTE : cardholder's name field is not available in the field options
-          // and a separate input field has to be used incase you need it
-          fields: {
-            number: {
-              selector: '#' + this.idsOfFields[0],
-              placeholder: '1234 5678 9101 1213'
-            },
-            cvv: {
-              selector: '#' + this.idsOfFields[1],
-              placeholder: '111'
-            },
-            expirationDate: {
-              selector: '#' + this.idsOfFields[2],
-              placeholder: '02/20'
+          invalid: {
+            fontFamily: 'Arial, sans-serif',
+            color: "#fa755a",
+            iconColor: "#fa755a"
+          }
+        };
+        this.cardNumber = elements.create('cardNumber', { style });
+        this.cardExpiry = elements.create('cardExpiry', { style });
+        this.cardCvc = elements.create('cardCvc', { style });
+        // Stripe injects an iframe into the DOM
+        this.cardNumber.mount('#card-element');
+        this.cardExpiry.mount('#expirationDate');
+        this.cardCvc.mount('#cvv');
+        [this.cardNumber, this.cardExpiry, this.cardCvc].forEach((input, index) => {
+          const elementContainer = document.getElementById(this.idsOfFields[index]);
+          const toggleFocusClass = () => {
+            elementContainer.classList.toggle('braintree-hosted-fields-focused');
+          };
+          input.on('focus', toggleFocusClass);
+          input.on('blur', toggleFocusClass);
+          input.on('change', (event) => {
+            if (event.error) {
+              elementContainer.classList.add('hosted-fields-invalid');
+              elementContainer.nextElementSibling['hidden'] = false;
+            } else {
+              elementContainer.classList.remove('hosted-fields-invalid');
+              elementContainer.nextElementSibling['hidden'] = true;
             }
-          }
-        }).then((hostedFieldsInstance) => {
-
-          this.hostedFieldsInstance = hostedFieldsInstance;
-          const fields = hostedFieldsInstance.getState().fields;
-          const isValid = Object.keys(fields).every(function (field) {
-            return fields[field].isValid;
           });
-          this.commonsService.toggleSpinner();
         });
+
       });
-    } else if (this.paymentMethod === 'paypal') {
-       // PAYPAL METHOD
-        this.commonsService.toggleSpinner();
-        paypal.Button.render({
-          braintree: braintree,
-          env: 'sandbox',
-          client: {
-            sandbox: TOKEN,
-          },
-          style: {
-            size: 'medium'
-          },
-          payment: (data: any, actions: any) => {
-            this.commonsService.toggleSpinner();
-            return actions.payment.create({
-              payment: {
-                transactions: [{
-                  amount: {
-                    total: this.form.amount,
-                    currency: 'EUR'
-                  }
-                }]
-              }
-            });
-          },
-          onAuthorize: (data: any, actions: any) => {
-            this.commonsService.toggleSpinner();
-            return actions.payment.tokenize()
-              .then( (payload: any) => {
-                this.commonsService.toggleSpinner();
-                this.checkoutService.pay(
-                  JSON.stringify(this.form.fields),
-                  this.email,
-                  payload.nonce,
-                  this.form.id,
-                  this.paymentMethod)
-                  .subscribe(result => {
-                    this.commonsService.toggleSpinner();
-                    this.moveStep('next');
-                    this.onPaymentCompleted(result.transaction.transactionId);
-                    this.toastr.success('Pago completado', 'Finalizado', {
-                      positionClass: 'toast-bottom-right',
-                      progressBar: true,
-                      progressAnimation: 'decreasing'
-                    });
-                });
-              });
-          },
-          onCancel: function (data: any) {
-            console.log('checkout.js payment cancelled', JSON.stringify(data));
-          },
-          onError: function (error: any) {
-            this.commonsService.toggleSpinner();
-            this.toastr.error('Paypal error', error, {
-              positionClass: 'toast-bottom-right',
-              progressBar: true,
-              progressAnimation: 'decreasing'
-            });
-          }
-        }, '#paypal-button');
+    } else {
+      this.loadingPayment = true;
     }
+  }
+
+  payWithCard() {
+    this.commonsService.toggleSpinner();
+    this.stripe
+      .confirmCardPayment(this.clientSecret, {
+        payment_method: {
+          card: this.cardNumber,
+          billing_details: {
+            name: this.cardholdersName,
+          },
+        }
+      }).then((result) => {
+        this.commonsService.toggleSpinner();
+        if (result.error) {
+          this.toastr.error(result.error.message, 'Error en el pago', {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+        } else {
+          // The payment succeeded!
+          // orderComplete(result.paymentIntent.id);
+          this.checkoutService.pay(
+            JSON.stringify(this.form.fields),
+            this.email,
+            result.paymentIntent.id,
+            this.form.id,
+            this.paymentMethod).subscribe(
+              data => {
+                if (data.transaction) {
+                  this.moveStep('next');
+                  this.onPaymentCompleted(data.transaction.transactionId);
+                  this.toastr.success('Pago completado', 'Finalizado', {
+                    positionClass: 'toast-bottom-right',
+                    progressBar: true,
+                    progressAnimation: 'decreasing'
+                  });
+                } else {
+                  this.commonsService.toggleSpinner();
+                }
+              });
+        }
+      });
   }
 
   onPaymentCompleted(transactionId: string) {
@@ -324,7 +261,62 @@ export class CheckoutComponent implements OnInit {
       data => {
         data.certifiedForm['transactionId'] = transactionId;
         this.formPaid.emit(data.certifiedForm);
-      } );
+      });
+  }
+
+  createPaypalButton() {
+    this.commonsService.toggleSpinner();
+    this.checkoutService
+      .getPaypalOrder(this.form.id).subscribe(
+        data => {
+          console.log(data);
+          this.paypalButton(data.orderID);
+        });
+  }
+
+  paypalButton(orderId: any) {
+    this.commonsService.toggleSpinner();
+    paypal.Buttons({
+      style: {
+        layout: 'horizontal',
+        size: 'large',
+        shape: 'pill',
+        tagline: true
+      },
+      createOrder: () => {
+        return orderId;
+      },
+      onApprove: async (data, actions) => {
+        this.commonsService.toggleSpinner();
+        console.log(actions);
+        const order = await actions.order.capture();
+        this.checkoutService.pay(
+          JSON.stringify(this.form.fields),
+          this.email,
+          order.id,
+          this.form.id,
+          this.paymentMethod).subscribe(
+            datados => {
+              if (datados.transaction) {
+                this.moveStep('next');
+                this.onPaymentCompleted(datados.transaction.transactionId);
+                this.toastr.success('Pago completado', 'Finalizado', {
+                  positionClass: 'toast-bottom-right',
+                  progressBar: true,
+                  progressAnimation: 'decreasing'
+                });
+                this.commonsService.toggleSpinner();
+              } else {
+                this.commonsService.toggleSpinner();
+              }
+            });
+        console.log(order);
+        console.log(data);
+      },
+      onError: err => {
+        console.log(err);
+      }
+    }).render(document.getElementById('paypal-button'));
   }
 
   downloadWord() {

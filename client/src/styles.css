@@ -2321,6 +2321,19 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 16px;
 }
 
+.hosted-fields-stripe {
+  height: 50px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  color: rgba(46, 46, 46, 0.8);
+  font-size: 16px;
+  padding-right: 40px;
+  padding-left: 16px;
+  -webkit-transition: 200ms linear;
+  transition: 200ms linear;
+  padding: 0.9rem 1rem 0rem 1rem;
+}
+
 .braintree-hosted-fields-focused {
   border-color: #77db77;
   border-bottom: 3px solid #77db77;

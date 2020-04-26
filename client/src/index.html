@@ -11,9 +11,11 @@
 <body style="width:100%; height:100%; margin:0px; padding:0px">
   <app-root></app-root>
   <!-- Load PayPal's checkout.js Library. -->
-  <script defer src="https://www.paypalobjects.com/api/checkout.min.js" data-version-4 log-level="warn"></script>
+  <!-- <script defer src="https://www.paypalobjects.com/api/checkout.min.js" data-version-4 log-level="warn"></script> -->
   <!-- Load the PayPal Checkout component. -->
-  <script src="https://js.braintreegateway.com/web/3.54.2/js/paypal-checkout.min.js"></script>
+  <!-- <script src="https://js.braintreegateway.com/web/3.54.2/js/paypal-checkout.min.js"></script> -->
+  <script defer src="https://js.stripe.com/v3/"></script>
+  <script defer src="https://www.paypal.com/sdk/js?client-id=AXEii_db3MBSvp9JH3Fc_q1wWqeSLIAv_QNOOh2OaTzyBygyek6lvJWe_J6ghwoJp2Xlu34NS4UyZ81P&disable-funding=credit,card"></script>
   <script src="assets/js/wodotexteditor/wodotexteditor/wodotexteditor.js" type="text/javascript" charset="utf-8"></script>
   <script src="assets/js/wodotexteditor/FileSaver.js" type="text/javascript" charset="utf-8"></script>
   <script type="module" src="assets/js/wodotexteditor/localfileeditor.js" type="text/javascript" charset="utf-8"></script>
