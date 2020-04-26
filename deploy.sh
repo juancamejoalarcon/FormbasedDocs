@@ -65,6 +65,17 @@ END
 sed -i '' '4d' ./src/environments/environment.prod.ts
 }
 
+set_stripe() {
+ed ./src/environments/environment.prod.ts << END
+4i
+  stripe_key: '${stripe_key}'
+.
+w
+q
+END
+sed -i '' '5d' ./src/environments/environment.prod.ts
+}
+
 # BUILD AND DEPLOY
 build_and_deploy() {
     # Build angular project
@@ -72,10 +83,14 @@ build_and_deploy() {
     if [ "$environment" = 'dev' ]; then
         url='https://formbaseddocs-dev.herokuapp.com'
         set_url
+        stripe_key='pk_test_Us1NHhQN6advqdoP2WRSXLlZ00Eqt1Kust'
+        set_stripe
         npm run build:ssr
     elif [ "$environment" = 'prod' ]; then
         url='https://www.automatikdocs.com'
         set_url
+        stripe_key='poner key production'
+        set_stripe
         npm run build:ssr
     fi
     popd
