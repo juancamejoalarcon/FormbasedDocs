@@ -57,7 +57,7 @@ are_uncommited_changes() {
 set_url() {
 ed ./src/environments/environment.prod.ts << END
 3i
-  api_url: '${url}'
+  api_url: '${url}',
 .
 w
 q
