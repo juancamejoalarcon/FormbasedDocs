@@ -77,16 +77,16 @@ sed -i '' '5d' ./src/environments/environment.prod.ts
 }
 
 set_paypal() {
-lineNum="$(grep -n 'paypalKey' ./client/src/index.html | head -n 1 | cut -d: -f1)"
+lineNum="$(grep -n 'paypalKey' ./src/index.html | head -n 1 | cut -d: -f1)"
 nextLineNum="$((lineNum + 1))d"
-ed ./client/src/index.html << END
+ed ./src/index.html << END
 ${lineNum}i
   <script id="paypalKey" defer src="https://www.paypal.com/sdk/js?client-id=${paypal_key}&disable-funding=credit,card"></script>
 .
 w
 q
 END
-sed -i '' $nextLineNum ./client/src/index.html
+sed -i '' $nextLineNum ./src/index.html
 }
 # BUILD AND DEPLOY
 build_and_deploy() {
