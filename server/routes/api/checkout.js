@@ -18,7 +18,7 @@ router.post('/getToken', auth.optional, async (req, res, next) => {
         }
     });
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: amount,
+        amount: amount * 100,
         currency: "eur"
     });
     res.send({
@@ -41,8 +41,8 @@ router.post('/paypal-order', auth.optional, async function (req, res) {
         purchase_units: [{
             description: formType,
             amount: {
-                currency_code: 'USD',
-                value: amount / 100
+                currency_code: 'EUR',
+                value: amount
             }
         }]
     });

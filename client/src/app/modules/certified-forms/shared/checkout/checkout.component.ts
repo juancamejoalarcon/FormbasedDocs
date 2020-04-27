@@ -275,7 +275,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   paypalButton(orderId: any) {
-    this.commonsService.toggleSpinner();
     paypal.Buttons({
       style: {
         layout: 'horizontal',
@@ -284,6 +283,7 @@ export class CheckoutComponent implements OnInit {
         tagline: true
       },
       createOrder: () => {
+
         return orderId;
       },
       onApprove: async (data, actions) => {
@@ -317,6 +317,9 @@ export class CheckoutComponent implements OnInit {
         console.log(err);
       }
     }).render(document.getElementById('paypal-button'));
+    setTimeout(() => {
+      this.commonsService.toggleSpinner();
+    }, 2000);
   }
 
   downloadWord() {

@@ -23,7 +23,7 @@
                     </div>
                     <div class="checkout-panel__body__invoice__text__total">
                         <span class="checkout-panel__body__invoice__text__total__right">Total:</span>
-                        <span class="checkout-panel__body__invoice__text__total__left">{{form.amount / 100}} €</span>
+                        <span class="checkout-panel__body__invoice__text__total__left">{{form.amount}} €</span>
                     </div>
                     <div class="checkout-panel__body__invoice__text__more-info">
                         <span>
@@ -117,7 +117,7 @@
             <h2>Transacción: {{transactionId}}</h2>
             <div class="checkout-panel__body__invoice__text__total">
                 <span class="checkout-panel__body__invoice__text__total__right total-success">{{form.title}}</span>
-                <span class="checkout-panel__body__invoice__text__total__left total-success">{{form.amount / 100}} €</span>
+                <span class="checkout-panel__body__invoice__text__total__left total-success">{{form.amount}} €</span>
             </div>
             <p class="checkout-panel__body__success__message">Recibirás un mensaje a <strong>{{this.email}}</strong> con tu factura así como los documentos. 
                 Durante los próximos 15 días podrás modificar el formulario de nuevo sin tener que pagar 
@@ -151,6 +151,6 @@
 
     <button class="btn next-btn secondaryC-background-color" (click)="onSubmit()"
     *ngIf="this.steps[this.currentStep].type === 'payment' && this.paymentMethod === 'card'">
-        <strong>PAGAR</strong>
+        <strong style="text-shadow: 1px 1px 4px #000000;">PAGAR</strong>
     </button>
 </div>

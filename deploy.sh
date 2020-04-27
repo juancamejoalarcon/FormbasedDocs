@@ -76,6 +76,18 @@ END
 sed -i '' '5d' ./src/environments/environment.prod.ts
 }
 
+set_paypal() {
+lineNum="$(grep -n 'paypalKey' ./client/src/index.html | head -n 1 | cut -d: -f1)"
+nextLineNum="$((lineNum + 1))d"
+ed ./client/src/index.html << END
+${lineNum}i
+  <script id="paypalKey" defer src="https://www.paypal.com/sdk/js?client-id=${paypal_key}&disable-funding=credit,card"></script>
+.
+w
+q
+END
+sed -i '' $nextLineNum ./client/src/index.html
+}
 # BUILD AND DEPLOY
 build_and_deploy() {
     # Build angular project
@@ -85,12 +97,16 @@ build_and_deploy() {
         set_url
         stripe_key='pk_test_Us1NHhQN6advqdoP2WRSXLlZ00Eqt1Kust'
         set_stripe
+        paypal_key='AXEii_db3MBSvp9JH3Fc_q1wWqeSLIAv_QNOOh2OaTzyBygyek6lvJWe_J6ghwoJp2Xlu34NS4UyZ81P'
+        set_paypal
         npm run build:ssr
     elif [ "$environment" = 'prod' ]; then
         url='https://www.automatikdocs.com'
         set_url
         stripe_key='poner key production'
         set_stripe
+        paypal_key='poner key production'
+        set_paypal
         npm run build:ssr
     fi
     popd
@@ -162,4 +178,3 @@ elif [ "$environment" = 'prod' ]; then
         fi
     fi
 fi
-
