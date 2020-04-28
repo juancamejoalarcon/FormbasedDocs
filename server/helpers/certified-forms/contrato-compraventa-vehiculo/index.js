@@ -8,7 +8,7 @@ const contrato_compraventa_vehiculo = {
     id: 'contrato-compraventa-vehiculo',
     title: 'Contrato de compraventa de vehículo usado entre particulares',
     topLabelTitle: 'Compraventa de vehículo usado entre particulares',
-    amount: 9.95,
+    amount: 10,
     image: imageUri,
     uri: uri,
     paidUri: paidUri,

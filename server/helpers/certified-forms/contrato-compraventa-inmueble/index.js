@@ -8,7 +8,7 @@ const contrato_compraventa_inmueble = {
     id: 'contrato-compraventa-inmueble',
     title: 'Contrato de compraventa de bien inmueble',
     topLabelTitle: 'Compraventa de bien inmueble',
-    amount: 9.95,
+    amount: 10,
     image: imageUri,
     uri: uri,
     paidUri: paidUri,
