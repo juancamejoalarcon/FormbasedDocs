@@ -103,9 +103,9 @@ build_and_deploy() {
     elif [ "$environment" = 'prod' ]; then
         url='https://www.automatikdocs.com'
         set_url
-        stripe_key='poner key production'
+        stripe_key='pk_live_y5rE3kZkAyKEBpQ9PtdSfP2M00imfBq16j'
         set_stripe
-        paypal_key='poner key production'
+        paypal_key='AfRBigPbfKBMYlA1_bnghysFZ-5UxVd4JC5w4wtRCxDYptWERuQMfQsiAz1YxKdeBvvtP-H3xMlz-oX1'
         set_paypal
         npm run build:ssr
     fi
