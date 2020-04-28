@@ -1,0 +1,12 @@
+<div class="form-creator__fields-area__bottom">
+  <div class="pagination" *ngIf="this.fields.length">
+      <span class="pagination__left-icon icon icon-chevron-left-solid" 
+          *ngIf="this.fields.length >= 2 && currentStep !== 0" (click)="setCurrentStep(currentStep - 1)"></span>
+      <ul>
+          <li *ngFor="let field of this.fields; let i = index" 
+          [ngClass]="{'current-page': currentStep === i }" (click)="setCurrentStep(i)">{{i + 1}}</li>
+      </ul>
+      <span class="pagination__right-icon icon icon-chevron-right-solid" 
+          *ngIf="this.fields.length >= 2 && currentStep !== this.fields.length - 1" (click)="nextStepAfterValidate()"></span>
+  </div>
+</div>

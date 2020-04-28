@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { User, UserService } from '../../core';
+import { User, UserService, CommonsService } from '../../core';
 
 @Component({
   selector: 'app-settings',
@@ -10,20 +10,24 @@ import { User, UserService } from '../../core';
 })
 export class SettingsComponent implements OnInit {
 
-  @ViewChild('modal') modal: ElementRef;
-  @ViewChild('imageSrc') imageSrc: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
+  @ViewChild('imageSrc', {static: false}) imageSrc: ElementRef;
   user: User = new User();
   settingsForm: FormGroup;
   errors: Object = {};
   isSubmitting: boolean = false;
   modalStatus: string;
-  oldPass: string;
+  oldPass: any;
+  removeAccountPass: any;
+  newPass: any;
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private userService: UserService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private commonsService: CommonsService
   ) {
     // create form group using the form builder
     this.settingsForm = this.fb.group({
@@ -39,12 +43,28 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.route.snapshot.data.initedInServer) {
+      this.userService.isAuthenticated.subscribe(
+        (isAuthenticated) => {
+          if (isAuthenticated) {
+            this.initialValue();
+          } else {
+            this.initialValue();
+          }
+        }
+      );
+    } else {
+      this.initialValue();
+    }
+  }
+
+  initialValue() {
     // Make a fresh copy of the current user's object to place in editable form fields
     (<any>Object).assign(this.user, this.userService.getCurrentUser());
     // Fill the form
-    console.log(this.user);
     this.settingsForm.patchValue(this.user);
   }
+
 
   onFileChange(event: any) {
     const reader = new FileReader();

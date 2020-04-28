@@ -14,7 +14,7 @@
                           <label>
                               <input class="with-gap" name="group1" type="radio" 
                                   value="Valor de la pregunta numero 1" [checked]="radio.checked"
-                                  (change)="this.stepModelService.onInputRadioBSelected(radio.radioId, step.wordToReplace)" />
+                                  (change)="this.onInputSelected(radio.radioId, step.wordToReplace)" />
                               <span>{{radio.label}}</span>
                           </label>
                       </p>

@@ -33,5 +33,9 @@ export class ICheckboxComponent implements OnInit {
     this.emitIndication.emit();
   }
 
+  onInputCheckboxSelected(identifier: string, wordToReplace: string, checked: boolean) {
+    this.stepModelService.onInputCheckboxSelected(identifier, wordToReplace, checked);
+  }
+
 
 }

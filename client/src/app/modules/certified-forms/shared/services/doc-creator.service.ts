@@ -17,23 +17,25 @@ export class DocCreatorService {
 
   init(uri: any) {
     this.createEditorFromURI('fillForm', 'editorContainer', uri);
-      return new Promise((resolve, reject) => {
-        const checkIfEditorCreated = setInterval( () => {
-          if (
-            window['editor'] &&
-            window['editor'].getEditorSession() &&
-            document.getElementsByTagName('office:text').length) {
-            this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
-            clearInterval(checkIfEditorCreated);
-            resolve("Document ready");
-          }
-       }, 300);
-      });
+    return new Promise((resolve, reject) => {
+      const checkIfEditorCreated = setInterval( () => {
+        if (
+          window['editor'] &&
+          window['editor'].getEditorSession() &&
+          document.getElementsByTagName('office:text').length) {
+          this.originalDocumentBodyClone = document.getElementsByTagName('office:text')[0].cloneNode(true);
+          clearInterval(checkIfEditorCreated);
+          resolve("Document ready");
+        }
+      }, 20);
+    });
   }
 
   destroy() {
-    AutomatikDocsApi.closeAndDestroyEditor();
-    window.removeEventListener('resize', this.resizeEvent);
+    if (this.commonsService.isBrowser()) {
+      AutomatikDocsApi.closeAndDestroyEditor();
+      window.removeEventListener('resize', this.resizeEvent);
+    }
   }
 
   createEditorFromURI(formType: string, idOfContainer: string = 'editorContainer', dataURI: string) {

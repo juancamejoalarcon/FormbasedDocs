@@ -9,11 +9,11 @@ export class GuideComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    document.title = 'Automatik Docs | Guía';
+    // document.title = 'Automatik Docs | Guía';
   }
 
   ngOnDestroy() {
-    document.title = 'Automatik Docs';
+    // document.title = 'Automatik Docs';
   }
 
   topMenuNav(e: any) {

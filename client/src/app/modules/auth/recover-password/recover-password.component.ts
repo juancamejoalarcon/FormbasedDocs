@@ -8,13 +8,13 @@ import { CommonsService, UserService } from '../../../core';
 })
 export class RecoverPasswordComponent implements OnInit {
 
-  @ViewChild('emailInput') emailInput: ElementRef;
-  @ViewChild('invalidError') invalidError: ElementRef;
-  @ViewChild('passwordInput') passwordInput: ElementRef;
-  @ViewChild('repeatPasswordInput') repeatPasswordInput: ElementRef;
-  @ViewChild('confirmationMessage') confirmationMessage: ElementRef;
-  @ViewChild('title') title: ElementRef;
-  @ViewChild('sendLinkButton') sendLinkButton: ElementRef;
+  @ViewChild('emailInput', {static: false}) emailInput: ElementRef;
+  @ViewChild('invalidError', {static: false}) invalidError: ElementRef;
+  @ViewChild('passwordInput', {static: false}) passwordInput: ElementRef;
+  @ViewChild('repeatPasswordInput', {static: false}) repeatPasswordInput: ElementRef;
+  @ViewChild('confirmationMessage', {static: false}) confirmationMessage: ElementRef;
+  @ViewChild('title', {static: false}) title: ElementRef;
+  @ViewChild('sendLinkButton', {static: false}) sendLinkButton: ElementRef;
   public email: string;
   public password: string;
   public repeatPassword: string;

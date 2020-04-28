@@ -5,94 +5,69 @@ import {
   Form,
   FormService,
   CommonsService,
-  ComponentInjectorService,
   StepModelService,
   StateService,
   OdfCreatorService,
-  PlainTextCreatorService
+  PlainTextCreatorService,
+  UserService
 } from '../../core';
-import { InputTextComponent,
+import {
+  InputTextComponent,
   InputRadioAComponent,
   InputRadioBComponent
  } from './inputsSchema';
-import { ToastrService } from 'ngx-toastr';
-
-import * as Sortable from 'sortablejs';
-import * as screenfull from 'screenfull';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-form',
   templateUrl: './create-form.component.html'
 })
-export class CreateFormComponent implements OnInit, OnDestroy {
+export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild('quill') quill: any;
-  @ViewChild('formAreaDiv') formAreaDiv: ElementRef;
-  @ViewChild('automatikDocDiv') automatikDocDiv: ElementRef;
-  @ViewChild('inputsMenuDiv') inputsMenuDiv: ElementRef;
-  @ViewChild('textPreviewDiv') textPreviewDiv: ElementRef;
-  // @ViewChild('addQuestionMenuDiv') addQuestionMenuDiv: ElementRef;
-  @ViewChild('linkFormButton') linkFormButton: ElementRef;
-  @ViewChild('linkInformationButton') linkInformationButton: ElementRef;
-  @ViewChild('title') title: ElementRef;
-  @ViewChild('description') description: ElementRef;
-  @ViewChild('lightBox') lightBox: ElementRef;
+  @ViewChild('quill', {static: false}) quill: any;
+  @ViewChild('automatikDocDiv', {static: false}) automatikDocDiv: ElementRef;
+  @ViewChild('inputsMenuDiv', {static: false}) inputsMenuDiv: ElementRef;
+  @ViewChild('textPreviewDiv', {static: false}) textPreviewDiv: ElementRef;
+  @ViewChild('title', {static: false}) title: ElementRef;
+  @ViewChild('description', {static: false}) description: ElementRef;
+  @ViewChild('lightBox', {static: false}) lightBox: ElementRef;
+  @ViewChild('modalChooseDocument', {static: true}) modalChooseDocument: ElementRef;
+  @ViewChild('addQuestionMenuModal', {static: false}) addQuestionMenuModal: ElementRef;
 
-  // Nuevo
-  @ViewChild('modalChooseDocument') modalChooseDocument: ElementRef;
-  @ViewChild('addQuestionMenuModal') addQuestionMenuModal: ElementRef;
-  @ViewChild('subMenu') subMenu: ElementRef;
-
-
-  public inputs: Array<any> = [
-    InputTextComponent,
-    InputRadioAComponent,
-    InputRadioBComponent
-  ];
-  public quillText = '';
-  public customOptions: any;
-  public quillModules: any;
-  public textPreview: string;
-  public injectedComponents: Array<any> = [];
-  public isButtonDisabled: boolean = false;
+  quillText = '';
+  customOptions: any;
+  quillModules: any;
+  textPreview: string;
+  injectedComponents: Array<any> = [];
   form: Form = new Form();
   formGroup: FormGroup;
   tags = new FormControl();
   fields: Array<any> = [];
   errors: Object = {};
-  isSubmitting: boolean = false;
-  updatingForm: boolean = false;
-  isDeleting = false;
-  isNewForm = false;
-  isFormValid = false;
-
-  // Nuevo
   documentType = 'office';
   currentStep = 0;
   documentBodyClone: any;
-  isInPreviewMode = false;
   reader = new FileReader();
   documentService: any;
   state: string;
   plainTextSelected: boolean;
   currentGuide: string;
+  toggleTab: string;
+
+  // Booleans
+  isButtonDisabled = false; isSubmitting = false; updatingForm = false; isDeleting = false;
+  isNewForm = false; isFormValid = false; isInPreviewMode = false;
 
   constructor(
-    private componentInjectorService: ComponentInjectorService,
-    private elementRef: ElementRef,
-    private renderer: Renderer2,
     private formService: FormService,
     private commonsService: CommonsService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private toastr: ToastrService,
     private stepModelService: StepModelService,
     private stateService: StateService,
     private odfCreatorService: OdfCreatorService,
-    private plainTextCreatorService: PlainTextCreatorService
-
+    private plainTextCreatorService: PlainTextCreatorService,
+    private userService: UserService
   ) {
     // use the FormBuilder to create a form group
     this.formGroup = this.fb.group({
@@ -106,49 +81,69 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    if (this.route.snapshot.data.initedInServer) {
+      // this.userService.populate();
+      this.userService.isAuthenticated.subscribe(
+        (isAuthenticated) => {
+          if (isAuthenticated) {
+            this.initialValue();
+          } else {
+            this.initialValue();
+          }
+        }
+      );
+    } else {
+      this.initialValue();
+    }
+  }
+
+  initialValue() {
     window['DOCUMENTOURL'] = false;
     // If there's a form prefetched, load it
     this.route.data.subscribe(
       (data: {form: Form}) => {
-        if (data.form) {
-          console.log(data.form);
-          // this.stepModelService.init(this.form.fields, );
-          this.quillText = data.form.text;
-          this.textPreview = data.form.text;
-          this.form = data.form;
-          this.formGroup.patchValue(data.form);
-          // this.fields = this.form.fields;
-          this.form.documentType = data.form.documentType;
-          this.updatingForm = true;
-          setTimeout(() => {
-              this.setCurrentStep(this.form.currentStep);
-          }, 0);
-        } else {
-          this.updatingForm = false;
-          this.toogleModal(this.modalChooseDocument.nativeElement);
-        }
-        this.setInitialState();
-        if (this.updatingForm) {
-          this.setDocument(this.form.documentType);
+        if (this.commonsService.isBrowser() && this.userService.isAuth) {
+          if (data.form) {
+            this.quillText = data.form.text;
+            this.textPreview = data.form.text;
+            this.form = data.form;
+            this.formGroup.patchValue(data.form);
+            // this.fields = this.form.fields;
+            this.form.documentType = data.form.documentType;
+            this.updatingForm = true;
+            setTimeout(() => {
+                this.setCurrentStep(this.form.currentStep);
+            }, 0);
+          } else {
+            this.updatingForm = false;
+            this.toogleModal(this.modalChooseDocument.nativeElement);
+          }
+          this.setInitialState();
+          if (this.updatingForm) {
+              this.setDocument(this.form.documentType);
+          }
         }
       }
     );
   }
 
-  ngOnDestroy() {
-    if (this.documentService) {
-      if (this.documentType === 'office') {
-        this.odfCreatorService.closeAndDestroyEditor();
-      }
-    this.documentService.destroyResizeDocumentContainer();
-    }
-    this.commonsService.setFormCreatorPlayground(true);
-    window.removeEventListener('resize', (this.commonsService.resizeEditor as any));
+  ngAfterViewInit() {
+    
   }
 
-  /***************/
-  /***NEW FORM****/
-  /***************/
+  ngOnDestroy() {
+    if (this.commonsService.isBrowser()) {
+      if (this.documentService) {
+        if (this.documentType === 'office') {
+          this.odfCreatorService.closeAndDestroyEditor();
+        }
+      this.documentService.destroyResizeDocumentContainer();
+      }
+      this.commonsService.setFormCreatorPlayground(true);
+      window.removeEventListener('resize', (this.commonsService.resizeEditor as any));
+    }
+  }
+
   preview(checked: boolean) {
     if (checked) {
       this.stateService.setState('fill-form');
@@ -168,7 +163,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     });
     this.stepModelService.stepsEvent.subscribe((event: string) => {
       if (event === 'remove-step') {
-        this.setCurrentStep(this.currentStep - 1);
         this.form.fields = this.stepModelService.getStepsModel();
       }
     });
@@ -184,13 +178,15 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     if (documentType === 'office') {
       this.setDivHeight();
       this.documentService = this.odfCreatorService;
-      this.documentService.init('create-form', this.updatingForm ? this.form.text : '', 'editorContainer').then( (data: any) => {
-        this.commonsService.setFormCreatorPlayground(false);
-        this.commonsService.resizeEditor(true);
-        window.addEventListener('resize', (this.commonsService.resizeEditor as any));
-        this.documentService.setDragAndDropForSetUp();
-        this.documentService.resizeDocumentContainer();
-      });
+      if (this.commonsService.isBrowser()) {
+        this.documentService.init('create-form', this.updatingForm ? this.form.text : '', 'editorContainer').then( (data: any) => {
+          this.commonsService.setFormCreatorPlayground(false);
+          this.commonsService.resizeEditor(true);
+          window.addEventListener('resize', (this.commonsService.resizeEditor as any));
+          this.documentService.setDragAndDropForSetUp();
+          this.documentService.resizeDocumentContainer();
+        });
+      }
     } else {
       this.documentService = this.plainTextCreatorService;
       this.quillModules = this.documentService.quillModules();
@@ -209,8 +205,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       if (window.innerWidth > 885) {
         if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
-          const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
-  
+          const newHeight = (window.innerHeight 
+            - (document.getElementsByTagName('nav')[0].clientHeight
+            + document.querySelector('.sub-menu').clientHeight)) + 'px';
+
           (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
         }
       }
@@ -219,13 +217,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   setCurrentStep(stepNum: number) {
     this.currentStep = stepNum;
-    this.formAreaDiv.nativeElement.querySelectorAll('.form-creator__fields-area__field').forEach((step: any, index: number) => {
-      if (this.currentStep === index) {
-        step.style.display = 'block';
-      } else {
-        step.style.display = 'none';
-      }
-    });
   }
 
   nextStepAfterValidate() {
@@ -242,9 +233,23 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     }
   }
 
-  injectComponent(component: Object) {
-    const copyObjectComponent = JSON.parse(JSON.stringify(component));
+  injectComponent(type: string) {
+    let copyObjectComponent: Object;
+    switch (type) {
+      case 'input-text':
+        copyObjectComponent = JSON.parse(JSON.stringify(InputTextComponent));
+        break;
+      case 'input-radio-a':
+        copyObjectComponent = JSON.parse(JSON.stringify(InputRadioAComponent));
+        break;
+      case 'input-radio-b':
+        copyObjectComponent = JSON.parse(JSON.stringify(InputRadioBComponent));
+        break;
+      default:
+    }
     this.stepModelService.addNewStep(copyObjectComponent);
+    this.toogleModal(this.addQuestionMenuModal.nativeElement);
+    this.setCurrentStep(this.form.fields.length - 1);
   }
 
   toogleModal(modal: ElementRef) {
@@ -253,32 +258,11 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   previewDocumentButton(setDocumentVisible: boolean) {
     this.commonsService.previewDocumentButton(setDocumentVisible);
-      this.documentService.resizeEvent();
+    this.documentService.resizeEvent();
   }
-
-
-  /********************/
-  /****END NEW FORM****/
-  /********************/
 
   toastMessage(type: string, message1: string, message2: string) {
-    if (type === 'error') {
-      this.toastr.error(message1, message2, {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-    } else if (type === 'success') {
-      this.toastr.success(message1, message2, {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-    }
-  }
-
-  topMenuNav(e: any) {
-    this.commonsService.subMenuNav(e, this.subMenu.nativeElement);
+    this.commonsService.toastMessage(type, message1, message2);
   }
 
   setAdditionalQuillButtons() {
@@ -286,8 +270,9 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     setTimeout( () => { this.documentService.setAdditionalQuillButtons(this.quill.nativeElement);}, 100);
   }
 
-  toggleLightbox(lightBox: ElementRef) {
-    this.commonsService.toggleLightbox(lightBox, false);
+  toggleLightbox(currentGuide: string) {
+    this.currentGuide = currentGuide;
+    this.commonsService.toggleLightbox(this.lightBox.nativeElement, false);
   }
 
   addTag() {
@@ -370,8 +355,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   deleteForm() {
-    if (confirm('¿Seguro que deseas eliminar?')) {
-      this.isDeleting = true;
       this.formService.destroy(this.form.slug)
         .subscribe(
           success => {
@@ -379,20 +362,20 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             this.router.navigateByUrl('/');
           }
         );
-    }
+
   }
 
   validate() {
     if (this.form.fields.length === 0) {
-      this.linkFormButton.nativeElement.click();
-      this.toastMessage('error', 'There are no fields in the form', 'Form empty');
+      this.toggleTab = 'linkFormButton';
+      this.toastMessage('error', 'El formulario no tiene ningún campo', 'Formulario vacío');
       return false;
     }
     if (this.formGroup.controls.title.invalid) {
       this.isFormValid = false;
       this.title.nativeElement.classList.add('input-error');
-      this.linkInformationButton.nativeElement.click();
-      this.toastMessage('error', 'Title is not valid', 'Form empty');
+      this.toggleTab = 'linkInformationButton';
+      this.toastMessage('error', 'Título no válido', 'Form empty');
       return false;
     } else {
       this.title.nativeElement.classList.remove('input-error');
@@ -400,8 +383,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     if (this.formGroup.controls.description.invalid) {
       this.isFormValid = false;
       this.description.nativeElement.classList.add('input-error');
-      this.linkInformationButton.nativeElement.click();
-      this.toastMessage('error', 'Description is not valid', 'Form empty');
+      this.toggleTab = 'linkInformationButton';
+      this.toastMessage('error', 'Descripción no válida', 'Formulario vacío');
       return false;
     } else {
       this.description.nativeElement.classList.remove('input-error');

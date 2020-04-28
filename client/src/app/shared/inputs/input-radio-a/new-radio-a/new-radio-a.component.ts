@@ -1,5 +1,9 @@
 import { Component, Input, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
-import { StateService, StepModelService } from '../../../../core';
+import { 
+  StateService,
+  StepModelService,
+  CommonsService
+} from '../../../../core';
 import { NewRadioA } from './new-radio-a.interface';
 
 @Component({
@@ -10,7 +14,7 @@ export class NewRadioAComponent implements OnInit, OnDestroy {
 
   @Input() field: any;
   @Input() optionalValues: any;
-  @ViewChild('delete') delete: ElementRef;
+  @ViewChild('delete', {static: false}) delete: ElementRef;
 
   public state: string;
   public randomName: string;
@@ -22,7 +26,8 @@ export class NewRadioAComponent implements OnInit, OnDestroy {
 
   constructor(
     private stateService: StateService,
-    private stepModelService: StepModelService
+    private stepModelService: StepModelService,
+    private commonsService: CommonsService
   ) { }
 
   ngOnInit() {
@@ -51,12 +56,14 @@ export class NewRadioAComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.stepModelService.getStepsModel().forEach((step: any) => {
-      if (step.identifier === this.identifier) {
-        const filterRadios = step.radios.filter((radio: NewRadioA) => radio !== this.radio);
-        step.radios = filterRadios;
-      }
-    });
+    if (this.commonsService.isBrowser()) {
+      this.stepModelService.getStepsModel().forEach((step: any) => {
+        if (step.identifier === this.identifier) {
+          const filterRadios = step.radios.filter((radio: NewRadioA) => radio !== this.radio);
+          step.radios = filterRadios;
+        }
+      });
+    }
   }
 
   pushNewRadio() {

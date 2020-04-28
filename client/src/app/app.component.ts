@@ -4,24 +4,26 @@ import {
   ViewChild,
   ElementRef,
   LOCALE_ID,
-  Inject
+  Inject,
+  AfterViewInit
 } from '@angular/core';
 import {
   Router,
   NavigationEnd
 } from '@angular/router';
 import {
-  UserService
+  UserService,
+  CommonsService
 } from './core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('navbar') navbar: ElementRef;
-  @ViewChild('footer') footer: ElementRef;
+  @ViewChild('navbar', {static: false}) navbar: ElementRef;
+  @ViewChild('footer', {static: false}) footer: ElementRef;
   public isAuth: boolean;
   public includedUrlsForNavbar: Array<string> = [
     '/auth/login',
@@ -45,12 +47,15 @@ export class AppComponent implements OnInit {
   constructor(
     @Inject(LOCALE_ID) protected localeId: string,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private commonsService: CommonsService
   ) {}
 
   ngOnInit() {
-
-    this.userService.populate();
+    this.commonsService.addTags('search');
+    if (!this.isAuth) {
+      this.userService.populate();
+    }
     this.userService.isAuthenticated.subscribe(
       (isAuthenticated) => {
         if (isAuthenticated) {
@@ -60,8 +65,6 @@ export class AppComponent implements OnInit {
         }
       }
     );
-
-    this.onPageLoad();
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -78,6 +81,10 @@ export class AppComponent implements OnInit {
         }
       }
     });
+  }
+
+  ngAfterViewInit() {
+    this.onPageLoad();
   }
 
   included(url: string, includedUrls: Array<string>) {

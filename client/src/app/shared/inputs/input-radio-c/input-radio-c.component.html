@@ -70,7 +70,7 @@
                     type="text"
                     id="question"
                     class="{{questionIdentifier}} question-field d-block"
-                    placeholder="Question" [(ngModel)]="question">
+                    placeholder="Question" [(ngModel)]="this.question">
     
                     <span class="question d-none" *ngIf="isNewAuthor()">{{question}}</span>
                     <span class="question d-none" *ngIf="isEditAuthor()">{{field.question}}</span>
@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <div class="remove-button d-block" *ngIf="isEditAuthor()" (click)="deleteDiv()">
+        <div class="remove-button d-block" *ngIf="isEditAuthor()" (click)="deleteElementDiv()">
             <span class="icon icon-trash-alt-regular"></span>
         </div>
     </div>

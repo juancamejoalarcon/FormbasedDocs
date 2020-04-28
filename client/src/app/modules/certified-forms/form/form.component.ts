@@ -11,7 +11,8 @@ import {
   CommonsService,
   FormService,
   CheckoutService,
-  Form
+  Form,
+  MetaService
 } from '../../../core';
 import {
   StepsService,
@@ -25,12 +26,12 @@ import {
 })
 export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild('modal') modal: ElementRef;
-  @ViewChild('modalEnd') modalEnd: ElementRef;
-  @ViewChild('modalDownload') modalDownload: ElementRef;
-  @ViewChild('modalIndication') modalIndication: ElementRef;
-  @ViewChild('input') input: ElementRef;
-  @ViewChild('progressBar') progressBar: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
+  @ViewChild('modalEnd', {static: true}) modalEnd: ElementRef;
+  @ViewChild('modalDownload', {static: false}) modalDownload: ElementRef;
+  @ViewChild('modalIndication', {static: false}) modalIndication: ElementRef;
+  @ViewChild('input', {static: false}) input: ElementRef;
+  @ViewChild('progressBar', {static: false}) progressBar: ElementRef;
   public form: Form = new Form();
   public currentStep = 0;
   public progresBarPercentage = '0%';
@@ -51,10 +52,12 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
     private formsService: FormService,
     private toastr: ToastrService,
     private checkoutService: CheckoutService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private metaService: MetaService
   ) { }
 
   ngOnInit() {
+    if (this.commonsService.isBrowser()) {
     this.commonsService.toggleSpinner();
     this.route.params.subscribe(routeParams => {
       this.route.queryParams.subscribe(params => {
@@ -80,7 +83,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
             }
           });
         } else {
-          if (window.sessionStorage[routeParams.id]) {
+          if (window.sessionStorage && window.sessionStorage[routeParams.id]) {
             this.form = JSON.parse(window.sessionStorage[routeParams.id]);
             this.steps = this.form.fields;
             this.formAlreadyPaid = this.form.alreadyPaid;
@@ -104,6 +107,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       });
     });
+    }
   }
 
   ngAfterViewInit() {
@@ -232,7 +236,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   previewDocumentButton(setDocumentVisible: boolean) {
     this.commonsService.previewDocumentButton(setDocumentVisible);
-      this.documentCreatorService.resizeEvent();
+    this.documentCreatorService.resizeEvent();
   }
 
   onExitPayment() {

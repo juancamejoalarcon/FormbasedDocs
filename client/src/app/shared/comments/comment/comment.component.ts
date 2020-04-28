@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Comment, User, UserService, CommentsService } from '../../../core';
 import { ToastrService } from 'ngx-toastr';
 
@@ -6,15 +6,15 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-comment',
   templateUrl: './comment.component.html'
 })
-export class CommentComponent implements OnInit {
+export class CommentComponent implements OnInit, AfterViewInit {
 
   @Input() comment: Comment;
   @Input() slug: string;
   @Output() deleteComment = new EventEmitter<boolean>();
-  @ViewChild('commentBodyLong') commentBodyLong: ElementRef;
-  @ViewChild('commentBodyShort') commentBodyShort: ElementRef;
-  @ViewChild('commentTextArea') commentTextArea: ElementRef;
-  @ViewChild('editTextArea') editTextArea: ElementRef;
+  @ViewChild('commentBodyLong', {static: false}) commentBodyLong: ElementRef;
+  @ViewChild('commentBodyShort', {static: false}) commentBodyShort: ElementRef;
+  @ViewChild('commentTextArea', {static: false}) commentTextArea: ElementRef;
+  @ViewChild('editTextArea', {static: false}) editTextArea: ElementRef;
   public showMore = false;
   public responsesAreShowing = false;
   public maxLenght = 250;
@@ -40,10 +40,13 @@ export class CommentComponent implements OnInit {
         this.currentUserData = userData;
       }
     );
+  }
+
+  ngAfterViewInit() {
     this.commentBody(false);
   }
 
-  commentBody (show: boolean) {
+  commentBody(show: boolean) {
     this.showMore = show;
     if (this.comment.body.length > this.maxLenght) {
       if (!this.showMore) {

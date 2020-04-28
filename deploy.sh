@@ -53,14 +53,61 @@ are_uncommited_changes() {
     fi
 }
 
+# SET URL ENDPOINT
+set_url() {
+ed ./src/environments/environment.prod.ts << END
+3i
+  api_url: '${url}',
+.
+w
+q
+END
+sed -i '' '4d' ./src/environments/environment.prod.ts
+}
+
+set_stripe() {
+ed ./src/environments/environment.prod.ts << END
+4i
+  stripe_key: '${stripe_key}'
+.
+w
+q
+END
+sed -i '' '5d' ./src/environments/environment.prod.ts
+}
+
+set_paypal() {
+lineNum="$(grep -n 'paypalKey' ./src/index.html | head -n 1 | cut -d: -f1)"
+nextLineNum="$((lineNum + 1))d"
+ed ./src/index.html << END
+${lineNum}i
+  <script id="paypalKey" defer src="https://www.paypal.com/sdk/js?client-id=${paypal_key}&disable-funding=credit,card"></script>
+.
+w
+q
+END
+sed -i '' $nextLineNum ./src/index.html
+}
 # BUILD AND DEPLOY
 build_and_deploy() {
     # Build angular project
     pushd ./client
     if [ "$environment" = 'dev' ]; then
-        ng build --configuration='development'
+        url='https://formbaseddocs-dev.herokuapp.com'
+        set_url
+        stripe_key='pk_test_Us1NHhQN6advqdoP2WRSXLlZ00Eqt1Kust'
+        set_stripe
+        paypal_key='AXEii_db3MBSvp9JH3Fc_q1wWqeSLIAv_QNOOh2OaTzyBygyek6lvJWe_J6ghwoJp2Xlu34NS4UyZ81P'
+        set_paypal
+        npm run build:ssr
     elif [ "$environment" = 'prod' ]; then
-        ng build --configuration='production'
+        url='https://www.automatikdocs.com'
+        set_url
+        stripe_key='pk_live_y5rE3kZkAyKEBpQ9PtdSfP2M00imfBq16j'
+        set_stripe
+        paypal_key='AfRBigPbfKBMYlA1_bnghysFZ-5UxVd4JC5w4wtRCxDYptWERuQMfQsiAz1YxKdeBvvtP-H3xMlz-oX1'
+        set_paypal
+        npm run build:ssr
     fi
     popd
     # Rewrite commands of Procfile
@@ -131,4 +178,3 @@ elif [ "$environment" = 'prod' ]; then
         fi
     fi
 fi
-

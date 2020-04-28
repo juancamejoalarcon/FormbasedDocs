@@ -30,7 +30,9 @@
                             <img src="/assets/images/ssl-secure-en.png" alt="secure payment">
                         </span>
                         <span>
-                            <img src="https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png"/>
+                            <a href="https://stripe.com/" target="_blank">
+                                <img src="/assets/images/stripe-logo.png"/>
+                            </a>
                         </span>
                     </div>
                 </div>
@@ -79,32 +81,36 @@
                     </div>
                 </label>
             </div>
-            <form class="checkout-panel__body__input-fields" *ngIf="this.loadingPayment === false && this.paymentMethod === 'card'">
+            <form class="checkout-panel__body__input-fields" id="payment-form" *ngIf="this.loadingPayment === false && this.paymentMethod === 'card'">
                 <div class="checkout-panel__body__input-fields__column-1">
                     <label class="hosted-field--label" for="cardholder-name" name="cardholderName">Nombre</label>
                     <input type="text" id="cardholder" placeholder="P. ej: Juan Pérez Álvarez" class="name-custom-input" [(ngModel)]="cardholdersName" name="cardholderName"/>
                     <div class="checkout-panel__body__input-fields__small-inputs">
                         <div>
                             <label for="expirationDate">Fecha válida</label>
-                            <div class="hosted-fields"  id="expirationDate"></div>
+                            <div class="hosted-fields-stripe"  id="expirationDate" #dateField></div>
                             <small class="secondary-color" hidden>Fecha de expiración inválida</small>
                         </div>
                         <div>
                             <label for="cvv">CVV / CVC *</label>
-                            <div class="hosted-fields" id="cvv" name="cvv"></div>
+                            <div class="hosted-fields-stripe" id="cvv" name="cvv" #cvv></div>
                             <small class="secondary-color" hidden>CVV Inválido</small>
                         </div>
                     </div>
                 </div>
                 <div class="checkout-panel__body__input-fields__column-2">
                     <label for="number">Número de la tarjeta</label>
-                    <div class="hosted-fields" id="number"></div>
+                    <!-- <div class="hosted-fields" id="number"></div> -->
+                    <div class="hosted-fields-stripe" id="card-element" #cardField></div>
                     <small class="secondary-color" hidden>Número inválido</small>
                     <span class="info">* El código CVV o CVC es un grupo de 3 o 4 números situado en el reverso de la tarjeta de crédito.</span>
                 </div>
             </form>
-            <div id="paypal-button" style="height: 200px; margin-left: auto;margin-right:auto; display: flex;align-items: center;" 
-                *ngIf="this.paymentMethod === 'paypal'"></div>
+            <div style="height: 200px; margin-left: auto;margin-right:auto; display: flex;align-items: center;" 
+                *ngIf="this.paymentMethod === 'paypal'">
+                <div id="paypal-button" style="width: 300px;"></div>
+            </div>
+            <!-- <div id="paypal-button" [hidden]="this.paymentMethod !== 'paypal'"></div> -->
         </div>
         <div class="checkout-panel__body__success" *ngIf="this.steps[this.currentStep].type === 'finish'">
             <!-- <span class=" form-creator__fields-area__end-step__check icon icon-check-circle-solid"></span> -->
@@ -145,6 +151,6 @@
 
     <button class="btn next-btn secondaryC-background-color" (click)="onSubmit()"
     *ngIf="this.steps[this.currentStep].type === 'payment' && this.paymentMethod === 'card'">
-        <strong>PAGAR</strong>
+        <strong style="text-shadow: 1px 1px 4px #000000;">PAGAR</strong>
     </button>
 </div>

@@ -15,8 +15,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CertifiedFormsComponent implements OnInit, OnDestroy {
 
-  @ViewChild('subMenu') subMenu: ElementRef;
-  @ViewChild('loginModal') loginModal: ElementRef;
+  @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
+  @ViewChild('loginModal', {static: false}) loginModal: ElementRef;
 
   public form: Form = new Form();
   public originalForm: Form = new Form();
@@ -36,11 +36,12 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.commonsService.addTags('certifiedForms');
     this.sharedService.currentForm.subscribe((form) => {
       if (this.commonsService.isObjectEmpty(form)) {
       } else {
         this.form = form;
-        document.title = 'Automatik Docs | ' + form.topLabelTitle;
+        // document.title = 'Automatik Docs | ' + form.topLabelTitle;
         this.currentStep = form.currentStep;
       }
     });
@@ -54,14 +55,15 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
         }
       }
     );
-
-    window.addEventListener('unload', this.saveInSessionStorage.bind(this));
+    if (this.commonsService.isBrowser()) {
+      window.addEventListener('unload', this.saveInSessionStorage.bind(this));
+    }
   }
 
   ngOnDestroy() {
     this.saveInSessionStorage();
     window.removeEventListener('unload', this.saveInSessionStorage);
-    document.title = 'Automatik Docs';
+    // document.title = 'Automatik Docs';
   }
 
   topMenuNav(e: any) {
@@ -91,7 +93,9 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
         }
       );
     } else {
-      window.sessionStorage[this.form.id] = JSON.stringify(this.form);
+      if (window.sessionStorage) {
+        window.sessionStorage[this.form.id] = JSON.stringify(this.form);
+      }
       this.router.navigate(['/auth/login'], {
         queryParams: {
           formPath: this.router.url.substring(this.router.url.lastIndexOf('/') + 1)
@@ -101,7 +105,9 @@ export class CertifiedFormsComponent implements OnInit, OnDestroy {
   }
 
   saveInSessionStorage() {
-    window.sessionStorage[this.form.id] = JSON.stringify(this.form);
+    if (window.sessionStorage) {
+      window.sessionStorage[this.form.id] = JSON.stringify(this.form);
+    }
   }
 
   toogleModal(modal: ElementRef) {

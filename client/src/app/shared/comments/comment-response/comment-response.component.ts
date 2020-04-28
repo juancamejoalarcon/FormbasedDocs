@@ -11,9 +11,9 @@ export class CommentResponseComponent implements OnInit {
   @Input() comment: any;
   @Input() slug: string;
   @Output() deleteComment = new EventEmitter<boolean>();
-  @ViewChild('commentBodyLong') commentBodyLong: ElementRef;
-  @ViewChild('commentBodyShort') commentBodyShort: ElementRef;
-  @ViewChild('editTextArea') editTextArea: ElementRef;
+  @ViewChild('commentBodyLong', {static: false}) commentBodyLong: ElementRef;
+  @ViewChild('commentBodyShort', {static: false}) commentBodyShort: ElementRef;
+  @ViewChild('editTextArea', {static: false}) editTextArea: ElementRef;
   public showMore = false;
   public maxLenght = 250;
   public canModify: boolean;

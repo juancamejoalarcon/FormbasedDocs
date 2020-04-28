@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CommentsComponent implements OnInit {
 
   @Input() form: Form;
-  @ViewChild('commentTextArea') commentTextArea: ElementRef;
+  @ViewChild('commentTextArea', {static: false}) commentTextArea: ElementRef;
   public isSubmitting = false;
   public comments: Comment[];
   public commentsLength: any;

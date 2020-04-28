@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SearchTransactionComponent implements OnInit, OnDestroy {
 
-  @ViewChild('searchTransactionDiv') searchTransactionDiv: ElementRef;
-  @ViewChild('transactionIdInput') transactionIdInput: ElementRef;
+  @ViewChild('searchTransactionDiv', {static: true}) searchTransactionDiv: ElementRef;
+  @ViewChild('transactionIdInput', {static: false}) transactionIdInput: ElementRef;
   public transactionId: string;
 
   constructor(
@@ -28,8 +28,10 @@ export class SearchTransactionComponent implements OnInit, OnDestroy {
   }
 
   resizeDiv() {
-    const menuHeight: number = document.querySelector('.nav').clientHeight;
-    this.searchTransactionDiv.nativeElement.style.height = (window.innerHeight - menuHeight) + 'px';
+    if (document.querySelector('.nav')) {
+      const menuHeight: number = document.querySelector('.nav').clientHeight;
+      this.searchTransactionDiv.nativeElement.style.height = (window.innerHeight - menuHeight) + 'px';
+    }
   }
 
   findTransaction() {

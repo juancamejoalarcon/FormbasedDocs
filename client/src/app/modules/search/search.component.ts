@@ -1,4 +1,11 @@
-import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { 
+  Component,
+  OnInit,
+  HostListener,
+  ElementRef,
+  ViewChild,
+  AfterViewInit
+} from '@angular/core';
 import {
   FormListConfig,
   Form,
@@ -13,10 +20,10 @@ import { Location } from '@angular/common';
   selector: 'app-search',
   templateUrl: './search.component.html'
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('subMenu') subMenu: ElementRef;
-  @ViewChild('userFormsTab') userFormsTab: ElementRef;
+  @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
+  @ViewChild('userFormsTab', {static: false}) userFormsTab: ElementRef;
 
   public isAuthenticated: boolean;
   public currentUser: String;
@@ -27,6 +34,7 @@ export class SearchComponent implements OnInit {
   public currentPage: number = 1;
   public noMoreForms: boolean = false;
   public userFormsTabsActive: boolean = false;
+  public formsFirstLoad = false;
 
   constructor(
     private userService: UserService,
@@ -41,26 +49,24 @@ export class SearchComponent implements OnInit {
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
-          this.setListTo();
-          // Load the current user's data
-          this.userService.currentUser.subscribe(
-          (user: User) => {
-            this.currentUser = user.username;
-          });
-          this.searchService.search(this.listConfig)
-          .subscribe(forms => {
-             this.loadingQuery = false;
-             this.results = forms;
-         });
+        this.setListTo();
+        // Load the current user's data
+        this.userService.currentUser.subscribe(
+        (user: User) => {
+          this.currentUser = user.username;
+        });
       }
     );
+  }
 
+  ngAfterViewInit() {
     if (window.location.pathname === '/search/user-forms') {
       this.userFormsTab.nativeElement.click();
     } else {
       this.location.replaceState('/');
     }
   }
+
 
   setListTo() {
     // Takes all forms
@@ -93,7 +99,7 @@ export class SearchComponent implements OnInit {
         this.noMoreForms = true;
         this.setVisibilityOfFooter(false);
       }
-       this.loadingQuery = false;
+      this.loadingQuery = false;
    });
   }
 
@@ -112,6 +118,7 @@ export class SearchComponent implements OnInit {
     this.results = [];
     this.noMoreForms = false;
     this.listConfig.query = inputSearch;
+    
     this.searchService.search(this.listConfig)
       .subscribe(forms => {
           this.loadingQuery = false;
@@ -141,6 +148,14 @@ export class SearchComponent implements OnInit {
   }
 
   setUrl(userForms: boolean) {
+    if (!this.formsFirstLoad) {
+      this.searchService.search(this.listConfig)
+      .subscribe(forms => {
+          this.loadingQuery = false;
+          this.results = forms;
+          this.formsFirstLoad = true;
+      });
+    }
     this.userFormsTabsActive = userForms;
     if (userForms) {
       this.location.replaceState('/search/user-forms');

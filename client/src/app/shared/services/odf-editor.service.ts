@@ -53,7 +53,9 @@ export class OdfEditorService {
     }
 
     closeAndDestroyEditor() {
-        AutomatikDocsApi.closeAndDestroyEditor();
+        if (this.commonsService.isBrowser()) {
+            AutomatikDocsApi.closeAndDestroyEditor();
+        }
     }
 
     setCursorPositionForDragAndDrop(e: any) {

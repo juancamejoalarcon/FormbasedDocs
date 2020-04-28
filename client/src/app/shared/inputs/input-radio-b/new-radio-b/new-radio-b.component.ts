@@ -1,10 +1,16 @@
-import { Component,
-         OnInit,
-         ViewChild,
-         Input,
-         ElementRef, 
-         OnDestroy} from '@angular/core';
-import { StateService, StepModelService } from '../../../../core';
+import { 
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  ElementRef, 
+  OnDestroy
+} from '@angular/core';
+import { 
+  StateService,
+  StepModelService,
+  CommonsService
+} from '../../../../core';
 import { NewRadioB } from './new-radio-b.interface';
 
 @Component({
@@ -16,8 +22,8 @@ export class NewRadioBComponent implements OnInit, OnDestroy {
   @Input() field: any;
   @Input() valueRadio: any;
   @Input() optionalValues: any;
-  @ViewChild('delete') delete: ElementRef;
-  @ViewChild('modal') modal: ElementRef;
+  @ViewChild('delete', {static: false}) delete: ElementRef;
+  @ViewChild('modal', {static: false}) modal: ElementRef;
   public randomNumberForModal = 'i' + Math.random().toString(36).substring(7);
   public randomId: string;
 
@@ -32,7 +38,8 @@ export class NewRadioBComponent implements OnInit, OnDestroy {
 
   constructor(
     private stateService: StateService,
-    private stepModelService: StepModelService
+    private stepModelService: StepModelService,
+    private commonsService: CommonsService
   ) { }
 
   ngOnInit() {
@@ -62,12 +69,14 @@ export class NewRadioBComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.stepModelService.getStepsModel().forEach((step: any) => {
-      if (step.identifier === this.identifier) {
-        const filterRadios = step.radios.filter((radio: NewRadioB) => radio !== this.radio);
-        step.radios = filterRadios;
-      }
-    });
+    if (this.commonsService.isBrowser()) {
+      this.stepModelService.getStepsModel().forEach((step: any) => {
+        if (step.identifier === this.identifier) {
+          const filterRadios = step.radios.filter((radio: NewRadioB) => radio !== this.radio);
+          step.radios = filterRadios;
+        }
+      });
+    }
   }
 
   pushNewRadio() {

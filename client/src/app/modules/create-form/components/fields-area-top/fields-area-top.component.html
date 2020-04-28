@@ -1,0 +1,10 @@
+<div class="form-creator__fields-area__top__container">
+  <div class="form-creator__fields-area__top__preview-button" (click)="previewDocumentButton();">
+      Preview Doc 
+      <span class="icon icon-sort-down-solid"></span>
+  </div>
+  <div class="form-creator__fields-area__top__add-question d-flex" *ngIf="state === 'create-form'">
+      Añadir
+      <span class="icon icon-plus-circle-solid" (click)="toogleModal()"></span>
+  </div>
+</div>
