@@ -8,7 +8,7 @@ const contrato_arrendamiento_plaza_garaje = {
     id: 'contrato-arrendamiento-plaza-garaje',
     title: 'Contrato de alquiler de plaza de garaje',
     topLabelTitle: 'Contrato de alquiler de plaza de garaje',
-    amount: 9.95,
+    amount: 10,
     image: imageUri,
     uri: uri,
     paidUri: paidUri,

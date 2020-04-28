@@ -1,0 +1,15 @@
+- web: node --inspect ./server.js (or ./app.js or whatever your entry point is)
+- heroku ps:exec -a my-app-name
+- heroku ps:forward 9229 [-a my-app-name]
+- vscode:
+
+{
+    "type": "node",
+    "request": "attach",
+    "name": "Heroku",
+    "address": "localhost",
+    "port": 9229,
+    "protocol": "inspector",
+    "localRoot": "${workspaceFolder}",
+    "remoteRoot": "/app"
+},
