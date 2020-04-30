@@ -6,8 +6,21 @@ const secret = require('../config').secret;
 const fs = require('fs');
 
 const UserSchema = new mongoose.Schema({
-  username: {type: String, unique: true, required: [true, "no puede estar en blanco"], match: [/^[A-zÀ-ÿ0-9 ]+$/, 'no es válido'], index: true},
-  email: {type: String, lowercase: true, unique: true, required: [true, "no puede estar en blanco"], match: [/\S+@\S+\.\S+/, 'no es válido'], index: true},
+  username: {
+    type: String,
+    unique: true,
+    required: [true, "no puede estar en blanco"],
+    match: [/^[A-zÀ-ÿ0-9 ]+$/, 'no es válido'],
+    index: true
+  },
+  email: {
+    type: String,
+    lowercase: true,
+    unique: true,
+    required: [true, "no puede estar en blanco"],
+    match: [/\S+@\S+\.\S+/, 'no es válido'],
+    index: true
+  },
   nameAndSurname: String,
   description: String,
   dateOfBirth: Date,
@@ -16,8 +29,14 @@ const UserSchema = new mongoose.Schema({
   contactInformation: String,
   notifications: Array,
   other: Object,
-  likedForms: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Form' }],
-  likedComments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comments' }],
+  likedForms: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Form'
+  }],
+  likedComments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comments'
+  }],
   resetPasswordToken: String,
   resetPasswordExpires: Date,
   hash: String,
@@ -27,19 +46,21 @@ const UserSchema = new mongoose.Schema({
   usePushEach: true
 });
 
-UserSchema.plugin(uniqueValidator, {message: 'ya ha sido elegido.'});
+UserSchema.plugin(uniqueValidator, {
+  message: 'ya ha sido elegido.'
+});
 
-UserSchema.methods.validPassword = function(password) {
+UserSchema.methods.validPassword = function (password) {
   const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
   return this.hash === hash;
 };
 
-UserSchema.methods.setPassword = function(password){
+UserSchema.methods.setPassword = function (password) {
   this.salt = crypto.randomBytes(16).toString('hex');
   this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
 };
 
-UserSchema.methods.generateJWT = function() {
+UserSchema.methods.generateJWT = function () {
   var today = new Date();
   var exp = new Date(today);
   exp.setDate(today.getDate() + 60);
@@ -51,7 +72,7 @@ UserSchema.methods.generateJWT = function() {
   }, secret);
 };
 
-UserSchema.methods.toAuthJSON = function(image){
+UserSchema.methods.toAuthJSON = function (image) {
   return {
     username: this.username,
     email: this.email,
@@ -64,7 +85,7 @@ UserSchema.methods.toAuthJSON = function(image){
   };
 };
 
-UserSchema.methods.toProfileJSONFor = function(user){
+UserSchema.methods.toProfileJSONFor = function (user) {
   let image64;
   ['jpeg', 'png', 'jpg', 'gif'].forEach((type) => {
     let path
@@ -91,40 +112,40 @@ UserSchema.methods.toProfileJSONFor = function(user){
   };
 };
 
-UserSchema.methods.like = function(id){
-  if(this.likedForms.indexOf(id) === -1){
+UserSchema.methods.like = function (id) {
+  if (this.likedForms.indexOf(id) === -1) {
     this.likedForms.push(id);
   }
 
   return this.save();
 };
 
-UserSchema.methods.dislike = function(id){
+UserSchema.methods.dislike = function (id) {
   this.likedForms.remove(id);
   return this.save();
 };
 
-UserSchema.methods.isLike = function(id){
-  return this.likedForms.some(function(likedFormId){
+UserSchema.methods.isLike = function (id) {
+  return this.likedForms.some(function (likedFormId) {
     return likedFormId.toString() === id.toString();
   });
 };
 
-UserSchema.methods.likeComment = function(id){
-  if(this.likedComments.indexOf(id) === -1){
+UserSchema.methods.likeComment = function (id) {
+  if (this.likedComments.indexOf(id) === -1) {
     this.likedComments.push(id);
   }
 
   return this.save();
 };
 
-UserSchema.methods.dislikeComment = function(id){
+UserSchema.methods.dislikeComment = function (id) {
   this.likedComments.remove(id);
   return this.save();
 };
 
-UserSchema.methods.isLikedComment = function(id){
-  return this.likedComments.some(function(likedCommentId){
+UserSchema.methods.isLikedComment = function (id) {
+  return this.likedComments.some(function (likedCommentId) {
     return likedCommentId.toString() === id.toString();
   });
 };
