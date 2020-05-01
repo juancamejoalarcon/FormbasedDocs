@@ -1,4 +1,4 @@
-import { 
+import {
   Component,
   OnInit,
   HostListener,
@@ -22,8 +22,8 @@ import { Location } from '@angular/common';
 })
 export class SearchComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
-  @ViewChild('userFormsTab', {static: false}) userFormsTab: ElementRef;
+  @ViewChild('subMenu', { static: false }) subMenu: ElementRef;
+  @ViewChild('userFormsTab', { static: false }) userFormsTab: ElementRef;
 
   public isAuthenticated: boolean;
   public currentUser: String;
@@ -52,9 +52,9 @@ export class SearchComponent implements OnInit, AfterViewInit {
         this.setListTo();
         // Load the current user's data
         this.userService.currentUser.subscribe(
-        (user: User) => {
-          this.currentUser = user.username;
-        });
+          (user: User) => {
+            this.currentUser = user.username;
+          });
       }
     );
   }
@@ -89,7 +89,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
     // Create limit and offset filter (if necessary)
     if (this.limit) {
       this.listConfig.limit = this.limit;
-      this.listConfig.offset =  (this.limit * (this.currentPage - 1));
+      this.listConfig.offset = (this.limit * (this.currentPage - 1));
     }
     this.searchService.search(this.listConfig).subscribe(forms => {
       if (forms.length !== 0) {
@@ -100,7 +100,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
         this.setVisibilityOfFooter(false);
       }
       this.loadingQuery = false;
-   });
+    });
   }
 
   @HostListener('window:scroll', []) onScroll(): void {
@@ -118,13 +118,13 @@ export class SearchComponent implements OnInit, AfterViewInit {
     this.results = [];
     this.noMoreForms = false;
     this.listConfig.query = inputSearch;
-    
+
     this.searchService.search(this.listConfig)
       .subscribe(forms => {
-          this.loadingQuery = false;
-          this.results = forms;
-        });
-    }
+        this.loadingQuery = false;
+        this.results = forms;
+      });
+  }
 
   setPageTo() {
     this.currentPage += 1;
@@ -138,10 +138,10 @@ export class SearchComponent implements OnInit, AfterViewInit {
     this.noMoreForms = false;
     this.listConfig.orderBy = order;
     this.searchService.search(this.listConfig).subscribe(forms => {
-        this.loadingQuery = false;
-        this.results = forms;
-      });
-    }
+      this.loadingQuery = false;
+      this.results = forms;
+    });
+  }
 
   topMenuNav(e: any) {
     this.commonsService.subMenuNav(e, this.subMenu.nativeElement);
@@ -150,11 +150,11 @@ export class SearchComponent implements OnInit, AfterViewInit {
   setUrl(userForms: boolean) {
     if (!this.formsFirstLoad) {
       this.searchService.search(this.listConfig)
-      .subscribe(forms => {
+        .subscribe(forms => {
           this.loadingQuery = false;
           this.results = forms;
           this.formsFirstLoad = true;
-      });
+        });
     }
     this.userFormsTabsActive = userForms;
     if (userForms) {

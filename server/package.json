@@ -10,7 +10,7 @@
     "local": "NODE_ENV='local' nodemon ./app.js",
     "local:windows": "SET NODE_ENV=local&& nodemon ./app.js",
     "local:universal": "NODE_ENV='local' NODE_UNIVERSAL='active' nodemon ./app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha 'test/unit-testing/**/*'"
   },
   "keywords": [],
   "author": "Juan Camejo Alarcón",
@@ -20,6 +20,7 @@
     "aws-sdk": "^2.656.0",
     "bcryptjs": "^2.4.3",
     "braintree": "^2.20.0",
+    "colors": "^1.4.0",
     "compression": "^1.7.4",
     "core-js": "^3.0.0",
     "cors": "^2.8.5",
@@ -40,6 +41,8 @@
     "stripe": "^8.47.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.2",
     "nodemon": "^1.18.10"
   },
   "engines": {
