@@ -11,23 +11,15 @@ const fs = require('fs');
 const s3 = require('../../helpers/aws-config');
 const Utils = require('../../classes/Utils');
 const utils = new Utils();
+const Aws = require('../../classes/Aws');
+const aws = new Aws();
 
 router.get('/', auth.required, (req, res, next) => {
-  User.findById(req.payload.id).then((user) => {
+  User.findById(req.payload.id).then(async (user) => {
     if (!user) {
       return res.sendStatus(401);
     }
-
-    s3.getObject({
-      Bucket: process.env.AWS_BUCKET,
-      Key: user.id
-    }, function (err, data) {
-      let image64;
-      if (err) {
-        utils.logError('Get image from aws', opt);
-      } else {
-        image64 = 'data:' + data.ContentType + ';' + data.ContentEncoding + ',' + data.Body.toString('base64');
-      }
+    aws.getUserImage(user.id).then((image64) => {
       return res.json({
         user: user.toAuthJSON(image64)
       });
@@ -129,36 +121,21 @@ router.put('/', auth.required, function (req, res, next) {
     });
     // Save image
     if (req.body.user.image !== undefined) {
-
-      let userImage = req.body.user.image;
-      let imageType;
-      ['jpeg', 'png', 'jpg', 'gif'].forEach((type) => {
-        if (userImage.substring(0, 40).includes(type)) {
-          imageType = type;
+      aws.uploadUserImage(req.body.user.image, user).then((saved, awsRes) => {
+        if (saved) {
+          return user.save().then(function () {
+            return res.json({
+              user: user.toAuthJSON()
+            });
+          }).catch(next);
+        } else {
+          res.status(422).json({
+            errors: {
+              err: awsRes
+            }
+          });
         }
       });
-      const buf = new Buffer(userImage.replace(/^data:image\/\w+;base64,/, ""), 'base64');
-      s3.putObject({
-        Bucket: process.env.AWS_BUCKET,
-        Body: buf,
-        Key: `${user.id}`,
-        ContentEncoding: 'base64',
-        ContentType: `image/${imageType}`
-      }).promise().then(response => {
-        utils.logSuccess('Image was saved in aws', response);
-        return user.save().then(function () {
-          return res.json({
-            user: user.toAuthJSON()
-          });
-        }).catch(next);
-      }).catch(err => {
-        utils.logError('Image was NOT saved in aws', err);
-        res.status(422).json({
-          errors: {
-            err: err
-          }
-        });
-      })
     } else {
       return user.save().then(function () {
         return res.json({

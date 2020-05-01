@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const Form = mongoose.model('Form');
 const User = mongoose.model('User');
 const auth = require('../auth');
+const Aws = require('../../classes/Aws');
+const aws = new Aws();
 
 // return a query results
 router.get('/', auth.optional, (req, res, next) => {
@@ -104,20 +106,25 @@ router.get('/', auth.optional, (req, res, next) => {
       .exec(),
       Form.count(query).exec(),
       req.payload ? User.findById(req.payload.id) : null,
-    ]).then(function (results) {
+    ]).then(async function (results) {
       var forms = results[0];
       var formsCount = results[1];
       var user = results[2];
-
+      const formsModified = await Promise.all(forms.map(async (form) => {
+        const opt = query.type === 'Filled' ? 'filled' : 'search';
+        const formToJson = form.toJSONForSearch(user, opt);
+        const authorId = formToJson.author.id;
+        if (authorId) {
+          await aws.getUserImage(authorId.toString()).then((image64) => {
+            formToJson.author.image = image64 ? image64 : undefined
+          });
+          return formToJson;
+        } else {
+          return formToJson;
+        }
+      }));
       return res.json({
-        forms: forms.map(function (form) {
-
-          if (query.type === 'Filled') {
-            return form.toJSONForSearchFill(user);
-          } else {
-            return form.toJSONForSearch(user);
-          }
-        }),
+        forms: formsModified,
         formsCount: formsCount
       });
     });

@@ -86,19 +86,7 @@ UserSchema.methods.toAuthJSON = function (image) {
 };
 
 UserSchema.methods.toProfileJSONFor = function (user) {
-  let image64;
-  ['jpeg', 'png', 'jpg', 'gif'].forEach((type) => {
-    let path
-    if (user) {
-      path = `./tmp/images/${user.id}.${type}`;
-    } else {
-      path = `./tmp/images/${this._id}.${type}`;
-    }
-    if (fs.existsSync(path)) {
-      const data = fs.readFileSync(path);
-      image64 = `data:image/${type};base64,` + data.toString('base64');
-    };
-  });
+
   return {
     id: this._id,
     username: this.username,
@@ -108,7 +96,7 @@ UserSchema.methods.toProfileJSONFor = function (user) {
     dateOfBirth: this.dateOfBirth,
     companyName: this.companyName,
     contactInformation: this.contactInformation,
-    image: image64
+    image: ''
   };
 };
 
