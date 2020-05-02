@@ -16,7 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'automatikdocs' }),
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
