@@ -44,6 +44,9 @@ MIT
 @angular/router
 MIT
 
+@nguniversal/common
+MIT
+
 @nguniversal/express-engine
 MIT
 

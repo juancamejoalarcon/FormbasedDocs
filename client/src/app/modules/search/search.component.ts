@@ -46,10 +46,10 @@ export class SearchComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.loadingQuery = true;
     this.listConfig.orderBy = 'Date';
+    this.setListTo();
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
-        this.setListTo();
         // Load the current user's data
         this.userService.currentUser.subscribe(
           (user: User) => {

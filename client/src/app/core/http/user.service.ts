@@ -6,7 +6,7 @@ import { User } from '../models';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { HttpParams } from '@angular/common/http';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
-const STATE_KEY = makeStateKey('state-key');
+// const STATE_KEY = makeStateKey('state-key');
 
 
 @Injectable()
@@ -24,40 +24,40 @@ export class UserService {
   constructor(
     private apiService: ApiService,
     private jwtService: JwtService,
-    private state: TransferState
+    // private state: TransferState
   ) { }
 
   // Verify JWT in localstorage with server & load user's info.
   // This runs once on application startup.
   populate() {
     this.appInited = true;
-    this.stateItem = this.state.get(STATE_KEY, '');
+    // this.stateItem = this.state.get(STATE_KEY, '');
     if (!this.isAuth) {
       // If JWT detected, attempt to get & store user's info
 
       if (this.jwtService.getToken()) {
-        if (!this.stateItem) {
-          this.apiService.get('/user')
-            .subscribe(
-              (data) => {
-                this.state.set(STATE_KEY, data.user);
-                this.setAuth(data.user, true);
-              },
-              (err) => {
-                console.log('------ERROR-----');
-                console.log(err);
-                console.log('-----------');
-                this.state.set(STATE_KEY, err);
-                this.purgeAuth();
-              }
-            );
-        } else {
-          if (this.stateItem.token) {
-            this.setAuth(this.stateItem, true);
-          } else {
-            this.purgeAuth();
-          }
-        }
+        // if (!this.stateItem) {
+        this.apiService.get('/user')
+          .subscribe(
+            (data) => {
+              // this.state.set(STATE_KEY, data.user);
+              this.setAuth(data.user, true);
+            },
+            (err) => {
+              console.log('------ERROR-----');
+              console.log(err);
+              console.log('-----------');
+              // this.state.set(STATE_KEY, err);
+              this.purgeAuth();
+            }
+          );
+        // } else {
+        //   if (this.stateItem.token) {
+        //     this.setAuth(this.stateItem, true);
+        //   } else {
+        //     this.purgeAuth();
+        //   }
+        // }
       } else {
         // Remove any potential remnants of previous auth states
         this.purgeAuth();

@@ -9,6 +9,7 @@ import { CoreModule } from './core';
 import { SharedModule } from './shared';
 
 import { ToastrModule } from 'ngx-toastr';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ToastrModule } from 'ngx-toastr';
     CoreModule,
     SharedModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    TransferHttpCacheModule
   ],
   providers: [],
   bootstrap: [AppComponent]
