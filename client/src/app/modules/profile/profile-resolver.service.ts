@@ -10,7 +10,7 @@ export class ProfileResolver implements Resolve<any> {
   constructor(
     private router: Router,
     private profilesService: ProfilesService
-  ) {}
+  ) { }
 
   resolve(
     route: ActivatedRouteSnapshot,
@@ -18,12 +18,12 @@ export class ProfileResolver implements Resolve<any> {
   ): Observable<any> {
 
     return this.profilesService.get(route.params['user'])
-    .pipe(
-      map( data => {
+      .pipe(
+        map(data => {
           return data;
-      }),
-      catchError((err) => this.router.navigateByUrl('/')));
-    }
+        }),
+        catchError((err) => this.router.navigateByUrl('/')));
+  }
 }
 
 

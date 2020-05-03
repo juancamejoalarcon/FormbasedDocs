@@ -60,10 +60,19 @@ export class SearchComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (window.location.pathname === '/search/user-forms') {
-      this.userFormsTab.nativeElement.click();
+    if (this.commonsService.isServer()) {
+      if (this.commonsService.getServerReq().originalUrl === '/search/user-forms') {
+        this.searchService.search(this.listConfig)
+          .subscribe(forms => {
+            this.results = forms;
+          });
+      }
     } else {
-      this.location.replaceState('/');
+      if (window.location.pathname === '/search/user-forms') {
+        this.userFormsTab.nativeElement.click();
+      } else {
+        this.location.replaceState('/');
+      }
     }
   }
 
