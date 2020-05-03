@@ -11,7 +11,7 @@
                 {{ user.description}}
             </span>
             <span class="description" *ngIf="!user.description">
-                User has not added any description yet.
+                El usuario no ha añadido ninguna descripción aún.
             </span>
             <span class="profile__info__contact" *ngIf="user.contactInformation">
                 {{ user.contactInformation }}
@@ -71,8 +71,9 @@
                         <span [routerLink]="['/profile', form.author.username]">{{ form.author.username }}</span>
                     </div>
                     <div class="search__results__result__more-info__tags">
-                        <span>tag, tag, tag, tag, tag, tag, tag, tag, 
-                            tag, tag, tag, tag, tag, tag, tag, tag</span>
+                        <span *ngFor="let tag of form.tags; let i = index">{{tag}}
+                            <span *ngIf="form.tags.length !== i + 1">, </span>
+                        </span>
                     </div>
                 </div>
             </div>

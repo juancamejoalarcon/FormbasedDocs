@@ -31,10 +31,10 @@ export class ProfileComponent implements OnInit {
     this.listConfig.orderBy = 'Date';
     this.setListTo();
     this.searchService.search(this.listConfig)
-    .subscribe(forms => {
-       this.loadingQuery = false;
-       this.results = forms;
-   });
+      .subscribe(forms => {
+        this.loadingQuery = false;
+        this.results = forms;
+      });
   }
 
   setListTo() {
@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
     // Create limit and offset filter (if necessary)
     if (this.limit) {
       this.listConfig.limit = this.limit;
-      this.listConfig.offset =  (this.limit * (this.currentPage - 1));
+      this.listConfig.offset = (this.limit * (this.currentPage - 1));
     }
     this.searchService.search(this.listConfig).subscribe(forms => {
       if (forms.length !== 0) {
@@ -63,8 +63,8 @@ export class ProfileComponent implements OnInit {
       } else {
         this.noMoreForms = true;
       }
-       this.loadingQuery = false;
-   });
+      this.loadingQuery = false;
+    });
   }
 
   @HostListener('window:scroll', []) onScroll(): void {
@@ -87,9 +87,9 @@ export class ProfileComponent implements OnInit {
     this.noMoreForms = false;
     this.listConfig.orderBy = order;
     this.searchService.search(this.listConfig).subscribe(forms => {
-        this.loadingQuery = false;
-        this.results = forms;
-      });
-    }
+      this.loadingQuery = false;
+      this.results = forms;
+    });
+  }
 
 }

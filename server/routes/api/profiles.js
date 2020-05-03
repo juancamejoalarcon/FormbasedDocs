@@ -29,7 +29,7 @@ router.get('/:username', auth.optional, function (req, res, next) {
         });
       }
       const profile = req.profile.toProfileJSONFor(user);
-      aws.getUserImage(user.id).then((image64) => {
+      aws.getUserImage(req.profile.id).then((image64) => {
         profile.image = image64 ? image64 : undefined
         return res.json({
           profile: profile

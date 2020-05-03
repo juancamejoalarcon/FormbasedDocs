@@ -113,7 +113,7 @@ router.get('/', auth.optional, (req, res, next) => {
       const formsModified = await Promise.all(forms.map(async (form) => {
         const opt = query.type === 'Filled' ? 'filled' : 'search';
         const formToJson = form.toJSONForSearch(user, opt);
-        const authorId = formToJson.author.id;
+        const authorId = formToJson.author ? formToJson.author.id : false;
         if (authorId) {
           await aws.getUserImage(authorId.toString()).then((image64) => {
             formToJson.author.image = image64 ? image64 : undefined

@@ -31,7 +31,7 @@ export class CheckoutComponent implements OnInit {
   public conditionsChecked: any;
   public idsOfFields: Array<string> = ['card-element', 'expirationDate', 'cvv'];
   public paymentMethod = 'card';
-  public stripe = Stripe(environment.stripe_key);
+  public stripe: any;
   public clientSecret: string;
   public cardNumber: any;
   public cardExpiry: any;
@@ -81,6 +81,9 @@ export class CheckoutComponent implements OnInit {
       if (this.steps[this.currentStep].type === 'payment') {
         this.currentStep = this.currentStep - 1;
       }
+    }
+    if (this.commonsService.isBrowser()) {
+      this.stripe = Stripe(environment.stripe_key);
     }
   }
 

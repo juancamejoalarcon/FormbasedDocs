@@ -29,7 +29,7 @@
                             <span class="form-creator__fields-area__top__author-date__author">
                                 <div class="form-creator__fields-area__top__author-date__author__image-container">
                                     <img src="{{
-                                        !form.author.image ? 'assets/images/avatar.jpeg' : form.author.image
+                                        !form.author?.image ? 'assets/images/avatar.jpeg' : form.author?.image
                                     }}" alt="avatar">
                                 </div>
                                 <span [routerLink]="['/profile', form.author.username]">
