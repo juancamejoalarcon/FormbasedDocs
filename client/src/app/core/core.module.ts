@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTokenInterceptor } from './interceptors/http.token.interceptor';
 import { CookieService } from 'ngx-cookie-service';
+import { BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
 
 import {
   ApiService,
@@ -32,7 +33,8 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserTransferStateModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
