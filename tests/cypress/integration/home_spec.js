@@ -78,4 +78,21 @@ describe('Home page', () => {
             cy.go('back');
         });
     });
+    describe('Test footer container', () => {
+        it("should contain a nav link to Facebook and Twitter", () => {
+            cy.get('.footer__social__links')
+                .children()
+                .first()
+                .find("a")
+                .should('be.visible')
+                .should('have.attr', 'href').and('include', 'facebook.com/Automatik-Docs');
+
+            cy.get('.footer__social__links')
+                .children()
+                .last()
+                .find("a")
+                .should('be.visible')
+                .should('have.attr', 'href').and('include', 'twitter.com/AutomatikD');
+        });
+    });
 })
