@@ -94,5 +94,14 @@ describe('Home page', () => {
                 .should('be.visible')
                 .should('have.attr', 'href').and('include', 'twitter.com/AutomatikD');
         });
+        it("should contain link to contact page", () => {
+            cy.get('.footer__contact-link')
+                .find("a")
+                .should('be.visible')
+                .should('have.attr', 'href').and('include', '/static-pages/contact');
+            cy.get('.footer__contact-link').find("a").click();
+            cy.url().should('include', '/static-pages/contact');
+            cy.go('back');
+        });
     });
 })
