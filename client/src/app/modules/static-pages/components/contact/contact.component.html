@@ -1,0 +1,36 @@
+<div class="sub-menu">
+    <div class="sub-menu__container">
+        <ul class="sub-menu__nav sub-menu__nav--my-forms" style="justify-content: center;">
+            <li class="sub-menu__nav__button sub-menu__nav__button--without-hover">
+                Contacto
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="settings">
+    <div class="settings__container">
+        <div class="settings__profile-image">
+            <div class="settings__profile-image__container">
+                <div class="settings__profile__image__img">
+                    <img src="assets/images/logo_without_title.png" alt="profile image">
+                </div>
+            </div>
+        </div>
+        <div class="settings__form">
+            <div class="settings__form__container">
+                <div class="settings__form__group">
+                    <input type="text" placeholder="Nombre" #nombre>
+                    <input type="text" placeholder="Corren electrónico" #email> 
+                </div>
+                <div class="settings__form__group">
+                    <textarea name="description" cols="30" rows="10"
+                    placeholder="Mensaje" #mensaje></textarea>
+                </div>
+                <div class="settings__form__button-container">
+                    <button class="button-filled" (click)="sendContact()"> Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

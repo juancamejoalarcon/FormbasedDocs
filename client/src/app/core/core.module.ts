@@ -18,7 +18,8 @@ import {
   SearchService,
   TagsService,
   UserService,
-  ComponentInjectorService
+  ComponentInjectorService,
+  GeneralPurposeService
 } from './http';
 import {
   StepModelService,
@@ -57,7 +58,8 @@ import {
     PlainTextCreatorService,
     CookieService,
     MetaService,
-    AuthResolver
+    AuthResolver,
+    GeneralPurposeService
   ],
   declarations: []
 })

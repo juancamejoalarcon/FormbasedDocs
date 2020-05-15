@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { 
+import {
   GuideComponent,
   CgvComponent,
   CondicionesUsoComponent,
+  ContactComponent,
   SilviaProfileComponent,
   PrivacyComponent
 } from './components';
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'condiciones-uso',
     component: CondicionesUsoComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
   },
   {
     path: 'silvia-profile',

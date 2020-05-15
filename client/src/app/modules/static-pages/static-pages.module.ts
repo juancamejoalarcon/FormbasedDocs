@@ -10,6 +10,7 @@ import {
   SilviaProfileComponent,
   PrivacyComponent
 } from './components';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {
     CgvComponent,
     CondicionesUsoComponent,
     SilviaProfileComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
