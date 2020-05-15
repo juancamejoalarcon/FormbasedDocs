@@ -12,7 +12,7 @@ const smtp = {
     }
 };
 
-const emailSender =  {
+const emailSender = {
     checkoutConfirm: (email, transactionId, formType, date, uri) => {
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport(smtp);
@@ -35,7 +35,7 @@ const emailSender =  {
             convert.toPdf(formType, uri).then((file) => {
                 console.log('------');
                 console.log(file);
-    
+
                 // send mail with defined transport object
                 let info = transporter.sendMail({
                     from: '<automatikdocs@automatikdocs.com>', // sender address
@@ -44,19 +44,19 @@ const emailSender =  {
                     text: `Automatik Docs - ${formName}`, // plain text body
                     html: mailStrings.invoice(transactionId, today, formName, amount),
                     attachments: [
-                    {
-                        filename: `${formType}.pdf`,
-                        path: file,
-                        contentType: 'application/pdf'
-                    },
-                    {
-                        filename: `${formType}.doc`,
-                        path: wordFile,
-                        contentType: 'application/msword'
-                    }
-                ],
+                        {
+                            filename: `${formType}.pdf`,
+                            path: file,
+                            contentType: 'application/pdf'
+                        },
+                        {
+                            filename: `${formType}.doc`,
+                            path: wordFile,
+                            contentType: 'application/msword'
+                        }
+                    ],
                 });
-    
+
             });
         });
     },
@@ -64,8 +64,8 @@ const emailSender =  {
         let transporter = nodemailer.createTransport(smtp);
 
         const isProduction = process.env.NODE_ENV === 'production',
-        isDevelopment = process.env.NODE_ENV === 'development',
-        isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
+            isDevelopment = process.env.NODE_ENV === 'development',
+            isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
         let host;
         if (isLocal) {
             host = 'http://localhost:4200';
@@ -90,6 +90,32 @@ const emailSender =  {
         // Preview only available when sending through an Ethereal account
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    },
+    contactForm: (form) => {
+        const { nombre, email, mensaje } = form;
+        return new Promise((resolve, reject) => {
+            let transporter = nodemailer.createTransport(smtp);
+            var mailOptions = {
+                from: `<${email}>`, // sender address
+                to: `automatikdocs@automatikdocs.com`, // list of receivers
+                subject: `Automatik Docs - Contact Form`, // Subject line
+                text: `Automatik Docs - Contact Form`, // plain text body
+                html: mailStrings.contactForm(nombre, email, mensaje),
+            };
+            let resp = false;
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log("Mail send error" + error);
+                    resolve(false); // or use rejcet(false) but then you will have to handle errors
+                }
+                else {
+                    console.log('Email sent:' + info.response);
+                    resolve(true);
+                }
+            });
+        })
+
     },
 }
 
