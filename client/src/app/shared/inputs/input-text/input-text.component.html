@@ -23,7 +23,7 @@
             </div>
             <!---------------->
             <div class="form-creator__fields-area__field__middle">
-                <input type="text" placeholder="Question" id="question" placeholder="Question" (keyup)="onQuestionChanged(questionValue.value)" 
+                <input type="text" placeholder="Question" placeholder="Question" (keyup)="onQuestionChanged(questionValue.value)" 
                 [(ngModel)]="question" #questionValue *ngIf="state === 'create-form'">
                 <span class="form-creator__fields-area__field__middle__question" 
                 *ngIf="state === 'fill-form'">{{question}}</span>

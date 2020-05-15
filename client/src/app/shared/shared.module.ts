@@ -8,6 +8,7 @@ import {
   LoadingSpinnerComponent,
   PrivacyPolicyComponent
 } from './components';
+import { ExternalLinkDirective } from './directives';
 import { ShowAuthedDirective } from './show-authed.directive';
 import { QuillModule } from 'ngx-quill';
 import {
@@ -50,6 +51,7 @@ import {
     ListErrorsComponent,
     LikesButtonComponent,
     ShowAuthedDirective,
+    ExternalLinkDirective,
     InputTextComponent,
     InputRadioAComponent,
     NewRadioAComponent,
@@ -73,6 +75,7 @@ import {
     ListErrorsComponent,
     LikesButtonComponent,
     ShowAuthedDirective,
+    ExternalLinkDirective,
     InputTextComponent,
     InputRadioAComponent,
     NewRadioAComponent,
@@ -93,6 +96,6 @@ import {
     InputRadioCComponent,
     NewRadioCComponent,
     HiddenInputsComponent
-   ]
+  ]
 })
 export class SharedModule { }

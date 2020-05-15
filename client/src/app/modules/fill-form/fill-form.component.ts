@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { 
+import {
   Form,
   FormService,
   UserService,
@@ -19,14 +19,14 @@ import * as screenfull from 'screenfull';
 })
 export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChild('formAreaDiv', {static: false}) formAreaDiv: ElementRef;
-  @ViewChild('automatikDocDiv', {static: false}) automatikDocDiv: ElementRef;
-  @ViewChild('linkFormButton', {static: false}) linkFormButton: ElementRef;
-  @ViewChild('progressBar', {static: false}) progressBar: ElementRef;
-  @ViewChild('modal', {static: false}) modal: ElementRef;
-  @ViewChild('modalDownload', {static: false}) modalDownload: ElementRef;
+  @ViewChild('formAreaDiv', { static: false }) formAreaDiv: ElementRef;
+  @ViewChild('automatikDocDiv', { static: false }) automatikDocDiv: ElementRef;
+  @ViewChild('linkFormButton', { static: false }) linkFormButton: ElementRef;
+  @ViewChild('progressBar', { static: false }) progressBar: ElementRef;
+  @ViewChild('modal', { static: false }) modal: ElementRef;
+  @ViewChild('modalDownload', { static: false }) modalDownload: ElementRef;
 
-  @ViewChild('subMenu', {static: false}) subMenu: ElementRef;
+  @ViewChild('subMenu', { static: false }) subMenu: ElementRef;
 
   public state: string;
   public generatedText: any;
@@ -81,7 +81,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
       this.formsService.get(this.form.originalSlug).subscribe(
         originalForm => {
           this.originalForm = originalForm;
-        } );
+        });
     }
   }
 
@@ -114,22 +114,27 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
     this.form.type = 'Filled';
     // post the changes
     this.formsService
-    .save(this.form)
-    .subscribe(
-      form => {
-        this.toastr.success('Ha sido creado', form.title, {
-          positionClass: 'toast-bottom-right',
-          progressBar: true,
-          progressAnimation: 'decreasing'
-        });
-        this.router.navigateByUrl('/fill-form/edit/' + form.slug);
+      .save(this.form)
+      .subscribe(
+        form => {
+          this.toastr.success('Ha sido creado', form.title, {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+          this.router.navigateByUrl('/fill-form/edit/' + form.slug);
+          setTimeout(() => {
+            this.commonsService.setFormCreatorPlayground(false);
+            this.setDivHeight();
+            this.stepModelService.setInitialState();
+          }, 400);
         },
 
-      err => {
-        this.errors = err;
-        this.isSubmitting = false;
-      }
-    );
+        err => {
+          this.errors = err;
+          this.isSubmitting = false;
+        }
+      );
   }
 
   deleteForm() {
@@ -154,7 +159,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
       if (window.innerWidth > 885) {
         if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
           const newHeight = (window.innerHeight - (document.getElementsByTagName('nav')[0].clientHeight + document.querySelector('.sub-menu').clientHeight)) + 'px';
-  
+
           (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
         }
       }
@@ -171,7 +176,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.form.documentType === 'office') {
       this.setDivHeight();
       this.documentService = this.odfCreatorService;
-      this.documentService.init('fillForm', this.form.text, 'editorContainer').then( data => {
+      this.documentService.init('fillForm', this.form.text, 'editorContainer').then(data => {
         this.commonsService.setFormCreatorPlayground(false);
         this.commonsService.resizeEditor(true);
         window.addEventListener('resize', (this.commonsService.resizeEditor as any));
@@ -259,7 +264,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   downloadHtml() {
-    const blob = new Blob([this.automatikDocDiv.nativeElement.outerHTML], {type: 'text/plain'});
+    const blob = new Blob([this.automatikDocDiv.nativeElement.outerHTML], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -268,7 +273,7 @@ export class FillFormComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   downloadTxt() {
-    const blob = new Blob([this.automatikDocDiv.nativeElement.textContent], {type: 'text/plain'});
+    const blob = new Blob([this.automatikDocDiv.nativeElement.textContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

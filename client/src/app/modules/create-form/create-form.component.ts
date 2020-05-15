@@ -15,7 +15,7 @@ import {
   InputTextComponent,
   InputRadioAComponent,
   InputRadioBComponent
- } from './inputsSchema';
+} from './inputsSchema';
 
 @Component({
   selector: 'app-create-form',
@@ -23,15 +23,15 @@ import {
 })
 export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild('quill', {static: false}) quill: any;
-  @ViewChild('automatikDocDiv', {static: false}) automatikDocDiv: ElementRef;
-  @ViewChild('inputsMenuDiv', {static: false}) inputsMenuDiv: ElementRef;
-  @ViewChild('textPreviewDiv', {static: false}) textPreviewDiv: ElementRef;
-  @ViewChild('title', {static: false}) title: ElementRef;
-  @ViewChild('description', {static: false}) description: ElementRef;
-  @ViewChild('lightBox', {static: false}) lightBox: ElementRef;
-  @ViewChild('modalChooseDocument', {static: true}) modalChooseDocument: ElementRef;
-  @ViewChild('addQuestionMenuModal', {static: false}) addQuestionMenuModal: ElementRef;
+  @ViewChild('quill', { static: false }) quill: any;
+  @ViewChild('automatikDocDiv', { static: false }) automatikDocDiv: ElementRef;
+  @ViewChild('inputsMenuDiv', { static: false }) inputsMenuDiv: ElementRef;
+  @ViewChild('textPreviewDiv', { static: false }) textPreviewDiv: ElementRef;
+  @ViewChild('title', { static: false }) title: ElementRef;
+  @ViewChild('description', { static: false }) description: ElementRef;
+  @ViewChild('lightBox', { static: false }) lightBox: ElementRef;
+  @ViewChild('modalChooseDocument', { static: true }) modalChooseDocument: ElementRef;
+  @ViewChild('addQuestionMenuModal', { static: false }) addQuestionMenuModal: ElementRef;
 
   quillText = '';
   customOptions: any;
@@ -81,27 +81,14 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    if (this.route.snapshot.data.initedInServer) {
-      // this.userService.populate();
-      this.userService.isAuthenticated.subscribe(
-        (isAuthenticated) => {
-          if (isAuthenticated) {
-            this.initialValue();
-          } else {
-            this.initialValue();
-          }
-        }
-      );
-    } else {
-      this.initialValue();
-    }
+    this.initialValue();
   }
 
   initialValue() {
     window['DOCUMENTOURL'] = false;
     // If there's a form prefetched, load it
     this.route.data.subscribe(
-      (data: {form: Form}) => {
+      (data: { form: Form }) => {
         if (this.commonsService.isBrowser() && this.userService.isAuth) {
           if (data.form) {
             this.quillText = data.form.text;
@@ -112,7 +99,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
             this.form.documentType = data.form.documentType;
             this.updatingForm = true;
             setTimeout(() => {
-                this.setCurrentStep(this.form.currentStep);
+              this.setCurrentStep(this.form.currentStep);
             }, 0);
           } else {
             this.updatingForm = false;
@@ -120,7 +107,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
           }
           this.setInitialState();
           if (this.updatingForm) {
-              this.setDocument(this.form.documentType);
+            this.setDocument(this.form.documentType);
           }
         }
       }
@@ -128,7 +115,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    
+
   }
 
   ngOnDestroy() {
@@ -137,7 +124,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.documentType === 'office') {
           this.odfCreatorService.closeAndDestroyEditor();
         }
-      this.documentService.destroyResizeDocumentContainer();
+        this.documentService.destroyResizeDocumentContainer();
       }
       this.commonsService.setFormCreatorPlayground(true);
       window.removeEventListener('resize', (this.commonsService.resizeEditor as any));
@@ -147,7 +134,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
   preview(checked: boolean) {
     if (checked) {
       this.stateService.setState('fill-form');
-      this.documentService.setPreview(this.quillText).then( () => {
+      this.documentService.setPreview(this.quillText).then(() => {
         this.stepModelService.setInitialState();
       });
     } else {
@@ -158,7 +145,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setInitialState() {
     this.stateService.setState('create-form');
-    this.stateService.stateSubscribe().subscribe( (state: string) => {
+    this.stateService.stateSubscribe().subscribe((state: string) => {
       this.state = state;
     });
     this.stepModelService.stepsEvent.subscribe((event: string) => {
@@ -179,7 +166,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
       this.setDivHeight();
       this.documentService = this.odfCreatorService;
       if (this.commonsService.isBrowser()) {
-        this.documentService.init('create-form', this.updatingForm ? this.form.text : '', 'editorContainer').then( (data: any) => {
+        this.documentService.init('create-form', this.updatingForm ? this.form.text : '', 'editorContainer').then((data: any) => {
           this.commonsService.setFormCreatorPlayground(false);
           this.commonsService.resizeEditor(true);
           window.addEventListener('resize', (this.commonsService.resizeEditor as any));
@@ -205,9 +192,9 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
     setTimeout(() => {
       if (window.innerWidth > 885) {
         if ((document.querySelector('#form-creator') as HTMLElement) !== null) {
-          const newHeight = (window.innerHeight 
+          const newHeight = (window.innerHeight
             - (document.getElementsByTagName('nav')[0].clientHeight
-            + document.querySelector('.sub-menu').clientHeight)) + 'px';
+              + document.querySelector('.sub-menu').clientHeight)) + 'px';
 
           (document.querySelector('#form-creator') as HTMLElement).style.height = newHeight;
         }
@@ -267,7 +254,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setAdditionalQuillButtons() {
     // Force check
-    setTimeout( () => { this.documentService.setAdditionalQuillButtons(this.quill.nativeElement);}, 100);
+    setTimeout(() => { this.documentService.setAdditionalQuillButtons(this.quill.nativeElement); }, 100);
   }
 
   toggleLightbox(currentGuide: string) {
@@ -293,7 +280,7 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
   submitForm() {
     if (this.validate()) {
       // Checks if user has introduced any input, if not user cannot submit unless user is updating the form
-      if (this.form.fields.length || this.updatingForm) {
+      if (this.form.fields.length || this.updatingForm) {
         // saves author Form
 
         // saves the generated text
@@ -332,22 +319,28 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log(this.form);
 
     this.formService
-    .save(this.form)
-    .subscribe(
-      form => {
-        if (!this.updatingForm) {
-          this.toastMessage('success', 'Ha sido creado', form.title);
-          this.router.navigateByUrl('/create-form/edit/' + form.slug);
-        } else {
-          this.toastMessage('success', 'Actualizado', form.title);
+      .save(this.form)
+      .subscribe(
+        form => {
+          if (!this.updatingForm) {
+            this.toastMessage('success', 'Ha sido creado', form.title);
+            this.router.navigateByUrl('/create-form/edit/' + form.slug);
+            if (this.documentType === 'plain') {
+              setTimeout(() => {
+                this.commonsService.setFormCreatorPlayground(false);
+                this.setDivHeight();
+              }, 500);
+            }
+          } else {
+            this.toastMessage('success', 'Actualizado', form.title);
+          }
+          this.isSubmitting = false;
+        },
+        err => {
+          this.toastMessage('error', err.errors.message, 'Ha ocurrido un error');
+          this.isSubmitting = false;
         }
-        this.isSubmitting = false;
-      },
-      err => {
-        this.toastMessage('error', err.errors.message, 'Ha ocurrido un error');
-        this.isSubmitting = false;
-      }
-    );
+      );
   }
 
   updateAuthorForm(values: Object) {
@@ -355,13 +348,13 @@ export class CreateFormComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   deleteForm() {
-      this.formService.destroy(this.form.slug)
-        .subscribe(
-          success => {
-            this.toastMessage('success', 'Eliminado', this.form.title);
-            this.router.navigateByUrl('/');
-          }
-        );
+    this.formService.destroy(this.form.slug)
+      .subscribe(
+        success => {
+          this.toastMessage('success', 'Eliminado', this.form.title);
+          this.router.navigateByUrl('/');
+        }
+      );
 
   }
 

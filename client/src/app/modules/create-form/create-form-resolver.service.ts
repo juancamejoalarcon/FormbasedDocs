@@ -12,7 +12,7 @@ export class CreateFormResolver implements Resolve<Form> {
     private router: Router,
     private userService: UserService,
     private commonsService: CommonsService
-  ) {}
+  ) { }
 
   resolve(
     route: ActivatedRouteSnapshot,
@@ -20,16 +20,17 @@ export class CreateFormResolver implements Resolve<Form> {
   ): Observable<any> {
     if (this.commonsService.isBrowser()) {
       return this.formsService.get(route.params['slug'])
-      .pipe(
-        map( form => {
-          if (this.userService.getCurrentUser().username === form.author.username) {
-            return form;
-          } else {
-            this.router.navigateByUrl('/');
-        }}),
-        catchError((err) => this.router.navigateByUrl('/')));
-      }
+        .pipe(
+          map(form => {
+            if (this.userService.getCurrentUser().username === form.author.username) {
+              return form;
+            } else {
+              this.router.navigateByUrl('/');
+            }
+          }),
+          catchError((err) => this.router.navigateByUrl('/')));
     }
+  }
 }
 
 

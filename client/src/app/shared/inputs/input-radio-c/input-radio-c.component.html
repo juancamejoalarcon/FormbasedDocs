@@ -62,13 +62,11 @@
                   
                     <input *ngIf="isEditAuthor()"
                     type="text" 
-                    id="question"
                     class="{{questionIdentifier}} question-field d-block"
                     placeholder="Question" [(ngModel)]="field.question">
     
                     <input *ngIf="isNewAuthor()"
                     type="text"
-                    id="question"
                     class="{{questionIdentifier}} question-field d-block"
                     placeholder="Question" [(ngModel)]="this.question">
     
