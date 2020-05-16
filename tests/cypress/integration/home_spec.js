@@ -104,4 +104,12 @@ describe('Home page', () => {
             cy.go('back');
         });
     });
+    describe('Test Auth', () => {
+        it("should navigate to Auth and login", () => {
+            cy.get('.nav__menu')
+                .children()
+                .last()
+                .click();
+        });
+    });
 })
