@@ -88,6 +88,20 @@ q
 END
 sed -i '' $nextLineNum ./src/index.html
 }
+
+set_google_tag() {
+lineNum="$(grep -n 'googleTagIdKey' ./src/index.html | head -n 1 | cut -d: -f1)"
+nextLineNum="$((lineNum + 1))d"
+ed ./src/index.html << END
+${lineNum}i
+  ${google_tag_script}
+.
+w
+q
+END
+sed -i '' $nextLineNum ./src/index.html
+}
+
 # BUILD AND DEPLOY
 build_and_deploy() {
     # Build angular project
@@ -99,6 +113,8 @@ build_and_deploy() {
         set_stripe
         paypal_key='AXEii_db3MBSvp9JH3Fc_q1wWqeSLIAv_QNOOh2OaTzyBygyek6lvJWe_J6ghwoJp2Xlu34NS4UyZ81P'
         set_paypal
+        google_tag_script='<script id="googleTagIdKey">function nada() {}</script>'
+        set_google_tag
         npm run build:ssr
     elif [ "$environment" = 'prod' ]; then
         url='https://www.automatikdocs.com'
@@ -107,6 +123,8 @@ build_and_deploy() {
         set_stripe
         paypal_key='AfRBigPbfKBMYlA1_bnghysFZ-5UxVd4JC5w4wtRCxDYptWERuQMfQsiAz1YxKdeBvvtP-H3xMlz-oX1'
         set_paypal
+        google_tag_script='<script id="googleTagIdKey" async src="https://www.googletagmanager.com/gtag/js?id=UA-166829110-1"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-166829110-1');</script>'
+        set_google_tag
         npm run build:ssr
     fi
     popd

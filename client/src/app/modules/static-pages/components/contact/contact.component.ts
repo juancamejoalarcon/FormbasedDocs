@@ -18,6 +18,7 @@ export class ContactComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.commonsService.addTags('contact');
   }
 
   sendContact() {

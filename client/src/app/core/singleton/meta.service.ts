@@ -22,6 +22,9 @@ export class MetaService {
       case 'search' || 'auth':
         this.createSearchTags();
         break;
+      case 'contact':
+        this.createContactTags();
+        break;
       case 'certifiedForms':
         this.createCertifiedForms(opt);
         break;
@@ -43,6 +46,10 @@ export class MetaService {
   createSearchTags() {
     this.titleService.setTitle(this.defaultTitle);
     this.metaTagService.updateTag({ name: 'keywords', content: this.defaultKeywords });
+  }
+
+  createContactTags() {
+    this.titleService.setTitle('Contacto | ' + this.defaultTitle);
   }
 
   createCertifiedForms(opt: any) {
