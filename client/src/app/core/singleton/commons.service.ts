@@ -38,12 +38,15 @@ export class CommonsService {
   }
 
   addTags(page: string) {
+    let opt: any = {};
     if (this.isServer()) {
-      const opt = {
-        req: this.getServerReq()
-      };
-      this.metaService.addTags(page, opt);
+      opt.req = this.getServerReq();
+    } else {
+      opt.req = {
+        url: window.location.href
+      }
     }
+    this.metaService.addTags(page, opt);
   }
 
   getServerReq() {
