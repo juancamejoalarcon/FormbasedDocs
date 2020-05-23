@@ -10,9 +10,9 @@ export class StaticService {
     private apiService: ApiService
   ) { }
 
-  get(image: string): Observable<any> {
-    return this.apiService.get('/static/images/' + image)
-      .pipe(map((data: { image: string }) => data.image));
+  getFormBlog(id: string): Observable<any> {
+    return this.apiService.get('/static/modelo/' + id)
+      .pipe(map((data: any) => data.certifiedForm));
   }
 
 }

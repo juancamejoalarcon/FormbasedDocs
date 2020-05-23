@@ -4,4 +4,4 @@ export * from './condiciones-uso';
 export * from './contact';
 export * from './silvia-profile';
 export * from './privacy';
-
+export * from './modelos';

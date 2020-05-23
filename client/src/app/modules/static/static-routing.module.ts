@@ -6,9 +6,10 @@ import {
   CondicionesUsoComponent,
   ContactComponent,
   SilviaProfileComponent,
-  PrivacyComponent
+  PrivacyComponent,
+  ModelosComponent,
+  ModelosResolver
 } from './components';
-import { ContratoCompraventaVehiculoComponent, ModelosResolver } from './modelos';
 
 const routes: Routes = [
   {
@@ -36,10 +37,10 @@ const routes: Routes = [
     component: PrivacyComponent,
   },
   {
-    path: 'contrato-compraventa-vehiculo',
-    component: ContratoCompraventaVehiculoComponent,
+    path: 'modelos/:id',
+    component: ModelosComponent,
     resolve: {
-      image: ModelosResolver
+      form: ModelosResolver
     }
   },
 ];

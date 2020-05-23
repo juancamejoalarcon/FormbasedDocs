@@ -28,6 +28,9 @@ export class MetaService {
       case 'certifiedForms':
         this.createCertifiedForms(opt);
         break;
+      case 'modelos':
+        this.createModelTags(opt);
+        break;
 
       default:
         break;
@@ -43,6 +46,14 @@ export class MetaService {
     ]);
   }
 
+  setCanonicalURL(url?: string) {
+    const canURL = url == undefined ? this.doc.URL : url;
+    const link: HTMLLinkElement = this.doc.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    this.doc.head.appendChild(link);
+    link.setAttribute('href', canURL);
+  }
+
   createSearchTags() {
     this.titleService.setTitle(this.defaultTitle);
     this.metaTagService.updateTag({ name: 'keywords', content: this.defaultKeywords });
@@ -50,6 +61,18 @@ export class MetaService {
 
   createContactTags() {
     this.titleService.setTitle('Contacto | ' + this.defaultTitle);
+  }
+
+  createModelTags(opt: any) {
+    opt.forEach((prop) => {
+      if (prop.name === 'title') {
+        this.titleService.setTitle(prop.content);
+      } else if (prop.name === 'description' || prop.name === 'keywords') {
+        this.metaTagService.updateTag({ name: prop.name, content: prop.content });
+      } else if (prop.name === 'canonical') {
+        this.setCanonicalURL(prop.href);
+      }
+    })
   }
 
   createCertifiedForms(opt: any) {

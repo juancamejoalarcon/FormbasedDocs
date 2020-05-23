@@ -9,9 +9,10 @@ import {
   CondicionesUsoComponent,
   SilviaProfileComponent,
   PrivacyComponent,
-  ContactComponent
+  ContactComponent,
+  ModelosComponent,
+  ModelosResolver
 } from './components';
-import { ContratoCompraventaVehiculoComponent, ModelosResolver } from './modelos'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ContratoCompraventaVehiculoComponent, ModelosResolver } from './modelos
     SilviaProfileComponent,
     PrivacyComponent,
     ContactComponent,
-    ContratoCompraventaVehiculoComponent
+    ModelosComponent
   ],
   imports: [
     CommonModule,

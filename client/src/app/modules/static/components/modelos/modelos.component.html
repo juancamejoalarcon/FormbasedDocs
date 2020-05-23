@@ -1,0 +1,53 @@
+<div [innerHTML]="jsonLD"></div>
+<div class="blog">
+    <div class="blog__container">
+        <div class="blog__header">
+            <div class="blog__header__container">
+                <div class="blog__header__image">
+                    <img src="{{this.contractImageSrc}}" alt="{{this.title}}">
+                </div>
+                <div class="blog__header__title">
+                    <h1>{{this.title}}</h1>
+                    <span class="blog__header__title__date">
+                        <span>Actualizado:</span> {{this.updated}}
+                    </span>
+                    <div class="blog__header__title__button">
+                        <button  [routerLink]="['/certified-forms', this.id]"
+                        class="button-filled button-filled--start-form">
+                            Rellenar formulario
+                        </button>
+                    </div>
+                    <div class="blog__header__title__author">
+                        <!-- <span class="blog__header__title__author__label">Author: </span> -->
+                        <img src="./assets/images/avatar.jpg" alt="avatar">
+                        <span class="blog__header__title__author__name">
+                            <a href="#">Juan Camejo Alarcón</a>
+                        </span>
+                    </div>
+                    <div class="blog__header__title__icons">
+                        <div class="blog__header__title__icons__step">
+                            <span class="icon icon-file-regular"></span>
+                            <span class="blog__header__title__icons__step__number">1.</span>
+                            <span class="blog__header__title__icons__step__description">Elige un documento</span>
+                        </div>
+                        <div class="blog__header__title__icons__step">
+                            <span class="icon icon-list-alt-regular"></span>
+                            <span class="blog__header__title__icons__step__number">2.</span>
+                            <span class="blog__header__title__icons__step__description">Rellena el formulario</span>
+                        </div>
+                        <div class="blog__header__title__icons__step">
+                            <span class="icon icon-print-solid"></span>
+                            <span class="blog__header__title__icons__step__number">3.</span>
+                            <span class="blog__header__title__icons__step__description">Guárdalo e imprímelo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blog__body">
+            <div class="blog__body__container">
+                <div [innerHTML]="this.blogContent"></div>                       
+            </div>
+        </div>
+    </div>
+</div>
