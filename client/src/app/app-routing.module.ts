@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'search',
     loadChildren: () => import('./modules/search/search.module').then(m => m.SearchModule),
   },
-    {
+  {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
   },
@@ -40,8 +40,8 @@ const routes: Routes = [
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
   },
   {
-    path: 'static-pages',
-    loadChildren: () => import('./modules/static-pages/static-pages.module').then(m => m.StaticPagesModule),
+    path: 'static',
+    loadChildren: () => import('./modules/static/static.module').then(m => m.StaticPagesModule),
   }
 ];
 
@@ -51,7 +51,7 @@ const routes: Routes = [
     preloadingStrategy: PreloadAllModules,
     scrollPositionRestoration: 'enabled',
     initialNavigation: 'enabled'
-})],
+  })],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -7,6 +7,7 @@ router.use('/checkout', require('./checkout'));
 router.use('/profile', require('./profiles'));
 router.use('/convert', require('./convert'));
 router.use('/contact', require('./contact'));
+router.use('/static', require('./static'));
 
 router.use(function (err, req, res, next) {
   if (err.name === 'ValidationError') {

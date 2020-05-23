@@ -1,6 +1,6 @@
 describe('Contact page', () => {
     it('Visit Contact page', () => {
-        cy.visit('/static-pages/contact')
+        cy.visit('/static/contact')
     })
     describe('Test inputs', () => {
         it("should display text input 'Nombre' and behave as expected", () => {
