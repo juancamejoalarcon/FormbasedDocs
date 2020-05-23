@@ -7982,6 +7982,12 @@ input[type=checkbox] {
   padding-top: 1rem;
 }
 
+.blog__body ul {
+  font-weight: lighter;
+  padding: 1rem;
+  padding-top: 1rem;
+}
+
 .sign-in-search-button {
   position: absolute;
   top: 1rem;
