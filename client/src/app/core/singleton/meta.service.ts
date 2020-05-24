@@ -115,7 +115,7 @@ export class MetaService {
       default:
         break;
     }
-
+    this.setCanonicalURL(environment.api_url + '/certified-forms/' + opt.req.url.split('/').pop());
     this.titleService.setTitle(title);
     this.metaTagService.updateTag({ name: 'keywords', content: extraKeywords });
     this.metaTagService.updateTag({ name: 'description', content: description });
