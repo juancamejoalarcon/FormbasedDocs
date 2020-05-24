@@ -4,7 +4,8 @@ import {
   OnDestroy,
   AfterViewInit,
   ViewChild,
-  ElementRef } from '@angular/core';
+  ElementRef
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {
@@ -26,12 +27,12 @@ import {
 })
 export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild('modal', {static: false}) modal: ElementRef;
-  @ViewChild('modalEnd', {static: true}) modalEnd: ElementRef;
-  @ViewChild('modalDownload', {static: false}) modalDownload: ElementRef;
-  @ViewChild('modalIndication', {static: false}) modalIndication: ElementRef;
-  @ViewChild('input', {static: false}) input: ElementRef;
-  @ViewChild('progressBar', {static: false}) progressBar: ElementRef;
+  @ViewChild('modal', { static: false }) modal: ElementRef;
+  @ViewChild('modalEnd', { static: true }) modalEnd: ElementRef;
+  @ViewChild('modalDownload', { static: false }) modalDownload: ElementRef;
+  @ViewChild('modalIndication', { static: false }) modalIndication: ElementRef;
+  @ViewChild('input', { static: false }) input: ElementRef;
+  @ViewChild('progressBar', { static: false }) progressBar: ElementRef;
   public form: Form = new Form();
   public currentStep = 0;
   public progresBarPercentage = '0%';
@@ -58,55 +59,55 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     if (this.commonsService.isBrowser()) {
-    this.commonsService.toggleSpinner();
-    this.route.params.subscribe(routeParams => {
-      this.route.queryParams.subscribe(params => {
-        if (params.transactionId) {
-          this.formAlreadyPaid = true;
-          this.formsService.getPaidCertifiedForm(params.transactionId).subscribe((data: any) => {
-            if (data.certifiedForm) {
-              const certifiedForm = data.certifiedForm;
-              this.form.fields = JSON.parse(certifiedForm.fields);
-              this.steps = this.form.fields;
-              this.form.title = certifiedForm.title;
-              this.form.uri = certifiedForm.uri;
-              this.form.id = routeParams.id;
-              this.form.amount = certifiedForm.amount;
-              this.form.topLabelTitle = certifiedForm.topLabelTitle;
-              this.form.information = certifiedForm.information;
-              this.form.updated = certifiedForm.updated;
-              this.setInitiaState();
-            } else if (data.transactionNotFound) {
-              this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
-            } else if (data.formExpired) {
-              this.commonsService.toastMessage('error', 'The period of 30 days to change the document has expired', 'Transaction expired');
-            }
-          });
-        } else {
-          if (window.sessionStorage && window.sessionStorage[routeParams.id]) {
-            this.form = JSON.parse(window.sessionStorage[routeParams.id]);
-            this.steps = this.form.fields;
-            this.formAlreadyPaid = this.form.alreadyPaid;
-            this.setInitiaState();
-          } else {
-            this.formsService.getCertifiedForm(routeParams.id).subscribe(
-              certifiedForm => {
-                this.steps = certifiedForm.steps;
-                this.form.fields = this.steps;
+      this.commonsService.toggleSpinner();
+      this.route.params.subscribe(routeParams => {
+        this.route.queryParams.subscribe(params => {
+          if (params.transactionId) {
+            this.formAlreadyPaid = true;
+            this.formsService.getPaidCertifiedForm(params.transactionId).subscribe((data: any) => {
+              if (data.certifiedForm) {
+                const certifiedForm = data.certifiedForm;
+                this.form.fields = JSON.parse(certifiedForm.fields);
+                this.steps = this.form.fields;
                 this.form.title = certifiedForm.title;
                 this.form.uri = certifiedForm.uri;
                 this.form.id = routeParams.id;
                 this.form.amount = certifiedForm.amount;
-                this.form.image = certifiedForm.image;
                 this.form.topLabelTitle = certifiedForm.topLabelTitle;
                 this.form.information = certifiedForm.information;
                 this.form.updated = certifiedForm.updated;
                 this.setInitiaState();
-              } );
+              } else if (data.transactionNotFound) {
+                this.commonsService.toastMessage('error', 'Transaction Id does not exist', 'Transaction id not found');
+              } else if (data.formExpired) {
+                this.commonsService.toastMessage('error', 'The period of 30 days to change the document has expired', 'Transaction expired');
+              }
+            });
+          } else {
+            if (window.sessionStorage && window.sessionStorage[routeParams.id]) {
+              this.form = JSON.parse(window.sessionStorage[routeParams.id]);
+              this.steps = this.form.fields;
+              this.formAlreadyPaid = this.form.alreadyPaid;
+              this.setInitiaState();
+            } else {
+              this.formsService.getCertifiedForm(routeParams.id).subscribe(
+                certifiedForm => {
+                  this.steps = certifiedForm.steps;
+                  this.form.fields = this.steps;
+                  this.form.title = certifiedForm.title;
+                  this.form.uri = certifiedForm.uri;
+                  this.form.id = routeParams.id;
+                  this.form.amount = certifiedForm.amount;
+                  this.form.image = certifiedForm.image;
+                  this.form.topLabelTitle = certifiedForm.topLabelTitle;
+                  this.form.information = certifiedForm.information;
+                  this.form.updated = certifiedForm.updated;
+                  this.setInitiaState();
+                });
+            }
           }
-        }
+        });
       });
-    });
     }
   }
 
@@ -132,7 +133,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       }
     });
-    this.documentCreatorService.init(this.form.uri).then( data => {
+    this.documentCreatorService.init(this.form.uri).then(data => {
       this.commonsService.setFormCreatorPlayground(false);
       this.commonsService.resizeEditor(true);
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
@@ -142,6 +143,16 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       this.documentCreatorService.resizeEvent();
       this.commonsService.toggleSpinner();
     });
+    this.skipInitialStep();
+  }
+
+  skipInitialStep() {
+    const previousUrl = this.commonsService.getPreviousUrl();
+    if (previousUrl && previousUrl.includes('/static/modelos')) {
+      if (this.steps[this.currentStep].type === 'start') {
+        this.moveStep('next');
+      }
+    }
   }
 
   toogleModal(modal: ElementRef) {

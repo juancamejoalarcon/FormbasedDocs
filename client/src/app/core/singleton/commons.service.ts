@@ -13,19 +13,29 @@ import { ToastrService } from 'ngx-toastr';
 import { MetaService } from './meta.service';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Router, NavigationEnd, RoutesRecognized } from '@angular/router';
+import { filter, pairwise } from 'rxjs/operators';
 
 
 @Injectable()
 export class CommonsService {
 
   public isDocumentVisible = false;
+  public previousUrl: string;
   constructor(
     private toastr: ToastrService,
     @Inject(PLATFORM_ID) private platformId: any,
     private metaService: MetaService,
     @Optional() @Inject(REQUEST) private req: any,
-    private sanitizer: DomSanitizer
-  ) { }
+    private sanitizer: DomSanitizer,
+    router: Router
+  ) {
+    router.events
+      .pipe(filter((evt: any) => evt instanceof RoutesRecognized), pairwise())
+      .subscribe((events: RoutesRecognized[]) => {
+        this.previousUrl = events[0].urlAfterRedirects;
+      });
+  }
 
   isBrowser() {
     return isPlatformBrowser(this.platformId);
@@ -720,6 +730,10 @@ export class CommonsService {
     const json = jsonLD ? JSON.stringify(jsonLD, null, 2).replace(/<\/script>/g, '<\\/script>') : ''; // escape / to prevent script tag in JSON
     const html = `<script type="application/ld+json">${json}</script>`;
     return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
+  getPreviousUrl() {
+    return this.previousUrl;
   }
 
 }

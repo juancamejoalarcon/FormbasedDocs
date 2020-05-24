@@ -7988,6 +7988,14 @@ input[type=checkbox] {
   padding-top: 1rem;
 }
 
+.blog__body a {
+  text-decoration: underline;
+}
+
+.blog__body a:hover {
+  color: #4ECDC4;
+}
+
 .sign-in-search-button {
   position: absolute;
   top: 1rem;

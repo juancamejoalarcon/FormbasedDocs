@@ -3,6 +3,8 @@ const paidUri = require('./paidUri');
 const imageUri = require('./imageUri');
 const steps = require('./steps');
 const information = require('./information');
+const blog = require('./blog');
+const meta = require('./meta');
 
 const contrato_arrendamiento_plaza_garaje = {
     id: 'contrato-arrendamiento-plaza-garaje',
@@ -14,7 +16,9 @@ const contrato_arrendamiento_plaza_garaje = {
     paidUri: paidUri,
     steps: steps,
     information: information,
-    updated: '23 Marzo 2020'
+    updated: '23 Marzo 2020',
+    blog: blog,
+    meta: meta
 };
 
 module.exports = contrato_arrendamiento_plaza_garaje;
