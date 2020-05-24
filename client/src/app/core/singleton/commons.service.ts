@@ -12,6 +12,7 @@ import * as screenfull from 'screenfull';
 import { ToastrService } from 'ngx-toastr';
 import { MetaService } from './meta.service';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 
 @Injectable()
@@ -22,7 +23,8 @@ export class CommonsService {
     private toastr: ToastrService,
     @Inject(PLATFORM_ID) private platformId: any,
     private metaService: MetaService,
-    @Optional() @Inject(REQUEST) private req: any
+    @Optional() @Inject(REQUEST) private req: any,
+    private sanitizer: DomSanitizer
   ) { }
 
   isBrowser() {
@@ -712,6 +714,12 @@ export class CommonsService {
     };
 
     return finalAmount(num);
+  }
+
+  getSafeHTML(jsonLD: { [key: string]: any }): SafeHtml {
+    const json = jsonLD ? JSON.stringify(jsonLD, null, 2).replace(/<\/script>/g, '<\\/script>') : ''; // escape / to prevent script tag in JSON
+    const html = `<script type="application/ld+json">${json}</script>`;
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
 }

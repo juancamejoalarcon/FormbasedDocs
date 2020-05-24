@@ -272,7 +272,6 @@ export class CheckoutComponent implements OnInit {
     this.checkoutService
       .getPaypalOrder(this.form.id).subscribe(
         data => {
-          console.log(data);
           this.paypalButton(data.orderID);
         });
   }
@@ -291,7 +290,6 @@ export class CheckoutComponent implements OnInit {
       },
       onApprove: async (data, actions) => {
         this.commonsService.toggleSpinner();
-        console.log(actions);
         const order = await actions.order.capture();
         this.checkoutService.pay(
           JSON.stringify(this.form.fields),
@@ -313,8 +311,6 @@ export class CheckoutComponent implements OnInit {
                 this.commonsService.toggleSpinner();
               }
             });
-        console.log(order);
-        console.log(data);
       },
       onError: err => {
         console.log(err);

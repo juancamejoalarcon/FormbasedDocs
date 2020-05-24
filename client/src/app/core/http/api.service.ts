@@ -9,10 +9,10 @@ import { catchError } from 'rxjs/operators';
 export class ApiService {
   constructor(
     private http: HttpClient
-  ) {}
+  ) { }
 
   private formatErrors(error: any) {
-    return  throwError(error.error);
+    return throwError(error.error);
   }
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
@@ -35,7 +35,6 @@ export class ApiService {
   }
 
   delete(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    console.log(params);
     return this.http.delete(
       `${environment.api_url}/api${path}`, { params }
     ).pipe(catchError(this.formatErrors));

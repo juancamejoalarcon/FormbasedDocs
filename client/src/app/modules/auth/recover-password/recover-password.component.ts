@@ -8,13 +8,13 @@ import { CommonsService, UserService } from '../../../core';
 })
 export class RecoverPasswordComponent implements OnInit {
 
-  @ViewChild('emailInput', {static: false}) emailInput: ElementRef;
-  @ViewChild('invalidError', {static: false}) invalidError: ElementRef;
-  @ViewChild('passwordInput', {static: false}) passwordInput: ElementRef;
-  @ViewChild('repeatPasswordInput', {static: false}) repeatPasswordInput: ElementRef;
-  @ViewChild('confirmationMessage', {static: false}) confirmationMessage: ElementRef;
-  @ViewChild('title', {static: false}) title: ElementRef;
-  @ViewChild('sendLinkButton', {static: false}) sendLinkButton: ElementRef;
+  @ViewChild('emailInput', { static: false }) emailInput: ElementRef;
+  @ViewChild('invalidError', { static: false }) invalidError: ElementRef;
+  @ViewChild('passwordInput', { static: false }) passwordInput: ElementRef;
+  @ViewChild('repeatPasswordInput', { static: false }) repeatPasswordInput: ElementRef;
+  @ViewChild('confirmationMessage', { static: false }) confirmationMessage: ElementRef;
+  @ViewChild('title', { static: false }) title: ElementRef;
+  @ViewChild('sendLinkButton', { static: false }) sendLinkButton: ElementRef;
   public email: string;
   public password: string;
   public repeatPassword: string;
@@ -66,23 +66,22 @@ export class RecoverPasswordComponent implements OnInit {
   resetPassword() {
     if (this.validatePassword()) {
       this.userService.resetPassword(this.token, this.password, this.repeatPassword)
-      .subscribe((data) => {
-        console.log(data);
-        if (data.passwordRestored) {
-          this.commonsService.toastMessage('success', 'Try to log in', 'Contraseña restaurada');
-          this.router.navigate(['/auth/login']);
-        } else if (data.noToken) {
-          this.router.navigate(['/auth/recover-password']);
-          this.commonsService.toastMessage('error', 'El token expiró o no existe', 'Token error');
-        } else {
-          this.commonsService.toastMessage('error', 'Error', 'Ha ocurrido un error');
-        }
-      });
+        .subscribe((data) => {
+          if (data.passwordRestored) {
+            this.commonsService.toastMessage('success', 'Try to log in', 'Contraseña restaurada');
+            this.router.navigate(['/auth/login']);
+          } else if (data.noToken) {
+            this.router.navigate(['/auth/recover-password']);
+            this.commonsService.toastMessage('error', 'El token expiró o no existe', 'Token error');
+          } else {
+            this.commonsService.toastMessage('error', 'Error', 'Ha ocurrido un error');
+          }
+        });
     }
   }
 
   validatePassword() {
-    if (!this.password || this.password  === '') {
+    if (!this.password || this.password === '') {
       this.commonsService.toastMessage('error', 'Password is empty', 'Empty field');
       this.passwordInput.nativeElement.style.borderBottom = '3px solid #C44D58';
       return false;

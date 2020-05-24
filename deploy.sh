@@ -146,7 +146,8 @@ END
 }
 
 check_node_version() {
-
+    . ~/.nvm/nvm.sh
+    nvm use v13.1.0
     currentNodeVersion=$(node -v)
     if [[ ${currentNodeVersion} == 'v13.1.0' ]]; then
         return 1

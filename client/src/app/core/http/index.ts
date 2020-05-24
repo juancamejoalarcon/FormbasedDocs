@@ -11,3 +11,4 @@ export * from './user.service';
 export * from './component-injector.service';
 export * from './convert.service';
 export * from './general-purpose.service';
+export * from './static.service';

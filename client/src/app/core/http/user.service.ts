@@ -36,9 +36,6 @@ export class UserService {
               this.setAuth(data.user, true);
             },
             (err) => {
-              console.log('------ERROR-----');
-              console.log(err);
-              console.log('-----------');
               this.purgeAuth();
             }
           );
