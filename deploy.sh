@@ -123,7 +123,7 @@ build_and_deploy() {
         set_stripe
         paypal_key='AfRBigPbfKBMYlA1_bnghysFZ-5UxVd4JC5w4wtRCxDYptWERuQMfQsiAz1YxKdeBvvtP-H3xMlz-oX1'
         set_paypal
-        google_tag_script='<script id="googleTagIdKey" async src="https://www.googletagmanager.com/gtag/js?id=UA-166829110-1"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-166829110-1');</script>'
+        google_tag_script='<script id="googleTagIdKey" async src="https://www.googletagmanager.com/gtag/js?id=UA-166829110-1"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-166829110-1");</script>'
         set_google_tag
         npm run build:ssr
     fi
