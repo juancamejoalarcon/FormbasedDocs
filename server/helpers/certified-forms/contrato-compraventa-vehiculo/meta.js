@@ -14,7 +14,7 @@ const meta = {
         },
         {
             name: 'canonical',
-            href: 'https://www.automatikdocs.com/static/modelos/contrato-compraventa-vehiculo'
+            href: '/static/modelos/contrato-compraventa-vehiculo'
         },
     ],
     ldJson: {

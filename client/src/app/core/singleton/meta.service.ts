@@ -1,7 +1,10 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 import { environment } from '../../../environments/environment';
+import {
+  isPlatformBrowser,
+} from '@angular/common';
 
 
 @Injectable()
@@ -13,7 +16,8 @@ export class MetaService {
   constructor(
     private metaTagService: Meta,
     private titleService: Title,
-    @Inject(DOCUMENT) private doc
+    @Inject(DOCUMENT) private doc,
+    @Inject(PLATFORM_ID) private platformId: any,
   ) { }
 
   addTags(page: string, opt: any) {
@@ -47,7 +51,14 @@ export class MetaService {
   }
 
   setCanonicalURL(url?: string) {
-    const canURL = url == undefined ? this.doc.URL : url;
+    // remove previous canonical
+    if (isPlatformBrowser(this.platformId)) {
+      const canon = document.querySelector('link[rel="canonical');
+      if (canon) {
+        canon.parentNode.removeChild(canon);
+      }
+    }
+    const canURL = url == undefined ? this.doc.URL : environment.api_url + url;
     const link: HTMLLinkElement = this.doc.createElement('link');
     link.setAttribute('rel', 'canonical');
     this.doc.head.appendChild(link);
@@ -115,7 +126,7 @@ export class MetaService {
       default:
         break;
     }
-    this.setCanonicalURL(environment.api_url + '/certified-forms/' + opt.req.url.split('/').pop());
+    this.setCanonicalURL('/certified-forms/' + opt.req.url.split('/').pop());
     this.titleService.setTitle(title);
     this.metaTagService.updateTag({ name: 'keywords', content: extraKeywords });
     this.metaTagService.updateTag({ name: 'description', content: description });
