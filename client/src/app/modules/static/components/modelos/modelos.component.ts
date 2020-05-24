@@ -29,7 +29,6 @@ export class ModelosComponent implements OnInit {
       this.blogContent = data.form.blog;
       this.id = data.form.id;
       this.setMetaService(data.form.meta.tags);
-      console.log(data.form.meta.ldJson);
       this.jsonLD = this.commonsService.getSafeHTML(data.form.meta.ldJson);
     });
   }

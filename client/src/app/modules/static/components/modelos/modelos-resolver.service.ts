@@ -16,7 +16,6 @@ export class ModelosResolver implements Resolve<any> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> {
-    console.log(route.params['id']);
     return this.staticService.getFormBlog(route.params['id'])
       .pipe(
         map(data => {
