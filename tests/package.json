@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:local":"CYPRESS_BASE_URL=http://localhost:4000 ./node_modules/.bin/cypress open",
-    "test:dev":"CYPRESS_BASE_URL=http://dev.formbaseddocs.com ./node_modules/.bin/cypress open",
+    "test:dev":"CYPRESS_BASE_URL=https://formbaseddocs-dev.herokuapp.com ./node_modules/.bin/cypress open",
     "test:prod":"CYPRESS_BASE_URL=https://www.automatikdocs.com ./node_modules/.bin/cypress open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
