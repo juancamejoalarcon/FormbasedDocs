@@ -3,6 +3,8 @@ const paidUri = require('./paidUri');
 const imageUri = require('./imageUri');
 const steps = require('./steps');
 const information = require('./information');
+const blog = require('./blog');
+const meta = require('./meta');
 
 const contrato_compraventa_inmueble = {
     id: 'contrato-compraventa-inmueble',
@@ -14,7 +16,9 @@ const contrato_compraventa_inmueble = {
     paidUri: paidUri,
     steps: steps,
     information: information,
-    updated: '28 Marzo 2020'
+    updated: '28 Marzo 2020',
+    blog: blog,
+    meta: meta
 };
 
 module.exports = contrato_compraventa_inmueble;
