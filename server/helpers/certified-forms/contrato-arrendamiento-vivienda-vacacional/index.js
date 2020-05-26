@@ -3,6 +3,8 @@ const paidUri = require('./paidUri');
 const imageUri = require('./imageUri');
 const steps = require('./steps');
 const information = require('./information');
+const blog = require('./blog');
+const meta = require('./meta');
 
 const contrato_arrendamiento_vivienda_vacacional = {
     id: 'contrato-arrendamiento-vivienda-vacacional',
@@ -14,7 +16,9 @@ const contrato_arrendamiento_vivienda_vacacional = {
     paidUri: paidUri,
     steps: steps,
     information: information,
-    updated: '28 Febrero 2020'
+    updated: '28 Febrero 2020',
+    blog: blog,
+    meta: meta
 };
 
 module.exports = contrato_arrendamiento_vivienda_vacacional;
