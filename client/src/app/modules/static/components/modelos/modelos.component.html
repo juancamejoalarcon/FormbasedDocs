@@ -14,7 +14,7 @@
                     <div class="blog__header__title__button">
                         <button  [routerLink]="['/certified-forms', this.id]"
                         class="button-filled button-filled--start-form">
-                            Rellenar formulario
+                            Rellenar modelo
                         </button>
                     </div>
                     <div class="blog__header__title__author">
@@ -38,7 +38,7 @@
                         <div class="blog__header__title__icons__step">
                             <span class="icon icon-print-solid"></span>
                             <span class="blog__header__title__icons__step__number">3.</span>
-                            <span class="blog__header__title__icons__step__description">Guárdalo e imprímelo</span>
+                            <span class="blog__header__title__icons__step__description">Descarga en Word y PDF</span>
                         </div>
                     </div>
                 </div>
@@ -48,6 +48,11 @@
             <div class="blog__body__container">
                 <div [innerHTML]="this.blogContent"></div>                       
             </div>
+        </div>
+        <div class="blog__bottom-link">
+            <a  [routerLink]="['/certified-forms', this.id]">
+                Rellena el modelo y descárgalo en Word y PDF
+            </a>
         </div>
     </div>
 </div>
