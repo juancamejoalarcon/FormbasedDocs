@@ -177,21 +177,7 @@ check_node_version() {
     # echo -e "${GREEN}Success:${NC} On $1 branch"
 }
 
-run_e2e_tests() {
-    pushd ./tests
-    output=$(npm run test:ci:local)
-    if [[ $output == *"All specs passed!"* ]]; then
-        echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
-        return 1
-    else
-        echo "${RED}CYPRESS error: TESTS NOT PASSING!"
-        while read -r line; do
-            echo "$line"
-        done <<< "$output"
-        popd
-        return 0
-    fi
-} 
+run_test
 
 environment=$1
 
@@ -208,10 +194,19 @@ if [ "$environment" = 'dev' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
-                if run_e2e_tests == 1; then
+                pushd ./tests
+                output=$(npm run test:ci:local)
+                if [[ $output == *"All specs passed!"* ]]; then
+                    echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
                     popd
                     heroku git:remote -a formbaseddocs-dev
                     build_and_deploy ${environment}
+                else
+                    echo "${RED}CYPRESS error: TESTS NOT PASSING!"
+                    while read -r line; do
+                        echo "$line"
+                    done <<< "$output"
+                    popd
                 fi
             fi
         fi
@@ -230,9 +225,19 @@ elif [ "$environment" = 'prod' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
-                if run_e2e_tests == 1; then
+                                pushd ./tests
+                output=$(npm run test:ci:local)
+                if [[ $output == *"All specs passed!"* ]]; then
+                    echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
+                    popd
                     heroku git:remote -a automatikdocs
                     build_and_deploy ${environment}
+                else
+                    echo "${RED}CYPRESS error: TESTS NOT PASSING!"
+                    while read -r line; do
+                        echo "$line"
+                    done <<< "$output"
+                    popd
                 fi
             fi
         fi
