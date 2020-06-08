@@ -160,9 +160,9 @@ set_everything_to_default_local() {
     google_tag_script='<script id="googleTagIdKey">function nada() {}</script>'
     set_google_tag
     npm run build:ssr
-    git add .
-    git commit -m "Set settings to default after deploy"
     popd
+    git add .
+    git commit -m "Set settings to default before or after deploy"
 }
 
 check_node_version() {
@@ -176,6 +176,22 @@ check_node_version() {
     fi
     # echo -e "${GREEN}Success:${NC} On $1 branch"
 }
+
+run_e2e_tests() {
+    pushd ./tests
+    output=$(npm run test:ci:local)
+    if [[ $output == *"All specs passed!"* ]]; then
+        echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
+        return 1
+    else
+        echo "${RED}CYPRESS error: TESTS NOT PASSING!"
+        while read -r line; do
+            echo "$line"
+        done <<< "$output"
+        return 0
+    fi
+    popd
+} 
 
 environment=$1
 
@@ -192,8 +208,10 @@ if [ "$environment" = 'dev' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
-                heroku git:remote -a formbaseddocs-dev
-                build_and_deploy ${environment}
+                if run_e2e_tests == 1; then
+                    heroku git:remote -a formbaseddocs-dev
+                    build_and_deploy ${environment}
+                fi
             fi
         fi
     fi
@@ -211,8 +229,10 @@ elif [ "$environment" = 'prod' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
-                heroku git:remote -a automatikdocs
-                build_and_deploy ${environment}
+                if run_e2e_tests == 1; then
+                    heroku git:remote -a automatikdocs
+                    build_and_deploy ${environment}
+                fi
             fi
         fi
     fi
