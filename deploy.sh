@@ -19,6 +19,9 @@ NC='\033[0m' # No Color
 BLUEbg='\e[44m'
 NCbg='\e[49m' # No Color
 
+STRIPE_TEST_KEY="pk_test_Us1NHhQN6advqdoP2WRSXLlZ00Eqt1Kust"
+PAYPAL_TEST_KEY="AXEii_db3MBSvp9JH3Fc_q1wWqeSLIAv_QNOOh2OaTzyBygyek6lvJWe_J6ghwoJp2Xlu34NS4UyZ81P"
+
 ##################################
 
 # SWITCH TO DEV BRANCH
@@ -143,6 +146,21 @@ END
     git commit -m "Build for deploy"
     # git subtree push -f --prefix server heroku master
     git push heroku `git subtree split --prefix server`:master --force
+    set_everything_to_default_local
+}
+
+set_everything_to_default_local() {
+    url='http://localhost:4000'
+    set_url
+    stripe_key=STRIPE_TEST_KEY
+    set_stripe
+    paypal_key=PAYPAL_TEST_KEY
+    set_paypal
+    google_tag_script='<script id="googleTagIdKey">function nada() {}</script>'
+    set_google_tag
+    npm run build:ssr
+    git add .
+    git commit -m "Set settings to default after deploy"
 }
 
 check_node_version() {
