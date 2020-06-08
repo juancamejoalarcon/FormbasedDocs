@@ -19,6 +19,9 @@ NC='\033[0m' # No Color
 BLUEbg='\e[44m'
 NCbg='\e[49m' # No Color
 
+STRIPE_TEST_KEY="pk_test_Us1NHhQN6advqdoP2WRSXLlZ00Eqt1Kust"
+PAYPAL_TEST_KEY="AXEii_db3MBSvp9JH3Fc_q1wWqeSLIAv_QNOOh2OaTzyBygyek6lvJWe_J6ghwoJp2Xlu34NS4UyZ81P"
+
 ##################################
 
 # SWITCH TO DEV BRANCH
@@ -143,6 +146,23 @@ END
     git commit -m "Build for deploy"
     # git subtree push -f --prefix server heroku master
     git push heroku `git subtree split --prefix server`:master --force
+    set_everything_to_default_local
+}
+
+set_everything_to_default_local() {
+    pushd ./client
+    url='http://localhost:4000'
+    set_url
+    stripe_key=${STRIPE_TEST_KEY}
+    set_stripe
+    paypal_key=${PAYPAL_TEST_KEY}
+    set_paypal
+    google_tag_script='<script id="googleTagIdKey">function nada() {}</script>'
+    set_google_tag
+    npm run build:ssr
+    popd
+    git add .
+    git commit -m "Set settings to default before or after deploy"
 }
 
 check_node_version() {
@@ -156,6 +176,8 @@ check_node_version() {
     fi
     # echo -e "${GREEN}Success:${NC} On $1 branch"
 }
+
+run_test
 
 environment=$1
 
@@ -172,8 +194,20 @@ if [ "$environment" = 'dev' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
-                heroku git:remote -a formbaseddocs-dev
-                build_and_deploy ${environment}
+                pushd ./tests
+                output=$(npm run test:ci:local)
+                if [[ $output == *"All specs passed!"* ]]; then
+                    echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
+                    popd
+                    heroku git:remote -a formbaseddocs-dev
+                    build_and_deploy ${environment}
+                else
+                    echo "${RED}CYPRESS error: TESTS NOT PASSING!"
+                    while read -r line; do
+                        echo "$line"
+                    done <<< "$output"
+                    popd
+                fi
             fi
         fi
     fi
@@ -191,8 +225,20 @@ elif [ "$environment" = 'prod' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
-                heroku git:remote -a automatikdocs
-                build_and_deploy ${environment}
+                                pushd ./tests
+                output=$(npm run test:ci:local)
+                if [[ $output == *"All specs passed!"* ]]; then
+                    echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
+                    popd
+                    heroku git:remote -a automatikdocs
+                    build_and_deploy ${environment}
+                else
+                    echo "${RED}CYPRESS error: TESTS NOT PASSING!"
+                    while read -r line; do
+                        echo "$line"
+                    done <<< "$output"
+                    popd
+                fi
             fi
         fi
     fi

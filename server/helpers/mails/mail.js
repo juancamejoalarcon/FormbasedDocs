@@ -8,7 +8,7 @@ const smtp = {
     secure: false, // true for 465, false for other ports
     auth: {
         user: 'automatikdocs@automatikdocs.com', // generated ethereal user
-        pass: 'ripaduprrmrzxyyi' // generated ethereal password
+        pass: 'mbwxktxyubekdnsx' // generated ethereal password
     }
 };
 
