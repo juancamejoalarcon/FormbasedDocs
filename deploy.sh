@@ -182,7 +182,6 @@ run_e2e_tests() {
     output=$(npm run test:ci:local)
     if [[ $output == *"All specs passed!"* ]]; then
         echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
-        popd
         return 1
     else
         echo "${RED}CYPRESS error: TESTS NOT PASSING!"
@@ -210,6 +209,7 @@ if [ "$environment" = 'dev' ]; then
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
                 if run_e2e_tests == 1; then
+                    popd
                     heroku git:remote -a formbaseddocs-dev
                     build_and_deploy ${environment}
                 fi
