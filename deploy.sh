@@ -182,15 +182,16 @@ run_e2e_tests() {
     output=$(npm run test:ci:local)
     if [[ $output == *"All specs passed!"* ]]; then
         echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
+        popd
         return 1
     else
         echo "${RED}CYPRESS error: TESTS NOT PASSING!"
         while read -r line; do
             echo "$line"
         done <<< "$output"
+        popd
         return 0
     fi
-    popd
 } 
 
 environment=$1
