@@ -150,17 +150,19 @@ END
 }
 
 set_everything_to_default_local() {
+    pushd ./client
     url='http://localhost:4000'
     set_url
-    stripe_key=STRIPE_TEST_KEY
+    stripe_key=${STRIPE_TEST_KEY}
     set_stripe
-    paypal_key=PAYPAL_TEST_KEY
+    paypal_key=${PAYPAL_TEST_KEY}
     set_paypal
     google_tag_script='<script id="googleTagIdKey">function nada() {}</script>'
     set_google_tag
     npm run build:ssr
     git add .
     git commit -m "Set settings to default after deploy"
+    popd
 }
 
 check_node_version() {
