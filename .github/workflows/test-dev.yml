@@ -13,11 +13,11 @@ jobs:
       with:
         node-version: "12.x"
     - name: npm install, and test
-      uses: cypress-io/github-action@v1
       working-directory: ./tests
       run: |
-        echo ls
+        ls
         npm install
+        cypress install
         npm run test:ci:dev
       env:
         CI: true
