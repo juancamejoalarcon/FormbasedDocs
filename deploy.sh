@@ -192,9 +192,6 @@ if [ "$environment" = 'dev' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
-                pushd ./server
-                npm run local:universal
-                popd
                 pushd ./tests
                 output=$(npm run test:ci:local)
                 if [[ $output == *"All specs passed!"* ]]; then
