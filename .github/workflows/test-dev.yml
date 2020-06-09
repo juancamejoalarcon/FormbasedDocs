@@ -17,6 +17,6 @@ jobs:
       run: |
         echo ls
         npm install
-        npm test
+        npm test:ci:dev
       env:
         CI: true
