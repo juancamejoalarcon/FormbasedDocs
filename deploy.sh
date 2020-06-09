@@ -194,6 +194,7 @@ if [ "$environment" = 'dev' ]; then
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
                 pushd ./tests
                 output=$(npm run test:ci:local)
+                lsof -ti:4000 | xargs kill
                 if [[ $output == *"All specs passed!"* ]]; then
                     echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
                     popd
