@@ -7536,6 +7536,19 @@ input[type=checkbox] {
   text-align: center;
 }
 
+.settings__email {
+  font-weight: lighter;
+  text-align: center;
+}
+
+.settings__email a {
+  font-weight: 500;
+}
+
+.settings__email a:hover {
+  text-decoration: underline;
+}
+
 .settings__form__container {
   max-width: 500px;
   margin: auto;
