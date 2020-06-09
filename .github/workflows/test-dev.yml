@@ -17,7 +17,6 @@ jobs:
       # because of "record" and "parallel" parameters
       # these containers will load balance all found tests among themselves
       - name: run tests
-        working-directory: ./tests
         uses: cypress-io/github-action@v1
         timeout-minutes: 10
         with:
