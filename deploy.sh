@@ -177,7 +177,9 @@ check_node_version() {
     # echo -e "${GREEN}Success:${NC} On $1 branch"
 }
 
-run_test
+kill_process() {
+    lsof -ti:4000 | xargs kill
+}
 
 environment=$1
 
@@ -195,17 +197,21 @@ if [ "$environment" = 'dev' ]; then
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
                 pushd ./tests
+                kill_process
                 output=$(npm run test:ci:local)
+                kill_process
                 if [[ $output == *"All specs passed!"* ]]; then
                     echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
                     popd
                     heroku git:remote -a formbaseddocs-dev
                     build_and_deploy ${environment}
+                    kill_process
                 else
                     echo "${RED}CYPRESS error: TESTS NOT PASSING!"
                     while read -r line; do
                         echo "$line"
                     done <<< "$output"
+                    kill_process
                     popd
                 fi
             fi
@@ -225,18 +231,22 @@ elif [ "$environment" = 'prod' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
-                                pushd ./tests
+                pushd ./tests
+                kill_process
                 output=$(npm run test:ci:local)
+                kill_process
                 if [[ $output == *"All specs passed!"* ]]; then
                     echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
                     popd
                     heroku git:remote -a automatikdocs
                     build_and_deploy ${environment}
+                    kill_process
                 else
                     echo "${RED}CYPRESS error: TESTS NOT PASSING!"
                     while read -r line; do
                         echo "$line"
                     done <<< "$output"
+                    kill_process
                     popd
                 fi
             fi
