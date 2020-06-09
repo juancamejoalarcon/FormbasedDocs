@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
 
     steps:
     - uses: actions/checkout@v1
@@ -17,6 +17,6 @@ jobs:
       run: |
         echo ls
         npm install
-        CYPRESS_BASE_URL=https://formbaseddocs-dev.herokuapp.com ./node_modules/.bin/cypress run --config video=false
+        npm run test:ci:dev
       env:
         CI: true
