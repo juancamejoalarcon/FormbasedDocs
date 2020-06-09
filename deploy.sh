@@ -177,8 +177,6 @@ check_node_version() {
     # echo -e "${GREEN}Success:${NC} On $1 branch"
 }
 
-run_test
-
 environment=$1
 
 # DEVELOPMENT
@@ -194,6 +192,9 @@ if [ "$environment" = 'dev' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
+                pushd ./server
+                npm run local:universal
+                popd
                 pushd ./tests
                 output=$(npm run test:ci:local)
                 if [[ $output == *"All specs passed!"* ]]; then
@@ -225,7 +226,7 @@ elif [ "$environment" = 'prod' ]; then
                 echo -e "${RED}Error:${NC} Current Node version is not correct"
             else
                 echo -e "${GREEN}Success:${NC} Current Node version correct"
-                                pushd ./tests
+                pushd ./tests
                 output=$(npm run test:ci:local)
                 if [[ $output == *"All specs passed!"* ]]; then
                     echo "${GREEN}Cypress Success: ALL SPECS PASSED!!"
