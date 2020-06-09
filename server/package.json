@@ -9,7 +9,7 @@
     "dev": "NODE_ENV='development' NODE_UNIVERSAL='active' node --inspect ./app.js",
     "local": "NODE_ENV='local' nodemon ./app.js",
     "local:windows": "SET NODE_ENV=local&& nodemon ./app.js",
-    "local:universal": "NODE_ENV='local' NODE_UNIVERSAL='active' nodemon ./app.js",
+    "local:universal": "NODE_ENV='local' NODE_UNIVERSAL='active' node ./app.js",
     "test": "mocha 'test/unit-testing/**/*'"
   },
   "keywords": [],
