@@ -15,9 +15,7 @@ jobs:
     - name: npm install, and test
       working-directory: ./tests
       run: |
-        ls
         npm install
-        cypress install
         npm run test:ci:dev
       env:
         CI: true
