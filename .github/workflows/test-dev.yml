@@ -1,0 +1,26 @@
+name: Automatik Docs Development Workflow
+
+on:
+  schedule:
+      - cron: '* * * * *'
+  push:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: ubuntu-16.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+    - name: npm install, and test
+      working-directory: ./tests
+      run: |
+        ./node_modules/.bin/cypress install
+        npm run test:ci:dev
+      env:
+        CI: true
