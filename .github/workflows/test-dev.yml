@@ -15,7 +15,6 @@ jobs:
     - name: npm install, and test
       working-directory: ./tests
       run: |
-        npm install
         npm run test:ci:dev
       env:
         CI: true
