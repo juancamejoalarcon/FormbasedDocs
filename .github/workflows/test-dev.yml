@@ -2,7 +2,7 @@ name: Automatik Docs Development Workflow
 
 on:
   schedule:
-      - cron: * * * * *
+      - cron: '* * * * *'
   push:
     branches:
       - dev
