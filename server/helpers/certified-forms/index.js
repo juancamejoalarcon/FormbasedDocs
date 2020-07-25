@@ -4,6 +4,7 @@ const contrato_arrendamiento_habitacion = require('./contrato-arrendamiento-habi
 const contrato_arrendamiento_vivienda = require('./contrato-arrendamiento-vivienda');
 const contrato_arrendamiento_vivienda_vacacional = require('./contrato-arrendamiento-vivienda-vacacional');
 const contrato_arrendamiento_plaza_garaje = require('./contrato-arrendamiento-plaza-garaje');
+const estatutos_sociedad_limitada = require('./estatutos-sociedad-limitada');
 
 const certifiedForms = [
     contrato_compraventa_vehiculo,
@@ -11,7 +12,8 @@ const certifiedForms = [
     contrato_arrendamiento_habitacion,
     contrato_arrendamiento_vivienda,
     contrato_arrendamiento_vivienda_vacacional,
-    contrato_arrendamiento_plaza_garaje
+    contrato_arrendamiento_plaza_garaje,
+    estatutos_sociedad_limitada
 ];
 
 module.exports = {

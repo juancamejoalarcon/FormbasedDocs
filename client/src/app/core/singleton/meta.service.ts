@@ -123,6 +123,11 @@ export class MetaService {
         extraKeywords = extraKeywords + ', contrato compraventa vehículo usado entre particulares, compraventa vehículo usado';
         description = `Por medio de este contrato un particular (persona o empresa) propietario de un vehículo automóvil usado, puede venderlo a otro.`;
         break;
+      case 'estatutos-sociedad-limitada':
+        title = 'Estatutos de una Sociedad Limitada | ' + title;
+        extraKeywords = extraKeywords + ', estatutos sociedad limitada, estatutos de una sociedad limitada, estatutos SL, estatutos SR';
+        description = `Los estatutos de una sociedad son el pacto que contiene los derechos y obligaciones de los socios, y las normas que regulan dicha sociedad. Supone uno de los pasos iniciales para constituir una sociedad y deben estar en la escritura de constitución de la misma.`;
+        break;
       default:
         break;
     }
