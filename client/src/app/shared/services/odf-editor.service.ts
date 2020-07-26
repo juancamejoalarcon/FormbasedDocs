@@ -8,9 +8,9 @@ export class OdfEditorService {
     public valuesToChange: Array<any>;
     public documentBodyClone: any;
 
-    constructor (
+    constructor(
         private commonsService: CommonsService
-    ) {}
+    ) { }
 
     createEditor(formType: string, idOfContainer: string = 'editorContainer') {
         AutomatikDocsApi.createEditor(formType, idOfContainer);
@@ -36,7 +36,7 @@ export class OdfEditorService {
         }
 
         // write the ArrayBuffer to a blob, and you're done
-        const blob = new Blob([ab], {type: mimeString});
+        const blob = new Blob([ab], { type: mimeString });
 
         // return URL
         const url = URL.createObjectURL(blob);
@@ -96,8 +96,8 @@ export class OdfEditorService {
                             const textContent = document.createTextNode(event['dataTransfer'].getData('text'));
                             cursorNode.parentNode.insertBefore(textContent, cursorNode.nextSibling);
                         } else {
-                            cursorNode.parentNode.childNodes[index + 1].textContent = 
-                            event['dataTransfer'].getData('text') + cursorNode.parentNode.childNodes[index + 1].textContent;
+                            cursorNode.parentNode.childNodes[index + 1].textContent =
+                                event['dataTransfer'].getData('text') + cursorNode.parentNode.childNodes[index + 1].textContent;
                         }
                     } else {
                         const textContent = document.createTextNode(event['dataTransfer'].getData('text'));
@@ -148,11 +148,11 @@ export class OdfEditorService {
                     if (step.isFocused) {
                         innerHTMLreplaced = innerHTML.replace(regexp,
                             `<span class="highlight focused" data-identifier="${step.wordToReplace}">${step.replacement}</span>`
-                            );
+                        );
                     } else {
                         innerHTMLreplaced = innerHTML.replace(regexp,
                             `<span class="highlight" data-identifier="${step.wordToReplace}">${step.replacement}</span>`
-                            );
+                        );
                     }
                     valueToChange.element.parentElement.innerHTML = innerHTMLreplaced;
                 });
@@ -173,7 +173,7 @@ export class OdfEditorService {
                             let innerHTMLreplaced: any;
                             innerHTMLreplaced = innerHTML.replace(regexp,
                                 `<span>${option.value}</span>`
-                                );
+                            );
                             valueToChange.element.parentElement.innerHTML = innerHTMLreplaced;
                         });
                     }
@@ -205,12 +205,12 @@ export class OdfEditorService {
     scrollToElementWithClassFocus(className: any, offset = 0) {
         if (document.getElementsByClassName(className).length) {
             document.getElementsByClassName(className)[0]
-            .parentElement
-            .scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-        
+                .parentElement
+                .scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+
             setTimeout(() => {
                 document.getElementById('webodfeditor-canvascontainer1').scrollBy(0, offset);
-                }, 500);
+            }, 500);
             // Adjust scroll so it scrolls in div
             // document.getElementById('webodfeditor-canvascontainer1').scrollTo(0,
             //     ((document.getElementsByClassName('focused')[0].parentElement.parentElement.getBoundingClientRect().top +
@@ -283,7 +283,7 @@ export class OdfEditorService {
 
         function removeIndication(e: any) {
             if (e.target.classList.contains('icon-info-circle-solid')
-            || e.target.classList.contains('indication')) {
+                || e.target.classList.contains('indication')) {
                 if (document.querySelectorAll('.indicator').length >= 2) {
                     para.parentNode.removeChild(para);
                     window.removeEventListener('click', removeIndication);
@@ -297,7 +297,7 @@ export class OdfEditorService {
         function findword(cloneOfElements: any, elements: any, wordToReplace2: any) {
             const dataIdentifier = document.querySelectorAll(`[data-identifier]`);
             if (dataIdentifier.length) {
-                dataIdentifier.forEach( (e: any) => {
+                dataIdentifier.forEach((e: any) => {
                     if (e.getAttribute('data-identifier') === wordToReplace2) {
                         element = e;
                     }
@@ -306,12 +306,12 @@ export class OdfEditorService {
                 for (let i = 0; i < cloneOfElements.length; i++) {
                     if (cloneOfElements[i].childNodes.length === 0) {
                         if (cloneOfElements[i].textContent.includes(wordToReplace2)) {
-                                if (elements[i].parentElement.tagName === 'text:span') {
-                                    element = elements[i].parentElement.parentElement;
-        
-                                } else {
-                                    element = elements[i].parentElement;
-                                }
+                            if (elements[i].parentElement.tagName === 'text:span') {
+                                element = elements[i].parentElement.parentElement;
+
+                            } else {
+                                element = elements[i].parentElement;
+                            }
                         }
                     } else {
                         if (elements[i] !== undefined) {
@@ -328,7 +328,7 @@ export class OdfEditorService {
         //     document.getElementsByClassName('sub-menu')[0].clientHeight -
         //     document.getElementsByTagName("office:text")[0].getBoundingClientRect().top - 
         //     document.getElementsByTagName("nav")[0].clientHeight;
-        
+
         //     document.getElementById('webodfeditor-canvascontainer1').scrollTop = scrollResult;
         // }
     }
@@ -346,7 +346,7 @@ export class OdfEditorService {
                             element: elements[i]
                         };
                         /* Check if object is already inside the array */
-                        if ( !(this.valuesToChange.filter(function(e) { return e.clone === cloneOfElements[i]; }).length > 0)) {
+                        if (!(this.valuesToChange.filter(function (e) { return e.clone === cloneOfElements[i]; }).length > 0)) {
                             this.valuesToChange.push(twoValues);
                         }
                     }
@@ -383,8 +383,8 @@ export class OdfEditorService {
                 console.log(subSteps[i]);
                 const clone = valuesToChange[0].element.parentElement.parentElement.cloneNode(true);
                 valuesToChange[0].element
-                .parentElement.parentElement.parentNode
-                .insertBefore(clone, valuesToChange[0].element.parentElement.parentElement.nextElementSibling);
+                    .parentElement.parentElement.parentNode
+                    .insertBefore(clone, valuesToChange[0].element.parentElement.parentElement.nextElementSibling);
             }
         } else {
 
