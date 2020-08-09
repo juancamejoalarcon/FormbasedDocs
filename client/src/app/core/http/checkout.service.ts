@@ -12,25 +12,26 @@ export class CheckoutService {
     private apiService: ApiService
   ) { }
 
-  getToken(formType: string): Observable<any> {
+  getToken(formType: string, hire_lawyer: boolean): Observable<any> {
     return this.apiService
       .post(
         `/checkout/getToken`,
         {
           formType,
+          hire_lawyer
         }
       ).pipe(map(data => data));
   }
 
-  getPaypalOrder(formType: string): Observable<any> {
+  getPaypalOrder(formType: string, hire_lawyer: boolean): Observable<any> {
     return this.apiService
-      .post(`/checkout/paypal-order`, { formType }
+      .post(`/checkout/paypal-order`, { formType, hire_lawyer }
       ).pipe(map(data => data));
   }
 
-  pay(steps: string, email: string, transactionId: string, formType: string, method: string): Observable<any> {
+  pay(steps: string, email: string, transactionId: string, formType: string, method: string, hire_lawyer: boolean): Observable<any> {
     return this.apiService
-      .post(`/checkout`, { steps, formType, email, transactionId, method }
+      .post(`/checkout`, { steps, formType, email, transactionId, method, hire_lawyer }
       ).pipe(map(data => data));
   }
 

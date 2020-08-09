@@ -500,6 +500,16 @@
                                                                     class="purchase_item"><span
                                                                         class="f-fallback">${amount} €</span></td>
                                                             </tr>
+                                                            ${hire_lawyer ? `
+                                                                <tr>
+                                                                    <td width="80%" class="purchase_item"><span
+                                                                            class="f-fallback">Consulta con abogado (30 min)</span></td>
+                                                                    <td class="align-right" width="20%"
+                                                                        class="purchase_item"><span
+                                                                            class="f-fallback">${lawyer_price} €</span></td>
+                                                                </tr>
+                                                                ` : ''
+                                                            }
                                                             <tr>
                                                                 <td width="80%" class="purchase_footer" valign="middle">
                                                                     <p
@@ -507,7 +517,7 @@
                                                                         Total</p>
                                                                 </td>
                                                                 <td width="20%" class="purchase_footer" valign="middle">
-                                                                    <p class="f-fallback purchase_total">${amount} €</p>
+                                                                    <p class="f-fallback purchase_total">${hire_lawyer ? (parseInt(amount) + parseInt(lawyer_price)) : amount} €</p>
                                                                 </td>
                                                             </tr>
                                                         </table>

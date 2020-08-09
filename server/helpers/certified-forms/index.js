@@ -8,6 +8,12 @@ const estatutos_sociedad_limitada = require('./estatutos-sociedad-limitada');
 const estatutos_sociedad_limitada_profesional = require('./estatutos-sociedad-limitada-profesional');
 const estatutos_sociedad_limitada_unipersonal = require('./estatutos-sociedad-limitada-unipersonal');
 const estatutos_asociacion = require('./estatutos-asociacion');
+const subarrendamiento = require('./subarrendamiento');
+const contrato_trabajo = require('./contrato-trabajo-indefinido-temporal');
+const precontrato_trabajo = require('./precontrato-trabajo');
+const contrato_trabajo_fijo_discontinuo = require('./contrato-trabajo-fijo-discontinuo');
+const requerimiento_pago = require('./requerimiento-pago');
+const requerimiento_pago_alquiler = require('./requerimiento-pago-alquiler');
 
 const certifiedForms = [
     contrato_compraventa_vehiculo,
@@ -19,7 +25,13 @@ const certifiedForms = [
     estatutos_sociedad_limitada,
     estatutos_sociedad_limitada_profesional,
     estatutos_sociedad_limitada_unipersonal,
-    estatutos_asociacion
+    estatutos_asociacion,
+    subarrendamiento,
+    contrato_trabajo,
+    contrato_trabajo_fijo_discontinuo,
+    requerimiento_pago,
+    requerimiento_pago_alquiler,
+    precontrato_trabajo
 ];
 
 module.exports = {

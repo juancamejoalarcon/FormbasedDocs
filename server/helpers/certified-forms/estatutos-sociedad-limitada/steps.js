@@ -75,8 +75,8 @@ const steps = [
       },
       {
         "label": "Duración temporal",
-        "replacement": "limitada, constituyéndose por un plazo máximo de id-unid-3_opB_0. Dicho plazo empezará a contar desde el comienzo de las actividades sociales. Transcurrido dicho plazo la sociedad quedará disuelta de pleno derecho, salvo que previo a la finalización del plazo anteriormente establecido se hubiese acordado expresamente  una prórroga y se haya dejado constancia de la misma mediante inscripción de la prórroga en el Registro Mercantil. ",
-        "replacementOriginal": "limitada, constituyéndose por un plazo máximo de id-unid-3_opB_0. Dicho plazo empezará a contar desde el comienzo de las actividades sociales. Transcurrido dicho plazo la sociedad quedará disuelta de pleno derecho, salvo que previo a la finalización del plazo anteriormente establecido se hubiese acordado expresamente  una prórroga y se haya dejado constancia de la misma mediante inscripción de la prórroga en el Registro Mercantil. ",
+        "replacement": "limitada, constituyéndose por un plazo máximo de id-unid-3_opB_0. Dicho plazo empezará a contar desde el comienzo de las actividades sociales. Transcurrido dicho plazo la sociedad quedará disuelta de pleno derecho, salvo que previo a la finalización del plazo anteriormente establecido se hubiese acordado expresamente  una prórroga y se haya dejado constancia de la misma mediante inscripción de la prórroga en el Registro Mercantil",
+        "replacementOriginal": "limitada, constituyéndose por un plazo máximo de id-unid-3_opB_0. Dicho plazo empezará a contar desde el comienzo de las actividades sociales. Transcurrido dicho plazo la sociedad quedará disuelta de pleno derecho, salvo que previo a la finalización del plazo anteriormente establecido se hubiese acordado expresamente  una prórroga y se haya dejado constancia de la misma mediante inscripción de la prórroga en el Registro Mercantil",
         "radioId": "id-unid-3_opB",
         "identifier": "id-unid-3_opB",
         checked: false,
@@ -167,7 +167,7 @@ const steps = [
     "indications": {
       "areIndications": true,
       "indicationsType": "outsideText",
-      "value": "El ejercicio social es el período de tiempo que completa una etapa social a los efectos contables y fiscales exigidos por la Ley.\n\nToda sociedad mercantil tiene una finalidad de lucro, y las ganancias, el cumplimiento por el órgano de administración de determinadas obligaciones contables y documentales, la aprobación de cuentas, el destino del resultado, los impuestos que gravan las ganancias, etc., están siempre en relación con un tiempo determinado, que tiene un inicio y un final temporal, el llamado ejercicio social.\n\nEl artículo 9 del T.R.L.S.A. que al regular el contenido mínimo de los Estatutos Sociales dispone que deberá constar, entre otros, (apartado j):  \"La fecha de cierre del ejercicio social. A falta de disposición estatutaria se entenderá que el ejercicio termina el 31 de diciembre de cada año\", de donde se deduce que los accionistas de la sociedad pueden decidir otra fecha de cierre del ejercicio social diferente a la señalada, pero que una vez decidida ésta, los ejercicios sociales se cerrarán en dicha fecha, y en su defecto, el 31 de diciembre, \"de cada año\", por lo que el periodo de tiempo de cada ejercicio será de un año, independientemente de cuál sea la fecha de cierre.\n\n"
+      "value": "El ejercicio social es el período de tiempo que completa una etapa social a los efectos contables y fiscales exigidos por la Ley.<br>\nToda sociedad mercantil tiene una finalidad de lucro, y las ganancias, el cumplimiento por el órgano de administración de determinadas obligaciones contables y documentales, la aprobación de cuentas, el destino del resultado, los impuestos que gravan las ganancias, etc., están siempre en relación con un tiempo determinado, que tiene un inicio y un final temporal, el llamado ejercicio social.<br>\nEl artículo 9 del T.R.L.S.A. que al regular el contenido mínimo de los Estatutos Sociales dispone que deberá constar, entre otros, (apartado j):  \"La fecha de cierre del ejercicio social. A falta de disposición estatutaria se entenderá que el ejercicio termina el 31 de diciembre de cada año\", de donde se deduce que los accionistas de la sociedad pueden decidir otra fecha de cierre del ejercicio social diferente a la señalada, pero que una vez decidida ésta, los ejercicios sociales se cerrarán en dicha fecha, y en su defecto, el 31 de diciembre, \"de cada año\", por lo que el periodo de tiempo de cada ejercicio será de un año, independientemente de cuál sea la fecha de cierre.<br><br>"
     },
     "extraReplacements": [],
     "radios": [
@@ -217,7 +217,7 @@ const steps = [
     "indications": {
       "areIndications": true,
       "indicationsType": "outsideText",
-      "value": "La sucursal es todo establecimiento secundario dotado de representación permanente y de cierta autonomía de gestión, a través del cual se desarrollen, total o parcialmente, las actividades de la sociedad. Está definición contempla la sucursal desde el punto de vista del art. 295 del Reglamento del Registro Mercantil (RRM), que es el que aquí interesa.\n\nAl lado del domicilio social, principal centro de actividades de la sociedad o lugar donde se halla la administración y dirección de la compañía, toda sociedad de capital puede crear, trasladar y cerrar sucursales.\n\nLa competencia para acordar la creación, la supresión o el traslado de sucursales es, salvo disposición contraria de los estatutos, del órgano de administración Ley de Sociedades de Capital (Real Decreto Legislativo 1/2010, de 2 de julio)"
+      "value": "La sucursal es todo establecimiento secundario dotado de representación permanente y de cierta autonomía de gestión, a través del cual se desarrollen, total o parcialmente, las actividades de la sociedad. Está definición contempla la sucursal desde el punto de vista del art. 295 del Reglamento del Registro Mercantil (RRM), que es el que aquí interesa.<br>\nAl lado del domicilio social, principal centro de actividades de la sociedad o lugar donde se halla la administración y dirección de la compañía, toda sociedad de capital puede crear, trasladar y cerrar sucursales.<br>\nLa competencia para acordar la creación, la supresión o el traslado de sucursales es, salvo disposición contraria de los estatutos, del órgano de administración Ley de Sociedades de Capital (Real Decreto Legislativo 1/2010, de 2 de julio)"
     },
     "extraReplacements": [],
     "radios": [
@@ -302,7 +302,14 @@ const steps = [
     "indications": {
       "areIndications": true,
       "indicationsType": "outsideText",
-      "value": "Las características de las participaciones sociales de una sociedad limitada son:\n\n- Representan una parte alícuota del capital social y deben de estar numeradas.\n\n- Las participaciones suponen un valor nominal, y tienen carácter de indivisibles y acumulables.\n\n- Con las excepciones que señala la LSRL las participaciones atribuyen los mismos derechos a todos los socios de la mercantil.\n\n- Dado que las participaciones son acumulables un socio de una s.l. puede tener todas o varias participaciones.\n\n- Las participaciones son indivisibles y no susceptibles de ser fraccionadas, por tanto el número de socios no pueda incrementarse ilimitadamente al margen del aumento de capital de la sociedad."
+      "value": `Las características de las participaciones sociales de una sociedad limitada son:
+      <ul>
+        <li>Representan una parte alícuota del capital social y deben de estar numeradas.</li>
+        <li>Las participaciones suponen un valor nominal, y tienen carácter de indivisibles y acumulables.</li>
+      <li>Con las excepciones que señala la LSRL las participaciones atribuyen los mismos derechos a todos los socios de la mercantil.</li>
+      <li>Dado que las participaciones son acumulables un socio de una s.l. puede tener todas o varias participaciones.</li>
+      <li>Las participaciones son indivisibles y no susceptibles de ser fraccionadas, por tanto el número de socios no pueda incrementarse ilimitadamente al margen del aumento de capital de la sociedad.</li>
+      </ul>`
     }
   },
   {
@@ -315,7 +322,7 @@ const steps = [
     "indications": {
       "areIndications": true,
       "indicationsType": "outsideText",
-      "value": "El capital social de las sociedades limitadas se divide en participaciones, y cada participación tendrá un valor nominal que vendrá determinado por la proporción que exista entre el capital social (no inferior a 3.000 €) y el número de participaciones que se creen. A continuación te pongo algunos ejemplos:\n\nSi se crea una SL con un capital social de 3.000 € dividido en 3.000 participaciones, el valor nominal de cada participación será de 1 € (3.000 € / 3.000 participaciones).\nSi la SL se constituye con un capital social de 4.000 € y se crean 100 participaciones, el valor nominal de cada participación será de 40 € (4.000 € / 100 participaciones).\nTanto el número de participaciones que se creen como el capital social que se aporte (siempre respetando el mínimo legal de 3.000 €), dependerá de la voluntad de los socios de cada SL, teniendo en cuenta que si las participaciones tienen un valor nominal inferior será más fácil de que el número de partícipes que suscriban esas participaciones sea mayor, es decir, habrá más socios en esa sociedad, aunque este hecho tampoco impide que todas las participaciones sean suscritas por un socio único o dos."
+      "value": "El capital social de las sociedades limitadas se divide en participaciones, y cada participación tendrá un valor nominal que vendrá determinado por la proporción que exista entre el capital social (no inferior a 3.000 €) y el número de participaciones que se creen. A continuación te pongo algunos ejemplos:<br>\nSi se crea una SL con un capital social de 3.000 € dividido en 3.000 participaciones, el valor nominal de cada participación será de 1 € (3.000 € / 3.000 participaciones).\nSi la SL se constituye con un capital social de 4.000 € y se crean 100 participaciones, el valor nominal de cada participación será de 40 € (4.000 € / 100 participaciones).\nTanto el número de participaciones que se creen como el capital social que se aporte (siempre respetando el mínimo legal de 3.000 €), dependerá de la voluntad de los socios de cada SL, teniendo en cuenta que si las participaciones tienen un valor nominal inferior será más fácil de que el número de partícipes que suscriban esas participaciones sea mayor, es decir, habrá más socios en esa sociedad, aunque este hecho tampoco impide que todas las participaciones sean suscritas por un socio único o dos."
     }
   },
   {
@@ -421,7 +428,7 @@ const steps = [
     "indications": {
       "areIndications": true,
       "indicationsType": "outsideText",
-      "value": "Modalidades de órgano de administración que existen\n\n- Administrador Único: el poder de representación corresponderá a una sola persona, física o jurídica, que será quien ejerza las funciones de administración y representación, no pudiendo delegar su cargo en un tercero.\n\n- Dos o más administradores solidarios: el poder de representación corresponderá a cada persona, de forma que cada uno de ellos podrá actuar de forma separada, sin necesidad del otro, pudiendo realizar de forma individual cualquier acto que vincule a la sociedad.\n\n- Dos o más administradores mancomunados: el poder de representación se ejercerá mancomunadamente por al menos dos de ellos en la forma que determinen los estatutos sociales.\n\n- Consejo de Administración: se trata de un órgano de carácter colegiado, en el que será necesario el acuerdo de la mayoría de sus miembros para llevar a cabo una actuación. El consejo de administración en el caso de sociedades limitadas deberá estar formado por un mínimo de tres consejeros y un máximo de doce."
+      "value": "Modalidades de órgano de administración que existen<br><br>- Administrador Único: el poder de representación corresponderá a una sola persona, física o jurídica, que será quien ejerza las funciones de administración y representación, no pudiendo delegar su cargo en un tercero.<br><br>- Dos o más administradores solidarios: el poder de representación corresponderá a cada persona, de forma que cada uno de ellos podrá actuar de forma separada, sin necesidad del otro, pudiendo realizar de forma individual cualquier acto que vincule a la sociedad.<br><br>- Dos o más administradores mancomunados: el poder de representación se ejercerá mancomunadamente por al menos dos de ellos en la forma que determinen los estatutos sociales.<br><br>- Consejo de Administración: se trata de un órgano de carácter colegiado, en el que será necesario el acuerdo de la mayoría de sus miembros para llevar a cabo una actuación. El consejo de administración en el caso de sociedades limitadas deberá estar formado por un mínimo de tres consejeros y un máximo de doce."
     },
     "extraReplacements": [],
     "radios": [
@@ -521,7 +528,7 @@ const steps = [
             },
             "radios": [
               {
-                "label": "Sí",
+                "label": "No",
                 "replacement": "El voto del Presiente será no dirimente. ",
                 "replacementOriginal": "El voto del Presiente será no dirimente. ",
                 "radioId": "id-dec-13_opD_1_opA",
@@ -529,7 +536,7 @@ const steps = [
                 checked: true,
               },
               {
-                "label": "No",
+                "label": "Sí",
                 "replacement": "El voto del Presidente será dirimente.",
                 "replacementOriginal": "El voto del Presidente será dirimente.",
                 "radioId": "id-dec-13_opD_1_opB",
@@ -773,7 +780,7 @@ const steps = [
                     "replacement": "",
                     "identifier": "id-dec-16_opB_0_opD_0",
                     "wordToReplace": "id-dec-16_opB_0_opD_0",
-                    "question": "Sistema de retribuciónasd",
+                    "question": "Sistema de retribución",
                     "type": "iText",
                     "indications": {
                       "areIndications": "",

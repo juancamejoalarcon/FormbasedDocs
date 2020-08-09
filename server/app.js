@@ -21,6 +21,8 @@ const isProduction = process.env.NODE_ENV === 'production',
 let universalMode = process.env.NODE_UNIVERSAL === 'active';
 const initialUseArray = [];
 
+process.env.LAWYER_PRICE = 29;
+
 if (!isProduction) {
   initialUseArray.push(errorhandler());
 }

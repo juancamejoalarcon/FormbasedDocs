@@ -11,10 +11,11 @@ const payPalClient = require('../../helpers/paypal-for-stripe-gateway');
 
 router.post('/getToken', auth.optional, async (req, res, next) => {
     const formType = req.body.formType;
+    const hire_lawyer = req.body.hire_lawyer
     let amount;
     certifiedForms.forEach((form) => {
         if (form.id === formType) {
-            amount = form.amount;
+            amount = form.amount + (hire_lawyer ? 29 : 0);
         }
     });
     const paymentIntent = await stripe.paymentIntents.create({
@@ -28,10 +29,11 @@ router.post('/getToken', auth.optional, async (req, res, next) => {
 
 router.post('/paypal-order', auth.optional, async function (req, res) {
     const formType = req.body.formType;
+    const hire_lawyer = req.body.hire_lawyer
     let amount;
     certifiedForms.forEach((form) => {
         if (form.id === formType) {
-            amount = form.amount;
+            amount = form.amount + (hire_lawyer ? 29 : 0);
         }
     });
     const request = new paypal.orders.OrdersCreateRequest();
@@ -67,7 +69,8 @@ router.post('/', auth.optional, function (req, res, next) {
         steps,
         email,
         formType,
-        transactionId
+        transactionId,
+        hire_lawyer
     } = req.body;
 
     if (req.payload) {
@@ -83,6 +86,7 @@ router.post('/', auth.optional, function (req, res, next) {
             transaction.transactionId = transactionId;
             transaction.formType = formType;
             transaction.createdAt = createdAt;
+            transaction.hire_lawyer = hire_lawyer;
             // Send email
             // emailSender.checkoutConfirm(email, result.transaction.id, formType, createdAt);
             return transaction.save().then(function () {
@@ -99,6 +103,7 @@ router.post('/', auth.optional, function (req, res, next) {
         transaction.transactionId = transactionId;
         transaction.formType = formType;
         transaction.createdAt = createdAt;
+        transaction.hire_lawyer = hire_lawyer;
         // Send email
         // emailSender.checkoutConfirm(email, result.transaction.id, formType, createdAt);
         return transaction.save().then(function () {
@@ -114,7 +119,14 @@ router.post('/sendMail', auth.optional, function (req, res, next) {
     Transaction.findOne({
         transactionId: req.body.transactionId
     }).then(function (transaction) {
-        emailSender.checkoutConfirm(transaction.email, transaction.transactionId, transaction.formType, transaction.createdAt, req.body.uri);
+        emailSender.checkoutConfirm(
+            transaction.email,
+            transaction.transactionId,
+            transaction.formType,
+            transaction.createdAt,
+            req.body.uri,
+            transaction.hire_lawyer,
+            process.env.LAWYER_PRICE);
         return res.json({
             emailSent: 'OK'
         });

@@ -84,7 +84,7 @@ lineNum="$(grep -n 'paypalKey' ./src/index.html | head -n 1 | cut -d: -f1)"
 nextLineNum="$((lineNum + 1))d"
 ed ./src/index.html << END
 ${lineNum}i
-  <script id="paypalKey" defer src="https://www.paypal.com/sdk/js?client-id=${paypal_key}&disable-funding=credit,card"></script>
+  <script id="paypalKey" defer src="https://www.paypal.com/sdk/js?client-id=${paypal_key}&disable-funding=credit,card&currency=EUR"></script>
 .
 w
 q

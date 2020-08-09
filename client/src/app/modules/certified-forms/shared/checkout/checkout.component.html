@@ -10,20 +10,58 @@
     <div class="modal__content__modal-middle__container">
         <div class="checkout-panel__body__invoice" *ngIf="this.steps[this.currentStep].type === 'cart'">
             <div class="checkout-panel__body__invoice__container">
-                <div class="checkout-panel__body__invoice__document">
+                <!-- <div class="checkout-panel__body__invoice__document">
                     <img src="{{form.image}}" alt="checkout-image">
-                </div>
+                </div> -->
+
                 <div class="checkout-panel__body__invoice__text">
-                    <h2 class="checkout-panel__body__invoice__text__title">{{form.title}}</h2>
-                    <div class="checkout-panel__body__invoice__text__description">
-                        <ul>
-                            <li>Descarga inmediata en formatos Word y PDF</li>
-                            <li>Una vez comprado podrás retroceder, modificar el formulario y descargar de nuevo</li>
-                        </ul>
+                    <div class="checkout-panel__body__invoice__text__doc">
+                        <div class="checkout-panel__body__invoice__text__doc__title">
+                            <span class="checkout-panel__body__invoice__text__doc__title__contract">
+                                {{form.title}}
+                            </span>
+                            <span class="checkout-panel__body__invoice__text__doc__title__more">
+                                Descarga inmediata en formatos Word y PDF
+                            </span>
+                        </div>
+                        <div class="checkout-panel__body__invoice__text__doc__price">
+                            {{form.amount}} €
+                        </div>
+                    </div>
+                    <div class="checkout-panel__body__invoice__text__lawyer">
+                        <div class="checkout-panel__body__invoice__text__lawyer__description">
+                            <label for="hire" (click)="this.hire_lawyer = !this.hire_lawyer">
+                                <input type="checkbox" class="filled-in" name="hire_lawyer" id="hire_lawyer" [checked]="this.hire_lawyer" />
+                                <span>Consulta con abogado (30 min)</span>
+                            </label>
+                            <div class="checkout-panel__body__invoice__text__lawyer__more" (click)="this.hide_lawyer_explanation = false">Más información</div>
+                        </div>
+                        <div class="checkout-panel__body__invoice__text__lawyer__precio">
+                            <span>
+                                {{this.lawyer_price}} €
+                            </span>
+                        </div>
+                    </div>
+                    <div class="checkout-panel__body__invoice__text__more-info-lawyer fade-in" [hidden]="this.hide_lawyer_explanation">
+                        <div class="checkout-panel__body__invoice__text__more-info-lawyer__close">
+                            <button type="button" class="close" aria-label="Close" (click)="this.hide_lawyer_explanation = true">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="checkout-panel__body__invoice__text__more-info-lawyer__content">
+
+                            <p>Dispondrá de uno de nuestros abogados durante 30 minutos por teléfono.
+                                Le podrá plantear dudas relativas a este contrato y a otros temas.</p>
+                            <p>En el caso de que el abogado necesite recabar información para contestar mejor a sus preguntas, de esos 30 minutos se tomará un tiempo para hacerlo y le llamará para contestar a sus preguntas.</p>
+                            <p>El abogado le enviará un correo electrónico en las próximas 24 horas al realizar el pago para concertar una cita telefónica cuando
+                                mejor le convenga y poder cuadrar horarios.</p>
+                        </div>
                     </div>
                     <div class="checkout-panel__body__invoice__text__total">
                         <span class="checkout-panel__body__invoice__text__total__right">Total:</span>
-                        <span class="checkout-panel__body__invoice__text__total__left">{{form.amount}} €</span>
+                        <span class="checkout-panel__body__invoice__text__total__left">
+                            {{form.amount + (this.hire_lawyer ? this.lawyer_price : 0)}} euros
+                        </span>
                     </div>
                     <div class="checkout-panel__body__invoice__text__more-info">
                         <span>
@@ -36,6 +74,7 @@
                         </span>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="checkout-panel__body__email" *ngIf="this.steps[this.currentStep].type === 'login'">
@@ -117,7 +156,7 @@
             <h2>Transacción: {{transactionId}}</h2>
             <div class="checkout-panel__body__invoice__text__total">
                 <span class="checkout-panel__body__invoice__text__total__right total-success">{{form.title}}</span>
-                <span class="checkout-panel__body__invoice__text__total__left total-success">{{form.amount}} €</span>
+                <span class="checkout-panel__body__invoice__text__total__left total-success">{{form.amount + (this.hire_lawyer ? this.lawyer_price : 0)}} €</span>
             </div>
             <p class="checkout-panel__body__success__message">Recibirás un mensaje a <strong>{{this.email}}</strong> con tu factura así como los documentos. 
                 Durante los próximos 15 días podrás modificar el formulario de nuevo sin tener que pagar 

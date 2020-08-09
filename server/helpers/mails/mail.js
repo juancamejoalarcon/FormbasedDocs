@@ -13,7 +13,7 @@ const smtp = {
 };
 
 const emailSender = {
-    checkoutConfirm: (email, transactionId, formType, date, uri) => {
+    checkoutConfirm: (email, transactionId, formType, date, uri, hire_lawyer) => {
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport(smtp);
 
@@ -42,7 +42,7 @@ const emailSender = {
                     to: `${email}, automatikdocs@automatikdocs.com`, // list of receivers
                     subject: `Automatik Docs - ${formName}`, // Subject line
                     text: `Automatik Docs - ${formName}`, // plain text body
-                    html: mailStrings.invoice(transactionId, today, formName, amount),
+                    html: mailStrings.invoice(transactionId, today, formName, amount, hire_lawyer, process.env.LAWYER_PRICE),
                     attachments: [
                         {
                             filename: `${formType}.pdf`,

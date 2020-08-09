@@ -16,8 +16,8 @@ export class CheckoutComponent implements OnInit {
   @Output() exitModal: EventEmitter<any> = new EventEmitter();
   @Output() downloadPdfOutput: EventEmitter<any> = new EventEmitter();
   @Output() downloadWordOutput: EventEmitter<any> = new EventEmitter();
-  @ViewChild('emailInput', {static: false}) emailInput: ElementRef;
-  @ViewChild('conditions', {static: false}) conditions: ElementRef;
+  @ViewChild('emailInput', { static: false }) emailInput: ElementRef;
+  @ViewChild('conditions', { static: false }) conditions: ElementRef;
   public currentStep = 0;
   public email: string;
   public loadingPayment = true;
@@ -55,7 +55,7 @@ export class CheckoutComponent implements OnInit {
     private convertService: ConvertService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.userService.isAuthenticated.subscribe(
@@ -146,7 +146,7 @@ export class CheckoutComponent implements OnInit {
 
   tokenizeUserDetails() {
     this.commonsService.toggleSpinner();
-    this.hostedFieldsInstance.tokenize({cardholderName: this.cardholdersName}).then((payload) => {
+    this.hostedFieldsInstance.tokenize({ cardholderName: this.cardholdersName }).then((payload) => {
       // submit payload.nonce to the server from here
       this.checkoutService.pay(JSON.stringify(this.form.fields), this.email, payload.nonce, this.form.id, this.paymentMethod).subscribe(
         data => {
@@ -162,7 +162,7 @@ export class CheckoutComponent implements OnInit {
           } else {
             this.commonsService.toggleSpinner();
           }
-      });
+        });
 
     }).catch((error) => {
       this.commonsService.toggleSpinner();
@@ -173,7 +173,7 @@ export class CheckoutComponent implements OnInit {
       });
       console.log(error);
       if (error.code === 'HOSTED_FIELDS_FIELDS_INVALID') {
-        this.idsOfFields.forEach((id) =>  {
+        this.idsOfFields.forEach((id) => {
           if (error.details.invalidFieldKeys.includes(id)) {
             const el = document.getElementById(id);
             el.classList.add('hosted-fields-invalid');
@@ -185,7 +185,7 @@ export class CheckoutComponent implements OnInit {
           }
         });
       } else if (error.code === 'HOSTED_FIELDS_FIELDS_EMPTY') {
-        this.idsOfFields.forEach((id) =>  {
+        this.idsOfFields.forEach((id) => {
           const el = document.getElementById(id);
           el.classList.add('hosted-fields-invalid');
           el.nextElementSibling['hidden'] = false;
@@ -256,65 +256,65 @@ export class CheckoutComponent implements OnInit {
         });
       });
     } else if (this.paymentMethod === 'paypal') {
-       // PAYPAL METHOD
-        this.commonsService.toggleSpinner();
-        paypal.Button.render({
-          braintree: braintree,
-          env: 'sandbox',
-          client: {
-            sandbox: TOKEN,
-          },
-          style: {
-            size: 'medium'
-          },
-          payment: (data: any, actions: any) => {
-            this.commonsService.toggleSpinner();
-            return actions.payment.create({
-              payment: {
-                transactions: [{
-                  amount: {
-                    total: this.form.amount,
-                    currency: 'EUR'
-                  }
-                }]
-              }
-            });
-          },
-          onAuthorize: (data: any, actions: any) => {
-            this.commonsService.toggleSpinner();
-            return actions.payment.tokenize()
-              .then( (payload: any) => {
-                this.commonsService.toggleSpinner();
-                this.checkoutService.pay(
-                  JSON.stringify(this.form.fields),
-                  this.email,
-                  payload.nonce,
-                  this.form.id,
-                  this.paymentMethod)
-                  .subscribe(result => {
-                    this.commonsService.toggleSpinner();
-                    this.moveStep('next');
-                    this.onPaymentCompleted(result.transaction.transactionId);
-                    this.toastr.success('Pago completado', 'Finalizado', {
-                      positionClass: 'toast-bottom-right',
-                      progressBar: true,
-                      progressAnimation: 'decreasing'
-                    });
+      // PAYPAL METHOD
+      this.commonsService.toggleSpinner();
+      paypal.Button.render({
+        braintree: braintree,
+        env: 'sandbox',
+        client: {
+          sandbox: TOKEN,
+        },
+        style: {
+          size: 'medium'
+        },
+        payment: (data: any, actions: any) => {
+          this.commonsService.toggleSpinner();
+          return actions.payment.create({
+            payment: {
+              transactions: [{
+                amount: {
+                  total: this.form.amount,
+                  currency: 'EUR'
+                }
+              }]
+            }
+          });
+        },
+        onAuthorize: (data: any, actions: any) => {
+          this.commonsService.toggleSpinner();
+          return actions.payment.tokenize()
+            .then((payload: any) => {
+              this.commonsService.toggleSpinner();
+              this.checkoutService.pay(
+                JSON.stringify(this.form.fields),
+                this.email,
+                payload.nonce,
+                this.form.id,
+                this.paymentMethod)
+                .subscribe(result => {
+                  this.commonsService.toggleSpinner();
+                  this.moveStep('next');
+                  this.onPaymentCompleted(result.transaction.transactionId);
+                  this.toastr.success('Pago completado', 'Finalizado', {
+                    positionClass: 'toast-bottom-right',
+                    progressBar: true,
+                    progressAnimation: 'decreasing'
+                  });
                 });
-              });
-          },
-          onCancel: function (data: any) {
-            console.log('checkout.js payment cancelled', JSON.stringify(data));
-          },
-          onError: function (error: any) {
-            this.commonsService.toggleSpinner();
-            this.toastr.error('Paypal error', error, {
-              positionClass: 'toast-bottom-right',
-              progressBar: true,
-              progressAnimation: 'decreasing'
             });
-          }
-        }, '#paypal-button');
+        },
+        onCancel: function (data: any) {
+          console.log('checkout.js payment cancelled', JSON.stringify(data));
+        },
+        onError: function (error: any) {
+          this.commonsService.toggleSpinner();
+          this.toastr.error('Paypal error', error, {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing'
+          });
+        }
+      }, '#paypal-button');
     }
   }
 
@@ -324,7 +324,7 @@ export class CheckoutComponent implements OnInit {
       data => {
         data.certifiedForm['transactionId'] = transactionId;
         this.formPaid.emit(data.certifiedForm);
-      } );
+      });
   }
 
   downloadWord() {

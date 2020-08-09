@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as braintree from 'braintree-web';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../../../../environments/environment';
+import { windowWhen } from 'rxjs/operators';
 declare let paypal: any;
 declare let Stripe: any;
 
@@ -37,6 +38,9 @@ export class CheckoutComponent implements OnInit {
   public cardExpiry: any;
   public cardCvc: any;
   public paypalButtonCreated = false;
+  public hide_lawyer_explanation = true;
+  public hire_lawyer = false;
+  public lawyer_price = 29;
   public steps = [
     {
       type: 'cart',
@@ -152,7 +156,7 @@ export class CheckoutComponent implements OnInit {
     if (this.steps[this.currentStep].type === 'payment') {
       this.commonsService.toggleSpinner();
       this.loadingPayment = false;
-      this.checkoutService.getToken(this.form.id).subscribe((token: any) => {
+      this.checkoutService.getToken(this.form.id, this.hire_lawyer).subscribe((token: any) => {
         this.commonsService.toggleSpinner();
         this.clientSecret = token.clientSecret;
         const elements = this.stripe.elements();
@@ -192,17 +196,20 @@ export class CheckoutComponent implements OnInit {
         this.cardCvc.mount('#cvv');
         [this.cardNumber, this.cardExpiry, this.cardCvc].forEach((input, index) => {
           const elementContainer = document.getElementById(this.idsOfFields[index]);
-          const toggleFocusClass = () => {
-            elementContainer.classList.toggle('braintree-hosted-fields-focused');
+          const removeClass = () => {
+            elementContainer.classList.remove('hosted-fields-stripe__focused');
           };
-          input.on('focus', toggleFocusClass);
-          input.on('blur', toggleFocusClass);
+          const addClass = () => {
+            elementContainer.classList.add('hosted-fields-stripe__focused');
+          }
+          input.on('focus', addClass);
+          input.on('blur', removeClass);
           input.on('change', (event) => {
             if (event.error) {
-              elementContainer.classList.add('hosted-fields-invalid');
+              elementContainer.classList.add('hosted-fields-stripe__invalid');
               elementContainer.nextElementSibling['hidden'] = false;
             } else {
-              elementContainer.classList.remove('hosted-fields-invalid');
+              elementContainer.classList.remove('hosted-fields-stripe__invalid');
               elementContainer.nextElementSibling['hidden'] = true;
             }
           });
@@ -234,26 +241,28 @@ export class CheckoutComponent implements OnInit {
           });
         } else {
           // The payment succeeded!
-          // orderComplete(result.paymentIntent.id);
+          // orderComplete(result.paymentIntent.id);)
           this.checkoutService.pay(
             JSON.stringify(this.form.fields),
             this.email,
             result.paymentIntent.id,
             this.form.id,
-            this.paymentMethod).subscribe(
-              data => {
-                if (data.transaction) {
-                  this.moveStep('next');
-                  this.onPaymentCompleted(data.transaction.transactionId);
-                  this.toastr.success('Pago completado', 'Finalizado', {
-                    positionClass: 'toast-bottom-right',
-                    progressBar: true,
-                    progressAnimation: 'decreasing'
-                  });
-                } else {
-                  this.commonsService.toggleSpinner();
-                }
-              });
+            this.paymentMethod,
+            this.hire_lawyer
+          ).subscribe(
+            data => {
+              if (data.transaction) {
+                this.moveStep('next');
+                this.onPaymentCompleted(data.transaction.transactionId);
+                this.toastr.success('Pago completado', 'Finalizado', {
+                  positionClass: 'toast-bottom-right',
+                  progressBar: true,
+                  progressAnimation: 'decreasing'
+                });
+              } else {
+                this.commonsService.toggleSpinner();
+              }
+            });
         }
       });
   }
@@ -270,7 +279,7 @@ export class CheckoutComponent implements OnInit {
   createPaypalButton() {
     this.commonsService.toggleSpinner();
     this.checkoutService
-      .getPaypalOrder(this.form.id).subscribe(
+      .getPaypalOrder(this.form.id, this.hire_lawyer).subscribe(
         data => {
           this.paypalButton(data.orderID);
         });
@@ -296,21 +305,23 @@ export class CheckoutComponent implements OnInit {
           this.email,
           order.id,
           this.form.id,
-          this.paymentMethod).subscribe(
-            datados => {
-              if (datados.transaction) {
-                this.moveStep('next');
-                this.onPaymentCompleted(datados.transaction.transactionId);
-                this.toastr.success('Pago completado', 'Finalizado', {
-                  positionClass: 'toast-bottom-right',
-                  progressBar: true,
-                  progressAnimation: 'decreasing'
-                });
-                this.commonsService.toggleSpinner();
-              } else {
-                this.commonsService.toggleSpinner();
-              }
-            });
+          this.paymentMethod,
+          this.hire_lawyer
+        ).subscribe(
+          datados => {
+            if (datados.transaction) {
+              this.moveStep('next');
+              this.onPaymentCompleted(datados.transaction.transactionId);
+              this.toastr.success('Pago completado', 'Finalizado', {
+                positionClass: 'toast-bottom-right',
+                progressBar: true,
+                progressAnimation: 'decreasing'
+              });
+              this.commonsService.toggleSpinner();
+            } else {
+              this.commonsService.toggleSpinner();
+            }
+          });
       },
       onError: err => {
         console.log(err);
