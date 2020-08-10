@@ -185,6 +185,9 @@ remove_tmp_files() {
     pushd ./server/tmp/words
     ls | grep -v ejemplo.docx | xargs rm
     popd
+    pushd ./server/tmp
+    ls | grep -v ejemplo.odt | xargs rm
+    popd
     git add .
     git commit -m "Removed tmp files"
 }
