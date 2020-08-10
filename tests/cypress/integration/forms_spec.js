@@ -1,4 +1,10 @@
-import forms from './forms'
+import forms from '../forms'
+
+const isProduction = process.env.NODE_ENV === 'production',
+    isDevelopment = Cypress.env('ENV') === 'development',
+    isLocal = (Cypress.env('ENV') === 'local' || Cypress.env('ENV') === 'local:windows') ? true : false;
+
+
 
 forms.forEach((form) => {
     const { id, outputExpected, steps } = form;
@@ -103,26 +109,36 @@ forms.forEach((form) => {
             cy.get('input[type=email]').type('automatikdocs@automatikdocs.com')
             cy.get('label[for=conditions]').click()
         })
-        // it('should type card and pay', () => {
-        //     cy.get('.checkout-panel__footer .next-btn').click()
-        //     cy.wait(1000)
-        //     cy.get('.__PrivateStripeElement > iframe').then(iframes => {
-        //         cy.wrap(iframes[0].contentDocument.body)
-        //             .find('.InputElement')
-        //             .first()
-        //             .type('0224');
-        //         cy.wrap(iframes[1].contentDocument.body)
-        //             .find('.InputElement')
-        //             .first()
-        //             .type('222');
-        //         cy.wrap(iframes[2].contentDocument.body)
-        //             .find('.InputElement')
-        //             .first()
-        //             .type('4111111111111111');
-        //     })
-        //     cy.wait(1000)
-        //     cy.get('.checkout-panel__footer .next-btn').click()
-        // })
+        // test payment just in local y dev
+        if (isLocal || isDevelopment) {
+            it('should type card and pay', () => {
+                cy.get('.checkout-panel__footer .next-btn').click()
+                cy.wait(1000)
+                cy.get('.__PrivateStripeElement > iframe').then(iframes => {
+                    cy.wrap(iframes[0].contentDocument.body)
+                        .find('.InputElement')
+                        .first()
+                        .type('0224');
+                    cy.wrap(iframes[1].contentDocument.body)
+                        .find('.InputElement')
+                        .first()
+                        .type('222');
+                    cy.wrap(iframes[2].contentDocument.body)
+                        .find('.InputElement')
+                        .first()
+                        .type('4111111111111111');
+                })
+                cy.wait(1000)
+                cy.get('.checkout-panel__footer .next-btn').click()
+                cy.wait(4000)
+            })
+
+            it('should show price', () => {
+                cy.get('.checkout-panel__body__invoice__text__total__left.total-success').should($el => {
+                    expect(parseInt($el[0].textContent.trim().slice(0, -2).trim())).to.equal(doc_value_plus_lawyer)
+                })
+            })
+        }
 
     });
 });
