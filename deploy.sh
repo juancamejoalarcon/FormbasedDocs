@@ -184,19 +184,19 @@ kill_process() {
 remove_tmp_files() {
     pushd ./server/tmp/words
     ls | grep -v ejemplo.docx | xargs rm
-    popd
+    pushd ../../../
     pushd ./server/tmp/pdfs
     ls | grep -v ejemplo.pdf | xargs rm
-    popd
+    pushd ../../../
     pushd ./server/tmp/odts
     ls | grep -v ejemplo.odt | xargs rm
-    popd
+    pushd ../../../
     pushd ./server/tmp/images
     ls | grep -v ejemplo.jpeg | xargs rm
-    popd
+    pushd ../../../
     pushd ./server/tmp
     ls | grep -v ejemplo.odt | xargs rm
-    popd
+    pushd ../../../
     git add .
     git commit -m "Removed tmp files"
 }
