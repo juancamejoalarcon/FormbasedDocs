@@ -38,7 +38,7 @@ const steps = [
     "question": "Fines u objetivos principales para los que se constituye la asociación",
     "placeholder": "P.ej: 1. Proteger todas las especies de abejas que se encuentran en nuestra región.  2. Promover la creación de espacios de cuidado especializado para las abejas.  3. Incentivar la investigación y desarrollo en el cuidado y preservación de las abejas en peligro de extinción.",
     "type": "iText",
-    "subType": "",
+    "subType": "textarea",
     "indications": {
       "areIndications": false,
       "indicationsType": "insideText",
@@ -52,7 +52,7 @@ const steps = [
     "question": "Actividades que se van a desarrollar para realizar los fines u objetivos de la asociación:",
     "placeholder": "P. ej. 1. Creación de becas y ayudas al estudio para promover la investigación en el campo del cuidado de las abejas.  2. Realización de estudios de campo para comprender y mejorar la vida de las abejas.  3. Acuerdos de colaboración con otras asociaciones para darles apoyo al cuidado y protección de las abejas en su región.  4. Celebración de concursos que tengan por objetivo el desarrollo de espacios urbanos para las abejas.",
     "type": "iText",
-    "subType": "",
+    "subType": "textarea",
     "indications": {
       "areIndications": false,
       "indicationsType": "",
@@ -437,7 +437,7 @@ const steps = [
             "question": "Indique los bienes muebles de los que la asociación es dueña",
             "placeholder": "P. ej: 2 mesas, 1 armario,...",
             "type": "iText",
-            "subType": "",
+            "subType": "textarea",
             "indications": {
               "areIndications": "",
               "indicationsType": "",
@@ -526,7 +526,7 @@ const steps = [
             "question": "Requisitos para poder asociarse a la asociación",
             "placeholder": "P. ej: ser médico colegiado, pagar la cuota inicial,...",
             "type": "iText",
-            "subType": "",
+            "subType": "textarea",
             "indications": {
               "areIndications": "",
               "indicationsType": "",
