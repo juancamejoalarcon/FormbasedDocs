@@ -460,7 +460,7 @@ const steps = [
                     "replacement": "",
                     "identifier": "id-dec-16_opB_0_opD_0",
                     "wordToReplace": "id-dec-16_opB_0_opD_0",
-                    "question": "Sistema de retribuciónasd",
+                    "question": "Sistema de retribución",
                     "type": "iText",
                     "indications": {
                       "areIndications": "",

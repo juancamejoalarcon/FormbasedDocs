@@ -65,8 +65,8 @@ const steps = [
     "radios": [
       {
         "label": "Duración indefinida",
-        "replacement": "indefinida.",
-        "replacementOriginal": "indefinida.",
+        "replacement": "indefinida",
+        "replacementOriginal": "indefinida",
         "radioId": "id-unid-3_opA",
         "identifier": "id-unid-3_opA",
         "subSteps": [],
@@ -75,8 +75,8 @@ const steps = [
       },
       {
         "label": "Duración temporal",
-        "replacement": "limitada, constituyéndose por el plazo máximo de id-unid-3_opB_0. Dicho plazo empezará a contar desde la fecha de inscripción de la sociedad en el Registro Mercantil. Transcurrido dicho plazo la sociedad quedará disuelta de pleno derecho, salvo que previo a la finalización del plazo anteriormente establecido se hubiese acordado expresamente  una prórroga y se haya dejado constancia de la misma mediante inscripción en el Registro Mercantil.",
-        "replacementOriginal": "limitada, constituyéndose por el plazo máximo de id-unid-3_opB_0. Dicho plazo empezará a contar desde la fecha de inscripción de la sociedad en el Registro Mercantil. Transcurrido dicho plazo la sociedad quedará disuelta de pleno derecho, salvo que previo a la finalización del plazo anteriormente establecido se hubiese acordado expresamente  una prórroga y se haya dejado constancia de la misma mediante inscripción en el Registro Mercantil.",
+        "replacement": "limitada, constituyéndose por el plazo máximo de id-unid-3_opB_0. Dicho plazo empezará a contar desde la fecha de inscripción de la sociedad en el Registro Mercantil. Transcurrido dicho plazo la sociedad quedará disuelta de pleno derecho, salvo que previo a la finalización del plazo anteriormente establecido se hubiese acordado expresamente  una prórroga y se haya dejado constancia de la misma mediante inscripción en el Registro Mercantil",
+        "replacementOriginal": "limitada, constituyéndose por el plazo máximo de id-unid-3_opB_0. Dicho plazo empezará a contar desde la fecha de inscripción de la sociedad en el Registro Mercantil. Transcurrido dicho plazo la sociedad quedará disuelta de pleno derecho, salvo que previo a la finalización del plazo anteriormente establecido se hubiese acordado expresamente  una prórroga y se haya dejado constancia de la misma mediante inscripción en el Registro Mercantil",
         "radioId": "id-unid-3_opB",
         "identifier": "id-unid-3_opB",
         checked: false,
@@ -176,7 +176,14 @@ const steps = [
     "indications": {
       "areIndications": true,
       "indicationsType": "outsideText",
-      "value": "Las características de las participaciones sociales de una sociedad limitada son:\n\n- Representan una parte alícuota del capital social y deben de estar numeradas.\n\n- Las participaciones suponen un valor nominal, y tienen carácter de indivisibles y acumulables.\n\n- Con las excepciones que señala la LSRL las participaciones atribuyen los mismos derechos a todos los socios de la mercantil.\n\n- Dado que las participaciones son acumulables un socio de una s.l. puede tener todas o varias participaciones.\n\n- Las participaciones son indivisibles y no susceptibles de ser fraccionadas, por tanto el número de socios no pueda incrementarse ilimitadamente al margen del aumento de capital de la sociedad."
+      "value": `Las características de las participaciones sociales de una sociedad limitada son:
+      <ul>
+        <li>Representan una parte alícuota del capital social y deben de estar numeradas.</li>
+        <li>Las participaciones suponen un valor nominal, y tienen carácter de indivisibles y acumulables.</li>
+      <li>Con las excepciones que señala la LSRL las participaciones atribuyen los mismos derechos a todos los socios de la mercantil.</li>
+      <li>Dado que las participaciones son acumulables un socio de una s.l. puede tener todas o varias participaciones.</li>
+      <li>Las participaciones son indivisibles y no susceptibles de ser fraccionadas, por tanto el número de socios no pueda incrementarse ilimitadamente al margen del aumento de capital de la sociedad.</li>
+      </ul>`,
     }
   },
   {
@@ -217,8 +224,8 @@ const steps = [
       },
       {
         "label": "Sí",
-        "replacement": "id-unid-8_opB_0 de estas participaciones, de la 1 a la id-unid-8_opB_0 serán de los socios profesionales y las restantes de los socios no profesionales.",
-        "replacementOriginal": "id-unid-8_opB_0 de estas participaciones, de la 1 a la id-unid-8_opB_0 serán de los socios profesionales y las restantes de los socios no profesionales.",
+        "replacement": "De estas participaciones, de la 1 a la id-unid-8_opB_0 serán de los socios profesionales y las restantes de los socios no profesionales.",
+        "replacementOriginal": "De estas participaciones, de la 1 a la id-unid-8_opB_0 serán de los socios profesionales y las restantes de los socios no profesionales.",
         "radioId": "id-unid-8_opB",
         "identifier": "id-unid-8_opB",
         checked: false,
@@ -256,8 +263,8 @@ const steps = [
     },
     "extraReplacements": [
       {
-        "identifier": "idunid9-extra-0",
-        "wordToReplace": "idunid9-extra-0",
+        "identifier": "idunid9-extra-1",
+        "wordToReplace": "idunid9-extra-1",
         "insideId": "opA"
       }
     ],
@@ -272,7 +279,7 @@ const steps = [
         checked: true,
         "extraReplacements": [
           {
-            "identifier": "idunid9-extra-0",
+            "identifier": "idunid9-extra-1",
             "insideId": "opA",
             "replacement": "",
             "replacementOriginal": ""
@@ -289,7 +296,7 @@ const steps = [
         "subSteps": [],
         "extraReplacements": [
           {
-            "identifier": "idunid9-extra-0",
+            "identifier": "idunid9-extra-1",
             "insideId": "opA",
             "replacement": "o la prestación de servicios profesionales en nombre propio o a personas físicas o jurídicas ajenas a la sociedad,",
             "replacementOriginal": "o la prestación de servicios profesionales en nombre propio o a personas físicas o jurídicas ajenas a la sociedad,"
@@ -412,8 +419,8 @@ const steps = [
       },
       {
         "label": "Otro plazo",
-        "replacement": "Los Administradores ejercerán su cargo por plazo de id-dec-11_opE_0, Sin perjuicio de poder ser separado de su cargo, por acuerdo de la Junta General. Vencido el plazo, el nombramiento caducará cuando se haya celebrado la siguiente Junta General, o bien, cuando haya transcurrido el término legal para la celebración de la Junta en la que se aprueben las cuentas del ejercicio anterior.",
-        "replacementOriginal": "Los Administradores ejercerán su cargo por plazo de id-dec-11_opE_0, Sin perjuicio de poder ser separado de su cargo, por acuerdo de la Junta General. Vencido el plazo, el nombramiento caducará cuando se haya celebrado la siguiente Junta General, o bien, cuando haya transcurrido el término legal para la celebración de la Junta en la que se aprueben las cuentas del ejercicio anterior.",
+        "replacement": "Los Administradores ejercerán su cargo por plazo de id-dec-11_opE_0, sin perjuicio de poder ser separado de su cargo, por acuerdo de la Junta General. Vencido el plazo, el nombramiento caducará cuando se haya celebrado la siguiente Junta General, o bien, cuando haya transcurrido el término legal para la celebración de la Junta en la que se aprueben las cuentas del ejercicio anterior.",
+        "replacementOriginal": "Los Administradores ejercerán su cargo por plazo de id-dec-11_opE_0, sin perjuicio de poder ser separado de su cargo, por acuerdo de la Junta General. Vencido el plazo, el nombramiento caducará cuando se haya celebrado la siguiente Junta General, o bien, cuando haya transcurrido el término legal para la celebración de la Junta en la que se aprueben las cuentas del ejercicio anterior.",
         "radioId": "id-dec-11_opE",
         "identifier": "id-dec-11_opE",
         checked: false,
@@ -555,7 +562,7 @@ const steps = [
                     "replacement": "",
                     "identifier": "id-dec-16_opB_0_opD_0",
                     "wordToReplace": "id-dec-16_opB_0_opD_0",
-                    "question": "Sistema de retribuciónasd",
+                    "question": "Sistema de retribuciones",
                     "type": "iText",
                     "indications": {
                       "areIndications": "",
