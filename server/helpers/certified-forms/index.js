@@ -8,6 +8,7 @@ const estatutos_sociedad_limitada = require('./estatutos-sociedad-limitada');
 const estatutos_sociedad_limitada_profesional = require('./estatutos-sociedad-limitada-profesional');
 const estatutos_sociedad_limitada_unipersonal = require('./estatutos-sociedad-limitada-unipersonal');
 const estatutos_asociacion = require('./estatutos-asociacion');
+const acta_constitucion_asociacion = require('./acta-constitucion-asociacion');
 const subarrendamiento = require('./subarrendamiento');
 const contrato_trabajo = require('./contrato-trabajo-indefinido-temporal');
 const precontrato_trabajo = require('./precontrato-trabajo');
@@ -26,6 +27,7 @@ const certifiedForms = [
     estatutos_sociedad_limitada_profesional,
     estatutos_sociedad_limitada_unipersonal,
     estatutos_asociacion,
+    acta_constitucion_asociacion,
     subarrendamiento,
     contrato_trabajo,
     contrato_trabajo_fijo_discontinuo,
