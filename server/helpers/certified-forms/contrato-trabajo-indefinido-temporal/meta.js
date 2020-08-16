@@ -6,11 +6,11 @@ const meta = {
         },
         {
             name: 'description',
-            content: ''
+            content: 'Un contrato de trabajo es un acuerdo entre un trabajador y un empresario, mediante el cual se podrá regular la relación laboral tanto de carácter indefinido como de carácter temporal, estableciendo una jornada laboral completa o de tipo parcial.'
         },
         {
             name: 'keywords',
-            content: ''
+            content: 'contrato de trabajo, contrato de trabajo indefinido, contrato de trabajo temporal'
         },
         {
             name: 'canonical',

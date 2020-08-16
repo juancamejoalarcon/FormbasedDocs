@@ -9,5 +9,6 @@ export default [
     // require('./estatutos-sociedad-limitada-unipersonal'),
     // require('./estatutos-asociacion'),
     // require('./acta-constitucion-asociacion'),
-    require('./estatutos-ute'),
+    // require('./estatutos-ute'),
+    require('./contrato-trabajo'),
 ];
