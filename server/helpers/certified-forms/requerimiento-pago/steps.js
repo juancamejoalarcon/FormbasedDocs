@@ -2,7 +2,7 @@ const steps = [
   {
     type: 'start',
     title: 'Requerimiento de pago',
-    description: ``,
+    description: `Un requerimiento extrajudicial de pago es el primer medio o vía para reclamar de forma amistosa una deuda al acreedor (la persona a quien se le debe el dinero).`,
     isCurrentStep: true
   },
   {
@@ -322,7 +322,7 @@ const steps = [
     identifier: 'end',
     wordToReplace: 'end',
     title: 'Requerimiento de pago',
-    description: ``,
+    description: `Un requerimiento extrajudicial de pago es el primer medio o vía para reclamar de forma amistosa una deuda al acreedor (la persona a quien se le debe el dinero).`,
     checkoutProcess: {
       isInited: false,
       phase: 0

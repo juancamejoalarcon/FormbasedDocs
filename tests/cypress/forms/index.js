@@ -11,5 +11,6 @@ export default [
     // require('./acta-constitucion-asociacion'),
     // require('./estatutos-ute'),
     // require('./contrato-trabajo'),
-    require('./contrato-trabajo-fijo-discontinuo'),
+    // require('./contrato-trabajo-fijo-discontinuo'),
+    require('./requerimiento-pago'),
 ];

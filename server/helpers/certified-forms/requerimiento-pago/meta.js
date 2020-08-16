@@ -6,11 +6,11 @@ const meta = {
         },
         {
             name: 'description',
-            content: ''
+            content: 'Un requerimiento extrajudicial de pago es el primer medio o vía para reclamar de forma amistosa una deuda al acreedor (la persona a quien se le debe el dinero).'
         },
         {
             name: 'keywords',
-            content: ''
+            content: 'requerimiento de pago, requerimiento extrajudicial de pago'
         },
         {
             name: 'canonical',
