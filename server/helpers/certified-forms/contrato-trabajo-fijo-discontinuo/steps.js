@@ -1,8 +1,8 @@
 const steps = [
   {
     type: 'start',
-    title: 'Contrato de trabajo',
-    description: ``,
+    title: 'Contrato de trabajo fijo discontinuo',
+    description: `Un contrato de trabajo fijo discontinuo es un acuerdo entre un trabajador y un empresario, mediante el cual se podrá regular la relación laboral de los trabajos que se repiten de forma cíclica, es decir, cada cierto periodo de tiempo.`,
     isCurrentStep: true
   },
   {
@@ -1929,7 +1929,7 @@ const steps = [
       "value": ""
     },
     isEmpty: {
-      prepend: 'Asimismo, el TRABAJADOR recibirá la siguiente retribución en especie:: <br>',
+      prepend: 'Asimismo, el TRABAJADOR recibirá la siguiente retribución en especie: <br>',
       append: '.',
     }
   },
@@ -2316,8 +2316,8 @@ const steps = [
     type: 'end',
     identifier: 'end',
     wordToReplace: 'end',
-    title: 'Contrato de trabajo',
-    description: ``,
+    title: 'Contrato de trabajo fijo discontinuo',
+    description: `Un contrato de trabajo fijo discontinuo es un acuerdo entre un trabajador y un empresario, mediante el cual se podrá regular la relación laboral de los trabajos que se repiten de forma cíclica, es decir, cada cierto periodo de tiempo.`,
     checkoutProcess: {
       isInited: false,
       phase: 0

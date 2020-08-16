@@ -6,11 +6,11 @@ const meta = {
         },
         {
             name: 'description',
-            content: ''
+            content: 'Un contrato de trabajo fijo discontinuo es un acuerdo entre un trabajador y un empresario, mediante el cual se podrá regular la relación laboral de los trabajos que se repiten de forma cíclica, es decir, cada cierto periodo de tiempo.'
         },
         {
             name: 'keywords',
-            content: ''
+            content: 'contrato trabajo fijo discontinuo, contrato de trabajo'
         },
         {
             name: 'canonical',
