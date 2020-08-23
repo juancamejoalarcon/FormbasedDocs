@@ -8011,6 +8011,7 @@ input[type=checkbox] {
 .blog__header__title__author img {
   width: 100%;
   max-width: 30px;
+  max-height: 30px;
   border-radius: 25px;
 }
 
