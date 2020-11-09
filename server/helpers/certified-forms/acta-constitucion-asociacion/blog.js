@@ -5,7 +5,8 @@ const blog = `
     <span>El Acta Fundacional de una Asociación
         es el documento en el que los fundadores exponen su voluntad de constituir una asociación, y su contenido mínimo
         viene reflejado en el artículo 6 de la Ley Orgánica 1/02 reguladora del derecho de asociación. Dentro de este
-        contenido mínimo, además de la identidad de los socios fundadores, destaca la necesidad de incluir los Estatutos
+        contenido mínimo, además de la identidad de los socios fundadores, destaca la necesidad de incluir los 
+        <a href="https://www.automatikdocs.com/static/modelos/estatutos-asociacion" rel="noopener noreferrer">Estatutos</a> 
         de la entidad. Por tanto, los Estatutos son parte integrante del Acta Fundacional. </span>La asociación
     comenzará a tener personalidad jurídica desde la&nbsp;aprobación de esta acta, con independencia de la necesidad de
     llevar a cabo posteriormente su inscripción en el registro de asociaciones correspondiente.</p>
