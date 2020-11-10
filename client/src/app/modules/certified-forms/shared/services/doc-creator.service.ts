@@ -18,7 +18,7 @@ export class DocCreatorService {
   init(uri: any) {
     this.createEditorFromURI('fillForm', 'editorContainer', uri);
     return new Promise((resolve, reject) => {
-      const checkIfEditorCreated = setInterval( () => {
+      const checkIfEditorCreated = setInterval(() => {
         if (
           window['editor'] &&
           window['editor'].getEditorSession() &&
@@ -44,9 +44,9 @@ export class DocCreatorService {
     const ab = new ArrayBuffer(byteString.length);
     const ia = new Uint8Array(ab);
     for (let i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
+      ia[i] = byteString.charCodeAt(i);
     }
-    const blob = new Blob([ab], {type: mimeString});
+    const blob = new Blob([ab], { type: mimeString });
     const url = URL.createObjectURL(blob);
     window['DOCUMENTOURL'] = url;
     AutomatikDocsApi.createEditor(formType, idOfContainer);
@@ -65,10 +65,10 @@ export class DocCreatorService {
           return;
         }
         const mimetype = 'application/vnd.oasis.opendocument.text',
-        blob = new Blob([data.buffer], {type: mimetype});
+          blob = new Blob([data.buffer], { type: mimetype });
         reader.readAsDataURL(blob);
         reader.onloadend = () => {
-            resolve(reader.result as string);
+          resolve(reader.result as string);
         };
       });
     });
@@ -79,7 +79,7 @@ export class DocCreatorService {
       setTimeout(() => {
         document.getElementById('webodfeditor-editor1').style.height = '100%';
         document.getElementById('webodfeditor-editor1').style.width = '100%';
-      // Fix weird behaviour in Chrome
+        // Fix weird behaviour in Chrome
         AutomatikDocsApi.documentToFitScreen();
       }, 100);
     };
@@ -157,13 +157,13 @@ export class DocCreatorService {
     const removeIndication = (e: any) => {
       if (window.innerWidth > 885) {
         if (e.target.classList.contains('icon-info-circle-solid') || e.target.classList.contains('indication')) {
-            if (document.querySelectorAll('.indicator').length >= 2) {
-                para.parentNode.removeChild(para);
-                window.removeEventListener('click', removeIndication);
-            }
-        } else {
+          if (document.querySelectorAll('.indicator').length >= 2) {
             para.parentNode.removeChild(para);
             window.removeEventListener('click', removeIndication);
+          }
+        } else {
+          para.parentNode.removeChild(para);
+          window.removeEventListener('click', removeIndication);
         }
       } else {
         if (e.target.id === 'scrollToTop' || e.target.id === 'close-indication') {
@@ -201,7 +201,7 @@ export class DocCreatorService {
       // Find paragrah
       const elementContainingWord = this.findword(content.wordToReplace);
       // Case where we just have the word, and nothing more
-      if (elementContainingWord.textContent === content.wordToReplace ) {
+      if (elementContainingWord.textContent === content.wordToReplace) {
         // Reversed copy of the array so we inject elements in order
         const newarray = content.modifiedReplacements.slice().reverse();
 
@@ -235,19 +235,19 @@ export class DocCreatorService {
             const elementContainingWord2 = this.findword(modifiedExtraReplacementArray[0].identifier);
             const newarray3 = modifiedExtraReplacementArray.slice().reverse();
             newarray3.forEach(((modifiedReplacement: any, indexNewArray3: number) => {
-                let exactElementContainingWord2: any;
-                const regexp = new RegExp(modifiedReplacement.identifier, 'g');
+              let exactElementContainingWord2: any;
+              const regexp = new RegExp(modifiedReplacement.identifier, 'g');
 
-                if (indexNewArray3 !== modifiedExtraReplacementArray.length - 1) {
-                  const elementContainingWordClone = elementContainingWord2.cloneNode(true);
-                  elementContainingWord2.parentNode.insertBefore(elementContainingWordClone, elementContainingWord2.nextSibling);
-                  exactElementContainingWord2 = this.findExactContainingElement(modifiedReplacement.identifier, elementContainingWordClone);
-                } else {
-                  exactElementContainingWord2 = this.findExactContainingElement(modifiedReplacement.identifier, elementContainingWord2);
-                }
-                exactElementContainingWord2.innerHTML = exactElementContainingWord2.innerHTML
+              if (indexNewArray3 !== modifiedExtraReplacementArray.length - 1) {
+                const elementContainingWordClone = elementContainingWord2.cloneNode(true);
+                elementContainingWord2.parentNode.insertBefore(elementContainingWordClone, elementContainingWord2.nextSibling);
+                exactElementContainingWord2 = this.findExactContainingElement(modifiedReplacement.identifier, elementContainingWordClone);
+              } else {
+                exactElementContainingWord2 = this.findExactContainingElement(modifiedReplacement.identifier, elementContainingWord2);
+              }
+              exactElementContainingWord2.innerHTML = exactElementContainingWord2.innerHTML
                 .replace(regexp, modifiedReplacement.replacement);
-              }));
+            }));
 
           });
         });
@@ -262,7 +262,7 @@ export class DocCreatorService {
         newarray.forEach((modifiedReplacement: any, index: number) => {
           secondHalfStringWithoutWordtoReplace = modifiedReplacement + secondHalfStringWithoutWordtoReplace;
         });
-        elementContainingWord.innerHTML =  `<span>${firstHalfString + secondHalfStringWithoutWordtoReplace}</span>`;
+        elementContainingWord.innerHTML = `<span>${firstHalfString + secondHalfStringWithoutWordtoReplace}</span>`;
       }
     });
     step.forEachFocused = false;
@@ -283,7 +283,7 @@ export class DocCreatorService {
           const regexp2 = new RegExp(extraReplacement.wordToReplace, 'g');
           const elementContainingReplacementWord = this.findword(extraReplacement.wordToReplace);
           const exactElementContainingReplacementWord =
-          this.findExactContainingElement(extraReplacement.wordToReplace, elementContainingReplacementWord);
+            this.findExactContainingElement(extraReplacement.wordToReplace, elementContainingReplacementWord);
           let replacement2: any;
           radio.extraReplacements.forEach((radioExtraReplacement: any) => {
             if (radioExtraReplacement.insideId === extraReplacement.insideId) {
@@ -291,15 +291,15 @@ export class DocCreatorService {
             }
           });
           exactElementContainingReplacementWord.innerHTML = exactElementContainingReplacementWord.innerHTML
-          .replace(regexp2, replacement2);
+            .replace(regexp2, replacement2);
         });
       }
     });
 
     elementContainingWord = this.findExactContainingElement(step.wordToReplace, elementContainingWord);
     while (elementContainingWord.firstElementChild !== null && !this.allElementsAreBr(elementContainingWord)) {
-        elementContainingWord = elementContainingWord.firstElementChild;
-      }
+      elementContainingWord = elementContainingWord.firstElementChild;
+    }
     elementContainingWord.innerHTML = elementContainingWord.innerHTML.replace(regexp, replacement);
     step.radioCfocused = false;
   }
@@ -380,7 +380,7 @@ export class DocCreatorService {
           }
           if (element) {
             element.innerHTML = element.innerHTML.replace(regexp,
-            `<span class="${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${replacement}</span>`);
+              `<span class="${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${replacement}</span>`);
           }
         });
       } else if (step.type === 'iRadioB') {
@@ -398,7 +398,7 @@ export class DocCreatorService {
               }
               if (element) {
                 element.innerHTML = element.innerHTML.replace(regexp,
-                `<span class=" ${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
+                  `<span class=" ${step.isFocused ? 'highlight focused' : ''}" data-identifier="${step.wordToReplace}">${step.replacement}</span>`);
               }
             }
           });
@@ -419,7 +419,7 @@ export class DocCreatorService {
 
             if (element) {
               element.innerHTML = element.innerHTML.replace(regexp,
-              `<span class="${extraReplacement.isFocused ? 'highlight focused' : ''}" data-identifier="${extraReplacement.wordToReplace}">${replacement}</span>`);
+                `<span class="${extraReplacement.isFocused ? 'highlight focused' : ''}" data-identifier="${extraReplacement.wordToReplace}">${replacement}</span>`);
             }
           });
         })
@@ -453,7 +453,7 @@ export class DocCreatorService {
   }
 
   findExactContainingElement(wordToReplace: string, bodyClone: any) {
-  let element: any = bodyClone;
+    let element: any = bodyClone;
     while (element.childNodes && element.childNodes.length > 0 && element.innerHTML.includes(wordToReplace)) {
       element.childNodes.forEach(((el: any) => {
         if (el.nodeName !== '#text') {
@@ -470,20 +470,38 @@ export class DocCreatorService {
     if (element.nodeName === '#text') {
       element = element.parentNode;
     }
+
+    element = this.fixSomeCases(wordToReplace, element)
+
     return element;
+  }
+
+  fixSomeCases(wordToReplace: string, el: HTMLElement) {
+    let element: HTMLElement = el
+    if (wordToReplace === el.textContent) {
+      if (element.tagName === "text:p") {
+        if (element.childElementCount === 2) {
+          if (element.firstElementChild.tagName === 'text:span' && element.firstElementChild.nextElementSibling.tagName === 'text:span') {
+            element.firstElementChild.textContent = wordToReplace
+            element.innerHTML = element.firstElementChild.outerHTML
+          }
+        }
+      }
+    }
+    return el
   }
 
   elementIsExcluded(element: any) {
     const excludedElements = [
-        'office:text',
-        'text:sequence-decls',
-        'text:sequence-decl',
-        'draw:frame',
-        'draw:image',
-        'office:annotation',
-        'office:annotation-end',
-        'dc:creator',
-        'dc:date'
+      'office:text',
+      'text:sequence-decls',
+      'text:sequence-decl',
+      'draw:frame',
+      'draw:image',
+      'office:annotation',
+      'office:annotation-end',
+      'dc:creator',
+      'dc:date'
     ];
     return excludedElements.includes(element.nodeName);
   }
@@ -497,9 +515,9 @@ export class DocCreatorService {
         const ab = new ArrayBuffer(byteString.length);
         const ia = new Uint8Array(ab);
         for (let i = 0; i < byteString.length; i++) {
-            ia[i] = byteString.charCodeAt(i);
+          ia[i] = byteString.charCodeAt(i);
         }
-        const blob = new Blob([ab], {type: mimeString});
+        const blob = new Blob([ab], { type: mimeString });
         const url = URL.createObjectURL(blob);
         console.log(url);
         const a = document.createElement('a');
@@ -520,9 +538,9 @@ export class DocCreatorService {
         const ab = new ArrayBuffer(byteString.length);
         const ia = new Uint8Array(ab);
         for (let i = 0; i < byteString.length; i++) {
-            ia[i] = byteString.charCodeAt(i);
+          ia[i] = byteString.charCodeAt(i);
         }
-        const blob = new Blob([ab], {type: mimeString});
+        const blob = new Blob([ab], { type: mimeString });
         const url = URL.createObjectURL(blob);
         console.log(url);
         const a = document.createElement('a');
