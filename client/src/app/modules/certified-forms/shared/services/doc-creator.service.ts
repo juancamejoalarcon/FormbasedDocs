@@ -345,6 +345,7 @@ export class DocCreatorService {
 
   replacements(steps: any) {
     steps.forEach((step: any) => {
+      // if (step.cached && step.replacement === 'Sara Houston Buesa') debugger
       if (step.type === 'iText' || step.type === 'iDate' || step.type === 'iNumber') {
         const elementsContainingWord = this.findAllwords(step.wordToReplace);
         const regexp = new RegExp(step.wordToReplace, 'g');
@@ -483,7 +484,7 @@ export class DocCreatorService {
         if (element.childElementCount === 2) {
           if (element.firstElementChild.tagName === 'text:span' && element.firstElementChild.nextElementSibling.tagName === 'text:span') {
             element.firstElementChild.textContent = wordToReplace
-            element.innerHTML = element.firstElementChild.outerHTML
+            element.removeChild(element.firstElementChild.nextElementSibling)
           }
         }
       }
