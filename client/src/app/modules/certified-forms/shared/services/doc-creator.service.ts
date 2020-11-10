@@ -483,8 +483,8 @@ export class DocCreatorService {
       if (element.tagName === "text:p") {
         if (element.childElementCount === 2) {
           if (element.firstElementChild.tagName === 'text:span' && element.firstElementChild.nextElementSibling.tagName === 'text:span') {
-            element.firstElementChild.textContent = wordToReplace
-            element.removeChild(element.firstElementChild.nextElementSibling)
+            element.firstElementChild.innerHTML = `<span>${wordToReplace}</span>`
+            element.firstElementChild.nextElementSibling.innerHTML = ''
           }
         }
       }
