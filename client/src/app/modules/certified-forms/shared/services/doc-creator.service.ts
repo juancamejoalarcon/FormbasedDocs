@@ -345,7 +345,6 @@ export class DocCreatorService {
 
   replacements(steps: any) {
     steps.forEach((step: any) => {
-      // if (step.cached && step.replacement === 'Sara Houston Buesa') debugger
       if (step.type === 'iText' || step.type === 'iDate' || step.type === 'iNumber') {
         const elementsContainingWord = this.findAllwords(step.wordToReplace);
         const regexp = new RegExp(step.wordToReplace, 'g');

@@ -139,7 +139,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.documentCreatorService.resizeDocumentContainer();
       this.stepModelService.buildDocument(false);
-      this.stepModelService.setInitialState();
+      if (!window.location.href.includes('transactionId')) this.stepModelService.setInitialState();
       this.documentCreatorService.resizeEvent();
       this.commonsService.toggleSpinner();
     });

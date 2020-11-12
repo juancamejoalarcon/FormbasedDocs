@@ -7,7 +7,7 @@ const isProduction = process.env.NODE_ENV === 'production',
 
 
 forms.forEach((form) => {
-    const { id, outputExpected, steps } = form;
+    const { id, outputExpected, outputExpectedAfterPayment, steps } = form;
 
     describe('Blogs page', () => {
 
@@ -138,6 +138,13 @@ forms.forEach((form) => {
                     expect(parseInt($el[0].textContent.trim().slice(0, -2).trim())).to.equal(doc_value_plus_lawyer)
                 })
             })
+            if (outputExpectedAfterPayment) {
+                it('Text should be expected after payment', () => {
+                    cy.get('document').children().eq(6).should($el => {
+                        expect($el[0].textContent).to.equal(outputExpectedAfterPayment)
+                    })
+                })
+            }
         }
 
     });

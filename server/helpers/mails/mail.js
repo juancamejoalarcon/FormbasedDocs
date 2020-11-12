@@ -12,6 +12,10 @@ const smtp = {
     }
 };
 
+
+const isDevelopment = process.env.NODE_ENV === 'development',
+    isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
+
 const emailSender = {
     checkoutConfirm: (email, transactionId, formType, date, uri, hire_lawyer) => {
         // create reusable transporter object using the default SMTP transport
@@ -31,6 +35,8 @@ const emailSender = {
             }
         });
 
+        const isTesting = (isDevelopment || isLocal) ? '- Testing' : ''
+
         convert.toWord(formType, uri).then((wordFile) => {
             convert.toPdf(formType, uri).then((file) => {
                 console.log('------');
@@ -40,8 +46,8 @@ const emailSender = {
                 let info = transporter.sendMail({
                     from: '<automatikdocs@automatikdocs.com>', // sender address
                     to: `${email}, automatikdocs@automatikdocs.com`, // list of receivers
-                    subject: `Automatik Docs - ${formName}`, // Subject line
-                    text: `Automatik Docs - ${formName}`, // plain text body
+                    subject: `Automatik Docs - ${formName}${isTesting}`, // Subject line
+                    text: `Automatik Docs - ${formName}${isTesting}`, // plain text body
                     html: mailStrings.invoice(transactionId, today, formName, amount, hire_lawyer, process.env.LAWYER_PRICE),
                     attachments: [
                         {
