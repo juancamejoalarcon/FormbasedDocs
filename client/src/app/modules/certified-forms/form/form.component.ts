@@ -44,6 +44,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
     value: '',
   };
   public inputInvalid = false;
+  public isNew = true;
 
   constructor(
     private stepModelService: StepsService,
@@ -64,6 +65,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
         this.route.queryParams.subscribe(params => {
           if (params.transactionId) {
             this.formAlreadyPaid = true;
+            this.isNew = false;
             this.formsService.getPaidCertifiedForm(params.transactionId).subscribe((data: any) => {
               if (data.certifiedForm) {
                 const certifiedForm = data.certifiedForm;
@@ -88,6 +90,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
               this.form = JSON.parse(window.sessionStorage[routeParams.id]);
               this.steps = this.form.fields;
               this.formAlreadyPaid = this.form.alreadyPaid;
+              this.isNew = false;
               this.setInitiaState();
             } else {
               this.formsService.getCertifiedForm(routeParams.id).subscribe(
@@ -139,7 +142,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
       window.addEventListener('resize', this.commonsService.resizeEditor.bind(this));
       this.documentCreatorService.resizeDocumentContainer();
       this.stepModelService.buildDocument(false);
-      if (!window.location.href.includes('transactionId')) this.stepModelService.setInitialState();
+      if (this.isNew) this.stepModelService.setInitialState();
       this.documentCreatorService.resizeEvent();
       this.commonsService.toggleSpinner();
     });
@@ -240,6 +243,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
     this.form.alreadyPaid = true;
     this.form.uri = certifiedForm.uri;
     this.form.fields = JSON.parse(certifiedForm.fields);
+    this.isNew = false
     this.setInitiaState();
     this.commonsService.toggleSpinner();
     this.sendEmail(certifiedForm.transactionId);
