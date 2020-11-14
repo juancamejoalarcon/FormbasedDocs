@@ -16,6 +16,8 @@ const smtp = {
 const isDevelopment = process.env.NODE_ENV === 'development',
     isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
 
+const silviaMail = (isDevelopment || isLocal) ? '' : ', silviacamejoalarcon@automatikdocs.com';
+
 const emailSender = {
     checkoutConfirm: (email, transactionId, formType, date, uri, hire_lawyer) => {
         // create reusable transporter object using the default SMTP transport
@@ -36,7 +38,7 @@ const emailSender = {
         });
 
         const isTesting = (isDevelopment || isLocal) ? '- Testing' : ''
-        const silviaMail = (isDevelopment || isLocal) ? '' : ', silviacamejoalarcon@automatikdocs.com'
+
 
 
         convert.toWord(formType, uri).then((wordFile) => {
