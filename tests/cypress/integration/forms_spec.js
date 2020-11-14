@@ -140,6 +140,7 @@ forms.forEach((form) => {
             })
             if (outputExpectedAfterPayment) {
                 it('Text should be expected after payment', () => {
+                    cy.wait(1000)
                     cy.get('document').children().eq(6).should($el => {
                         expect($el[0].textContent).to.equal(outputExpectedAfterPayment)
                     })

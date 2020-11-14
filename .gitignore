@@ -2,4 +2,5 @@ client/dist/
 server/tmp/pdfs/*
 server/tmp/words/*
 server/tmp/odts/*
+server/tmp/*
 tests/cypress/videos/*
