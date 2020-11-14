@@ -36,6 +36,8 @@ const emailSender = {
         });
 
         const isTesting = (isDevelopment || isLocal) ? '- Testing' : ''
+        const silviaMail = (isDevelopment || isLocal) ? '' : ', silviacamejoalarcon@automatikdocs.com'
+
 
         convert.toWord(formType, uri).then((wordFile) => {
             convert.toPdf(formType, uri).then((file) => {
@@ -45,9 +47,9 @@ const emailSender = {
                 // send mail with defined transport object
                 let info = transporter.sendMail({
                     from: '<automatikdocs@automatikdocs.com>', // sender address
-                    to: `${email}, automatikdocs@automatikdocs.com`, // list of receivers
-                    subject: `Automatik Docs - ${formName}${isTesting}`, // Subject line
-                    text: `Automatik Docs - ${formName}${isTesting}`, // plain text body
+                    to: `${email}, automatikdocs@automatikdocs.com${silviaMail}`, // list of receivers
+                    subject: `Automatik Docs - ${formName} ${isTesting}`, // Subject line
+                    text: `Automatik Docs - ${formName} ${isTesting}`, // plain text body
                     html: mailStrings.invoice(transactionId, today, formName, amount, hire_lawyer, process.env.LAWYER_PRICE),
                     attachments: [
                         {
@@ -103,7 +105,7 @@ const emailSender = {
             let transporter = nodemailer.createTransport(smtp);
             var mailOptions = {
                 from: `<${email}>`, // sender address
-                to: `automatikdocs@automatikdocs.com`, // list of receivers
+                to: `automatikdocs@automatikdocs.com${silviaMail}`, // list of receivers
                 subject: `Automatik Docs - Contact Form`, // Subject line
                 text: `Automatik Docs - Contact Form`, // plain text body
                 html: mailStrings.contactForm(nombre, email, mensaje),
