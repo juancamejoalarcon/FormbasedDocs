@@ -22,8 +22,8 @@ import { Location } from '@angular/common';
 })
 export class SearchComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('subMenu', { static: false }) subMenu: ElementRef;
   @ViewChild('userFormsTab', { static: false }) userFormsTab: ElementRef;
+  @ViewChild('predictionsContainer', { static: false }) predictionsContainer: ElementRef;
 
   public isAuthenticated: boolean;
   public currentUser: String;
@@ -35,6 +35,8 @@ export class SearchComponent implements OnInit, AfterViewInit {
   public noMoreForms: boolean = false;
   public userFormsTabsActive: boolean = false;
   public formsFirstLoad = false;
+  public allPredictions: Array<any> = [];
+  public predictions: Array<any> = [];
 
   constructor(
     private userService: UserService,
@@ -57,6 +59,9 @@ export class SearchComponent implements OnInit, AfterViewInit {
           });
       }
     );
+    this.searchService.getAllFormsList().subscribe((formList) => {
+      this.allPredictions = formList;
+    })
   }
 
   ngAfterViewInit() {
@@ -135,6 +140,30 @@ export class SearchComponent implements OnInit, AfterViewInit {
       });
   }
 
+  setPredictions(e: InputEvent) {
+    const searchValue = (e.target as HTMLInputElement).value;
+    if (!searchValue) {
+      this.predictions = [];
+      return;
+    }
+    this.predictions = this.allPredictions.map((form) => {
+      if (form.title.toLowerCase().includes(searchValue.toLowerCase())) return form
+    }).filter((mapResult) => {
+      if (mapResult) return mapResult
+    })
+  }
+
+  showPredictions() {
+    this.predictionsContainer.nativeElement.style.display = "block";
+  }
+  hidePredictions() {
+    let hidePredictions = true
+    document.querySelectorAll(':hover').forEach((el) => {
+      if (el.classList.contains('lawyer-forms__title__finder__predictions')) hidePredictions = false
+    })
+    if (hidePredictions) this.predictionsContainer.nativeElement.style.display = "none";
+  }
+
   setPageTo() {
     this.currentPage += 1;
   }
@@ -150,10 +179,6 @@ export class SearchComponent implements OnInit, AfterViewInit {
       this.loadingQuery = false;
       this.results = forms;
     });
-  }
-
-  topMenuNav(e: any) {
-    this.commonsService.subMenuNav(e, this.subMenu.nativeElement);
   }
 
   setUrl(userForms: boolean) {
