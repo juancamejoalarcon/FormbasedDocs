@@ -6,9 +6,9 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class SearchService {
-  constructor (
+  constructor(
     private apiService: ApiService,
-  ) {}
+  ) { }
 
 
   search(config: any): Observable<any> {
@@ -51,7 +51,12 @@ export class SearchService {
     });
 
     return this.apiService.get('/search', params)
-    .pipe(map(data => data.forms));
+      .pipe(map(data => data.forms));
+  }
+
+  getAllFormsList(): Observable<any> {
+    return this.apiService.get('/search/all-forms-list')
+      .pipe(map(data => data.forms_list));
   }
 
 }

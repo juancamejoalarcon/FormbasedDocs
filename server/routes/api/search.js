@@ -5,6 +5,7 @@ const User = mongoose.model('User');
 const auth = require('../auth');
 const Aws = require('../../classes/Aws');
 const aws = new Aws();
+const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
 
 // return a query results
 router.get('/', auth.optional, (req, res, next) => {
@@ -99,11 +100,11 @@ router.get('/', auth.optional, (req, res, next) => {
 
     return Promise.all([
       Form.find(query)
-      .limit(Number(limit))
-      .skip(Number(offset))
-      .sort(this.orderBy)
-      .populate('author')
-      .exec(),
+        .limit(Number(limit))
+        .skip(Number(offset))
+        .sort(this.orderBy)
+        .populate('author')
+        .exec(),
       Form.count(query).exec(),
       req.payload ? User.findById(req.payload.id) : null,
     ]).then(async function (results) {
@@ -129,6 +130,18 @@ router.get('/', auth.optional, (req, res, next) => {
       });
     });
   }).catch(next);
+});
+
+router.get('/all-forms-list', auth.optional, (req, res, next) => {
+  const all_forms_list = certifiedForms.map((form) => {
+    return {
+      id: form.id,
+      title: form.title
+    }
+  })
+  return res.json({
+    forms_list: all_forms_list
+  });
 });
 
 module.exports = router;
