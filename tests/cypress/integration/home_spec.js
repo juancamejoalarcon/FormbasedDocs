@@ -34,26 +34,26 @@ describe('Home page', () => {
             cy.visit('/');
         });
     })
-    describe('Test secondary menu', () => {
-        it("should display two tabs", () => {
-            cy.get('.sub-menu__nav')
-                .children()
-                .should('have.length', 2)
-                .should('contain', ' Creados por abogados ')
-                .should('contain', ' Creados por usuarios ');
-        });
-        it("should navigate to '/search/user-forms'", () => {
-            cy.get('.sub-menu__nav')
-                .children()
-                .last()
-                .click();
-            cy.url().should('include', '/search/user-forms');
-            cy.get('.sub-menu__nav')
-                .children()
-                .first()
-                .click();
-        });
-    });
+    // describe('Test secondary menu', () => {
+    //     it("should display two tabs", () => {
+    //         cy.get('.sub-menu__nav')
+    //             .children()
+    //             .should('have.length', 2)
+    //             .should('contain', ' Creados por abogados ')
+    //             .should('contain', ' Creados por usuarios ');
+    //     });
+    //     it("should navigate to '/search/user-forms'", () => {
+    //         cy.get('.sub-menu__nav')
+    //             .children()
+    //             .last()
+    //             .click();
+    //         cy.url().should('include', '/search/user-forms');
+    //         cy.get('.sub-menu__nav')
+    //             .children()
+    //             .first()
+    //             .click();
+    //     });
+    // });
     describe('Test header container', () => {
         it("should containt a nav link to '/search/search-transaction'", () => {
             cy.get('.lawyer-forms__top-right-link')
@@ -66,17 +66,17 @@ describe('Home page', () => {
             cy.url().should('include', '/search/search-transaction');
             cy.go('back');
         });
-        it("should containt a nav link to '/auth/login'", () => {
-            cy.get('.lawyer-forms__top-right-link')
-                .children()
-                .last()
-                .find("a")
-                .should('be.visible')
-                .should('contain', ' Crear mi propio formulario ')
-                .click();
-            cy.url().should('include', '/auth/login');
-            cy.go('back');
-        });
+        // it("should containt a nav link to '/auth/login'", () => {
+        //     cy.get('.lawyer-forms__top-right-link')
+        //         .children()
+        //         .last()
+        //         .find("a")
+        //         .should('be.visible')
+        //         .should('contain', ' Crear mi propio formulario ')
+        //         .click();
+        //     cy.url().should('include', '/auth/login');
+        //     cy.go('back');
+        // });
     });
     describe('Test footer container', () => {
         it("should contain a nav link to Facebook and Twitter", () => {
