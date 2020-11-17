@@ -5,3 +5,4 @@ export * from './plain-text-creator.service';
 export * from './commons.service';
 export * from './meta.service';
 export * from './auth.resolver';
+export * from './slack.service';

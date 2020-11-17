@@ -29,7 +29,8 @@ import {
   PlainTextCreatorService,
   CommonsService,
   MetaService,
-  AuthResolver
+  AuthResolver,
+  SlackService
 } from './singleton';
 
 @NgModule({
@@ -60,6 +61,7 @@ import {
     CookieService,
     MetaService,
     AuthResolver,
+    SlackService,
     GeneralPurposeService,
     StaticService
   ],

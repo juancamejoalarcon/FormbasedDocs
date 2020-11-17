@@ -13,7 +13,8 @@ import {
   FormService,
   CheckoutService,
   Form,
-  MetaService
+  MetaService,
+  SlackService
 } from '../../../core';
 import {
   StepsService,
@@ -55,7 +56,8 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
     private toastr: ToastrService,
     private checkoutService: CheckoutService,
     private route: ActivatedRoute,
-    private metaService: MetaService
+    private metaService: MetaService,
+    private slackService: SlackService
   ) { }
 
   ngOnInit() {
@@ -234,6 +236,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   startCheckout() {
     this.steps[this.currentStep].checkoutProcess.isInited = true;
+    this.slackService.initedCheckout(this.steps[0].title)
   }
 
   onFormPaid(certifiedForm: any) {

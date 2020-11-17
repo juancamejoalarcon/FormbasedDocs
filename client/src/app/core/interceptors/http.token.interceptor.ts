@@ -6,7 +6,9 @@ import { JwtService } from '../http';
 
 @Injectable()
 export class HttpTokenInterceptor implements HttpInterceptor {
-  constructor(private jwtService: JwtService) {}
+
+  private noApplyInterceptorUrl: Array<string> = ['hooks.slack.com'];
+  constructor(private jwtService: JwtService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const headersConfig = {
@@ -20,7 +22,8 @@ export class HttpTokenInterceptor implements HttpInterceptor {
       headersConfig['Authorization'] = `Token ${token}`;
     }
 
-    const request = req.clone({ setHeaders: headersConfig });
+    const skipInterceptor = this.noApplyInterceptorUrl.find((url) => { return req.url.includes(url) });
+    const request = skipInterceptor ? req : req.clone({ setHeaders: headersConfig });
     return next.handle(request);
   }
 }
