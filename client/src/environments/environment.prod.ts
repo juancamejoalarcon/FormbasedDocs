@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  api_url: 'http://localhost:4000',
-  stripe_key: 'pk_test_Us1NHhQN6advqdoP2WRSXLlZ00Eqt1Kust'
+  api_url: 'https://www.automatikdocs.com',
+  stripe_key: 'pk_live_y5rE3kZkAyKEBpQ9PtdSfP2M00imfBq16j'
 };
