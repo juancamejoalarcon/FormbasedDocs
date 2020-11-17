@@ -1,6 +1,8 @@
 describe('Contact page', () => {
     it('Visit Contact page', () => {
         cy.visit('/static/contact')
+        // Fix porque va muy lenta la página de heroku
+        if (Cypress.env().ENV === 'development') cy.wait(40000)
     })
     describe('Test inputs', () => {
         it("should display text input 'Nombre' and behave as expected", () => {
