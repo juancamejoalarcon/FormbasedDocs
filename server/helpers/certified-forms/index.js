@@ -16,6 +16,7 @@ const precontrato_trabajo = require('./precontrato-trabajo');
 const contrato_trabajo_fijo_discontinuo = require('./contrato-trabajo-fijo-discontinuo');
 const requerimiento_pago = require('./requerimiento-pago');
 const requerimiento_pago_alquiler = require('./requerimiento-pago-alquiler');
+const declaracion_jurada = require('./declaracion-jurada');
 
 const certifiedForms = [
     contrato_compraventa_vehiculo,
@@ -35,7 +36,8 @@ const certifiedForms = [
     contrato_trabajo_fijo_discontinuo,
     requerimiento_pago,
     requerimiento_pago_alquiler,
-    precontrato_trabajo
+    precontrato_trabajo,
+    declaracion_jurada
 ];
 
 module.exports = {

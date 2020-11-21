@@ -12,5 +12,6 @@ export default [
     // require('./estatutos-ute'),
     // require('./contrato-trabajo'),
     // require('./contrato-trabajo-fijo-discontinuo'),
-    require('./requerimiento-pago'),
+    // require('./requerimiento-pago'),
+    require('./declaracion-jurada'),
 ];

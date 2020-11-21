@@ -167,17 +167,30 @@
             </div>
             <div class="lawyer-forms__block">
                 <div class="lawyer-forms__block__title">
+                    <span class="icon icon-university"></span>
+                    <h2>Administrativo</h2>
+                </div>
+                <!-- Tree copied from https://gist.github.com/dylancwood/7368914 -->
+                <div class="tree-container">
+                    <ul class="tree">
+                        <li class="last">
+                            <a [routerLink]="['/static/modelos/', 'declaracion-jurada']">
+                                Declaración jurada
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lawyer-forms__block">
+                <div class="lawyer-forms__block__title">
                     <span class="icon icon-envelope-open-text"></span>
                     <h2>Cartas y notificaciones</h2>
                 </div>
                 <div class="tree-container">
                     <ul class="tree">
-                        <li>
+                        <li class="last">
                             <a [routerLink]="['/static/modelos/', 'requerimiento-pago']">Requerimiento de pago</a>
                         </li>
-                        <!-- <li>
-                            <a [routerLink]="['/static/modelos/', 'requerimiento-pago-alquiler']">Requerimiento de pago de alquiler</a>
-                        </li> -->
                     </ul>
                 </div>
             </div>
