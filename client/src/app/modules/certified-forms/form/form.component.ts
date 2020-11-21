@@ -236,7 +236,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   startCheckout() {
     this.steps[this.currentStep].checkoutProcess.isInited = true;
-    this.slackService.initedCheckout(this.steps[0].title)
+    this.slackService.initedCheckout(this.steps[0].title, this.steps)
   }
 
   onFormPaid(certifiedForm: any) {

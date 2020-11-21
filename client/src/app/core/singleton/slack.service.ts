@@ -17,7 +17,7 @@ export class SlackService {
 
     constructor(private http: HttpClient) { }
 
-    initedCheckout(formTitle: String): void {
+    initedCheckout(formTitle: String, steps: any): void {
 
         const message = {
             channel: '#general',
@@ -27,7 +27,8 @@ export class SlackService {
                     author_name: window.location.href,
                     color: '#556270',
                     title: 'Proceso de checkout iniciado',
-                    text: `Formulario: ${formTitle}`
+                    pretext: `Formulario: ${formTitle}`,
+                    text: JSON.stringify(steps)
                 }
             ]
         }
