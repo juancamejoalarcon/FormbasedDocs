@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CheckoutService } from '../http/checkout.service'
 
 @Injectable()
 export class SlackService {
@@ -15,23 +16,30 @@ export class SlackService {
         headers: this.headers,
     };
 
-    constructor(private http: HttpClient) { }
+    constructor(
+        private http: HttpClient,
+        private checkoutService: CheckoutService) { }
 
     initedCheckout(formTitle: String, steps: any): void {
+        var currentdate = new Date();
+        var datetime = `${currentdate.getDate()}-${currentdate.getMonth() + 1}-${currentdate.getFullYear()}_${currentdate.getHours()}-${currentdate.getMinutes()}-${currentdate.getSeconds()}`;
+        const name: string = `${formTitle}-${datetime}`
 
         const message = {
-            channel: '#general',
+            channel: '#checkouts-iniciados',
             text: formTitle,
             attachments: [
                 {
                     author_name: window.location.href,
                     color: '#556270',
                     title: 'Proceso de checkout iniciado',
-                    pretext: `Formulario: ${formTitle}`,
-                    text: JSON.stringify(steps)
+                    text: `Id_formulario: ${name}`,
                 }
             ]
         }
         if (window.location.href.includes('automatikdocs.com')) this.http.post(this.webHook, message, this.options).subscribe(() => { });
+        this.checkoutService.checkoutInitedAws(steps, name).subscribe((data: any) => {
+            console.log(data);
+        });
     }
 }

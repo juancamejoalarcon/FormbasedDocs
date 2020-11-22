@@ -2,38 +2,138 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.automatikdocs.com/</loc>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.automatikdocs.com/search/user-forms</loc>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4200/certified-forms/estatutos-asociacion</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4200/certified-forms/acta-constitucion-asociacion</loc>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.automatikdocs.com/certified-forms/contrato-arrendamiento-habitacion</loc>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.automatikdocs.com/certified-forms/contrato-arrendamiento-vivienda</loc>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.automatikdocs.com/certified-forms/contrato-arrendamiento-vivienda-vacacional</loc>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.automatikdocs.com/certified-forms/contrato-arrendamiento-plaza-garaje</loc>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.automatikdocs.com/certified-forms/contrato-compraventa-inmueble</loc>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.automatikdocs.com/certified-forms/contrato-compraventa-vehiculo</loc>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.automatikdocs.com/certified-forms/estatutos-sociedad-limitada</loc>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/certified-forms/estatutos-sociedad-limitada-profesional</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/certified-forms/estatutos-ute</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/certified-forms/estatutos-sociedad-limitada-unipersonal</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/certified-forms/declaracion-jurada</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/certified-forms/contrato-trabajo</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/certified-forms/contrato-trabajo-fijo-discontinuo</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/certified-forms/requerimiento-pago</loc>
+    <priority>1.0</priority>
+  </url>
+    <url>
+    <loc>http://localhost:4200/static/modelos/estatutos-asociacion</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4200/static/modelos/acta-constitucion-asociacion</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/contrato-arrendamiento-habitacion</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/contrato-arrendamiento-vivienda</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/contrato-arrendamiento-vivienda-vacacional</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/contrato-arrendamiento-plaza-garaje</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/contrato-compraventa-inmueble</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/contrato-compraventa-vehiculo</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/estatutos-sociedad-limitada</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/estatutos-sociedad-limitada-profesional</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/estatutos-ute</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/estatutos-sociedad-limitada-unipersonal</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/declaracion-jurada</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/contrato-trabajo</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/contrato-trabajo-fijo-discontinuo</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.automatikdocs.com/static/modelos/requerimiento-pago</loc>
+    <priority>1.0</priority>
   </url>
 </urlset>
