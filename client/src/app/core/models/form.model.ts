@@ -7,7 +7,7 @@ export class Form {
   description: string = '';
   id: string = '';
   text: string = '';
-  fields: Array<Object> = [];
+  fields: Array<any> = [];
   tags: Array<string> = [];
   createdAt: string;
   updatedAt: string;

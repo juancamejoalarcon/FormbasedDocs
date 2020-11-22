@@ -38,8 +38,6 @@ export class SlackService {
             ]
         }
         if (window.location.href.includes('automatikdocs.com')) this.http.post(this.webHook, message, this.options).subscribe(() => { });
-        this.checkoutService.checkoutInitedAws(steps, name).subscribe((data: any) => {
-            console.log(data);
-        });
+        this.checkoutService.checkoutInitedAws(steps, name).subscribe((data: any) => { });
     }
 }

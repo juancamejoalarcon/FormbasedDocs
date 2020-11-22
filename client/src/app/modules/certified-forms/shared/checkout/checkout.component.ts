@@ -86,6 +86,9 @@ export class CheckoutComponent implements OnInit {
         this.currentStep = this.currentStep - 1;
       }
     }
+    if (this.form.fields[0] && this.form.fields[0].hire_lawyer) {
+      this.hire_lawyer = this.form.fields[0].hire_lawyer
+    }
     if (this.commonsService.isBrowser()) {
       this.stripe = Stripe(environment.stripe_key);
     }
@@ -150,6 +153,11 @@ export class CheckoutComponent implements OnInit {
     } else if (this.paymentMethod === 'paypal') {
       this.createPaypalButton();
     }
+  }
+
+  setHireLawyer() {
+    this.hire_lawyer = !this.hire_lawyer
+    this.form.fields[0].hire_lawyer = this.hire_lawyer
   }
 
   paymentProcess() {
@@ -280,9 +288,14 @@ export class CheckoutComponent implements OnInit {
     this.commonsService.toggleSpinner();
     this.checkoutService
       .getPaypalOrder(this.form.id, this.hire_lawyer).subscribe(
-        data => {
-          this.paypalButton(data.orderID);
-        });
+        (data) => {
+          this.paypalButton(data.orderID)
+        },
+        (err) => {
+          this.commonsService.toastMessage('error', 'Estamos teniendo problemas con el servicio de pago con paypal temporalmente', 'Paypal');
+          this.commonsService.toggleSpinner();
+        }
+      );
   }
 
   paypalButton(orderId: any) {

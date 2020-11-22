@@ -26,7 +26,9 @@ export class CheckoutService {
   getPaypalOrder(formType: string, hire_lawyer: boolean): Observable<any> {
     return this.apiService
       .post(`/checkout/paypal-order`, { formType, hire_lawyer }
-      ).pipe(map(data => data));
+      ).pipe(
+        map(data => data)
+      );
   }
 
   pay(steps: string, email: string, transactionId: string, formType: string, method: string, hire_lawyer: boolean): Observable<any> {
