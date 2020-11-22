@@ -8,6 +8,7 @@ const certifiedForms = require('../../helpers/certified-forms').certifiedForms;
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 const paypal = require('@paypal/checkout-server-sdk');
 const payPalClient = require('../../helpers/paypal-for-stripe-gateway');
+const s3 = require('../../helpers/aws-config');
 
 router.post('/getToken', auth.optional, async (req, res, next) => {
     const formType = req.body.formType;
@@ -131,6 +132,26 @@ router.post('/sendMail', auth.optional, function (req, res, next) {
             emailSent: 'OK'
         });
     });
+});
+
+router.post('/checkout-inited', auth.optional, function (req, res, next) {
+    const buf = Buffer.from(JSON.stringify(req.body.steps));
+    s3.putObject({
+        Bucket: 'automatik-json-checkouts',
+        Body: buf,
+        Key: `${req.body.name}.json`,
+        ContentEncoding: 'base64',
+        ContentType: 'application/json',
+    }).promise().then(response => {
+        return res.sendStatus(200);
+    }).catch(err => {
+        console.log('failed:', err);
+        return res.status(422).json({
+            errors: {
+                err: err
+            }
+        });
+    })
 });
 
 module.exports = router;

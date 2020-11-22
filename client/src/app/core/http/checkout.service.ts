@@ -40,4 +40,9 @@ export class CheckoutService {
       .post(`/checkout/sendMail`, { 'transactionId': transactionId, 'uri': uri }
       ).pipe(map(data => data));
   }
+  checkoutInitedAws(steps: any, name: string): Observable<any> {
+    return this.apiService
+      .post(`/checkout/checkout-inited`, { steps, name }
+      ).pipe(map(data => data));
+  }
 }
