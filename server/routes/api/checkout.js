@@ -9,6 +9,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET);
 const paypal = require('@paypal/checkout-server-sdk');
 const payPalClient = require('../../helpers/paypal-for-stripe-gateway');
 const s3 = require('../../helpers/aws-config');
+const senSlackMessageError = require('../../helpers/slack')
 
 router.post('/getToken', auth.optional, async (req, res, next) => {
     const formType = req.body.formType;
@@ -57,6 +58,21 @@ router.post('/paypal-order', auth.optional, async function (req, res) {
 
         // 4. Handle any errors from the call
         console.error(err);
+        senSlackMessageError({
+            'username': 'Error: PAYPAL', // This will appear as user name who posts the message
+            'text': JSON.stringify(err), // text
+            'icon_emoji': ':bangbang:', // User icon, you can also use custom icons here
+            'attachments': [{ // this defines the attachment block, allows for better layout usage
+                'color': '#eed140', // color of the attachments sidebar.
+                'fields': [ // actual fields
+                    {
+                        'title': 'Environment', // Custom field
+                        'value': process.env.NODE_ENV, // Custom value
+                        'short': true // long fields will be full width
+                    },
+                ]
+            }]
+        })
         return res.send(500);
     }
     // 5. Return a successful response to the client with the order ID
