@@ -20,7 +20,7 @@ BLUEbg='\e[44m'
 NCbg='\e[49m' # No Color
 
 STRIPE_TEST_KEY="pk_test_Us1NHhQN6advqdoP2WRSXLlZ00Eqt1Kust"
-PAYPAL_TEST_KEY="AfRBigPbfKBMYlA1_bnghysFZ-5UxVd4JC5w4wtRCxDYptWERuQMfQsiAz1YxKdeBvvtP-H3xMlz-oX1"
+PAYPAL_TEST_KEY="AXEii_db3MBSvp9JH3Fc_q1wWqeSLIAv_QNOOh2OaTzyBygyek6lvJWe_J6ghwoJp2Xlu34NS4UyZ81P"
 
 ##################################
 
@@ -114,7 +114,7 @@ build_and_deploy() {
         set_url
         stripe_key='pk_test_Us1NHhQN6advqdoP2WRSXLlZ00Eqt1Kust'
         set_stripe
-        paypal_key='AfRBigPbfKBMYlA1_bnghysFZ-5UxVd4JC5w4wtRCxDYptWERuQMfQsiAz1YxKdeBvvtP-H3xMlz-oX1'
+        paypal_key='AXEii_db3MBSvp9JH3Fc_q1wWqeSLIAv_QNOOh2OaTzyBygyek6lvJWe_J6ghwoJp2Xlu34NS4UyZ81P'
         set_paypal
         google_tag_script='<script id="googleTagIdKey">function nada() {}</script>'
         set_google_tag
