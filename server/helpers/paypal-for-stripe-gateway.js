@@ -6,6 +6,10 @@
  */
 const checkoutNodeJssdk = require('@paypal/checkout-server-sdk');
 
+const isProduction = process.env.NODE_ENV === 'production',
+    isDevelopment = process.env.NODE_ENV === 'development',
+    isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
+
 /**
  *
  * Returns PayPal HTTP client instance with environment that has access
@@ -25,10 +29,15 @@ function client() {
 function environment() {
     let clientId = process.env.PAYPAL_CLIENT_ID || 'PAYPAL-SANDBOX-CLIENT-ID';
     let clientSecret = process.env.PAYPAL_CLIENT_SECRET || 'PAYPAL-SANDBOX-CLIENT-SECRET';
-
-    return new checkoutNodeJssdk.core.SandboxEnvironment(
-        clientId, clientSecret
-    );
+    if (isDevelopment || isLocal) {
+        return new checkoutNodeJssdk.core.SandboxEnvironment(
+            clientId, clientSecret
+        );
+    } else {
+        return new checkoutNodeJssdk.core.LiveEnvironment(
+            clientId, clientSecret
+        );
+    }
 }
 
 module.exports = {
