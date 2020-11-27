@@ -4421,6 +4421,16 @@ input[type=checkbox] {
   cursor: pointer;
 }
 
+.automatikdocs-safari .lawyer-forms__title__finder__predictions__prediction::after,
+.automatikdocs-android .lawyer-forms__title__finder__predictions__prediction::after {
+  display: none;
+}
+
+.automatikdocs-safari .lawyer-forms__title__finder__predictions__prediction:not(:last-child),
+.automatikdocs-android .lawyer-forms__title__finder__predictions__prediction:not(:last-child) {
+  border-bottom: 1px solid;
+}
+
 .checkout-panel {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7549,7 +7559,7 @@ input[type=checkbox] {
 
 @media only screen and (max-width: 640px) {
   .lawyer-forms__title__container div {
-    max-width: none;
+    max-width: 100%;
   }
 }
 
@@ -7590,8 +7600,10 @@ input[type=checkbox] {
 
 @media only screen and (max-width: 450px) {
   .lawyer-forms__title__finder__predictions {
-    width: 400px;
-    margin-left: 30px;
+    width: 95%;
+    margin-left: 2.5%;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
   }
 }
 
@@ -8559,17 +8571,19 @@ input[type=checkbox] {
 }
 
 .blog__bottom-link {
-  width: 100%;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
   font-size: 1.2rem;
   font-weight: 100;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  margin: auto;
 }
 
 .blog__bottom-link a {
@@ -8583,6 +8597,13 @@ input[type=checkbox] {
   transition: all .1s ease;
 }
 
+@media only screen and (max-width: 450px) {
+  .blog__bottom-link a {
+    background-image: none;
+    text-decoration: underline;
+  }
+}
+
 .blog__bottom-link a:hover {
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(33%, #4ECDC4), color-stop(33%, transparent), color-stop(66%, transparent));
   background-image: linear-gradient(to bottom, #4ECDC4 33%, transparent 33%, transparent 66%);
@@ -8590,6 +8611,12 @@ input[type=checkbox] {
   background-repeat: repeat-x;
   background-size: 2px 5px;
   color: #4ECDC4;
+}
+
+@media only screen and (max-width: 450px) {
+  .blog__bottom-link a:hover {
+    background-image: none;
+  }
 }
 
 .sign-in-search-button {

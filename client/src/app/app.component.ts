@@ -22,8 +22,8 @@ import {
 })
 export class AppComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('navbar', {static: false}) navbar: ElementRef;
-  @ViewChild('footer', {static: false}) footer: ElementRef;
+  @ViewChild('navbar', { static: false }) navbar: ElementRef;
+  @ViewChild('footer', { static: false }) footer: ElementRef;
   public isAuth: boolean;
   public includedUrlsForNavbar: Array<string> = [
     '/auth/login',
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private userService: UserService,
     private router: Router,
     private commonsService: CommonsService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.commonsService.addTags('search');
@@ -81,6 +81,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         }
       }
     });
+    this.commonsService.applyDeviceAndBrowserClass()
   }
 
   ngAfterViewInit() {

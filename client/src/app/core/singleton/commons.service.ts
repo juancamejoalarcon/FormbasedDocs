@@ -37,6 +37,37 @@ export class CommonsService {
       });
   }
 
+  detectBrowser() {
+    if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1) {
+      return 'opera';
+    } else if (navigator.userAgent.indexOf("Chrome") != -1) {
+      return 'chrome';
+    } else if (navigator.userAgent.indexOf("Safari") != -1) {
+      return 'safari';
+    } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+      return 'firefox';
+    } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document['documentMode'] == true)) {
+      return 'ie';
+    } else {
+      return false;
+    }
+  }
+
+  detectMobileDevice() {
+    if (navigator.userAgent.match(/Android/i)) return 'android'
+    if (navigator.userAgent.match(/iPhone/i)) return 'iphone'
+    if (navigator.userAgent.match(/iPad/i)) return 'ipad'
+    if (navigator.userAgent.match(/Opera Mini/i)) return 'opera-mini'
+    return false
+  }
+
+  applyDeviceAndBrowserClass() {
+    const browser = this.detectBrowser()
+    const device = this.detectMobileDevice()
+    if (browser) document.body.classList.add('automatikdocs-' + browser)
+    if (device) document.body.classList.add('automatikdocs-' + device)
+  }
+
   isBrowser() {
     return isPlatformBrowser(this.platformId);
   }
@@ -229,7 +260,7 @@ export class CommonsService {
     }
     if (formCreator) {
       formCreator.style.flex = onDestroyComponent ? '' : '1 1 auto';
-      formCreator.style.height = onDestroyComponent ? '' : 'auto';
+      formCreator.style.height = onDestroyComponent ? '' : (formCreator.parentElement.clientHeight - subMenu.clientHeight - navAndOthers.clientHeight) + 'px';
     }
   }
 
@@ -237,6 +268,9 @@ export class CommonsService {
     let fieldsArea: HTMLElement;
     let textArea: HTMLElement;
     let scrollToTop: HTMLElement;
+    const subMenu: HTMLElement = document.querySelector('.sub-menu');
+    const formCreator: HTMLElement = document.getElementById('form-creator');
+    const navAndOthers: HTMLElement = document.getElementById('nav-and-others');
 
     fieldsArea = document.getElementById('fields-area');
     textArea = document.getElementById('text-area');
@@ -263,6 +297,7 @@ export class CommonsService {
         }
       }
     }
+    formCreator.style.height = (formCreator.parentElement.clientHeight - subMenu.clientHeight - navAndOthers.clientHeight) + 'px';
   }
 
   previewDocumentButton(setDocumentVisible: boolean) {
