@@ -186,7 +186,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   validateBeforeNextStep(step: any) {
     if (step.mandatory) {
       if (step.replacement === '') {
-        this.toastr.error('Form cannot be empty', 'Empty field', {
+        this.toastr.error('Este campo no puede estar vacío', 'Campo obligatorio', {
           positionClass: 'toast-bottom-right',
           progressBar: true,
           progressAnimation: 'decreasing'
