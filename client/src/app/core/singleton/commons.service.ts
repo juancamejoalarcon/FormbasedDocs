@@ -62,10 +62,12 @@ export class CommonsService {
   }
 
   applyDeviceAndBrowserClass() {
-    const browser = this.detectBrowser()
-    const device = this.detectMobileDevice()
-    if (browser) document.body.classList.add('automatikdocs-' + browser)
-    if (device) document.body.classList.add('automatikdocs-' + device)
+    if (this.isBrowser()) {
+      const browser = this.detectBrowser()
+      const device = this.detectMobileDevice()
+      if (browser) document.body.classList.add('automatikdocs-' + browser)
+      if (device) document.body.classList.add('automatikdocs-' + device)
+    }
   }
 
   isBrowser() {
