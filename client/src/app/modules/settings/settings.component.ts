@@ -10,8 +10,8 @@ import { User, UserService, CommonsService } from '../../core';
 })
 export class SettingsComponent implements OnInit {
 
-  @ViewChild('modal', {static: false}) modal: ElementRef;
-  @ViewChild('imageSrc', {static: false}) imageSrc: ElementRef;
+  @ViewChild('modal', { static: false }) modal: ElementRef;
+  @ViewChild('imageSrc', { static: false }) imageSrc: ElementRef;
   user: User = new User();
   settingsForm: FormGroup;
   errors: Object = {};
@@ -73,9 +73,9 @@ export class SettingsComponent implements OnInit {
       const [file] = event.target.files;
       const fileSize = file.size / 1024 / 1024; // in MB
       if (this.hasExtension(event.target.value, ['.jpg', '.gif', '.png'])) {
-        if ( fileSize > 1) {
+        if (fileSize > 1) {
           event.target.value = '';
-          this.toastr.error('File is bigger than 1 MB', 'Error', {
+          this.toastr.error('El archivo es mayor a 1 MB', 'Error', {
             positionClass: 'toast-bottom-right',
             progressBar: true,
             progressAnimation: 'decreasing'
@@ -95,18 +95,18 @@ export class SettingsComponent implements OnInit {
                 this.imageSrc.nativeElement.src = reader.result;
               } else {
                 event.target.value = '';
-                this.toastr.error('Size error width and height must be equal', 'Error', {
+                this.toastr.error('El ancho y el alto de la imagen deben ser iguales', 'Error', {
                   positionClass: 'toast-bottom-right',
                   progressBar: true,
                   progressAnimation: 'decreasing'
                 });
               }
             }
-        };
+          };
         }
       } else {
         event.target.value = '';
-        this.toastr.error('File must be of type jpg gif or png', 'Error', {
+        this.toastr.error('El archivo debe ser del tipo jpg gif o png', 'Error', {
           positionClass: 'toast-bottom-right',
           progressBar: true,
           progressAnimation: 'decreasing'
@@ -128,19 +128,19 @@ export class SettingsComponent implements OnInit {
     console.log(updatedUser);
 
     this.userService
-    .update(updatedUser)
-    .subscribe( newUser => {
-      this.toastr.success('User updated', '', {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing'
-      });
-    },
-      err => {
-        this.errors = err;
-        this.isSubmitting = false;
-      }
-    );
+      .update(updatedUser)
+      .subscribe(newUser => {
+        this.toastr.success('User updated', '', {
+          positionClass: 'toast-bottom-right',
+          progressBar: true,
+          progressAnimation: 'decreasing'
+        });
+      },
+        err => {
+          this.errors = err;
+          this.isSubmitting = false;
+        }
+      );
   }
 
   validation(values: Object) {
@@ -167,72 +167,72 @@ export class SettingsComponent implements OnInit {
 
   changePassword(oldPass: string, newPass: string) {
     if (oldPass === newPass) {
-      this.toastr.error('Old and new password are the same', '', {
+      this.toastr.error('La nueva contraseña coincide con la vieja contraseña', '', {
         positionClass: 'toast-bottom-right',
         progressBar: true,
         progressAnimation: 'decreasing'
       });
     } else if (oldPass === '' || newPass === '') {
-      this.toastr.error('Fields cannot be empty', '', {
+      this.toastr.error('Los campos no pueden estar vacíos', '', {
         positionClass: 'toast-bottom-right',
         progressBar: true,
         progressAnimation: 'decreasing'
       });
     } else {
       this.userService
-      .changePassword({
-        oldPassword : oldPass,
-        newPassword : newPass,
-      })
-      .subscribe( updatedUser => {
-        if (updatedUser.invalidPassword) {
-          this.toastr.error('Current password is wrong', '', {
-            positionClass: 'toast-bottom-right',
-            progressBar: true,
-            progressAnimation: 'decreasing'
-          });
-        } else {
-          this.toggleModal();
-          this.toastr.success('User updated', '', {
-            positionClass: 'toast-bottom-right',
-            progressBar: true,
-            progressAnimation: 'decreasing'
-          });
-        }
-      },
-        err => {
-          this.errors = err;
-          this.isSubmitting = false;
-        }
-      );
+        .changePassword({
+          oldPassword: oldPass,
+          newPassword: newPass,
+        })
+        .subscribe(updatedUser => {
+          if (updatedUser.invalidPassword) {
+            this.toastr.error('La contraseña es incorrecta', '', {
+              positionClass: 'toast-bottom-right',
+              progressBar: true,
+              progressAnimation: 'decreasing'
+            });
+          } else {
+            this.toggleModal();
+            this.toastr.success('User updated', '', {
+              positionClass: 'toast-bottom-right',
+              progressBar: true,
+              progressAnimation: 'decreasing'
+            });
+          }
+        },
+          err => {
+            this.errors = err;
+            this.isSubmitting = false;
+          }
+        );
     }
   }
 
   removeAccount(pass: string) {
     if (confirm(`¿Seguro que deseas eliminar tu usuario? Una vez eliminado no habrá posibilidad de recuperarlo, así como tampoco podrás recuperar ninguno de los documentos creados con este usuario`)) {
       this.userService
-      .removeAccount(pass)
-      .subscribe( data => {
-        if (data.invalidPassword) {
-          this.toastr.error('Contraseña incorrecta', '', {
-            positionClass: 'toast-bottom-right',
-            progressBar: true,
-            progressAnimation: 'decreasing'
-          });
-        } else if (data.userRemoved) {
-          this.toastr.success('Usuario eliminado', '', {
-            positionClass: 'toast-bottom-right',
-            progressBar: true,
-            progressAnimation: 'decreasing'
-          });
-          this.logout();
-        }
-      },
-        err => {
-          this.errors = err;
-          this.isSubmitting = false;
-        }
-      );
+        .removeAccount(pass)
+        .subscribe(data => {
+          if (data.invalidPassword) {
+            this.toastr.error('Contraseña incorrecta', '', {
+              positionClass: 'toast-bottom-right',
+              progressBar: true,
+              progressAnimation: 'decreasing'
+            });
+          } else if (data.userRemoved) {
+            this.toastr.success('Usuario eliminado', '', {
+              positionClass: 'toast-bottom-right',
+              progressBar: true,
+              progressAnimation: 'decreasing'
+            });
+            this.logout();
+          }
+        },
+          err => {
+            this.errors = err;
+            this.isSubmitting = false;
+          }
+        );
     }
   }
 
