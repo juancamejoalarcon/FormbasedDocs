@@ -89,7 +89,7 @@ describe('Home page', () => {
 
             cy.get('.footer__social__links')
                 .children()
-                .last()
+                .eq(1)
                 .find("a")
                 .should('be.visible')
                 .should('have.attr', 'href').and('include', 'twitter.com/AutomatikD');
