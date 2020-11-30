@@ -2,6 +2,7 @@ const nodemailer = require('nodemailer');
 const certifiedForms = require('../certified-forms').certifiedForms;
 const convert = require('../convert').convert;
 const mailStrings = require('./mailStrings');
+const senSlackMessageError = require('../../helpers/slack')
 const smtp = {
     host: 'smtp.gmail.com',
     port: 587,
@@ -17,6 +18,24 @@ const isDevelopment = process.env.NODE_ENV === 'development',
     isLocal = (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local:windows') ? true : false;
 
 const silviaMail = (isDevelopment || isLocal) ? '' : ', silviacamejoalarcon@automatikdocs.com';
+
+const mailError = (error, type) => {
+    senSlackMessageError({
+        'username': 'Error: EMAIL NOT SENT ' + type, // This will appear as user name who posts the message
+        'text': JSON.stringify(error), // text
+        'icon_emoji': ':mailbox:', // User icon, you can also use custom icons here
+        'attachments': [{ // this defines the attachment block, allows for better layout usage
+            'color': '#eed140', // color of the attachments sidebar.
+            'fields': [ // actual fields
+                {
+                    'title': 'Environment', // Custom field
+                    'value': process.env.NODE_ENV, // Custom value
+                    'short': true // long fields will be full width
+                },
+            ]
+        }]
+    })
+}
 
 const emailSender = {
     checkoutConfirm: (email, transactionId, formType, date, uri, hire_lawyer) => {
@@ -47,7 +66,7 @@ const emailSender = {
                 console.log(file);
 
                 // send mail with defined transport object
-                let info = transporter.sendMail({
+                transporter.sendMail({
                     from: '<automatikdocs@automatikdocs.com>', // sender address
                     to: `${email}, automatikdocs@automatikdocs.com${silviaMail}`, // list of receivers
                     subject: `Automatik Docs - ${formName} ${isTesting}`, // Subject line
@@ -65,7 +84,11 @@ const emailSender = {
                             contentType: 'application/msword'
                         }
                     ],
-                });
+                }).then((success) => {
+                    console.log('--Email enviado--', success)
+                }).catch((error) => {
+                    mailError(error, 'CHECKOUT')
+                })
 
             });
         });
@@ -86,20 +109,17 @@ const emailSender = {
         }
 
         // send mail with defined transport object
-        let info = transporter.sendMail({
+        transporter.sendMail({
             from: '<automatikdocs@automatikdocs.com>', // sender address
             to: `${email}, automatikdocs@automatikdocs.com`, // list of receivers
             subject: `Automatik Docs - Forgot password`, // Subject line
             text: `Automatik Docs - Forgot password`, // plain text body
             html: mailStrings.resetPassword(token, host + '/auth/recover-password?token=' + token),
+        }).then((success) => {
+            console.log('--Email enviado--', success)
+        }).catch((error) => {
+            mailError(error, 'FORGOT PASS')
         });
-
-        console.log('Message sent: %s', info.messageId);
-        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-        // Preview only available when sending through an Ethereal account
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
     },
     contactForm: (form) => {
         const { nombre, email, mensaje } = form;
@@ -112,12 +132,12 @@ const emailSender = {
                 text: `Automatik Docs - Contact Form`, // plain text body
                 html: mailStrings.contactForm(nombre, email, mensaje),
             };
-            let resp = false;
 
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
-                    console.log("Mail send error" + error);
-                    resolve(false); // or use rejcet(false) but then you will have to handle errors
+                    mailError(error, 'CONTACT FORM')
+
+                    resolve(false);
                 }
                 else {
                     console.log('Email sent:' + info.response);
