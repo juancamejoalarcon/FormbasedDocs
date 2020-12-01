@@ -29,12 +29,12 @@ if (!isProduction) {
 if (isProduction) {
   mongoose.connect(process.env.MONGODB_URI);
   mongoose.set('debug', true);
-  process.env.SOFFICE_PATH = './vendor/libreoffice/opt/*/program/soffice';
+  process.env.SOFFICE_PATH = './vendor/libreoffice/opt/*/program/soffice.bin';
 }
 if (isDevelopment) {
   mongoose.connect(process.env.MONGODB_URI);
   mongoose.set('debug', true);
-  process.env.SOFFICE_PATH = './vendor/libreoffice/opt/*/program/soffice';
+  process.env.SOFFICE_PATH = './vendor/libreoffice/opt/*/program/soffice.bin';
 }
 if (isLocal) {
   mongoose.connect('mongodb://localhost:27017/formbaseddocs');
@@ -47,7 +47,7 @@ if (isLocal) {
   // Paypal Braintree
   process.env.BT_PAYPAL_PRIVATE_KEY = 'access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
   // Other path
-  process.env.SOFFICE_PATH = '/Applications/LibreOffice.app/Contents/MacOS/soffice';
+  process.env.SOFFICE_PATH = '/Applications/LibreOffice.app/Contents/MacOS/soffice.bin';
 
   process.env.AWS_SECRET_ACCESS = 'beM/dSbKQCO/l8LEseY+eLPauLn4PDGe9Jd001gm';
   process.env.AWS_KEY_ID = 'AKIAJL2ELB6XHO4FQOKQ';

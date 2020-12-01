@@ -34,6 +34,9 @@ const convert = {
                     conversionError(err, 'write-file-word')
                     resolve(err);
                 }
+                console.log('------')
+                console.log(odt)
+                console.log('------')
                 const cmd = `${process.env.SOFFICE_PATH} ` + '--headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to doc --outdir'
                     + ` ./tmp/words ./tmp/${name}.odt`;
                 exec(cmd, function (err, stdout, stderr) {
