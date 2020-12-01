@@ -34,6 +34,9 @@ const convert = {
                     conversionError(err, 'write-file-word')
                     resolve(err);
                 }
+                console.log('------')
+                console.log(odt)
+                console.log('------')
                 const cmd = `${process.env.SOFFICE_PATH} ` + '--headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to doc --outdir'
                     + ` ./tmp/words ./tmp/${name}.odt`;
                 exec(cmd, function (err, stdout, stderr) {
@@ -43,10 +46,6 @@ const convert = {
                     }
                     if (stdout) {
                         console.log(stdout)
-                    }
-                    if (stderr) {
-                        console.log('exec stderr: ', stderr)
-                        conversionError(stderr, 'ejecutar conversion word')
                     }
                     // var file = path.basename(`./tmp/words/${name}.doc`);
                     // const data = fs.readFileSync(`./tmp/words/${name}.doc`);
@@ -71,6 +70,7 @@ const convert = {
                 }
                 const cmd = `${process.env.SOFFICE_PATH} ` + '--headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir'
                     + ` ./tmp/pdfs ./tmp/${name}.odt`;
+                console.log(cmd);
                 exec(cmd, function (err, stdout, stderr) {
                     if (err) {
                         console.log('exec error: ', err);
@@ -78,10 +78,6 @@ const convert = {
                     }
                     if (stdout) {
                         console.log(stdout)
-                    }
-                    if (stderr) {
-                        console.log('exec stderr: ', stderr)
-                        conversionError(stderr, 'ejecutar conversion pdf')
                     }
                     resolve(`./tmp/pdfs/${name}.pdf`);
                 });
