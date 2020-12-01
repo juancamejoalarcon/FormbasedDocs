@@ -47,10 +47,6 @@ const convert = {
                     if (stdout) {
                         console.log(stdout)
                     }
-                    if (stderr) {
-                        console.log('exec stderr: ', stderr)
-                        conversionError(stderr, 'ejecutar conversion word')
-                    }
                     // var file = path.basename(`./tmp/words/${name}.doc`);
                     // const data = fs.readFileSync(`./tmp/words/${name}.doc`);
                     resolve(`./tmp/words/${name}.doc`);
@@ -82,10 +78,6 @@ const convert = {
                     }
                     if (stdout) {
                         console.log(stdout)
-                    }
-                    if (stderr) {
-                        console.log('exec stderr: ', stderr)
-                        conversionError(stderr, 'ejecutar conversion pdf')
                     }
                     resolve(`./tmp/pdfs/${name}.pdf`);
                 });
