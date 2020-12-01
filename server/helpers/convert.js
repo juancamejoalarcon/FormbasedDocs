@@ -74,6 +74,7 @@ const convert = {
                 }
                 const cmd = `${process.env.SOFFICE_PATH} ` + '--headless -env:UserInstallation=file:///tmp/LibreOffice_Conversion_${Juan} --convert-to pdf:writer_pdf_Export --outdir'
                     + ` ./tmp/pdfs ./tmp/${name}.odt`;
+                console.log(cmd);
                 exec(cmd, function (err, stdout, stderr) {
                     if (err) {
                         console.log('exec error: ', err);
