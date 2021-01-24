@@ -103,50 +103,50 @@ forms.forEach((form) => {
                 expect(parseInt($el[0].textContent.trim().slice(0, -6).trim())).to.equal(doc_value_plus_lawyer)
             })
         })
-        it('should go to email input and fill', () => {
-            cy.get('.checkout-panel__footer .next-btn').click()
-            cy.get('.checkout-panel__body__email').should('be.visible')
-            cy.get('input[type=email]').type('automatikdocs@automatikdocs.com')
-            cy.get('label[for=conditions]').click()
-        })
-        // test payment just in local y dev
-        if (isLocal || isDevelopment) {
-            it('should type card and pay', () => {
-                cy.get('.checkout-panel__footer .next-btn').click()
-                cy.wait(1000)
-                cy.get('.__PrivateStripeElement > iframe').then(iframes => {
-                    cy.wrap(iframes[0].contentDocument.body)
-                        .find('.InputElement')
-                        .first()
-                        .type('0224');
-                    cy.wrap(iframes[1].contentDocument.body)
-                        .find('.InputElement')
-                        .first()
-                        .type('222');
-                    cy.wrap(iframes[2].contentDocument.body)
-                        .find('.InputElement')
-                        .first()
-                        .type('4111111111111111');
-                })
-                cy.wait(1000)
-                cy.get('.checkout-panel__footer .next-btn').click()
-                cy.wait(4000)
-            })
+        // it('should go to email input and fill', () => {
+        //     cy.get('.checkout-panel__footer .next-btn').click()
+        //     cy.get('.checkout-panel__body__email').should('be.visible')
+        //     cy.get('input[type=email]').type('automatikdocs@automatikdocs.com')
+        //     cy.get('label[for=conditions]').click()
+        // })
+        // // test payment just in local y dev
+        // if (isLocal || isDevelopment) {
+        //     it('should type card and pay', () => {
+        //         cy.get('.checkout-panel__footer .next-btn').click()
+        //         cy.wait(1000)
+        //         cy.get('.__PrivateStripeElement > iframe').then(iframes => {
+        //             cy.wrap(iframes[0].contentDocument.body)
+        //                 .find('.InputElement')
+        //                 .first()
+        //                 .type('0224');
+        //             cy.wrap(iframes[1].contentDocument.body)
+        //                 .find('.InputElement')
+        //                 .first()
+        //                 .type('222');
+        //             cy.wrap(iframes[2].contentDocument.body)
+        //                 .find('.InputElement')
+        //                 .first()
+        //                 .type('4111111111111111');
+        //         })
+        //         cy.wait(1000)
+        //         cy.get('.checkout-panel__footer .next-btn').click()
+        //         cy.wait(4000)
+        //     })
 
-            it('should show price', () => {
-                cy.get('.checkout-panel__body__invoice__text__total__left.total-success').should($el => {
-                    expect(parseInt($el[0].textContent.trim().slice(0, -2).trim())).to.equal(doc_value_plus_lawyer)
-                })
-            })
-            if (outputExpectedAfterPayment) {
-                it('Text should be expected after payment', () => {
-                    cy.wait(1000)
-                    cy.get('document').children().eq(6).should($el => {
-                        expect($el[0].textContent).to.equal(outputExpectedAfterPayment)
-                    })
-                })
-            }
-        }
+        //     it('should show price', () => {
+        //         cy.get('.checkout-panel__body__invoice__text__total__left.total-success').should($el => {
+        //             expect(parseInt($el[0].textContent.trim().slice(0, -2).trim())).to.equal(doc_value_plus_lawyer)
+        //         })
+        //     })
+        //     if (outputExpectedAfterPayment) {
+        //         it('Text should be expected after payment', () => {
+        //             cy.wait(1000)
+        //             cy.get('document').children().eq(6).should($el => {
+        //                 expect($el[0].textContent).to.equal(outputExpectedAfterPayment)
+        //             })
+        //         })
+        //     }
+        // }
 
     });
 });
