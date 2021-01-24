@@ -59,6 +59,7 @@ export class CheckoutComponent implements OnInit {
       stepNum: 3
     },
   ];
+  public PAYMENTS_DISABLED = true;
 
   constructor(
     private userService: UserService,

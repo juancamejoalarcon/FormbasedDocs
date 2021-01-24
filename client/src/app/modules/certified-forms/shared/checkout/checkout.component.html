@@ -78,7 +78,7 @@
             </div>
         </div>
         <div class="checkout-panel__body__email" *ngIf="this.steps[this.currentStep].type === 'login'">
-            <div class="checkout-panel__body__email__container">
+            <div class="checkout-panel__body__email__container" *ngIf="!this.PAYMENTS_DISABLED">
                 <h1 class="checkout-panel__body__email__container__title">Dirección de correo para recibir el documento</h1>
                 <label for="email"></label>
                 <input type="email" name="email" id="name" placeholder="Email" [(ngModel)]="email" #emailInput>
@@ -95,6 +95,14 @@
                     </label>
                 </div>
                 <!-- <input type="submit" value="Hacer pedido"> -->
+            </div>
+            <div class="checkout-panel__body__email__container" *ngIf="this.PAYMENTS_DISABLED">
+                <h1 class="checkout-panel__body__email__container__title">
+                    ESTAMOS TENIENDO PROBLEMAS CON LA PLATAFORMA Y EN ESTOS MOMENTOS NO SE PUEDEN REALIZAR PAGOS
+                    <br>
+                    <br>
+                    Disculpen las molestias
+                </h1>
             </div>
         </div>
         <div class="payment-container" *ngIf="this.steps[this.currentStep].type === 'payment'">
