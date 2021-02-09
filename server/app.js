@@ -41,22 +41,22 @@ if (isLocal) {
   mongoose.set('debug', true);
   // Braintree 
   process.env.BT_ENVIRONMENT = 'Sandbox';
-  process.env.BT_MERCHANT_ID = '7tdbfv3bq87239jm';
-  process.env.BT_PUBLIC_KEY = '2qhjt9fhxdw7m6z2';
-  process.env.BT_PRIVATE_KEY = '045c02af0a5753f7093137cb502054af';
+  process.env.BT_MERCHANT_ID = '';
+  process.env.BT_PUBLIC_KEY = '';
+  process.env.BT_PRIVATE_KEY = '';
   // Paypal Braintree
-  process.env.BT_PAYPAL_PRIVATE_KEY = 'access_token$sandbox$6bxmmmw7h8dscxmp$811bbbcf3d60f60e1db2d312437ba1ae';
+  process.env.BT_PAYPAL_PRIVATE_KEY = '';
   // Other path
   process.env.SOFFICE_PATH = '/Applications/LibreOffice.app/Contents/MacOS/soffice';
 
-  process.env.AWS_SECRET_ACCESS = 'beM/dSbKQCO/l8LEseY+eLPauLn4PDGe9Jd001gm';
-  process.env.AWS_KEY_ID = 'AKIAJL2ELB6XHO4FQOKQ';
-  process.env.AWS_BUCKET = 'automatikdocs-dev-assets';
+  process.env.AWS_SECRET_ACCESS = '';
+  process.env.AWS_KEY_ID = '';
+  process.env.AWS_BUCKET = '';
   // Stripe
-  process.env.STRIPE_SECRET = 'sk_test_pzcyZcKpiRLzazlPRFTUbJBW00OwT6JnyM';
+  process.env.STRIPE_SECRET = '';
   // Paypal for stripe impl
-  process.env.PAYPAL_CLIENT_ID = 'AXEii_db3MBSvp9JH3Fc_q1wWqeSLIAv_QNOOh2OaTzyBygyek6lvJWe_J6ghwoJp2Xlu34NS4UyZ81P';
-  process.env.PAYPAL_CLIENT_SECRET = 'EJPYjBZZ0wYGQ2U8GZbMMulUi401vH45V9l1Z7YT7nidQsk4MzaJTrzoI7NaD2MnrLa1bCc_TlXS-kzd';
+  process.env.PAYPAL_CLIENT_ID = '';
+  process.env.PAYPAL_CLIENT_SECRET = '';
 }
 
 if (universalMode) {
