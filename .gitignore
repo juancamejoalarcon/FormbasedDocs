@@ -4,3 +4,5 @@ server/tmp/words/*
 server/tmp/odts/*
 server/tmp/*
 tests/cypress/videos/*
+environment
+
