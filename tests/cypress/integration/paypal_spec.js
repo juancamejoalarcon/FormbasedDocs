@@ -109,17 +109,17 @@ describe('Checkout', () => {
         cy.get('label[for=conditions]').click()
     })
 
-    it('should show PAYPAL BUTTON', () => {
-        cy.get('.checkout-panel__footer .next-btn').click()
-        cy.wait(1000)
-        cy.server()
-        cy.route('POST', '/api/checkout/paypal-order').as('paypal-order')
-        cy.get('#paypal').click()
-        cy.wait('@paypal-order').its('status').should('eq', 200)
-        cy.wait(4000)
-        // cy.get('.checkout-panel__footer .next-btn').click()
-        // cy.wait(4000)
-    })
+    // it('should show PAYPAL BUTTON', () => {
+    // cy.get('.checkout-panel__footer .next-btn').click()
+    // cy.wait(1000)
+    // cy.server()
+    // cy.route('POST', '/api/checkout/paypal-order').as('paypal-order')
+    // cy.get('#paypal').click()
+    // cy.wait('@paypal-order').its('status').should('eq', 200)
+    // cy.wait(4000)
+    // cy.get('.checkout-panel__footer .next-btn').click()
+    // cy.wait(4000)
+    // })
 
     // it('should show price', () => {
     //     cy.get('.checkout-panel__body__invoice__text__total__left.total-success').should($el => {
