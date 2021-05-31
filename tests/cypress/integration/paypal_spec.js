@@ -102,12 +102,12 @@ describe('Checkout', () => {
             expect(parseInt($el[0].textContent.trim().slice(0, -6).trim())).to.equal(doc_value_plus_lawyer)
         })
     })
-    it('should go to email input and fill', () => {
-        cy.get('.checkout-panel__footer .next-btn').click()
-        cy.get('.checkout-panel__body__email').should('be.visible')
-        cy.get('input[type=email]').type('automatikdocs@automatikdocs.com')
-        cy.get('label[for=conditions]').click()
-    })
+    // it('should go to email input and fill', () => {
+    //     cy.get('.checkout-panel__footer .next-btn').click()
+    //     cy.get('.checkout-panel__body__email').should('be.visible')
+    //     cy.get('input[type=email]').type('automatikdocs@automatikdocs.com')
+    //     cy.get('label[for=conditions]').click()
+    // })
 
     // it('should show PAYPAL BUTTON', () => {
     // cy.get('.checkout-panel__footer .next-btn').click()
