@@ -12,8 +12,39 @@
 </kbd>
 <br/>
 <br/>
-<p>In order to optimize the SEO of the page I used Server Side Rendering with <strong>Angular Universal</strong>.</p>
-<p>The backend is quite simple, an <strong>Express</strong> API using <strong>Mongo DB</strong> with a passport strategy for authentication.</p>
+
+## Front-end
+<p>In order to optimize the SEO of the page I use Server Side Rendering with <strong>Angular Universal</strong>.</p>
+
+### Installation
+
+#### Project setup
+```
+cd client
+npm install
+```
+### Compiles and hot-reloads for development
+
+```
+ng serve
+```
+#### Deploy
+Files are compiled directly to the `./server/public` folder which are going to be deployed to heroku. Run:
+```
+npm run build:ssr
+```
+
+## Back-end
+The backend is quite simple, an <strong>Express</strong> API using <strong>Mongo DB</strong> with a passport strategy for authentication. The api is passed to the Angular universal Server as it can be seen here:
+https://github.com/juancamejoalarcon/automatikdocs/blob/master/server/app.js#L128
+
+## E2E
 <p>I created a series of e2e tests with <strong>Cypress</strong> to be launched in <strong>Github Actions</strong> once every day and every time I push a commit.</p>
 <p>I deployed the webapp in Heroku.</p>
 <p>The live version can be found here <a href="https://www.automatikdocs.com/" target="_blank">https://www.automatikdocs.com/</a></p>
+
+<!-- Angular universal -->
+<!-- useArray -->
+<!-- compilar angular universal -->
+<!-- deploy.sh -->
+<!-- npm install -->
