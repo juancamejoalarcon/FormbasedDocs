@@ -38,13 +38,36 @@ npm run build:ssr
 The backend is quite simple, an <strong>Express</strong> API using <strong>Mongo DB</strong> with a passport strategy for authentication. The api is passed to the Angular universal Server as it can be seen here:
 https://github.com/juancamejoalarcon/automatikdocs/blob/master/server/app.js#L128
 
+### Installation
+#### Project setup
+```
+cd server
+npm install
+```
+
+### Compiles and hot-reloads for development
+
+To use the api, without testing the statics compiled by Angular Universal
+```
+npm run local
+```
+To user the Server created by Angular Universal
+```
+npm run local:universal
+```
+
 ## E2E
 <p>I created a series of e2e tests with <strong>Cypress</strong> to be launched in <strong>Github Actions</strong> once every day and every time I push a commit.</p>
 <p>I deployed the webapp in Heroku.</p>
-<p>The live version can be found here <a href="https://www.automatikdocs.com/" target="_blank">https://www.automatikdocs.com/</a></p>
 
-<!-- Angular universal -->
-<!-- useArray -->
-<!-- compilar angular universal -->
-<!-- deploy.sh -->
-<!-- npm install -->
+## Deploy
+I created a BASH script to automate the deploy to heroku. Just have to use one of these commands depending on the environment:
+
+```
+bash deploy.sh dev
+```
+```
+deploy.sh prod
+```
+
+<p>The live version can be found here <a href="https://www.automatikdocs.com/" target="_blank">https://www.automatikdocs.com/</a></p>
