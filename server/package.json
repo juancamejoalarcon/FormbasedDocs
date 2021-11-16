@@ -18,7 +18,7 @@
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.2",
     "@slack/webhook": "^5.0.3",
-    "aws-sdk": "^2.656.0",
+    "aws-sdk": "^2.814.0",
     "bcryptjs": "^2.4.3",
     "braintree": "^2.20.0",
     "colors": "^1.4.0",
