@@ -29,7 +29,7 @@
     "@gorniv/ngx-universal": "^2.2.2",
     "@nguniversal/express-engine": "^9.1.0",
     "domino": "^2.1.4",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "ngx-cookie-service": "^3.0.3",
     "nodemon": "^2.0.2",
     "rxjs": "~6.5.4",
